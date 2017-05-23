@@ -1,45 +1,46 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>《JavaScript语言精髓与编程实践》第二版的主要修改</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="《JavaScript语言精髓与编程实践》第二版的主要修改">
-    <meta property="og:description" content="２００８年３月，第一版   &amp;#61548; 第一次印发版本。     ２０１２年３月，第二版：     &amp;#61548; 在第一版基础上修订发布后所发现的七十余处勘误，其中五十余处主要是字词、排版类错误。     &amp;#61548; 重新制版，避免了印刷中导致的破折号丢失的问题。     &amp;#61548; 将目录细化到第四级标题，以完整地展示本书的内容与结构。     &amp;#61548; 加入本附录，以维护本书的多个版次。     &amp;#61548; 从第三部分“编程实践”中去除掉有关Qomo的大部分内容（这些内容已经可以通过该项目的开放文档获得），并开始讲述QoBean：     &amp;#61656; 修改：第６章　元语言：QoBean核心技术与实现。     &amp;#61548; 以下主要是为ECMAScript 5th添加的内容：       &amp;#61656;加入：2.5.1.3　在对象直接量中使用属性读写器          &amp;#61656; 加入：2.6　严&amp;#26684;模式下的语法">
-    <meta property="og:url" content="http://aimingoo.github.io/1-171.html">
-    <meta property="article:published_time" content="2011-09-13T12:38:00.000Z">
-    <meta property="article:modified_time" content="2011-09-13T12:38:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="文档">
-    <meta property="article:tag" content="引擎">
-    <meta property="article:tag" content="编程">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="《JavaScript语言精髓与编程实践》第二版的主要修改" />
+    <meta property="og:description" content="２００８年３月，第一版   &amp;#61548; 第一次印发版本。     ２０１２年３月，第二版：     &amp;#61548; 在第一版基础上修订发布后所发现的七十余处勘误，其中五十余处主要是字词、排版类错误。     &amp;#61548; 重新制版，避免了印刷中导致的破折号丢失的问题。     &amp;#61548; 将目录细化到第四级标题，以完整地展示本书的内容与结构。     &amp;#61548; 加入本附录，以维护本书的多个版次。     &amp;#61548; 从第三部分“编程实践”中去除掉有关Qomo的大部分内容（这些内容已经可以通过该项目的开放文档获得），并开始讲述QoBean：     &amp;#61656; 修改：第６章　元语言：QoBean核心技术与实现。     &amp;#61548; 以下主要是为ECMAScript 5th添加的内容：       &amp;#61656;加入：2.5.1.3　在对象直接量中使用属性读写器          &amp;#61656; 加入：2.6　严&amp;#26684;模式下的语法" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-171.html" />
+    <meta property="article:published_time" content="2011-09-13T12:38:00.000Z" />
+    <meta property="article:modified_time" content="2011-09-13T12:38:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="文档" />
+    <meta property="article:tag" content="引擎" />
+    <meta property="article:tag" content="编程" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="《JavaScript语言精髓与编程实践》第二版的主要修改">
-    <meta name="twitter:description" content="２００８年３月，第一版   &amp;#61548; 第一次印发版本。     ２０１２年３月，第二版：     &amp;#61548; 在第一版基础上修订发布后所发现的七十余处勘误，其中五十余处主要是字词、排版类错误。     &amp;#61548; 重新制版，避免了印刷中导致的破折号丢失的问题。     &amp;#61548; 将目录细化到第四级标题，以完整地展示本书的内容与结构。     &amp;#61548; 加入本附录，以维护本书的多个版次。     &amp;#61548; 从第三部分“编程实践”中去除掉有关Qomo的大部分内容（这些内容已经可以通过该项目的开放文档获得），并开始讲述QoBean：     &amp;#61656; 修改：第６章　元语言：QoBean核心技术与实现。     &amp;#61548; 以下主要是为ECMAScript 5th添加的内容：       &amp;#61656;加入：2.5.1.3　在对象直接量中使用属性读写器          &amp;#61656; 加入：2.6　严&amp;#26684;模式下的语法">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-171.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, 文档, 引擎, 编程">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="《JavaScript语言精髓与编程实践》第二版的主要修改" />
+    <meta name="twitter:description" content="２００８年３月，第一版   &amp;#61548; 第一次印发版本。     ２０１２年３月，第二版：     &amp;#61548; 在第一版基础上修订发布后所发现的七十余处勘误，其中五十余处主要是字词、排版类错误。     &amp;#61548; 重新制版，避免了印刷中导致的破折号丢失的问题。     &amp;#61548; 将目录细化到第四级标题，以完整地展示本书的内容与结构。     &amp;#61548; 加入本附录，以维护本书的多个版次。     &amp;#61548; 从第三部分“编程实践”中去除掉有关Qomo的大部分内容（这些内容已经可以通过该项目的开放文档获得），并开始讲述QoBean：     &amp;#61656; 修改：第６章　元语言：QoBean核心技术与实现。     &amp;#61548; 以下主要是为ECMAScript 5th添加的内容：       &amp;#61656;加入：2.5.1.3　在对象直接量中使用属性读写器          &amp;#61656; 加入：2.6　严&amp;#26684;模式下的语法" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-171.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 文档, 引擎, 编程" />
     
     <script type="application/ld+json">
 {
@@ -85,8 +86,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-wen-dang tag-yin-qing tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -103,7 +104,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -113,8 +114,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -130,7 +131,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +140,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/wen-dang/">文档</a>, <a href="tag/yin-qing/">引擎</a>, <a href="tag/bian-cheng/">编程</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/wen-dang/index.html">文档</a>, <a href="tag/yin-qing/index.html">引擎</a>, <a href="tag/bian-cheng/index.html">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -150,61 +151,61 @@ ghost.init({
             <section class="post-content">
                 <p>２００８年３月，第一版  </p>
 
-<p><span style="white-space:pre"> </span>第一次印发版本。    </p>
+<p>&#61548;<span style="white-space:pre"> </span>第一次印发版本。    </p>
 
 <p>２０１２年３月，第二版：    </p>
 
-<p><span style="white-space:pre"> </span>在第一版基础上修订发布后所发现的七十余处勘误，其中五十余处主要是字词、排版类错误。    </p>
+<p>&#61548;<span style="white-space:pre"> </span>在第一版基础上修订发布后所发现的七十余处勘误，其中五十余处主要是字词、排版类错误。    </p>
 
-<p><span style="white-space:pre"> </span>重新制版，避免了印刷中导致的破折号丢失的问题。    </p>
+<p>&#61548;<span style="white-space:pre"> </span>重新制版，避免了印刷中导致的破折号丢失的问题。    </p>
 
-<p><span style="white-space:pre"> </span>将目录细化到第四级标题，以完整地展示本书的内容与结构。    </p>
+<p>&#61548;<span style="white-space:pre"> </span>将目录细化到第四级标题，以完整地展示本书的内容与结构。    </p>
 
-<p><span style="white-space:pre"> </span>加入本附录，以维护本书的多个版次。    </p>
+<p>&#61548;<span style="white-space:pre"> </span>加入本附录，以维护本书的多个版次。    </p>
 
-<p><span style="white-space:pre"> </span>从第三部分“编程实践”中去除掉有关Qomo的大部分内容（这些内容已经可以通过该项目的开放文档获得），并开始讲述QoBean：    </p>
+<p>&#61548;<span style="white-space:pre"> </span>从第三部分“编程实践”中去除掉有关Qomo的大部分内容（这些内容已经可以通过该项目的开放文档获得），并开始讲述QoBean：    </p>
 
-<p><span style="white-space:pre"> </span>修改：第６章　元语言：QoBean核心技术与实现。    </p>
+<p>&#61656;<span style="white-space:pre"> </span>修改：第６章　元语言：QoBean核心技术与实现。    </p>
 
-<p><span style="white-space:pre"> </span>以下主要是为ECMAScript 5th添加的内容：    </p>
+<p>&#61548;<span style="white-space:pre"> </span>以下主要是为ECMAScript 5th添加的内容：    </p>
 
 <blockquote>
-  <p><span style="white-space:pre"></span>加入：2.5.1.3　在对象直接量中使用属性读写器    </p>
+  <p>&#61656;<span style="white-space:pre"></span>加入：2.5.1.3　在对象直接量中使用属性读写器    </p>
   
-  <p><span style="white-space:pre"> </span>加入：2.6　严格模式下的语法    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>加入：2.6　严&#26684;模式下的语法    </p>
   
-  <p><span style="white-space:pre"> </span>修改：3.3.7.4　在SpiderMonkey与ES5中的原型链维护    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>修改：3.3.7.4　在SpiderMonkey与ES5中的原型链维护    </p>
   
-  <p><span style="white-space:pre"> </span>加入：3.5　可定制的对象属性    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>加入：3.5　可定制的对象属性    </p>
   
-  <p><span style="white-space:pre"> </span>加入：4.7　严格模式与闭包    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>加入：4.7　严&#26684;模式与闭包    </p>
   
-  <p><span style="white-space:pre"> </span>加入：5.3.5　兼容性：ES5中的call()、apply()    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>加入：5.3.5　兼容性：ES5中的call()、apply()    </p>
   
-  <p><span style="white-space:pre"> </span>加入：5.3.6　bind()方法与函数的延迟调用 <br>
-  <span style="white-space:pre"> </span>以下为一些其它的变化：    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>加入：5.3.6　bind()方法与函数的延迟调用 <br />
+  &#61548;<span style="white-space:pre"> </span>以下为一些其它的变化：    </p>
   
-  <p><span style="white-space:pre"></span>加入：1.4　语言的进化    </p>
+  <p>&#61656;<span style="white-space:pre"></span>加入：1.4　语言的进化    </p>
   
-  <p><span style="white-space:pre"> </span>改写：1.5.3  SpiderMonkey JavaScript    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>改写：1.5.3 &nbsp;SpiderMonkey JavaScript    </p>
   
-  <p><span style="white-space:pre"> </span>改写：2.2　JavaScript的语法：变量声明    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>改写：2.2　JavaScript的语法：变量声明    </p>
   
-  <p><span style="white-space:pre"> </span>改写：3.4.5  JavaScript中的对象（构造器）    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>改写：3.4.5 &nbsp;JavaScript中的对象（构造器）    </p>
   
-  <p><span style="white-space:pre"> </span>更新：3.4.5　JavaScript中的对象（构造器），图3-15得以大量更新    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>更新：3.4.5　JavaScript中的对象（构造器），图3-15得以大量更新    </p>
   
-  <p><span style="white-space:pre"> </span>改写：4.6.3.4  闭包中的标识符（变量）特例    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>改写：4.6.3.4 &nbsp;闭包中的标识符（变量）特例    </p>
   
-  <p><span style="white-space:pre"> </span>改写：5.4.4　宿主对重写的限制    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>改写：5.4.4　宿主对重写的限制    </p>
   
-  <p><span style="white-space:pre"> </span>以“基本类型”作为typeof返回类型名的统一用词；明确了“基础类型”与“元类型”的使用环境。    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>以“基本类型”作为typeof返回类型名的统一用词；明确了“基础类型”与“元类型”的使用环境。    </p>
   
-  <p><span style="white-space:pre"> </span>以ECMA Script作为统一用词，不再称为ECMA  Script。    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>以ECMA Script作为统一用词，不再称为ECMA &nbsp;Script。    </p>
   
-  <p><span style="white-space:pre"> </span>附录C中删除了有关引擎与语言扩展的介绍，这些内容以后将通过博客专题的形式来发布。    </p>
+  <p>&#61656;<span style="white-space:pre"> </span>附录C中删除了有关引擎与语言扩展的介绍，这些内容以后将通过博客专题的形式来发布。    </p>
   
-  <p><span style="white-space:pre"> </span>附录C中的三副图未在本版次中更新。</p>
+  <p>&#61656;<span style="white-space:pre"> </span>附录C中的三副图未在本版次中更新。</p>
 </blockquote>
             </section>
 <!-- removed by aimingoo
@@ -222,7 +223,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-172.html">
                     不可能解开的谜题
                 </a>
@@ -233,7 +234,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -253,14 +254,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -276,7 +277,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -290,7 +291,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -319,3 +320,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

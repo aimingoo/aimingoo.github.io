@@ -1,41 +1,42 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>一些JavaScript 1.6~1.8上的高级技巧～</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="一些JavaScript 1.6~1.8上的高级技巧～">
-    <meta property="og:description" content="在jslibs的项目wiki上看到这些技巧，都是一些在mozilla spidermonkey javascript上的高级戏法。在JScript上不能用的哈～。这里转过来，很多技巧挺有趣的。  原文引用在：  http://code.google.com/p/jslibs/wiki/JavascriptTips   ------------------------------------------   1.&amp;nbsp;&amp;nbsp; *destructuring assignments*   **JavaScript 1.7**      var{a:x}={a:7};   Print(x);// prints: 7      **2.&amp;nbsp;&amp;nbsp; ****Generator Expressions**   **JavaScript 1.7**      [ y for( y in[5,6,7,8,">
-    <meta property="og:url" content="http://aimingoo.github.io/1-82.html">
-    <meta property="article:published_time" content="2007-09-04T04:45:00.000Z">
-    <meta property="article:modified_time" content="2007-09-04T04:45:00.000Z">
-    <meta property="article:tag" content="Javascript">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="一些JavaScript 1.6~1.8上的高级技巧～" />
+    <meta property="og:description" content="在jslibs的项目wiki上看到这些技巧，都是一些在mozilla spidermonkey javascript上的高级戏法。在JScript上不能用的哈～。这里转过来，很多技巧挺有趣的。  原文引用在：  http://code.google.com/p/jslibs/wiki/JavascriptTips   ------------------------------------------   1.&amp;nbsp;&amp;nbsp; *destructuring assignments*   **JavaScript 1.7**      var{a:x}&#x3D;{a:7};   Print(x);// prints: 7      **2.&amp;nbsp;&amp;nbsp; ****Generator Expressions**   **JavaScript 1.7**      [ y for( y in[5,6,7,8," />
+    <meta property="og:url" content="http://aimingoo.github.io/1-82.html" />
+    <meta property="article:published_time" content="2007-09-04T04:45:00.000Z" />
+    <meta property="article:modified_time" content="2007-09-04T04:45:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="一些JavaScript 1.6~1.8上的高级技巧～">
-    <meta name="twitter:description" content="在jslibs的项目wiki上看到这些技巧，都是一些在mozilla spidermonkey javascript上的高级戏法。在JScript上不能用的哈～。这里转过来，很多技巧挺有趣的。  原文引用在：  http://code.google.com/p/jslibs/wiki/JavascriptTips   ------------------------------------------   1.&amp;nbsp;&amp;nbsp; *destructuring assignments*   **JavaScript 1.7**      var{a:x}={a:7};   Print(x);// prints: 7      **2.&amp;nbsp;&amp;nbsp; ****Generator Expressions**   **JavaScript 1.7**      [ y for( y in[5,6,7,8,">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-82.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="一些JavaScript 1.6~1.8上的高级技巧～" />
+    <meta name="twitter:description" content="在jslibs的项目wiki上看到这些技巧，都是一些在mozilla spidermonkey javascript上的高级戏法。在JScript上不能用的哈～。这里转过来，很多技巧挺有趣的。  原文引用在：  http://code.google.com/p/jslibs/wiki/JavascriptTips   ------------------------------------------   1.&amp;nbsp;&amp;nbsp; *destructuring assignments*   **JavaScript 1.7**      var{a:x}&#x3D;{a:7};   Print(x);// prints: 7      **2.&amp;nbsp;&amp;nbsp; ****Generator Expressions**   **JavaScript 1.7**      [ y for( y in[5,6,7,8," />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-82.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
     
     <script type="application/ld+json">
 {
@@ -81,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -99,7 +100,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -109,8 +110,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -126,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>
+                        <a href="tag/javascript/index.html">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,13 +145,13 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>在jslibs的项目wiki上看到这些技巧，都是一些在mozilla spidermonkey javascript上的高级戏法。在JScript上不能用的哈～。这里转过来，很多技巧挺有趣的。 <br>
-原文引用在： <br>
+                <p>在jslibs的项目wiki上看到这些技巧，都是一些在mozilla spidermonkey javascript上的高级戏法。在JScript上不能用的哈～。这里转过来，很多技巧挺有趣的。 <br />
+原文引用在： <br />
 <a href="http://code.google.com/p/jslibs/wiki/JavascriptTips">http://code.google.com/p/jslibs/wiki/JavascriptTips</a>  </p>
 
 <p><font face="Comic Sans MS" size="5">-------</font><font face="Comic Sans MS" size="5">-----------------------------------</font>  </p>
 
-<p><strong><span style="FONT-SIZE: 14pt">1.<span style="FONT: 7pt 'Times New Roman'">   </span></span><em>*</em></strong><span style="FONT-SIZE: 14pt">destructuring assignments</span>*  </p>
+<p><strong><span style="FONT-SIZE: 14pt">1.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span><em>*</strong><span style="FONT-SIZE: 14pt">destructuring assignments</span></em>*  </p>
 
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
@@ -158,7 +159,7 @@ ghost.init({
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: #880000">// prints: 7</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">2.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Generator Expressions</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">2.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Generator Expressions</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: black"> y </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> y </span><span style="FONT-SIZE: 10pt; COLOR: #000088">in</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">6</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">7</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">8</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">9</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #880000">// is [0,1,2,3,4]</span></div>  
@@ -170,17 +171,17 @@ ghost.init({
 </div>  
 
 <div align="left"><span style="FONT-SIZE: 10pt">Because in </span>**<span style="FONT-SIZE: 10pt">for</span>**<span style="FONT-SIZE: 10pt"> extracts index names, and </span>**<span style="FONT-SIZE: 10pt">for each</span>**<span style="FONT-SIZE: 10pt"> extracts the values. </span></div>  
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">3.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Advanced use of iterators</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">3.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Advanced use of iterators</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.8</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #660066">Number</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">prototype</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">__iterator__ </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
- </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> let i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #000088">this</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">yield</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp;</span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> let i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #000088">this</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">yield</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">};</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> let i </span><span style="FONT-SIZE: 10pt; COLOR: #000088">in</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">  
- </span><span style="FONT-SIZE: 10pt; COLOR: #000088">print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span></div>  
+&nbsp;</span><span style="FONT-SIZE: 10pt; COLOR: #000088">print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span></div>  
 </div>  
 
 <div align="left">**<span style="FONT-SIZE: 10pt">prints: </span>**</div>  
@@ -193,49 +194,49 @@ ghost.init({
 </div>  
 
 <div align="left">**<span style="FONT-SIZE: 10pt">This make Number object to act as a generator. </span>**</div>  
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">4.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Expression Closures</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">4.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Expression Closures</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.8</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black"> x </span><span style="FONT-SIZE: 10pt; COLOR: #666600">*</span><span style="FONT-SIZE: 10pt; COLOR: black"> x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span></div>  
 </div>  
 
 <div align="left"><span style="FONT-SIZE: 10pt">Note that braces </span>**<span style="FONT-SIZE: 10pt">{</span>**<span style="FONT-SIZE: 10pt">...</span>**<span style="FONT-SIZE: 10pt">}</span>**<span style="FONT-SIZE: 10pt"> and </span>**<span style="FONT-SIZE: 10pt">return</span>**<span style="FONT-SIZE: 10pt"> are implicit </span></div>  
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">5.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Basic debugging</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">5.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Basic debugging</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.6</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #660066">LoadModule</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'jsstd'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #660066">ThrowAnError</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(){</span><span style="FONT-SIZE: 10pt; COLOR: black">     
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(){</span><span style="FONT-SIZE: 10pt; COLOR: black">     
 
-    </span><span style="FONT-SIZE: 10pt; COLOR: #000088">throw</span><span style="FONT-SIZE: 10pt; COLOR: #000088">new</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Error</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">"Whoops!"</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-  </span><span style="FONT-SIZE: 10pt; COLOR: #666600">})();</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">throw</span><span style="FONT-SIZE: 10pt; COLOR: #000088">new</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Error</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">&quot;Whoops!&quot;</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">})();</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">try</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-    </span><span style="FONT-SIZE: 10pt; COLOR: #660066">ThrowAnError</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">ThrowAnError</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: #000088">catch</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">e</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-    </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">e</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">stack</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">e</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">stack</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span></div>  
 </div>  
 
 <div align="left">**<span style="FONT-SIZE: 10pt">prints: </span>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
-<div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #660066">Error</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">"Whoops!"</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #006666">@</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: black">  
+<div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #660066">Error</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">&quot;Whoops!&quot;</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #006666">@</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #006666">@test</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">js</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">7</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">ThrowAnError</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #006666">@test</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">js</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #006666">@test</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">js</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">14</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">6.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Multiple-value returns</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">6.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Multiple-value returns</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: black"> f</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">return</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: #006666">1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">];</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">return</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: #006666">1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">];</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: black">a</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: black"> b</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: black"> f</span><span style="FONT-SIZE: 10pt; COLOR: #666600">();</span><span style="FONT-SIZE: 10pt; COLOR: black">    
@@ -243,7 +244,7 @@ ghost.init({
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> a </span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: #008800">' '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black"> b </span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: #880000">// prints: 1 2</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">7.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Operator [ ] and strings ( like charAt() )</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">7.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Operator [ ] and strings ( like charAt() )</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.6</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> str </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'foobar'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">  
@@ -255,7 +256,7 @@ ghost.init({
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: black">a</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">8.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">indexOf() and lastIndexOf() Works on Array</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">8.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">indexOf() and lastIndexOf() Works on Array</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.6</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> obj </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{};</span><span style="FONT-SIZE: 10pt; COLOR: black">  
@@ -263,58 +264,58 @@ ghost.init({
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> arr</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">indexOf</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">obj</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: #880000">// prints: 2</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">9.<span style="FONT: 7pt 'Times New Roman'">   </span></span>****<span style="FONT-SIZE: 14pt">Using Array functions on a non-Array object</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">9.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Using Array functions on a non-Array object</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> obj </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{};</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Array</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">push</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">obj</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'foo'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Array</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">push</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">obj</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">123</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Array</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">push</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">obj</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #006666">55</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">  
-</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> obj</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">toSource</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: #880000">// prints: ({0:"foo", length:3, 1:123, 2:5.55})</span></div>  
+</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> obj</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">toSource</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: #880000">// prints: ({0:&quot;foo&quot;, length:3, 1:123, 2:5.55})</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">10.<span style="FONT: 7pt 'Times New Roman'">            </span></span>****<span style="FONT-SIZE: 14pt">Simulate threads using yield operator</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">10.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Simulate threads using yield operator</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> scheduler </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #000088">new</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[];</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[];</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">this</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Add</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker </span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">this</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Add</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker </span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-    _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">push</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">new</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-  </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">push</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">new</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">this</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Run</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">this</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Run</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-    </span><span style="FONT-SIZE: 10pt; COLOR: #000088">while</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">length </span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-      </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: black"> each </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker </span><span style="FONT-SIZE: 10pt; COLOR: #000088">in</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers </span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-        </span><span style="FONT-SIZE: 10pt; COLOR: #000088">try</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-          worker</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #000088">next</span><span style="FONT-SIZE: 10pt; COLOR: #666600">();</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-        </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: #000088">catch</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">err </span><span style="FONT-SIZE: 10pt; COLOR: #000088">if</span><span style="FONT-SIZE: 10pt; COLOR: black"> err </span><span style="FONT-SIZE: 10pt; COLOR: #000088">instanceof</span><span style="FONT-SIZE: 10pt; COLOR: #660066">StopIteration</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-          _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">splice</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">indexOf</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">worker</span><span style="FONT-SIZE: 10pt; COLOR: #666600">),</span><span style="FONT-SIZE: 10pt; COLOR: #006666">1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-        </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-  </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">while</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">length </span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: black"> each </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker </span><span style="FONT-SIZE: 10pt; COLOR: #000088">in</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers </span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">try</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; worker</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #000088">next</span><span style="FONT-SIZE: 10pt; COLOR: #666600">();</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: #000088">catch</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">err </span><span style="FONT-SIZE: 10pt; COLOR: #000088">if</span><span style="FONT-SIZE: 10pt; COLOR: black"> err </span><span style="FONT-SIZE: 10pt; COLOR: #000088">instanceof</span><span style="FONT-SIZE: 10pt; COLOR: #660066">StopIteration</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">splice</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> _workers</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">indexOf</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">worker</span><span style="FONT-SIZE: 10pt; COLOR: #666600">),</span><span style="FONT-SIZE: 10pt; COLOR: #006666">1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-    </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'worker1: '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'/n'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-    </span><span style="FONT-SIZE: 10pt; COLOR: #000088">yield</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-  </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'worker1: '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'/n'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">yield</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 scheduler</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Add</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">worker1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: black"> worker2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">()</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-  </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #006666">10</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #006666">10</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-    </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'worker2: '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'/n'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-    </span><span style="FONT-SIZE: 10pt; COLOR: #000088">yield</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-  </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'worker2: '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #008800">'/n'</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #000088">yield</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 scheduler</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: #660066">Add</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">worker2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
@@ -341,7 +342,7 @@ worker2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style=
 worker2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">9</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">11.<span style="FONT: 7pt 'Times New Roman'">            </span></span>****<span style="FONT-SIZE: 14pt">swap two variables</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">11.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">swap two variables</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> a </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">1</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">  
@@ -349,13 +350,13 @@ worker2</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style=
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: black">a</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: black">b</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: black">b</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: black">a</span><span style="FONT-SIZE: 10pt; COLOR: #666600">];</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">12.<span style="FONT: 7pt 'Times New Roman'">            </span></span>****<span style="FONT-SIZE: 14pt">Destructuring assignment with function arguments</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">12.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Destructuring assignment with function arguments</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">function</span><span style="FONT-SIZE: 10pt; COLOR: black"> foo</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: black">a</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: black">b</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
-        </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">a</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
-        </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">b</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">a</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">b</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 
 foo</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: #006666">12</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">34</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span></div>  
@@ -367,13 +368,13 @@ foo</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FON
 </span><span style="FONT-SIZE: 10pt; COLOR: #006666">34</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">13.<span style="FONT: 7pt 'Times New Roman'">            </span></span>****<span style="FONT-SIZE: 14pt">JavaScript scope and LET instruction</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">13.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">JavaScript scope and LET instruction</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.7</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> x </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> y </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">x </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: black"> x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: #006666">10</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: black"> y </span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">12</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">  
-  </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">y</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">y</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">x</span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: black">y</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span></div>  
 </div>  
@@ -387,7 +388,7 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
 <div align="left">**<span style="FONT-SIZE: 10pt">or, </span>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black"> let i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">=</span><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">&lt;</span><span style="FONT-SIZE: 10pt; COLOR: #006666">10</span><span style="FONT-SIZE: 10pt; COLOR: #666600">;</span><span style="FONT-SIZE: 10pt; COLOR: black"> i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">++</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: #666600">{</span><span style="FONT-SIZE: 10pt; COLOR: black">  
-  </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: #008800">' '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
+&nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i </span><span style="FONT-SIZE: 10pt; COLOR: #666600">+</span><span style="FONT-SIZE: 10pt; COLOR: #008800">' '</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span><span style="FONT-SIZE: 10pt; COLOR: black">    
 </span><span style="FONT-SIZE: 10pt; COLOR: #666600">}</span><span style="FONT-SIZE: 10pt; COLOR: black">  
 </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">);</span></div>  
 </div>  
@@ -397,11 +398,11 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #006666">0</span><span style="FONT-SIZE: 10pt; COLOR: #006666">1</span><span style="FONT-SIZE: 10pt; COLOR: #006666">2</span><span style="FONT-SIZE: 10pt; COLOR: #006666">3</span><span style="FONT-SIZE: 10pt; COLOR: #006666">4</span><span style="FONT-SIZE: 10pt; COLOR: #006666">5</span><span style="FONT-SIZE: 10pt; COLOR: #006666">6</span><span style="FONT-SIZE: 10pt; COLOR: #006666">7</span><span style="FONT-SIZE: 10pt; COLOR: #006666">8</span><span style="FONT-SIZE: 10pt; COLOR: #006666">9</span><span style="FONT-SIZE: 10pt; COLOR: black"> test</span><span style="FONT-SIZE: 10pt; COLOR: #666600">.</span><span style="FONT-SIZE: 10pt; COLOR: black">js</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #006666">4</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: #660066">ReferenceError</span><span style="FONT-SIZE: 10pt; COLOR: #666600">:</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #000088">is</span><span style="FONT-SIZE: 10pt; COLOR: #000088">not</span><span style="FONT-SIZE: 10pt; COLOR: #000088">defined</span></div>  
 </div>  
 
-<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">14.<span style="FONT: 7pt 'Times New Roman'">            </span></span>****<span style="FONT-SIZE: 14pt">Iterate on values</span>**</div>  
+<div style="MARGIN-LEFT: 21pt; TEXT-INDENT: -21pt; TEXT-ALIGN: left" align="left">**<span style="FONT-SIZE: 14pt">14.<span style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>****<span style="FONT-SIZE: 14pt">Iterate on values</span>**</div>  
 <div align="left">**<sup><span style="FONT-SIZE: 10pt">JavaScript 1.6</span></sup>**</div>  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 6pt; PADDING-BOTTOM: 0cm; MARGIN-LEFT: 32pt; BORDER-LEFT: #cccccc 3pt solid; MARGIN-RIGHT: 0cm; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none">  
 <div style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: left" align="left"><span style="FONT-SIZE: 10pt; COLOR: #000088">for</span><span style="FONT-SIZE: 10pt; COLOR: black"> each </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: #000088">var</span><span style="FONT-SIZE: 10pt; COLOR: black"> i </span><span style="FONT-SIZE: 10pt; COLOR: #000088">in</span><span style="FONT-SIZE: 10pt; COLOR: #666600">[</span><span style="FONT-SIZE: 10pt; COLOR: #006666">3</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">23</span><span style="FONT-SIZE: 10pt; COLOR: #666600">,</span><span style="FONT-SIZE: 10pt; COLOR: #006666">4</span><span style="FONT-SIZE: 10pt; COLOR: #666600">]</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span><span style="FONT-SIZE: 10pt; COLOR: black">  
-        </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span></div>  
+&nbsp; &nbsp; &nbsp; &nbsp; </span><span style="FONT-SIZE: 10pt; COLOR: #660066">Print</span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FONT-SIZE: 10pt; COLOR: black">i</span><span style="FONT-SIZE: 10pt; COLOR: #666600">)</span></div>  
 </div>  
 
 <div align="left">**<span style="FONT-SIZE: 10pt">Prints: </span>**</div>  
@@ -411,7 +412,7 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
 </span><span style="FONT-SIZE: 10pt; COLOR: #006666">4</span></div>  
 </div>  
 
-<div> </div>
+<div>&nbsp;</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -428,7 +429,7 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-83.html">
                     有源则至清——我读《移山之道》
                 </a>
@@ -439,7 +440,7 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -459,14 +460,14 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -482,7 +483,7 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -496,7 +497,7 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -525,3 +526,4 @@ let </span><span style="FONT-SIZE: 10pt; COLOR: #666600">(</span><span style="FO
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

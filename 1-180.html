@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）">
-    <meta property="og:description" content="本文分三篇。本篇介绍更复杂的定制过程。 接下来进一步细化上一篇的修改，前六节请参见：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 7、一些遗留问题的修改 上面是最简版本，只是为了突出核心功能的实现，但实际留下的问题还是不少的。下面一一道来。     1) 呀。是成功了呢，不过一会儿就被改回来了。   修订@2012.09.04   方法名写错的，应该是updateInCallBackground()，而不是updateScreen() 这并不是普遍性的问题，有些拔号面板是有背景的，有些则是背景透明而直接显示桌面的。对于有背景的拔号面板，Phone.apk通常会在InCallScreen.smali中有一个updateInCallBackground()方法，找到它的几处调用，注释掉即可。或者干脆把updateInCallBackground()改成空函数就好了。     如果找不到updateInCallBackground()函数，则尝试找一个setBackgroundResource()这个方法，看哪里重绘了mMainFrame的背景即可。     2) 下一次电话呼入的时候，会残留上一个电话使用的大头贴 是的。这应该在此次电话结束时清理掉。这很简单，修改InCallScreen.smali，找到">
-    <meta property="og:url" content="http://aimingoo.github.io/1-180.html">
-    <meta property="article:published_time" content="2012-09-03T10:15:00.000Z">
-    <meta property="article:modified_time" content="2017-05-20T10:25:44.000Z">
-    <meta property="article:tag" content="汇编">
-    <meta property="article:tag" content="数据库">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）" />
+    <meta property="og:description" content="本文分三篇。本篇介绍更复杂的定制过程。 接下来进一步细化上一篇的修改，前六节请参见：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 7、一些遗留问题的修改 上面是最简版本，只是为了突出核心功能的实现，但实际留下的问题还是不少的。下面一一道来。     1) 呀。是成功了呢，不过一会儿就被改回来了。   修订@2012.09.04   方法名写错的，应该是updateInCallBackground()，而不是updateScreen() 这并不是普遍性的问题，有些拔号面板是有背景的，有些则是背景透明而直接显示桌面的。对于有背景的拔号面板，Phone.apk通常会在InCallScreen.smali中有一个updateInCallBackground()方法，找到它的几处调用，注释掉即可。或者干脆把updateInCallBackground()改成空函数就好了。     如果找不到updateInCallBackground()函数，则尝试找一个setBackgroundResource()这个方法，看哪里重绘了mMainFrame的背景即可。     2) 下一次电话呼入的时候，会残留上一个电话使用的大头贴 是的。这应该在此次电话结束时清理掉。这很简单，修改InCallScreen.smali，找到" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-180.html" />
+    <meta property="article:published_time" content="2012-09-03T10:15:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-20T10:25:44.000Z" />
+    <meta property="article:tag" content="汇编" />
+    <meta property="article:tag" content="数据库" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）">
-    <meta name="twitter:description" content="本文分三篇。本篇介绍更复杂的定制过程。 接下来进一步细化上一篇的修改，前六节请参见：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 7、一些遗留问题的修改 上面是最简版本，只是为了突出核心功能的实现，但实际留下的问题还是不少的。下面一一道来。     1) 呀。是成功了呢，不过一会儿就被改回来了。   修订@2012.09.04   方法名写错的，应该是updateInCallBackground()，而不是updateScreen() 这并不是普遍性的问题，有些拔号面板是有背景的，有些则是背景透明而直接显示桌面的。对于有背景的拔号面板，Phone.apk通常会在InCallScreen.smali中有一个updateInCallBackground()方法，找到它的几处调用，注释掉即可。或者干脆把updateInCallBackground()改成空函数就好了。     如果找不到updateInCallBackground()函数，则尝试找一个setBackgroundResource()这个方法，看哪里重绘了mMainFrame的背景即可。     2) 下一次电话呼入的时候，会残留上一个电话使用的大头贴 是的。这应该在此次电话结束时清理掉。这很简单，修改InCallScreen.smali，找到">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-180.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="汇编, 数据库">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）" />
+    <meta name="twitter:description" content="本文分三篇。本篇介绍更复杂的定制过程。 接下来进一步细化上一篇的修改，前六节请参见：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 7、一些遗留问题的修改 上面是最简版本，只是为了突出核心功能的实现，但实际留下的问题还是不少的。下面一一道来。     1) 呀。是成功了呢，不过一会儿就被改回来了。   修订@2012.09.04   方法名写错的，应该是updateInCallBackground()，而不是updateScreen() 这并不是普遍性的问题，有些拔号面板是有背景的，有些则是背景透明而直接显示桌面的。对于有背景的拔号面板，Phone.apk通常会在InCallScreen.smali中有一个updateInCallBackground()方法，找到它的几处调用，注释掉即可。或者干脆把updateInCallBackground()改成空函数就好了。     如果找不到updateInCallBackground()函数，则尝试找一个setBackgroundResource()这个方法，看哪里重绘了mMainFrame的背景即可。     2) 下一次电话呼入的时候，会残留上一个电话使用的大头贴 是的。这应该在此次电话结束时清理掉。这很简单，修改InCallScreen.smali，找到" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-180.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="汇编, 数据库" />
     
     <script type="application/ld+json">
 {
@@ -82,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-hui-bian tag-shu-ju-ku nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -100,7 +101,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -110,8 +111,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/hui-bian/">汇编</a>, <a href="tag/shu-ju-ku/">数据库</a>
+                        <a href="tag/hui-bian/index.html">汇编</a>, <a href="tag/shu-ju-ku/index.html">数据库</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -199,13 +200,13 @@ ghost.init({
 
 <p>原来的头像是这样的一个获得过程：    </p>
 
-<p>  - 首先开始接听或拔打电话    </p>
+<p>&nbsp; - 首先开始接听或拔打电话    </p>
 
-<p>  - 拔号程序显示面板，面板中头像位置显示为“无头像”的icon    </p>
+<p>&nbsp; - 拔号程序显示面板，面板中头像位置显示为“无头像”的icon    </p>
 
-<p>  - 异步发起调用，从联系人数据库中读取头像    </p>
+<p>&nbsp; - 异步发起调用，从联系人数据库中读取头像    </p>
 
-<p>  - 当上述异步调用返回时，更新显示上面的“无头像”icon为真正的头像图片    </p>
+<p>&nbsp; - 当上述异步调用返回时，更新显示上面的“无头像”icon为真正的头像图片    </p>
 
 <p>所以事实上原生的应用在“显示头像”时都会是两步，这是为了更快地绘制出拨号面板以便用户操作。而们的代码事实上也是依赖这个原理，在上述的过程异步得到“高清大头贴”的数据之后，显示在背景上的。    </p>
 
@@ -229,7 +230,7 @@ ghost.init({
 
 <h3 id="4">4) 界面上大头贴显示不全，被一些元素遮住了。要是它们有透明度就好了。</h3>
 
-<p>有些时候，界面上的元素是通过贴图来绘制的，也就是在资源文件中，它的背景是一张图片。对于指定颜色的背景，例如#xxRRGGBB，我们可以在资源文件中通过指定xx值来使它透明化。但如果背景是图，那么在较低的android版本的资源文件中又不支持alpha属性，那么就只能在源代码中通过setAlpha()来使之透明了。    </p>
+<p>有些时候，界面上的元素是通过贴图来绘制的，也就是在资源文件中，它的背景是一张图片。对于指定颜色的背景，例如#xxRRGGBB，我们可以在资源文件中通过指定xx&#20540;来使它透明化。但如果背景是图，那么在较低的android版本的资源文件中又不支持alpha属性，那么就只能在源代码中通过setAlpha()来使之透明了。    </p>
 
 <p>后面这种情况（也包括前面这种设置color代码的情况）可以在CallCard.smali与InCallTouchUi.smali中添加代码来实现，某些情况下，你也可能要改到InCallScreen.smali中的代码的。但总的来说，都与具体的Phone.apk有关。下面是我在修改Mokee的Phone.apk中使用的代码。注意，这些代码都应该写在onFinishInflate()方法里，这里刚好初始化完界面，并将界面元素关联到Java对象的成员上。    </p>
 
@@ -309,11 +310,11 @@ ghost.init({
 
 <p>如果我们真的要实现：    </p>
 
-<p>  - 有大头贴时，不显示小小的头像mPhoto    </p>
+<p>&nbsp; - 有大头贴时，不显示小小的头像mPhoto    </p>
 
-<p>  - 没有大头贴时，显示一下“无头像”icon，或者    </p>
+<p>&nbsp; - 没有大头贴时，显示一下“无头像”icon，或者    </p>
 
-<p>  - 因为头像图片不够大，所以某些时候还是显示图片到头像mPhoto中间去更好看    </p>
+<p>&nbsp; - 因为头像图片不够大，所以某些时候还是显示图片到头像mPhoto中间去更好看    </p>
 
 <p>事实上，前面showCachedBackground()的实现代码中，还确实检查了头像图片的大小，当它长宽之一小于240px，我们就不作为全屏大头贴来显示了。所以，我们的确还是要将mPhoto处理成：有大头贴时隐藏，否则在必要时还得显示。    </p>
 
@@ -323,7 +324,7 @@ ghost.init({
 
 <pre name="code" class="plain">.method public setPersonInfoStyle(Z)V  
     .locals 2  
-    .parameter "toDefault"  
+    .parameter &quot;toDefault&quot;  
 
     if-nez p1, :cond_0  
 
@@ -385,7 +386,7 @@ ghost.init({
 .end method
 </pre>    
 
-<p>这个setPersonInfoStyle()函数会在showCachedBackground()中调用并传入false值，另外也应该在InCallScreen.smali的delayedCleanupAfterDisconnect()方法中调用。后一种情况应传入true值，以使得“下一次”来电面板将以缺省形式打开。</p>
+<p>这个setPersonInfoStyle()函数会在showCachedBackground()中调用并传入false&#20540;，另外也应该在InCallScreen.smali的delayedCleanupAfterDisconnect()方法中调用。后一种情况应传入true&#20540;，以使得“下一次”来电面板将以缺省形式打开。</p>
 
 <h3 id="6">6) 全屏！！要真的全屏！！！</h3>
 
@@ -429,28 +430,28 @@ ghost.init({
 ##  
 * * *  
 ##    .line 406  
-##    const-string v12, "outputX"  
+##    const-string v12, &quot;outputX&quot;  
 ##  
 ##    const/16 v13, 0x100  
 ##  
 ##    invoke-virtual {v8, v12, v13}, Landroid/content/Intent;-&gt;putExtra(Ljava/lang/String;I)Landroid/content/Intent;  
 ##  
 ##    .line 407  
-##    const-string v12, "outputY"  
+##    const-string v12, &quot;outputY&quot;  
 ##  
 ##    const/16 v13, 0x100  
 ##  
 ##    invoke-virtual {v8, v12, v13}, Landroid/content/Intent;-&gt;putExtra(Ljava/lang/String;I)Landroid/content/Intent;  
 ##  
 ##    .line 408  
-##    const-string v12, "aspectX"  
+##    const-string v12, &quot;aspectX&quot;  
 ##  
 ##    const/4 v13, 0x1  
 ##  
 ##    invoke-virtual {v8, v12, v13}, Landroid/content/Intent;-&gt;putExtra(Ljava/lang/String;I)Landroid/content/Intent;  
 ##  
 ##    .line 409  
-##    const-string v12, "aspectY"  
+##    const-string v12, &quot;aspectY&quot;  
 ##  
 ##    const/4 v13, 0x1  
 ##  
@@ -494,7 +495,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-181.html">
                     信任－－谈谈企业成功中的人力因素
                 </a>
@@ -505,7 +506,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -525,14 +526,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -548,7 +549,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -562,7 +563,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -591,3 +592,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

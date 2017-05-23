@@ -1,45 +1,46 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>表面的简洁</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="表面的简洁">
-    <meta property="og:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第二期上。是讨论函数式语言基本性质和发展方向的一篇文章。 **      &amp;nbsp;   **表面的简洁**   一、把大象装进冰箱     ＝＝＝＝＝     　　在命令式语言（当然我们可以确指为C、Delphi、Java或C#等等）中，初学者的第一     个疑难便是这样的代码（*注1）：     　　X=X&amp;#43;1     　　为什么？因为在数学概念中，上述等式是不能成立的。这种表达式是计算机的思维逻     辑：当它运算上述表达式（或语句）时，X被作为暂存单元——例如冰箱。为了让冰箱产     生变化，比如解决“把大象装进冰箱”这样的问题，我们需要如下三步：     　　把冰箱门打开，把大象放进去，把冰箱门关上          （图1：“把大象装进冰箱”的问题）     　　因为我们有两只手来分别负责拉住冰箱门和大象，所以整个操作过程看起来很完美，     但接下来我们再加上点需求：我们要“把大象拿出来，把长颈鹿装进去”">
-    <meta property="og:url" content="http://aimingoo.github.io/1-137.html">
-    <meta property="article:published_time" content="2009-04-22T03:44:00.000Z">
-    <meta property="article:modified_time" content="2009-04-22T03:44:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="erlang">
-    <meta property="article:tag" content="lisp">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="delphi">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="表面的简洁" />
+    <meta property="og:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第二期上。是讨论函数式语言基本性质和发展方向的一篇文章。 **      &amp;nbsp;   **表面的简洁**   一、把大象装进冰箱     ＝＝＝＝＝     　　在命令式语言（当然我们可以确指为C、Delphi、Java或C#等等）中，初学者的第一     个疑难便是这样的代码（*注1）：     　　X&#x3D;X&amp;#43;1     　　为什么？因为在数学概念中，上述等式是不能成立的。这种表达式是计算机的思维逻     辑：当它运算上述表达式（或语句）时，X被作为暂存单元——例如冰箱。为了让冰箱产     生变化，比如解决“把大象装进冰箱”这样的问题，我们需要如下三步：     　　把冰箱门打开，把大象放进去，把冰箱门关上          （图1：“把大象装进冰箱”的问题）     　　因为我们有两只手来分别负责拉住冰箱门和大象，所以整个操作过程看起来很完美，     但接下来我们再加上点需求：我们要“把大象拿出来，把长颈鹿装进去”" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-137.html" />
+    <meta property="article:published_time" content="2009-04-22T03:44:00.000Z" />
+    <meta property="article:modified_time" content="2009-04-22T03:44:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="erlang" />
+    <meta property="article:tag" content="lisp" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="delphi" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="表面的简洁">
-    <meta name="twitter:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第二期上。是讨论函数式语言基本性质和发展方向的一篇文章。 **      &amp;nbsp;   **表面的简洁**   一、把大象装进冰箱     ＝＝＝＝＝     　　在命令式语言（当然我们可以确指为C、Delphi、Java或C#等等）中，初学者的第一     个疑难便是这样的代码（*注1）：     　　X=X&amp;#43;1     　　为什么？因为在数学概念中，上述等式是不能成立的。这种表达式是计算机的思维逻     辑：当它运算上述表达式（或语句）时，X被作为暂存单元——例如冰箱。为了让冰箱产     生变化，比如解决“把大象装进冰箱”这样的问题，我们需要如下三步：     　　把冰箱门打开，把大象放进去，把冰箱门关上          （图1：“把大象装进冰箱”的问题）     　　因为我们有两只手来分别负责拉住冰箱门和大象，所以整个操作过程看起来很完美，     但接下来我们再加上点需求：我们要“把大象拿出来，把长颈鹿装进去”">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-137.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, erlang, lisp, 语言, delphi">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="表面的简洁" />
+    <meta name="twitter:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第二期上。是讨论函数式语言基本性质和发展方向的一篇文章。 **      &amp;nbsp;   **表面的简洁**   一、把大象装进冰箱     ＝＝＝＝＝     　　在命令式语言（当然我们可以确指为C、Delphi、Java或C#等等）中，初学者的第一     个疑难便是这样的代码（*注1）：     　　X&#x3D;X&amp;#43;1     　　为什么？因为在数学概念中，上述等式是不能成立的。这种表达式是计算机的思维逻     辑：当它运算上述表达式（或语句）时，X被作为暂存单元——例如冰箱。为了让冰箱产     生变化，比如解决“把大象装进冰箱”这样的问题，我们需要如下三步：     　　把冰箱门打开，把大象放进去，把冰箱门关上          （图1：“把大象装进冰箱”的问题）     　　因为我们有两只手来分别负责拉住冰箱门和大象，所以整个操作过程看起来很完美，     但接下来我们再加上点需求：我们要“把大象拿出来，把长颈鹿装进去”" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-137.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, erlang, lisp, 语言, delphi" />
     
     <script type="application/ld+json">
 {
@@ -85,8 +86,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-erlang tag-lisp tag-yu-yan tag-delphi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -103,7 +104,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -113,8 +114,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -130,7 +131,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +140,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/erlang/">erlang</a>, <a href="tag/lisp/">lisp</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/delphi/">delphi</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/erlang/index.html">erlang</a>, <a href="tag/lisp/index.html">lisp</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/delphi/index.html">delphi</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,7 +149,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>   </p>
+                <p>&nbsp;  </p>
 
 <div style="border:1px dashed green; font-size:16px">  
 
@@ -156,7 +157,7 @@ ghost.init({
 
 </div>  
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <pre style="background-color:rgb(255,255,255)"><span style="font-family:Arial,宋体; font-size:16px"><big>**表面的简洁**</big></span></pre>  
 
@@ -168,7 +169,7 @@ ghost.init({
 
 <p>个疑难便是这样的代码（*注1）：    </p>
 
-<p>　　X=X+1    </p>
+<p>　　X=X&#43;1    </p>
 
 <p>　　为什么？因为在数学概念中，上述等式是不能成立的。这种表达式是计算机的思维逻    </p>
 
@@ -178,7 +179,7 @@ ghost.init({
 
 <p>　　把冰箱门打开，把大象放进去，把冰箱门关上    </p>
 
-<p><img src="content/images/bkImages/0_1331547245npif-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331547245npif-9.gif" alt="" title="" />    </p>
 
 <p>（图1：“把大象装进冰箱”的问题）    </p>
 
@@ -196,15 +197,15 @@ ghost.init({
 
 <p>过程中，保证冰箱门不会自动关上或打开……而代码：    </p>
 
-<p>　　X=X+1    </p>
+<p>　　X=X&#43;1    </p>
 
-<p>的执行过程与此类似：当CPU开始存取X这个位置时，它只能在“当前X”与“下一次X”    </p>
+<p>的执行过程与此类&#20284;：当CPU开始存取X这个位置时，它只能在“当前X”与“下一次X”    </p>
 
 <p>之间选择二者之一。当多个线程（或多个CPU）开始存取X这个位置时，如果我们希望得    </p>
 
-<p>到相同的X值，那么我们就得在X操作过程中采取象上面一样的防护措施：加一个锁。以    </p>
+<p>到相同的X&#20540;，那么我们就得在X操作过程中采取象上面一样的防护措施：加一个锁。以    </p>
 
-<p>保证要求所有线程都取完了这个“当前X”值，才会被切换到“下一次X”值。    </p>
+<p>保证要求所有线程都取完了这个“当前X”&#20540;，才会被切换到“下一次X”&#20540;。    </p>
 
 <p>　　由于这个限制，一旦多个线程都排着队来看看这个X的美妙身形，整个队列就全都慢    </p>
 
@@ -214,7 +215,7 @@ ghost.init({
 
 <p>是函数式应对大象问题的方法：如果冰箱里放着大象，就永远不要试图放长颈鹿。所以在    </p>
 
-<p>函数式语言Erlang中的变量一旦赋值，就不能再修改。    </p>
+<p>函数式语言Erlang中的变量一旦赋&#20540;，就不能再修改。    </p>
 
 <p>　　云风曾在SD2C 2007大会上说：解决问题的最好方法，就是不解决它。这个观点深得    </p>
 
@@ -226,9 +227,9 @@ ghost.init({
 
 <p>　　杂技中的一种常见帽子戏法，是很多人围成一圈或排成一排然后飞速地传送手中的帽    </p>
 
-<p>子。这如果是一个人来表演，那么应该是左右手各一顶帽子，而多出的一顶则总在头上。　　     </p>
+<p>子。这如果是一个人来表演，那么应该是左右手各一顶帽子，而多出的一顶则总在头上。　　&nbsp;    </p>
 
-<p><img src="content/images/bkImages/0_1331547260r2b1-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331547260r2b1-9.gif" alt="" title="" />    </p>
 
 <p>（图2：帽子戏法）    </p>
 
@@ -252,7 +253,7 @@ ghost.init({
 
 <p>　　在函数式中，我们如果要构建一个循环，那么可以使用函数递归来实现。这上述控制    </p>
 
-<p>循环过程的变量，则可以把它放在函数形式参数表——这种类似“空中”的地方。与“空    </p>
+<p>循环过程的变量，则可以把它放在函数形式参数表——这种类&#20284;“空中”的地方。与“空    </p>
 
 <p>中”相同的是，我们在静态看函数时，那是参数表；而运行中时，它传入实参。    </p>
 
@@ -268,21 +269,21 @@ ghost.init({
 
 <p>帽子戏法的杂技师从帽子队列上直接取走轮转到手边的帽子一样。    </p>
 
-<p>　　最后，对于一个函数来说，如果它只返回值而不修改函数外的任何东西，那么这个函    </p>
+<p>　　最后，对于一个函数来说，如果它只返回&#20540;而不修改函数外的任何东西，那么这个函    </p>
 
-<p>数就是安全的，它等价于它返回的这个值——如前所述的，这个值一旦有效（运算出结果    </p>
+<p>数就是安全的，它等价于它返回的这个&#20540;——如前所述的，这个&#20540;一旦有效（运算出结果    </p>
 
-<p>并传出），就不再变更。所以函数式中的函数调用，可以等价于一个表达式中运算的值。    </p>
+<p>并传出），就不再变更。所以函数式中的函数调用，可以等价于一个表达式中运算的&#20540;。    </p>
 
-<p>　　如同函数调用，函数的递归也只返回值，所以也等价于一个表达式中运算的值。再进    </p>
+<p>　　如同函数调用，函数的递归也只返回&#20540;，所以也等价于一个表达式中运算的&#20540;。再进    </p>
 
-<p>一步的推论，递归实际上等效于循环求值。    </p>
+<p>一步的推论，递归实际上等效于循环求&#20540;。    </p>
 
 <p>　　复杂的表象下，总会有一个简单的原则。万人的与一个人的帽子戏法，其原则是一样    </p>
 
 <p>地：至少多一顶帽子，放在头上，或是空中。    </p>
 
-<p>三、计算机其实不认得"hello"    </p>
+<p>三、计算机其实不认得&quot;hello&quot;    </p>
 
 <p>＝＝＝＝＝    </p>
 
@@ -290,39 +291,39 @@ ghost.init({
 
 <p>运算的通道大小有关。事实上即使我们有128位机器，我们也只打算在这样的通路上传送    </p>
 
-<p>一个字符"h"——而不是字符串"hello"。从更为准确的角度来说，事实上计算机也不认得字    </p>
+<p>一个字符&quot;h&quot;——而不是字符串&quot;hello&quot;。从更为准确的角度来说，事实上计算机也不认得字    </p>
 
-<p>符"h"，而只认得数字0x68。同样的，它也不认得所谓的“真假(true/false)”，而只认得数字    </p>
+<p>符&quot;h&quot;，而只认得数字0x68。同样的，它也不认得所谓的“真假(true/false)”，而只认得数字    </p>
 
 <p>的1/0。    </p>
 
-<p><img src="content/images/bkImages/0_1331547334RXpX-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331547334RXpX-9.gif" alt="" title="" />    </p>
 
 <p>（图3：图灵机的概念图）  </p>
 
-<p>　　我们编程的本质，其实不过是在求值一些数字而已。只是最终我们在自然语义上把这    </p>
+<p>　　我们编程的本质，其实不过是在求&#20540;一些数字而已。只是最终我们在自然语义上把这    </p>
 
-<p>些数字的一个连续或非连续的集合认为是布尔值、字符串、数组或对象。当我们认识到运    </p>
+<p>些数字的一个连续或非连续的集合认为是布尔&#20540;、字符串、数组或对象。当我们认识到运    </p>
 
-<p>算求值的结果无非是数值，而表达形式又无非是连续或非连续时，我们就得到了基本的数    </p>
+<p>算求&#20540;的结果无非是数&#20540;，而表达形式又无非是连续或非连续时，我们就得到了基本的数    </p>
 
-<p>据抽象单元：值、值系列。再加上我们前面讲到的执行体（函数），我们就得到了整个函数    </p>
+<p>据抽象单元：&#20540;、&#20540;系列。再加上我们前面讲到的执行体（函数），我们就得到了整个函数    </p>
 
 <p>式语言的鼻祖——LISP——的基本运算模型：    </p>
 
-<p>　　(+ Xn)    </p>
+<p>　　(&#43; Xn)    </p>
 
-<p>　　其中，“( )”表明一个值系列（表），而“+”在这里指代某种运算，Xn表明值（或值    </p>
+<p>　　其中，“( )”表明一个&#20540;系列（表），而“&#43;”在这里指代某种运算，Xn表明&#20540;（或&#20540;    </p>
 
-<p>系列）。整个的表返回一个值，因此也可以将“整个的表（通常这里称为表达式）”等义为    </p>
+<p>系列）。整个的表返回一个&#20540;，因此也可以将“整个的表（通常这里称为表达式）”等义为    </p>
 
-<p>一个值。任何的一个运算，最终输出的仍然只是一个或一系列数字，它被显示在屏幕上，    </p>
+<p>一个&#20540;。任何的一个运算，最终输出的仍然只是一个或一系列数字，它被显示在屏幕上，    </p>
 
 <p>便成了文本；放在内存中，便成了数据。    </p>
 
 <p>　　当然，现实是这样的机器最终从科学领域走向了民用，在PC（个人计算机）普及的现    </p>
 
-<p>在，我们也需要让类似LISP这样的——绝对正确而又绝对非人性的——语言变得亲切一    </p>
+<p>在，我们也需要让类&#20284;LISP这样的——绝对正确而又绝对非人性的——语言变得亲切一    </p>
 
 <p>些。于是稍微复杂而有用一点的函数式语言，例如Erlang，通过丰富了上述的基本运算模    </p>
 
@@ -334,7 +335,7 @@ ghost.init({
 <td valign="top">  
 <p align="center">**类型**  
 
-</p></td>  
+</td>  
 <td valign="top">  
 
 **示例**  
@@ -344,7 +345,7 @@ ghost.init({
 <tr>  
 <td valign="top">  
 
-值  
+&#20540;  
 
 </td>  
 <td valign="top">  
@@ -356,7 +357,7 @@ atom,integer/float,...
 <tr>  
 <td valign="top">  
 
-值系列  
+&#20540;系列  
 
 </td>  
 <td valign="top">  
@@ -382,33 +383,33 @@ tuple(定长的，一般连续存储)
 </tbody>  
 </table>  
 
-<p></p>  
+<p></p>  </p>
 
 <p>（表一：以Erlang为例的、简单的类型抽象）    </p>
 
-<p>　　而我们逆推一份具体的Erlang代码，其实仍然可以表达为上述的(+ Xn)。例如我们可    </p>
+<p>　　而我们逆推一份具体的Erlang代码，其实仍然可以表达为上述的(&#43; Xn)。例如我们可    </p>
 
-<p>以在Erlang代码在编译阶段使用解析树（Abstract Form）中看到这样的抽象代码（abstract     </p>
+<p>以在Erlang代码在编译阶段使用解析树（Abstract Form）中看到这样的抽象代码（abstract&nbsp;    </p>
 
 <p>code）：    </p>
 
-<p></p><pre name="code" class="plain">　　[{abstract<em>code, <br>
-　　  {raw</em>abstract_v1, [{attribute,1,file,{"./simplest.erl",1}}, <br>
-       {attribute,1,module,simplest}, <br>
-       {function,3,test,0, <br>
-　　      [{clause,3,[],[],[{atom,4|...}]}] <br>
-　　    }, <br>
-　　    {eof,1}] <br>
-　　  } <br>
-　　}]</pre>　　无论是从形式，还是从实质来看，这种解析树（在erlang执行中将会按照解析树来生    
+<p><pre name="code" class="plain">　　[{abstract<em>code, <br />
+　　  {raw</em>abstract_v1, [{attribute,1,file,{&quot;./simplest.erl&quot;,1}}, <br />
+       {attribute,1,module,simplest}, <br />
+       {function,3,test,0, <br />
+　　      [{clause,3,[],[],[{atom,4|...}]}] <br />
+　　    }, <br />
+　　    {eof,1}] <br />
+　　  } <br />
+　　}]</pre>　　无论是从形式，还是从实质来看，这种解析树（在erlang执行中将会按照解析树来生    </p>
 
 <p>成语法树并执行）与LISP语言的基本原则都是一致的。    </p>
 
-<p>四、从“函数等义于值”到“函数是值”    </p>
+<p>四、从“函数等义于&#20540;”到“函数是&#20540;”    </p>
 
 <p>＝＝＝＝＝    </p>
 
-<p>　　现在，JavaScript语言被更为深入的挖掘并渐渐了解到它的函数式语言本质，而类似    </p>
+<p>　　现在，JavaScript语言被更为深入的挖掘并渐渐了解到它的函数式语言本质，而类&#20284;    </p>
 
 <p>Erlang这样的“天生伤害人的视力”的语言也移步前台。这些语言的努力，使我们终于看    </p>
 
@@ -416,17 +417,17 @@ tuple(定长的，一般连续存储)
 
 <p>思议的特性迷惘着程序员的目光。连它最基本的概念说明，也如同玄学家的呓语：如同数    </p>
 
-<p>学函数是集合A（称为定义域）中成员到集合B（称为值域）中成员的映射，函数式语言    </p>
+<p>学函数是集合A（称为定义域）中成员到集合B（称为&#20540;域）中成员的映射，函数式语言    </p>
 
-<p>就是通过数学函数的定义、应用的说明和求值完成运算过程的。    </p>
+<p>就是通过数学函数的定义、应用的说明和求&#20540;完成运算过程的。    </p>
 
-<p>　　类似于这种等同于“什么也没说”的解释，其实的确是在阐述函数式语言的精髓。为    </p>
+<p>　　类&#20284;于这种等同于“什么也没说”的解释，其实的确是在阐述函数式语言的精髓。为    </p>
 
-<p>了减轻你的痛苦（但绝非轻视你的智商），我通常换个说法来陈述它们：如果表达式“1+1=2”    </p>
+<p>了减轻你的痛苦（但绝非轻视你的智商），我通常换个说法来陈述它们：如果表达式“1&#43;1=2”    </p>
 
-<p>中的“+”被理解为求值函数，那么所谓函数式语言，就是通过连续表达式运算求值的语言；    </p>
+<p>中的“&#43;”被理解为求&#20540;函数，那么所谓函数式语言，就是通过连续表达式运算求&#20540;的语言；    </p>
 
-<p>既然上面的表达式可以算出结果“=2”，那么函数式语言自然也可以通过不停地求值找到问    </p>
+<p>既然上面的表达式可以算出结果“=2”，那么函数式语言自然也可以通过不停地求&#20540;找到问    </p>
 
 <p>题的答案。    </p>
 
@@ -434,7 +435,7 @@ tuple(定长的，一般连续存储)
 
 <p>式中的运算符具有完全相同的性质——所以事实上一个函数式语言中，表达式的运算符被    </p>
 
-<p>实现为一个函数。例如erlang的核心模块中，可以导出类似这样的函数：    </p>
+<p>实现为一个函数。例如erlang的核心模块中，可以导出类&#20284;这样的函数：    </p>
 
 <table border="1" cellspacing="0" cellpadding="0" width="572">  
 <tbody>  
@@ -463,7 +464,7 @@ tuple(定长的，一般连续存储)
 </td>  
 <td valign="top">  
 
-'+'/1  
+'&#43;'/1  
 
 </td>  
 <td valign="top">  
@@ -480,7 +481,7 @@ tuple(定长的，一般连续存储)
 </td>  
 <td valign="top">  
 
-'+'/2  
+'&#43;'/2  
 
 </td>  
 <td valign="top">  
@@ -492,12 +493,12 @@ tuple(定长的，一般连续存储)
 <tr>  
 <td valign="top">  
 
-   
+&nbsp;  
 
 </td>  
 <td valign="top">  
 
-'++'/2  
+'&#43;&#43;'/2  
 
 </td>  
 <td valign="top">  
@@ -511,13 +512,13 @@ tuple(定长的，一般连续存储)
 
 <p>（表二：Erlang中的运算符其实对应于内核函数－部分举例）    </p>
 
-<p>　　所以，函数式语言的本质是表达式/函数的“连续求值”。既然我们的输出或存储最终    </p>
+<p>　　所以，函数式语言的本质是表达式/函数的“连续求&#20540;”。既然我们的输出或存储最终    </p>
 
-<p>只是在关心“值”，那么显然连续求值的结果就可以直接作为他们的输入。如果把输出终端    </p>
+<p>只是在关心“&#20540;”，那么显然连续求&#20540;的结果就可以直接作为他们的输入。如果把输出终端    </p>
 
 <p>或存储看成接受输入的设备，那么他也相当于一个函数；如果一台计算设备只对外界表达    </p>
 
-<p>为一个或一系列输出，并接受来自其他类似设备的输入，那么计算设备本身也可以视为一    </p>
+<p>为一个或一系列输出，并接受来自其他类&#20284;设备的输入，那么计算设备本身也可以视为一    </p>
 
 <p>个函数……    </p>
 
@@ -525,9 +526,9 @@ tuple(定长的，一般连续存储)
 
 <p>基础是petri网论（Petri nets theory）。而事实上，作为计算模型来理解，它与函数式语言是    </p>
 
-<p>相似、等价的（*注3）。    </p>
+<p>相&#20284;、等价的（*注3）。    </p>
 
-<p><img src="content/images/bkImages/0_1331547377Z9tD-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331547377Z9tD-9.gif" alt="" title="" />    </p>
 
 <p>图4：perti网的“库所变换”    </p>
 
@@ -549,29 +550,29 @@ tuple(定长的，一般连续存储)
 
 <p>所以函数事实上也是“被运算的对象”和“运算结果”。函数的这种特性被称为高阶函数。    </p>
 
-<p>“函数等义于值”是函数式的基础，而“函数是值”，则是高阶函数的基础。    </p>
+<p>“函数等义于&#20540;”是函数式的基础，而“函数是&#20540;”，则是高阶函数的基础。    </p>
 
-<p><img src="content/images/bkImages/0_1331547559DyZy-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331547559DyZy-9.gif" alt="" title="" />    </p>
 
 <p>图5：JavaScript统一语言范型的基本模型（*注5）    </p>
 
-<p>　　当“函数是值”时，我们可以把一个函数传递到另一个地方去运算，而其运算结果仍    </p>
+<p>　　当“函数是&#20540;”时，我们可以把一个函数传递到另一个地方去运算，而其运算结果仍    </p>
 
-<p>然是值，所以可以把一个等义的结果再传回来。注意这一过程，就是分布运算的实质，所    </p>
+<p>然是&#20540;，所以可以把一个等义的结果再传回来。注意这一过程，就是分布运算的实质，所    </p>
 
 <p>以，函数式在本质上、天生地就是支持分布运算的。无论我们是将“一段函数式代码”所    </p>
 
 <p>表达的整个运算过程分解成何种形式，并分布在何种复杂的运算环境或网络环境中，只要    </p>
 
-<p>最终在逻辑上它能得到一个值序列和一个运算，就能够成为更大范围的分布网络中的一个    </p>
+<p>最终在逻辑上它能得到一个&#20540;序列和一个运算，就能够成为更大范围的分布网络中的一个    </p>
 
 <p>结点。    </p>
 
 <p>　　而这，就是整个计算世界的全部（注6）：(symbol)。    </p>
 
-<p><span style="font-size:13px">＝＝＝＝＝＝＝＝＝＝    </span></p>
+<p><span style="font-size:13px">＝＝＝＝＝＝＝＝＝＝    </p>
 
-<p>　　注1：《Erlang程序设计》中，作者以这个例子为起始，来讲述Erlang变量的单一赋值。    </p>
+<p>　　注1：《Erlang程序设计》中，作者以这个例子为起始，来讲述Erlang变量的单一赋&#20540;。    </p>
 
 <p>　　注2：参见《结构程序设计》，讨论“如何刻画计算的进展”时，作者E.W.Dijkstra说：    </p>
 
@@ -581,13 +582,13 @@ tuple(定长的，一般连续存储)
 
 <p>充当这种坐标系统的一个组成成分。    </p>
 
-<p>　　注3："Implementing Coloured Petri Nets Using a Functional Programming Language" at     </p>
+<p>　　注3：&quot;Implementing Coloured Petri Nets Using a Functional Programming Language&quot; at&nbsp;    </p>
 
-<p><a href="http://portal.acm.org/citation.cfm?id=993039%EF%BC%8Cand">http://portal.acm.org/citation.cfm?id=993039，and</a> Functional Nets at <a href="http://lamp.epfl.ch/fn/">http://lamp.epfl.ch/fn/</a>    </p>
+<p><a href="http://portal.acm.org/citation.cfm?id=993039，and">http://portal.acm.org/citation.cfm?id=993039，and</a> Functional Nets at <a href="http://lamp.epfl.ch/fn/">http://lamp.epfl.ch/fn/</a>    </p>
 
 <p>　　注4：不同范型的计算机语言之间等价问题，可以归结到图灵等价这个命题上，这意    </p>
 
-<p>味着该运算系统或模型能够执行任何复杂程度的、图灵机可完成的数学运算。2007年，Alex     </p>
+<p>味着该运算系统或模型能够执行任何复杂程度的、图灵机可完成的数学运算。2007年，Alex&nbsp;    </p>
 
 <p>Smith证明了Wolfram提出了最小的“2,3图灵机（两种颜色，三种状态）”模型是最小完    </p>
 
@@ -595,11 +596,11 @@ tuple(定长的，一般连续存储)
 
 <p>　　注5：这个统一过程用到了多项与函数式相关的基本设定：函数是执行体、函数等义    </p>
 
-<p>于值、函数是值。    </p>
+<p>于&#20540;、函数是&#20540;。    </p>
 
-<p>　　注6：与“(+ Xn)”比较，这个表达式认为“运算 +”——也就是某个函数——其实也    </p>
+<p>　　注6：与“(&#43; Xn)”比较，这个表达式认为“运算 &#43;”——也就是某个函数——其实也    </p>
 
-<p>是值，因此它也是“值系列”Xn中的一个部分。于是，当由自然语义中的symbol来指代    </p>
+<p>是&#20540;，因此它也是“&#20540;系列”Xn中的一个部分。于是，当由自然语义中的symbol来指代    </p>
 
 <p>Xn时，整个表达式就变成了：(symbol)。建议阅读作者的其它两篇文章：    </p>
 
@@ -609,7 +610,7 @@ tuple(定长的，一般连续存储)
 
 <p>　　《从表达式到函数：表面的简洁》    </p>
 
-<p>　　<a href="http://blog.csdn.net/aimingoo/archive/2007/10/08/1815379.aspx">http://blog.csdn.net/aimingoo/archive/2007/10/08/1815379.aspx</a>    </p>
+<p>　　<a href="http://blog.csdn.net/aimingoo/archive/2007/10/08/1815379.aspx">http://blog.csdn.net/aimingoo/archive/2007/10/08/1815379.aspx</a></span>    </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -626,7 +627,7 @@ tuple(定长的，一般连续存储)
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-138.html">
                     本来面目——大教堂、集市，与作坊
                 </a>
@@ -637,7 +638,7 @@ tuple(定长的，一般连续存储)
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -657,14 +658,14 @@ tuple(定长的，一般连续存储)
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -680,7 +681,7 @@ tuple(定长的，一般连续存储)
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -694,7 +695,7 @@ tuple(定长的，一般连续存储)
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -723,3 +724,4 @@ tuple(定长的，一般连续存储)
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

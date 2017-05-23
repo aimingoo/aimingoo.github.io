@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>启动一个最小化Qomo项目－QoBean！</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="启动一个最小化Qomo项目－QoBean！">
-    <meta property="og:description" content="什么是QoBean&amp;nbsp;？     QoBean是Qomo V2项目中的一个子项目，所以毋庸置疑的，它也是一个开源项目，它的最新版本可以从如下  地址获取：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     QoBean是Qomo V2的一个分支，它的目标是最小化Qomo。首先，它没有打算象Qomo一样通过一个$import  和与$import相关的一个兼容层去支持兼容平台。它处在平台兼容层之后：也就是说，它将来可能使用Qomo的  兼容层，或者让用户自己提供一个兼容层。     QoBean将全面替代Qomo V2中的核心层，并且提供更加高级的语言特性。例如元语言特性&amp;mdash;&amp;mdash;通过元语言特  性，你可以重新构建一种语言，或者一个语言特性集。     QoBean最优先的目标是通过JavaScript语言特性来实现精巧的内核，所有的内核模块尽可能没有相互依赖。   为什么叫QoBean&amp;nbsp;？     OH～ 这是项目的代码名，并不见得是将来发布的产品名称。QoBean的意思是Qomo's beans。事实上，我">
-    <meta property="og:url" content="http://aimingoo.github.io/1-91.html">
-    <meta property="article:published_time" content="2007-12-31T06:53:00.000Z">
-    <meta property="article:modified_time" content="2007-12-31T06:53:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="文档">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="启动一个最小化Qomo项目－QoBean！" />
+    <meta property="og:description" content="什么是QoBean&amp;nbsp;？     QoBean是Qomo V2项目中的一个子项目，所以毋庸置疑的，它也是一个开源项目，它的最新版本可以从如下  地址获取：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     QoBean是Qomo V2的一个分支，它的目标是最小化Qomo。首先，它没有打算象Qomo一样通过一个$import  和与$import相关的一个兼容层去支持兼容平台。它处在平台兼容层之后：也就是说，它将来可能使用Qomo的  兼容层，或者让用户自己提供一个兼容层。     QoBean将全面替代Qomo V2中的核心层，并且提供更加高级的语言特性。例如元语言特性&amp;mdash;&amp;mdash;通过元语言特  性，你可以重新构建一种语言，或者一个语言特性集。     QoBean最优先的目标是通过JavaScript语言特性来实现精巧的内核，所有的内核模块尽可能没有相互依赖。   为什么叫QoBean&amp;nbsp;？     OH～ 这是项目的代码名，并不见得是将来发布的产品名称。QoBean的意思是Qomo&#x27;s beans。事实上，我" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-91.html" />
+    <meta property="article:published_time" content="2007-12-31T06:53:00.000Z" />
+    <meta property="article:modified_time" content="2007-12-31T06:53:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="文档" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="启动一个最小化Qomo项目－QoBean！">
-    <meta name="twitter:description" content="什么是QoBean&amp;nbsp;？     QoBean是Qomo V2项目中的一个子项目，所以毋庸置疑的，它也是一个开源项目，它的最新版本可以从如下  地址获取：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     QoBean是Qomo V2的一个分支，它的目标是最小化Qomo。首先，它没有打算象Qomo一样通过一个$import  和与$import相关的一个兼容层去支持兼容平台。它处在平台兼容层之后：也就是说，它将来可能使用Qomo的  兼容层，或者让用户自己提供一个兼容层。     QoBean将全面替代Qomo V2中的核心层，并且提供更加高级的语言特性。例如元语言特性&amp;mdash;&amp;mdash;通过元语言特  性，你可以重新构建一种语言，或者一个语言特性集。     QoBean最优先的目标是通过JavaScript语言特性来实现精巧的内核，所有的内核模块尽可能没有相互依赖。   为什么叫QoBean&amp;nbsp;？     OH～ 这是项目的代码名，并不见得是将来发布的产品名称。QoBean的意思是Qomo's beans。事实上，我">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-91.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, 文档">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="启动一个最小化Qomo项目－QoBean！" />
+    <meta name="twitter:description" content="什么是QoBean&amp;nbsp;？     QoBean是Qomo V2项目中的一个子项目，所以毋庸置疑的，它也是一个开源项目，它的最新版本可以从如下  地址获取：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     QoBean是Qomo V2的一个分支，它的目标是最小化Qomo。首先，它没有打算象Qomo一样通过一个$import  和与$import相关的一个兼容层去支持兼容平台。它处在平台兼容层之后：也就是说，它将来可能使用Qomo的  兼容层，或者让用户自己提供一个兼容层。     QoBean将全面替代Qomo V2中的核心层，并且提供更加高级的语言特性。例如元语言特性&amp;mdash;&amp;mdash;通过元语言特  性，你可以重新构建一种语言，或者一个语言特性集。     QoBean最优先的目标是通过JavaScript语言特性来实现精巧的内核，所有的内核模块尽可能没有相互依赖。   为什么叫QoBean&amp;nbsp;？     OH～ 这是项目的代码名，并不见得是将来发布的产品名称。QoBean的意思是Qomo&#x27;s beans。事实上，我" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-91.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 文档" />
     
     <script type="application/ld+json">
 {
@@ -83,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-wen-dang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -101,7 +102,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,8 +112,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/wen-dang/">文档</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/wen-dang/index.html">文档</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,57 +147,57 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>什么是QoBean ？    </p>
+                <p>什么是QoBean&nbsp;？    </p>
 
-<hr>
+<hr />
 
-<p>QoBean是Qomo V2项目中的一个子项目，所以毋庸置疑的，它也是一个开源项目，它的最新版本可以从如下 <br>
-地址获取： <br>
+<p>QoBean是Qomo V2项目中的一个子项目，所以毋庸置疑的，它也是一个开源项目，它的最新版本可以从如下 <br />
+地址获取： <br />
 <a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a>    </p>
 
-<p>QoBean是Qomo V2的一个分支，它的目标是最小化Qomo。首先，它没有打算象Qomo一样通过一个$import <br>
-和与$import相关的一个兼容层去支持兼容平台。它处在平台兼容层之后：也就是说，它将来可能使用Qomo的 <br>
+<p>QoBean是Qomo V2的一个分支，它的目标是最小化Qomo。首先，它没有打算象Qomo一样通过一个$import <br />
+和与$import相关的一个兼容层去支持兼容平台。它处在平台兼容层之后：也就是说，它将来可能使用Qomo的 <br />
 兼容层，或者让用户自己提供一个兼容层。    </p>
 
-<p>QoBean将全面替代Qomo V2中的核心层，并且提供更加高级的语言特性。例如元语言特性——通过元语言特 <br>
+<p>QoBean将全面替代Qomo V2中的核心层，并且提供更加高级的语言特性。例如元语言特性&mdash;&mdash;通过元语言特 <br />
 性，你可以重新构建一种语言，或者一个语言特性集。    </p>
 
 <p>QoBean最优先的目标是通过JavaScript语言特性来实现精巧的内核，所有的内核模块尽可能没有相互依赖。  </p>
 
-<p>为什么叫QoBean ？    </p>
+<p>为什么叫QoBean&nbsp;？    </p>
 
-<hr>
+<hr />
 
-<p>OH～ 这是项目的代码名，并不见得是将来发布的产品名称。QoBean的意思是Qomo's beans。事实上，我 <br>
+<p>OH～ 这是项目的代码名，并不见得是将来发布的产品名称。QoBean的意思是Qomo's beans。事实上，我 <br />
 家的两只小猫，一只就叫white-bean，另一只就叫black-bean，所以QoBean就是QoBean~    </p>
 
-<p>QoBean 的方向是？  </p>
+<p>QoBean&nbsp;的方向是？  </p>
 
-<hr>
+<hr />
 
-<p>QoBean瞄准的方向是Qomo V3，也就是Qomo V2与V3是两个并行的项目，Qomo V2现在的主要目标是组件 <br>
+<p>QoBean瞄准的方向是Qomo V3，也就是Qomo V2与V3是两个并行的项目，Qomo V2现在的主要目标是组件 <br />
 层，QoBean的主要目标是重写框架层。以后，这两个部分会合并起来，作为Qomo V3项目向前发展的。    </p>
 
 <p>我可以成为QoBean的成员吗？    </p>
 
-<hr>
+<hr />
 
-<p>可以。无论你是否是Qomo项目组的成员，或你是否打算继续Qomo V2的开发工作，你都可以申请成为QoBean <br>
-的项目成员。QoBean对程序设计语言特性，以及JavaScript基础要求较高，所以你可能不能直接参与QoBean <br>
-代码的编写，但QoBean有很多工作需要你来做。欢迎你联系Qomo项目组:qomo.team@gmail.com，或我 <br>
+<p>可以。无论你是否是Qomo项目组的成员，或你是否打算继续Qomo V2的开发工作，你都可以申请成为QoBean <br />
+的项目成员。QoBean对程序设计语言特性，以及JavaScript基础要求较高，所以你可能不能直接参与QoBean <br />
+代码的编写，但QoBean有很多工作需要你来做。欢迎你联系Qomo项目组:qomo.team@gmail.com，或我 <br />
 <a href="mailto:aiming@gmail.com">aiming@gmail.com</a>。    </p>
 
 <p>其它    </p>
 
-<hr>
+<hr />
 
-<p>下载QoBean alpha 1 <br>
+<p>下载QoBean alpha 1 <br />
 <a href="http://groups.google.com/group/qomo/web/qomo_bean.a1.rar">http://groups.google.com/group/qomo/web/qomo_bean.a1.rar</a>    </p>
 
-<p>SVN地址： <br>
+<p>SVN地址： <br />
 <a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a>    </p>
 
-<p>技术文档： <br>
+<p>技术文档： <br />
 <a href="http://blog.csdn.net/aimingoo/archive/2007/12/31/2006534.aspx">http://blog.csdn.net/aimingoo/archive/2007/12/31/2006534.aspx</a></p>
             </section>
 <!-- removed by aimingoo
@@ -214,7 +215,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-92.html">
                     QoBean技术文档(1)：QoBean的基础技术
                 </a>
@@ -225,7 +226,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -245,14 +246,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -268,7 +269,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -282,7 +283,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -311,3 +312,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

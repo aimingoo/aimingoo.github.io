@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(四)：基本特性增强与多投事件系统</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomolangma实现篇(四)：基本特性增强与多投事件系统">
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http://aimingoo.github.io/1-36.html">
-    <meta property="article:published_time" content="2006-03-06T19:36:00.000Z">
-    <meta property="article:modified_time" content="2006-03-06T19:36:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="框架">
-    <meta property="article:tag" content="oop">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomolangma实现篇(四)：基本特性增强与多投事件系统" />
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-36.html" />
+    <meta property="article:published_time" content="2006-03-06T19:36:00.000Z" />
+    <meta property="article:modified_time" content="2006-03-06T19:36:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="框架" />
+    <meta property="article:tag" content="oop" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomolangma实现篇(四)：基本特性增强与多投事件系统">
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-36.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 框架, oop">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomolangma实现篇(四)：基本特性增强与多投事件系统" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-36.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 框架, oop" />
     
     <script type="application/ld+json">
 {
@@ -83,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-kuang-jia tag-oop nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -101,7 +102,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,8 +112,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/kuang-jia/">框架</a>, <a href="tag/oop/">oop</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/kuang-jia/index.html">框架</a>, <a href="tag/oop/index.html">oop</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,531 +147,531 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>一、Qomolangma对JS基本特性的增强 <br>
-~~~~~~~~~~~~~~~~<del>  </del></p>
+<p>一、Qomolangma对JS基本特性的增强 <br />
+~~~~~~~~~~~~~~~~<del>  </p>
 
-<p>为了实现更为丰富的OOP特性，Qomo增强了JavaScript的一些基础特性。这主要表现在： <br>
-<font face="Courier New">  - 对JS基本类型系统(的方法)的增强 <br>
-  - 支持多投事件</font>  </p>
+<p>为了实现更为丰富的OOP特性，Qomo增强了JavaScript的一些基础特性。这主要表现在： <br />
+<font face="Courier New">&nbsp; - 对JS基本类型系统(的方法)的增强 <br />
+&nbsp; - 支持多投事件</font>  </p>
 
 <p>这其中，对基本类型系统的增强，将严格恪守一条原则：<strong><font color="#ff0000">不修改Object()对象原型。</font></strong>  </p>
 
-<p>除了array.indexOf()、array.remove()、string.trim() 等常见的增强之外，Qomo有 <br>
-几项特性是与其它可能(可能)不一致的。这几项内容随后列一专题来讲述： <br>
-<font face="Courier New">  - Array.prototype.insert <br>
-  - String.prototype.format <br>
-  - Function.prototype.toString</font>  </p>
+<p>除了array.indexOf()、array.remove()、string.trim() 等常见的增强之外，Qomo有 <br />
+几项特性是与其它可能(可能)不一致的。这几项内容随后列一专题来讲述： <br />
+<font face="Courier New">&nbsp; - Array.prototype.insert <br />
+&nbsp; - String.prototype.format <br />
+&nbsp; - Function.prototype.toString</font>  </p>
 
-<p>此外，因为Qomo以后将提供与Altas相同的、基于vs.net的可视编辑特性，因此一些基 <br>
-本的特性扩展参考或者拷贝了Altas的代码。但这些代码目前只是留在了JSEnhance.js <br>
+<p>此外，因为Qomo以后将提供与Altas相同的、基于vs.net的可视编辑特性，因此一些基 <br />
+本的特性扩展参考或者拷贝了Altas的代码。但这些代码目前只是留在了JSEnhance.js <br />
 中而未被启用。你可以不关注它们。  </p>
 
-<p>在Mozilla系列的浏览器环境中，提供了一个uneval()函数，这个函数用于序列化脚本 <br>
-对象，在今后的开发中很有价值。但它被放在了Compat/common_ie6.js中。这里也只提 <br>
+<p>在Mozilla系列的浏览器环境中，提供了一个uneval()函数，这个函数用于序列化脚本 <br />
+对象，在今后的开发中很有价值。但它被放在了Compat/common_ie6.js中。这里也只提 <br />
 及它，而不分析它的实现。  </p>
 
-<p>二、JSEnhance.js中部分增强特性 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>二、JSEnhance.js中部分增强特性 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>首先，请记住JSEnhance.js最主要的特性是“它可以脱离Qomo framework使用”。这个 <br>
-单元不依赖于Qomo的任何特性。它使用自然的、原始的JavaScript方法来扩展JS特性。 <br>
+<p>首先，请记住JSEnhance.js最主要的特性是&ldquo;它可以脱离Qomo framework使用&rdquo;。这个 <br />
+单元不依赖于Qomo的任何特性。它使用自然的、原始的JavaScript方法来扩展JS特性。 <br />
 因此它可以用于任何的Framework。  </p>
 
-<p>  <strong>Array.prototype.insert</strong> <br>
-    </p>
+<p>&nbsp; <strong>Array.prototype.insert</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中为array.insert()提供了更强大的能力，使得它可以向任意位置插入数组、单 <br>
+<p>&nbsp; Qomo中为array.insert()提供了更强大的能力，使得它可以向任意位置插入数组、单 <br />
 个或多个元素。这与一些其它的框架不同：它们通常只提供插入单个元素的能力。  </p>
 
-<p>  <strong>String.prototype.format</strong> <br>
-    </p>
+<p>&nbsp; <strong>String.prototype.format</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中的string.format()是参考Delphi实现的。因此你会到匹配符是“%s”和“%n”。 <br>
-这里的“s(大小写均可)”用于指代一个被替换元，而“n(0..n)”用于指代第n个替换元。  </p>
+<p>&nbsp; Qomo中的string.format()是参考Delphi实现的。因此你会到匹配符是&ldquo;%s&rdquo;和&ldquo;%n&rdquo;。 <br />
+这里的&ldquo;s(大小写均可)&rdquo;用于指代一个被替换元，而&ldquo;n(0..n)&rdquo;用于指代第n个替换元。  </p>
 
-<p>由于在JS中没有明确的类型，因此没有"%d"之类的匹配符。  </p>
+<p>由于在JS中没有明确的类型，因此没有&quot;%d&quot;之类的匹配符。  </p>
 
 <p>作为习惯，我提供了一个全局的函数：format()。  </p>
 
 <p>关于string.format()的使用，参见DOCUMENTs/TestCase/T_StringFormat.html。  </p>
 
-<p>  <strong>Function.prototype.toString</strong> <br>
-    </p>
+<p>&nbsp; <strong>Function.prototype.toString</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  在JavaScript中，匿名函数(立即值)声明、函数对象构造、函数的标准语法声明等都 <br>
-可以声明一个有效的函数。但这些函数的toString()并不一致。为了解决对函数名的依 <br>
-赖性问题，并使得下面的语法总有确定的含义： <br>
-<font face="Courier New">    function func() { /* ... <em>/ };  <br>
-    foo = eval(func.toString());</em></font> <br>
-Qomo复写了function.toString()。使得它总是返回一个匿名函数的字符串。如(上例)： <br>
-<font face="Courier New">    function () { / ... */ };</font>  </p>
+<p>&nbsp; 在JavaScript中，匿名函数(立即值)声明、函数对象构造、函数的标准语法声明等都 <br />
+可以声明一个有效的函数。但这些函数的toString()并不一致。为了解决对函数名的依 <br />
+赖性问题，并使得下面的语法总有确定的含义： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; function func() { /* ... <em>/ };&nbsp; <br />
+&nbsp;&nbsp;&nbsp; foo = eval(func.toString());</font> <br />
+Qomo复写了function.toString()。使得它总是返回一个匿名函数的字符串。如(上例)： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; function () { /</em> ... */ };</font>  </p>
 
-<p>三、JSEnhance.js中的多投事件系统 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>三、JSEnhance.js中的多投事件系统 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>首先，最重要的一点是：Qomo的多投事件系统对任何框架来说，是“完全透明”的！因 <br>
-此，它可以在其它任何框架中，象一个普通的事件函数(响应句柄)一样地加入被植入。 <br>
-事实上，Qomo的多投事件与Qomo OOP框架完全地脱离开，不利用任何的OOP特性、框架特 <br>
-性。——这种设计思路完整地体现了Qomo的目标与宗旨，以及，我们对OOP的认知。  </p>
+<p>首先，最重要的一点是：Qomo的多投事件系统对任何框架来说，是&ldquo;完全透明&rdquo;的！因 <br />
+此，它可以在其它任何框架中，象一个普通的事件函数(响应句柄)一样地加入被植入。 <br />
+事实上，Qomo的多投事件与Qomo OOP框架完全地脱离开，不利用任何的OOP特性、框架特 <br />
+性。&mdash;&mdash;这种设计思路完整地体现了Qomo的目标与宗旨，以及，我们对OOP的认知。  </p>
 
-<p>下面的代码展示Qomo中的多投事件系统的特性： <br>
-<font face="Courier New">  </font></p>
+<p>下面的代码展示Qomo中的多投事件系统的特性： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>e = new MuEvent();  </p>
+<p>e = new MuEvent();</font>  </p>
 
-<p><font face="Courier New">document.writeln(typeof e, '&lt;BR&gt;'); <br>
-for (i in e) <br>
-  document.writeln(' - ', i, '&lt;BR&gt;'); <br>
+<p><font face="Courier New">document.writeln(typeof e, '&lt;BR&gt;'); <br />
+for (i in e) <br />
+&nbsp; document.writeln(' - ', i, '&lt;BR&gt;'); <br />
 ----------</font>  </p>
 
-<p>输出结果： <br>
-<font face="Courier New">  </font></p>
+<p>输出结果： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function <br>
- - add <br>
- - addMethod <br>
- - clear <br>
- - reset <br>
- - close <br>
-----------  </p>
+<p>function <br />
+&nbsp;- add <br />
+&nbsp;- addMethod <br />
+&nbsp;- clear <br />
+&nbsp;- reset <br />
+&nbsp;- close <br />
+----------</font>  </p>
 
-<p>这表明“多投事件对象，实际上是一个函数”，它提供“add()等五个方法”。  </p>
+<p>这表明&ldquo;多投事件对象，实际上是一个函数&rdquo;，它提供&ldquo;add()等五个方法&rdquo;。  </p>
 
-<p>由于“多投事件对象是函数”，因此下面的代码是成立的： <br>
-<font face="Courier New">  </font></p>
+<p>由于&ldquo;多投事件对象是函数&rdquo;，因此下面的代码是成立的： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>func1 = func2 = function() { /* ... */ };  </p>
+<p>func1 = func2 = function() { /* ... */ };</font>  </p>
 
-<p><font face="Courier New">function MyObject() { <br>
-  this.OnExec = new MuEvent();</font>  </p>
+<p><font face="Courier New">function MyObject() { <br />
+&nbsp; this.OnExec = new MuEvent();</font>  </p>
 
-<p><font face="Courier New">  this.run = function() { <br>
-    // do somethings <br>
-    this.OnExec(); <br>
-  } <br>
+<p><font face="Courier New">&nbsp; this.run = function() { <br />
+&nbsp;&nbsp;&nbsp; // do somethings <br />
+&nbsp;&nbsp;&nbsp; this.OnExec(); <br />
+&nbsp; } <br />
 }</font>  </p>
 
-<p><font face="Courier New">var obj = new MyObject(); <br>
-obj.OnExec.add(func1); <br>
-obj.OnExec.addMethod(window, func2); <br>
-obj.run(); <br>
+<p><font face="Courier New">var obj = new MyObject(); <br />
+obj.OnExec.add(func1); <br />
+obj.OnExec.addMethod(window, func2); <br />
+obj.run(); <br />
 ----------</font>  </p>
 
-<p>这个例子用最简的代码演示了多投事件对象的使用。你看到我们最终仍然要通 <br>
-过某种方式来使OnExec()被执行。只不过它被执行的时候，将同时触发func1和 <br>
+<p>这个例子用最简的代码演示了多投事件对象的使用。你看到我们最终仍然要通 <br />
+过某种方式来使OnExec()被执行。只不过它被执行的时候，将同时触发func1和 <br />
 func2两种行为。  </p>
 
-<p>  <strong>1. add(), addMethod()</strong> <br>
-    </p>
+<p>&nbsp; <strong>1. add(), addMethod()</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  在多投事件对象的方法中，addMethod()第一个不容易理解的东西。但我们需 <br>
-要了解到：使用add()加入的func1，执行期拿到的this对象会是obj本身；而使 <br>
+<p>&nbsp; 在多投事件对象的方法中，addMethod()第一个不容易理解的东西。但我们需 <br />
+要了解到：使用add()加入的func1，执行期拿到的this对象会是obj本身；而使 <br />
 用addMethod()加入的func2，执行期拿到的this对象将是window对象。  </p>
 
 <p>这有什么意义呢？  </p>
 
-<p>例如setTimeout()这样的函数在执行期只允许传入函数，而不能传入对象方法。 <br>
-这就使得定时执行一个对象方法的代码只能这样写： <br>
-<font face="Courier New">  </font></p>
+<p>例如setTimeout()这样的函数在执行期只允许传入函数，而不能传入对象方法。 <br />
+这就使得定时执行一个对象方法的代码只能这样写： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function doTimer() { <br>
-  obj1.call(); <br>
-  obj2.call(); <br>
-} <br>
-setTimeout(doTimer, 1000); <br>
-----------  </p>
-
-<p>在使用MuEvent()的情况下，上面的代码就可以很简单了： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>var e = new MuEvent(); <br>
-e.addMethod(obj1, obj1.call); <br>
-e.addMethod(obj2, obj2.call);  </p>
-
-<p><font face="Courier New">setTimeout(e, 1000); <br>
+<p>function doTimer() { <br />
+&nbsp; obj1.call(); <br />
+&nbsp; obj2.call(); <br />
+} <br />
+setTimeout(doTimer, 1000); <br />
 ----------</font>  </p>
 
-<p>addMethod()在Atlas里被称为addAction()。这两者的含义是一致的。成熟的多 <br>
+<p>在使用MuEvent()的情况下，上面的代码就可以很简单了： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>var e = new MuEvent(); <br />
+e.addMethod(obj1, obj1.call); <br />
+e.addMethod(obj2, obj2.call);</font>  </p>
+
+<p><font face="Courier New">setTimeout(e, 1000); <br />
+----------</font>  </p>
+
+<p>addMethod()在Atlas里被称为addAction()。这两者的含义是一致的。成熟的多 <br />
 投事件系统通常都会提供这种特性。  </p>
 
-<p>  <strong>2. clear()与reset()</strong> <br>
-    </p>
+<p>&nbsp; <strong>2. clear()与reset()</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo提供clear()方法来清除与该多投事件对象绑定的“事件句柄列表”。而 <br>
-reset()则在清除之后再添加一个“事件句柄”。由于MuEvent对象也是函数，因 <br>
-此下面的代码也可以添加一个事件投送列表： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; Qomo提供clear()方法来清除与该多投事件对象绑定的&ldquo;事件句柄列表&rdquo;。而 <br />
+reset()则在清除之后再添加一个&ldquo;事件句柄&rdquo;。由于MuEvent对象也是函数，因 <br />
+此下面的代码也可以添加一个事件投送列表： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var e1 = new MuEvent(); <br>
-var e2 = new MuEvent();  </p>
+<p>var e1 = new MuEvent(); <br />
+var e2 = new MuEvent();</font>  </p>
 
-<p><font face="Courier New">// ... <br>
+<p><font face="Courier New">// ... <br />
 // add somethings to e1</font>  </p>
 
-<p><font face="Courier New">e2.add(func1); <br>
-e2.add(func2); <br>
+<p><font face="Courier New">e2.add(func1); <br />
+e2.add(func2); <br />
 e2.add(func3);</font>  </p>
 
-<p><font face="Courier New">// clear e1, and add a list(e2) <br>
-e1.reset(e2); <br>
+<p><font face="Courier New">// clear e1, and add a list(e2) <br />
+e1.reset(e2); <br />
 ----------</font>  </p>
 
-<p>  <strong>3. close()</strong> <br>
-    </p>
+<p>&nbsp; <strong>3. close()</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo提供一种非常特殊的“关闭多投特性”的机制。——注意这在其它的框架 <br>
+<p>&nbsp; Qomo提供一种非常特殊的&ldquo;关闭多投特性&rdquo;的机制。&mdash;&mdash;注意这在其它的框架 <br />
 上都没有实现。  </p>
 
-<p>Qomo的多投事件对象是一个普通的函数，只不过它多了add()、addMethod()等等 <br>
-方法。如果我们清除掉这些方法，那么该对象的外在表现就与一个普通函数完全 <br>
-无异。这种情况下，一个第三方的框架根本无法识别这个“关闭多投特性的‘多 <br>
-投事件对象’”，而当成一个普通函数处理。  </p>
+<p>Qomo的多投事件对象是一个普通的函数，只不过它多了add()、addMethod()等等 <br />
+方法。如果我们清除掉这些方法，那么该对象的外在表现就与一个普通函数完全 <br />
+无异。这种情况下，一个第三方的框架根本无法识别这个&ldquo;关闭多投特性的&lsquo;多 <br />
+投事件对象&rsquo;&rdquo;，而当成一个普通函数处理。  </p>
 
-<p>因此Qomo的多投特性可以完全透明地嵌入一个第三方框架。甚至象DOM这样的浏览 <br>
-器基础系统。例如下例： <br>
-<font face="Courier New">  </font></p>
+<p>因此Qomo的多投特性可以完全透明地嵌入一个第三方框架。甚至象DOM这样的浏览 <br />
+器基础系统。例如下例： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var loading = new MuEvent();  </p>
+<p>var loading = new MuEvent();</font>  </p>
 
-<p><font face="Courier New">loading.add(loadPicture1); <br>
-loading.add(loadPicture2); <br>
-loading.add(loadPicture3); <br>
-// ... <br>
+<p><font face="Courier New">loading.add(loadPicture1); <br />
+loading.add(loadPicture2); <br />
+loading.add(loadPicture3); <br />
+// ... <br />
 loading.add(loadPicture1000);</font>  </p>
 
-<p><font face="Courier New">loading.close(); <br>
-window.onload = loading; <br>
-----------</font> <br>
+<p><font face="Courier New">loading.close(); <br />
+window.onload = loading; <br />
+----------</font> <br />
 这种情况下，浏览器的DOM框架完全感觉不到loading(作为一个函数)有什么不同。  </p>
 
-<p>Qomo提供的close()特性的作用远不至此。事实上，close()特性真正的价值在于对 <br>
-系统设计层面的考量。例如我们做一个TLabledEdit对象，也就是将一个Lable与一 <br>
-个Edit绑在一起。那么我们发现，我们事实上对Lable.onclick的行为的理解，肯定 <br>
-是“选中Edit并置输入焦点”。这种行为特征在设计之初就被确定了，根本不应该 <br>
-被更改。——当然，如果你的设计就是要更改，那另论。  </p>
+<p>Qomo提供的close()特性的作用远不至此。事实上，close()特性真正的价值在于对 <br />
+系统设计层面的考量。例如我们做一个TLabledEdit对象，也就是将一个Lable与一 <br />
+个Edit绑在一起。那么我们发现，我们事实上对Lable.onclick的行为的理解，肯定 <br />
+是&ldquo;选中Edit并置输入焦点&rdquo;。这种行为特征在设计之初就被确定了，根本不应该 <br />
+被更改。&mdash;&mdash;当然，如果你的设计就是要更改，那另论。  </p>
 
-<p>而原始的TLable的设计中，TLable.onclick是一个公开的方法，并且是多投事件。 <br>
-那么即使我们写下下面的代码： <br>
-<font face="Courier New">  </font></p>
+<p>而原始的TLable的设计中，TLable.onclick是一个公开的方法，并且是多投事件。 <br />
+那么即使我们写下下面的代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>FLabled.onclick.addMethod(FEdit, FEdit.onclick); <br>
----------- <br>
+<p>FLabled.onclick.addMethod(FEdit, FEdit.onclick); <br />
+----------</font> <br />
 在其后的、用户的代码中仍然可以改变FLabled.onclick的行为。例如add/clear()。  </p>
 
-<p>这显然是这个TLabledEdit组件的原始设计者所不希望的。因此，在提供了close() <br>
-特性的情况下，它就可以在上面的代码中这样写： <br>
-<font face="Courier New">  </font></p>
+<p>这显然是这个TLabledEdit组件的原始设计者所不希望的。因此，在提供了close() <br />
+特性的情况下，它就可以在上面的代码中这样写： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 当创建结束调用 <br>
-this.DoCreate = function() { <br>
-  FLabled.onclick.addMethod(FEdit, FEdit.onclick); <br>
-  FLabled.onclick.close(); <br>
-} <br>
----------- <br>
-这样就可以保证onclick()的特性不被变更。而且，如果FEdit.onclick被变量(例 <br>
+<p>// 当创建结束调用 <br />
+this.DoCreate = function() { <br />
+&nbsp; FLabled.onclick.addMethod(FEdit, FEdit.onclick); <br />
+&nbsp; FLabled.onclick.close(); <br />
+} <br />
+----------</font> <br />
+这样就可以保证onclick()的特性不被变更。而且，如果FEdit.onclick被变量(例 <br />
 如add/reset)，FLabled.onclick可以正常地感知到。  </p>
 
-<p> <em>* 4. 为什么不提供del()</em>* <br>
-    </p>
+<p>&nbsp;<em>* 4. 为什么不提供del()</em>* <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo的多投事件不提供del()特性。基于两个原因： <br>
-    - del()可能导致事件的激活顺序被破坏 <br>
-    - del()需要执有内部“事件句柄列表”中的事件方法的引用，这破坏了封装性  </p>
+<p>&nbsp; Qomo的多投事件不提供del()特性。基于两个原因： <br />
+&nbsp;&nbsp;&nbsp; - del()可能导致事件的激活顺序被破坏 <br />
+&nbsp;&nbsp;&nbsp; - del()需要执有内部&ldquo;事件句柄列表&rdquo;中的事件方法的引用，这破坏了封装性  </p>
 
-<p>因此，(在目前的版本中，)作为一项框架设计层面上的考量，Qomo不提供del()。但 <br>
-是，由于atlas的多投事件有del()方法，因此在将来实现嵌入vs.net的代码时，Qomo <br>
+<p>因此，(在目前的版本中，)作为一项框架设计层面上的考量，Qomo不提供del()。但 <br />
+是，由于atlas的多投事件有del()方法，因此在将来实现嵌入vs.net的代码时，Qomo <br />
 是可能会提供del()方法的。  </p>
 
-<p>四、多投事件系统的实现分析 <br>
-~~~~~~~~~~~~~~~~  </p>
+<p>四、多投事件系统的实现分析 <br />
+</del>~~~~~~~~~~~~~~~~  </p>
 
-<p>  <strong>1. 基本的多投事件系统</strong> <br>
-    </p>
+<p>&nbsp; <strong>1. 基本的多投事件系统</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  最基本的多投事件系统实现方法是这样： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; 最基本的多投事件系统实现方法是这样： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MuEvent() { <br>
-  // this is a new obj instance <br>
-  var all = this; <br>
-  all.length = 0;  </p>
+<p>function MuEvent() { <br />
+&nbsp; // this is a new obj instance <br />
+&nbsp; var all = this; <br />
+&nbsp; all.length = 0;</font>  </p>
 
-<p><font face="Courier New">  function add(foo) { /* ... <em>/ } <br>
-  function addMethod(obj, foo) { /</em> ... <em>/ } <br>
-  function clear() { /</em> ... <em>/ } <br>
-  function reset(foo) { /</em> ... <em>/ } <br>
-  function run() { /</em> ... */ }</font>  </p>
+<p><font face="Courier New">&nbsp; function add(foo) { /* ... <em>/ } <br />
+&nbsp; function addMethod(obj, foo) { /</em> ... <em>/ } <br />
+&nbsp; function clear() { /</em> ... <em>/ } <br />
+&nbsp; function reset(foo) { /</em> ... <em>/ } <br />
+&nbsp; function run() { /</em> ... */ }</font>  </p>
 
-<p><font face="Courier New">  var e = function() { return run.call(this, arguments) } <br>
-  e.add = add; <br>
-  e.addMethod = addMethod; <br>
-  e.clear = clear; <br>
-  e.reset = reset;</font>  </p>
+<p><font face="Courier New">&nbsp; var e = function() { return run.call(this, arguments) } <br />
+&nbsp; e.add = add; <br />
+&nbsp; e.addMethod = addMethod; <br />
+&nbsp; e.clear = clear; <br />
+&nbsp; e.reset = reset;</font>  </p>
 
-<p><font face="Courier New">  return e; <br>
-} <br>
+<p><font face="Courier New">&nbsp; return e; <br />
+} <br />
 ----------</font>  </p>
 
-<p>这样实现的看起来很简单、自然。而且由new()关键字构造的对象实例this已经被 <br>
-内部变量all执有了一个引用，用以建立事件列表。避免了不必要的开销。看起来 <br>
-是不错的。——自然close()方法的实现也很容易，不成问题。  </p>
+<p>这样实现的看起来很简单、自然。而且由new()关键字构造的对象实例this已经被 <br />
+内部变量all执有了一个引用，用以建立事件列表。避免了不必要的开销。看起来 <br />
+是不错的。&mdash;&mdash;自然close()方法的实现也很容易，不成问题。  </p>
 
-<p>但是这种情况下，我们对比多个事件对象，会发现一个不可接受的事实： <br>
-<font face="Courier New">  </font></p>
+<p>但是这种情况下，我们对比多个事件对象，会发现一个不可接受的事实： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var e1 = new MuEvent(); <br>
-var e2 = new MuEvent();  </p>
+<p>var e1 = new MuEvent(); <br />
+var e2 = new MuEvent();</font>  </p>
 
-<p><font face="Courier New">alert(e1.add <mark>= e2.add) <br>
-----------</mark></font> <br>
-你会发现结果是false，也就是说：有多少个事件对象，就会有多少个add、clear <br>
+<p><font face="Courier New">alert(e1.add <mark>= e2.add) <br />
+----------</font> <br />
+你会发现结果是false，也就是说：有多少个事件对象，就会有多少个add、clear <br />
 方法。其开销极其巨大：n * 5。  </p>
 
-<p>  <strong>2. Qomo中多投事件系统的实现基础</strong> <br>
-    </p>
+<p>&nbsp; <strong>2. Qomo中多投事件系统的实现基础</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  在Qomo里，这一切被巧妙地避免了。我为每一个事件对象建立了一个handle。它 <br>
-是一个索引。 <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; 在Qomo里，这一切被巧妙地避免了。我为每一个事件对象建立了一个handle。它 <br />
+是一个索引。 <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  function _MuEvent() { <br>
-    // get a handle and init MuEvent Object <br>
-    var handle = all.length++;  </p>
+<p>&nbsp; function _MuEvent() { <br />
+&nbsp;&nbsp;&nbsp; // get a handle and init MuEvent Object <br />
+&nbsp;&nbsp;&nbsp; var handle = all.length++;</font>  </p>
 
-<p><font face="Courier New">    //... <br>
-----------</font> <br>
-为了让add()等方法成为“唯一实例”，我将它放在了_MuEvent()之外来实现。但 <br>
-这种情况下，对象执有的handle对add()方法就是不可见的了。因此我们还需要一 <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; //... <br />
+----------</font> <br />
+为了让add()等方法成为&ldquo;唯一实例&rdquo;，我将它放在了_MuEvent()之外来实现。但 <br />
+这种情况下，对象执有的handle对add()方法就是不可见的了。因此我们还需要一 <br />
 种机制，来使对象可以向add()等方法暴露handle。这里，我们选用了valueOf()。  </p>
 
-<p>对于函数(多投事件对象)ME来说，它的valueOf()的结果指向自身：ME。在大多数 <br>
-的情况下，这是没有意义的。因此我们这样来实现valueOf(): <br>
-<font face="Courier New">  </font></p>
+<p>对于函数(多投事件对象)ME来说，它的valueOf()的结果指向自身：ME。在大多数 <br />
+的情况下，这是没有意义的。因此我们这样来实现valueOf(): <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>ME.valueOf = function() { <br>
- return handle <br>
-}; <br>
-----------  </p>
-
-<p>而在add()中，我们这样来使用valueOf()： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>var all2 = []; // all ME() object for recheck.  </p>
-
-<p><font face="Courier New">function add(foo) { <br>
-  var i=this.valueOf(), e=all[i]; <br>
-  if (e &amp;&amp; eall2[i]) { <br>
-    // add... <br>
-  } <br>
-} <br>
+<p>ME.valueOf = function() { <br />
+&nbsp;return handle <br />
+}; <br />
 ----------</font>  </p>
 
-<p>由于我们使用了第二个数组all2来复核，因此可以避免用户使用这样的代码来套 <br>
-取、破坏多投事件列表： <br>
-<font face="Courier New">  </font></p>
+<p>而在add()中，我们这样来使用valueOf()： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// if e1's handle is 10, and hide into a Object/System <br>
-var e1 = new MuEvent();    </p>
+<p>var all2 = []; // all ME() object for recheck.</font>  </p>
 
-<p><font face="Courier New">// 套取用的函数 <br>
+<p><font face="Courier New">function add(foo) { <br />
+&nbsp; var i=this.valueOf(), e=all[i]; <br />
+&nbsp; if (e &amp;&amp; e</mark>all2[i]) { <br />
+&nbsp;&nbsp;&nbsp; // add... <br />
+&nbsp; } <br />
+} <br />
+----------</font>  </p>
+
+<p>由于我们使用了第二个数组all2来复核，因此可以避免用户使用这样的代码来套 <br />
+取、破坏多投事件列表： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>// if e1's handle is 10, and hide into a Object/System <br />
+var e1 = new MuEvent();&nbsp; </font>  </p>
+
+<p><font face="Courier New">// 套取用的函数 <br />
 f = function(){};</font>  </p>
 
-<p><font face="Courier New">// 指定欲套取的句柄 <br>
+<p><font face="Courier New">// 指定欲套取的句柄 <br />
 f.valueOf = function() { return 10 }</font>  </p>
 
-<p><font face="Courier New">// 重置(注意所有的多投事件对象的方法是相同的) <br>
+<p><font face="Courier New">// 重置(注意所有的多投事件对象的方法是相同的) <br />
 f.clear = (new MuEvent()).clear;</font>  </p>
 
-<p><font face="Courier New">// 破解e1的事件列表(利用valueOf()返回10的特性) <br>
-f.clear(); <br>
+<p><font face="Courier New">// 破解e1的事件列表(利用valueOf()返回10的特性) <br />
+f.clear(); <br />
 ----------</font>  </p>
 
 <p>所以这样来看，加入数组all2[]来复核是必须的。  </p>
 
-<p> <em>* 3. “强壮”与“快”是两难的</em>* <br>
-    </p>
+<p>&nbsp;<em>* 3. &ldquo;强壮&rdquo;与&ldquo;快&rdquo;是两难的</em>* <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  但接下来，我们也发现这个“多投事件系统”是不“强壮”的。为什么呢？因为 <br>
-valueOf()仍然可以被外部代码改写。——这将导致依赖它来获取handle的add() <br>
-等方法失效。事实上，由于我们重定义了valueOf()的含义，也使得Qomo与一些第 <br>
+<p>&nbsp; 但接下来，我们也发现这个&ldquo;多投事件系统&rdquo;是不&ldquo;强壮&rdquo;的。为什么呢？因为 <br />
+valueOf()仍然可以被外部代码改写。&mdash;&mdash;这将导致依赖它来获取handle的add() <br />
+等方法失效。事实上，由于我们重定义了valueOf()的含义，也使得Qomo与一些第 <br />
 三方的框架、系统中可能出现不兼容。  </p>
 
-<p>Qomo应当是一个强壮的系统。由于valueOf()的存在，影响了强壮性，也使“透明” <br>
+<p>Qomo应当是一个强壮的系统。由于valueOf()的存在，影响了强壮性，也使&ldquo;透明&rdquo; <br />
 成为空话。  </p>
 
-<p>我们回到前面这个all2[]。事实上，由于复核的必要，我们已经存放了一份所有对 <br>
-象的列表。因此，不通过handle来查找ME和事件列表对象，是可能的： <br>
-<font face="Courier New">  </font></p>
+<p>我们回到前面这个all2[]。事实上，由于复核的必要，我们已经存放了一份所有对 <br />
+象的列表。因此，不通过handle来查找ME和事件列表对象，是可能的： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function add(foo) { <br>
-  var e = all.search(this); <br>
-  if (e) { <br>
-     // ... <br>
-  } <br>
-} <br>
----------- <br>
-在这个代码中，我们需要在all.search()其实被设计成一个算法，用于在all2[]中 <br>
-查找this对象(也就是ME()函数)。而search()返回的，则是“使用all2[]中this对象 <br>
-的索引”，在all[]中查找到的“投送事件列表”。——这个索引其实就是handle。  </p>
+<p>function add(foo) { <br />
+&nbsp; var e = all.search(this); <br />
+&nbsp; if (e) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; } <br />
+} <br />
+----------</font> <br />
+在这个代码中，我们需要在all.search()其实被设计成一个算法，用于在all2[]中 <br />
+查找this对象(也就是ME()函数)。而search()返回的，则是&ldquo;使用all2[]中this对象 <br />
+的索引&rdquo;，在all[]中查找到的&ldquo;投送事件列表&rdquo;。&mdash;&mdash;这个索引其实就是handle。  </p>
 
-<p>这样，就不需要重写ME().valueOf()来公布handle了。但是，由于每次add()等操作 <br>
-都将查找all2[]，使得系统会相对慢一些。——简单的说：强壮了，但慢了。  </p>
+<p>这样，就不需要重写ME().valueOf()来公布handle了。但是，由于每次add()等操作 <br />
+都将查找all2[]，使得系统会相对慢一些。&mdash;&mdash;简单的说：强壮了，但慢了。  </p>
 
-<p>所以整个MuEvent的实现代码是这样： <br>
-<font face="Courier New">  </font></p>
+<p>所以整个MuEvent的实现代码是这样： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var MuEvent = function (fast) {  </p>
+<p>var MuEvent = function (fast) {</font>  </p>
 
-<p><font face="Courier New">  var all = { <br>
-    length : 0, <br>
-    strong : !fast, // ^.^ <br>
-    // ... <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; var all = { <br />
+&nbsp;&nbsp;&nbsp; length : 0, <br />
+&nbsp;&nbsp;&nbsp; strong : !fast, // ^.^ <br />
+&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  return _MuEvent; <br>
-}(true); <br>
+<p><font face="Courier New">&nbsp; return _MuEvent; <br />
+}(true); <br />
 ----------</font>  </p>
 
 <p>简单地说，上面的一行代码真实的反映了：强壮就不快，快就不强壮。  </p>
 
-<p>  <strong>4. 真的不快吗？</strong> <br>
-    </p>
+<p>&nbsp; <strong>4. 真的不快吗？</strong> <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  简单地分析一下我们在使用事件系统时候的一些特点，我们会发现： <br>
-<font face="Courier New">    - 事实上通常我们会成批地添加一个事件，或者一个对象的一组事件 <br>
-    - 事实上相关的对象、事件总是被“在临近时间上”被处理的</font>  </p>
+<p>&nbsp; 简单地分析一下我们在使用事件系统时候的一些特点，我们会发现： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; - 事实上通常我们会成批地添加一个事件，或者一个对象的一组事件 <br />
+&nbsp;&nbsp;&nbsp; - 事实上相关的对象、事件总是被&ldquo;在临近时间上&rdquo;被处理的</font>  </p>
 
-<p>例如我们通常会在对象初始化的时候写这样的代码： <br>
-<font face="Courier New">  </font></p>
+<p>例如我们通常会在对象初始化的时候写这样的代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>obj.onclick.add(foo1); <br>
-obj.onclick.add(foo2); <br>
-obj.onmouseout.add(foo3); <br>
-----------  </p>
-
-<p>而在多投事件体系中，同一对象的OnXXXXX事件通常是连续被创建的，而且刚刚完成 <br>
-创建的事件对象可能会被赋以一些初值。简单的讲，这些使用习惯表现为： <br>
-<font face="Courier New">    - 最近创建的事件总是可能会被很快操作到 <br>
-    - 最近操作的事件附近的(同一对象的)事件总是可能会被很快操作到</font>  </p>
-
-<p>基于这两个原理。Qomo设计了一个在all2[]中查找事件对象的方法：总是从上一次 <br>
-添加或查找到的事件对象的附近，开始前向、后向检索。具体的算法参见all.search().  </p>
-
-<p>加入检索算法使得add等行为的速度大大的加快。当然，这是基于开发人员的代码行 <br>
-为分析的，而真正的“在数组中检索对象”的方法的效率并没有办法提高。这是JS自 <br>
-身无可回避的问题。  </p>
-
-<p>但是，如果引用hash或者使用对象属性名来检测，则必然要给ME()对象一个“可在外 <br>
-部访问的key/name值”。这又回到了前面提供handle的“fast方法”同样的问题上。 <br>
-因此这样的问题，是不必要再讨论的。  </p>
-
-<p>Qomo的JSEnhance.js中，默认采用"fast = false"的配置，以提供一套强壮的系统。但 <br>
-如果你确信你的系统是封闭的、不会导致第三方的框架的影响的，那么你可以在JSEnhance <br>
-中开启下面这个开关： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>var MuEvent = function (fast) { <br>
-  // ...  </p>
-
-<p><font face="Courier New">  return _MuEvent; <br>
-}(false);     // &lt;-- here, set to true <br>
+<p>obj.onclick.add(foo1); <br />
+obj.onclick.add(foo2); <br />
+obj.onmouseout.add(foo3); <br />
 ----------</font>  </p>
 
-<p>最后，最重要的一点提示，是Qomo在这个多投事件系统上的效率牺牲，只会表现在add <br>
-等方法的调用上。并不会对ME()事件的执行构成任何的影响。因为在代码上： <br>
-<font face="Courier New">  </font></p>
+<p>而在多投事件体系中，同一对象的OnXXXXX事件通常是连续被创建的，而且刚刚完成 <br />
+创建的事件对象可能会被赋以一些初值。简单的讲，这些使用习惯表现为： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; - 最近创建的事件总是可能会被很快操作到 <br />
+&nbsp;&nbsp;&nbsp; - 最近操作的事件附近的(同一对象的)事件总是可能会被很快操作到</font>  </p>
 
-<hr>
+<p>基于这两个原理。Qomo设计了一个在all2[]中查找事件对象的方法：总是从上一次 <br />
+添加或查找到的事件对象的附近，开始前向、后向检索。具体的算法参见all.search().  </p>
 
-<p>function _MuEvent() { <br>
-  // get a handle and init MuEvent Object <br>
-  var handle = all.last = all.length++;  </p>
+<p>加入检索算法使得add等行为的速度大大的加快。当然，这是基于开发人员的代码行 <br />
+为分析的，而真正的&ldquo;在数组中检索对象&rdquo;的方法的效率并没有办法提高。这是JS自 <br />
+身无可回避的问题。  </p>
 
-<p><font face="Courier New">  var ME = function() { <br>
-    if (all[handle].length &gt; 0)  // &lt;--- 直接使用handle <br>
-      return run.call(this, handle, arguments) <br>
-  }</font>  </p>
+<p>但是，如果引用hash或者使用对象属性名来检测，则必然要给ME()对象一个&ldquo;可在外 <br />
+部访问的key/name值&rdquo;。这又回到了前面提供handle的&ldquo;fast方法&rdquo;同样的问题上。 <br />
+因此这样的问题，是不必要再讨论的。  </p>
 
-<p><font face="Courier New">  //... <br>
-} <br>
-----------</font> <br>
-由于ME()的执行可以直接使用内部的handle变量，根本就不会调用all.search()。因此 <br>
-Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的性能开销。“执行 <br>
-投送事件”时，是性能最优化的。</p>
+<p>Qomo的JSEnhance.js中，默认采用&quot;fast = false&quot;的配置，以提供一套强壮的系统。但 <br />
+如果你确信你的系统是封闭的、不会导致第三方的框架的影响的，那么你可以在JSEnhance <br />
+中开启下面这个开关： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>var MuEvent = function (fast) { <br />
+&nbsp; // ...</font>  </p>
+
+<p><font face="Courier New">&nbsp; return _MuEvent; <br />
+}(false);&nbsp;&nbsp;&nbsp;&nbsp; // &lt;-- here, set to true <br />
+----------</font>  </p>
+
+<p>最后，最重要的一点提示，是Qomo在这个多投事件系统上的效率牺牲，只会表现在add <br />
+等方法的调用上。并不会对ME()事件的执行构成任何的影响。因为在代码上： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>function _MuEvent() { <br />
+&nbsp; // get a handle and init MuEvent Object <br />
+&nbsp; var handle = all.last = all.length++;</font>  </p>
+
+<p><font face="Courier New">&nbsp; var ME = function() { <br />
+&nbsp;&nbsp;&nbsp; if (all[handle].length &gt; 0)&nbsp; // &lt;--- 直接使用handle <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return run.call(this, handle, arguments) <br />
+&nbsp; }</font>  </p>
+
+<p><font face="Courier New">&nbsp; //... <br />
+} <br />
+----------</font> <br />
+由于ME()的执行可以直接使用内部的handle变量，根本就不会调用all.search()。因此 <br />
+Qomo只是在&ldquo;维护事件投送列表(add/reset等)&rdquo;时有一些search()的性能开销。&ldquo;执行 <br />
+投送事件&rdquo;时，是性能最优化的。</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -687,7 +688,7 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-215.html">
                     关于：程序员要不要了解内核技术？
                 </a>
@@ -698,7 +699,7 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -718,14 +719,14 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -741,7 +742,7 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -755,7 +756,7 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -784,3 +785,4 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>JavaScript面向对象的支持(1)</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="JavaScript面向对象的支持(1)">
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http://aimingoo.github.io/1-18.html">
-    <meta property="article:published_time" content="2006-01-08T18:18:00.000Z">
-    <meta property="article:modified_time" content="2006-01-08T18:18:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="delphi">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaScript面向对象的支持(1)" />
+    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-18.html" />
+    <meta property="article:published_time" content="2006-01-08T18:18:00.000Z" />
+    <meta property="article:modified_time" content="2006-01-08T18:18:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="delphi" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="JavaScript面向对象的支持(1)">
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-18.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, delphi">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="JavaScript面向对象的支持(1)" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-18.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, delphi" />
     
     <script type="application/ld+json">
 {
@@ -83,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-delphi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -101,7 +102,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,8 +112,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/delphi/">delphi</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/delphi/index.html">delphi</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,441 +147,441 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v0.9  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>八、JavaScript面向对象的支持 <br>
-~~~~~~~~~~~~~~~~~~ <br>
-很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这 <br>
+<p>八、JavaScript面向对象的支持 <br />
+~~~~~~~~~~~~~~~~~~ <br />
+很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这 <br />
 个语言最少为人知的一面。  </p>
 
 <ol>
 <li>JavaScript中的类型  </li>
 </ol>
 
-<hr>
+<hr />
 
-<p>虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS <br>
-是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函 <br>
-数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在 <br>
-后文中“构造与析构”部分看到更进一步的说明。  </p>
+<p>虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS <br />
+是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函 <br />
+数的各种特性，而且也因为在JS中，Object也是由函数来实现的。&mdash;&mdash;关于这一点，可以在 <br />
+后文中&ldquo;构造与析构&rdquo;部分看到更进一步的说明。  </p>
 
-<p>JS中是弱类型的，他的内置类型简单而且清晰： <br>
-<font face="Courier New">  </font></p>
+<p>JS中是弱类型的，他的内置类型简单而且清晰： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>undefined : 未定义 <br>
-number    : 数字 <br>
-boolean   : 布尔值 <br>
-string    : 字符串 <br>
-function  : 函数 <br>
-object    : 对象 <br>
-  </p>
+<p>undefined : 未定义 <br />
+number&nbsp;&nbsp;&nbsp; : 数字 <br />
+boolean&nbsp;&nbsp; : 布尔值 <br />
+string&nbsp;&nbsp;&nbsp; : 字符串 <br />
+function&nbsp; : 函数 <br />
+object&nbsp;&nbsp;&nbsp; : 对象 <br />
+</font>  </p>
 
-<p> 1). undefined类型    </p>
+<p>&nbsp;1). undefined类型    </p>
 
-<hr>
+<hr />
 
-<p>在IE5及以下版本中，除了直接赋值和typeof()之外，其它任何对undefined的操作都将导致 <br>
-异常。如果需要知道一个变量是否是undefined，只能采用typeof()的方法： <br>
-<font face="Courier New">&lt;script&gt; <br>
-var v; <br>
-if (typeof(v) <mark> 'undefined') { <br>
-  // ... <br>
-} <br>
-&lt;/script&gt;</mark></font>  </p>
-
-<p>但是在IE5.5及以上版本中，undefined是一个已实现的系统保留字。因此可以用undefined来 <br>
-比较和运算。检测一个值是否是undefined的更简单方法可以是： <br>
-<font face="Courier New">&lt;script&gt; <br>
-var v; <br>
-if (v = undefined) { <br>
-  // ... <br>
-} <br>
+<p>在IE5及以下版本中，除了直接赋值和typeof()之外，其它任何对undefined的操作都将导致 <br />
+异常。如果需要知道一个变量是否是undefined，只能采用typeof()的方法： <br />
+<font face="Courier New">&lt;script&gt; <br />
+var v; <br />
+if (typeof(v) <mark> 'undefined') { <br />
+&nbsp; // ... <br />
+} <br />
 &lt;/script&gt;</font>  </p>
 
-<p>因此为了使得核心代码能(部分地)兼容IE5及早期版本，Romo核心单元中有一行代码用来 <br>
-“声明”一个undefined值： <br>
-<font face="Courier New">//  </font></p>
+<p>但是在IE5.5及以上版本中，undefined是一个已实现的系统保留字。因此可以用undefined来 <br />
+比较和运算。检测一个值是否是undefined的更简单方法可以是： <br />
+<font face="Courier New">&lt;script&gt; <br />
+var v; <br />
+if (v </mark>= undefined) { <br />
+&nbsp; // ... <br />
+} <br />
+&lt;/script&gt;</font>  </p>
 
-<hr>
+<p>因此为了使得核心代码能(部分地)兼容IE5及早期版本，Romo核心单元中有一行代码用来 <br />
+&ldquo;声明&rdquo;一个undefined值： <br />
+<font face="Courier New">//  </p>
 
-<p>// code from <font face="Arial">Qomolangma</font>, in JSEnhance.js <br>
+<hr />
+
+<p>// code from <font face="Arial">Qomolangma</font>, in JSEnhance.js <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var undefined = void null;  </p>
+<p>var undefined = void null;</font>  </p>
 
-<p><font face="Courier New">这一行代码还有一点是需要说明的，就</font>是void语句的应用。void表明“执行其后的语句，且 <br>
-忽略返回值”。因此在void之后可以出现能被执行的任何“单个”语句。而执行的结果就是 <br>
-undefined。当然，如果你愿意，你也可以用下面的代码之一“定义undefined”。 <br>
-<font face="Courier New">//  </font></p>
+<p><font face="Courier New">这一行代码还有一点是需要说明的，就</font>是void语句的应用。void表明&ldquo;执行其后的语句，且 <br />
+忽略返回值&rdquo;。因此在void之后可以出现能被执行的任何&ldquo;单个&rdquo;语句。而执行的结果就是 <br />
+undefined。当然，如果你愿意，你也可以用下面的代码之一&ldquo;定义undefined&rdquo;。 <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// 1. 较复杂的方法，利用一个匿名的空函数执行的返回 <br>
+<p>// 1. 较复杂的方法，利用一个匿名的空函数执行的返回 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var undefined = function(){}();  </p>
+<p>var undefined = function(){}();</font>  </p>
 
-<p><font face="Courier New">//  </font></p>
+<p><font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// 2. 代码更简洁，但不易懂的方法 <br>
+<p>// 2. 代码更简洁，但不易懂的方法 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var undefined = void 0;  </p>
+<p>var undefined = void 0;</font>  </p>
 
-<p>void也能像函数一样使用，因此void(0)也是合法的。有些时候，一些复杂的语句可能不能 <br>
-使用void的关键字形式，而必须要使用void的函数形式。例如： <br>
-<font face="Courier New">//  </font></p>
+<p>void也能像函数一样使用，因此void(0)也是合法的。有些时候，一些复杂的语句可能不能 <br />
+使用void的关键字形式，而必须要使用void的函数形式。例如： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// 必须使用void()形式的复杂表达式 <br>
+<p>// 必须使用void()形式的复杂表达式 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>void(i=1);       // 或如下语句: <br>
-void(i=1, i++);  </p>
+<p>void(i=1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 或如下语句: <br />
+void(i=1, i++);</font>  </p>
 
-<p> 2). number类型    </p>
+<p>&nbsp;2). number类型    </p>
 
-<hr>
+<hr />
 
-<p>JavaScript中总是处理浮点数，因此它没有象Delphi中的MaxInt这样的常量，反而是有这 <br>
-样两个常值定义： <br>
-  Number.MAX<em>VALUE  : 返回 JScript 能表达的最大的数。约等于 1.79E+308。 <br>
-  Number.MIN</em>VALUE  : 返回 JScript 最接近0的数。约等于 2.22E-308。  </p>
+<p>JavaScript中总是处理浮点数，因此它没有象Delphi中的MaxInt这样的常量，反而是有这 <br />
+样两个常值定义： <br />
+&nbsp; Number.MAX<em>VALUE&nbsp; : 返回 JScript 能表达的最大的数。约等于 1.79E+308。 <br />
+&nbsp; Number.MIN</em>VALUE&nbsp; : 返回 JScript 最接近0的数。约等于 2.22E-308。  </p>
 
-<p>因为没有整型的缘故，因此在一些关于CSS和DOM属性的运算中，如果你期望取值为整数2， <br>
-你可能会得到字符串“2.0”——或者类似于此的一些情况。这种情况下，你可能需要用 <br>
+<p>因为没有整型的缘故，因此在一些关于CSS和DOM属性的运算中，如果你期望取值为整数2， <br />
+你可能会得到字符串&ldquo;2.0&rdquo;&mdash;&mdash;或者类似于此的一些情况。这种情况下，你可能需要用 <br />
 到全局对象(Gobal)的parseInt()方法。  </p>
 
-<p>全局对象(Gobal)中还有两个属性与number类型的运算有关： <br>
-  NaN      : 算术表达式的运算结果不是数字，则返回NaN值。 <br>
-  Infinity : 比MAX_VALUE更大的数。  </p>
+<p>全局对象(Gobal)中还有两个属性与number类型的运算有关： <br />
+&nbsp; NaN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 算术表达式的运算结果不是数字，则返回NaN值。 <br />
+&nbsp; Infinity : 比MAX_VALUE更大的数。  </p>
 
-<p>如果一个值是NaN，那么他可以通过全局对象(Gobal)的isNaN()方法来检测。然而两个NaN <br>
-值之间不是互等的。如下例： <br>
-<font face="Courier New">//  </font></p>
+<p>如果一个值是NaN，那么他可以通过全局对象(Gobal)的isNaN()方法来检测。然而两个NaN <br />
+值之间不是互等的。如下例： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// NaN的运算与检测 <br>
+<p>// NaN的运算与检测 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var <br>
-  v1 = 10 * 'a'; <br>
-  v2 = 10 * 'a'; <br>
-document.writeln(isNaN(v1)); <br>
-document.writeln(isNaN(v2)); <br>
-document.writeln(v1 <mark> v2);  </mark></p>
+<p>var <br />
+&nbsp; v1 = 10 * 'a'; <br />
+&nbsp; v2 = 10 * 'a'; <br />
+document.writeln(isNaN(v1)); <br />
+document.writeln(isNaN(v2)); <br />
+document.writeln(v1 <mark> v2);</font>  </p>
 
-<p>全局对象(Gobal)的Infinity表示比最大的数 (Number.MAX_VALUE) 更大的值。在JS中， <br>
-它在数学运算时的价值与正无穷是一样的。——在一些实用技巧中，它也可以用来做一 <br>
+<p>全局对象(Gobal)的Infinity表示比最大的数 (Number.MAX_VALUE) 更大的值。在JS中， <br />
+它在数学运算时的价值与正无穷是一样的。&mdash;&mdash;在一些实用技巧中，它也可以用来做一 <br />
 个数组序列的边界检测。  </p>
 
-<p>Infinity在Number对象中被定义为POSITIVE<em>INFINITY。此外，负无穷也在Number中被定 <br>
-义： <br>
-  Number.POSITIVE</em>INFINITY  : 比最大正数（Number.MAX<em>VALUE）更大的值。正无穷。 <br>
-  Number.NEGATIVE</em>INFINITY  : 比最小负数（-Number.MAX_VALUE）更小的值。负无穷。  </p>
+<p>Infinity在Number对象中被定义为POSITIVE<em>INFINITY。此外，负无穷也在Number中被定 <br />
+义： <br />
+&nbsp; Number.POSITIVE</em>INFINITY&nbsp; : 比最大正数（Number.MAX<em>VALUE）更大的值。正无穷。 <br />
+&nbsp; Number.NEGATIVE</em>INFINITY&nbsp; : 比最小负数（-Number.MAX_VALUE）更小的值。负无穷。  </p>
 
-<p>与NaN不同的是，两个Infinity(或-Infinity)之间是互等的。如下例： <br>
-<font face="Courier New">//  </font></p>
+<p>与NaN不同的是，两个Infinity(或-Infinity)之间是互等的。如下例： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// Infinity的运算与检测 <br>
+<p>// Infinity的运算与检测 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var <br>
-  v1 = Number.MAX<em>VALUE * 2; <br>
-  v2 = Number.MAX</em>VALUE * 3; <br>
-document.writeln(v1); <br>
-document.writeln(v2); <br>
-document.writeln(v1  v2);  </p>
+<p>var <br />
+&nbsp; v1 = Number.MAX<em>VALUE * 2; <br />
+&nbsp; v2 = Number.MAX</em>VALUE * 3; <br />
+document.writeln(v1); <br />
+document.writeln(v2); <br />
+document.writeln(v1 </mark> v2);</font>  </p>
 
-<p>在Global中其它与number类型相关的方法有： <br>
- isFinite()   : 如果值是NaN/正无穷/负无穷，返回false，否则返回true。 <br>
- parseFloat() : 从字符串(的前缀部分)取一个浮点数。不成功则返回NaN。  </p>
+<p>在Global中其它与number类型相关的方法有： <br />
+&nbsp;isFinite()&nbsp;&nbsp; : 如果值是NaN/正无穷/负无穷，返回false，否则返回true。 <br />
+&nbsp;parseFloat() : 从字符串(的前缀部分)取一个浮点数。不成功则返回NaN。  </p>
 
-<p> 3). boolean类型    </p>
+<p>&nbsp;3). boolean类型    </p>
 
-<hr>
+<hr />
 
-<p> (略)  </p>
+<p>&nbsp;(略)  </p>
 
-<p> 4). string类型    </p>
+<p>&nbsp;4). string类型    </p>
 
-<hr>
+<hr />
 
-<p>JavaScript中的String类型原本没有什么特殊的，但是JavaScript为了适应 <br>
-“浏览器实现的超文本环境”，因此它具有一些奇怪的方法。例如： <br>
-  link() : 把一个有HREF属性的超链接标签&lt;A&gt;放在String对象中的文本两端。 <br>
-  big()  : 把一对&lt;big&gt;标签放在String对象中的文本两端。 <br>
-以下方法与此类同： <br>
-  anchor() <br>
-  blink() <br>
-  bold() <br>
-  fixed() <br>
-  fontcolor() <br>
-  fontsize() <br>
-  italics() <br>
-  small() <br>
-  strike() <br>
-  sub() <br>
-  sup()  </p>
+<p>JavaScript中的String类型原本没有什么特殊的，但是JavaScript为了适应 <br />
+&ldquo;浏览器实现的超文本环境&rdquo;，因此它具有一些奇怪的方法。例如： <br />
+&nbsp; link() : 把一个有HREF属性的超链接标签&lt;A&gt;放在String对象中的文本两端。 <br />
+&nbsp; big()&nbsp; : 把一对&lt;big&gt;标签放在String对象中的文本两端。 <br />
+以下方法与此类同： <br />
+&nbsp; anchor() <br />
+&nbsp; blink() <br />
+&nbsp; bold() <br />
+&nbsp; fixed() <br />
+&nbsp; fontcolor() <br />
+&nbsp; fontsize() <br />
+&nbsp; italics() <br />
+&nbsp; small() <br />
+&nbsp; strike() <br />
+&nbsp; sub() <br />
+&nbsp; sup()  </p>
 
-<p>除此之外，string的主要复杂性来自于在JavaScript中无所不在的toString() <br>
-方法。这也是JavaScript为浏览器环境而提供的一个很重要的方法。例如我们 <br>
+<p>除此之外，string的主要复杂性来自于在JavaScript中无所不在的toString() <br />
+方法。这也是JavaScript为浏览器环境而提供的一个很重要的方法。例如我们 <br />
 声明一个对象，但是要用document.writeln()来输出它，在IE中会显示什么呢？  </p>
 
-<p>下例说明这个问题： <br>
-<font face="Courier New">//  </font></p>
+<p>下例说明这个问题： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// toString()的应用 <br>
+<p>// toString()的应用 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var <br>
-  s = new Object();  </p>
+<p>var <br />
+&nbsp; s = new Object();</font>  </p>
 
-<p><font face="Courier New">s.v1 = 'hi,'; <br>
-s.v2 = 'test!'; <br>
-document.writeln(s); <br>
+<p><font face="Courier New">s.v1 = 'hi,'; <br />
+s.v2 = 'test!'; <br />
+document.writeln(s); <br />
 document.writeln(s.toString());</font>  </p>
 
-<p><font face="Courier New">s.toString = function() { <br>
-  return s.v1 + s.v2; <br>
-} <br>
+<p><font face="Courier New">s.toString = function() { <br />
+&nbsp; return s.v1 + s.v2; <br />
+} <br />
 document.writeln(s);</font>  </p>
 
-<p>在这个例子中，我们看到，当一个对象没有重新声明(覆盖)自己toString()方 <br>
-法的时候，那么它作为字符串型态使用时(例如被writeln)，就会调用Java Script <br>
-环境缺省的toString()。反过来，你也可以重新定义JavaScript理解这个对象 <br>
+<p>在这个例子中，我们看到，当一个对象没有重新声明(覆盖)自己toString()方 <br />
+法的时候，那么它作为字符串型态使用时(例如被writeln)，就会调用Java Script <br />
+环境缺省的toString()。反过来，你也可以重新定义JavaScript理解这个对象 <br />
 的方法。  </p>
 
-<p>很多JavaScript框架，在实现“模板”机制的时候，就利用了这个特性。例如 <br>
-他们用这样定义一个FontElement对象： <br>
-<font face="Courier New">//  </font></p>
+<p>很多JavaScript框架，在实现&ldquo;模板&rdquo;机制的时候，就利用了这个特性。例如 <br />
+他们用这样定义一个FontElement对象： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// 利用toString()实现模板机制的简单原理 <br>
+<p>// 利用toString()实现模板机制的简单原理 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>function FontElement(innerHTML) { <br>
-  this.face = '宋体'; <br>
-  this.color = 'red'; <br>
-  // more...  </p>
+<p>function FontElement(innerHTML) { <br />
+&nbsp; this.face = '宋体'; <br />
+&nbsp; this.color = 'red'; <br />
+&nbsp; // more...</font>  </p>
 
-<p><font face="Courier New">  var ctx = innerHTML; <br>
-  this.toString = function() { <br>
-    return '&lt;Font FACE="' + this.face + '" COLOR="' + this.color + '"&gt;' <br>
-      + ctx <br>
-      + '&lt;/FONT&gt;'; <br>
-  } <br>
+<p><font face="Courier New">&nbsp; var ctx = innerHTML; <br />
+&nbsp; this.toString = function() { <br />
+&nbsp;&nbsp;&nbsp; return '&lt;Font FACE=&quot;' + this.face + '&quot; COLOR=&quot;' + this.color + '&quot;&gt;' <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + ctx <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; + '&lt;/FONT&gt;'; <br />
+&nbsp; } <br />
 }</font>  </p>
 
 <p><font face="Courier New">var obj = new FontElement('这是一个测试。');</font>  </p>
 
-<p><font face="Courier New">// 留意下面这行代码的写法 <br>
+<p><font face="Courier New">// 留意下面这行代码的写法 <br />
 document.writeln(obj);</font>  </p>
 
-<p> 5). function类型    </p>
+<p>&nbsp;5). function类型    </p>
 
-<hr>
+<hr />
 
-<p>javascript函数具有很多特性，除了面向对象的部分之外(这在后面讲述)，它自 <br>
+<p>javascript函数具有很多特性，除了面向对象的部分之外(这在后面讲述)，它自 <br />
 已的一些独特特性应用也很广泛。  </p>
 
-<p>首先javascript中的每个函数，在调用过程中可以执有一个arguments对象。这个 <br>
+<p>首先javascript中的每个函数，在调用过程中可以执有一个arguments对象。这个 <br />
 对象是由脚本解释环境创建的，你没有别的方法来自己创建一个arguments对象。  </p>
 
-<p>arguments可以看成一个数组：它有length属性，并可以通过arguments[n]的方式 <br>
-来访问每一个参数。然而它最重要的，却是可以通过 callee 属性来得到正在执行 <br>
+<p>arguments可以看成一个数组：它有length属性，并可以通过arguments[n]的方式 <br />
+来访问每一个参数。然而它最重要的，却是可以通过 callee 属性来得到正在执行 <br />
 的函数对象的引用。  </p>
 
-<p>接下的问题变得很有趣：Function对象有一个 caller 属性，指向正在调用当前 <br>
+<p>接下的问题变得很有趣：Function对象有一个 caller 属性，指向正在调用当前 <br />
 函数的父函数对象的引用。  </p>
 
-<p>——我们已经看到，我们可以在JavaScript里面，通过callee/caller来遍历执行 <br>
-期的调用栈。由于arguments事实上也是Function的一个属性，因此我们事实上也 <br>
+<p>&mdash;&mdash;我们已经看到，我们可以在JavaScript里面，通过callee/caller来遍历执行 <br />
+期的调用栈。由于arguments事实上也是Function的一个属性，因此我们事实上也 <br />
 能遍历执行期调用栈上的每一个函数的参数。下面的代码是一个简单的示例：  </p>
 
-<p><font face="Courier New">//  </font></p>
+<p><font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// 调用栈的遍历 <br>
+<p>// 调用栈的遍历 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>function foo1(v1, v2) { <br>
-  foo2(v1 * 100); <br>
-}  </p>
-
-<p><font face="Courier New">function foo2(v1) { <br>
-  foo3(v1 * 200); <br>
+<p>function foo1(v1, v2) { <br />
+&nbsp; foo2(v1 * 100); <br />
 }</font>  </p>
 
-<p><font face="Courier New">function foo3(v1) { <br>
-  var foo = arguments.callee; <br>
-  while (foo &amp;&amp; (foo != window)) { <br>
-    document.writeln('调用参数：&lt;br&gt;', '---------------&lt;br&gt;');</font>  </p>
-
-<p><font face="Courier New">    var args = foo.arguments, argn = args.length; <br>
-    for (var i=0; i&lt;argn; i++) { <br>
-      document.writeln('args[', i, ']: ', args[i], '&lt;br&gt;'); <br>
-    } <br>
-    document.writeln('&lt;br&gt;');</font>  </p>
-
-<p><font face="Courier New">    // 上一级 <br>
-    foo = foo.caller; <br>
-  } <br>
+<p><font face="Courier New">function foo2(v1) { <br />
+&nbsp; foo3(v1 * 200); <br />
 }</font>  </p>
 
-<p><font face="Courier New">// 运行测试 <br>
+<p><font face="Courier New">function foo3(v1) { <br />
+&nbsp; var foo = arguments.callee; <br />
+&nbsp; while (foo &amp;&amp; (foo != window)) { <br />
+&nbsp;&nbsp;&nbsp; document.writeln('调用参数：&lt;br&gt;', '---------------&lt;br&gt;');</font>  </p>
+
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; var args = foo.arguments, argn = args.length; <br />
+&nbsp;&nbsp;&nbsp; for (var i=0; i&lt;argn; i++) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln('args[', i, ']: ', args[i], '&lt;br&gt;'); <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp;&nbsp;&nbsp; document.writeln('&lt;br&gt;');</font>  </p>
+
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // 上一级 <br />
+&nbsp;&nbsp;&nbsp; foo = foo.caller; <br />
+&nbsp; } <br />
+}</font>  </p>
+
+<p><font face="Courier New">// 运行测试 <br />
 foo1(1, 2);</font>  </p>
 
 <ol>
 <li>JavaScript面向对象的支持  </li>
 </ol>
 
-<hr>
+<hr />
 
-<p>在前面的例子中其实已经讲到了object类型的“类型声明”与“实例创建”。 <br>
-在JavaScript中，我们需要通过一个函数来声明自己的object类型： <br>
-<font face="Courier New">//  </font></p>
+<p>在前面的例子中其实已经讲到了object类型的&ldquo;类型声明&rdquo;与&ldquo;实例创建&rdquo;。 <br />
+在JavaScript中，我们需要通过一个函数来声明自己的object类型： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// JavaScript中对象的类型声明的形式代码 <br>
-// (以后的文档中，“对象名”通常用MyObject来替代) <br>
+<p>// JavaScript中对象的类型声明的形式代码 <br />
+// (以后的文档中，&ldquo;对象名&rdquo;通常用MyObject来替代) <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>function 对象名(参数表) { <br>
-  this.属性 = 初始值;  </p>
+<p>function 对象名(参数表) { <br />
+&nbsp; this.属性 = 初始值;</font>  </p>
 
-<p><font face="Courier New">  this.方法 = function(方法参数表) { <br>
-    // 方法实现代码 <br>
-  } <br>
+<p><font face="Courier New">&nbsp; this.方法 = function(方法参数表) { <br />
+&nbsp;&nbsp;&nbsp; // 方法实现代码 <br />
+&nbsp; } <br />
 }</font>  </p>
 
-<p>然后，我们可以通过这样的代码来创建这个对象类型的一个实例： <br>
-<font face="Courier New">//  </font></p>
+<p>然后，我们可以通过这样的代码来创建这个对象类型的一个实例： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// 创建实例的形式代码 <br>
-// (以后的文档中，“实例变量名”通常用obj来替代) <br>
+<p>// 创建实例的形式代码 <br />
+// (以后的文档中，&ldquo;实例变量名&rdquo;通常用obj来替代) <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>var 实例变量名 = new 对象名(参数表);  </p>
+<p>var 实例变量名 = new 对象名(参数表);</font>  </p>
 
-<p>接下来我们来看“对象”在JavaScript中的一些具体实现和奇怪特性。  </p>
+<p>接下来我们来看&ldquo;对象&rdquo;在JavaScript中的一些具体实现和奇怪特性。  </p>
 
-<p> 1). 函数在JavaScript的面向对象机制中的五重身份 <br>
-   </p>
+<p>&nbsp;1). 函数在JavaScript的面向对象机制中的五重身份 <br />
+&nbsp;  </p>
 
-<hr>
+<hr />
 
-<p>“对象名”——如MyObject()——这个函数充当了以下语言角色： <br>
-  (1) 普通函数 <br>
-  (2) 类型声明 <br>
-  (3) 类型的实现 <br>
-  (4) 类引用 <br>
-  (5) 对象的构造函数  </p>
+<p>&ldquo;对象名&rdquo;&mdash;&mdash;如MyObject()&mdash;&mdash;这个函数充当了以下语言角色： <br />
+&nbsp; (1) 普通函数 <br />
+&nbsp; (2) 类型声明 <br />
+&nbsp; (3) 类型的实现 <br />
+&nbsp; (4) 类引用 <br />
+&nbsp; (5) 对象的构造函数  </p>
 
-<p>一些程序员(例如Delphi程序员)习惯于类型声明与实现分开。例如在delphi <br>
-中，Interface节用于声明类型或者变量，而implementation节用于书写类型 <br>
+<p>一些程序员(例如Delphi程序员)习惯于类型声明与实现分开。例如在delphi <br />
+中，Interface节用于声明类型或者变量，而implementation节用于书写类型 <br />
 的实现代码，或者一些用于执行的函数、代码流程。  </p>
 
-<p>但在JavaScript中，类型的声明与实现是混在一起的。一个对象的类型(类) <br>
+<p>但在JavaScript中，类型的声明与实现是混在一起的。一个对象的类型(类) <br />
 通过函数来声明，this.xxxx表明了该对象可具有的属性或者方法。  </p>
 
-<p>这个函数的同时也是“类引用”。在JavaScript，如果你需要识别一个对象 <br>
-的具体型别，你需要执有一个“类引用”。——当然，也就是这个函数的名 <br>
-字。instanceof 运算符就用于识别实例的类型，我们来看一下它的应用： <br>
-<font face="Courier New">//  </font></p>
+<p>这个函数的同时也是&ldquo;类引用&rdquo;。在JavaScript，如果你需要识别一个对象 <br />
+的具体型别，你需要执有一个&ldquo;类引用&rdquo;。&mdash;&mdash;当然，也就是这个函数的名 <br />
+字。instanceof 运算符就用于识别实例的类型，我们来看一下它的应用： <br />
+<font face="Courier New">//  </p>
 
-<hr>
+<hr />
 
-<p>// JavaScript中对象的类型识别 <br>
-//   语法:  对象实例 instanceof 类引用 <br>
+<p>// JavaScript中对象的类型识别 <br />
+//&nbsp;&nbsp; 语法:&nbsp; 对象实例 instanceof 类引用 <br />
 //  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { <br>
-  this.data = 'test data'; <br>
-}  </p>
+<p>function MyObject() { <br />
+&nbsp; this.data = 'test data'; <br />
+}</font>  </p>
 
-<p><font face="Courier New">// 这里MyObject()作为构造函数使用 <br>
-var obj = new MyObject(); <br>
+<p><font face="Courier New">// 这里MyObject()作为构造函数使用 <br />
+var obj = new MyObject(); <br />
 var arr = new Array();</font>  </p>
 
-<p><font face="Courier New">// 这里MyObject作为类引用使用 <br>
-document.writeln(obj instanceof MyObject); <br>
-document.writeln(arr instanceof MyObject); <br>
+<p><font face="Courier New">// 这里MyObject作为类引用使用 <br />
+document.writeln(obj instanceof MyObject); <br />
+document.writeln(arr instanceof MyObject); <br />
 </font>  </p>
 
-<p><font face="Courier New">  </font></p>
+<p><font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>(未完待续) <br>
-<font face="Courier New">  </font></p>
+<p>(未完待续) <br />
+</font><font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>接下来的内容：  </p>
+<p>接下来的内容：</font>  </p>
 
 <ol>
 <li>JavaScript面向对象的支持  </li>
 </ol>
 
-<hr>
+<hr />
 
-<p> 2). 反射机制在JavaScript中的实现 <br>
- 3). this与with关键字的使用 <br>
- 4). 使用in关键字的运算 <br>
- 5). 使用instanceof关键字的运算 <br>
- 6). 其它与面向对象相关的关键字    </p>
+<p>&nbsp;2). 反射机制在JavaScript中的实现 <br />
+&nbsp;3). this与with关键字的使用 <br />
+&nbsp;4). 使用in关键字的运算 <br />
+&nbsp;5). 使用instanceof关键字的运算 <br />
+&nbsp;6). 其它与面向对象相关的关键字    </p>
 
 <ol>
 <li><p>构造与析构  </p></li>
@@ -605,7 +606,7 @@ document.writeln(arr instanceof MyObject); <br>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-19.html">
                     开源项目Everest OpenProject的更名公告！
                 </a>
@@ -616,7 +617,7 @@ document.writeln(arr instanceof MyObject); <br>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -636,14 +637,14 @@ document.writeln(arr instanceof MyObject); <br>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -659,7 +660,7 @@ document.writeln(arr instanceof MyObject); <br>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -673,7 +674,7 @@ document.writeln(arr instanceof MyObject); <br>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -702,3 +703,4 @@ document.writeln(arr instanceof MyObject); <br>
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

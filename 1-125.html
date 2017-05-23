@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>VCL已死，RAD已死(3)</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="VCL已死，RAD已死(3)">
-    <meta property="og:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-125.html">
-    <meta property="article:published_time" content="2008-12-06T20:54:00.000Z">
-    <meta property="article:modified_time" content="2008-12-06T20:54:00.000Z">
-    <meta property="article:tag" content="产品">
-    <meta property="article:tag" content="工具">
-    <meta property="article:tag" content="数据库">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="VCL已死，RAD已死(3)" />
+    <meta property="og:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-125.html" />
+    <meta property="article:published_time" content="2008-12-06T20:54:00.000Z" />
+    <meta property="article:modified_time" content="2008-12-06T20:54:00.000Z" />
+    <meta property="article:tag" content="产品" />
+    <meta property="article:tag" content="工具" />
+    <meta property="article:tag" content="数据库" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="VCL已死，RAD已死(3)">
-    <meta name="twitter:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-125.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="产品, 工具, 数据库">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="VCL已死，RAD已死(3)" />
+    <meta name="twitter:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-125.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="产品, 工具, 数据库" />
     
     <script type="application/ld+json">
 {
@@ -83,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-chan-pin tag-gong-ju tag-shu-ju-ku nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -101,7 +102,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,8 +112,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/chan-pin/">产品</a>, <a href="tag/gong-ju/">工具</a>, <a href="tag/shu-ju-ku/">数据库</a>
+                        <a href="tag/chan-pin/index.html">产品</a>, <a href="tag/gong-ju/index.html">工具</a>, <a href="tag/shu-ju-ku/index.html">数据库</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,7 +149,7 @@ ghost.init({
             <section class="post-content">
                 <p>VCL已死，RAD已死    </p>
 
-<p><span style="font-size:13pt">        ——SD2C中未能尽言的话题</span><span style="font-size:13pt"> </span>  </p>
+<p><span style="font-size:13pt">&nbsp; &nbsp; &nbsp; &nbsp; ——SD2C中未能尽言的话题</span><span style="font-size:13pt">&nbsp;</span>  </p>
 
 <pre style="background-color:rgb(255,255,255); font-size:12px">[**&lt;&lt;&lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)</pre>  
 
@@ -180,11 +181,11 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
 
 个Site Suite版本，并同时拿Web Devleper版本的业绩来开涮。同时，大产商也不会无视市场的    
 
-价格而鼓吹单一版本，因为那样的结果是：“网页制作应该用macromedia的”、“图形设计应该    
+价&#26684;而鼓吹单一版本，因为那样的结果是：“网页制作应该用macromedia的”、“图形设计应该    
 
 用adobe的”、“数据库得选Oracle的”、“服务器最好用Linux便宜”……    
 
-拆开来买的“大”产品，虽然不至于一文不值，但至少没大产品值价。这个与传统产品不同，其    
+拆开来买的“大”产品，虽然不至于一文不&#20540;，但至少没大产品&#20540;价。这个与传统产品不同，其    
 
 根源在于开发工具的“大”产品没几家做得出来，而“精”却很多人能做得到。大公司可不会为    
 
@@ -267,7 +268,7 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-126.html">
                     VCL已死，RAD已死(插播)
                 </a>
@@ -278,7 +279,7 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -298,14 +299,14 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -321,7 +322,7 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -335,7 +336,7 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -364,3 +365,4 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

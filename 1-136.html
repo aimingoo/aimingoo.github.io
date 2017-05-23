@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>饭桶英雄</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="饭桶英雄">
-    <meta property="og:description" content="饭桶英雄     ——第三届英雄大会场外的几顿饭     · 又见David I     ＝＝＝＝＝     这次来英雄会，意外地提前见到前Borland的David I。现在Borland被易博龙(Embarcadero)收购了，     所以David也就穿着印着Embarcadero字样的T裇。我三年前见过他，与李维和Vivia一道在上海吃过     饭。这事儿他显然忘掉了，不过我此次还是备了一本《Delphi源代码分析》送他。David拿在手上读     得很有劲——不过显然只能看懂英文的代码部分。     David显然是那种尊重公司文化的人，他见书上还写着Borland，便兴冲冲地向我表示应该改成Embarcadero。     哈哈，旁边便有人解释说这本书已经出了5年了，是基于Delphi 7写的。当然，我也通过翻译（其实     就是王玮兄啦）告诉他说，这本书上的签名，是唯一一本用了我的英文ID签名的。David显得很兴奋。     与David在晚餐中讨论到Delphi今后版本中的特性，席间还有王炜、老坏、老千等等，对一些新特性     提出了看法。David不停地在手机上记着，不过其间还是对我那块大大的U1000表示出惊叹，在不可     思议地表情中，不得不接受了那是一个手机而非砖头的事实。     David的性&amp;#26684;仍然随和，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-136.html">
-    <meta property="article:published_time" content="2009-04-19T14:48:00.000Z">
-    <meta property="article:modified_time" content="2009-04-19T14:48:00.000Z">
-    <meta property="article:tag" content="delphi">
-    <meta property="article:tag" content="代码分析">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="饭桶英雄" />
+    <meta property="og:description" content="饭桶英雄     ——第三届英雄大会场外的几顿饭     · 又见David I     ＝＝＝＝＝     这次来英雄会，意外地提前见到前Borland的David I。现在Borland被易博龙(Embarcadero)收购了，     所以David也就穿着印着Embarcadero字样的T裇。我三年前见过他，与李维和Vivia一道在上海吃过     饭。这事儿他显然忘掉了，不过我此次还是备了一本《Delphi源代码分析》送他。David拿在手上读     得很有劲——不过显然只能看懂英文的代码部分。     David显然是那种尊重公司文化的人，他见书上还写着Borland，便兴冲冲地向我表示应该改成Embarcadero。     哈哈，旁边便有人解释说这本书已经出了5年了，是基于Delphi 7写的。当然，我也通过翻译（其实     就是王玮兄啦）告诉他说，这本书上的签名，是唯一一本用了我的英文ID签名的。David显得很兴奋。     与David在晚餐中讨论到Delphi今后版本中的特性，席间还有王炜、老坏、老千等等，对一些新特性     提出了看法。David不停地在手机上记着，不过其间还是对我那块大大的U1000表示出惊叹，在不可     思议地表情中，不得不接受了那是一个手机而非砖头的事实。     David的性&amp;#26684;仍然随和，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-136.html" />
+    <meta property="article:published_time" content="2009-04-19T14:48:00.000Z" />
+    <meta property="article:modified_time" content="2009-04-19T14:48:00.000Z" />
+    <meta property="article:tag" content="delphi" />
+    <meta property="article:tag" content="代码分析" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="饭桶英雄">
-    <meta name="twitter:description" content="饭桶英雄     ——第三届英雄大会场外的几顿饭     · 又见David I     ＝＝＝＝＝     这次来英雄会，意外地提前见到前Borland的David I。现在Borland被易博龙(Embarcadero)收购了，     所以David也就穿着印着Embarcadero字样的T裇。我三年前见过他，与李维和Vivia一道在上海吃过     饭。这事儿他显然忘掉了，不过我此次还是备了一本《Delphi源代码分析》送他。David拿在手上读     得很有劲——不过显然只能看懂英文的代码部分。     David显然是那种尊重公司文化的人，他见书上还写着Borland，便兴冲冲地向我表示应该改成Embarcadero。     哈哈，旁边便有人解释说这本书已经出了5年了，是基于Delphi 7写的。当然，我也通过翻译（其实     就是王玮兄啦）告诉他说，这本书上的签名，是唯一一本用了我的英文ID签名的。David显得很兴奋。     与David在晚餐中讨论到Delphi今后版本中的特性，席间还有王炜、老坏、老千等等，对一些新特性     提出了看法。David不停地在手机上记着，不过其间还是对我那块大大的U1000表示出惊叹，在不可     思议地表情中，不得不接受了那是一个手机而非砖头的事实。     David的性&amp;#26684;仍然随和，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-136.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="delphi, 代码分析">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="饭桶英雄" />
+    <meta name="twitter:description" content="饭桶英雄     ——第三届英雄大会场外的几顿饭     · 又见David I     ＝＝＝＝＝     这次来英雄会，意外地提前见到前Borland的David I。现在Borland被易博龙(Embarcadero)收购了，     所以David也就穿着印着Embarcadero字样的T裇。我三年前见过他，与李维和Vivia一道在上海吃过     饭。这事儿他显然忘掉了，不过我此次还是备了一本《Delphi源代码分析》送他。David拿在手上读     得很有劲——不过显然只能看懂英文的代码部分。     David显然是那种尊重公司文化的人，他见书上还写着Borland，便兴冲冲地向我表示应该改成Embarcadero。     哈哈，旁边便有人解释说这本书已经出了5年了，是基于Delphi 7写的。当然，我也通过翻译（其实     就是王玮兄啦）告诉他说，这本书上的签名，是唯一一本用了我的英文ID签名的。David显得很兴奋。     与David在晚餐中讨论到Delphi今后版本中的特性，席间还有王炜、老坏、老千等等，对一些新特性     提出了看法。David不停地在手机上记着，不过其间还是对我那块大大的U1000表示出惊叹，在不可     思议地表情中，不得不接受了那是一个手机而非砖头的事实。     David的性&amp;#26684;仍然随和，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-136.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="delphi, 代码分析" />
     
     <script type="application/ld+json">
 {
@@ -82,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-delphi tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -100,7 +101,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -110,8 +111,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/delphi/">delphi</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>
+                        <a href="tag/delphi/index.html">delphi</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/index.html">代码分析</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -173,7 +174,7 @@ ghost.init({
 
 <p>思议地表情中，不得不接受了那是一个手机而非砖头的事实。    </p>
 
-<p>David的性格仍然随和，有时还显得象孩子一样——当然人家已经很老很老了。对于席间缺肉，David    </p>
+<p>David的性&#26684;仍然随和，有时还显得象孩子一样——当然人家已经很老很老了。对于席间缺肉，David    </p>
 
 <p>表现出一种旁人不能查觉的不满——我以前见他的时候，李维就给我说过David对素菜缺乏好感，最    </p>
 
@@ -195,7 +196,7 @@ ghost.init({
 
 <p>年年的英雄会都会发视频出来，所以几个论坛的内容我就不复述了。大体上说，架构师论坛很实在，    </p>
 
-<p>而产品专家论坛则相当出彩，问答都很有听头。创业论坛有些咄咄逼人，不过问题设计得确实很到位，    </p>
+<p>而产品专家论坛则相当出彩，问答都很有听头。创业论坛有些咄咄&#36924;人，不过问题设计得确实很到位，    </p>
 
 <p>让论坛的各个BOSS相当地挠头。    </p>
 
@@ -278,7 +279,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-137.html">
                     表面的简洁
                 </a>
@@ -289,7 +290,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -309,14 +310,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -332,7 +333,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -346,7 +347,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -375,3 +376,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(九)：Qomo中的模板系统</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomolangma实现篇(九)：Qomo中的模板系统">
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-47.html">
-    <meta property="article:published_time" content="2006-09-07T19:31:00.000Z">
-    <meta property="article:modified_time" content="2006-09-07T19:31:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="框架">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomolangma实现篇(九)：Qomo中的模板系统" />
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-47.html" />
+    <meta property="article:published_time" content="2006-09-07T19:31:00.000Z" />
+    <meta property="article:modified_time" content="2006-09-07T19:31:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="框架" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomolangma实现篇(九)：Qomo中的模板系统">
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-47.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 框架">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomolangma实现篇(九)：Qomo中的模板系统" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-47.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 框架" />
     
     <script type="application/ld+json">
 {
@@ -82,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-kuang-jia nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -100,7 +101,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -110,8 +111,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/kuang-jia/">框架</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/kuang-jia/index.html">框架</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,227 +146,227 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：../../Qomo_team.txt <br>
-有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>) <br>
-================================================================================   </p>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：../../Qomo_team.txt <br />
+有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>) <br />
+================================================================================&nbsp;  </p>
 
-<p>一、模板技术概要 <br>
-~~~~~~~~~~~~~~~~<del> <br>
-模板技术由来以久。在C++中的模板(Template)是编译时技术，而在.NET CLR中用于取代该技术的 <br>
-范型(Generic)则是一种运行时技术。由于范型理论的出现，使范型编程成为一个新的语言课题。 <br>
-在.NET CLR中，范型编程就是一种用模板来实现代码重用的高效技术(类范型和方法范型)。    </del></p>
+<p>一、模板技术概要 <br />
+~~~~~~~~~~~~~~~~<del> <br />
+模板技术由来以久。在C++中的模板(Template)是编译时技术，而在.NET CLR中用于取代该技术的 <br />
+范型(Generic)则是一种运行时技术。由于范型理论的出现，使范型编程成为一个新的语言课题。 <br />
+在.NET CLR中，范型编程就是一种用模板来实现代码重用的高效技术(类范型和方法范型)。    </p>
 
-<p>然而，模板技术的使用也带来了很多的问题。例如： <br>
-  - 模板系统的出现，是为了解决了类型问题呢，还是只是解决代码重用的问题？ <br>
-  - 通过模板来生成可运行代码框架，是否有利于节约代码呢？——而这种代码 <br>
-   的节约又增加了多少运行效率上的开销呢？ <br>
-  - 通过模板来生成框架之后，又是否可进行类型约束呢？类型约束的意义又何在呢？    </p>
+<p>然而，模板技术的使用也带来了很多的问题。例如： <br />
+&nbsp; - 模板系统的出现，是为了解决了类型问题呢，还是只是解决代码重用的问题？ <br />
+&nbsp; - 通过模板来生成可运行代码框架，是否有利于节约代码呢？&mdash;&mdash;而这种代码 <br />
+&nbsp;&nbsp; 的节约又增加了多少运行效率上的开销呢？ <br />
+&nbsp; - 通过模板来生成框架之后，又是否可进行类型约束呢？类型约束的意义又何在呢？    </p>
 
-<p>相关的问题还非常的多。因此在Qomo的设计中，曾经一度为此而迷惑。但最终，我还是在Qomo的 <br>
+<p>相关的问题还非常的多。因此在Qomo的设计中，曾经一度为此而迷惑。但最终，我还是在Qomo的 <br />
 内核一层加入了模板系统。    </p>
 
-<p>二、Qomo内核中的模板系统 <br>
-~~~~~~~~~~~~~~<del> <br>
-Qomo之所以要将Templet.js放入RTL，是希望在RTL一级支持一种全局性的模板语言，用于组织 <br>
-框架中的重复性元素，包括脚本、样式和HTML等，甚至可以通过Templet来生成类。——如同 <br>
-C++中的模板。  </del></p>
+<p>二、Qomo内核中的模板系统 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+Qomo之所以要将Templet.js放入RTL，是希望在RTL一级支持一种全局性的模板语言，用于组织 <br />
+框架中的重复性元素，包括脚本、样式和HTML等，甚至可以通过Templet来生成类。&mdash;&mdash;如同 <br />
+C++中的模板。  </p>
 
-<p>javascript的确不需要为了类型问题而实现一种模板或者范型系统，因此Qomo的模板与C++的模板并 <br>
-不完全等义。这也是我使用Templet这个词，而不是Template的原因之一。这尽管是一个小小的差异， <br>
+<p>javascript的确不需要为了类型问题而实现一种模板或者范型系统，因此Qomo的模板与C++的模板并 <br />
+不完全等义。这也是我使用Templet这个词，而不是Template的原因之一。这尽管是一个小小的差异， <br />
 但也希望引起你的注意。^.^  </p>
 
-<p>Templet支持一个用"%...%"格式描述的标签。如果写成"%%"，则表明应该替换成单个的"%"。对于标 <br>
+<p>Templet支持一个用&quot;%...%&quot;格式描述的标签。如果写成&quot;%%&quot;，则表明应该替换成单个的&quot;%&quot;。对于标 <br />
 签中的被替换内容，Templet默认认为它来自于模板实例的Attribute。例如：    </p>
 
-<hr>
+<hr />
 
-<p>function MyTemplet() { <br>
-  _set('TempletContext', '&lt;font color="red"&gt;%Info%&lt;/font&gt;');  </p>
+<p>function MyTemplet() { <br />
+&nbsp; _set('TempletContext', '&lt;font color=&quot;red&quot;&gt;%Info%&lt;/font&gt;');  </p>
 
-<p>  Attribute(this, 'Info', 'hello, world!'); <br>
-} <br>
+<p>&nbsp; Attribute(this, 'Info', 'hello, world!'); <br />
+} <br />
 TMyTemplet = Class(TTemplet, 'MyTemplet');  </p>
 
-<p>var ctx = new MyTemplet(); <br>
+<p>var ctx = new MyTemplet(); <br />
 document.writeln(ctx);  </p>
 
-<hr>
+<hr />
 
 <p>这段代码的运行结果，是向Document输入这样一段HTML：    </p>
 
-<hr>
+<hr />
 
-<p>&lt;font color="red"&gt;hello, world!&lt;/font&gt;    </p>
+<p>&lt;font color=&quot;red&quot;&gt;hello, world!&lt;/font&gt;    </p>
 
-<hr>
+<hr />
 
-<p>Templet的构造器还可以接受一个参数，它可以是从Qomo的Object继承下来的任意对象。这时，Templet <br>
+<p>Templet的构造器还可以接受一个参数，它可以是从Qomo的Object继承下来的任意对象。这时，Templet <br />
 将使用该对象的，而不是模板实例的Attribute。例如与上面的例子等效的代码是：    </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { <br>
-  Attribute(this, 'Info', 'hello, world!'); <br>
-} <br>
+<p>function MyObject() { <br />
+&nbsp; Attribute(this, 'Info', 'hello, world!'); <br />
+} <br />
 TMyObject = Class(TObject, 'MyObject');  </p>
 
-<p>function MyTemplet() { <br>
-  _set('TempletContext', '&lt;font color="red"&gt;%Info%&lt;/font&gt;'); <br>
-} <br>
+<p>function MyTemplet() { <br />
+&nbsp; _set('TempletContext', '&lt;font color=&quot;red&quot;&gt;%Info%&lt;/font&gt;'); <br />
+} <br />
 TMyTemplet = Class(TTemplet, 'MyTemplet');  </p>
 
-<p>var ctx = new MyTemplet(new MyObject()); <br>
+<p>var ctx = new MyTemplet(new MyObject()); <br />
 document.writeln(ctx);  </p>
 
-<hr>
+<hr />
 
-<p>Qomo内核中的Templet，在默认设计上与HTML标签或者其它任何特定的内容都没有关系。因此你 <br>
-可以用它来生成HTML的模板或者CSS的模板，甚至用它来生成javascript的模板并用eval()来执行。 <br>
-——我想已经有人在开始假设这种技术能被应用到的环境了。哈哈。^.^    </p>
+<p>Qomo内核中的Templet，在默认设计上与HTML标签或者其它任何特定的内容都没有关系。因此你 <br />
+可以用它来生成HTML的模板或者CSS的模板，甚至用它来生成javascript的模板并用eval()来执行。 <br />
+&mdash;&mdash;我想已经有人在开始假设这种技术能被应用到的环境了。哈哈。^.^    </p>
 
-<p>三、扩展Templet系统 <br>
-~~~~~~~~~~~~~~<del> <br>
-如果需要对构造器支持的这个参数的Attribute取值进行限制，例如屏蔽对一些特性(Attribute)的读取，那么 <br>
-你也可以通过公布自己的IAttrProvider接口来达到目的。    </del></p>
+<p>三、扩展Templet系统 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+如果需要对构造器支持的这个参数的Attribute取值进行限制，例如屏蔽对一些特性(Attribute)的读取，那么 <br />
+你也可以通过公布自己的IAttrProvider接口来达到目的。    </p>
 
 <p>例如：    </p>
 
-<hr>
+<hr />
 
-<p>function MyTemplet() { <br>
-  Attribute(this, 'Info', 'hello, world!'); <br>
-  Attribute(this, 'Info2', 'hello, world!'); <br>
-  _set('TempletContext', '&lt;font color="red"&gt;%Info%, %Info2%&lt;/font&gt;');  </p>
+<p>function MyTemplet() { <br />
+&nbsp; Attribute(this, 'Info', 'hello, world!'); <br />
+&nbsp; Attribute(this, 'Info2', 'hello, world!'); <br />
+&nbsp; _set('TempletContext', '&lt;font color=&quot;red&quot;&gt;%Info%, %Info2%&lt;/font&gt;');  </p>
 
-<p>  var cls = _cls(); <br>
-  var Intfs = Aggregate(cls.Create, IAttrProvider); <br>
-  var intf = Intfs.GetInterface(IAttrProvider); <br>
-  var has = intf.hasAttribute; <br>
-  var hasOwn = intf.hasOwnAttribute;  </p>
+<p>&nbsp; var cls = _cls(); <br />
+&nbsp; var Intfs = Aggregate(cls.Create, IAttrProvider); <br />
+&nbsp; var intf = Intfs.GetInterface(IAttrProvider); <br />
+&nbsp; var has = intf.hasAttribute; <br />
+&nbsp; var hasOwn = intf.hasOwnAttribute;  </p>
 
-<p>  intf.hasAttribute = function(n, t) { <br>
-    return (n<mark>'Info' ? false : has.apply(intf, arguments)); <br>
-  } <br>
-  intf.hasOwnAttribute = function(n, t) { <br>
-    return (n</mark>'Info' ? false : hasOwn.apply(intf, arguments)); <br>
-  } <br>
-} <br>
+<p>&nbsp; intf.hasAttribute = function(n, t) { <br />
+&nbsp;&nbsp;&nbsp; return (n<mark>'Info' ? false : has.apply(intf, arguments)); <br />
+&nbsp; } <br />
+&nbsp; intf.hasOwnAttribute = function(n, t) { <br />
+&nbsp;&nbsp;&nbsp; return (n</mark>'Info' ? false : hasOwn.apply(intf, arguments)); <br />
+&nbsp; } <br />
+} <br />
 TMyTemplet = Class(TTemplet, 'MyTemplet');  </p>
 
-<p>var ctx = new MyTemplet(); <br>
+<p>var ctx = new MyTemplet(); <br />
 document.writeln(ctx);  </p>
 
-<hr>
+<hr />
 
-<p>在这个例子中，我们看到%Info%没有被替换，而%Info2%被替换了。这表明IAttrProvider接口被有 <br>
+<p>在这个例子中，我们看到%Info%没有被替换，而%Info2%被替换了。这表明IAttrProvider接口被有 <br />
 效的重写了。  </p>
 
-<p>四、Templet系统在Qomo组件框架中的使用 <br>
-~~~~~~~~~~~~~~<del> <br>
-在Qomo的组件框架中，模板系统是一个很关键的核心系统。简单的说，Qomo希望通过模板系统 <br>
-来简化HTML代码的生成。同时模板系统也用于描述某个组件在DOM结构上的基本需求。    </del></p>
+<p>四、Templet系统在Qomo组件框架中的使用 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+在Qomo的组件框架中，模板系统是一个很关键的核心系统。简单的说，Qomo希望通过模板系统 <br />
+来简化HTML代码的生成。同时模板系统也用于描述某个组件在DOM结构上的基本需求。    </p>
 
-<p>为此，Qomo在/Components/Controls/HtmlTemplet.js中实现了一套基础的HTML模板。此外，还 <br>
-使用重写对象构造器的技术，来实现了Qomo组件与HTML中具体的Element的绑定。这里涉及到非 <br>
-常多的技术组件，但主要包括在： <br>
-   - /Components/Controls/HtmlTemplet.js <br>
-   - /Components/Controls/HtmlController.js <br>
-这两个单元的实现中。——事实上，这两个单元是交叉作用的。    </p>
+<p>为此，Qomo在/Components/Controls/HtmlTemplet.js中实现了一套基础的HTML模板。此外，还 <br />
+使用重写对象构造器的技术，来实现了Qomo组件与HTML中具体的Element的绑定。这里涉及到非 <br />
+常多的技术组件，但主要包括在： <br />
+&nbsp;&nbsp; - /Components/Controls/HtmlTemplet.js <br />
+&nbsp;&nbsp; - /Components/Controls/HtmlController.js <br />
+这两个单元的实现中。&mdash;&mdash;事实上，这两个单元是交叉作用的。    </p>
 
-<p>首先，在HtmlController.js中，我们使用AOP的技术，拦截了THtmlController的构造过程，并重写 <br>
-了IAttrProvider接口。这样做的目的，是为了实现对THtmlController及其所有的子类进行影响，使 <br>
-得他们的实例可以从Qomo对象的属性(property)与特性(attribute)中来取得值，可以从这个Qomo对 <br>
-象所关联到的HTML Element的性质(HTML Attribute)中得到值。当然，为了完整地实现这个过程， <br>
+<p>首先，在HtmlController.js中，我们使用AOP的技术，拦截了THtmlController的构造过程，并重写 <br />
+了IAttrProvider接口。这样做的目的，是为了实现对THtmlController及其所有的子类进行影响，使 <br />
+得他们的实例可以从Qomo对象的属性(property)与特性(attribute)中来取得值，可以从这个Qomo对 <br />
+象所关联到的HTML Element的性质(HTML Attribute)中得到值。当然，为了完整地实现这个过程， <br />
 HtmlController.js中还重写了this.get()和this.set()方法。    </p>
 
 <p>现在，我们在Qomo中就可以这样写一段代码：    </p>
 
-<hr>
+<hr />
 
-<p>&lt;div id='elem' class="myClass"&gt;hello, world!&lt;/div&gt;    </p>
+<p>&lt;div id='elem' class=&quot;myClass&quot;&gt;hello, world!&lt;/div&gt;    </p>
 
-<p>&lt;script&gt; <br>
-var ctrl = new HtmlController(); <br>
+<p>&lt;script&gt; <br />
+var ctrl = new HtmlController(); <br />
 ctrl.assign(document.getElementById('elem'));    </p>
 
-<p>document.writeln(ctrl.get('className')); <br>
+<p>document.writeln(ctrl.get('className')); <br />
 &lt;/script&gt;    </p>
 
-<hr>
+<hr />
 
-<p>这样，我们看到输出字符串“myClass”，但是，我们并没有为THtmlController这个类声明 <br>
-“className”这样一个特性(attribute)，ctrl.get()事实上是从elem这个元素中取得了值。    </p>
+<p>这样，我们看到输出字符串&ldquo;myClass&rdquo;，但是，我们并没有为THtmlController这个类声明 <br />
+&ldquo;className&rdquo;这样一个特性(attribute)，ctrl.get()事实上是从elem这个元素中取得了值。    </p>
 
-<p>由于THtmlController类具有这样的功能，因此当一个关联了HTML Element的THtmlController <br>
-被作为一个TTemplet对象的输入之后，就可以顺理成章地将HTML Element的attributes用于 <br>
+<p>由于THtmlController类具有这样的功能，因此当一个关联了HTML Element的THtmlController <br />
+被作为一个TTemplet对象的输入之后，就可以顺理成章地将HTML Element的attributes用于 <br />
 模板系统中了。    </p>
 
-<p>然而，这样仍然只是单向的功能。——也就是说，我们是为TTemplet提供了替换标签时所用的 <br>
-对象。这并不表现我们已经构造了“Qomo的组件框架的模板库”。  </p>
+<p>然而，这样仍然只是单向的功能。&mdash;&mdash;也就是说，我们是为TTemplet提供了替换标签时所用的 <br />
+对象。这并不表现我们已经构造了&ldquo;Qomo的组件框架的模板库&rdquo;。  </p>
 
-<p>这后面这个重任就是由HtmlTemplet.js来完成的了。在这个单元里，我们实现了： <br>
-  - THtmlTemplet <br>
-  - TInlineTemplet <br>
-  - TBlockTemplet <br>
-  - TTagTemplet <br>
-  - TComponentTemplet    </p>
+<p>这后面这个重任就是由HtmlTemplet.js来完成的了。在这个单元里，我们实现了： <br />
+&nbsp; - THtmlTemplet <br />
+&nbsp; - TInlineTemplet <br />
+&nbsp; - TBlockTemplet <br />
+&nbsp; - TTagTemplet <br />
+&nbsp; - TComponentTemplet    </p>
 
 <p>由于RTL已经内置了模板系统，因此事实上上面这些类的实现都非常简单。例如：    </p>
 
-<hr>
+<hr />
 
-<p>function TagTemplet() { <br>
-  _set('TempletContext', '&lt;%tagName% id="%id%" class="%className%"%Attributes% /&gt;'); <br>
-} <br>
+<p>function TagTemplet() { <br />
+&nbsp; _set('TempletContext', '&lt;%tagName% id=&quot;%id%&quot; class=&quot;%className%&quot;%Attributes% /&gt;'); <br />
+} <br />
 TTagTemplet = Class(THtmlTemplet, 'TagTemplet');  </p>
 
-<hr>
+<hr />
 
-<p>最后，在TComponentTemplet中，我们将组件跟样式(CSS)关联了起来。这样一来，我们就 <br>
-构成了整个Qomo的组件系统的基础逻辑： <br>
-  - HTML Element与一个THTMLController组件关联，这是表达在浏览器中的实际对象； <br>
-  - 每一个Qomo的组件可以有一个TComponentTemplet来描述该组件使用的DOM结构； <br>
-  - 由于Qomo中，通过.js的代码来操作的具体对象，是一个由TComponentTemplet约束过的 <br>
-    DOM Element，所以只要其结构不变，则样式、效果的变化将不会影响到实现组件的.js代码。 <br>
-  - 通过TComponentTemplet模板，我们将CSS、HTML DOM和Qomo组件关联起来，但这种 <br>
-    关联非常松散，能轻易地表达“界面与逻辑分离”的UI设计思想。  </p>
+<p>最后，在TComponentTemplet中，我们将组件跟样式(CSS)关联了起来。这样一来，我们就 <br />
+构成了整个Qomo的组件系统的基础逻辑： <br />
+&nbsp; - HTML Element与一个THTMLController组件关联，这是表达在浏览器中的实际对象； <br />
+&nbsp; - 每一个Qomo的组件可以有一个TComponentTemplet来描述该组件使用的DOM结构； <br />
+&nbsp; - 由于Qomo中，通过.js的代码来操作的具体对象，是一个由TComponentTemplet约束过的 <br />
+&nbsp;&nbsp;&nbsp; DOM Element，所以只要其结构不变，则样式、效果的变化将不会影响到实现组件的.js代码。 <br />
+&nbsp; - 通过TComponentTemplet模板，我们将CSS、HTML DOM和Qomo组件关联起来，但这种 <br />
+&nbsp;&nbsp; &nbsp;关联非常松散，能轻易地表达&ldquo;界面与逻辑分离&rdquo;的UI设计思想。  </p>
 
 <p>这种结构，我们可以用下面的代码表现出来(这段代码在Qomo中是可以运行的)：    </p>
 
-<hr>
+<hr />
 
-<p>&lt;div id='elem' class="myClass"&gt;hello, world!&lt;/div&gt;    </p>
+<p>&lt;div id='elem' class=&quot;myClass&quot;&gt;hello, world!&lt;/div&gt;    </p>
 
-<p>&lt;script&gt; <br>
-var ctrl = new HtmlController('elem'); <br>
-var temp = new ComponentTemplet(ctrl); <br>
-alert(t); <br>
+<p>&lt;script&gt; <br />
+var ctrl = new HtmlController('elem'); <br />
+var temp = new ComponentTemplet(ctrl); <br />
+alert(t); <br />
 &lt;/script&gt;    </p>
 
-<hr>
+<hr />
 
-<p>这段代码最终将显示“elem”对象作为一个Qomo组件的基本结构。  </p>
+<p>这段代码最终将显示&ldquo;elem&rdquo;对象作为一个Qomo组件的基本结构。  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p>五、其它 <br>
-~~~~~~~~~~~~~~~~ <br>
-本节的内容，主要讲述模板系统，但也讲述了它对于Qomo的组件系统的价值。由于Qomo的组 <br>
-件框架基于“界面与逻辑”分离的理论来进行实践，因此我们后续的文章中，将会用更多的时间 <br>
+<p>五、其它 <br />
+</del>~~~~~~~~~~~~~~~~ <br />
+本节的内容，主要讲述模板系统，但也讲述了它对于Qomo的组件系统的价值。由于Qomo的组 <br />
+件框架基于&ldquo;界面与逻辑&rdquo;分离的理论来进行实践，因此我们后续的文章中，将会用更多的时间 <br />
 来讲述相关的知识，以及Qomo的实现方法。    </p>
 
 <p>Qomo的最新内核代码和组件库的基础代码，近期将在开发组内发布。  </p>
 
-<p>本文中没有讲述HtmlController()对象如何改变对象构造过程，也没有在代码一层，来讲述它如 <br>
+<p>本文中没有讲述HtmlController()对象如何改变对象构造过程，也没有在代码一层，来讲述它如 <br />
 何与Templet、CSS系统关联。这些是在今后的内容中讨论的。</p>
             </section>
 <!-- removed by aimingoo
@@ -383,7 +384,7 @@ alert(t); <br>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-48.html">
                     Qomo OpenProject beta2 发布！
                 </a>
@@ -394,7 +395,7 @@ alert(t); <br>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -414,14 +415,14 @@ alert(t); <br>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -437,7 +438,7 @@ alert(t); <br>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -451,7 +452,7 @@ alert(t); <br>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -480,3 +481,4 @@ alert(t); <br>
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

@@ -1,44 +1,45 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>QoBean的元语言系统（一）</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="QoBean的元语言系统（一）">
-    <meta property="og:description" content="&amp;nbsp;QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。     “QoBean的元语言系统”包括三篇，分别是：  　　－元语言系统基础，以及程序的基础元素  　　－元语言下的编程基本方法  　　－元语言的应用：虚拟执行环境    QoBean的SVN地址：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     //   // QoBean - Qomo's beans  //  // documents group(chs) - Aimingoo, Zhe  //   一、什么是元语言(Meta Language)     “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)”  就糊涂了一群人一样，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-110.html">
-    <meta property="article:published_time" content="2008-07-24T18:57:00.000Z">
-    <meta property="article:modified_time" content="2008-07-24T18:57:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="数据结构">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="算法">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="QoBean的元语言系统（一）" />
+    <meta property="og:description" content="&amp;nbsp;QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。     “QoBean的元语言系统”包括三篇，分别是：  　　－元语言系统基础，以及程序的基础元素  　　－元语言下的编程基本方法  　　－元语言的应用：虚拟执行环境    QoBean的SVN地址：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     //   // QoBean - Qomo&#x27;s beans  //  // documents group(chs) - Aimingoo, Zhe  //   一、什么是元语言(Meta Language)     “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)”  就糊涂了一群人一样，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-110.html" />
+    <meta property="article:published_time" content="2008-07-24T18:57:00.000Z" />
+    <meta property="article:modified_time" content="2008-07-24T18:57:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="数据结构" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="算法" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="QoBean的元语言系统（一）">
-    <meta name="twitter:description" content="&amp;nbsp;QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。     “QoBean的元语言系统”包括三篇，分别是：  　　－元语言系统基础，以及程序的基础元素  　　－元语言下的编程基本方法  　　－元语言的应用：虚拟执行环境    QoBean的SVN地址：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     //   // QoBean - Qomo's beans  //  // documents group(chs) - Aimingoo, Zhe  //   一、什么是元语言(Meta Language)     “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)”  就糊涂了一群人一样，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-110.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 数据结构, 语言, 算法">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="QoBean的元语言系统（一）" />
+    <meta name="twitter:description" content="&amp;nbsp;QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。     “QoBean的元语言系统”包括三篇，分别是：  　　－元语言系统基础，以及程序的基础元素  　　－元语言下的编程基本方法  　　－元语言的应用：虚拟执行环境    QoBean的SVN地址：  https://qomo.svn.sourceforge.net/svnroot/qomo/qobean     //   // QoBean - Qomo&#x27;s beans  //  // documents group(chs) - Aimingoo, Zhe  //   一、什么是元语言(Meta Language)     “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)”  就糊涂了一群人一样，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-110.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 数据结构, 语言, 算法" />
     
     <script type="application/ld+json">
 {
@@ -84,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-shu-ju-jie-gou tag-yu-yan tag-suan-fa nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -102,7 +103,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -112,8 +113,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/shu-ju-jie-gou/">数据结构</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/suan-fa/">算法</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/shu-ju-jie-gou/index.html">数据结构</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/suan-fa/index.html">算法</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,74 +148,74 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p><font color="#800000"> QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。    </font></p>
+                <p><font color="#800000">&nbsp;QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。    </p>
 
-<p>“QoBean的元语言系统”包括三篇，分别是： <br>
-　　－元语言系统基础，以及程序的基础元素 <br>
-　　－元语言下的编程基本方法 <br>
-　　－元语言的应用：虚拟执行环境 <br>
- <br>
-<font color="#800000">QoBean的SVN地址： <br>
+<p>“QoBean的元语言系统”包括三篇，分别是： <br />
+　　－元语言系统基础，以及程序的基础元素 <br />
+　　－元语言下的编程基本方法 <br />
+　　－元语言的应用：虚拟执行环境 <br />
+</font> <br />
+<font color="#800000">QoBean的SVN地址： <br />
 <a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a></font>    </p>
 
 <p>//  </p>
 
-<hr>
+<hr />
 
-<p>// QoBean - Qomo's beans <br>
-// <br>
-// documents group(chs) - Aimingoo, Zhe <br>
+<p>// QoBean - Qomo's beans <br />
+// <br />
+// documents group(chs) - Aimingoo, Zhe <br />
 //  </p>
 
-<hr>
+<hr />
 
 <p>一、什么是元语言(Meta Language)    </p>
 
-<hr>
+<hr />
 
-<p>“元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)” <br>
+<p>“元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)” <br />
 就糊涂了一群人一样，“元类(meta classes)”以及类似的“meta xxx”也让人开心不起来。    </p>
 
-<p>有两个角度来看这个问题。一个是站在既有的知识上，例如你懂得了“类”，然后我就告诉你“所谓元 <br>
-类，就是比类更高一级的、能产生类的类”。这种解释方法下，所谓“元语言”，就是“能产生语言的 <br>
+<p>有两个角度来看这个问题。一个是站在既有的知识上，例如你懂得了“类”，然后我就告诉你“所谓元 <br />
+类，就是比类更高一级的、能产生类的类”。这种解释方法下，所谓“元语言”，就是“能产生语言的 <br />
 一种语言”。    </p>
 
-<p>这第一种解释方法并没有错，例如最新的ECMAScript Ed4（也就是JavaScript 2）就是用元语言来定义 <br>
-的。具体来说，ECMAScript Ed4规范就是用一种名为Ocaml的元语言来描述，该描述文档自身也就是一 <br>
-份代码，可以被直接“编译”成为一种真实的、可直接使用的JavaScript 2的语言引擎。所以相对于JS2， <br>
-Ocaml就是一种元语言——当然，Ocaml是一种通用性元语言，不只是能“定义和生成”ECMAScript Ed4 <br>
+<p>这第一种解释方法并没有错，例如最新的ECMAScript Ed4（也就是JavaScript 2）就是用元语言来定义 <br />
+的。具体来说，ECMAScript Ed4规范就是用一种名为Ocaml的元语言来描述，该描述文档自身也就是一 <br />
+份代码，可以被直接“编译”成为一种真实的、可直接使用的JavaScript 2的语言引擎。所以相对于JS2， <br />
+Ocaml就是一种元语言——当然，Ocaml是一种通用性元语言，不只是能“定义和生成”ECMAScript Ed4 <br />
 那么简单。    </p>
 
-<p>第二种解释方法，则是站在纵深处，从一个领域的核心、本质出发进行说明。例如说，程序的本质是“算 <br>
-法+数据结构”，所以对任意程序来说，所谓“元”，就是Algorithms和Data Structures，具体实现上， <br>
-在函数式语言中，Algorithms被统一成为Function；在面向对象语言中，数据结构被统一成Object。这些 <br>
+<p>第二种解释方法，则是站在纵深处，从一个领域的核心、本质出发进行说明。例如说，程序的本质是“算 <br />
+法+数据结构”，所以对任意程序来说，所谓“元”，就是Algorithms和Data Structures，具体实现上， <br />
+在函数式语言中，Algorithms被统一成为Function；在面向对象语言中，数据结构被统一成Object。这些 <br />
 所谓的“统一”，其实都不过是在两种元语言的“原子类型抽象”上的泛化或概括。    </p>
 
-<p>这又说得复杂了，什么是“原子类型抽象”呢？我杜撰了这个词，我希望说明，可能“数据类型”不是字 <br>
-节、双字节这样的面向机器结构的，也不是“对象”、“类”这样面向抽象系统的。“数据类型”仅只是 <br>
-“算法”所面对的“目标”。当数据是x时，算法就是那个f(x)；当数据是m时，f()就不适用了，得是T(m)。 <br>
-再反过来，当算法是Z()时，数据还会是x或m吗？不是。所以，数据与算法是伴生的，不同的算法、不同 <br>
+<p>这又说得复杂了，什么是“原子类型抽象”呢？我杜撰了这个词，我希望说明，可能“数据类型”不是字 <br />
+节、双字节这样的面向机器结构的，也不是“对象”、“类”这样面向抽象系统的。“数据类型”仅只是 <br />
+“算法”所面对的“目标”。当数据是x时，算法就是那个f(x)；当数据是m时，f()就不适用了，得是T(m)。 <br />
+再反过来，当算法是Z()时，数据还会是x或m吗？不是。所以，数据与算法是伴生的，不同的算法、不同 <br />
 的数据之间有机地结合时，才是好的程序。    </p>
 
-<p>所以第二种解释方法也是对的。我们可以说物质的“元”是分子、原子等等，也可以说物质的“元”是能 <br>
-量。用这种方法来解释时，没有第一种解释法那样的“参考对象”，所以它的有效性或概念都取决于解释 <br>
+<p>所以第二种解释方法也是对的。我们可以说物质的“元”是分子、原子等等，也可以说物质的“元”是能 <br />
+量。用这种方法来解释时，没有第一种解释法那样的“参考对象”，所以它的有效性或概念都取决于解释 <br />
 者的“角度”，不同的角度有不同的说法，失去了“角度”的解释就没有意义——既不是对，也不是错。    </p>
 
-<p>那么QoBean如何定义“元语言”呢？QoBean对此有两项解释： <br>
-  - 元语言定义程序(program)的基础元素：算法与数据结构 <br>
-  - 元语言说明编程(programming)的基本方法：代码的组织形式    </p>
+<p>那么QoBean如何定义“元语言”呢？QoBean对此有两项解释： <br />
+&nbsp; - 元语言定义程序(program)的基础元素：算法与数据结构 <br />
+&nbsp; - 元语言说明编程(programming)的基本方法：代码的组织形式    </p>
 
 <p>二、QoBean中的基本系统约定    </p>
 
-<hr>
+<hr />
 
-<p>  1. 数据类型 <br>
-    </p>
+<p>&nbsp; 1. 数据类型 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>基于JS的基本观念，QoBean提出（运算性的）值数据，和引用数据两类。引用数据仅有“对象”一种，从 <br>
-数据的角度上来说，函数也是一类“对象”。值数据包括三种基本数据：数值、字符串和布尔值，和一种 <br>
+<p>基于JS的基本观念，QoBean提出（运算性的）值数据，和引用数据两类。引用数据仅有“对象”一种，从 <br />
+数据的角度上来说，函数也是一类“对象”。值数据包括三种基本数据：数值、字符串和布尔值，和一种 <br />
 特定的、表达无数据的数据：undefined。    </p>
 
 <p>对象具有双重性，作为对象时，它是关联数组。所谓关联数组，即是如下形式的表：    </p>
@@ -239,8 +240,8 @@ Ocaml就是一种元语言——当然，Ocaml是一种通用性元语言，不�
 <pre class="JScript" name="code"> tbl = [100, 100, 100];</pre>
 
 <pre></pre>  
-  2. 执行体    
-    
+&nbsp; 2. 执行体    
+&nbsp;   
 * * *  
 QoBean在元语言级别上，所能理解的执行体只有“函数”。    
 
@@ -261,8 +262,8 @@ foo = new f();
 QoBean的元语言系统不理解其它的JavaScript语言元素，例如不理解语句，也不理解变量声明。但是理  
 解由上述“类型系统、执行体”延伸出来的概念，例如由函数延伸出来的闭包概念。    
 
-  3. 动态执行能力    
-    
+&nbsp; 3. 动态执行能力    
+&nbsp;   
 * * *  
 QoBean要求基本系统具有动态执行能力，也就是动态分析(parse)和执行(execture)由基本语法特性（上  
 述“基本数据”和“执行体”）组成的代码文本的能力。在JavaScript中，也就是eval()这个方法。    
@@ -275,8 +276,8 @@ QoBean要求基本系统具有动态执行能力，也就是动态分析(parse)�
 
 <pre></pre>    
 
-  4. 其它    
-    
+&nbsp; 4. 其它    
+&nbsp;   
 * * *  
 基本上来说，上面约定了JavaScript语言特性的一个非常小的集合。这个集合不包括Date、RegExp之类    
 的工具对象，也不包括语句或变量这些语法概念——不过QoBean理解“标识符”，没有标识符，元系统    
@@ -288,8 +289,8 @@ QoBean要求基本系统具有动态执行能力，也就是动态分析(parse)�
 
 三、元系统    
 * * *  
-  0、QoBean的元语言系统基本的编程结构    
-    
+&nbsp; 0、QoBean的元语言系统基本的编程结构    
+&nbsp;   
 * * *  
 包括：<pre class="JScript" name="code">  function Atom(atom) { }  
   function Meta(func, baseMeta) { }  
@@ -300,12 +301,12 @@ QoBean要求基本系统具有动态执行能力，也就是动态分析(parse)�
 
 <pre></pre>    
 
-<p>  1. 原子－元函数、元数据、元继承关系 <br>
-    </p>
+<p>&nbsp; 1. 原子－元函数、元数据、元继承关系 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>所谓“元数据”，就是独立的、独一无二的一个数据体。简单的说，你可以“元化（使之变成元）”一 <br>
+<p>所谓“元数据”，就是独立的、独一无二的一个数据体。简单的说，你可以“元化（使之变成元）”一 <br />
 个数据，该过程通过Atom()来实现：    </p>
 
 <pre class="JScript" name="code">function Atom(atom) {  
@@ -342,13 +343,13 @@ Meta = Meta(Meta);</pre>
 
 <pre></pre>  
 
-<p>  2. 友元 <br>
-    </p>
+<p>&nbsp; 2. 友元 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>表面上看，Atom()看起来象是一个多余的实现。但它是实现友元的一个非常好的途径。所谓友元，是 <br>
-元A跟元B之间执有一种私有关系，二者之间可以互访数据。在QoBean的机制里，这通过Atom()来实现。 <br>
+<p>表面上看，Atom()看起来象是一个多余的实现。但它是实现友元的一个非常好的途径。所谓友元，是 <br />
+元A跟元B之间执有一种私有关系，二者之间可以互访数据。在QoBean的机制里，这通过Atom()来实现。 <br />
 例如：    </p>
 
 <pre class="JScript" name="code">f1 = f2 = Atom();  
@@ -377,16 +378,16 @@ f2 = function(atom) {
 
 <pre></pre>    
 
-<p>在上述系统中，f1与f2之间都执有一个相互识别的凭证——一个通过Atom()得到的友元原子。通过该 <br>
-凭证，f1可以向f2提供私有数据（反之也成立）。除此之外，系统之外的其它函数/对象都无法得到f1 <br>
+<p>在上述系统中，f1与f2之间都执有一个相互识别的凭证——一个通过Atom()得到的友元原子。通过该 <br />
+凭证，f1可以向f2提供私有数据（反之也成立）。除此之外，系统之外的其它函数/对象都无法得到f1 <br />
 中的数据。    </p>
 
-<p>  3. 类系统 <br>
-    </p>
+<p>&nbsp; 3. 类系统 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>元对象与元类是在元函数上的两个扩展。基本上来说，声明了一种“对象系统”的组织方式：类继承 <br>
+<p>元对象与元类是在元函数上的两个扩展。基本上来说，声明了一种“对象系统”的组织方式：类继承 <br />
 模式。这种关系是可以识别的，例如obj是MyObject的一个实例、obj也同时是Object的一个实例。    </p>
 
 <pre class="JScript" name="code">function MyObject() {  
@@ -401,8 +402,8 @@ alert(obj instanceof MyObject);
 
 <pre></pre>在元系统中，并没有对类系统做任何实现。实现的代码在Class.js中。    
 
-  4. 类类型系统    
-    
+&nbsp; 4. 类类型系统    
+&nbsp;   
 * * *  
 你可以在Class()做类注册时得到一个类类型（你也可以忽略它）。类类型是一种“类系统”的组织方    
 式。类系统中也可以进行继承关系的识别，例如TMyObject继承自TObject。QoBean约定的规则为：    
@@ -419,12 +420,12 @@ alert(...)</baseclass></pre>
 
 <p>在元系统中，并没有对类类系统做任何实现。实现的代码在Class.js中。    </p>
 
-<p>  5. 唯一化 <br>
-    </p>
+<p>&nbsp; 5. 唯一化 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>你可以用Unique()函数唯一化一个对象，唯一化的好处是新对象与旧对象完全一样，但是修改新的对象 <br>
+<p>你可以用Unique()函数唯一化一个对象，唯一化的好处是新对象与旧对象完全一样，但是修改新的对象 <br />
 时，旧的对象不会同时被修改。举例来说：    </p>
 
 <pre class="JScript" name="code">obj = {  
@@ -463,7 +464,7 @@ alert([obj1.data, obj2.data]);
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-111.html">
                     QoBean的元语言系统（二）
                 </a>
@@ -474,7 +475,7 @@ alert([obj1.data, obj2.data]);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -494,14 +495,14 @@ alert([obj1.data, obj2.data]);
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -517,7 +518,7 @@ alert([obj1.data, obj2.data]);
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -531,7 +532,7 @@ alert([obj1.data, obj2.data]);
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -560,3 +561,4 @@ alert([obj1.data, obj2.data]);
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

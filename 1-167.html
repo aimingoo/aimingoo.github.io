@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>再谈JavaScript的数据类型问题</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="再谈JavaScript的数据类型问题">
-    <meta property="og:description" content="引子 JavaScript的数据类型问题已经讨论过很多次了，但许多人还有许多书仍然沿用着错误的、混乱的一些观点，所以就再细讲一回。   提及这个讨论的原因在于argb同学在我的MSN博客上的一段回复，又更早的起源则是两年前关于《JavaScript征途》一书的大讨论： 从“装B被雷劈讲起   ——这个事就让它过去了过去了吧。在讨论中我提及到该书对JavaScript类型系统介绍的混乱，而argb翻出了这篇历史文章，指我的混乱更混乱。于是我列了以下几个问题给他：   我想很难很快速地解释你的问题。那么，接着你的思路，我就问几个问题好了：      1、函数是不是类型？是什么类型？          2、为什么说JavaScript中的函数是“第一型”的？          3、undefined如何“包装成object”？即使你所说的是笔误，那么对于“一切都是对象”的JavaScript，undefined是什么？          4、true与Boolean(true)在类型上有什么不同？        最后强调一下你的用词问题：Undefined是类型，undefined是值，’undefined’是类型的名称。此外，应留意JavaScript中存在着值类型与引用类型。 随后argb的回复让我觉得一切已经混乱到不得不讲的地步。因为此前也没有讨论过《JavaScript征途》中的类型系统问题，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-167.html">
-    <meta property="article:published_time" content="2011-07-26T07:41:00.000Z">
-    <meta property="article:modified_time" content="2017-05-20T12:22:06.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="再谈JavaScript的数据类型问题" />
+    <meta property="og:description" content="引子 JavaScript的数据类型问题已经讨论过很多次了，但许多人还有许多书仍然沿用着错误的、混乱的一些观点，所以就再细讲一回。   提及这个讨论的原因在于argb同学在我的MSN博客上的一段回复，又更早的起源则是两年前关于《JavaScript征途》一书的大讨论： 从“装B被雷劈讲起   ——这个事就让它过去了过去了吧。在讨论中我提及到该书对JavaScript类型系统介绍的混乱，而argb翻出了这篇历史文章，指我的混乱更混乱。于是我列了以下几个问题给他：   我想很难很快速地解释你的问题。那么，接着你的思路，我就问几个问题好了：      1、函数是不是类型？是什么类型？          2、为什么说JavaScript中的函数是“第一型”的？          3、undefined如何“包装成object”？即使你所说的是笔误，那么对于“一切都是对象”的JavaScript，undefined是什么？          4、true与Boolean(true)在类型上有什么不同？        最后强调一下你的用词问题：Undefined是类型，undefined是值，’undefined’是类型的名称。此外，应留意JavaScript中存在着值类型与引用类型。 随后argb的回复让我觉得一切已经混乱到不得不讲的地步。因为此前也没有讨论过《JavaScript征途》中的类型系统问题，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-167.html" />
+    <meta property="article:published_time" content="2011-07-26T07:41:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-20T12:22:06.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="再谈JavaScript的数据类型问题">
-    <meta name="twitter:description" content="引子 JavaScript的数据类型问题已经讨论过很多次了，但许多人还有许多书仍然沿用着错误的、混乱的一些观点，所以就再细讲一回。   提及这个讨论的原因在于argb同学在我的MSN博客上的一段回复，又更早的起源则是两年前关于《JavaScript征途》一书的大讨论： 从“装B被雷劈讲起   ——这个事就让它过去了过去了吧。在讨论中我提及到该书对JavaScript类型系统介绍的混乱，而argb翻出了这篇历史文章，指我的混乱更混乱。于是我列了以下几个问题给他：   我想很难很快速地解释你的问题。那么，接着你的思路，我就问几个问题好了：      1、函数是不是类型？是什么类型？          2、为什么说JavaScript中的函数是“第一型”的？          3、undefined如何“包装成object”？即使你所说的是笔误，那么对于“一切都是对象”的JavaScript，undefined是什么？          4、true与Boolean(true)在类型上有什么不同？        最后强调一下你的用词问题：Undefined是类型，undefined是值，’undefined’是类型的名称。此外，应留意JavaScript中存在着值类型与引用类型。 随后argb的回复让我觉得一切已经混乱到不得不讲的地步。因为此前也没有讨论过《JavaScript征途》中的类型系统问题，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-167.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="再谈JavaScript的数据类型问题" />
+    <meta name="twitter:description" content="引子 JavaScript的数据类型问题已经讨论过很多次了，但许多人还有许多书仍然沿用着错误的、混乱的一些观点，所以就再细讲一回。   提及这个讨论的原因在于argb同学在我的MSN博客上的一段回复，又更早的起源则是两年前关于《JavaScript征途》一书的大讨论： 从“装B被雷劈讲起   ——这个事就让它过去了过去了吧。在讨论中我提及到该书对JavaScript类型系统介绍的混乱，而argb翻出了这篇历史文章，指我的混乱更混乱。于是我列了以下几个问题给他：   我想很难很快速地解释你的问题。那么，接着你的思路，我就问几个问题好了：      1、函数是不是类型？是什么类型？          2、为什么说JavaScript中的函数是“第一型”的？          3、undefined如何“包装成object”？即使你所说的是笔误，那么对于“一切都是对象”的JavaScript，undefined是什么？          4、true与Boolean(true)在类型上有什么不同？        最后强调一下你的用词问题：Undefined是类型，undefined是值，’undefined’是类型的名称。此外，应留意JavaScript中存在着值类型与引用类型。 随后argb的回复让我觉得一切已经混乱到不得不讲的地步。因为此前也没有讨论过《JavaScript征途》中的类型系统问题，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-167.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言" />
     
     <script type="application/ld+json">
 {
@@ -82,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -100,7 +101,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -110,8 +111,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -151,7 +152,7 @@ ghost.init({
 
 <p>提及这个讨论的原因在于argb同学在我的MSN博客上的一段回复，又更早的起源则是两年前关于《JavaScript征途》一书的大讨论：</p>
 
-<p><a href="http://aimingoo.wordpress.com/2009/09/23/%E4%BB%8E%E2%80%9C%E8%A3%85b%E8%A2%AB%E9%9B%B7%E5%8A%88%E2%80%9D%E8%AE%B2%E8%B5%B7">从“装B被雷劈讲起</a>  </p>
+<p><a href="http://aimingoo.wordpress.com/2009/09/23/从“装b被雷劈”讲起">从“装B被雷劈讲起</a>  </p>
 
 <p>——这个事就让它过去了过去了吧。在讨论中我提及到该书对JavaScript类型系统介绍的混乱，而argb翻出了这篇历史文章，指我的混乱更混乱。于是我列了以下几个问题给他：</p>
 
@@ -181,7 +182,7 @@ ghost.init({
 
 <p>对象类型系统用instanceof来识别，它相当于其它高级语言中的is操作/运算。面向对象的多态主要通过as和is来表达，对于JavaScript来说，由于是弱类型的(没有强制类型检查)，所以不需要as。  </p>
 
-<p>对象类型系统与基础类型系统存在映射关系，例如基础类型的string影射到对象系统中的String。但这只是影射，所以本质上来说string类型不是String类型。两者本质上不同。具体来说，undefined,string、number和boolean是“值类型”；object与function是“引用类型”。由于String、Number与Boolean在基础类型中都属于object类型，是Object()的子类，因此是引用类型。Function()也是引用类型。所有引用类型都可以看着Object()的子类，所以任意函数也是Object()的子类。例如"&lt;匿名函数&gt; instanceof Object"返回true。  </p>
+<p>对象类型系统与基础类型系统存在映射关系，例如基础类型的string影射到对象系统中的String。但这只是影射，所以本质上来说string类型不是String类型。两者本质上不同。具体来说，undefined,string、number和boolean是“值类型”；object与function是“引用类型”。由于String、Number与Boolean在基础类型中都属于object类型，是Object()的子类，因此是引用类型。Function()也是引用类型。所有引用类型都可以看着Object()的子类，所以任意函数也是Object()的子类。例如&quot;&lt;匿名函数&gt; instanceof Object&quot;返回true。  </p>
 
 <p>undefined是值类型，它没有对应的对象类型——我们通常可以称之为Undefined类型，但它没有对应的构造器。undefined只有一个值，即undefined。准确地说，undefined表明声明(或产生)了但没有值的变量。而Null也是一个类型，null是它的惟一值(按照语言规则，null也是一个关键字)。Null类型是对象类型，亦即是引用类型。所以Null与Undefined本质的不同，是它们分属在不同的类型系统中，解释着不同类型系统中的“无”的概念。一般来说，DOM中的某个属性或成员如果无值，应该使用null；而JavaScript运算过程中如果出现无值，应该使用undefined。  </p>
 
@@ -215,9 +216,9 @@ ghost.init({
 
 <p>这几个观点都不太靠谱。其一，这三种是原始的数据类型没错，但并不是“只有3种”，这个稍后一点我再说。其二，空类型与未定义类型这两种说法都是错的，应该是Null类型和Undefined类型——小写的，是它们的值；首字母大写才是它们的类型。其三，undefined也是按值传递的，然而在朱先生的分类里头，就不知道如何归属。他起码提到了：原始数据类型，特殊数据类型，值(传递的)类型，引用(传递的)类型。这样复杂的分类，会更容易让读者混淆。  </p>
 
-<p>最后说一下“原始的数据类型”。这个用词在ECMAScript里面有，称为"primitive types"，但这个概念主要是从“primitive values"里面引申出来的，而非单独作为一个类型分类的依据——ECMAScript中只提到过一次primitive type，并且也没有称之为“types”。ECMAScript用“primitive values"来说明一些类型的原始值，例如Boolean  Types具有原始值true/false。但这并没有说明Boolean对象类型与值类型之间的差异或关系，例如不能表明true与Boolean(true)之间有什么不同。  </p>
+<p>最后说一下“原始的数据类型”。这个用词在ECMAScript里面有，称为&quot;primitive types&quot;，但这个概念主要是从“primitive values&quot;里面引申出来的，而非单独作为一个类型分类的依据——ECMAScript中只提到过一次primitive type，并且也没有称之为“types”。ECMAScript用“primitive values&quot;来说明一些类型的原始值，例如Boolean&nbsp; Types具有原始值true/false。但这并没有说明Boolean对象类型与值类型之间的差异或关系，例如不能表明true与Boolean(true)之间有什么不同。  </p>
 
-<p>ECMAScript中使用“primitive values"，并陈述了这些原始值的定义，主要是ECMAScript要兼顾JavaScript语言的实现方案。在ECMAScript中相当大的一部分是在描述一个语言的实现，许多地方需要将一个对象转换成“primitive values"，或使用“primitive values"这样的名词来讲述它的实际实现——但我必须强调，这与类型系统的定义与规划没什么关系。例如ECMA讲述“属性(property)”这一概念时，原文是： <br>
+<p>ECMAScript中使用“primitive values&quot;，并陈述了这些原始值的定义，主要是ECMAScript要兼顾JavaScript语言的实现方案。在ECMAScript中相当大的一部分是在描述一个语言的实现，许多地方需要将一个对象转换成“primitive values&quot;，或使用“primitive values&quot;这样的名词来讲述它的实际实现——但我必须强调，这与类型系统的定义与规划没什么关系。例如ECMA讲述“属性(property)”这一概念时，原文是： <br />
 “Properties are containers that hold other objects, primitive values, or functions. A primitive value is a member of one of the following built-in types: Undefined, Null, Boolean, Number, and String; an object is a member of the remaining built-in type Object; and a function is a callable object. A function that is associated with an object via a property is a method.”  </p>
 
 <p>翻译过来就是：</p>
@@ -228,7 +229,7 @@ ghost.init({
 
 <p>上面的描述与“类型系统如何划分”有什么关系吗？没有。关键在于上列5种原始值，都是可以跨语言来声明或使用的。然而，要更细节地叙述这一点，需要完整地讨论ECMAScript如何声明与实现语言的全过程。  </p>
 
-<p>所以如果将“primitive value"作为类型系统来讨论，就会相当地令人混乱了。这也是我一开始提出那几个问题的原因。</p>
+<p>所以如果将“primitive value&quot;作为类型系统来讨论，就会相当地令人混乱了。这也是我一开始提出那几个问题的原因。</p>
 
 <p>最后，强调一点。function是类型。所以你提到：    </p>
 
@@ -253,7 +254,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-168.html">
                     三谈类型问题：ECMAScript为什么错了？
                 </a>
@@ -264,7 +265,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -284,14 +285,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -307,7 +308,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -321,7 +322,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -350,3 +351,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>

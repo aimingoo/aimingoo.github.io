@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomo OpenProject Field Test 1发布！</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomo OpenProject Field Test 1发布！">
-    <meta property="og:description" content="我终于从原公司得到有关公司WEUI项目相关内容的充分授权了。因此从今天开始我将陆续整理、公开Qomo的代码。&amp;mdash;&amp;mdash;而不再是象原来那样&amp;ldquo;只能公开技术文档&amp;rdquo;。   Qomo项目的绝大多数代码其实已经完成并能投入商用。&amp;mdash;&amp;mdash;因为它本来就是在WEUI这个商用的RWC平台中的代码。但我并不打算一下子全部&amp;ldquo;扔出来&amp;rdquo;。因为&amp;ldquo;提供代码&amp;rdquo;并不是真正的目的，真正的、我源初性的目的是探求JavaScript在富客户端上开发的极致，并且能够在理论、实践、商用等方面为JavaScript开发界做一些工作。&amp;mdash;&amp;mdash;看起来目标有点大的说，哈哈。   所以如果仅仅是&amp;ldquo;扔一套代码出来&amp;rdquo;并没有什么意义。而我因此打算在每次提供代码之前撰文，详细分析这套代码中的技术实现。因此Qomo V1.0将会存在很多个&amp;quot;Field Test&amp;quot;版本。这些版本之间的代码是累加的、层进的。我希望你能够在研读这些代码的过程中，看到一套框架是如何被构建起来的。">
-    <meta property="og:url" content="http://aimingoo.github.io/1-29.html">
-    <meta property="article:published_time" content="2006-02-12T17:07:00.000Z">
-    <meta property="article:modified_time" content="2006-02-12T17:07:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="文档">
-    <meta property="article:tag" content="框架">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomo OpenProject Field Test 1发布！" />
+    <meta property="og:description" content="我终于从原公司得到有关公司WEUI项目相关内容的充分授权了。因此从今天开始我将陆续整理、公开Qomo的代码。&amp;mdash;&amp;mdash;而不再是象原来那样&amp;ldquo;只能公开技术文档&amp;rdquo;。   Qomo项目的绝大多数代码其实已经完成并能投入商用。&amp;mdash;&amp;mdash;因为它本来就是在WEUI这个商用的RWC平台中的代码。但我并不打算一下子全部&amp;ldquo;扔出来&amp;rdquo;。因为&amp;ldquo;提供代码&amp;rdquo;并不是真正的目的，真正的、我源初性的目的是探求JavaScript在富客户端上开发的极致，并且能够在理论、实践、商用等方面为JavaScript开发界做一些工作。&amp;mdash;&amp;mdash;看起来目标有点大的说，哈哈。   所以如果仅仅是&amp;ldquo;扔一套代码出来&amp;rdquo;并没有什么意义。而我因此打算在每次提供代码之前撰文，详细分析这套代码中的技术实现。因此Qomo V1.0将会存在很多个&amp;quot;Field Test&amp;quot;版本。这些版本之间的代码是累加的、层进的。我希望你能够在研读这些代码的过程中，看到一套框架是如何被构建起来的。" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-29.html" />
+    <meta property="article:published_time" content="2006-02-12T17:07:00.000Z" />
+    <meta property="article:modified_time" content="2006-02-12T17:07:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="文档" />
+    <meta property="article:tag" content="框架" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomo OpenProject Field Test 1发布！">
-    <meta name="twitter:description" content="我终于从原公司得到有关公司WEUI项目相关内容的充分授权了。因此从今天开始我将陆续整理、公开Qomo的代码。&amp;mdash;&amp;mdash;而不再是象原来那样&amp;ldquo;只能公开技术文档&amp;rdquo;。   Qomo项目的绝大多数代码其实已经完成并能投入商用。&amp;mdash;&amp;mdash;因为它本来就是在WEUI这个商用的RWC平台中的代码。但我并不打算一下子全部&amp;ldquo;扔出来&amp;rdquo;。因为&amp;ldquo;提供代码&amp;rdquo;并不是真正的目的，真正的、我源初性的目的是探求JavaScript在富客户端上开发的极致，并且能够在理论、实践、商用等方面为JavaScript开发界做一些工作。&amp;mdash;&amp;mdash;看起来目标有点大的说，哈哈。   所以如果仅仅是&amp;ldquo;扔一套代码出来&amp;rdquo;并没有什么意义。而我因此打算在每次提供代码之前撰文，详细分析这套代码中的技术实现。因此Qomo V1.0将会存在很多个&amp;quot;Field Test&amp;quot;版本。这些版本之间的代码是累加的、层进的。我希望你能够在研读这些代码的过程中，看到一套框架是如何被构建起来的。">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-29.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 文档, 框架">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomo OpenProject Field Test 1发布！" />
+    <meta name="twitter:description" content="我终于从原公司得到有关公司WEUI项目相关内容的充分授权了。因此从今天开始我将陆续整理、公开Qomo的代码。&amp;mdash;&amp;mdash;而不再是象原来那样&amp;ldquo;只能公开技术文档&amp;rdquo;。   Qomo项目的绝大多数代码其实已经完成并能投入商用。&amp;mdash;&amp;mdash;因为它本来就是在WEUI这个商用的RWC平台中的代码。但我并不打算一下子全部&amp;ldquo;扔出来&amp;rdquo;。因为&amp;ldquo;提供代码&amp;rdquo;并不是真正的目的，真正的、我源初性的目的是探求JavaScript在富客户端上开发的极致，并且能够在理论、实践、商用等方面为JavaScript开发界做一些工作。&amp;mdash;&amp;mdash;看起来目标有点大的说，哈哈。   所以如果仅仅是&amp;ldquo;扔一套代码出来&amp;rdquo;并没有什么意义。而我因此打算在每次提供代码之前撰文，详细分析这套代码中的技术实现。因此Qomo V1.0将会存在很多个&amp;quot;Field Test&amp;quot;版本。这些版本之间的代码是累加的、层进的。我希望你能够在研读这些代码的过程中，看到一套框架是如何被构建起来的。" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-29.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 文档, 框架" />
     
     <script type="application/ld+json">
 {
@@ -83,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-wen-dang tag-kuang-jia nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -101,7 +102,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,8 +112,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/wen-dang/">文档</a>, <a href="tag/kuang-jia/">框架</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/wen-dang/index.html">文档</a>, <a href="tag/kuang-jia/index.html">框架</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,19 +147,19 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>我终于从原公司得到有关公司WEUI项目相关内容的充分授权了。因此从今天开始我将陆续整理、公开Qomo的代码。——而不再是象原来那样“只能公开技术文档”。  </p>
+                <p>我终于从原公司得到有关公司WEUI项目相关内容的充分授权了。因此从今天开始我将陆续整理、公开Qomo的代码。&mdash;&mdash;而不再是象原来那样&ldquo;只能公开技术文档&rdquo;。  </p>
 
-<p>Qomo项目的绝大多数代码其实已经完成并能投入商用。——因为它本来就是在WEUI这个商用的RWC平台中的代码。但我并不打算一下子全部<strong>“扔出来”</strong>。因为“提供代码”并不是真正的目的，真正的、我源初性的目的是探求JavaScript在富客户端上开发的极致，并且能够在理论、实践、商用等方面为JavaScript开发界做一些工作。——看起来目标有点大的说，哈哈。  </p>
+<p>Qomo项目的绝大多数代码其实已经完成并能投入商用。&mdash;&mdash;因为它本来就是在WEUI这个商用的RWC平台中的代码。但我并不打算一下子全部<strong>&ldquo;扔出来&rdquo;</strong>。因为&ldquo;提供代码&rdquo;并不是真正的目的，真正的、我源初性的目的是探求JavaScript在富客户端上开发的极致，并且能够在理论、实践、商用等方面为JavaScript开发界做一些工作。&mdash;&mdash;看起来目标有点大的说，哈哈。  </p>
 
-<p>所以如果仅仅是“扔一套代码出来”并没有什么意义。而我因此打算在每次提供代码之前撰文，详细分析这套代码中的技术实现。因此Qomo V1.0将会存在很多个"Field Test"版本。这些版本之间的代码是累加的、层进的。我希望你能够在研读这些代码的过程中，看到一套框架是如何被构建起来的。  </p>
+<p>所以如果仅仅是&ldquo;扔一套代码出来&rdquo;并没有什么意义。而我因此打算在每次提供代码之前撰文，详细分析这套代码中的技术实现。因此Qomo V1.0将会存在很多个&quot;Field Test&quot;版本。这些版本之间的代码是累加的、层进的。我希望你能够在研读这些代码的过程中，看到一套框架是如何被构建起来的。  </p>
 
 <p>至于你是怀着学习的本心，还是怀着商用的原意而来，我并不关注。Qomo采用BSD协议发布，就意味着一切都是开放的，没有什么乱七糟八的限制。有人说我学术也好，有人说Qomo学术也好，那是他们的观感。我只是说，Qomo是秉承了开源精神的、结构严谨的一套品质良好的代码。这就足够了。  </p>
 
-<p>现在我也开始规划项目中的成员、角色了。希望大家能积极参与。我也将开始回复先前未能回复的mail。(部分与开发相关的项目成员会先期得到一些开发中的版本和代码，以用于研究。但我希望不要怀着“抢先得到代码”的心态来加入团队，那没有什么意义。因为Qomo本身就是开放的、无限制的。没有拿出来的代码，只是因为“品质不够”或“未能成熟”，而不是因为我或者我们这个团队存有什么私心。换而言之，我希望每个加入的成员都能为Qomo项目的成熟、发展贡献力量(哪怕只是一个建议或者观感，都是力量和思想的源泉)。  </p>
+<p>现在我也开始规划项目中的成员、角色了。希望大家能积极参与。我也将开始回复先前未能回复的mail。(部分与开发相关的项目成员会先期得到一些开发中的版本和代码，以用于研究。但我希望不要怀着&ldquo;抢先得到代码&rdquo;的心态来加入团队，那没有什么意义。因为Qomo本身就是开放的、无限制的。没有拿出来的代码，只是因为&ldquo;品质不够&rdquo;或&ldquo;未能成熟&rdquo;，而不是因为我或者我们这个团队存有什么私心。换而言之，我希望每个加入的成员都能为Qomo项目的成熟、发展贡献力量(哪怕只是一个建议或者观感，都是力量和思想的源泉)。  </p>
 
 <p>**下载：Qomo OpenProject Field Test 1    </p>
 
-<hr>
+<hr />
 
 <p><a href="http://www.01cn.net/users/aimingoo/files/Qomo.V1(f1).zip">http://www.01cn.net/users/aimingoo/files/Qomo.V1(f1).zip</a>**</p>
             </section>
@@ -177,7 +178,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-30.html">
                     Qomolangma实现篇(一)：内核载入模块system.js的实现
                 </a>
@@ -188,7 +189,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -208,14 +209,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -231,7 +232,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -245,7 +246,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -274,3 +275,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
+</html>
