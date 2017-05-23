@@ -1,0 +1,72 @@
+var enabledCloudTags = {
+    'default': 'all',
+    'aimingoo': 'all',
+    'joyxhy': [
+        '旅游', '摄影', '驴族', '生活', '美食', '读书', '英语', '家', '爱', '学习', '朋友', '韩语', '开心', '梦'
+    ]
+}
+var authorName = [].slice.call(document.scripts)
+    .filter(function(el) { return !!el.src.match(/["'\/]tag-cloud$/) })
+    .map(function(el) { return el.getAttribute('author')})[0];
+
+if (!authorName && (authorName = location.href.match(/\/author\/([^\/]+)\/?$/))) {
+    authorName = authorName[1];
+}
+
+function filterByAuthor(context, enabled) {
+    if (enabled == 'all') return context;
+
+    var rxTagItem = /<a [^>]+ class="tag-item"[^>]*>([^ \(]+)[^<]+/gi;
+    enabled.forEach(function(tag){this[tag] = this}, enabled={}); // to object
+    return context.replace(rxTagItem, function($0, $1) {
+        if (enabled[$1] === enabled) return $0; // enabled
+        return '<a style="display:none" ' + $0.substr(3); // set hidden
+    });
+}
+
+document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
+<div class="widget widget-tag-cloud">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-tags"></i>&nbsp;
+            <span class="title-meta-word">标签云</span>
+        </div>
+    </div>
+    <div class="tag-cloud-content">
+        <!--  -->
+                <a href="http://aimingoo.github.io/tag/javascript" class="tag-item">Javascript (77)</a>
+                <a href="http://aimingoo.github.io/tag/za-tan" class="tag-item">杂谈 (63)</a>
+                <a href="http://aimingoo.github.io/tag/yu-yan" class="tag-item">语言 (51)</a>
+                <a href="http://aimingoo.github.io/tag/delphi" class="tag-item">delphi (41)</a>
+                <a href="http://aimingoo.github.io/tag/bian-cheng" class="tag-item">编程 (30)</a>
+                <a href="http://aimingoo.github.io/tag/gong-ju" class="tag-item">工具 (28)</a>
+                <a href="http://aimingoo.github.io/tag/kuang-jia" class="tag-item">框架 (24)</a>
+                <a href="http://aimingoo.github.io/tag/wen-dang" class="tag-item">文档 (21)</a>
+                <a href="http://aimingoo.github.io/tag/chan-pin" class="tag-item">产品 (19)</a>
+                <a href="http://aimingoo.github.io/tag/chu-ban" class="tag-item">出版 (18)</a>
+                <a href="http://aimingoo.github.io/tag/jiao-ben" class="tag-item">脚本 (12)</a>
+                <a href="http://aimingoo.github.io/tag/erlang" class="tag-item">erlang (11)</a>
+                <a href="http://aimingoo.github.io/tag/delphiyuan-dai-ma-fen-xi" class="tag-item">代码分析 (11)</a>
+                <a href="http://aimingoo.github.io/tag/liu-lan-qi" class="tag-item">浏览器 (10)</a>
+                <a href="http://aimingoo.github.io/tag/suan-fa" class="tag-item">算法 (10)</a>
+                <a href="http://aimingoo.github.io/tag/ce-shi" class="tag-item">测试 (10)</a>
+                <a href="http://aimingoo.github.io/tag/shu-ju-jie-gou" class="tag-item">数据结构 (9)</a>
+                <a href="http://aimingoo.github.io/tag/oop" class="tag-item">oop (9)</a>
+                <a href="http://aimingoo.github.io/tag/jia-gou-she-ji" class="tag-item">架构设计 (8)</a>
+                <a href="http://aimingoo.github.io/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (8)</a>
+                <a href="http://aimingoo.github.io/tag/qian-duan-kai-fa" class="tag-item">前端开发 (7)</a>
+                <a href="http://aimingoo.github.io/tag/shu-ju-ku" class="tag-item">数据库 (7)</a>
+                <a href="http://aimingoo.github.io/tag/du-shu" class="tag-item">读书 (7)</a>
+                <a href="http://aimingoo.github.io/tag/xiang-mu-guan-li" class="tag-item">项目管理 (6)</a>
+                <a href="http://aimingoo.github.io/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (6)</a>
+                <a href="http://aimingoo.github.io/tag/hui-bian" class="tag-item">汇编 (6)</a>
+                <a href="http://aimingoo.github.io/tag/yin-qing" class="tag-item">引擎 (6)</a>
+                <a href="http://aimingoo.github.io/tag/pascal" class="tag-item">pascal (5)</a>
+                <a href="http://aimingoo.github.io/tag/uml" class="tag-item">uml (5)</a>
+                <a href="http://aimingoo.github.io/tag/lisp" class="tag-item">lisp (5)</a>
+                <a href="http://aimingoo.github.io/tag/bian-yi-qi" class="tag-item">编译器 (5)</a>
+                <a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (5)</a>
+                <a href="http://aimingoo.github.io/tag/android" class="tag-item">android (1)</a>
+    </div>
+</div>
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));

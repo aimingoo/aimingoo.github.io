@@ -1,0 +1,844 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VCL已死，RAD已死(插播)</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0d5025f8e3">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0d5025f8e3">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VCL已死，RAD已死(插播)">
+    <meta property="og:description" content="&amp;nbsp;   VCL已死，RAD已死 ——SD2C中未能尽言的话题   &amp;nbsp;&amp;lt;&amp;lt;&amp;lt;-- 上一节   &amp;nbsp;这个插播，是Shaofei Cheng在MSN跟我的一段聊天记录。关于这个话题，我在会后休息的时候，与很多朋友都谈到过，但限于现场，无法记录。正好Shaofei Cheng与我又一次沟通了这个，得以形成记录，也能反映一些我在“VCL已死，RAD已死”这个论题中有关架构的思想。故此公众，大家可以狂批……   建议整篇文章从头读起，在这里在这里 --&amp;gt;&amp;gt;&amp;gt;     Shaofei Cheng 说:UI设计师设计了界面，然后开发人员说：荒唐！这样的界面用Delphi根本做不出来！     Shaofei Cheng 说:我觉得这段蛮有意思     Aimingoo 说:是啊，真的常常这样。     Aimingoo">
+    <meta property="og:url" content="http://aimingoo.github.io/1-126.html">
+    <meta property="article:published_time" content="2008-12-07T10:00:00.000Z">
+    <meta property="article:modified_time" content="2008-12-07T10:00:00.000Z">
+    <meta property="article:tag" content="erlang">
+    <meta property="article:tag" content="delphi">
+    <meta property="article:tag" content="工具">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VCL已死，RAD已死(插播)">
+    <meta name="twitter:description" content="&amp;nbsp;   VCL已死，RAD已死 ——SD2C中未能尽言的话题   &amp;nbsp;&amp;lt;&amp;lt;&amp;lt;-- 上一节   &amp;nbsp;这个插播，是Shaofei Cheng在MSN跟我的一段聊天记录。关于这个话题，我在会后休息的时候，与很多朋友都谈到过，但限于现场，无法记录。正好Shaofei Cheng与我又一次沟通了这个，得以形成记录，也能反映一些我在“VCL已死，RAD已死”这个论题中有关架构的思想。故此公众，大家可以狂批……   建议整篇文章从头读起，在这里在这里 --&amp;gt;&amp;gt;&amp;gt;     Shaofei Cheng 说:UI设计师设计了界面，然后开发人员说：荒唐！这样的界面用Delphi根本做不出来！     Shaofei Cheng 说:我觉得这段蛮有意思     Aimingoo 说:是啊，真的常常这样。     Aimingoo">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-126.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="erlang, delphi, 工具">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "VCL已死，RAD已死(插播)",
+    "url": "http://aimingoo.github.io/1-126.html",
+    "datePublished": "2008-12-07T10:00:00.000Z",
+    "dateModified": "2008-12-07T10:00:00.000Z",
+    "keywords": "erlang, delphi, 工具",
+    "description": "&amp;nbsp;   VCL已死，RAD已死 ——SD2C中未能尽言的话题   &amp;nbsp;&amp;lt;&amp;lt;&amp;lt;-- 上一节   &amp;nbsp;这个插播，是Shaofei Cheng在MSN跟我的一段聊天记录。关于这个话题，我在会后休息的时候，与很多朋友都谈到过，但限于现场，无法记录。正好Shaofei Cheng与我又一次沟通了这个，得以形成记录，也能反映一些我在“VCL已死，RAD已死”这个论题中有关架构的思想。故此公众，大家可以狂批……   建议整篇文章从头读起，在这里在这里 --&amp;gt;&amp;gt;&amp;gt;     Shaofei Cheng 说:UI设计师设计了界面，然后开发人员说：荒唐！这样的界面用Delphi根本做不出来！     Shaofei Cheng 说:我觉得这段蛮有意思     Aimingoo 说:是啊，真的常常这样。     Aimingoo",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=0d5025f8e3"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+</head>
+
+<body class="post-template tag-erlang tag-delphi tag-gong-ju nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0d5025f8e3"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-erlang tag-delphi tag-gong-ju">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-126.html">VCL已死，RAD已死(插播)</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2008-12-07">8 years ago</time>
+                        <time class="post-date" datetime="2008-12-07">(2008-12-07)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="tag/erlang/">erlang</a>, <a href="tag/delphi/">delphi</a>, <a href="tag/gong-ju/">工具</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <p>   </p>
+
+<p><strong>VCL已死，RAD已死 ——SD2C中未能尽言的话题</strong>  </p>
+
+<p> <a href="http://blog.csdn.net/aimingoo/archive/2008/12/07/3463217.aspx">&lt;&lt;&lt;-- 上一节</a>  </p>
+
+<p> 这个插播，是Shaofei Cheng在MSN跟我的一段聊天记录。关于这个话题，我在会后休息的时候，与很多朋友都谈到过，但限于现场，无法记录。正好Shaofei Cheng与我又一次沟通了这个，得以形成记录，也能反映一些我在“VCL已死，RAD已死”这个论题中有关架构的思想。故此公众，大家可以狂批……  </p>
+
+<p>建议整篇文章从头读起，<a href="http://blog.csdn.net/aimingoo/archive/2008/12/07/3462797.aspx"><strong>在这里在这里 --&gt;&gt;&gt;</strong></a>    </p>
+
+<p>Shaofei Cheng 说:UI设计师设计了界面，然后开发人员说：荒唐！这样的界面用Delphi根本做不出来！    </p>
+
+<p>Shaofei Cheng 说:我觉得这段蛮有意思    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是啊，真的常常这样。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>在WIMP模型上做UI是受限的。而在块+层的模型上做，跟PS的实现过程非常接近，所以基本    </p>
+
+<p>就不受限。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这个，才是WEB UI流行的根本原因之一。当然，WEB自己的力量也是原因之一。    </p>
+
+<p>Shaofei Cheng 说:我觉得没有做不出来的界面 只有工期内做不出来的界面    </p>
+
+<p>Shaofei Cheng 说:所以最后程序员能做出来的界面 是和底层依赖的库/开发工具/框架关系很大的一个范围    </p>
+
+<p>Shaofei Cheng 说:我一直觉得这一点很有问题的    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是的。    </p>
+
+<p>Shaofei Cheng 说:很多人都感叹 要是能同时用prototype和Jquery多好    </p>
+
+<p>Shaofei Cheng 说:有些问题在prototype里面一句话就解决了 有些问题在Jquery里只要几个字母    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>哈哈哈<del>    </del></p>
+
+<p><span style="color:green">Aimingoo 说:</span>不需要，在我看来，应用逻辑的开发人员，与UI及控制逻辑的开发人员应该是两个。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>如果是一个，这个人就得向superman靠齐。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:关于这个 不知道你了解过WPF的开发模式没有    </p>
+
+<p>Shaofei Cheng 说:VisualStudio + Expression Blend    </p>
+
+<p>Shaofei Cheng 说:VisualStudio给程序员用    </p>
+
+<p>Shaofei Cheng 说:Expression Blend给UI Designer用    </p>
+
+<p>Shaofei Cheng 说:我猜你会有点兴趣    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我了解过。。。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>后来还提到了。只是你没明白 ，我认为这样根本解决不了问题。    </p>
+
+<p>Shaofei Cheng 说:哦？    </p>
+
+<p>Shaofei Cheng 说:你怎么看呢？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>横向分层，划分领域。    </p>
+
+<p>Shaofei Cheng 说:界面和程序分开么？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>真正、彻底地分开。    </p>
+
+<p>Shaofei Cheng 说:那么现在WPF已经是这样了    </p>
+
+<p>Shaofei Cheng 说:XAML是由UI Designer出的    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>但是，在没领域的情况下，用WPF+分层思想做产品的仍然是同一个或同一批人。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这是提高不了效率的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这篇文章有三节，你看了几节了？    </p>
+
+<p>Shaofei Cheng 说:都看了    </p>
+
+<p>Shaofei Cheng 说:感觉不是特别catch你的观点    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你应该去了解一下，有几个UI设计师是用Expression Blend的？有几个是了解XAML的？    </p>
+
+<p>Shaofei Cheng 说:呃 我们Team现在的UI......    </p>
+
+<p>Shaofei Cheng 说:被逼迫着学呢    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>在一个使用了Expression Blend的团队中，UI设计师在哪里？在不在团队里？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>他与团队是什么关系？    </p>
+
+<p>Shaofei Cheng 说:在团队里啊    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>如果UI设计师被逼迫着放弃PS，而使用EB，你应该这是合理的吗？你认为开发人员团队，对    </p>
+
+<p>UI设计师称“他们”，是合理的吗？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>不对的。UI设计师应该是我们，是与开发人员在一起的一个团队成员，是一个体系下的。而    </p>
+
+<p>且，他们应该使用不同的工具，使用不同的语言交流交互。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>没必要要求他们在工具上趋同。关键在于他们如何配合，而不是是否使用相同的工具。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>在盛大，设计师是在“设计中心”的，而开发人员是在“技术中心”。所以，事实上在某个    </p>
+
+<p>具体团队里，设计师是“外来户”。    </p>
+
+<p>Shaofei Cheng 说:然而工具总是必须一致的    </p>
+
+<p>Shaofei Cheng 说:就好像我们现在的Team 开发必须用VS一样    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>哈哈    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>Team为什么“必须”用VS呢？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是team的需要吗？或是公司高管们需要？    </p>
+
+<p>Shaofei Cheng 说:因为要协同工作    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>给你们选择，如果能有自主的环境，你们是否一定会选择VSTS    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>协同的是人，不是工具。工具只是辅助来做这件事的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我们可否有别的选择？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>一个例子是，你让UI设计师如何用VSTS来跟“你们的”团队协作？    </p>
+
+<p>Shaofei Cheng 说:嗯 可是Team必须在某些东西上统一    </p>
+
+<p>Shaofei Cheng 说:你没法追求绝对自由    </p>
+
+<p>Shaofei Cheng 说:比如假如一个Delphi团队里我突然说 我想用C++    </p>
+
+<p>Shaofei Cheng 说:这是不可能的    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你误会了我的意思。。。。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我那天在会场里讲，我说：混合语言的真实意义，不是在于让Delphi里面能用上内嵌汇编，    </p>
+
+<p>或用上C的二进制对象文件。这个是早期的混合语言开发。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这种混合语言，是以个体开发为核心的。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我所讲的混合语言，是在领域分层上，在不同的层次上用不同的、最适合的语言来开发。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我看到的，例如UI上，我们用JS+DHTML或Flash来做，我们使用这种环境下最适合的开发工    </p>
+
+<p>具；在客户端，我们选Delphi，当然如何你的团队擅长VC，没关系，用就好了；    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>在服务器端，我们用Erlang，或是python,ruby。没关系，用就是了。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我们要把这三种不同的角色混合在一个团队中——解决一个大型体系的团队中，这才是混合    </p>
+
+<p>语言开发：在不同层面上使用最佳的方案。    </p>
+
+<p>Shaofei Cheng 说:Markup+ Scripting+ Programming?    </p>
+
+<p>Shaofei Cheng 说:你是指这种结构？类似这种的切分么？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>不是确定的语言结构“Markup+ Scripting+ Programming”，而是层次隔离的思想。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:我就是说 类似于这种的切分方式    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>类似的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>从架构师的层面上来讲，关注的是某种具体切分的合理性。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>比如你切成“Markup+ Scripting+ Programming”，我就需要考虑markup上是否有合理的表达。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是否能够能Script交互，是否能够在当前项目中切实可行。等等于此。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:那你觉得跟现在WPF做的有何不同呢？    </p>
+
+<p>Shaofei Cheng 说:Markup有可能被替换成某种Binary    </p>
+
+<p>Shaofei Cheng 说:Scripting也可能被替换成某种 Markup    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>WPF是要求了团队的结构，或解决方案的单一性。    </p>
+
+<p>Shaofei Cheng 说:WPF应该说是一种具体的解决方案    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我的意见是：用什么（例如WPF/XXX）并不是关键，而是在你决策之前，看看你的团队以及    </p>
+
+<p>目标是什么。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对的，WPF只能说是一个具体方案。而且我个人认为，传统的思想下会导致其成本更高，而    </p>
+
+<p>不是更低。    </p>
+
+<p>Shaofei Cheng 说:嗯 取决于使用方式    </p>
+
+<p>Shaofei Cheng 说:如果还是让一个程序员去写XAML 然后再写程序的话......    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对了。从这个角度上思考，你就知道我在想什么了。    </p>
+
+<p>Shaofei Cheng 说:尽管WPF在暗示大家把界面和程序分开    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>如果仍然是程度A去写XAML，然后A再去写程序，A再去关心部署，事情就根本上未有变化。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对了，WPF做了这种暗示，M$也在产品结构上做了调整。但是，商业利益问题决定了他们不    </p>
+
+<p>愿意向“开发团队”推动这种思想。    </p>
+
+<p>Shaofei Cheng 说:从language和tool上都在暗示 但它本身并不是一个团队结构的约束    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>当一个使用PS的界面设计师进入团队时，他就成了外来户。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>他用既有工具做不了任何事情，用自己的工具，又与团队的模式存在冲突。这是两难的事情。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>真正分层体系上，比如说建筑领域里，砖工与瓦工是分开的，使用不同的工具与技艺，包括    </p>
+
+<p>交流的语言。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>但这不妨碍他们在一起建筑。    </p>
+
+<p>Shaofei Cheng 说:这个的话 我觉得是另外一个问题    </p>
+
+<p>Shaofei Cheng 说:任何Team进了新人都会有类似问题    </p>
+
+<p>Shaofei Cheng 说:但是你所说的这个分层 一定要有一个平台来实现    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>平台，可以是流程，可以是规则。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你还是开发人员思维。平台一定是VSTS吗？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>一定是一个工具吗？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>一定是一个软件产品吗？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>平台，就是人+人+人+人~~    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>以及其上的一套规则和流程。如同建筑、工地、包工队。    </p>
+
+<p>Shaofei Cheng 说:每一层的产品呢    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对了，“每一层的产品”是个问题。但为什么“每一层的产品”都是M$出的呢？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>M$想做这件事情~~只是他想做而已，为什么最终变成了开发人员的依赖呢？    </p>
+
+<p>Shaofei Cheng 说:问题是 如果这个产品是文档    </p>
+
+<p>Shaofei Cheng 说:一个夸张点的例子    </p>
+
+<p>Shaofei Cheng 说:假如UX出了一份厚厚的 设计说明书 包括颜色、位图、交互的各种说明    </p>
+
+<p>Shaofei Cheng 说:那么开发人员如何去用？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这是另一个思想。    </p>
+
+<p>Shaofei Cheng 说:不 很相关的    </p>
+
+<p>Shaofei Cheng 说:每一层之间用什么来交换信息 会直接决定这个结构是否可行    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>在人月神话里讨论过。    </p>
+
+<p>说到A团队与B团队的产品输出，早期的观点是B一定要看到A的全部东西，而后期、以及更合    </p>
+
+<p>理的观点是：不要看到A的全部东西，而只是关注如何使用它。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>换言之，你上面的这个列表：厚厚的 设计说明书 包括颜色、位图、交互的各种说明等等，    </p>
+
+<p>基本上都不是要给开发人员看的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>基本上，那是UI设计人员的思想，以及思想的过程。    </p>
+
+<p>Shaofei Cheng 说:对 是和这也也有关系 但是重点在于你提出的问题    </p>
+
+<p>Shaofei Cheng 说:就是分层次解决方案    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>一个具体的UI实现者，应该与UI设计者一起工作，实现者问：这里要怎么动？设计者说，慢    </p>
+
+<p>慢地，由快到慢地……等等等等。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>UI人员对“快和慢”是一种感觉，你不能要求他把这个写成一个公式或者数字，而且既然这    </p>
+
+<p>样做了，终有一天，体验人员会反对。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>所以开发人员只需要在一个阶段满足他（UI设计师）的需要就可以了。通过这种对称的工作，    </p>
+
+<p>完成原始的模型，然后进入第一个开发迭代。    </p>
+
+<p>Shaofei Cheng 说:那么 我觉得在你这个例子里 UI设计者成为了顾问的角色    </p>
+
+<p>Shaofei Cheng 说:他的产品是持续供应的语言帮助    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>应该是顾问+素材提供者+需求方    </p>
+
+<p>Shaofei Cheng 说:这个有点太具体了 你能让每一层都这样么？    </p>
+
+<p>Shaofei Cheng 说:比如 一个专门作交互的程序员 和做业务的程序员 也如此协做？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>用IVAR的例子，一个“骨架产品”是要花大量时间和交互成本、设计成本来建设的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>当骨架完成之后，具体施工时就只剩下了规则和具体业务逻辑。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>举例来说，你认为现在城市施工中的“塔笼式建筑”，是一夜建成的么？    </p>
+
+<p>Shaofei Cheng 说:当然我只能回答不是    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>当然不是，那是架构师、设计师、工程精英们在几十年的时间里总结出来的。    </p>
+
+<p>Shaofei Cheng 说:赫赫    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>在这个框架之下，施工人员们现在只剩下了一套可复制的流程。    </p>
+
+<p>Shaofei Cheng 说:这样的话 我觉得你所说的分层次思想就退化成了一种UX和dev协作方式而已    </p>
+
+<p>Shaofei Cheng 说:我觉得UX需要一种自己的语言 可以被UX和dev接受的    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>所以，在我们上面的讨论中，UI设计人员与开发人员之间这种对称的、直接的沟通会发生在    </p>
+
+<p>某些原型的、骨架的阶段，但不是所有的阶段。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>&gt;&gt;&gt; Shaofei Cheng 说:&gt;&gt;&gt; 这样的话 我觉得你所说的分层次思想就退化成了一种UX和dev协作方式而已    </p>
+
+<p>这就是你的思想中最关键的逻辑问题了。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>要注意，思想是思想，方法是方法。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你不能用思想去对等地讨论方法。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你只能强调：一种UX和dev协作方式，是分层次思想的一种实现方法。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>明白了吗？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>讨论某种实施方法的正确或错误是很简单的事：正确的东西换个背景就错误了。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:需要一个具体的场景    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>但是，分层的思想，以及清楚地认识到分层思想与纵向切分的不同。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>最后，理解厂商们为什么做现在这些事，以及他们将来会怎么做……这一切与一个具体的场    </p>
+
+<p>景是无关的。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:但我觉得你说地UX跟dev那种模式并不好    </p>
+
+<p>Shaofei Cheng 说:分层的优势应该是独立工作吧    </p>
+
+<p>Shaofei Cheng 说:我是说 对于分层来说 非常不好    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>好，或不好，是要放在场景上去讨论的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>比如你的观点是基于你的现有工作场景，或工作经历。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>分层的优势，是领域的推动。劣势，是沟通成本的增加。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>层间交互的代价是极高的。必须在一个可以承受这种代码的环境中，才能使用它。    </p>
+
+<p>Shaofei Cheng 说:领域的推动 就是更专业化吧？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我再举个例子。    </p>
+
+<p>Shaofei Cheng 说:好    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>Erlang是用“节点、进程”这样的单位来切分一个项目的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>进程内，根据Erlang的设计，通过函数界面来交互；进程间，通过消息界面来交互；节点间，    </p>
+
+<p>通过端口界面来交互。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这各级之间的交互成本，是渐次递增的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>到了节点间交互时，端口交互成本就取决于网络环境。以Erlang早期的应用场景，也就是手    </p>
+
+<p>机平台来说，发个短信两分钟后收到，是很正常的事。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>所以节点间交互导致的时延是可以接受的。对吧？    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>但是，这样的系统不能用在PC环境中，因为如果一个企业的应用逻辑需要2分钟来交互——例    </p>
+
+<p>如老板按下一个按钮，要两分钟才反馈，大概是不成的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这种情况下，ErLang并不胜任企业级的业务逻辑。尽管它并发、高负载……等等优势，他不    </p>
+
+<p>适合就是不适合。    </p>
+
+<p>Shaofei Cheng 说:呃嗯    </p>
+
+<p>Shaofei Cheng 说:然而这是程序间不同层的协作    </p>
+
+<p>Shaofei Cheng 说:不是人之间吧？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>但是，二十年后，环境变了。现在的端口交互的成本越来越低。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>两台机器之间，光纤连接的成本都很低了。一张千兆卡，传输速度远远超过本机的硬盘I/O。    </p>
+
+<p>两台机器之间传递数据，比从本地硬盘读数据还要快。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>那么，端口交互的成本低到这种可接受的程度，所以ErLang渐渐地就被服务器端开发者们    </p>
+
+<p>看好了。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>所以，我说“层间交互的代价是极高的。必须在一个可以承受这种代价的环境中，才能使用    </p>
+
+<p>它”。Erlang通过节点来分层，这种思路导致的交互代价可以被接受了，他就被接受了。同    </p>
+
+<p>时，他的其它优势才发挥了出来。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:great sample    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>同样的道理，我现在在讨论我们开发中的横向分层，必须是一个可以接受他的工程环境才能    </p>
+
+<p>用的。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你可用在一个RAD团队中使用横向分层，结果仍然是一个开发人员去做所有层上的事情，他愿    </p>
+
+<p>意去做，而且还很Happy。即使如此，他也要有消化层间交互代价的能力，他的项目或团队也    </p>
+
+<p>要有这种能力。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>否则还是要做砸锅。    </p>
+
+<p>Shaofei Cheng 说:所以说这个环境很重要    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>然而我之视见，我认为，消化层间交互的代价，可能不是一个开发人员能做的，而是领域推    </p>
+
+<p>动才能实现的。比如，我们有专业的设计人员，知道如何跟开发人员交互，如何构建原型——    </p>
+
+<p>但我要强调，这个设计人员一定不是开发人员！    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>只有具有了这样领域能力，他才能在这个团队中工作好。否则，我们就要给出时间，行业也    </p>
+
+<p>要给出时间来实现这些。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>就好象在“塔楼式”建筑方式出来之前，我们还得用旧方法造楼一样。    </p>
+
+<p>Shaofei Cheng 说:其实整理一下思路    </p>
+
+<p>Shaofei Cheng 说:我一直在提WPF    </p>
+
+<p>Shaofei Cheng 说:WPF是一个UI和dev协作的环境    </p>
+
+<p>Shaofei Cheng 说:理论上讲 或者这个系统设计的初衷 就是让UX层跟dev层交互的代价变为0    </p>
+
+<p>Shaofei Cheng 说:当然实际上他没有做到    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>而且他还违背了UI设计者的初衷，他必须迁就开发团队地去学习VSTS。    </p>
+
+<p>Shaofei Cheng 说:但是这是一个权衡的问题    </p>
+
+<p>Shaofei Cheng 说:UI设计者被强迫用EB 也是一个限制    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>是的。如果这个团队的开发目标，锁定在VSTS可控的范围内，那么这样是可以接受的。    </p>
+
+<p>Shaofei Cheng 说:或者说抛开工具    </p>
+
+<p>Shaofei Cheng 说:UI designer必须提交一份XAML    </p>
+
+<p>Shaofei Cheng 说:XAML工具有不少    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你要具有架构师的思想，你必须认识到VSTS适合不适合，以及UI设计者被强迫用EB正不正确，    </p>
+
+<p>是一个具体场景的具体问题    </p>
+
+<p>。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>他是一种权衡，这本身不具有正确性。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:或者说WPF本身对项目来说是一个选择    </p>
+
+<p>Shaofei Cheng 说:其附带的分层效果只是一个附加工具    </p>
+
+<p>Shaofei Cheng 说:没法因为它的这种能力而选择它是吧？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我们再举一个例子。我在《大道至简》里面就讲过这个。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我说，我们的项目总有需求方，从开发人员的角度上来看，我们希望我们的需求提出者使用    </p>
+
+<p>C语言来描述它的需要。最好用C给开发人员写个框架。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对吧。但是，我们知道，我们的需求方大概不会用C，比如大企业的项目负责人，你不可能让    </p>
+
+<p>他用C。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>于是我们的工程界就说，我们需要一个标准的需求描述语言，例如说UML。这样一来，客户要    </p>
+
+<p>会用例图，开发团队（中的设计师）也要能懂它。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>看起来一切美好。然而，客户不会用C，难道他就会用UML吗？    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>你的问题和这个一样。UI设计师不会用C，难道他就会用XAML吗？    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>Shaofei Cheng 说:但是团队内和团队外不同    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>什么是最简成本的沟通？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>注意，你的目标是UI设计师的设计可以被开发，你的目标仅仅是这个。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>那么沟通的目标，就是“开发者+设计者＝一个可开发的产品”。那么让他们去保证这一点好了。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>哪怕拿出来只是一个骨架，只要证明这个骨架可以持续开发就好了。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>完全没必要通过一种XAML来保证。那是极大无聊的事情。    </p>
+
+<p>Shaofei Cheng 说:那么至于究竟开发者去把位图写成XAML 还是UX去把设计写成C 其实只是一个开发时候的协作？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>GOOD!GOOD!    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我终于成功了，这太重要了。你必须明白，那只是开发时协作的一个可选工具！    </p>
+
+<p>Shaofei Cheng 说:假如就有这么个变态UX 喜欢用C写设计 也是可以的    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>至于这个协作过程中，是用白板，还是在PS界面上画，或者是别的什么，并不重要啊。    </p>
+
+<p>Shaofei Cheng 说:当时我想说 工具影响成本    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>所以，我从来不说我反对XAML，或反对UML。因为那原本就是一种可选工具。他是备选的，所    </p>
+
+<p>以我不能否定它。但是，我不能一叶障目地说我必须用它。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>说必须用它的，是M$，是厂商，是业务代表。    </p>
+
+<p>Shaofei Cheng 说:在工具设计者设想的场景中 这个东西保证了可行    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>&gt;&gt;&gt; Shaofei Cheng 说:&gt;&gt;&gt; 在工具设计者设想的场景中 这个东西保证了可行    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我同意。    </p>
+
+<p>但，那是他们的预想。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>他们的预想只是一头猪或一群猪的代价。    </p>
+
+<p>Shaofei Cheng 说:比如如果电脑上没有PS 图形技术没有出现    </p>
+
+<p>Shaofei Cheng 说:UX只能把纸上的东西给开发者    </p>
+
+<p>Shaofei Cheng 说:那么UX for software这个职业可能就不会出现了    </p>
+
+<p>Shaofei Cheng 说:也不会有人提议将 软件的界面设计分成一层了吧    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>这个职业呵~~~ N早先就有。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>要不你认为Windows是怎么做出来的？Mac？    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>哈哈。    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>基本上，到这里吧，我觉得你已经了解我想说的了。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p>谢谢    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>对了，winter，我想把这段讨论贴出来。可？    </p>
+
+<p>Shaofei Cheng 说:当然没问题    </p>
+
+<p>Shaofei Cheng 说:跟你谈谈架构方面的东西很有收获    </p>
+
+<p><span style="color:green">Aimingoo 说:</span>我整理下下。会比较清楚。    </p>
+
+<p>Shaofei Cheng 说:嗯    </p>
+
+<p> <a href="http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx"><span style="color:#000080">下一节--&gt;&gt;</span></a></p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-125.html">
+                    VCL已死，RAD已死(3)
+                </a>
+            </span>
+
+            <span class="post-nav-next">
+                <a href="1-127.html">
+                    SD2C大会，JavaScript + Delphi + ErLang 讲演相关资料完全公开！
+                </a>
+                下一篇
+            </span>
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0d5025f8e3">
+<script src="assets/js/gitment.browser.js?v=0d5025f8e3"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I'm here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i> 
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0d5025f8e3"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0d5025f8e3"></script>
+</body>
+

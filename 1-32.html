@@ -1,0 +1,722 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Qomolangma实现篇(二)：命名空间和别名子系统的实现</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0d5025f8e3">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0d5025f8e3">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomolangma实现篇(二)：命名空间和别名子系统的实现">
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta property="og:url" content="http://aimingoo.github.io/1-32.html">
+    <meta property="article:published_time" content="2006-02-19T17:23:00.000Z">
+    <meta property="article:modified_time" content="2006-02-19T17:23:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomolangma实现篇(二)：命名空间和别名子系统的实现">
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-32.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "Qomolangma实现篇(二)：命名空间和别名子系统的实现",
+    "url": "http://aimingoo.github.io/1-32.html",
+    "datePublished": "2006-02-19T17:23:00.000Z",
+    "dateModified": "2006-02-19T17:23:00.000Z",
+    "keywords": "Javascript",
+    "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=0d5025f8e3"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+</head>
+
+<body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0d5025f8e3"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-javascript">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2006-02-20">11 years ago</time>
+                        <time class="post-date" datetime="2006-02-20">(2006-02-20)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="tag/javascript/">Javascript</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <hr>
+
+<p>Qomolangma OpenProject v1.0  </p>
+
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
+
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
+有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
+
+<hr>
+
+<p>一、NamedSystem 模块概要 <br>
+~~~~~~~~~~~~~~~~~~  </p>
+
+<p>NamedSystem 是Qomo的可选载入模块。这个模块主要实现三个功能： <br>
+  - 对$import()在路径识别上的增强 <br>
+  - Namespace 子系统的装载 <br>
+  - Alias 子系统的装载  </p>
+
+<p>// TODO: NamedSystem.js是firefox兼容的。  </p>
+
+<p>二、NamedSystem 模块的构成与载入 <br>
+~~~~~~~~~~~~~~~~~~  </p>
+
+<p>命名系统分成上述的三个部分，但它们的重要性并不相同。  </p>
+
+<p>$import()为了对路径识别进行增强，加入了一个标准的JavaScript对象：Url()。此后通 <br>
+过一个匿名函数的执行来实现对$import()中功能的重述。$import()的重述，以及Url()对 <br>
+象的实现这两部分的功能，对于一般的系统来说都是必须的。  </p>
+
+<p>接下来NamedSystem 模块将载入namespace和alias子系统的模块。但这两个模块是可选的。 <br>
+在Qomo系统中，不强制使用命名空间或相关的功能。而且事实上，在绝大多数的情况下， <br>
+Qomo的命名空间系统都是自维护的。  </p>
+
+<p><font face="Courier New">NamedSystem模块的代码结构：  </font></p>
+
+<hr>
+
+<p>Url = function() { <br>
+  // Url object的实现 <br>
+}();  </p>
+
+<p><font face="Courier New">void = function() { <br>
+  // $import()的重述 <br>
+}();</font>  </p>
+
+<p><font face="Courier New">// 命名空间和别名子系统的载入 <br>
+$import('Namespace.js'); <br>
+$import('Alias.js');</font>  </p>
+
+<p><font face="Courier New">// 命名空间和别名声明 <br>
+$import('Qomo.spc'); <br>
+$import('Qomo.alias'); <br>
+// more... <br>
+----------</font>  </p>
+
+<p>三、Url对象的分析 <br>
+~~~~~~~~~~~~~~~~~~  </p>
+
+<p>在一般人看来，对一个Url的解析是很简单的。但如果你看一下注册表中这个键的子键： <br>
+  [HKEY<em>CLASSES</em>ROOT/PROTOCOLS/Handler] <br>
+你就不会觉得这是一件简单的事了。  </p>
+
+<p>这个键描述了能在IE中支持的地址协议。IE扩展了Url，使用URI来统一描述资源文件、本机 <br>
+和网络上的内容地址。使得浏览器跟资源管理器、操作系统紧密集成在一起。  </p>
+
+<p>对于本机文件来说，你可以通过这样一种地址协议在IE中访问它（在IE中选“文件-&gt;打开” <br>
+菜单，选中该文件并确认之后，就可以在IE地址栏看见它了)： <br>
+<strong>  <em>*<a href="file:///c:/windows/ntbtlog.txt"></a></em></strong>file:///c:/windows/ntbtlog.txt*  </p>
+
+<p>你也可以在任何一个帮助文件(.CHM)上点鼠标右键，查看一个“属性”，就会得到这样一个 <br>
+“URL”： <br>
+<strong>mk:@MSITStore:C:/WINDOWS/Help/ups.chm::/MS-ITS:pwrmn.chm::/pwrmn<em>ups</em>overview.htm</strong>  </p>
+
+<p>这此地址也要被Qomo的地址系统理解。因为他们都可以在IE里访问，也可以是HTML网页，当然 <br>
+也就允许使用javascript和Qomo。  </p>
+
+<p>Url()对象对协议的识别使用了一个正则表达式/^(/w+)(://<em>)([^//]</em>)/ <br>
+这个表达式可以取得协议格式(type)和host地址，然后Url()中将分析整个Url，并返回在对象 <br>
+实例的属性中，这些属性表括： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>parse: function Url.parse() { <br>
+    [qomo<em>core code] <br>
+} <br>
+URL: <a href="http://sourceforge.net:80/project/showfiles.php/list?group_id=157100&amp;type=1"><font face="Courier New"><a href="http://sourceforge.net:80/project/showfiles.php/list?group">http://sourceforge.net:80/project/showfiles.php/list?group</a></font></a></em>id=157100&amp;type=1 <br>
+<font face="Courier New">type: http <br>
+host: sourceforge.net <br>
+port: 80 <br>
+query: /project/showfiles.php <br>
+path: /list <br>
+param: group_id=157100&amp;type=1 <br>
+params: [object Object] <br>
+----------</font>  </p>
+
+<p>在上面这些属性中，parse()的属性显示是比较奇怪的。在javascript中，系统内置的函数作 <br>
+为字符串显示的时候，源代码将被隐含。例如执行document.writeln(Array)： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>function Array() { <br>
+    [native code] <br>
+} <br>
+----------  </p>
+
+<p>Qomo中实现了这种“隐藏源代码”的效果。例如： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>Url.parse.toString = $QomoCoreFunction('Url.parse'); <br>
+Url.toString = $QomoCoreFunction('Url'); <br>
+---------- <br>
+这样它们被显示出来的效果就类似于JavaScript系统的内置函数了。  </p>
+
+<p>在使用方面，Url()采用了于JavaScript内置对象RegExp()类似的设计。即可以将Url <br>
+作为全局对象实例使用： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>Url.parse('<a href="http://blog.csdn.net/aimingoo/archive/2006/02/13/597658.aspx">http://blog.csdn.net/aimingoo/archive/2006/02/13/597658.aspx</a>');  </p>
+
+<p><font face="Courier New">for (i in Url) <br>
+  document.writeln(i, ': ', Url[i], ''); <br>
+----------</font>  </p>
+
+<p>或将Url作为对象构造器使用： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>url = new Url('<a href="http://blog.csdn.net/aimingoo/archive/2006/02/13/597658.aspx">http://blog.csdn.net/aimingoo/archive/2006/02/13/597658.aspx</a>');  </p>
+
+<p><font face="Courier New">for (i in url) <br>
+  document.writeln(i, ': ', url[i], '');</font>  </p>
+
+<p><font face="Courier New">// url.parse('<a href="http://sourceforge.net/projects/qomo/">http://sourceforge.net/projects/qomo/</a>'); <br>
+----------</font>  </p>
+
+<p>四、$import()的重述 <br>
+~~~~~~~~~~~~~~~~~~  </p>
+
+<p>在system.js的实现中，我们讲述到$import.get/set的实现是为了留备其它子系统对它 <br>
+进行重述。而命名空间中单独处理了这一部分。  </p>
+
+<p> 1. URL BASE <br>
+ ~~~~<del> <br>
+ 通常情况下，我们会用document.URL或者window.location.href来取得当前网页的Url <br>
+地址。但问题是，这种情况下得到的，可能会有参数，例如.aspx调用后面的参数表。这 <br>
+会给后面的分析带来麻烦。因此在Qomo中，采用了一种技巧来取得真实的BASE URL： <br>
+<font face="Courier New">  </font></del></p>
+
+<hr>
+
+<p>  // url base for current document <br>
+  var BASE = function() { <br>
+    var el = document.createElement('IMG'); <br>
+    el.src = '.'; <br>
+    return el.getAttribute('src', 1); <br>
+  }(); <br>
+----------  </p>
+
+<p>此后，Qomo创建了一个Url()对象，对BASE进行分析(parse)，其中的query属性就　我们 <br>
+所需要知道的：基于当前Host的绝对路径(docBase)。  </p>
+
+<p> 2. 暂存引用(reference) <br>
+ ~~~~ <br>
+ $import操作get/set方法，使得外部代码中可以通过$import.get()来取得$import()内 <br>
+部函数的引用。由于内核单元初始化结束后会调用$import.OnSysInitialized()，因此 <br>
+我们甚至可以暂存一个get/set方法的引用： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>  var $getter = $import.get;          // 暂存get()方法的引用 <br>
+  var activeJS = $getter('activeJS'); // 暂存_sys.activeJS()的引用 <br>
+  // more... <br>
+----------  </p>
+
+<p> 3. 添加<em>sys的内部属性 <br>
+ ~~~~~~ <br>
+ 在重述后的$import()中需要更多的特性。这些特性(最好被)集中表现在</em>sys内部对象 <br>
+上。而$import.set()提供了这种可能性： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>  $import.set('docBase', docBase); <br>
+  $import.set('absBase', absBase); <br>
+  // more... <br>
+---------- <br>
+这样一些新的属性就被添加到_sys对象上了。这使在其后的其它模块对$import()进行 <br>
+重述时可以访问docBase属性或absBase()方法。  </p>
+
+<p> 4. 被重述的特性 <br>
+ ~~~~~~ <br>
+ 在NamedSystem模块中主要对transitionUrl()方法进行了重述。也就是说，NamedSystem <br>
+重新理解了$import(targetUrl)中的targetUrl参数。使得它完整支持以下的特性： <br>
+<font face="Courier New">  - targetUrl可以是基于system.js的相对路径. (仅在system.js单元) <br>
+  - targetUrl可以是基于当前host的绝对路径.  (缺省行为) <br>
+  - targetUrl可以是基于当前.js的相对路径.   (namesystem.js重述) <br>
+  - targetUrl可以是命名空间/别名下的包.     (Namespace.js重述)</font>  </p>
+
+<p>五、命名空间(namespace)子系统 <br>
+~~~~~~~~~~~~~~~~<del>  </del></p>
+
+<p> 1. 什么是命名空间 <br>
+ ~~<del> <br>
+ 至少是看起来，命名空间(系统)好象是一个了不起的系统。因为几乎现在的流行语言都 <br>
+要支持它。好象不支持它的话，就算不上流行，也不会流行起来一样。  </del></p>
+
+<p>事实上，命名空间没有什么了不起。如果你只是想写一个类，或者一个可控制的类继承 <br>
+树，那么你用不上命名空间。但如果你想整合几个不同的类库，或者一大堆的第三方组 <br>
+件包，那么这些组件包中总可能存在两个同名的类。这种情况下，你就需要将不同的类 <br>
+放在不同的命名空间里头，使得它们不相互冲突。于是，就需要就UI.Microsoft.Tree和 <br>
+UI.Yahoo.Tree这样的命名空间存在了。  </p>
+
+<p> 2. JavaScript中的命名空间 <br>
+ ~~~~ <br>
+高级语言的命名空间支持这样的一种特性，例如： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>$import(UI.Microsoft.Tree);  </p>
+
+<p><font face="Courier New">var aTree = new TDirectoryTree(); <br>
+----------</font> <br>
+这种情况下，系统会默认认为你在创建一个UI.Microsoft.Tree.TDirectoryTree的树。  </p>
+
+<p>也说是说，高级语言会将命名空间作为“作用域”的限定符来使用。而在JavaScript中， <br>
+作用域要么是函数内(或更内层)，要么是函数外，你没有办法指定作用域在哪一个命名 <br>
+空间里。——在上面的这个例子里，JavaScript会认为是在创建一个TDirectoryTree的 <br>
+树。  </p>
+
+<p>JavaScript v1.3中不存在命名空间。但在更高版本的JavaScript中，例如JScript 8(.net) <br>
+中，或者在JavaScript v2中，就存在命名空间。——事实上，在JavaScript 2的规范 <br>
+里，命名空间是类型，而且是第一类(first class)的。  </p>
+
+<p>由于在JavaScript v1.x中不存在命名空间的概念，而且作用域限定是JS解释器内部理 <br>
+解的，因而不可能改变。因此JavaScript 1.x中(通过第三方代码实现)的命名空间，通 <br>
+常只具有“扩展类继承树”的作用，而不具备作用域限定的作用。  </p>
+
+<p> 3. 如何实现命名空间 <br>
+ ~~~~<del> <br>
+ 在JavaScript中实现一个(没有作用域特性的)命名空间是很简单的事。因为他事实上 <br>
+是一个类的全名而已。那么这种情况下，一段简单的实现代码可以是这样： <br>
+<font face="Courier New">  </font></del></p>
+
+<hr>
+
+<p>// 1. 命名空间的建立 <br>
+var Qomo={}; <br>
+Qomo.System = {}; <br>
+Qomo.System.RTL = {};  </p>
+
+<p><font face="Courier New">// 2. 类, 构造器 <br>
+function MemProf() { <br>
+  // Object constructor... <br>
+}</font>  </p>
+
+<p><font face="Courier New">// 3. 命名空间上的类 <br>
+Qomo.System.RTL.MemProf = MemProf;</font>  </p>
+
+<p><font face="Courier New">// 4. 使用命名空间 <br>
+mem = new Qomo.System.RTL.MemProf(); <br>
+----------</font>  </p>
+
+<p>可见，(JavaScript中，)一般意义上的命名空间，只是一个类构造器的引用而已。  </p>
+
+<p> 4. Qomo中的命名空间 <br>
+ ~~~~ <br>
+ 在Qomo中的命名空间除了上述的含义之外，还有另外一层意义，也就路径标识。例如 <br>
+我们如果要使用这样的代码 <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>$import('Qomo.System.RTL.*'); <br>
+// or <br>
+$import(Qomo.System.RTL); <br>
+---------- <br>
+那么我们真实的意图，是要将RTL中的全部文件载入。也就是“包载入”的功能。  </p>
+
+<p>由于JavaScript不具有列(本地或远程)目录的能力，因为“包载入”需要一个描述包 <br>
+内容的文件，例如package.xml。解析这个文件并逐一载入的功能并不复杂，但问题是 <br>
+Qomo中的$import()是基于路径系统的，因此需要将Qomo.System.RTL翻译成一个URL路 <br>
+径。  </p>
+
+<p>这种工作，在一般的JavaScript实现的框架里，都是通过RegisterNamespace来实现的。 <br>
+这个RegisterNamespace()可以实现为一个全局的函数，也可以实现为一个命名空间的 <br>
+方法，不一而足。但基本上的意思，就是将一个namespace与一个url path建立对照。  </p>
+
+<p>Qomo也需要建立这样一个对照。但因为Qomo并不强制使用命名空间，因此Qomo也不强 <br>
+制使用RegisterNamespace的方法。取而代之的是“影射(map)”系统。  </p>
+
+<p>在$map()函数中，Qomo创建了一个私有、唯一的$map$对象： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>var $map$ = { <br>
+  //mapper of all path <br>
+  //0..n : dynamic properties with this.insert()  </p>
+
+<p><font face="Courier New">  signpost : function(p) { ... }, <br>
+  remove : function(p) { ... }, <br>
+  insert : function(p, n) { ... } <br>
+} <br>
+----------</font>  </p>
+
+<p>$map中会有一些0..n等数字为属性的，数字代表路径上长度。例如"/system/rtl/'长度 <br>
+为12，那么他会在$map$[12]属性指向的对象中。  </p>
+
+<p>这里利用了JavaScript的自动类型转换。事实上，我们是在使用$map$['12']这个属性。 <br>
+这种使用方式看起来象是数组，但$map$比数组“干净”：没有一些多余的方法或者属性。 <br>
+这个技巧事实上是用path.length作为hash_key建立起了一个哈希表。  </p>
+
+<p>接下来，$map$['12']存放的是一个用直接量方式声明的对象： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>sp = { <br>
+  paths: new Array(), <br>
+  names: new Array() <br>
+} <br>
+---------- <br>
+首先我不认为在JavaScript中会创建一个“多么巨大”的命名空间系统，其次我认为在使 <br>
+用path.length作为hash_key之后，已经不会存在多少的hash碰撞了。因此在paths/names <br>
+对照中，我简单的使用了数组。  </p>
+
+<p> 5. 路标 <br>
+ ~~~~~~ <br>
+请注意上面的对象使用的变量名sp(signpost)。我使用“路标(signpost)”来说明这个map <br>
+结点，有什么含义呢？  </p>
+
+<p>在一个name &lt;-&gt; path的映射系统里，我们可以发现一个现象： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>url1 = /Qomo/Component/Tree/NodeTree/ <br>
+url2 = /Qomo/Component/Tree/ <br>
+url3 = /Qomo/Component/  </p>
+
+<p><font face="Courier New">$map(Qomo.Component, url3); <br>
+$map(Qomo.Component.Tree, url2); <br>
+$map(Qomo.Component.Tree.NodeTree, url1); <br>
+---------</font> <br>
+在这个对照中，我们发现其实没有必须存储全部的对照表，我们只存储Qomo.Component与 <br>
+url3的对照，然后我们可以根据一种简单的关系运算，就可以得到其它的子空间所对应的 <br>
+path了。  </p>
+
+<p>这种空间的管理方式，我称为"路标(signpost)"： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>$map(Qomo.Component, url3); <br>
+$mapx('Qomo.Component.Tree.NodeTree'); <br>
+---------  </p>
+
+<p>与$map()并不一样，$mpax()并不需要路径参数($map()第二个参数)。$mapx()根据字符串 <br>
+向前查找，当到达Qomo.Component时找到一个有效的、已存在的命名空间。这时取出它映 <br>
+射的路径url3。接下来就可以简单的建立出一个 name -&gt; path 的对照： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p> Qomo.Component               --&gt; url3 <br>
+ Qomo.Component.Tree          --&gt; url3 + 'Tree/'; <br>
+ Qomo.Component.Tree.NodeTree --&gt; url3 + 'Tree/NodeTree/'; <br>
+--------- <br>
+我们可以发现这种关系是可以计算出来的(因而不需要存储在$map$)。而关键在于，我们 <br>
+需要查找到“路标”：Qomo.Component。  </p>
+
+<p>因此$map$事实上并不需要存储全部的 name &lt;--&gt; path的映射。它只需要存储上面这种 <br>
+关键的“路标(signpost)”。这样做的另一个好处是，我们如果将一个命名空间的物理 <br>
+位置转移，那么我们也只需要改变它的路径，他的子空间和相关路径的关系并不需要改 <br>
+变。  </p>
+
+<p>$map$.signpost()方法，用于通过路径(path)在$map$中查找一个最近的路标。事实上， <br>
+它返回该signpost上的namespace。——我不希望外部代码有机会改变$map$中的路标， <br>
+如果你要这样做，请通过$map$.remove()和$map$.insert()方法。  </p>
+
+<p> 6. 命名空间到路径的运算 <br>
+ ~~~~<del> <br>
+ 简单的说，“路标(signpost)”系统用于“路径到命名空间”的检索。那么反过来如 <br>
+何处理呢？  </del></p>
+
+<p>前面我们说到过，命名空间是一个对象直接量。我们确定了命名空间的含义之后，我们 <br>
+也应该知道，命名空间是一个独立的系统，与程序代码本身的逻辑无关。那么，我们也 <br>
+可以知道命名空间“对象”中的一些原生属性是没有实际意义的。例如constructor。  </p>
+
+<p>我们这里要使用constructor属性的唯一原因，只是因为它不会在“for .. in”循环中 <br>
+被列举出来。事实上象toString()这样的“对象基本方法”都不会被列举出来。但只有 <br>
+constructor在“不继承”的独立系统中没有确定的意义。  </p>
+
+<p>因此在Qomo系统中，有很多独立的系统将会使用constructor来存储一些关键属性，这 <br>
+只是为了达到属性名的隐藏，以避免与其它第三方系统在属性名上的命名冲突。这些“ <br>
+Qomo中独立的系统”包括命名空间、别名、多投事件和类方法。  </p>
+
+<p>在命名空间中，我们利用namespace_object.constructor来存储它实际指向的路径。也 <br>
+就是说，“命名空间到路径的运算”只是简单的存取constructor属性值。  </p>
+
+<p> 7. 小结 <br>
+ ~~~~ <br>
+ 在命名空间中，可以用$map()来建立一个命名空间，并映射到一个URL路径。这种映射 <br>
+关系被作为一个路标保存在内部的$map$对象中。  </p>
+
+<p>"路径-&gt;命名空间"运算通过$p2n()来实现，其本质是查找$map$中的路标。  </p>
+
+<p>"命名空间-&gt;路径"运算通过$n2p()来实现，其本质是存取命名空间对象的constructor属性。  </p>
+
+<p>命名空间可以是虚的。这种情况下，它的constructor指向一个空字符串。  </p>
+
+<p>命名空间是可以通过$mapx()来扩展得到的，这种情况下它不需要在$map$中保存路标。  </p>
+
+<p>(最重要的，)在JavaScript 1.x中实现的命名空间不具有作用域的意义，他本质上是一个 <br>
+对象构造器的全称、限定符，以及路径信息的映射。  </p>
+
+<p>六、别名(alias)子系统 <br>
+~~~~~~~~~~~~~~~~~~ <br>
+在Qomo中有一个并不十分成熟的别名系统。尽管它是可用的，但在使用之前，你应该注意 <br>
+“对一个命名空间建立别名，并不会影响到子命名空间”。  </p>
+
+<p>除了这种限制之外，这个别名系统还是很方便的。你可以看一下Alias.js的实现代码：简 <br>
+单而又快捷。哈哈。  </p>
+
+<p>别名事实上也是一个命名空间，只不过它的constructor指向另一个命名空间而已。关于这 <br>
+种结构，在$n2p()的实现中已经做过处理，因此与原有的Namespace系统能很好的并存。  </p>
+
+<p>因此(作为一个示例)，Qomo.alias演示了一个简单的别名声明。 <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>$alias('Qomo.RTL', Qomo.System.RTL); <br>
+---------  </p>
+
+<p>这将使得Qomo.RTL命名空间被创建，且可以作为Qomo.System.RTL的别名使用。但请留意， <br>
+这并不表明Qomo.RTL.MemProf也将是Qomo.System.RTL.MemProf的别名。——别名系统对子 <br>
+空间无效。  </p>
+
+<p>这很大程度上降低了别名系统的价值。事实上，解决这个问题的方法很简单： <br>
+<font face="Courier New">  </font></p>
+
+<hr>
+
+<p>Qomo.RTL = Qomo.System.RTL; <br>
+---------  </p>
+
+<p>——使用引用的方式来创建别名系统就可以了。但这可能为Namespace系统中的name-path <br>
+关系的维护带来更多的麻烦。因此，我(暂时地)放弃了这种技术。而仅在Alias.js的注释 <br>
+里提及到了它。</p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-31.html">
+                    关于Borland's IDE：发生了就发生了吧!
+                </a>
+            </span>
+
+            <span class="post-nav-next">
+                <a href="1-33.html">
+                    Qomo OpenProject Field Test 2发布！
+                </a>
+                下一篇
+            </span>
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0d5025f8e3">
+<script src="assets/js/gitment.browser.js?v=0d5025f8e3"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I'm here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i> 
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0d5025f8e3"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0d5025f8e3"></script>
+</body>
+

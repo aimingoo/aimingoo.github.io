@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: http://aimingoo.github.io/sitemap.xml
+Disallow: /ghost/

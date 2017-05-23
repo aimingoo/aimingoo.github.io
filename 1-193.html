@@ -1,0 +1,307 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSDN的SDCC大会(2013)中使用的PPT分享</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0d5025f8e3">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0d5025f8e3">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CSDN的SDCC大会(2013)中使用的PPT分享">
+    <meta property="og:description" content="SDCC大会今天开完个。呵呵~   PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。   这里说说这个大会中我的Topic。   此前CSDN向我约了一个主题，我回复说，     我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。   一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：     这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 http://sdcc.csdn.net ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。   于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：     我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-193.html">
+    <meta property="article:published_time" content="2013-08-31T14:02:00.000Z">
+    <meta property="article:modified_time" content="2017-05-20T09:02:33.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CSDN的SDCC大会(2013)中使用的PPT分享">
+    <meta name="twitter:description" content="SDCC大会今天开完个。呵呵~   PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。   这里说说这个大会中我的Topic。   此前CSDN向我约了一个主题，我回复说，     我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。   一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：     这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 http://sdcc.csdn.net ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。   于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：     我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-193.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "CSDN的SDCC大会(2013)中使用的PPT分享",
+    "url": "http://aimingoo.github.io/1-193.html",
+    "datePublished": "2013-08-31T14:02:00.000Z",
+    "dateModified": "2017-05-20T09:02:33.000Z",
+    "description": "SDCC大会今天开完个。呵呵~   PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。   这里说说这个大会中我的Topic。   此前CSDN向我约了一个主题，我回复说，     我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。   一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：     这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 http://sdcc.csdn.net ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。   于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：     我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=0d5025f8e3"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+</head>
+
+<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0d5025f8e3"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-193.html">CSDN的SDCC大会(2013)中使用的PPT分享</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2013-08-31">4 years ago</time>
+                        <time class="post-date" datetime="2013-08-31">(2013-08-31)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <p>SDCC大会今天开完个。呵呵~  </p>
+
+<p>PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  </p>
+
+<p>这里说说这个大会中我的Topic。  </p>
+
+<p>此前CSDN向我约了一个主题，我回复说，  </p>
+
+<blockquote>
+  <p>我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  </p>
+</blockquote>
+
+<div>一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：</div>  
+
+<blockquote>
+  <p>这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 <a href="http://sdcc.csdn.net">http://sdcc.csdn.net</a> ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  </p>
+</blockquote>
+
+<p>于是轮到我泪流满面了，因为按照这个思路， “架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  </p>
+
+<blockquote>
+  <p>我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，那就有些不合用的地方了。再则，若这些SDCC的架构场只是讨论网站架构下的实战，那就与听众的这种期待相去甚远了。  </p>
+  
+  <p>“架构的意图”是讨论一个架构“为什么要被做出来”的。也就是说，我们不是画一个架构图告诉团队说“按这个做”就可以了。架构师必须对“架构的意图”进行清晰的刻画，这是这个架构长期存在的基本意义与价值。我曾经说“意图是架构的灵魂”，不理解或不赋予架构某种“意图”，则架构终究是个死物，看不入眼的。在这个topic中，我会例举一些架构实践中的案例，来说明“其中存在或不存在某种意图”，以及如何识别与定义它。但我并不在乎这个例举是否是网站架构，这是与sdcc在这个议题上有别的地方。  </p>
+  
+  <p>请斟情考虑我的topic。  </p>
+</blockquote>
+
+<p>再回邮件时，鸫翔同学终于确定在SDCC上用这个话题了，也就是“寻找架构的来处：意图”。在我看来，一旦架构师没有意图，那么系统只是目标系统的某一时间上的静态映像。仅此而已。但是，什么才是这样的意图？我们如何得到或形成意图呢？为什么说“获得意图”才架构的精髓呢？“意图之于架构”的本质究竟是什么？这些是我在本讲演中希望与大家分享与讨论的。  </p>
+
+<p>“架构的意图”其实是一个有关架构的完整的体系中的一个话题，我称这个体系为：架构意图驱动的过程模型。在<span style="font-size:14px;color:#3366ff;"><a href="http://t.cn/zWb8Qac">《大道至易》</a></span>里面，我在总论中讲了其中“架构”（和架构师）这一概念的出处，定义了架构这个概念；在第10、11章中讨论了这个架构的整个模型与完整的实践。而最终的，又从这个实践中总结提升了“五项核心原则”，作为了第12章。这些内容，就是《大道至易》一书中有关“架构”的全部内容——其它的内容是讲软件工程和软件开发技术的。  </p>
+
+<p>下面这张图，我梳理了一下这几年来我有关架构的分享与讲演（这些都是公开的，很多有视频呵，可以试试在<a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3#cid=F9303C43D5CEAFB3&amp;id=F9303C43D5CEAFB3%21730">这里找</a>）。  </p>
+
+<p><img src="content/images/20130831215259515.png" alt="" title="">  </p>
+
+<p>大体上，我在2012年之前主要偏向于架构思想的分享（也讲讲能力模型和交付对象——例如设计神马的），而2013开始的所有topic，都在完成下面这个模型中所讲的知识结构：  </p>
+
+<p><img src="content/images/20130831215509640.png" alt="" title="">    </p>
+
+<p>最后打个小广告，模型中讲的“2013 架构的核心指导原则”，是今年10月将在上海的一场讲演。<a href="http://www.thinkinlamp.com/">在这里在这里……</a>  </p>
+
+<p>PPT的下载  </p>
+
+<hr>
+
+<p>在这里在这里在这里（视频神马的，我就没权限公开了，请大家关注CSDN吧）：  </p>
+
+<p><a href="http://vdisk.weibo.com/s/yXPCfhgzhwOnY">http://vdisk.weibo.com/s/yXPCfhgzhwOnY</a>  </p>
+
+<p>或  </p>
+
+<p><a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;id=F9303C43D5CEAFB3%211231">https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;id=F9303C43D5CEAFB3%211231</a>  </p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-192.html">
+                    MPD大会上使用的PPT分享 - 2013
+                </a>
+            </span>
+
+            <span class="post-nav-next">
+                <a href="1-262.html">
+                    续鸡零狗碎：谈谈这些豌豆们
+                </a>
+                下一篇
+            </span>
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0d5025f8e3">
+<script src="assets/js/gitment.browser.js?v=0d5025f8e3"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I'm here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i> 
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0d5025f8e3"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0d5025f8e3"></script>
+</body>
+

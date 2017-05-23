@@ -1,0 +1,315 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>迟来的真相：关于JavaScript的历史</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0d5025f8e3">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0d5025f8e3">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0d5025f8e3">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="迟来的真相：关于JavaScript的历史">
+    <meta property="og:description" content="今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2.">
+    <meta property="og:url" content="http://aimingoo.github.io/1-175.html">
+    <meta property="article:published_time" content="2012-03-22T07:13:00.000Z">
+    <meta property="article:modified_time" content="2012-03-22T07:13:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="语言">
+    <meta property="article:tag" content="浏览器">
+    <meta property="article:tag" content="脚本">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="迟来的真相：关于JavaScript的历史">
+    <meta name="twitter:description" content="今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2.">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-175.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 语言, 浏览器, 脚本">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "迟来的真相：关于JavaScript的历史",
+    "url": "http://aimingoo.github.io/1-175.html",
+    "datePublished": "2012-03-22T07:13:00.000Z",
+    "dateModified": "2012-03-22T07:13:00.000Z",
+    "keywords": "Javascript, 语言, 浏览器, 脚本",
+    "description": "今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2.",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=0d5025f8e3"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+</head>
+
+<body class="post-template tag-javascript tag-yu-yan tag-liu-lan-qi tag-jiao-ben nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0d5025f8e3"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-javascript tag-yu-yan tag-liu-lan-qi tag-jiao-ben">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-175.html">迟来的真相：关于JavaScript的历史</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2012-03-22">5 years ago</time>
+                        <time class="post-date" datetime="2012-03-22">(2012-03-22)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/liu-lan-qi/">浏览器</a>, <a href="tag/jiao-ben/">脚本</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <p>今天看到李松峰老师（<a href="http://weibo.com/lisf">@李松峰</a>）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（<a href="http://product.dangdang.com/product.aspx?product_id=22628333">在这里</a>）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。  </p>
+
+<p>话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：  </p>
+
+<blockquote>
+  <p>大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。  </p>
+  
+  <p>当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2.0开发一个称之为LiveScript的脚本语言……  </p>
+</blockquote>
+
+<p>然而正是这误指的源起，（至少在国内）造成了相当多的误解。我后来在写《JavaScript语言精髓与编程实践》过程中，为此甚是苦恼：不说吧，不对；写吧，罗嗦嗦地讲进书里，也是不好。后来才写了：  </p>
+
+<blockquote>
+  <p>《还原JavaScript的真实历史》   </p>
+  
+  <p><a href="http://blog.csdn.net/aimingoo/article/details/1932315">http://blog.csdn.net/aimingoo/article/details/1932315</a>  </p>
+</blockquote>
+
+<p>这篇博客，在这里引出了《JavaScript高级程序设计》第一版中“错误叙述”的原文。并在我的书中把考据类的信息指到这里。  </p>
+
+<p>再后来，我又读到《JavaScript高级程序设计》的第二版，这一版是在2010年的杭州D2（第五届）大会上偶然所得（也是奇遇，呵呵），是Nicholas签名的中文版。然而关于JavaScript的起源这件事，在这一版中仍是采用此前的说法，没有什么变化。  </p>
+
+<p>因此，当时Hedger送我这本书时，我便跟他约好，我得再写一篇关于“JavaScript起源”的文章，请他转译、转交给Nicholas。——我所“偶得”的这一本，正是Hedger送来，并且与Nicholas还很熟。这才有了我关于这一问题的“详图实证”：  </p>
+
+<blockquote>
+  <p>详图实证：关于JavaScript的语源问题  </p>
+  
+  <p><a href="http://blog.csdn.net/aimingoo/article/details/6654742">http://blog.csdn.net/aimingoo/article/details/6654742</a>  </p>
+</blockquote>
+
+<p>这篇文章发在《程序员》杂志上，而我则将一篇摘选另寄给了Hedger。再之后的消息，就不得而知了。    </p>
+
+<p>如今新版的《JavaScript高级程序设计》总算在这个问题上有了新的描述，而不再将起源问题指向C--，这便已是相当令人振奋的事实了。至于这中间有或没有几分个人的努力，其实已是在这种欣喜之外的事情。我所关注的，是总算在“JavaScript类的书籍”中，关于这个问题有了较一致的说法，而不至于让人左右难从了。    </p>
+
+<p>在新的、第三版《JavaScript高级程序设计》中“JavaScrip简史”的叙述如下：  </p>
+
+<blockquote>
+  <p>1.1　JavaScript简史  </p>
+  
+  <p>在Web日益流行的同时，人们对客户端脚本语言的需求也越来越强烈。那个时候，绝大多数因特网用户都使用速度仅为28.8kbit/s的“猫”（调制解调器）上网，但网页的大小和复杂性却不断增加。为完成简单的表单验证而频繁地与服务器交换数据只会加重用户的负担。想象一下：用户填写完一个表单，单击“提交”按钮，然后等待30秒钟，最终服务器返回消息说有一个必填字段没有填好……当时走在技术革新最前沿的Netscape公司，决定着手开发一种客户端语言，用来处理这种简单的验证。  </p>
+  
+  <p>当时就职于Netscape公司的布兰登?艾奇（Brendan Eich），开始着手为计划于1995年2月发布的Netscape Navigator 2开发一种名为LiveScript的脚本语言——该语言将同时在浏览器和服务器中使用（它在服务器上的名字叫LiveWire）。为了赶在发布日期前完成LiveScript的开发，Netscape与Sun公司建立了一个开发联盟。在Netscape Navigator 2正式发布前夕，Netscape为了搭上媒体热炒Java的顺风车，临时把LiveScript改名为JavaScript。  </p>
+  
+  <p>由于JavaScript 1.0获得了巨大成功，Netscape随即在Netscape Navigator 3中又发布了JavaScript 1.1。Web虽然羽翼未丰，但用户关注度却屡创新高。在这样的背景下，Netscape把自己定位为市场领袖型公司。与此同时，微软决定向与Navigator竞争的自家产品Internet Explorer浏览器投入更多资源。Netscape Navigator 3发布后不久，微软就在其Internet Explorer 3中加入了名为JScript的JavaScript实现（命名为JScript是为了避开与Netscape有关的授权问题）。以现在的眼光来看，微软1996年8月为进入Web浏览器领域而实施的这个重大举措，是导致Netscape日后蒙羞的一个标志性事件。然而，这个重大举措同时也标志着JavaScript作为一门语言，其开发向前迈进了一大步。  </p>
+  
+  <p>微软推出其JavaScript实现意味着有了3个不同的JavaScript版本：Netscape Navigator中的JavaScript、Internet Explorer中的Jscript和ScriptEase中的CEnvi。与C及其他编程语言不同，当时还没有标准规定JavaScript的语法和特性，3个不同版本并存的局面已经完全暴露了这个问题。随着业界担心的日益加剧，JavaScript的标准化问题被提上了议事日程。  </p>
+</blockquote>
+
+<p>在“CEnvi是JavaScript的一个实现（而并非起源）”这一点上，Nicholas终于做出了正确的描述。虽然，大概在细节的时间上还略值得探究，但已经是无伤大局的了。  </p>
+
+<p>是为纪念，即便来之迟迟，也是真相的成功罢！    </p>
+
+<p>_</p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-174.html">
+                    《JavaScript语言精髓与编程实践》（第二版）相关资源汇总
+                </a>
+            </span>
+
+            <span class="post-nav-next">
+                <a href="1-176.html">
+                    全文指引：《大道至易》中附录摘引的全文目录
+                </a>
+                下一篇
+            </span>
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0d5025f8e3">
+<script src="assets/js/gitment.browser.js?v=0d5025f8e3"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I'm here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i> 
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0d5025f8e3"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0d5025f8e3"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0d5025f8e3"></script>
+</body>
+

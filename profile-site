@@ -1,0 +1,37 @@
+document.writeln(function siteProfileHtmlContext() {/*
+<hr>
+<nav class="navigation site-stat">
+    <div class="site-stat-item">
+        <span class="site-stat-item-count">
+                <strong>263</strong>
+        </span>
+        <span class="site-stat-item-name">文章</span>
+    </div>
+    <div class="site-stat-item">
+        <span class="site-stat-item-count">
+        </span>
+        <span class="site-stat-item-name">推荐</span>
+    </div>
+</nav>
+
+<hr>
+<nav class="navigation social">
+    <ul class="social">
+        <li>
+            <a href="http://weibo.com/aimingoo" class="social-weibo">
+                <i class="fa fa-xlg fa-weibo" data-original-title="新浪微博" data-rel="tooltip"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/aimingoo" class="social-github">
+                <i class="fa fa-xlg fa-github" data-original-title="GitHub主页" data-rel="tooltip"></i>
+            </a>
+        </li>
+        <li>
+            <a href="rss/index.html" class="social-rss">
+                <i class="fa fa-xlg fa-rss" data-original-title="订阅本站" data-rel="tooltip"></i>
+            </a>
+        </li>
+    </ul>
+</nav>
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));

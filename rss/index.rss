@@ -1,0 +1,1839 @@
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 23 May 2017 05:41:29 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（一）</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+
+&lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
+
+&lt;p&gt;确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。&lt;/p&gt;
+
+&lt;p&gt;然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。&lt;/p&gt;
+
+&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国内受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过BlogToWordpress来将旧博客转到Wordpress导出文件
+&lt;ul&gt;&lt;li&gt;它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。&lt;/li&gt;
+&lt;li&gt;它会抓取图片等文件作为附件保存到指定目录。&lt;/li&gt;
+&lt;li&gt;cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用&lt;a href="https://github.com/yanyingwang/cnblog2jekyll"&gt;cnblog2jekyll&lt;/a&gt;中的generate&lt;em&gt;markdown&lt;/em&gt;all。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
+&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1719/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><dc:creator>aimingoo</dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+
+&lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
+
+&lt;p&gt;确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。&lt;/p&gt;
+
+&lt;p&gt;然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。&lt;/p&gt;
+
+&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国内受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过BlogToWordpress来将旧博客转到Wordpress导出文件
+&lt;ul&gt;&lt;li&gt;它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。&lt;/li&gt;
+&lt;li&gt;它会抓取图片等文件作为附件保存到指定目录。&lt;/li&gt;
+&lt;li&gt;cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用&lt;a href="https://github.com/yanyingwang/cnblog2jekyll"&gt;cnblog2jekyll&lt;/a&gt;中的generate&lt;em&gt;markdown&lt;/em&gt;all。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
+&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json&lt;/li&gt;
+&lt;li&gt;Ghost也支持单篇或多篇.md格式文章的导入，后面会讲到使用.md的方法&lt;/li&gt;
+&lt;li&gt;你不必非得使用Ghost博客系统，多数新的博客系统都支持Wordpress的.xml导出文件或者独立的.md文件。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;BlogToWordpress的支持站点在这里：&lt;a href="http://www.crifan.com/crifan_released_all/website/python/blogstowordpress/"&gt;Crifan的BlogsToWordPress&lt;/a&gt; ，但是下载是放在SourceForge上的：&lt;a href="https://sourceforge.net/projects/blogstowordpress"&gt;https://sourceforge.net/projects/blogstowordpress&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;BlogToWordpress需要Python 2.7.2或2.x，并且需要以下依赖包/库：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Python Imaging Library (PIL) &lt;/li&gt;
+&lt;li&gt;crifanLib&lt;/li&gt;
+&lt;li&gt;chardet，推荐chardet 1.0.1&lt;/li&gt;
+&lt;li&gt;BeautifulSoup，推荐BeautifulSoup-3.0.6.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;除了PIL之外其它三个包/库已经包含在BlogsToWordpress的发布包(v18.3)里了，而PIL是可选安装的（只是在极少数情况下才会用到）。所以，总的来说BlogsToWordpress也是即解压即用的。&lt;/p&gt;
+
+&lt;p&gt;我在mac上使用的命令如下（SourceForge上也有windows .exe版本，可以尝试）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 1. 下载BlogsToWordPress
+&amp;gt; curl -L 'https://sourceforge.net/projects/blogstowordpress/files/v18.3/BlogsToWordpress_v18.3_2014-05-23.7z/download' -o BlogsToWordpress_v18.3_2014-05-23.7z
+&amp;gt; 7z x BlogsToWordpress_v18.3_2014-05-23.7z
+
+# 2. 生成调用Stub shell script
+&amp;gt; echo 'python BlogsToWordpress.py --maxXmlSize 0 --googleTrans no --wpPicPath "/bkImages" -s "$1"' &amp;gt; runner.sh
+
+# 3. 运行脚本
+&amp;gt; bash runner.sh "http://blog.sina.com.cn/aimingoo" | tee BlogsToWordpress.log
+
+# 4. 归并文件到目录中
+#    - BlogsToWordPress根据url中的UserName部分来生成下载文件的目录，本例中是aimingoo
+#    - 脚本中指定的wpPicPath参数会使.xml中的图片url修正，但下载文件仍然是在aimingoo/pic目录中，所以需要更名
+&amp;gt; mv WXR_*.xml aimingoo/
+&amp;gt; mv BlogsToWordpress.log aimingoo/
+&amp;gt; mv aimingoo/pic aimingoo/bkImages
+&amp;gt; mv aimingoo blog.sina.com.cn-aimingoo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你需要处理更多的博客网站，那么只需要重复第3~4步即可。&lt;/p&gt;
+
+&lt;h2 id="2ghost"&gt;2. 用本地博客导入 - 例如Ghost&lt;/h2&gt;
+
+&lt;p&gt;如果你得到的是一批Markdown格式（.markdown或.md）的文件，以及用相对目录来保存的图片等附件——注意Ghost使用导入时也支持绝对路径，那么你可以直接将它们导入到支持该格式的本地博客中，例如Ghost。&lt;/p&gt;
+
+&lt;h3 id="21"&gt;2.1 搭建本地博客&lt;/h3&gt;
+
+&lt;p&gt;所谓本地博客，就是一个你在的电脑上运行的，在浏览器中可以使用&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href="http://localhost/"&gt;http://localhost/&lt;/a&gt; ...&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;来浏览的博客系统。我们下面就用Ghost来搭一个。&lt;/p&gt;
+
+&lt;p&gt;我在mac上使用的命令如下（应该可以在Windows上安装nodejs并搭建Ghost，但我没有试过）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 获取和解压Ghost
+&amp;gt; curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
+&amp;gt; unzip -uo ghost.zip -d ghost
+&amp;gt; cd ghost
+
+# 使用npm来安装Ghost
+#    - 如果你没有安装brew，那么参考下面的地址安装一份先
+#    - https://brew.sh/index_zh-cn.html
+&amp;gt; brew install node
+&amp;gt; npm install --production
+
+# 将Ghost运行在开发者模式上
+&amp;gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+Url configured as: http://aimingoo.github.io  
+Ctrl+C to shut down  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="22"&gt;2.2 准备导入文件&lt;/h3&gt;
+
+&lt;p&gt;我们之前已经得到了从旧博客网站中导出的两类文件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wordpress导出格式的*.xml，以及（有可能的）bkImages目录；或&lt;/li&gt;
+&lt;li&gt;一批Markdown格式的文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你直接使用Markdown文件，那么将它们打包在一个.zip文件中即可。如果你使用.xml，那么需要先用wp2ghost来做一下转换（你也可以考虑通过其它工具直接转换成.md）。&lt;/p&gt;
+
+&lt;p&gt;使用wp2ghost的好处是它生成的是.json文件，方便我们用其它工具或简单脚本来做进一步的检测、优化或其它处理。例如我写了一个脚本来做下面这些事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将url-encode的文本解码成可读格式：有些文章的标题或tags都使用了编码，直接导入Ghost是没法看的&lt;/li&gt;
+&lt;li&gt;移除多余的tags：有些博客的tags是parse文章得到的，茫茫多&lt;/li&gt;
+&lt;li&gt;修正author id：博客中的作者与Ghost中作者是没有对应关系的，需要修正&lt;/li&gt;
+&lt;li&gt;……&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;等等。&lt;/p&gt;
+
+&lt;p&gt;下面的示例说明对.xml文件的处理：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 1. 安装wp2ghost
+#    - 也可以直接使用git clone ...
+&amp;gt; svn export https://github.com/jonhoo/wp2ghost/trunk wp2ghost
+&amp;gt; cd wp2ghost
+&amp;gt; npm install
+
+# 2. 从Wordpress转换到json文件
+#    - 设文件位于~/blog.sina.com.cn-aimingoo中
+#    - 注意wp2ghost.js一次只能转换一个文件，下面用*.xml是省掉写文件名
+&amp;gt; node bin/wp2ghost.js ~/blog.sina.com.cn-aimingoo/*.xml &amp;gt; ghost-tmp.json
+
+# 3. 切换工作目录
+&amp;gt; mv ghost-tmp.json ~/blog.sina.com.cn-aimingoo/
+&amp;gt; cd ~/blog.sina.com.cn-aimingoo/
+
+# 4. 获取putrefy.js脚本
+#    - 请直接修改putrefy.js源代码，注意它并不是通过命令行参数来配置的
+&amp;gt; curl -L https://github.com/aimingoo/ghost-utils/raw/master/putrefy.js -o putrefy.js
+&amp;gt; node putrefy.js ghost-tmp.json &amp;gt; ghost.json
+&amp;gt; zip -r ghost_archive.zip ghost.json bkImages
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建议你根据你的博客的需求来修改putrefy.js中的参数配置，某些情况下（例如你要合并多个博客），那么在转换中所需要的putrefy.js脚本会各个不同，因此需要为它们配置各自适用的putrefy.js脚本。&lt;/p&gt;
+
+&lt;p&gt;现在你所得到的&lt;code&gt;ghost_archive.zip&lt;/code&gt;就是Ghost可用的导入文件了。&lt;/p&gt;
+
+&lt;h3 id="23"&gt;2.3 导入到本地博客&lt;/h3&gt;
+
+&lt;p&gt;我们刚刚启动了本地Ghost博客：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 在你的Ghost安装目录中（例如~/ghost）执行如下命令
+&amp;gt; npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;缺省情况下，在你用&lt;code&gt;http://aimingoo.github.io/&lt;/code&gt;访问它时会看到了一个初始状态的博客。你需要为自己建立一个博客账号，登录并管理它。这时，你应该访问&lt;code&gt;http://aimingoo.github.io/ghost/&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;建立博客账号的过程中，在第二步（输入你的名字、邮箱和初始密码）时会要求你设置博客的标题，忘掉了也没关系，你可以随时在管理界面的&lt;code&gt;Settings -&amp;gt; General&lt;/code&gt;中去修改它。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/ghost_startup_step-1.png" alt="ghost_startup_step-1"&gt;&lt;/p&gt;
+
+&lt;p&gt;另外，在第三步时会提示你邀请你的博客团队成员（Ghost是一个多人博客平台），请直接跳过忽略。有关这个功能我们将来再讨论——你随时可以在管理界面的&lt;code&gt;Team&lt;/code&gt;功能中发起邀请。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/ghost_startup_step-2.png" alt="ghost_startup_step-2"&gt;&lt;/p&gt;
+
+&lt;p&gt;初始化错了也没关系，来到你的Ghost安装目录，删除数据库文件，然后重启Ghost就可以了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 你可能需要先用Ctrl + C键退出正在运行的Ghost
+#    - 以开发版本模式运行的Ghost是没有驻留在后台的
+&amp;gt; rm content/data/ghost-dev.db
+&amp;gt; npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后我们来到&lt;code&gt;Settings -&amp;gt; Labs&lt;/code&gt;中，使用&lt;code&gt;import&lt;/code&gt;将我们此前准备好的.zip文件导入即可。如果一切顺利，你会在左下角看到导入成功的提示；如果失败，红色提示会出现在当前页面的顶端。&lt;/p&gt;
+
+&lt;p&gt;最后，建议你开启&lt;code&gt;Labs -&amp;gt; Enable Beta Features&lt;/code&gt;中的Public API选项，有许多第三方主题需要使用到这些博客功能。&lt;/p&gt;
+
+&lt;h2 id="3ghost"&gt;3. 迁移与Ghost使用小结&lt;/h2&gt;
+
+&lt;p&gt;其它的一些注意事项包括：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;你创建的第一个博客账号（也就是作为管理员的这个）是不需要验证mail地址的，但使用邀请功能加入的其它账号就需要验证。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;导入博客的过程中确实会出现一些意外，这是我写上面提到的&lt;code&gt;putrefy.js&lt;/code&gt;工具的原因。如果你在导入过程中遇到问题，建议你尝试改写这份代码，或者将出问题的导入文件发给我——我尽量替你的博客内容保密，尽管它作为博客原本是公开的。呵呵&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;确实有非常多的途径来完成本文中描述的过程，但坦率地说，我尝试过很多了，目前这种算是最……可行的。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一旦你将.zip导入到Ghost，你就可以在Ghost管理和更新它们，发布或静态化等等。因此我在后续文章中提到的过程再与传统博客（例如下载、转换的那些文件）就没什么关系了。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你备份content整个目录（例如Ghost导入的图片位于&lt;code&gt;./content/images&lt;/code&gt;目录中），那么你可以随时重装Ghost，或者更新至新的版本而不会丢失数据。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ghost导入的博客文章是可能存在格式问题的，也可能导致你正在使用的Ghost博客主题（缺省是Casper主题，在&lt;code&gt;Settings -&amp;gt; General&lt;/code&gt;中设置）格式混乱或无法使用，请自行编辑它们。我事实上将所有历年文章逐一更新过，并尽量使用了markdown格式——这样以后管理起来就方便了。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ghost的数据库在&lt;code&gt;./content/data&lt;/code&gt;目录中，对应于开发版的是&lt;code&gt;content/data/ghost-dev.db&lt;/code&gt;文件。如果你安装过sqlite，那么可以直接用命令行来操作它——或者e用你喜欢的GUI工具也行。例如：&lt;/p&gt;
+
+&lt;p&gt;```bash&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sqlite3 -header -column ghost-dev.db 'select id, name, email from users'
+  id          name        email           &lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;1           aimingoo    aiming@gmail.com
+  ```&lt;/p&gt;
+
+&lt;p&gt;记住这个&lt;code&gt;id = 1&lt;/code&gt;，它是你的管理帐户id。在导入用的ghost.json文件中，它也被称为&lt;code&gt;author_id&lt;/code&gt;，在将来做多账户操作时你可能需要了解它。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：&lt;/p&gt;
+
+&lt;p&gt;```bash&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
+  1519|《大道至简》的幕后故事：终结篇、勘误和PDF下载
+  1595|近期的公开资源汇总(已完整)~
+  ...
+  ```&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果你得到上述的&lt;code&gt;id&lt;/code&gt;值，那么可以直接在Ghost的管理界面中去编辑它——Ghost管理界面没有搜索功能。例如直接在浏览器上使用如下地址：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href="http://aimingoo.github.io/ghost/editor/1519/"&gt;http://aimingoo.github.io/ghost/editor/1519/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>再一次开始更新博客</title><description>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
+
+&lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
+
+&lt;p&gt;于是大家就有了这个在github上的新站。这里把以前在&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新浪博客 - &lt;a href="http://blog.sina.com.cn/aimingoo"&gt;http://blog.sina.com.cn/aimingoo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CSDN博客 - &lt;a href="http://blog.csdn.net/aimingoo"&gt;http://blog.csdn.net/aimingoo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面分开写的内容全部放在了一起。并且接下来会把“麦秸的垛”也逐渐迁移过来。&lt;/p&gt;
+
+&lt;p&gt;新博客使用的是ghost博客系统，使用buster发布成静态网页，然后提交到github和ghpages来做托管。里面涉及到不少的技术细节，所以最近也会发一些文章来介绍这些。&lt;/p&gt;
+
+&lt;p&gt;在整个博客的内容开始稳定更新之前，近期会有一些小的更新会放在本篇文章最后。&lt;/p&gt;
+
+&lt;h3 id="20170520"&gt;2017.05.20&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;全站交付。&lt;/li&gt;
+&lt;li&gt;2009年之后的博客文章全部进行了修订。&lt;/li&gt;
+&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1718/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
+
+&lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
+
+&lt;p&gt;于是大家就有了这个在github上的新站。这里把以前在&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新浪博客 - &lt;a href="http://blog.sina.com.cn/aimingoo"&gt;http://blog.sina.com.cn/aimingoo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;CSDN博客 - &lt;a href="http://blog.csdn.net/aimingoo"&gt;http://blog.csdn.net/aimingoo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面分开写的内容全部放在了一起。并且接下来会把“麦秸的垛”也逐渐迁移过来。&lt;/p&gt;
+
+&lt;p&gt;新博客使用的是ghost博客系统，使用buster发布成静态网页，然后提交到github和ghpages来做托管。里面涉及到不少的技术细节，所以最近也会发一些文章来介绍这些。&lt;/p&gt;
+
+&lt;p&gt;在整个博客的内容开始稳定更新之前，近期会有一些小的更新会放在本篇文章最后。&lt;/p&gt;
+
+&lt;h3 id="20170520"&gt;2017.05.20&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;全站交付。&lt;/li&gt;
+&lt;li&gt;2009年之后的博客文章全部进行了修订。&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>确定的世界 - The Promise's World</title><description>&lt;h1 id="thepromisesworld"&gt;确定的世界 - The Promise’s World&lt;/h1&gt;
+
+&lt;p&gt;—— Promise的逻辑以及在Lua中的实现  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本文基于如下项目(ES6 Promise in lua v1.0.1)：  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;&lt;a href="https://github.com/aimingoo/Promise"&gt;https://github.com/aimingoo/Promise&lt;/a&gt;  &lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;有这样一个世界&lt;/h2&gt;
+
+&lt;p&gt;有这样的一个世界在持续地向前推进着，这个世界充满着无穷多个选择，也就是说有无穷多的可能；但对每一个选择来说，存在决定/未决两种状态，如果已经决定，则只能有yes/no两种结果之一。这个世界看起来就是下面这个样子：     &lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://img.blog.csdn.net/20150810174734751" alt="The Promise" title=""&gt;     &lt;/p&gt;
+
+&lt;p&gt;那么，这个世界是确定的么？  &lt;/p&gt;
+
+&lt;p&gt;首先，这个世界是有状态的，那些看起来存在y/n两个分支的节点，就存在于这种状态——选择还没有发生，就还有可能。  &lt;/p&gt;
+
+&lt;p&gt;然而无论某一个节点的选择是什么，这个的世界的结果（的规模）是确定的，它必然演进到世界最下层中的状态的某一个。只不过这个最下层的规模足够大，所以在世界中的“未决”因素足够多的情况下，这个世界就看起来“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-196/</link><guid isPermaLink="false">c5aecbe8-bfd2-4086-998d-940262d8320b</guid><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Mon, 10 Aug 2015 09:35:00 GMT</pubDate><content:encoded>&lt;h1 id="thepromisesworld"&gt;确定的世界 - The Promise’s World&lt;/h1&gt;
+
+&lt;p&gt;—— Promise的逻辑以及在Lua中的实现  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本文基于如下项目(ES6 Promise in lua v1.0.1)：  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;&lt;a href="https://github.com/aimingoo/Promise"&gt;https://github.com/aimingoo/Promise&lt;/a&gt;  &lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;有这样一个世界&lt;/h2&gt;
+
+&lt;p&gt;有这样的一个世界在持续地向前推进着，这个世界充满着无穷多个选择，也就是说有无穷多的可能；但对每一个选择来说，存在决定/未决两种状态，如果已经决定，则只能有yes/no两种结果之一。这个世界看起来就是下面这个样子：     &lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://img.blog.csdn.net/20150810174734751" alt="The Promise" title=""&gt;     &lt;/p&gt;
+
+&lt;p&gt;那么，这个世界是确定的么？  &lt;/p&gt;
+
+&lt;p&gt;首先，这个世界是有状态的，那些看起来存在y/n两个分支的节点，就存在于这种状态——选择还没有发生，就还有可能。  &lt;/p&gt;
+
+&lt;p&gt;然而无论某一个节点的选择是什么，这个的世界的结果（的规模）是确定的，它必然演进到世界最下层中的状态的某一个。只不过这个最下层的规模足够大，所以在世界中的“未决”因素足够多的情况下，这个世界就看起来“一切皆有可能”而已。  &lt;/p&gt;
+
+&lt;p&gt;而这也就是Promise’s World，确定的世界。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;什么是已决定的？&lt;/h2&gt;
+
+&lt;p&gt;到底什么是已“确定”的呢？当你举起手枪对着自己的头的时候，这个行为是“确定”的吗？  &lt;/p&gt;
+
+&lt;p&gt;答案是：这个行为是“确定”的，你只是没有“决定”而已。这个称为“用枪瞄准自己的头”的系统很确定：要么是死，要么是不死——死或不死都是确定的。在语言中，你可以理解为：布尔值是确定的值，它确定的是yes/no。  &lt;/p&gt;
+
+&lt;p&gt;布尔值被理解为一个“已决定（它的结果行为）的”系统。同理，所有值类型的数据，所有有已决定结果的数据，都是确定的。这在promise中被这样定义下来：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-lua"&gt;local function promised_y(self, onFulfilled)  
+    -- ...
+end
+
+-- ...
+
+-- promise for basetype
+local number_promise = setmetatable({andThen = promised_y}, promise)  
+local true_promise   = setmetatable({andThen = promised_y, true}, promise)  
+local false_promise  = setmetatable({andThen = promised_y, false}, promise)  
+number_promise.__index = number_promise  
+nil_promise.andThen = promised_y  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok，这里的代码的意思是说，number/string/boolean，以及nil这些值的行为(andThen)都是已决定的，指向promised_y()。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;javascript的promise规范中，这里被称为.then()方法，而拥有这样一个方法的对象被称为thenable object。这个方法有确定的接口：  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;p&gt;function (onFulfilled, onRejected)  &lt;/p&gt;
+  &lt;/blockquote&gt;
+  
+  &lt;p&gt;但在lua中由于then是保留字，所以只好用andThen作为方法名（也有用next来作为方法名的）。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;同样，一个对象(lua中的table)也是已决定的，在promise中它与一般的value并没有不同。因此，在lua中的Promise.resolve(value)实现为如下：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function Promise.resolve(value)  
+    local valueType = type(value)
+    if valueType == 'nil' then
+        return nil_promise
+    elseif valueType == 'boolean' then
+        return value and true_promise or false_promise
+    elseif valueType == 'number' then
+        return setmetatable({(value)}, number_promise)
+    elseif valueType == 'string' then
+        return value
+    elseif (valueType == 'table') and (value.andThen ~= nil) then
+        return value.catch ~= nil and value -- or, we can direct return value
+            or setmetatable({catch=promise.catch}, {__index=value})
+    else
+        return setmetatable({andThen=promised_y, value}, promise)
+    end
+end  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;留意这里的string类型，它与其它value略有区别，是因为string类型在lua中正好是有meta type的，因此可以直接通过修改元表来让它“变得与promise object”行为一样。至于其它，就必须包装一下了。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对于对象(object/table)来说，它可能有三种情况：  &lt;/p&gt;
+  
+  &lt;blockquote&gt;
+    &lt;ul&gt;
+    &lt;li&gt;如果为thenable object（即，有.andThen而没有.catch方法），则给他一个catch()方法；  &lt;/li&gt;
+    &lt;li&gt;如果为promise object，则直接返回；  &lt;/li&gt;
+    &lt;li&gt;如果为普通object（即，其它样式的lua table），则包装成promise object并返回。  &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;那么，什么是promise object呢？  &lt;/p&gt;
+
+&lt;h2 id="promiseobjectandpromiseclass"&gt;promise object and Promise class&lt;/h2&gt;
+
+&lt;p&gt;按照协议，promise框架必须实现promise object和Promise class。参考：&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"&gt;ECMAScript 2015(ES6)&lt;/a&gt;，包括如下这些类方法：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Promise.new(func)     &lt;/p&gt;
+  
+  &lt;p&gt;Promise.resolve(value)     &lt;/p&gt;
+  
+  &lt;p&gt;Promise.reject(reason)     &lt;/p&gt;
+  
+  &lt;p&gt;Promise.all(arr)     &lt;/p&gt;
+  
+  &lt;p&gt;Promise.race(arr)  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以及对象方法：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;promise:andThen(onFulfilled, onRejected)     &lt;/p&gt;
+  
+  &lt;p&gt;Promise:catch(onRejected)  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;五种类方法之任一都将得到一个promise object。确切地说，你也只能通过这五种方法来得到promise object，哪怕只是数字1，也应当这样来写：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;local promise_number_1 = Promise.resolve(1)  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这些类方法有些“潜在的/隐式地”将值变成promise的能力，例如：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Promise.all(arr)  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;严格地来说all()要处理的是一个promise object array，为了这个目的，事实上它会将arr中的每个成员都尝试转换(resolve)以得到promise object。因此下面两种方法：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;Promise.all([1,2,3]):andThen(..)  
+-- vs.
+Promise.all([  
+    Promise.resolve(1),
+    Promise.resolve(2),
+    Promise.resolve(3)
+]):andThen(..)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;事实上是一样的效果。  &lt;/p&gt;
+
+&lt;p&gt;而具体到一个promise object，它在lua中描述的结构是一个table(array)。初始化时，它只有一个元素（我通常称之为p[1]）：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;a_promise_instance = { PENDING }  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;PENDING表明这个promise是未决的。如果已决定，例如上面提到过的“所有的”值，那么p[1]就存放的是那个具体的值。例如：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;-- boolean promise object
+{true}, {false}
+-- number promise object
+{1}, {1.23}, ..
+-- object promise object
+{{}}, {obj}, ..
+-- userdata/function/coroutine/..
+{userdata}, {func}, {co}, ..
+-- nil promise object
+{}
+-- string is string, ^^.
+'abcd'  
+-- non-promised promise object
+{PENDING}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在5种Promise类方法中，promise.resolve()和reject()得到的是一个已决定的、值的promise对象（或者，当传入promise object时，返回的是它自身，注1）。而其它三种方法，得到的都将是一个non-promised的对象——也就是说，这些情况下p[1]存放的是PENDING。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注1: 在JavaScript中，这种情况仍将得到一个新的promise，而lua中得到传的的promise object。这并不会带来使用效果上的差异。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id="lazyresolver"&gt;推迟决策：lazy resolver&lt;/h2&gt;
+
+&lt;p&gt;到目前为止，在我们具体讨论PENDING之前，所谓的promise object，以及整个的promise’s world其实都很简单。但仔细看去，这也不过是最开始所描绘的世界中左边的那一半而已——这一半都是promised，是确知的，已决定的。  &lt;/p&gt;
+
+&lt;p&gt;整个Promise世界的秘密(或魔法、活力)都在右边那一部分。也就是p[1]中写着PENDING的未决的那些结点。这些结点是推迟决策的，它什么时候到来是未知的，由于状态未决，所以也有不可确知的结果。仍然以那把瞄着你的头的枪为例，板机并不是你在扣着，而是在1公里以外的一个狙击手的手上。现在（当下）的问题是，你处于PENDING状态，既不知道那个狙击手是不是已经被第三者干掉了，还是已经扣下了板机而子弹是在飞过来的路上。PENDING这个状态是未决的，它未决的是你的生死，直到p[1]被填上一个值——如同子弹真正地射入你的头脑，或者邦德站在你的面前告诉你说“他死了”。  &lt;/p&gt;
+
+&lt;p&gt;p[1]将被填入“射击”这个行为发生的结果(value/result)，或这个行为没有发生的原因(reson)。无论二者之一为何，这个p[1]都是你现在（当下）所不确知的，所以尽管我们有千般主意，也只能等待value/reson两种结果被确认。这“千般主意”我们都可以一一想好，并且用promise:andThen()关联给这个promise，但……我们就是得等着结果发生。所以，Promise in lua为此设计了lazy对象，每一个用andThen添加进来的“主意”都是一个lazy，被追加到promise object数组的末尾——好的，我想你已经知道了，就是p[2]..p[n]，或称之p[2..n]。  &lt;/p&gt;
+
+&lt;p&gt;p[2..n]是一个个独立的lazy object。每个lazy表达为三个元素的数组：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;{promise, onFulfilled, onRejected}  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由于一个PENDING promise是未决的，所以当它决定时至少要做的（第一个） 行为就是将真正的结果填入p[1]。所以由new/all/race这三种方法来创建的（未决的）promise的内部都会调用resolver()来实施这一决策：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;function Promise.all(arr)  
+    local this, result, count = setmetatable({PENDING}, promise), {}, #arr
+
+    -- ...
+    resolver(this, result, sure)
+    -- ...
+end
+
+function Promise.race(arr)  
+    local this, result, count = setmetatable({PENDING}, promise), {}, #arr
+
+    -- ...
+    resolver(this, result, sure)
+    -- ...
+end
+
+function Promise.new(func)  
+    local this = setmetatable({PENDING}, promise)
+    pcall(func,
+        function(value) return resolver(this, value, true) end,
+        function(reason) return resolver(this, reason, false) end)
+    -- ...
+end  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;而这里的“决策（resolver）”，不过是对确定的结果(value)采用确定的行为——将p[1]赋值，并重置andThen()方法：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;local function resolver(this, resolved, sure)  
+    -- ...
+        this[1], this.andThen = resolved, sure and promised_y or promised_n
+    -- ...
+end  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以及推进所有p[2..n]中的行为：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;local function resolver(this, resolved, sure)  
+    -- ...
+        for i, lazy in next, this, 1 do     -- 2..n
+            pcall(resolver, lazy[1], promised(resolved, (sure and lazy[2] or lazy[3])), sure)
+            this[i] = nil
+        end
+    -- ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;而已。然而考虑到promise规范中允许andThen()返回一个non-promised的promise object，因此resolver()将检测这种状态，并将与这个promise object对应的lazy添加到尾部。  &lt;/p&gt;
+
+&lt;h2 id="promised"&gt;最后的promised&lt;/h2&gt;
+
+&lt;p&gt;现在，promise’s world中的结点要么是已决的(promised promise)。这种情况下它可能是一个一般值转换过来(Promise.resolve)的，因而只有左侧的边(promise&lt;em&gt;y)，也可能是一个promised promise object，因此具有两条边之一。无论如何，这样的一个promise object的p[1]存放着确定的值(value)，而andThen()指向一个确定有结果的行为：promised&lt;/em&gt;y、promised&lt;em&gt;n，或promised&lt;/em&gt;s。而这三个行为都必然是最终确定的：promised()  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- lua"&gt;local function promised(value, action)  
+    local ok, result = pcall(action, value)
+    return ok and Promise.resolve(result) or Promise.reject(result)
+end
+
+local function promised_s(self, onFulfilled)  
+    return onFulfilled and promised(self, onFulfilled) or self
+end
+
+local function promised_y(self, onFulfilled)  
+    return onFulfilled and promised(self[1], onFulfilled) or self
+end
+
+local function promised_n(self, _, onRejected)  
+    return onRejected and promised(self[1], onRejected) or self
+end  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;要么，就是还未决定的(non-promised promise)。因此它的p[1]中写着PENDING，andThen()指向一个将一切未知塞到p[2..n]的函数——既不是左边的y，也不是右边的n。  &lt;/p&gt;
+
+&lt;p&gt;而这，就是promise’s world的全部了：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;做你所决定的，为那些你所不能决定的做准备。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这一切，要等到PENDING发生变化，推迟决策生效（resolver过程启动）时才会有结果——所以resolver()函数是唯一在yes/no之外，你能看到有promised()调用的地方，那是未来将会发生的一次promised。一旦发生，non-promised was promised。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;示例&lt;/h2&gt;
+
+&lt;p&gt;有一个简单的示例，然而绝大多数lua promise框架都run不过。试试看吧：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-lua"&gt;---
+-- A完成后，根据a做BCD三件事，再根据BCD的结果做E。
+---
+
+Promise = require('Promise')
+
+A = function() return 10 end  
+B = function(a) print(a * 2) end  
+C = function(a)  
+    print(a * 4)
+    return Promise.resolve('ok')
+end  
+D = function(a) print(a * 3) end  
+E = function(result)  
+    local b, c, d = unpack(result)
+    print(b, c, d)
+    return Promise.reject('FIRE')
+end
+
+-- promise_A = Promise.resolve(A())
+promise_A = Promise.new(function(resolve, reject)  
+    local ok, result = pcall(A)
+    return (ok and resolve or reject)(result)
+end)  
+promise_B = promise_A:andThen(B)  
+promise_C = promise_A:andThen(C)  
+promise_D = promise_A:andThen(D)
+
+promises = {promise_B, promise_C, promise_D}  
+Promise.all(promises)  
+    :andThen(E)
+    :catch(function(reson)
+        print(reson)
+    end)
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>前端要给力之：红绿灯大战中的火星生命-Promise</title><description>&lt;h1 id=""&gt;传说的开始&lt;/h1&gt;
+
+&lt;p&gt;前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。  &lt;/p&gt;
+
+&lt;p&gt;我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。  &lt;/p&gt;
+
+&lt;p&gt;所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。  &lt;/p&gt;
+
+&lt;h2 id="winterpromise"&gt;看到winter的代码，我的第一反应是：全无promise的精髓&lt;/h2&gt;
+
+&lt;p&gt;公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;谁来当裁判？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这要裁判的便是@&lt;/p&gt;</description><link>http://aimingoo.github.io/1-195/</link><guid isPermaLink="false">fa384c49-09e6-4ac8-8140-b53d9d436ea2</guid><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Sun, 12 Apr 2015 13:35:00 GMT</pubDate><content:encoded>&lt;h1 id=""&gt;传说的开始&lt;/h1&gt;
+
+&lt;p&gt;前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。  &lt;/p&gt;
+
+&lt;p&gt;我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。  &lt;/p&gt;
+
+&lt;p&gt;所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。  &lt;/p&gt;
+
+&lt;h2 id="winterpromise"&gt;看到winter的代码，我的第一反应是：全无promise的精髓&lt;/h2&gt;
+
+&lt;p&gt;公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;谁来当裁判？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这要裁判的便是@寒冬winter 的一段代码（winter的代码#31，&lt;a href="http://code.w3ctech.com/detail/31" title="代码在这里"&gt;在这里&lt;/a&gt;）。这段代码是winter向@十年踪迹 同学宣战的，原文是：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我表示不服！来PK呀！  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;代码在code.w3ctech上的标题也是两个字母：pk。  &lt;/p&gt;
+
+&lt;p&gt;这就是后来史书家所称的“红绿灯大战”了。我随后回复winter的微博，写到：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;老实说，你写得不怎么样。全无promise的精髓。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我一开始就把自己搅进了战局，这样不好。  &lt;/p&gt;
+
+&lt;p&gt;不过也正是这样，才有了后面的好故事。至于现在，看客们请耐点心，请容我再讲讲更早一点的故事。  &lt;/p&gt;
+
+&lt;h2 id="promise"&gt;其实我了解Promise也是新近的事情&lt;/h2&gt;
+
+&lt;p&gt;hax总是跟近最新的ECMAScript规范以及JavaScript圈子的新近话题。相反的，我则不同，我不是太追新，在JS/前端的圈子中也总是伪前端自居。所以，请原谅我这么迟才了解到Promise这个东西，甚至于我对nodejs的callback hell有深切的感受也还是新近的事情。  &lt;/p&gt;
+
+&lt;p&gt;这是在今年元旦前后，我因为一个项目要写RESTApi接口，而选用了nodejs来写一个test case。因此，大家可以想见的，我一定会面临callback，并显而易见地会痛恨之。所以，我就就写了一个名为Continuer的项目，源代码中还写着“Callback Must Die!”。  &lt;/p&gt;
+
+&lt;p&gt;所以，我最初想用来搞掉callback的方法，其实是表现在Continuer这个项目中的（&lt;a href="https://github.com/aimingoo/continuer"&gt;continuer@github&lt;/a&gt;）。  &lt;/p&gt;
+
+&lt;p&gt;这个项目开源了并在微博上引起了一些前端同学的兴趣。这个时候便有人提到了Promise，质疑为什么在有了Promise的情况下还要做Continuer这样的东西。随后我就在翻读微博的时候，看到了hax与@孢子响马 同学的吵架贴，&lt;a href="http://weibo.com/2041028560/BDFy7hcIT"&gt;在这里在这里，快来看呀，打架好好看&lt;/a&gt;。hax向来被我称为吵架王的（有没有周星星电影的即视感），所以他在回复时言辞激烈那是再正常不过了——所以你看我就说“hax这10年来风格依旧，奥柏伦亲王真是大爱啊（这个梗要到“冰与火之歌”中去找）”，这完全符合他“认为正确就要誓死悍卫（或称为死性不改）”的风格。  &lt;/p&gt;
+
+&lt;p&gt;hax跟孢子响马讨论的是fibjs中解决异步的方式问题，hax的主要观点是  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“fib的问题并不是说他用的人少所以不好，而是说你选的不兼容道路导致工程上要采纳这个方案有很多障碍。而这障碍来自于一个没有明显优势（如果不是劣势）的编程模型。”  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在讨论其中关于“用的人多人少”的问题时，hax批评一种“（你得）用了才知道好不好”的观点时，说了一段我非常非常在意的话：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;第一，你不可能所有东西都尝试一遍。第二，有些东西你抓住重点看一下就可以推导出结果了。当然我的具体意见可能是错的，可能是出于误解，可能是某些我的基本前提不对，但是希望看到针对性的反驳而不是简单来一句“爱用不用”。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;hax的意思是说：有些正确性是可以推论出来的，并不因为实用经验多寡的而改变。这是我这么些年来对hax的了解中，他讲过的最哲学而又最逻辑的话（其它的大多数时候，他的哲学正确与逻辑正确是分离的，^^.）。  &lt;/p&gt;
+
+&lt;p&gt;好了，这也就是我了解Promise的源起，它来自于另一场战争。那场战争比今次所讨论的要激烈得多。许多猛士在那场地战争中倒下了。这也包括我。我后来因为这个缘故写了一篇《关于Continuer的What与Why》来解释我为什么写Continuer这个项目（&lt;a href="https://github.com/aimingoo/continuer/wiki/%E5%85%B3%E4%BA%8EContinuer%E7%9A%84What%E4%B8%8EWhy"&gt;在这里&lt;/a&gt;），这篇文字把我面临的问题锁定在“需要一个顺序执行的序列（以用于run testcases）”。在这个问题下面，写一个轻量的Continuer模块，并不算得“一件多么不正确”的事。  &lt;/p&gt;
+
+&lt;p&gt;hax后来接受了我的观点，一半是给我面子，另一半大概是懒得跟我吵架（我是吵架王的那个时代已经一去不返了，hax同学请继续坚持，我们这代人就靠你了）。因为，我在上面这篇文章里说Promise“在概念上仍然是基于事件触发的”，在我如今看来，这句话是大大的错了。  &lt;/p&gt;
+
+&lt;p&gt;我相信这样的问题hax是看得到的。  &lt;/p&gt;
+
+&lt;h2 id="promise"&gt;我与Promise后来发生的故事&lt;/h2&gt;
+
+&lt;p&gt;我原本打算春节期间用点时间来讨论一下javascript中关于异步的几种解决方案的，但当时忙于ngx_cc项目的开源所以耽误了。而春节之后，公司的项目追得又特别紧，所以一直拖着。  &lt;/p&gt;
+
+&lt;p&gt;到了3月初的时候，公司项目中有一个地方需要设计一种编程模型。这种编程模型是什么样的呢？它将所有的东西都理解为“一个带有服务能力的数据”，这在scala里，就是一个actor。Ok，当任何东西都变成这样一个“独立存在的actor”时，我们该怎么编程呢？  &lt;/p&gt;
+
+&lt;p&gt;这个时候我想到了Promise。Promise编程的核心思想其实是：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果数据就绪(promised)，那么(then)做点什么。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;假定我们设定：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对于“独立存在的actor”来说，这个actor（以及actor中的部分或全部成员）是否ready，是驱动后续逻辑的唯一方式。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;那么这种方式实现的框架，就是纯异步模式的框架了。因为它从逻辑上是纯异步的，而在数据上，也是原生的、自然的分布式的。  &lt;/p&gt;
+
+&lt;p&gt;我立即开始着手这个框架了，一方面Continuer被我抛得远远的（在实用中也发现了不少的问题），另一方面我打算写的文字也被继续搁置了。而我在这个框架上要解决的第一个问题，其实是：Lua不支持Promise。  &lt;/p&gt;
+
+&lt;p&gt;呵呵，我是要在ngx_cc这个项目上（这个项目是nginx集群通讯的，&lt;a href="https://github.com/aimingoo/ngx_cc"&gt;在这里&lt;/a&gt;）继续做些事情，当然得考虑到语言问题。于是就着手写了一个真正实现Promise的Lua库（你能找到的所有所有lua-promise库都达不到真正ECMAScript兼容）。做这件事的时候是在三亚。话说这次三亚的“F100技术领袖峰会（3月20-22）”到底有多么“技术领袖”呢？主要的表征之一，就是所有人中就只剩下我一个还在写代码的了。我一边开着会跟大家讨论软件工程、设计艺术、技术领导的风格与公司组织架构之间的关系以及传统企业的互联网转型过程中技术决策者的价值……等等，另一面写着这样一个Promise for Lua的库。  &lt;/p&gt;
+
+&lt;p&gt;离开三亚的时候，我跟麦子同学说：Promise库写完了。麦子同学一脸茫然和无限深情地看着我：老公，你潜水的时候像条鱼。  &lt;/p&gt;
+
+&lt;h1 id=""&gt;红绿灯大战的亲历实录&lt;/h1&gt;
+
+&lt;p&gt;红绿灯大战中，我join进去的时候已经是winter的挑战了，这事实上应该是@winter 对@十年踪迹 一次还击。十年踪迹同学最早是写了这样一个例子（十年踪迹的代码#30，&lt;a href="http://code.w3ctech.com/detail/30"&gt;在这里&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function promiseDef(async, i, j){  
+  return function(){
+    var args = [].slice.call(arguments);
+    var self = this;
+    return new Promise(function(resolve, reject) {
+      if(i != null){
+        args.splice(i, 0, resolve);
+      }else{
+        args.push(resolve);
+      }
+      if(j != null){
+        args.splice(j, 0, reject);
+      }else{
+        args.push(reject);
+      }
+      async.apply(self, args);
+    });
+  }
+}
+
+//红绿灯切换：绿 5s -&amp;gt; 黄 2s -&amp;gt; 红 5s 循环
+
+var greenPromise = promiseDef(setTimeout, 0).bind(null, 5000);  
+var yelloPromise = promiseDef(setTimeout, 0).bind(null, 2000);  
+var redPromise = promiseDef(setTimeout, 0).bind(null, 5000);  
+var traffic = document.getElementById('traffic');
+
+(function restart(){'use strict'
+  greenPromise()
+    .then(function(){
+      traffic.className = 'yellow';
+      return yelloPromise();
+    })
+    .then(function(){
+      traffic.className = 'red';
+      return redPromise();
+    })
+    .then(function(){
+      traffic.className = 'green';
+      restart();
+    });
+})();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;来说明（&lt;a href="http://weibo.com/1558150085/CcB8uj6E2"&gt;在这里&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;过程抽象之promise化——用过程抽象的思路将一个普通的异步函数“变换”成promise形式~  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;而winter就写了下面这段代码来约战（winter的代码#31，&lt;a href="http://code.w3ctech.com/detail/31" title="代码在这里"&gt;在这里&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function turnGreen(){  
+    return new Promise(function(resolve, reject) {
+        traffic.className = 'green';
+        resolve();
+    })
+}
+function turnRed(){  
+    return new Promise(function(resolve, reject) {
+        traffic.className = 'red';
+        resolve();
+    })
+}
+function turnYellow(){  
+    return new Promise(function(resolve, reject) {
+        traffic.className = 'yellow';
+        resolve();
+    })
+}
+function wait5000(){  
+    return new Promise(function(resolve, reject) {
+        setTimeout(resolve,5000);
+    })
+}
+function wait2000(){  
+    return new Promise(function(resolve, reject) {
+        setTimeout(resolve,2000);
+    })
+}
+
+//执行！
+void function (){  
+    turnGreen()
+    .then(wait5000)
+    .then(turnYellow)
+    .then(wait2000)
+    .then(turnRed)
+    .then(wait5000)
+    .then(arguments.callee)
+}();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我呢，我的第一反应是：winter这个也不是Promise的调调呀。我当时还并不知道@十年踪迹 的原始代码的样子，也不知道这场大战的原委。我只是觉得：  &lt;/p&gt;
+
+&lt;h2 id="promise"&gt;Promise写出来怎么会是这个样子？&lt;/h2&gt;
+
+&lt;p&gt;好吧！这真的是一个问题，“Promise写出来的样子”是什么样子？我没有细思考这个问题，我就手写了一个，表示“可以是这样”（&lt;a href="http://code.w3ctech.com/detail/41"&gt;aimingoo的代码#41, 在这里&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function turn(color) {  
+  traffic.className = color;
+  return new Promise(function(resolve) {
+    setTimeout(function() { resolve(this.next) }.bind(this), this.wait)
+  }.bind(this))
+}
+
+turn.and = turn.bind; // 仅为了可读性  
+void function (){  
+  Promise.resolve('green')
+    .then(turn.and({wait: 5000, next: 'yellow'}))
+    .then(turn.and({wait: 2000, next: 'red'}))
+    .then(turn.and({wait: 5000}))
+    .then(arguments.callee)
+}();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;有人要跳出来了吧！有人要大喊NB了吧？！浅薄啊。我可不是为了显摆这个才在这里话痨的。如果仅是为了一些代码行数或者可读性上的差异，就要在这里吧啦吧啦一堆，那得是hax十年前的调性。  &lt;/p&gt;
+
+&lt;p&gt;这三段代码的好坏，我们晚点在说。反正当时裕波同学是笑出了眼泪的，然后这个case就在前端圈子里面传开了，然后就出现了很多很多种“不同的样子”：  &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;@winter寒冬 强调turn/wait要分离提出的#46：&lt;a href="http://code.w3ctech.com/detail/46"&gt;在这里&lt;/a&gt;，与&lt;a href="http://code.w3ctech.com/detail/39"&gt;#39&lt;/a&gt;有相似之处。  &lt;/p&gt;
+
+&lt;p&gt;@米粽粽 在#41上的改进型#51：&lt;a href="http://code.w3ctech.com/detail/51"&gt;在这里&lt;/a&gt;，这是我后来认为“完美”的版本。  &lt;/p&gt;
+
+&lt;p&gt;@winter寒冬 根本停不下来，张牙舞爪ES6版！#52：&lt;a href="http://code.w3ctech.com/detail/52"&gt;在这里&lt;/a&gt;，这是使用yield的版本。  &lt;/p&gt;
+
+&lt;p&gt;@青空残红 的#45和#48版本，&lt;a href="http://code.w3ctech.com/detail/45"&gt;在这里&lt;/a&gt;和&lt;a href="http://code.w3ctech.com/detail/48"&gt;这里&lt;/a&gt;，前者尝试对Promise的“.then只能传递一个值”作修补；后者则采用深度递归来处理数组中的每个颜色和时间值。  &lt;/p&gt;
+
+&lt;p&gt;@随机 的全栈解决方案 #69，&lt;a href="http://code.w3ctech.com/detail/69"&gt;在这里&lt;/a&gt;，这个方案无关promise，而是引入服务端来做计时器，用ajax/jsonp来处理回调的  &lt;/p&gt;
+
+&lt;p&gt;@十年踪迹 引入Task概念，将红绿灯模拟(或声明、描述)成任务的方案 #57，&lt;a href="http://code.w3ctech.com/detail/57"&gt;在这里&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;@-Lucifier- 的玩坏promise版 #49，&lt;a href="http://code.w3ctech.com/detail/49"&gt;在这里&lt;/a&gt;，这个方案也无关promise，是直接定义红绿灯状态/转换过程，然后用setTimeout回调来处理循环/链的。Lucifier强调：将过程碎片化的promise不是好promise，数据被打散从而无法组织。  &lt;/p&gt;
+
+&lt;p&gt;@-Lucifier- 过程与数据分离的promise版 #59，&lt;a href="http://code.w3ctech.com/detail/59"&gt;在这里&lt;/a&gt;，这个版本是#49的改进，加入了promise。  &lt;/p&gt;
+
+&lt;p&gt;@教主 逗比版（作者自己说的）#42，&lt;a href="http://code.w3ctech.com/detail/42"&gt;在这里&lt;/a&gt;，这个也是否定promise的版本，作者可能只是想表达一下情绪。^^.  &lt;/p&gt;
+
+&lt;p&gt;@ECMA #40，&lt;a href="http://code.w3ctech.com/detail/40"&gt;在这里&lt;/a&gt;，分别处理了color/timer定义。  &lt;/p&gt;
+
+&lt;p&gt;（注#40、#42、#49、#59等在讨论另一个 session：如果定义的红绿灯规则频繁变化，例如要加个紫灯怎么办。&lt;a href="http://weibo.com/1221479170/CcD1G9WCi?type=repost"&gt;在这里&lt;/a&gt;）  &lt;/p&gt;
+
+&lt;p&gt;还有一些我找不到出处的版本，比如#183 &lt;a href="http://code.w3ctech.com/detail/183"&gt;在这里&lt;/a&gt;，事实上这个写得我也看不懂了。  &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2 id=""&gt;欢迎回到火星&lt;/h2&gt;
+
+&lt;p&gt;是的，我们刚才的地球探险结束了，火星文明在地球毁灭之后成了银河系中唯一有生命居住的地方。尽管单细胞生命过于原始，但总之好过于地球上的一片荒芜。  &lt;/p&gt;
+
+&lt;p&gt;不要再问我“地球文明毁灭于什么”这样的问题了。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;感谢“米粽粽”同学提到我的一篇旧文&lt;/h2&gt;
+
+&lt;p&gt;事实上，让我换了一个角度思考这个问题的，正是我自己的那篇旧文，感谢“米粽粽”同学提到这篇文章：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;《前端要给力之：代码可以有多烂？》 &lt;a href="http://blog.csdn.net/aimingoo/article/details/6036574"&gt;在这里&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;那是另外的一段历史，那段历史揭示了这样一个真理：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;写一段牛B的代码，不如写一段有用的代码。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然而此时，我所关注的并不是这个。我在读那篇文章时看到自己曾经的一个思考：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;第一步的抽象通常是最关键的。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;让我们回到火星吧，那里的单细胞生物也比复杂的地球人类好得很多。我们也许不解决任何问题，但我们知道什么是正确的。  &lt;/p&gt;
+
+&lt;p&gt;我相信hax的那个判断：如果它能证明正确，那就是正确的。并不因为人多的就是文明，而一个细胞就不能为自己发出声音。  &lt;/p&gt;
+
+&lt;h1 id=""&gt;第一步的抽象&lt;/h1&gt;
+
+&lt;p&gt;我们所有上面的例子，都做错了第一步。  &lt;/p&gt;
+
+&lt;p&gt;我们所有的例子，从@十年踪迹 的第一个例子开始，都定义错了问题。大家不约而同地把问题想像成了：  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;先画一个红灯  &lt;/li&gt;
+&lt;li&gt;再等5000ms  &lt;/li&gt;
+&lt;li&gt;再画一个黄灯  &lt;/li&gt;
+&lt;li&gt;…  &lt;/li&gt;
+&lt;li&gt;循环到第一步  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;有一部分人将这个问题理解成另一种行为模式：  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;画一个红灯，等5000ms；然后  &lt;/li&gt;
+&lt;li&gt;画一个黄灯，等…；然后  &lt;/li&gt;
+&lt;li&gt;…  &lt;/li&gt;
+&lt;li&gt;循环到第一步  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;注意这个“循环到第一步”。在所有人的抽象里面，“循环到第一步”都是一个大问题。一方面，它总一个独立而又不同的步骤，所以它会打乱了所有的节奏，使得在画灯(turn)和等待(timeout)之外出现了一个“特殊的动作”；另一方面，它无论采用函数递归还是数组遍历来实现，都完全是基于一种旧的、非Promise化的思维模式。而正是这种思绪模式害了我们，使我们一步步地远离了真相，也远离了整个问题的本质。  &lt;/p&gt;
+
+&lt;p&gt;这种思维模式是：命令式编程。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;一点说明/前提&lt;/h2&gt;
+
+&lt;p&gt;在所有后续的讨论之间，我需要先说明一点。整个问题的最初提出，是@十年踪迹 的一段关于Promise如何使用的代码，十年踪迹先定义(def)了一些Promise，然后用.then()把它们连续起来，在最后一个.then()中它递归调用restart()来实现循环。整个过程如@十年踪迹 所说的，是Promise应用的一个示例。而Winter与它PK的，以及裕波m给我和hax需要去评判的，也是“如何写好Promise”的一个问题。  &lt;/p&gt;
+
+&lt;p&gt;所以我们不讨论非Promise实现，也不讨论Promise在特定问题上是否“更好/更不好”的问题，而是讨论“怎样才算是正确的Promise实现”。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;重新定义问题&lt;/h2&gt;
+
+&lt;p&gt;我们说“循环到第一步”是一个大问题，是指它难于处理，而不是说它是“问题的本身”。在前面的例子中，没有人想到这样的一件事，既然是：  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;画一个红灯，等5000ms；然后  &lt;/li&gt;
+&lt;li&gt;…  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;那么，在红灯之前在做什么？  &lt;/p&gt;
+
+&lt;p&gt;而答案可以是这样：在红灯之前，请先等待0ms。如此一来，整个的操作就变成了这样：  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;等0ms，画一个红灯  &lt;/li&gt;
+&lt;li&gt;等5000ms，画一个黄灯  &lt;/li&gt;
+&lt;li&gt;等2000ms，画一个绿灯  &lt;/li&gt;
+&lt;li&gt;等5000ms，回到第一步  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;然而这样定义问题的好处是什么呢？这样一来，我们可以把每一组操作理解这样两个数据：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;time, color  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以及加在这对数据上的一个行为（WaitAndDo）或一个行为序列(Wait time, and Do turn color)。至于最后一个“操作”，它的模式跟上面没有区别，只是第二个行为是Do call，而不是Do turn color。  &lt;/p&gt;
+
+&lt;p&gt;然而，为什么要这么来定义问题呢？  &lt;/p&gt;
+
+&lt;p&gt;原因就是我们前面就一再提到过的，Promise编程的核心思想其实是：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果数据就绪(promised)，那么(then)做点什么。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这决定了在Promise架构下的“正确的思绪方式”。  &lt;/p&gt;
+
+&lt;p&gt;看到了吗？我们正确的，要处理的东西是这样：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var promisedData = [  
+        [0,     trun.bind('green')],
+        [5000,  trun.bind('yellow')],
+        [2000,  trun.bind('red')],
+        [5000,  arguments.callee]
+];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意，在每对数据(step)中，元素step[0]是timeout的ms值，而step[1]是一个行为——行为也是数据，它是另一个被称为“调用”的行为的处理对象。  &lt;/p&gt;
+
+&lt;h1 id="promise"&gt;Promise的编程基础之逻辑过程&lt;/h1&gt;
+
+&lt;p&gt;有了上面的数据抽象之后，我们该怎么处理逻辑过程呢？这总结起来只有如下的三步。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;如何确认一个数据“就绪”&lt;/h2&gt;
+
+&lt;p&gt;无论就绪是指“成功”还是“失败”，一旦这个数据可供处理我们就称为就绪。就我们现在的理解中，一个数据要么在声明出来就已经就绪，要么是过一段时间，由一个异步过程来“使之”就绪。  &lt;/p&gt;
+
+&lt;p&gt;对于前者，Promise提供三种方法简单地得到这个数据的Promise实例：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Promise.reslove()     &lt;/p&gt;
+  
+  &lt;p&gt;Promise.reject()     &lt;/p&gt;
+  
+  &lt;p&gt;Promise.all()  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;很多人在处理Promise时会绕圈子，比如以为Promise总是异步的。在winter最早写的#31中就会这样：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function turnGreen(){  
+    return new Promise(function(resolve, reject) {
+        traffic.className = 'green';
+        resolve();
+    })
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样的Promise是不需要用new来实现的。它表明的意思，在Promise架构下应该是这样来实现：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var turn = function(color) {  
+    traffic.className = color;
+}
+
+Promise.resolve('green')  // 数据就绪  
+    .then(turn)           // 做点什么
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以上面的代码在实现逻辑上写成：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;// turn()略
+var print = function(msg) {  
+    console.log(msg)
+}
+
+var promised = Promise.resolve('green');  
+promised.then(turn);  
+promised.then(print);  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也是合理的。这里的代码看起来过程式、面向对象，但实际上也是Promise化的。这与Promise的基本思想一点儿也不矛盾。  &lt;/p&gt;
+
+&lt;p&gt;而使用new关键字的：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;new Promise(func)  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这种方法，通常是用于func是一个异步过程的情况。——如果func是一个普通的（同步的）过程，那么它调用时就会直接返回，那简单地：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;promised = Promise.resolve(func());  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;就好了 。而new Promise(func)中，要求这个func接收两个参数的目的也就在这里：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;promised = new Promise(function func(resolve, reject) {  
+   ...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;对于func来说，它的函数返回值对new Promise()过程，以及其结果promised来说都是无关紧要的。它只需要在合适的时候调用resolve/reject即可。  &lt;/p&gt;
+
+&lt;p&gt;但我们必须强调：Promise的编程理念中，“是不是异步系统”一点儿也不关键。甚至可以说，“在异步系统中使用”只是这种理念中的一个处理技巧。  &lt;/p&gt;
+
+&lt;h2 id="then"&gt;然后(then)只能处理一个数据&lt;/h2&gt;
+
+&lt;p&gt;在.then(fulfilled)中的函数fulfilled不但只能处理一个数据，而且只能处理“刚才”就绪的那个数据。这个所谓刚才，只是指在语法上的顺序。例如：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;// ...
+promisedA.then(func1);  
+promisedB.then(func2);  
+func3();  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这表明func1处理A在刚才promised的数据，而func2处理B在刚才promised的数据。由于promised可以是来自用  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;new Promise()  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;异步得到的一个数据，因此所谓“刚才”仅是指在执行func1之前，而与语法上的.then()——的出现顺序——无关。所以，正确的说法是：  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;promisedA.then(）  &lt;/li&gt;
+&lt;li&gt;promisedB.then(）  &lt;/li&gt;
+&lt;li&gt;func3()  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;总是立即地、顺序地执行，而func1()和func2()的调用时间取决于promisedA/B就绪的时间。  &lt;/p&gt;
+
+&lt;p&gt;而如上面所说，.then(）中的函数只能处理一个数据，这个数据就是就绪的那个数据（有些文档称“将数据从promised中解包”）。这个“只处理一个”是Promise思想本质上决定的，任何试图去改变这一点的企图都将导致灾难。我后来称@米粽粽 的版本最好，是因为它在这一点上是绕过去了，而不是去“fix掉它”：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function turn(color, duration) {  
+  return new Promise(function(resolve, reject) {
+    traffic.className = color
+    setTimeout(resolve, duration)
+  })
+}
+
+//执行！
+void function run() {  
+    turn('green', 1000)
+    .then(turn.bind(null, 'yellow', 400))
+    .then(turn.bind(null, 'red', 1000))
+    .then(run)
+}()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;请注意这个turn.bind利用了bind的特性在函数闭包中传参，而在turn()处理的代码中，resolve实际上不返回也不“就绪“任何数据。所以.then()链中并没有数据流，而只有逻辑顺序。  &lt;/p&gt;
+
+&lt;p&gt;与之对照的，@青空残红 的#45代码就试图使then()链中传递多个数据（&lt;a href="http://code.w3ctech.com/detail/45"&gt;在这里&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;typeof time == 'number' ? setTimeout(function(){resolve.apply(null, Array.prototype.slice(arg))},time) : resolve.apply(null, Array.prototype.slice(arg));  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="thenpromise"&gt;最后，任何情况下.then()总是立即返回一个promise&lt;/h2&gt;
+
+&lt;p&gt;.then()总是“！！立即！！”返回一个promise，而这是很少有人理解的部分。大多数人会提出“这个返回什么时候发生”这样的问题。而事实上，这总是立即发生的。——如前所说，Promise的这一切都与“异步/同步”无关。你必须非常明确：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Promise.prototype.then()在执行过程中是立即返回，并总是返回一个新的promise2。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;不明确的只是：这个promise（内的数据）是否就绪，或什么时候就绪。  &lt;/p&gt;
+
+&lt;p&gt;只有在就绪的时候，.then()中的函数才会被调用。这也是.then方法被声明为：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Promise.prototype.then(onFulfilled, onRejected);  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;的原因：一是所有的promise原型中就有的方法，二是它的两个参数都是事件句柄（直到“数据就绪”事件触发时/触发后才执行）。  &lt;/p&gt;
+
+&lt;p&gt;在一定程度上，类似这样的说法：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;promised.then()的返回值总是下一个.then()的入口值  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;只是一种假象。它更准确的说法是：  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;promised.then()返回的是一个新的promise2；而  &lt;/li&gt;
+&lt;li&gt;promise2的就绪，是由promise.then(onFulfilled, onRejected)中onFulfilled/onRejected的返回值所决定的。  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面的示例说明这一点：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;// case 1: 返回任意值（包括undefind/Error实例)
+//   - 将被以Promise.resolve(value)的方式返回到promise2
+promise2 = promise.then(function() {  
+    return 'true'
+})
+
+// case 2: 返回一个新的promise，这个promise可以是就绪（resolved/rejected）的数据
+//  - 也可以是未就绪的（异步调用处理）的数据
+promise2 = promise.then(function() {  
+    return Promise.reject('ERROR')
+})
+
+
+// case 3: 任何时候，代码执行错或throw，都将使promise2得到一个rejected的数据
+promise2 = promise.then(function() {  
+    throw new Error('ERROR')
+})
+
+// case 4: 在onRejected()的处理中，也可以返回resolved的数据
+var _ = undefined;  
+promise2 = promise.then(_, function() {  
+    return Promise.resolve('OK')
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=""&gt;解决问题的方法&lt;/h1&gt;
+
+&lt;p&gt;我们已经得到了那个原始问题的、基于Promise思想的数据定义：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var promisedData = [  
+        [0,     trun.bind('green')],
+        [5000,  trun.bind('yellow')],
+        [2000,  trun.bind('red')],
+        [5000,  arguments.callee]
+];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;那么，接下来呢？  &lt;/p&gt;
+
+&lt;h2 id=""&gt;得到一些基础件&lt;/h2&gt;
+
+&lt;p&gt;我们先想像一下，我们能“就绪”的，和接下来要处理的是什么。在这个问题中，我们留意到，我们事实上要处理上述4个项中的“每一个”；具体到每一个，都是一个简单的“等待，然后调用（WaitAndDo）”。那么，对“每一个”来说，我们需要一个迭代器来列举之。这个好办，在chrome中array.entries()就可以得到它了；而对每一次的“等待+调用（WaitAndDo）”，我们用一个runner来处理每step的数据。  &lt;/p&gt;
+
+&lt;p&gt;这样一来，我们可以先得到一些与基本的数据和处理。这些与具体的逻辑是无关的：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function turn() {  
+    traffic.className = this;
+}
+
+function runner(step){  
+    return new Promise(function(resolve) {
+        setTimeout(resolve, step[0]);
+    }).then(step[1])
+}
+
+var promisedData = [  
+    [0,     turn.bind('green')],  // step1
+    [5000,  turn.bind('yellow')], // step2
+    [2000,  turn.bind('red')],    // ...
+    [5000,  main]
+];
+
+function main() {  
+    var iteratorPromise = Promise.resolve(promisedData.entries());
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意这里的iteratorPromise，它是entries()的返回结果，是一个iterator。如果在别的js引擎里，你可能需要其它方式得到它。当然，要手写一个也不难，不会用到.yield。此外，promisedData 可以放在main外面，只是因为它利用了main函数名在当前闭包中可用（而与声明的顺序无关），如果不这样，你可能真得把它放在main函数内部并用argument.callee来得到它。  &lt;/p&gt;
+
+&lt;h2 id="promise"&gt;如何在Promise中处理迭代&lt;/h2&gt;
+
+&lt;p&gt;在Promise中处理迭代是一件比较麻烦的事，原因是Promise本身并不考虑“流程/逻辑”的问题——再再一次强调Promise关注的是“数据就绪”，是面向数据思考的。  &lt;/p&gt;
+
+&lt;p&gt;处理这样的迭代的通常思路是使用一个循环，比如用递归函数来实现。考虑到Promise的特性，所以递归函数应该返回一个新的Promise实例，并且总是用Promise链的最后一个.then()来进入下一次递归。这样的一来，main()函数的逻辑就很明显了：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;// ...
+
+// 获得迭代器中的iterator.next()的成员，并使之resolved
+//  - 通过picker.bind()将iterator绑定到this
+function picker(item) {  
+    return (item = this.next()).done ? Promise.reject(item) : Promise.resolve(item.value[1]);
+}
+
+function main() {  
+    var iteratorPromise = Promise.resolve(promisedData.entries());
+    iteratorPromise.then(function(iterator) {
+        var getPromisedItem = picker.bind(iterator);
+        return function loop() {
+            return getPromisedItem().then(runner).then(loop);
+        }()
+    })
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完整的代码#73（&lt;a href="http://code.w3ctech.com/detail/73"&gt;在这里&lt;/a&gt;）。我通常会用一些技巧来把代码写得更像函数式一点，但那些仅仅是技巧而已，例如另一份类似的代码是#60（&lt;a href="http://code.w3ctech.com/detail/60"&gt;在这里&lt;/a&gt;），只是在loop的处理上有些不同，但整个框架是一致的。  &lt;/p&gt;
+
+&lt;p&gt;我更喜欢在#73中对picker的使用，这个picker通用性很好，没有负担，而且也不影响在后面的代码组织，看起来很清洁的样子。但picker和#60中的loop的关系，就跟Array.prototype.forEach与for (var i=0, …)两种循环类似，不影响使用Promise来解题的思路了。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;迭代中的一些其它问题&lt;/h2&gt;
+
+&lt;p&gt;正如一些语言禁止访问for循环的中间变量（或其“返回”）一样，将“迭代”用于“完成一批处理/得到一个数据”是两种不同的抽象，因此也有不同的迭代设计。但总的来说，这是循环结构的一种。  &lt;/p&gt;
+
+&lt;p&gt;“结构程序设计”中不是讨论了三种吗？顺序结构是显而易见的，而分支结构在Promise中通过.then(yes, no)这样的语义来表达。当然，在程序内部，你也可以用这样的语言来控制（后续的）流程。这是上面picker()设计中采用的一处技巧：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function picker(item) {  
+    return (item = this.next()).done ? Promise.reject(item) : Promise.resolve(item.value[1]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当iterator.next()到done时，picker将返回Promise.reject(item)。这里是否使用item并不重要，关键在于它reject了一个值。因此，这时在main()的loop()函数中：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function loop() {  
+    return getPromisedItem().then(runner).then(loop);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then()链只响应了onFulfilled而没有处理onRejected，于是得以退出循环。并且最终整个loop()向外面的main()返回的，也将是一个reject()的item，它是iterator的迭代结果值：{ done: true, value: undefined }。  &lt;/p&gt;
+
+&lt;p&gt;这可能不是你想要的。一方面，在整个过程中要考虑是否响应onRejected，另一方面，整个迭代如果真的需要返回值（例如汇总）呢？  &lt;/p&gt;
+
+&lt;p&gt;如果“迭代”是一个过程，那么如何做到这个过程对函数外无副作用？这的确需要一些设计，但不是没有现成的解决方法，要不你认为array.forEach()中传入thisObject是来做什么的？至于onRejected，反倒是最容易理解的：该迭代没有设计有效的返回。  &lt;/p&gt;
+
+&lt;h1 id=""&gt;一点点好处&lt;/h1&gt;
+
+&lt;p&gt;这样解决问题究竟有什么价值呢？  &lt;/p&gt;
+
+&lt;p&gt;我们把原始问题抽象成了“数据就绪，则处理之”的简单模型，所以你会留意到对于更复杂的情况，只要是可以用：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[wait, andRun]  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;数据模型表示的序列，都可以由交由上面的框架去run，整个的main()逻辑上并不需要修改。如果是不需要循环，也只是需要将  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[5000, main]  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这个item从promisedData[]中抽掉即可。可见，main()带来了一个清晰、稳定和可靠的执行器环境 。  &lt;/p&gt;
+
+&lt;p&gt;接下来，让我们再一次回到原始的问题。看起来我们的“第一步的抽象”还算不错，但实际上仍有那么些粗糙的。比如我们其实可以将2000ms理解为“一个2000的值，和一个称为timeout的行为”这样的一对数据。在这个基础上，我们可以得到更精确/精美的promisedData 和相关的runner。如下（&lt;a href="http://code.w3ctech.com/detail/184"&gt;#184&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function timeout(ms) {  
+    return new Promise(function(next) { setTimeout(next, ms) })
+}
+function turn(color) {  
+    return Promise.resolve(traffic.className = color);
+}
+function runner(data){  
+    // 请试想这里为什么不直接用data[1](data[0]) ?
+    return Promise.resolve(data[0]).then(data[1]);
+}
+var promisedData = [  
+    [0,        timeout],  // step1
+    ['green',  turn],     // step2
+    [5000,     timeout],  // ...
+    ['yellow', turn],
+    [2000,     timeout],
+    ['red',    turn],
+    [5000,     timeout],
+    [undefined, main]
+];
+
+// （其它同于代码#73）
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;考虑到更通用的情况，为什么我们不能将“所有的东西”都理解为一个数据呢？又或者将andRun元素理解为数据的模型该如何做呢？  &lt;/p&gt;
+
+&lt;p&gt;当我们将上述step1也理解为“一个行为的一组数据对”的时候，我们就可以“自然而然地”想到，如果“0”不是一个时间，而是一个用表明“远端服务的状态是否就绪”呢？那么，上面这个程序可以非常非常简单地扩展到全栈：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var waiting = new Promise(function(resolve, reject) {  
+    // ajaxLoad and exec resolve() in callback, or reject anything
+});
+var promisedData = [  
+    [waiting,     timeout],  // step1
+    ...
+];
+
+// （没什么要改的了）
+// ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=""&gt;其它&lt;/h1&gt;
+
+&lt;p&gt;1. 我写的Promise in Lua项目在这里：&lt;a href="http://github.com/aimingoo/Promise"&gt;http://github.com/aimingoo/Promise&lt;/a&gt; &lt;br&gt;
+2. 所有代码在code.w3ctech上可以找到，我的在这里：&lt;a href="http://code.w3ctech.com/4204"&gt;http://code.w3ctech.com/4204&lt;/a&gt; &lt;br&gt;
+3. “前端要给力”这个系列是很久以前就写的了：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+  &lt;li&gt;&lt;a href="http://blog.csdn.net/aimingoo/article/details/6036574"&gt;前端要给力之：代码可以有多烂？&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://blog.csdn.net/aimingoo/article/details/6097378"&gt;前端要给力之：原子，与原子联结的友类、友函数&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://blog.csdn.net/aimingoo/article/details/6105048"&gt;前端要给力之：分解对象构造过程new()&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://blog.csdn.net/aimingoo/article/details/6081964"&gt;前端要给力之：URL应该有多长？&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;4. 本文最后一个示例是说明在“全栈”的背景下，正确使用Promise可以得到很好的系统弹性。 &lt;br&gt;
+5. 在.then()界面上处理多个参数的方法，是使用Promise.all()来就绪一组数据并作为参数。我建议使用工具函数unpack来处理调用界面部分，例如（&lt;a href="http://code.w3ctech.com/detail/185"&gt;#185&lt;/a&gt;）：  &lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;function unpack(promised) {  
+    return this.apply(null, promised)
+}
+
+Promise.all([1,2,3])  
+    .then(unpack.bind(function(a, b, c) {
+        console.log('result:', a +b +c);
+    });
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>架构师真正要学会的事情</title><description>&lt;h2 id=""&gt;一、要学会去看，然后忘掉&lt;/h2&gt;
+
+&lt;p&gt;有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。&lt;/p&gt;
+
+&lt;p&gt;另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。&lt;/p&gt;
+
+&lt;p&gt;然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。&lt;/p&gt;
+
+&lt;p&gt;Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：&lt;/p&gt;</description><link>http://aimingoo.github.io/1-263/</link><guid isPermaLink="false">d2c00eb8-340b-4be7-a77c-ef93630bd997</guid><dc:creator>aimingoo</dc:creator><pubDate>Thu, 06 Nov 2014 22:07:31 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;一、要学会去看，然后忘掉&lt;/h2&gt;
+
+&lt;p&gt;有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。&lt;/p&gt;
+
+&lt;p&gt;另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。&lt;/p&gt;
+
+&lt;p&gt;然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。&lt;/p&gt;
+
+&lt;p&gt;Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：爱民，你应该会为那个时代写点什么吧？&lt;/p&gt;
+
+&lt;p&gt;我在那个缅怀网页上写下了五个字：所见即所碍。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;二、要学会去听，然后忘掉&lt;/h2&gt;
+
+&lt;p&gt;我通常说架构是一种能力，架构角色则是要求你在具体事务中行使某些行为，而架构师则是用来标识这些能力与行为的一个职务。&lt;/p&gt;
+
+&lt;p&gt;当一些人将个人成长定义为“职业发展”时，就表现为“怎样成为架构师”这样的问题。对此有三种解决方案，第一种是印一张写着这样头衔的名片，而“是与不是”架构师并不重要；第二种是直接否定这个职务的意义，比如声称敏捷天生就是反架构的，于是“架构师”变成了要打倒的对象，所以成不成为这个将被打倒的对象也就不重要了；第三种则干脆声称“人人都是架构师”，既然人人都是了，那么“如何成为”也自然就不重要了。&lt;/p&gt;
+
+&lt;p&gt;我们大多数人都具有架构的能力，并且也或多或少地行使某些架构角色的行为，唯一缺乏的只是一个叫做“架构师”的头衔而已。问题出在：我们总是期望别人通过这样的头衔来认可自己。于是我们为自己贴上这样或那样的标签，然后跟别人持有的同种标签去比对，期求出现一致或找出某种差别。于是我们听到种种声音：某某某真的是/不是、像/不像架构师；如果是架构师，那么就要这样、那样，以及怎样怎样；其实这个架构，或这样的架构，或某种架构应该怎么怎么做；以及架构是什么什么，架构师是什么什么，等等等等。回顾“三种解决方案”，仍是困在这样的认可求同之中，与之在做着种种斗争罢了。&lt;/p&gt;
+
+&lt;p&gt;其实不单是你的所见阻碍了你自己，你还被别人的所见阻碍着。&lt;/p&gt;
+
+&lt;h2 id=""&gt;三、要学会去做，然后忘掉&lt;/h2&gt;
+
+&lt;p&gt;朋友给我聊他家的两岁小孩：我刚把桌子收拾好，一转眼杯子碗筷什么的都全摔地上了。我问：怎么了？他说：小孩子什么也不懂啊，她看着桌布喜欢，就一把抓过去……&lt;/p&gt;
+
+&lt;p&gt;小孩子没能看到桌子上还有杯子，但正因为他们的视线里没有杯子，他们的行动才简单直接，才直达需求，才迅速。而我们的眼睛里有杯子、桌子、桌布等等一切，我们经年累月地维护着其中的次序与关系直到这些东西混成一体，然后我们便日日坐守在它们的面前，而又无觉他们的存在。&lt;/p&gt;
+
+&lt;p&gt;正是我们自己不知不觉地设定了这些事物之间的界线，并把这些界限、层次与逻辑井然的东西称为“系统”。当我们从那些无序的事物中识别出了这样的“系统”并用一些概念、名词去定义了它们之后，我们对此的一切知识也就固化了；当这种秩序被建立起来之后，我们也就得到了对有序和无序（没有你所设定的“这种秩序”）价值的识别与肯否；当我们设定了种种价值、观念、观察与系统的模型概念之后，我们也就完成了这个系统的架构。&lt;/p&gt;
+
+&lt;p&gt;但这一过程，包括完成这一架构——它可以命名为“世界观”——的方法以及结果，在本质上不过是让你从一个格子跳到了另一个格子而已。我们处在种种界限之中，再也无法回到两岁小孩的、一切无碍的视角——在那个视角下，根本就没有所谓的界线。你之所以时时在寻求跨界，其实是源自你假设了“存在界线”，这就如同全栈的含义其实是“没有栈”，而当有人信心满满地要“成为全栈工程师”时，他的眼里便又有个“这个栈”的存在。&lt;/p&gt;
+
+&lt;p&gt;所谓跨界不是指你能力与方法上的变化，你的作为取决于你的格局，你的格局取决于你的所见。&lt;/p&gt;
+
+&lt;h2 id=""&gt;四、要学会超越&lt;/h2&gt;
+
+&lt;p&gt;架构师需要超越自己与别人的所见，因为你观察与架构的对象称为“系统”，你看到系统多少的真相，决定了你用怎样的影像去表现它，并进而推进与实现这种影像——亦即是架构。我们所既已知道的、理解的、明白的，形成了我们的知识与行为的一切，却也正是阻碍着我们前进的东西。这些障碍正是你以为你最珍视的、最不可放弃的、最鲜血淅沥体验过的那些经验与成就。在这些所得与所碍中挣扎与决策，就是架构师的全部职责。因此作为架构师，你需要能够超越自已对系统的既有认识，看到你在光明中——显而易见之处——所未见的，这是你驱动系统架构进化的主要动力。&lt;/p&gt;
+
+&lt;p&gt;所以架构中最难超越的并不是某个大师或前辈，而是你以及你为自己所作的设定。当你设定了“架构师”这个目标，便设定了这个目标所表达的某种影像（角色），你最终可能变得跟这个影像完全一致——成为所谓“真正的架构师”，但你仍不过是困囿于对这个“角色”的一个假设/设定而已。唯一破局的方法是：超越别人对某个角色的定义，将自己做成这个角色。&lt;/p&gt;
+
+&lt;p&gt;至此，你是否还在这个角色之中，就是你的觉悟了。  &lt;/p&gt;
+
+&lt;h2 id=""&gt;其它&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;本文是为《程序员必读之软件架构》一书所写的序  &lt;/li&gt;
+&lt;li&gt;《程序员必读之软件架构》一书的译者是邓钢先生( @米粽粽 &lt;br&gt;
+据说已关注洗碗30年+）&lt;/li&gt;
+&lt;li&gt;该书由图灵出版，原作者是Simon Brown，据说是个布道师（这年头站台上就说自己是甘道夫的人真的是多了去了）  &lt;/li&gt;
+&lt;li&gt;该书在图灵社区的信息在这里：&lt;a href="http://www.ituring.com.cn/book/1444"&gt;http://www.ituring.com.cn/book/1444&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;该书220多页，有4篇序（是多了点，我也是肇祸者之一，对不住大家了）。点这里直到把屏幕戳碰可见译/作者的原序：&lt;a href="http://www.ituring.com.cn/article/125176"&gt;&lt;strong&gt;译者序&lt;/strong&gt;&lt;/a&gt;，&lt;a href="http://www.ituring.com.cn/tupubarticle/1234"&gt;&lt;strong&gt;原序&lt;/strong&gt;&lt;/a&gt;，以及&lt;a href="http://www.ituring.com.cn/tupubarticle/3630"&gt;&lt;strong&gt;杜欢同学的序&lt;/strong&gt;&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;杜欢同学没请我饭已经很久了，此碎碎念300+1次。&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title>MPD大会上使用的PPT分享 - 2014</title><description>&lt;p&gt;MPD（软件工作坊）中我的内容是“详解架构之核心指导原则“。我详细讲述了我所认识的架构，以及有关它的五项核心的指导原则。所谓核心，是指这些原则讨论的问题相当基础，面向架构本身的、本质的问题，例如架构的必要性与正确性。所谓指导原则，是在我看来，这些原则可以为其它有关架构的认识与思想提供依据，是其他有效的、可供讨论的认识与思想不可违逆的基本前设。&lt;/p&gt;
+
+&lt;p&gt;下面是此次分享中的完整PPT，下载在这里：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;PPT：&lt;a href="http://aimingoo.github.io/content/images/attachments/Principles_Of_Arch.2014.zip"&gt;详解架构之核心指导原则&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;视频（无）。&lt;/li&gt;
+&lt;/ol&gt;</description><link>http://aimingoo.github.io/1-194/</link><guid isPermaLink="false">881d7ba7-e824-4f3f-8b0b-d06c805a5855</guid><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Mon, 22 Sep 2014 12:54:00 GMT</pubDate><content:encoded>&lt;p&gt;MPD（软件工作坊）中我的内容是“详解架构之核心指导原则“。我详细讲述了我所认识的架构，以及有关它的五项核心的指导原则。所谓核心，是指这些原则讨论的问题相当基础，面向架构本身的、本质的问题，例如架构的必要性与正确性。所谓指导原则，是在我看来，这些原则可以为其它有关架构的认识与思想提供依据，是其他有效的、可供讨论的认识与思想不可违逆的基本前设。&lt;/p&gt;
+
+&lt;p&gt;下面是此次分享中的完整PPT，下载在这里：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;PPT：&lt;a href="http://aimingoo.github.io/content/images/attachments/Principles_Of_Arch.2014.zip"&gt;详解架构之核心指导原则&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;视频（无）。&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title>续鸡零狗碎：谈谈这些豌豆们</title><description>&lt;p&gt;刚到豌豆不久的时候，崔阿（@cuijin）在一次例会上说“要把你最想一起工作的人招到豌豆荚来”。听到这句话的时候我就心中一动，那时，我第一个想到的就是邓草原。&lt;/p&gt;
+
+&lt;p&gt;认识草原是08年的事情，那时候他刚刚从加拿大回国，而我则刚刚兴致盎然地搭上Erlang班车。我们第一次见面我便问他对erlang的看法（因为听说他是erlang ide for netbeans的作者）。他轻描淡写地说：弱类型语言在开发大型系统时是很难维护的。我当时没太往心里去，后来才知道，他那时已经写过了10万行以上的erlang代码了。再后来，当我回顾erlang在国内的起起落落时，才觉得草原的那句话并非泛泛而谈，实在是指向实质的。&lt;/p&gt;
+
+&lt;p&gt;于是我总是想着“一定要把草原同学拉到公司里来”。有这件事挂在心里头，吃饭也香了，上楼也有劲了，一口气写上千行代码都不累了……而没想到跟他真聊这个事情的时候，却很是顺利。总的来说，他只关心两件事：要做点啥，以及这个公司是个啥样子？&lt;/p&gt;
+
+&lt;p&gt;豌豆荚是个啥样子的公司呢？我不是这些天站在QCon的讲台上才来想这个问题的，我很早就在想了。不单单是应付草原的这个提问，也是对我自己的一个交待。我此前几年在盛大和阿里，正好面临着两个极端，前者是“太没文化（基本没有文化建设）”，后者则“太有文化”。两种文化风格我都不满意，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-262/</link><guid isPermaLink="false">aae11803-91b8-406e-89cb-4f37464a2b15</guid><category>杂谈</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 07 Dec 2013 13:27:32 GMT</pubDate><content:encoded>&lt;p&gt;刚到豌豆不久的时候，崔阿（@cuijin）在一次例会上说“要把你最想一起工作的人招到豌豆荚来”。听到这句话的时候我就心中一动，那时，我第一个想到的就是邓草原。&lt;/p&gt;
+
+&lt;p&gt;认识草原是08年的事情，那时候他刚刚从加拿大回国，而我则刚刚兴致盎然地搭上Erlang班车。我们第一次见面我便问他对erlang的看法（因为听说他是erlang ide for netbeans的作者）。他轻描淡写地说：弱类型语言在开发大型系统时是很难维护的。我当时没太往心里去，后来才知道，他那时已经写过了10万行以上的erlang代码了。再后来，当我回顾erlang在国内的起起落落时，才觉得草原的那句话并非泛泛而谈，实在是指向实质的。&lt;/p&gt;
+
+&lt;p&gt;于是我总是想着“一定要把草原同学拉到公司里来”。有这件事挂在心里头，吃饭也香了，上楼也有劲了，一口气写上千行代码都不累了……而没想到跟他真聊这个事情的时候，却很是顺利。总的来说，他只关心两件事：要做点啥，以及这个公司是个啥样子？&lt;/p&gt;
+
+&lt;p&gt;豌豆荚是个啥样子的公司呢？我不是这些天站在QCon的讲台上才来想这个问题的，我很早就在想了。不单单是应付草原的这个提问，也是对我自己的一个交待。我此前几年在盛大和阿里，正好面临着两个极端，前者是“太没文化（基本没有文化建设）”，后者则“太有文化”。两种文化风格我都不满意，都很难融得进去，都很难说“在文化上有什么激励我的地方”。所以，此前的那么多年里，我从来不在公众场合谈阿里的文化，又或者谈盛大的文化。对，既便我在做软件工程的或者组织管理的讲演，我也不用他们来做例子——根底里来讲，我没法透彻地观察这两种文化，因而也就没法深刻地去谈论他们。&lt;/p&gt;
+
+&lt;p&gt;豌豆荚不同。他正在构建自己文化风格，并把这种风格作为生产力的一部分。所以当晓良（@潘晓良）拜访豌豆荚时，我们坐在一起吃着工作餐聊天，他就很惊叹“会有这样的一种文化风格”，既是他期望看到的，又渐渐在其它公司里失去的……他甚至连我们的午餐的吃法都很欣赏，觉得“这样吃午饭真的很好”——我不知道他是在这样的表达上词穷呢，还是只有这样的表达才是真的贴合他的感受。而这次拜访便是我在QCon上讲“文化与效能：豌豆荚如何通过文化建设来提升团队效能”这个话题的起因，以至于晓良打电话给我的时候，我连“讲什么”都没想好，却已经有“应该讲一讲”的欲望了。&lt;/p&gt;
+
+&lt;p&gt;我的感受中，豌豆荚的“开放、精致与有爱”中最显而易见的就是“开放”。这是一种与众不同的开放，他不讲一种确定的形式，例如把“向开源社区贡献多少个项目”作为指标；也不讲一种确定的方法，例如要求大家都去搞敏捷或者更具体的站立会议。豌豆荚的开放是自上而下的，连每一个员工都觉得“俊煜是一个很简单的人”。昨天的全员周会上，一个新豌豆提到俊煜时，居然说“最大的印象是‘俊煜从来不换衣服’”——因为俊煜在公司的着装向来平淡，颜色灰暗款式统一风格陈旧，以至于乏善可陈。同样，自上而下的行事也是透明的，例如前一段做OKRs review（一种类似KPI的考核）的时候，崔阿就坦然地在全员的周会上给大家说：我们没准备好；我们年初定了标准，但我们现在把标准改了；我们觉得OKR的机制里有矛盾的地方；我们还在调整……类似这样的事情，在他们那里表达出来就是那么自然。让你觉得诚恳，没有虚的、遮遮掩掩的成分在里头。每个人都乐于接受别人的观察、批评与指导，因为每个人都觉得自己还有不足，还有地方没想到，还有地方是别人比我做得更好的……这是一个谦逊的、乐于接受一切新鲜事物，乐于探索一切新的方法的公司。这种乐于接受和乐于探索的文化，才是在本质上开放的文化，才是真正有益的，真正有利于效能的。&lt;/p&gt;
+
+&lt;p&gt;所以跟草原谈豌豆荚的时候，我并没有太深入的谈“希望你来做什么事”，或者“豌豆荚是一个有着什么文化的公司”。我更多的是给他谈到我的这种直觉感受，我只是强调说：这是一个可以做事的公司。我在此前很长时间是“没法做事”的，而“没法做事”却又要在一个公司或者一个职位上呆着，那个跟关小黑屋是一样的感受。我觉得我在豌豆荚与其它的一些公司中做选择的时候，这种“可以放开手脚”的感觉是我最看重的，也是最直接影响了我的东西。我想，这或许也是能打动草原的众多理由中的一个吧。&lt;/p&gt;
+
+&lt;p&gt;然而“能放开手脚”并不代表什么，比如事实上它并不意味着豌豆荚就会给你所需要的资源。我在到公司之前冯锋（@JackFenng）就给我说：你要做什么事情，你得去告诉大家，争取大家的支持，而不是从管理层面上分派下去，那在贵荚是行不通的。是的，这就是贵荚的风格——你想要做什么事，就自己来，别找领导——严格地说，这里没什么领导；官派的作风在贵荚是没有的。你要服众，那单单说一个职务职级，或者十几年的从业背景，这些统统行不通。你能采用的方法，就是让大家真正相信你在做一件有益于公司的、有益于用户的、有益于这个社会的事情。这样一件事，哪怕只是让大家乐一下——比如今年愚人节的空气洗白白，也会得到支持。反之，就是声音叫得天响，也没人理你。再牛的牛人在这里也一样平等，从一个人头做起，从一支小团队做起，从一件具体的事情做起……&lt;/p&gt;
+
+&lt;p&gt;所以所谓“放开手脚”本意上就是没有绑住你手脚的东西，但没了绑住手脚的东西之后，你还会不会行走，却是自己的事情。&lt;/p&gt;
+
+&lt;p&gt;最终观察到这一点，让我很庆幸自己加入了这样一家公司：每个人都有手有脚，都开放透明，都真诚热情，都知道走他们自己的路，也都知道：在走自己的路的同时，可以对别人好一点。&lt;/p&gt;
+
+&lt;p&gt;关于这一点点，我想，也就是所谓的有爱了。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;又，好吧，既然都是这样的软文了，那就再软一些：&lt;/p&gt;
+  
+  &lt;p&gt;以下，请对贵荚感兴趣的同学，或有痣于成为一名豌豆的大师，记一下我的邮箱电话号码以及微博帐户，有简历发简历，没简历发私信……皆是善举。再又，顺带帮上海一相当靠谱团队招前端工程师若干名，欢迎对帝都无感而有兴趣了解一下魔都霾情的同学请看过来看过来，同样有简历发简历，没简历发私信……再又又，招主T一名，奶若干，DPS若干，近战三修四修若干，无人死服死公会新人团招人。&lt;/p&gt;
+  
+  &lt;p&gt;@aimingoo/aiming at gmail.com/ aimingoo at &lt;br&gt;
+  wandoujia.com/2836420/来自疯人院 at 此人危险切勿靠近 at 塞纳里奥 at 二区 at WoW&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title>CSDN的SDCC大会(2013)中使用的PPT分享</title><description>&lt;p&gt;SDCC大会今天开完个。呵呵~  &lt;/p&gt;
+
+&lt;p&gt;PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  &lt;/p&gt;
+
+&lt;p&gt;这里说说这个大会中我的Topic。  &lt;/p&gt;
+
+&lt;p&gt;此前CSDN向我约了一个主题，我回复说，  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：&lt;/div&gt;  
+
+&lt;blockquote&gt;
+  &lt;p&gt;这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 &lt;a href="http://sdcc.csdn.net"&gt;http://sdcc.csdn.net&lt;/a&gt; ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-193/</link><guid isPermaLink="false">e0985263-c38c-4b33-a7d6-64ffd832d573</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 31 Aug 2013 14:02:00 GMT</pubDate><content:encoded>&lt;p&gt;SDCC大会今天开完个。呵呵~  &lt;/p&gt;
+
+&lt;p&gt;PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  &lt;/p&gt;
+
+&lt;p&gt;这里说说这个大会中我的Topic。  &lt;/p&gt;
+
+&lt;p&gt;此前CSDN向我约了一个主题，我回复说，  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div&gt;一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：&lt;/div&gt;  
+
+&lt;blockquote&gt;
+  &lt;p&gt;这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 &lt;a href="http://sdcc.csdn.net"&gt;http://sdcc.csdn.net&lt;/a&gt; ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，那就有些不合用的地方了。再则，若这些SDCC的架构场只是讨论网站架构下的实战，那就与听众的这种期待相去甚远了。  &lt;/p&gt;
+  
+  &lt;p&gt;“架构的意图”是讨论一个架构“为什么要被做出来”的。也就是说，我们不是画一个架构图告诉团队说“按这个做”就可以了。架构师必须对“架构的意图”进行清晰的刻画，这是这个架构长期存在的基本意义与价值。我曾经说“意图是架构的灵魂”，不理解或不赋予架构某种“意图”，则架构终究是个死物，看不入眼的。在这个topic中，我会例举一些架构实践中的案例，来说明“其中存在或不存在某种意图”，以及如何识别与定义它。但我并不在乎这个例举是否是网站架构，这是与sdcc在这个议题上有别的地方。  &lt;/p&gt;
+  
+  &lt;p&gt;请斟情考虑我的topic。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;再回邮件时，鸫翔同学终于确定在SDCC上用这个话题了，也就是“寻找架构的来处：意图”。在我看来，一旦架构师没有意图，那么系统只是目标系统的某一时间上的静态映像。仅此而已。但是，什么才是这样的意图？我们如何得到或形成意图呢？为什么说“获得意图”才架构的精髓呢？“意图之于架构”的本质究竟是什么？这些是我在本讲演中希望与大家分享与讨论的。  &lt;/p&gt;
+
+&lt;p&gt;“架构的意图”其实是一个有关架构的完整的体系中的一个话题，我称这个体系为：架构意图驱动的过程模型。在&lt;span style="font-size:14px;color:#3366ff;"&gt;&lt;a href="http://t.cn/zWb8Qac"&gt;《大道至易》&lt;/a&gt;&lt;/span&gt;里面，我在总论中讲了其中“架构”（和架构师）这一概念的出处，定义了架构这个概念；在第10、11章中讨论了这个架构的整个模型与完整的实践。而最终的，又从这个实践中总结提升了“五项核心原则”，作为了第12章。这些内容，就是《大道至易》一书中有关“架构”的全部内容——其它的内容是讲软件工程和软件开发技术的。  &lt;/p&gt;
+
+&lt;p&gt;下面这张图，我梳理了一下这几年来我有关架构的分享与讲演（这些都是公开的，很多有视频呵，可以试试在&lt;a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3#cid=F9303C43D5CEAFB3&amp;amp;id=F9303C43D5CEAFB3%21730"&gt;这里找&lt;/a&gt;）。  &lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/20130831215259515.png" alt="" title=""&gt;  &lt;/p&gt;
+
+&lt;p&gt;大体上，我在2012年之前主要偏向于架构思想的分享（也讲讲能力模型和交付对象——例如设计神马的），而2013开始的所有topic，都在完成下面这个模型中所讲的知识结构：  &lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/20130831215509640.png" alt="" title=""&gt;    &lt;/p&gt;
+
+&lt;p&gt;最后打个小广告，模型中讲的“2013 架构的核心指导原则”，是今年10月将在上海的一场讲演。&lt;a href="http://www.thinkinlamp.com/"&gt;在这里在这里……&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;PPT的下载  &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;在这里在这里在这里（视频神马的，我就没权限公开了，请大家关注CSDN吧）：  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://vdisk.weibo.com/s/yXPCfhgzhwOnY"&gt;http://vdisk.weibo.com/s/yXPCfhgzhwOnY&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;或  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;amp;id=F9303C43D5CEAFB3%211231"&gt;https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;amp;id=F9303C43D5CEAFB3%211231&lt;/a&gt;  &lt;/p&gt;</content:encoded></item><item><title>MPD大会上使用的PPT分享 - 2013</title><description>&lt;p&gt;MPD（软件工作坊，&lt;a href="http://www.mpd.so/beijing/agenda.php"&gt;在这里在这里&lt;/a&gt;）中我的内容是“架构的过程“。架构是一个过程而非结果，是我的主要观点。本主题讨论两种不同视角下的架构过程与具体方法。将在实践环境中与大家完成一个系统的分析，评价与构建。并尝试性地讨论“架构过程论”的局限性。  &lt;/p&gt;
+
+&lt;p&gt;下面是此次分享中的完整PPT，与大会中用到的略有区别。其中，还有程文宇先生的一份《系统架构方法》，可供参考。  &lt;/p&gt;
+
+&lt;p&gt;下载位于： &lt;br&gt;
+&lt;a href="http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public"&gt;http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public&lt;/a&gt; &lt;br&gt;
+或 &lt;br&gt;
+&lt;a href="http://aimingoo.skydrive.live.com/browse.aspx/.Public"&gt;http://aimingoo.skydrive.live.com/browse.aspx/.Public&lt;/a&gt;    &lt;/p&gt;
+
+&lt;p&gt;在其中的&lt;strong&gt;&lt;span style="color:#663333;"&gt;“&lt;/span&gt;&lt;span style="color:#cc0000;"&gt;2013 架构的实战过程&lt;/span&gt;&lt;span style="color:#663333;"&gt;”&lt;/span&gt;&lt;/strong&gt;目录中。&lt;/p&gt;</description><link>http://aimingoo.github.io/1-192/</link><guid isPermaLink="false">d0d929d3-8059-4dd2-8cf6-c5a82f67434c</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 15 Jun 2013 13:50:00 GMT</pubDate><content:encoded>&lt;p&gt;MPD（软件工作坊，&lt;a href="http://www.mpd.so/beijing/agenda.php"&gt;在这里在这里&lt;/a&gt;）中我的内容是“架构的过程“。架构是一个过程而非结果，是我的主要观点。本主题讨论两种不同视角下的架构过程与具体方法。将在实践环境中与大家完成一个系统的分析，评价与构建。并尝试性地讨论“架构过程论”的局限性。  &lt;/p&gt;
+
+&lt;p&gt;下面是此次分享中的完整PPT，与大会中用到的略有区别。其中，还有程文宇先生的一份《系统架构方法》，可供参考。  &lt;/p&gt;
+
+&lt;p&gt;下载位于： &lt;br&gt;
+&lt;a href="http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public"&gt;http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public&lt;/a&gt; &lt;br&gt;
+或 &lt;br&gt;
+&lt;a href="http://aimingoo.skydrive.live.com/browse.aspx/.Public"&gt;http://aimingoo.skydrive.live.com/browse.aspx/.Public&lt;/a&gt;    &lt;/p&gt;
+
+&lt;p&gt;在其中的&lt;strong&gt;&lt;span style="color:#663333;"&gt;“&lt;/span&gt;&lt;span style="color:#cc0000;"&gt;2013 架构的实战过程&lt;/span&gt;&lt;span style="color:#663333;"&gt;”&lt;/span&gt;&lt;/strong&gt;目录中。&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之六：杂谈（完结篇）</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;本篇的问题：（没有主题，呵呵）  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：我们公司准备进行“敏捷测试”。有没什么建议~！  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：基本上，所有带着“敏捷”字头的，我都很难有建议。那是个黑洞，什么概念都往里扔，却没人担负解释的责任。:)  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：软件工程的风险控制，有没有什么可以一般都遵循的规律或者说指导原则？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：我只知道一条，向一个进行中的项目添加人手和添加特性，都是万恶之始。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：对于没有确定需求的开发工作,您有什么好的建议？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：事实上很难“确定需求”，软件工程为解决需求变化问题已经努力很多年了。现今的一些情况是，以类&amp;#20284;&lt;/p&gt;</description><link>http://aimingoo.github.io/1-191/</link><guid isPermaLink="false">6d0fad1e-6e34-41ec-a069-6b2ac7bbade0</guid><category>软件工程</category><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 15:17:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;本篇的问题：（没有主题，呵呵）  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：我们公司准备进行“敏捷测试”。有没什么建议~！  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：基本上，所有带着“敏捷”字头的，我都很难有建议。那是个黑洞，什么概念都往里扔，却没人担负解释的责任。:)  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：软件工程的风险控制，有没有什么可以一般都遵循的规律或者说指导原则？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：我只知道一条，向一个进行中的项目添加人手和添加特性，都是万恶之始。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：对于没有确定需求的开发工作,您有什么好的建议？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：事实上很难“确定需求”，软件工程为解决需求变化问题已经努力很多年了。现今的一些情况是，以类&amp;#20284;于快速迭代、每日构建等方式来应对需求的变化；用原型等方式在较少代价下将需求尽量确定下来；强化测试以在需求变化下保障品质等等。但背后的事实是：我们承认和接受了“变化的需求”。一些极端的情况，就是把客户拉到Team中，让变化直接反馈在阶段产品中，或者让客户自己都疲于变化。总之，这些已既成事实。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：软件工程，请问一些中小型项目有必要用吗？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：无关大小。你要用“工程化的方式去做那个软件”，就必然要讨论软件工程的问题。但显然，你要得到“那个软件”，可以买的，可以外包啊，为什么一定要“工程化开发”呢？所以与大小无关，取决于你打算“如何得到它”。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：大公司架构主要负责什么工作？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：很多架构师在大公司混饭吃，所以切莫以“公司大小”来看架构师的优劣。将“做架构”以及“做更优秀的架构”作为一个修炼的过程，而不是将自己变成更加的开发高手，就好了。至于变化说到底就是一个“需求要不要满足”的问题，个人意见是“接受需求，控制变化”。但这与敏捷与否是无关的，后者是表象。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：软件工程学到什么程度才算合&amp;#26684;?  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：知道那本叫《软件工程》的书一点儿也不重要，就合&amp;#26684;了。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：您感觉像软件工程这样的课程应该怎么来上呢？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：按“标准过程”做一两个项目即好。但条件是：要考核每个人的工作量，评估成效；并针对上述结果做出激励机制；并针对激励机制的价&amp;#20540;写出论文。至于项目最终成不成，做不做得出软件，无视之。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问题：有没有（类&amp;#20284;标准过程的）完整的简单实例给大家来一份啊？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：请写一个记事本软件。条件是：用十个人开发，其中三个人决定记事本软件的产品特征项、版本规划。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;问：您怎么看待权利与规范？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：真正的特权，是制定规范。无视规范是特权者的特权，无规范是打破特权的神器。但，无规范则无社会框架：没有如水的组织，亦无如水的社会。无规范如是梦中。而做梦，是个体的最终自由和最终动力。    &lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题：小作坊如何实施所谓的软件工程？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“很大”，“很学术”，或者看起来谈种种“敏捷”，但实际去做的时候就成了条条框框。大家在第一认识上要知道，大多数实践中谈及的“工程”，都是工程方法而已。  &lt;/p&gt;
+
+&lt;p&gt;既是方法，也就需要因事、因人而宜。无论某种工程方法打着怎样的旗号，说怎样漂亮的话，给你展示怎样的数据，落到你的“具体工程”的实处，都是要调适的。具体来说，要先看人，先培训整体一致的工程认识；然后再规划事，形成较简洁适用的过程方法，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-190/</link><guid isPermaLink="false">17c57514-1b45-4aaa-a7aa-807f2df06e62</guid><category>软件工程</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题：小作坊如何实施所谓的软件工程？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“很大”，“很学术”，或者看起来谈种种“敏捷”，但实际去做的时候就成了条条框框。大家在第一认识上要知道，大多数实践中谈及的“工程”，都是工程方法而已。  &lt;/p&gt;
+
+&lt;p&gt;既是方法，也就需要因事、因人而宜。无论某种工程方法打着怎样的旗号，说怎样漂亮的话，给你展示怎样的数据，落到你的“具体工程”的实处，都是要调适的。具体来说，要先看人，先培训整体一致的工程认识；然后再规划事，形成较简洁适用的过程方法，以及核查的机制。有了这两点作为底子，工程才可能从0到1，走过“没有工程”的阶段。  &lt;/p&gt;
+
+&lt;p&gt;一个团队总是要从小到大的，如果在小规模的时候都没有工程素质，那到大规模的时候来补，也是很痛苦的。同样的，个体开发人员也是如此，不对自己加以职业化的要求，换公司换团队换做法的时候，也是很痛苦的。因此在这个问题上，我认为个人培养与团队培养一样重要，知道有些事在哪种情况下要做、该做，以及该做到何种程度，对一些问题有着基本的、工程化的认识，是每个程序员应有的素质。如果你的团队达不到这一点，那么，请培训他们。我建议培训要自己来做，既是让自己认识清楚，也是了解大家的一个过程。  &lt;/p&gt;
+
+&lt;p&gt;最后再说到细节，即是“如何做”的问题。这方面我很久以前就有公开的资料了，请至如下地址：  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://skydrive.live.com/?cid=F9303C43D5CEAFB3&amp;amp;id=F9303C43D5CEAFB3%21805"&gt;https://skydrive.live.com/?cid=F9303C43D5CEAFB3&amp;amp;id=F9303C43D5CEAFB3%21805&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;下载Chapter2，有两个part。这个实战过程讲了一个两个人的团队，一个完整的项目过程，以及将它工程化的全程。我不是说这个示例就做得很好很完美，我只建议大家关注这件事的做法：我们应该这样来因事因人（亦即是因项目、因团队）地“定制”我们的工程方法。&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;修炼自己，服人之口莫若服人之心，你得让自己可以服众。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;人际关系很重要，但过于圆滑则不适合做技术团队的管理。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;领导者的第一要素是看清方向，第二要素才是领导力的问题。所以若真能高瞻远瞩，众人莫不拜服之。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;技法为下，心性为上。行正则言顺，讨巧之事偶可为之，不可作管理与领导术。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;大约能想到这些吧，个人之见而已。&amp;nbsp;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;又问：看清组织的内容是什么？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;你在哪里？是谁？&lt;/p&gt;</description><link>http://aimingoo.github.io/1-189/</link><guid isPermaLink="false">7eba9f36-7e36-49d4-be44-b993a007417e</guid><category>软件工程</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 14:57:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;修炼自己，服人之口莫若服人之心，你得让自己可以服众。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;人际关系很重要，但过于圆滑则不适合做技术团队的管理。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;领导者的第一要素是看清方向，第二要素才是领导力的问题。所以若真能高瞻远瞩，众人莫不拜服之。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;技法为下，心性为上。行正则言顺，讨巧之事偶可为之，不可作管理与领导术。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;大约能想到这些吧，个人之见而已。&amp;nbsp;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;又问：看清组织的内容是什么？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;你在哪里？是谁？在做什么？这些就是基本的组织问题。&amp;nbsp;&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？  &lt;/p&gt;
+
+&lt;p&gt;问：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;一、关于架构。    &lt;/p&gt;
+  
+  &lt;p&gt;我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？    &lt;/p&gt;
+  
+  &lt;p&gt;二、关于软件工程。    &lt;/p&gt;
+  
+  &lt;p&gt;我一直的理解为　软件工程 = 工具 &amp;#43;方法&amp;#43;过程。    &lt;/p&gt;
+  
+  &lt;p&gt;想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-188/</link><guid isPermaLink="false">fe1bbf48-3db4-4fc2-913a-f2b43d9e458d</guid><category>软件工程</category><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 14:48:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？  &lt;/p&gt;
+
+&lt;p&gt;问：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;一、关于架构。    &lt;/p&gt;
+  
+  &lt;p&gt;我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？    &lt;/p&gt;
+  
+  &lt;p&gt;二、关于软件工程。    &lt;/p&gt;
+  
+  &lt;p&gt;我一直的理解为　软件工程 = 工具 &amp;#43;方法&amp;#43;过程。    &lt;/p&gt;
+  
+  &lt;p&gt;想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：    &lt;/p&gt;
+
+&lt;p&gt;学界的，尤其是国内学界的讨论中，历来有一个问题。就是讨论一个东西，总是在说“什么是这个东西”，而不是“这个东西是什么”。有些时候，行文上看起来还是前者，实底上却做成了后者。而jazz（提问者）的这个看法，也就存在这样的问题，即是说，您实质上是在说着“把复杂的问题变简单，就是做架构”。这个观点，本质上说是的“怎么做架构”的问题，而并不能解释“架构是什么”，以及“架构怎么做”的问题。  &lt;/p&gt;
+
+&lt;p&gt;我常说的一个例子，我们去动物园，看到老虎说“这是动物”，又看到狮子也说“这是动物”，再看到鳄鱼还是说“这是动物”。于是我们就可以据此说“老虎&amp;#43;狮子&amp;#43;鳄鱼”就是动物吗？显然这是个笑话了。但我们往往讨论事情的时候就跳不开这个坑，比如说“解决复杂度的问题，就是架构”，并以此来认为这是架构的全部。  &lt;/p&gt;
+
+&lt;p&gt;很好，我们回到往前一点。架构是什么呢？在我前面的贴子里是没有讲的，而只是讲到了“架构作为一个结果，它由两种东西组成”，以及“架构思维可以由对这两种东西的思考而来”。但这些，我坦承这并不是在解释“架构是什么”。但是，我也不能在这里直接地谈论并给出一个“架构是什么”的答案。正因为我能给出的答案看起来是那样的简单、直接和毫无意义，所以它会被任何人无情地忽略，认为那不过是一句废话。而我在《大道至易》中，对这个答案作出了结构性的分析与解释。我建议任何对这个问题有兴趣的人，去研读这本书的“第十二章 架构原则，技艺、艺术与美”。我在那一章的前言中写着：  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我对架构的认识与思想，只是架构可能的认识与思想中的一个方面，是其可能的解中的方式之一。我必须提及这一方面与方式的核心指导原则，这些原则的正确性必将表达为：它可以为其他的认识与思想提供依据，是其他有效的、可供讨论的认识与思想不可违逆的基本前设。本书对架构的谈论，只是这些原则下的一个运用示例；这些原则来源于这些示例的思考过程，并超越于这个过程的结果——本书所讨论的架构。​  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所以，我希望更为严肃的方式来讨论这个学术性的话题，即是“架构是什么”。而不是“我认为这样做就是做架构”，或“我看到某个架构是这样做的”。我不认为那是答案，并且认为那个方向离答案越行越远。如我此前在“动物园”的比喻中所说的，我们管窥所得的斑斑点点，都不是那个问题的全集或全解；而“管窥”这样的方法，也不是求解的正确方法。  &lt;/p&gt;
+
+&lt;p&gt;再回复一下您最后的这个问题。简单地说，我认为没有“比例”这样的东西。“软件工程”纯以工学的方式来讲，是有构成与组成的，因为这是它的“问题集”。但在工程实践中，是实践的背景决定了我们如何投入实施力量，而不是一个学术的指导或行事表&amp;#26684;。我常说“真正的管理者，是不看管理的技术书的”，当我们把“软件工程”当成一种技术，试图从技术书中找到公式与规则的企图，都死死地陷入在技术思想中，陷入在“工欲善其事，必先利其器”的工匠思维中。  &lt;/p&gt;
+
+&lt;p&gt;所以我常说“如果你认为这句话对，说明你是‘工’”，因为这原本就是你的工作方法、状态以及你构建知识、能力的基本模式。——引自​《大道至易》&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之二：什么是架构？以及什么是架构师？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题是：什么是架构？以及什么是架构师？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过，而在另一本《大道至易——实践者的思想》才有所讨论。不过这里我还是乐于解释一下一些基本的问题，或谈谈我的一些基本的观点。  &lt;/p&gt;
+
+&lt;p&gt;仅以架构而言，要讨论的问题总的来说就两个方面，一是“范围”，就是项目与项目目标要做多大、多久，做到怎样效果的问题，并且围绕这个“范围”来给出一些合理的方案给开发实施的团队。二是“联接件”，就是如果上述的范围要由多个阶段或多个构件来构成，那么这些范围或构件之间如何关联的，以及如何确保这些关联是长期有效的。​  &lt;/p&gt;
+
+&lt;p&gt;为了简单的说清这个架构的概念，以一个插件的架构来说，就是确定“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-187/</link><guid isPermaLink="false">2ab7aded-1ed3-4a9d-a1fd-4c1c95bc887a</guid><category>软件工程</category><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 14:43:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题是：什么是架构？以及什么是架构师？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过，而在另一本《大道至易——实践者的思想》才有所讨论。不过这里我还是乐于解释一下一些基本的问题，或谈谈我的一些基本的观点。  &lt;/p&gt;
+
+&lt;p&gt;仅以架构而言，要讨论的问题总的来说就两个方面，一是“范围”，就是项目与项目目标要做多大、多久，做到怎样效果的问题，并且围绕这个“范围”来给出一些合理的方案给开发实施的团队。二是“联接件”，就是如果上述的范围要由多个阶段或多个构件来构成，那么这些范围或构件之间如何关联的，以及如何确保这些关联是长期有效的。​  &lt;/p&gt;
+
+&lt;p&gt;为了简单的说清这个架构的概念，以一个插件的架构来说，就是确定“插件用于补充主体软件的某个功能”，并确定“插件与主体软件之间如何衔接通讯”。那么有了这两点，插件的架构，也就设计完了。把这个模式扩大到一个平台，或一个大型的系统，或者细化到它们的各个局部中去，就是“平台架构”或“系统架构”了。当然，这仅在简单地、形式化地在讨论“架构”这个东西，因为“架构”与规模问题尽管有关系，但并非是一一对应的。不能说“大系统就要架构，小东西就不需要”，这样的认识是不正确的。  &lt;/p&gt;
+
+&lt;p&gt;架构在根底上来说，是一种系统化的视角。如果你将一个对象理解为“系统”，或“有系统性的”，那么它就必然存在内部的关系与外部的边界——否则，必是离散的，或混沌不清的。而架构的“范围”与“联接件”，谈的就是这个对象的内部关系与外部边界。如果你具有架构思维，那么在你的视角下，凡事、凡物、凡内外，无不如此。  &lt;/p&gt;
+
+&lt;p&gt;而架构师，要么离散上述关系、肢解上述结构，要么通过明确的方式来固化上述的关系与结构。如是，是做架构。&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之一：“软件工程”的学法与用法</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题是：软件工程要怎么学，学了有什么用、怎么用？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;首先，软件工程是学不得的。是所谓“学之不得”，通过死学，是得不到什么有价&amp;#20540;的东西的。我们必须自己提一些问题，然后来求解，通过这个求解的过程，来学习与领会它。我想第一个要问的问题，就是“什么是工程”。我们学工科、理科、文科之类，为什么要这么分呢？工程为什么是“工科”的一部分呢？更有趣的问题是，为什么没有所谓的“文学工程”呢？  &lt;/p&gt;
+
+&lt;p&gt;工程就本意，指向的就是“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-186/</link><guid isPermaLink="false">a19d588b-ad06-4207-b5b3-8b9cc44dda3d</guid><category>软件工程</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 12:46:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
+
+&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;本篇的问题是：软件工程要怎么学，学了有什么用、怎么用？  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;答：  &lt;/p&gt;
+
+&lt;p&gt;首先，软件工程是学不得的。是所谓“学之不得”，通过死学，是得不到什么有价&amp;#20540;的东西的。我们必须自己提一些问题，然后来求解，通过这个求解的过程，来学习与领会它。我想第一个要问的问题，就是“什么是工程”。我们学工科、理科、文科之类，为什么要这么分呢？工程为什么是“工科”的一部分呢？更有趣的问题是，为什么没有所谓的“文学工程”呢？  &lt;/p&gt;
+
+&lt;p&gt;工程就本意，指向的就是“产出一个东西”。工科，也偏向于“实做一个东西”。你不能去找理论数学或理论物理的人，去做一个实际的产出来。工科，以及这里谈的工程，就是要“做出一个东西”。而软件工程，无非就是要讨论“做一个软件”这件事的做法，而已。  &lt;/p&gt;
+
+&lt;p&gt;但是我们要看到，“做一件事”，要确定做法，所以说要谈到“软件的开发”，于是有了写软件的代码工人，写软件的技术与方法等等。但这个问题不是软件工程本身讨论的，它被归在了“工具”这个范畴内。同样，“做一件事”，还涉及到“人”，但也不归在软件工程本身讨论，而归在了管理中。等等类&amp;#20284;这些的东西，都因为有各自的学科，而被划分出去了，“软件工程”这门功课的本身，就只剩下了一个“纯学术”的东西，它只讨论“软件该怎么做”的问题，而放弃了具体做法中的具体的人、具体的技术和具体的研发对象。这个“软件怎么做”的问题，被学“工科”的思想用了一个简单的模型来讲，就是：软件工程＝（做一个面向软件开发的工程的）过程&amp;#43;方法&amp;#43;工具。  &lt;/p&gt;
+
+&lt;p&gt;但是有趣的事情是，凡工科，凡“做一个东西”，要把这个事情工程化，好象它的结论都会“用一个过程，找一些方法，拿一些工具，来做”。所以，将软件工程化，与将任何事情工程化，并没有本质的区别。从工业革命开始到现在，前辈们都是这样做的。纯理论的来说，做的模式都是如此。换而言之，上面那个公式/模型，也可以简而言之为“软件工程＝用工程化的方法，来做软件”。  &lt;/p&gt;
+
+&lt;p&gt;你再看那本叫《软件工程》的书，写的就是没用嘛。因为这纯粹不需要讲，懂了“将一件事工程化，都不过是如上的方法”，那么整本书也就成了个备查手册——查查别人都用了什么过程、方法与工具，以及有什么效果。  &lt;/p&gt;
+
+&lt;p&gt;学“软件工程”，学得懂了上面的这点东西，就够了。在工科来说，剩下的就是“练习”了。如同操刀杀牛，同一个过程，练3、5遍不行，练3~50遍总是行的。学“软件工程”也不过如此，一套过程、方法与工具用熟了，不过是把工夫做足了，做纯熟了而已。  &lt;/p&gt;
+
+&lt;p&gt;而对于一个具体的工程（例如一个具体的项目）来说，上面的东西几乎完全无用。为什么呢？因为我们前面说过，《软件工程》这样的一门学科把“什么东西”、“什么人”、“做的技术”这些东西清理了出去，变成了一门纯粹的“工学”。而事实上，一个具体的工程项目，却正好是包含在这些东西、人、技术上面的。所以做具体工程的，碰到人的问题，就要谈管理，而“我学了软件工程”并不表明我会管理；碰到东西的问题，就要谈产品，而“我学了软件工程”并不表明我会产品设计；等等如此。我们的一个具体的工程，并不一定具有一个“面面俱到”的团队，所以实作工程的时候，总是这方面不足哪方面不够，碰到的问题总不在书里。  &lt;/p&gt;
+
+&lt;p&gt;但，你再看看，你面临的这件事、这个项目，这个具体的工程，就解决问题的法子来说，也不过是“找到一个过程，用一些方法，拿一些工具”来做，而已。所以，真懂软件工程的人，知道这个原理——这个在《软件工程》这本书中讲的核心原理，就够了。其它的，神见杀神，佛见杀佛，自个去做便是了。哪有在一个具体的工程里谈什么RUP的，谈XP的？就好象说，你明明已经在千军万马里了，还从太极的起手式耍起！开玩笑嘛！见一个砍翻一个，砍错了该Y的倒霉，就是如此嘛。  &lt;/p&gt;
+
+&lt;p&gt;套路有没有呢？原则有没有呢？还是有的，《大道至简》里说过，千军万马里面用剑，不要去砍，剑身是用来挡的，剑尖是用来刺的，刺死砍伤，用最有效的法子，就好。这就是些基本原则了。到一个具体的工程里了，对A员工到软声细语，对B员工要敲敲打打，对C员工的测试一定要复测……等等这些，你在工程中去总结就好。因人、因事、因环境、因目标对象一一应对，然后你就成功了，就牛人了，就项目精英了，就50多岁了。  &lt;/p&gt;
+
+&lt;p&gt;练就。不练，怎么有成就呢？《软件工程》只讲一个核心原理，真到做了，还是一个项目、一群人、一个产品目标。三个方面的东西，一个不可少地去照顾到了，去找到他们的方法、过程与工具了，去磨过去拼过，才有结果的。  &lt;/p&gt;
+
+&lt;p&gt;我从来不相信学完《软件工程》就去做工程的那个人。  &lt;/p&gt;</content:encoded></item></channel></rss>
