@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>还原JavaScript的真实历史~</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="还原JavaScript的真实历史~" />
-    <meta property="og:description" content="问题  ＝＝＝＝＝＝＝＝＝＝＝＝  JavaScript真的继承自Cmm吗？  JavaScript与Java有多少关系？  JavaScirpt最初的设计是怎样的？     在许多资料，JavaScript的语源被追溯到一种名为Cmm的语言。同样是在这一溯源的过程中，人  们发现&amp;ldquo;其实&amp;rdquo;JavaScript不是第一种网页中的脚本语言。现在一些所谓&amp;ldquo;公认&amp;rdquo;的情况是这样的：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的  嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator  崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso  Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫  没有料到它的理念将会成为因特网的一块重要基石。  ----------------   然而，这是真实的情况吗？运行在Netscape中的第一个&amp;ldquo;客户端脚本语言&amp;rdquo;真的是Cmm的浓咖啡？  又或者真的象Wiki中记述的那样，Brendan Eich在JavaScript引用了Cmm语言特性？   不是的。尽管上述的资料看起来出权威：《Javascript高级程序设计》（Professional" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-89.html" />
-    <meta property="article:published_time" content="2007-12-12T20:14:00.000Z" />
-    <meta property="article:modified_time" content="2007-12-12T20:14:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="语言" />
-    <meta property="article:tag" content="脚本" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="还原JavaScript的真实历史~">
+    <meta property="og:description" content="问题  ＝＝＝＝＝＝＝＝＝＝＝＝  JavaScript真的继承自Cmm吗？  JavaScript与Java有多少关系？  JavaScirpt最初的设计是怎样的？     在许多资料，JavaScript的语源被追溯到一种名为Cmm的语言。同样是在这一溯源的过程中，人  们发现&amp;ldquo;其实&amp;rdquo;JavaScript不是第一种网页中的脚本语言。现在一些所谓&amp;ldquo;公认&amp;rdquo;的情况是这样的：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的  嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator  崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso  Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫  没有料到它的理念将会成为因特网的一块重要基石。  ----------------   然而，这是真实的情况吗？运行在Netscape中的第一个&amp;ldquo;客户端脚本语言&amp;rdquo;真的是Cmm的浓咖啡？  又或者真的象Wiki中记述的那样，Brendan Eich在JavaScript引用了Cmm语言特性？   不是的。尽管上述的资料看起来出权威：《Javascript高级程序设计》（Professional">
+    <meta property="og:url" content="http://aimingoo.github.io/1-89.html">
+    <meta property="article:published_time" content="2007-12-12T20:14:00.000Z">
+    <meta property="article:modified_time" content="2007-12-12T20:14:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="语言">
+    <meta property="article:tag" content="脚本">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="还原JavaScript的真实历史~" />
-    <meta name="twitter:description" content="问题  ＝＝＝＝＝＝＝＝＝＝＝＝  JavaScript真的继承自Cmm吗？  JavaScript与Java有多少关系？  JavaScirpt最初的设计是怎样的？     在许多资料，JavaScript的语源被追溯到一种名为Cmm的语言。同样是在这一溯源的过程中，人  们发现&amp;ldquo;其实&amp;rdquo;JavaScript不是第一种网页中的脚本语言。现在一些所谓&amp;ldquo;公认&amp;rdquo;的情况是这样的：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的  嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator  崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso  Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫  没有料到它的理念将会成为因特网的一块重要基石。  ----------------   然而，这是真实的情况吗？运行在Netscape中的第一个&amp;ldquo;客户端脚本语言&amp;rdquo;真的是Cmm的浓咖啡？  又或者真的象Wiki中记述的那样，Brendan Eich在JavaScript引用了Cmm语言特性？   不是的。尽管上述的资料看起来出权威：《Javascript高级程序设计》（Professional" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-89.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 语言, 脚本" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="还原JavaScript的真实历史~">
+    <meta name="twitter:description" content="问题  ＝＝＝＝＝＝＝＝＝＝＝＝  JavaScript真的继承自Cmm吗？  JavaScript与Java有多少关系？  JavaScirpt最初的设计是怎样的？     在许多资料，JavaScript的语源被追溯到一种名为Cmm的语言。同样是在这一溯源的过程中，人  们发现&amp;ldquo;其实&amp;rdquo;JavaScript不是第一种网页中的脚本语言。现在一些所谓&amp;ldquo;公认&amp;rdquo;的情况是这样的：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的  嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator  崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso  Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫  没有料到它的理念将会成为因特网的一块重要基石。  ----------------   然而，这是真实的情况吗？运行在Netscape中的第一个&amp;ldquo;客户端脚本语言&amp;rdquo;真的是Cmm的浓咖啡？  又或者真的象Wiki中记述的那样，Brendan Eich在JavaScript引用了Cmm语言特性？   不是的。尽管上述的资料看起来出权威：《Javascript高级程序设计》（Professional">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-89.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 语言, 脚本">
     
     <script type="application/ld+json">
 {
@@ -84,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-jiao-ben nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -113,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/jiao-ben/index.html">脚本</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/jiao-ben/">脚本</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,197 +146,197 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p><font size="3"><font size="4"><strong>问题 <br />
-＝＝＝＝＝＝＝＝＝＝＝＝</strong></font> <br />
-<font color="#008080"><strong>JavaScript真的继承自Cmm吗？ <br />
-JavaScript与Java有多少关系？ <br />
-JavaScirpt最初的设计是怎样的？</strong></font>    </p>
+                <p><font size="3"><font size="4"><strong>问题 <br>
+＝＝＝＝＝＝＝＝＝＝＝＝</strong></font> <br>
+<font color="#008080"><strong>JavaScript真的继承自Cmm吗？ <br>
+JavaScript与Java有多少关系？ <br>
+JavaScirpt最初的设计是怎样的？</strong></font>    </font></p>
 
-<p>在许多资料，JavaScript的语源被追溯到一种名为Cmm的语言。同样是在这一溯源的过程中，人 <br />
-们发现&ldquo;其实&rdquo;JavaScript不是第一种网页中的脚本语言。现在一些所谓&ldquo;公认&rdquo;的情况是这样的：    </p>
+<p>在许多资料，JavaScript的语源被追溯到一种名为Cmm的语言。同样是在这一溯源的过程中，人 <br>
+们发现“其实”JavaScript不是第一种网页中的脚本语言。现在一些所谓“公认”的情况是这样的：    </p>
 
-<hr />
+<hr>
 
-<p><font color="#808080" size="2"><font color="#0000ff">大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的 <br />
-嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator <br />
-崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso <br />
-Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫 <br />
-没有料到它的理念将会成为因特网的一块重要基石。</font> <br />
-</font>----------------</font>  </p>
+<p><font color="#808080" size="2"><font color="#0000ff">大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的 <br>
+嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator <br>
+崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso <br>
+Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫 <br>
+没有料到它的理念将会成为因特网的一块重要基石。</font> <br>
+</font>----------------  </p>
 
-<p><font size="3">然而，这是真实的情况吗？运行在Netscape中的第一个&ldquo;客户端脚本语言&rdquo;真的是Cmm的浓咖啡？ <br />
+<p><font size="3">然而，这是真实的情况吗？运行在Netscape中的第一个“客户端脚本语言”真的是Cmm的浓咖啡？ <br>
 又或者真的象Wiki中记述的那样，Brendan Eich在JavaScript引用了Cmm语言特性？</font>  </p>
 
-<p><font size="3">不是的。尽管上述的资料看起来出权威：《Javascript高级程序设计》（Professional JavaScript <br />
+<p><font size="3">不是的。尽管上述的资料看起来出权威：《Javascript高级程序设计》（Professional JavaScript <br>
 for Web Developers），但他的确错了。</font>  </p>
 
-<p><font size="3"><strong><font size="4">JavaScript与Cmm在语言特性上无关 <br />
-＝＝＝＝＝＝＝＝＝＝＝＝ <br />
-</font></strong>为了弄明白JavaScript与Cmm的关系，我大概用了三天的时间，从网上收集了多个Cmm的版本。这 <br />
-些版本既包括早期的Cmm(1993年)，也包括在JavaScript初创时的Cmm(1995年)，还包括在后来， <br />
+<p><font size="3"><strong><font size="4">JavaScript与Cmm在语言特性上无关 <br>
+＝＝＝＝＝＝＝＝＝＝＝＝ <br>
+</font></strong>为了弄明白JavaScript与Cmm的关系，我大概用了三天的时间，从网上收集了多个Cmm的版本。这 <br>
+些版本既包括早期的Cmm(1993年)，也包括在JavaScript初创时的Cmm(1995年)，还包括在后来， <br>
 Cmm更名为ScriptEase的第一个版本(3.0, 1997年)，作为参考，我还考察了它在服务器端的版本。</font>  </p>
 
-<p><font size="3">遗憾的是，在1996年之前，在Cmm的2.x的最后一个版本之前，Cmm都并不是一个面向对象（或基于 <br />
-对象）的语言，Cmm正如它自己的名字所说的一样：是一个精减版的C，而不是C++或以C++为基础 <br />
-的变种。所以Cmm中有&ldquo;结构&rdquo;，也有#include等，整个的体系是参考C语言的。</font>  </p>
+<p><font size="3">遗憾的是，在1996年之前，在Cmm的2.x的最后一个版本之前，Cmm都并不是一个面向对象（或基于 <br>
+对象）的语言，Cmm正如它自己的名字所说的一样：是一个精减版的C，而不是C++或以C++为基础 <br>
+的变种。所以Cmm中有“结构”，也有#include等，整个的体系是参考C语言的。</font>  </p>
 
-<p><font size="3">由于JavaScript在基本的语法特性（例如大括号、语句关键字等）上参考了C，在对象系统上（例 <br />
-如&ldquo;.&rdquo;作为成员存取）上参考了Java，因此在一定程度上Cmm与JavaScript存在相似性&mdash;&mdash;主要是 <br />
+<p><font size="3">由于JavaScript在基本的语法特性（例如大括号、语句关键字等）上参考了C，在对象系统上（例 <br>
+如“.”作为成员存取）上参考了Java，因此在一定程度上Cmm与JavaScript存在相似性——主要是 <br>
 与共同借鉴自C的部分。但是除了这些之外，JavaScript与Cmm在语言特性上完全无关。</font>  </p>
 
-<p><font size="3"><font size="4"><strong>JavaScript最初的基本设计是怎样的？ <br />
-＝＝＝＝＝＝＝＝＝＝＝＝</strong></font> <br />
-我需要补充一下JavaScript初始设计目标。Brendan Eich在1995年4月前后被Netscape公司雇佣， <br />
-目标是完成一套语言系统。最初的设计里，该语言系统是为Netscape的LiveWire战略服务的。该 <br />
-战略彰显了Netscape当年的勃勃野心，它是Netscape公司的一个通用的Web开发环境，包括Netscape <br />
-Enterprise、FastTrack Server等。LiveWire架构也成为所有Web服务器提供SP(Server Page)技 <br />
+<p><font size="3"><font size="4"><strong>JavaScript最初的基本设计是怎样的？ <br>
+＝＝＝＝＝＝＝＝＝＝＝＝</strong></font> <br>
+我需要补充一下JavaScript初始设计目标。Brendan Eich在1995年4月前后被Netscape公司雇佣， <br>
+目标是完成一套语言系统。最初的设计里，该语言系统是为Netscape的LiveWire战略服务的。该 <br>
+战略彰显了Netscape当年的勃勃野心，它是Netscape公司的一个通用的Web开发环境，包括Netscape <br>
+Enterprise、FastTrack Server等。LiveWire架构也成为所有Web服务器提供SP(Server Page)技 <br>
 术的蓝本。例如在IIS中的ASP，以及更早期的IDC(Internet Database Connect)。</font>  </p>
 
-<p><font size="3">这种技术在服务器端通过内嵌于网页的LiveScript代码，使用名为database、DbPool、Cursor等 <br />
-的一组对象来存取LiveWire Database。作为整套的解决方案，Netscape在客户端网页上也提供 <br />
-LiveScript脚本语言的支持，除了访问Array、String等这些内置对象之外，也可以访问window等 <br />
+<p><font size="3">这种技术在服务器端通过内嵌于网页的LiveScript代码，使用名为database、DbPool、Cursor等 <br>
+的一组对象来存取LiveWire Database。作为整套的解决方案，Netscape在客户端网页上也提供 <br>
+LiveScript脚本语言的支持，除了访问Array、String等这些内置对象之外，也可以访问window等 <br>
 浏览器对象。</font>  </p>
 
-<p><font size="3">不过并不清楚的是：LiveScript最初的设计是先考虑服务器端应用，还是先考虑网页中应用。但这 <br />
-些应用环境的决策上的变化，时间仅仅限制在1995年4月至1995年10月之前，因为当月发布的netscape <br />
+<p><font size="3">不过并不清楚的是：LiveScript最初的设计是先考虑服务器端应用，还是先考虑网页中应用。但这 <br>
+些应用环境的决策上的变化，时间仅仅限制在1995年4月至1995年10月之前，因为当月发布的netscape <br>
 2.0 beta1已经包含了脚本支持。</font>  </p>
 
-<p><font size="3">在netscape 2.0 beta1中并不支持&lt;script&gt;标签，而只是在form表单元素中支持了onclick这类的 <br />
-事件。这时的脚本代码是用在HTML标签属性上的，也就是类似于： <br />
-&nbsp;&nbsp; &lt;input type=&quot;button&quot; onclick=&quot;alert('hello, world!')&quot;&gt; <br />
-很快，三周之后netscape 就发布了beta2。这个版本正式地支持了&lt;script&gt;标签，并可以解析该标签 <br />
-中的代码、标识符，开始具备调用函数、表达式运算等能力。这个版本已经具备了JavaScript 1.0 <br />
+<p><font size="3">在netscape 2.0 beta1中并不支持&lt;script&gt;标签，而只是在form表单元素中支持了onclick这类的 <br>
+事件。这时的脚本代码是用在HTML标签属性上的，也就是类似于： <br>
+   &lt;input type="button" onclick="alert('hello, world!')"&gt; <br>
+很快，三周之后netscape 就发布了beta2。这个版本正式地支持了&lt;script&gt;标签，并可以解析该标签 <br>
+中的代码、标识符，开始具备调用函数、表达式运算等能力。这个版本已经具备了JavaScript 1.0 <br>
 的基本性质。</font>  </p>
 
-<p><font size="3">&mdash;&mdash;什么？能调用函数、表达式运算就是JavaScript 1.0的基本性质了？</font>  </p>
+<p><font size="3">——什么？能调用函数、表达式运算就是JavaScript 1.0的基本性质了？</font>  </p>
 
-<p><font size="3">是的，差不多了。相比起来，JavaScript 1.0只是在这样的基础上加上了一套对象系统而已。在随 <br />
-后发布的beta 3中，函数可以作为构造器使用，可以创建出用户自己的对象来了。再后来window等 <br />
-全局对象被加了进来，再把&ldquo;当前网页&rdquo;中的表单元素等影射成可编程对象，JavaScript 1.0就完 <br />
+<p><font size="3">是的，差不多了。相比起来，JavaScript 1.0只是在这样的基础上加上了一套对象系统而已。在随 <br>
+后发布的beta 3中，函数可以作为构造器使用，可以创建出用户自己的对象来了。再后来window等 <br>
+全局对象被加了进来，再把“当前网页”中的表单元素等影射成可编程对象，JavaScript 1.0就完 <br>
 成了。</font>  </p>
 
-<p><font size="3">仅仅如此而已。在JavaScript 1.0的时代，既没有&ldquo;原型继承&rdquo;，也没有&ldquo;函数式编程&rdquo;&mdash;&mdash;甚至 <br />
-连匿名函数也没有支持，所以下面的代码就足够让浏览器挂掉了：    </p>
+<p><font size="3">仅仅如此而已。在JavaScript 1.0的时代，既没有“原型继承”，也没有“函数式编程”——甚至 <br>
+连匿名函数也没有支持，所以下面的代码就足够让浏览器挂掉了：    </font></p>
 
-<hr />
+<hr>
 
-<p>var func = function() { <br />
-} <br />
-----------------</font>  </p>
+<p>var func = function() { <br>
+} <br>
+----------------  </p>
 
-<p><font size="3">JavaScript 1.0的设计目标，就是&ldquo;让网页动起来&rdquo;，最初的要求包括三个方面： <br />
-&nbsp;- 让网页中的元素可以被编程，所以象forms、links这些对象，在网页装载结束后就初始化为全 <br />
-&nbsp;&nbsp; 局成员了&mdash;&mdash;那时候还没有所谓的DOM或DHTML呢。 <br />
-&nbsp;- 让JavaScript跟Java接近一些，因为Netscape与Sun有战略合作。而且，Sun那时相当火暴。 <br />
-&nbsp;- 让JavaScript可以在服务器与客户端两边都使用，因此它必须是嵌入式的。</font>  </p>
+<p><font size="3">JavaScript 1.0的设计目标，就是“让网页动起来”，最初的要求包括三个方面： <br>
+ - 让网页中的元素可以被编程，所以象forms、links这些对象，在网页装载结束后就初始化为全 <br>
+   局成员了——那时候还没有所谓的DOM或DHTML呢。 <br>
+ - 让JavaScript跟Java接近一些，因为Netscape与Sun有战略合作。而且，Sun那时相当火暴。 <br>
+ - 让JavaScript可以在服务器与客户端两边都使用，因此它必须是嵌入式的。</font>  </p>
 
-<p><font size="3">不过JavaScript的另一项特性，则自它的第一个版本就存在。该特性就是动态执行，也就是eval()。 <br />
-这是与它的&ldquo;脚本&rdquo;的性质有关的。在早期的&ldquo;脚本&rdquo;也被称为&ldquo;批处理程序&rdquo;，就如同DOS批处理 <br />
-或Unix shell一样，脚本应当具有装入字符串文本并&ldquo;动态执行&rdquo;的能力。</font>  </p>
+<p><font size="3">不过JavaScript的另一项特性，则自它的第一个版本就存在。该特性就是动态执行，也就是eval()。 <br>
+这是与它的“脚本”的性质有关的。在早期的“脚本”也被称为“批处理程序”，就如同DOS批处理 <br>
+或Unix shell一样，脚本应当具有装入字符串文本并“动态执行”的能力。</font>  </p>
 
-<p><font size="3">所以总结起来，JavaScript 1.0其实是一个可以创建和操作对象的普通过程式语言。这个时候的JS <br />
-代码既不能检测&ldquo;对象-构造器&rdquo;之间的继承性，也没有原型继承这样的东东来构建对象系统。函数 <br />
-除了在new MyObject()时协助传入一个this引用之外，就跟普通的函数完全一样。而且，最为有趣 <br />
-的是，Brendan Eich这时还没有形成JavaScript中最重要的&ldquo;类型系统&rdquo;概念，此时undefined还只 <br />
-是系统全局中的一个特殊的值，而不是某种类型。typeof关键字也还根本不存在。换言之，Eich现 <br />
-在要做的只是一个&ldquo;可编程的、可以用对象的&rdquo;脚本语言，至于它是否在类型系统上完备或者优美， <br />
+<p><font size="3">所以总结起来，JavaScript 1.0其实是一个可以创建和操作对象的普通过程式语言。这个时候的JS <br>
+代码既不能检测“对象-构造器”之间的继承性，也没有原型继承这样的东东来构建对象系统。函数 <br>
+除了在new MyObject()时协助传入一个this引用之外，就跟普通的函数完全一样。而且，最为有趣 <br>
+的是，Brendan Eich这时还没有形成JavaScript中最重要的“类型系统”概念，此时undefined还只 <br>
+是系统全局中的一个特殊的值，而不是某种类型。typeof关键字也还根本不存在。换言之，Eich现 <br>
+在要做的只是一个“可编程的、可以用对象的”脚本语言，至于它是否在类型系统上完备或者优美， <br>
 他还顾不过来呢。</font>  </p>
 
-<p><font size="3">JavaScript最重要的&ldquo;构造器-原型继承&rdquo;概念是在JavaScript 1.1版本中提出的，类型系统和重要 <br />
-的函数式语言特性要等到v1.2之后才被加入。而现在，在1996年1月底，JavaScript 1.0随Netscape <br />
+<p><font size="3">JavaScript最重要的“构造器-原型继承”概念是在JavaScript 1.1版本中提出的，类型系统和重要 <br>
+的函数式语言特性要等到v1.2之后才被加入。而现在，在1996年1月底，JavaScript 1.0随Netscape <br>
 2.0正式版发布了。</font>  </p>
 
-<p><font size="3"><font size="4"><strong>JavaScript的名字 <br />
-＝＝＝＝＝＝＝＝＝＝＝＝</strong></font> <br />
-为了弄清楚JavaScript名称和语言特性的演变，我下载了netscape 2.0 beta1~6，以及2.0~2.02所 <br />
+<p><font size="3"><font size="4"><strong>JavaScript的名字 <br>
+＝＝＝＝＝＝＝＝＝＝＝＝</strong></font> <br>
+为了弄清楚JavaScript名称和语言特性的演变，我下载了netscape 2.0 beta1~6，以及2.0~2.02所 <br>
 有版本的发布文件，并逐一安装测试。下面解释JavaScript名字的演变过程。</font>  </p>
 
-<p><font size="3">JavaScript最早是被称为Mocha（魔卡）的，这是这个项目的代码名。这个名字一直用到Netscape <br />
-2.0 beta 2发布之前（95.11.04）&mdash;&mdash;包括在beta 1中弹出的错误框上，还可以看到Mocha的名字。 <br />
-不过，早在此前的9月18号，netscape就已经发布消息将在LiveWire中启用一种服务器端脚本（未 <br />
-提及名称）。又因为我们前面提到的&ldquo;前后端通用脚本&rdquo;的设计，该语言在beta 2发布时就使用 <br />
+<p><font size="3">JavaScript最早是被称为Mocha（魔卡）的，这是这个项目的代码名。这个名字一直用到Netscape <br>
+2.0 beta 2发布之前（95.11.04）——包括在beta 1中弹出的错误框上，还可以看到Mocha的名字。 <br>
+不过，早在此前的9月18号，netscape就已经发布消息将在LiveWire中启用一种服务器端脚本（未 <br>
+提及名称）。又因为我们前面提到的“前后端通用脚本”的设计，该语言在beta 2发布时就使用 <br>
 了内部名称LiveScript。</font>  </p>
 
-<p><font size="3">但同样混乱的事情是，事实上这时Netscape已经决定将该语言命名为&ldquo;JavaScript&rdquo;。因此在 <br />
-beta 2的发布备忘中该语言称为JavaScript，而界面上却从Mocha改为了LiveScript。这一局面一 <br />
-直持续到12月4日，netscape与sun共同发布声明，正式启用了JavaScript这个名字。随后beta 4 <br />
+<p><font size="3">但同样混乱的事情是，事实上这时Netscape已经决定将该语言命名为“JavaScript”。因此在 <br>
+beta 2的发布备忘中该语言称为JavaScript，而界面上却从Mocha改为了LiveScript。这一局面一 <br>
+直持续到12月4日，netscape与sun共同发布声明，正式启用了JavaScript这个名字。随后beta 4 <br>
 发布(95.12.20)，界面和文档上就统一了。</font>  </p>
 
-<p><font size="3">所以事实上&ldquo;LiveScript&rdquo;这个名字可以考证的生命周期，也就只有一个月的时间（在95.11.04 <br />
-- 12.04）。但Mocha毕竟只是项目代码名，而非产品名，所以后来人们追溯JavaScript的历史， <br />
+<p><font size="3">所以事实上“LiveScript”这个名字可以考证的生命周期，也就只有一个月的时间（在95.11.04 <br>
+- 12.04）。但Mocha毕竟只是项目代码名，而非产品名，所以后来人们追溯JavaScript的历史， <br>
 大多只提到LiveScript为止。</font>  </p>
 
-<p><font size="3"><strong><font size="4">第一段网页内脚本真的是浓咖啡(Espresso Page)吗？ <br />
-＝＝＝＝＝＝＝＝＝＝＝＝</font></strong> <br />
-如上面所述的，Netscape 2.0的beta 1中就正式加入了脚本支持，最迟在beta 2之前。对象的构 <br />
-建方式、&lt;script&gt;标签的使用，以及在HTML标签上使用onclick这类事件句柄&hellip;&hellip;这些设计就已经 <br />
+<p><font size="3"><strong><font size="4">第一段网页内脚本真的是浓咖啡(Espresso Page)吗？ <br>
+＝＝＝＝＝＝＝＝＝＝＝＝</font></strong> <br>
+如上面所述的，Netscape 2.0的beta 1中就正式加入了脚本支持，最迟在beta 2之前。对象的构 <br>
+建方式、&lt;script&gt;标签的使用，以及在HTML标签上使用onclick这类事件句柄……这些设计就已经 <br>
 被明确了。这些是一直延续到现在的，我们最主要的使用网页的方式。</font>  </p>
 
 <p><font size="3">那么，这个时间点可以不容置疑的被确定在95.11.04之前(beta 2发布之前)。</font>  </p>
 
-<p><font size="3">我们现在再回过头来看那份讲述Espresso Page的消息。这其实是由Brent Noorda先生（Nombas公 <br />
-司总裁）于1995.11.27日发布在新闻组上(comp.infosystems.www.authoring.html)上的一则消息， <br />
-原文是&ldquo;这周末我们将放出一些Espresso Pages在我们的网站上(This weekend we put up the <br />
-Espresso Pages, at...)&rdquo;，那么，也就是Espresso Pages其实出现在11.30号之后。这已经远远 <br />
+<p><font size="3">我们现在再回过头来看那份讲述Espresso Page的消息。这其实是由Brent Noorda先生（Nombas公 <br>
+司总裁）于1995.11.27日发布在新闻组上(comp.infosystems.www.authoring.html)上的一则消息， <br>
+原文是“这周末我们将放出一些Espresso Pages在我们的网站上(This weekend we put up the <br>
+Espresso Pages, at...)”，那么，也就是Espresso Pages其实出现在11.30号之后。这已经远远 <br>
 晚于上面的时间了。</font>  </p>
 
-<p><font size="3">也就是说，真正第一种在Netscape中使用的客户端脚本，仍然是由Brendan Eich编写的JavaScript。 <br />
-这种脚本使用&ldquo;&lt;script&gt;&rdquo;标签（在服务器端使用&lt;server&gt;标签），支持五种基本类型(除undefined <br />
+<p><font size="3">也就是说，真正第一种在Netscape中使用的客户端脚本，仍然是由Brendan Eich编写的JavaScript。 <br>
+这种脚本使用“&lt;script&gt;”标签（在服务器端使用&lt;server&gt;标签），支持五种基本类型(除undefined <br>
 之外)，支持自定义对象和构造器等基本特性，能够操作网页中内嵌的links、forms等对象。</font>  </p>
 
-<p><font size="3">然而需要继承说明的是，由于Nombas早早地就实现了Cmm语言以及其开发环境，所以他不需要花什么 <br />
-力气就可以将它们移植到网页中去并展示其非常丰富的能力。所以在Brent Noorda先生在上面的消息 <br />
-中说，（周末放出的）这个Demo将演示 <br />
-&nbsp;- a bouncy-button game, <br />
-&nbsp;- real-time verification of user input into forms, <br />
-&nbsp;- an animated stick-figure, <br />
-&nbsp;- and a way cool flashback into the psychadellic sixties. <br />
-的确，这些演示的功能大概是当时的JavaScript(LiveScript)不能实现的。但相同的功能所需求的 <br />
-特性以及其基本实现，其实正是Netscape当时已经发布的版本所包含的。所以这里根本就不存在 <br />
-Netscape抄袭Nombas的问题。然而换一个角度来想，Nombas可能正是看到Netscape发布版本中的种 <br />
+<p><font size="3">然而需要继承说明的是，由于Nombas早早地就实现了Cmm语言以及其开发环境，所以他不需要花什么 <br>
+力气就可以将它们移植到网页中去并展示其非常丰富的能力。所以在Brent Noorda先生在上面的消息 <br>
+中说，（周末放出的）这个Demo将演示 <br>
+ - a bouncy-button game, <br>
+ - real-time verification of user input into forms, <br>
+ - an animated stick-figure, <br>
+ - and a way cool flashback into the psychadellic sixties. <br>
+的确，这些演示的功能大概是当时的JavaScript(LiveScript)不能实现的。但相同的功能所需求的 <br>
+特性以及其基本实现，其实正是Netscape当时已经发布的版本所包含的。所以这里根本就不存在 <br>
+Netscape抄袭Nombas的问题。然而换一个角度来想，Nombas可能正是看到Netscape发布版本中的种 <br>
 种特性，其实能够用一个嵌入到浏览器中的CEnvi来完成，因此发布了这样的一个示范版本。</font>  </p>
 
-<p><font size="3">从时间先后来分析，我们可以确信的是： <br />
-&nbsp;- Netscape在网页中嵌入脚本是早在Espresso Pages出现之前的一个构想； <br />
-&nbsp;- JavaScript(LiveScript)是真正的第一个在万维网上使用的客户端脚本语言。</font>  </p>
+<p><font size="3">从时间先后来分析，我们可以确信的是： <br>
+ - Netscape在网页中嵌入脚本是早在Espresso Pages出现之前的一个构想； <br>
+ - JavaScript(LiveScript)是真正的第一个在万维网上使用的客户端脚本语言。</font>  </p>
 
-<p><font size="3">无论如何，Espresso Pages很好地展示了Netscape当时正在图谋的构想&mdash;&mdash;不管是Nombas是与Netscape <br />
-想到了一起，还是Nombas帮助Netscape展开了（由Netscape设计的）蓝图。在当时(JavaScript 1.0发 <br />
-布之前)，CEnvi中的Cmm相当完善，开发环境也很成熟。所以可以承认的是，Nombas的Espresso Pages <br />
-的确更好地展示了Web的末来。但是，成为&ldquo;因特网的一块重要基石&rdquo;的构想&mdash;&mdash;这里指页面内脚本，绝 <br />
+<p><font size="3">无论如何，Espresso Pages很好地展示了Netscape当时正在图谋的构想——不管是Nombas是与Netscape <br>
+想到了一起，还是Nombas帮助Netscape展开了（由Netscape设计的）蓝图。在当时(JavaScript 1.0发 <br>
+布之前)，CEnvi中的Cmm相当完善，开发环境也很成熟。所以可以承认的是，Nombas的Espresso Pages <br>
+的确更好地展示了Web的末来。但是，成为“因特网的一块重要基石”的构想——这里指页面内脚本，绝 <br>
 不是Nombas先创的理念。因为Netscape beta1~3中已经把这些理念都展示了出来。</font>  </p>
 
-<p><font size="3"><font size="4"><em>*其它 <br />
-＝＝＝＝＝＝＝＝＝＝＝＝ <br />
-*</em></font></font><font size="3">有一种Java的编译器也名为Mocha，但与本文中没有什么关系。 <br />
-</font><font size="3"> <br />
+<p><font size="3"><font size="4"><em>*其它 <br>
+＝＝＝＝＝＝＝＝＝＝＝＝ <br>
+*</em></font></font><font size="3">有一种Java的编译器也名为Mocha，但与本文中没有什么关系。 <br>
+</font><font size="3"> <br>
 Cmm也称为C--，但另外还有一种名为Sphinx C--的语言，其设计目标与Cmm类似，但不是同一种语言。</font>  </p>
 
-<p><font size="3">在Java热火的时代里，出现了很多以浓咖啡（Espresso）命名的产品，但都不是这里的Espresso Pages。 <br />
-Espresso Pages只是一些Demo页面，需要下载并专用安装一个CEnvi的特定版本才能查看。但这个特定版 <br />
+<p><font size="3">在Java热火的时代里，出现了很多以浓咖啡（Espresso）命名的产品，但都不是这里的Espresso Pages。 <br>
+Espresso Pages只是一些Demo页面，需要下载并专用安装一个CEnvi的特定版本才能查看。但这个特定版 <br>
 本在互联网上已经绝迹了。</font>  </p>
 
-<p><font size="3">JavaScript并没有从Java中寻找太多灵感，Brendan Eich自己说&ldquo;my influences were awk, C, HyperTalk, <br />
-and Self&rdquo;，这其中既不包括 Java，也没有Cmm的影子。不过Brendan Eich也说另外的影响是&ldquo;combined <br />
-with management orders to &quot;make it look like Java.&quot;这强调的是一种形似，而不是语源上的承继关系。</font>  </p>
+<p><font size="3">JavaScript并没有从Java中寻找太多灵感，Brendan Eich自己说“my influences were awk, C, HyperTalk, <br>
+and Self”，这其中既不包括 Java，也没有Cmm的影子。不过Brendan Eich也说另外的影响是“combined <br>
+with management orders to "make it look like Java."这强调的是一种形似，而不是语源上的承继关系。</font>  </p>
 
-<p><font size="3">在1996年2月，CEnvi发布了最后一个2.x版本。这个版本是对以前版本的一些修补。但接下来，过了约一年 <br />
-半之后，CEnvi才发布下一个版本（v3.0）。从这个版本开始更名为ScriptEase，放弃了旧有的Cmm规格，而 <br />
-采用了JavaScript规范下的语法。并且自这个版本开始，ScriptEase发布Desktop和Web Server等多种不同 <br />
-的版本&mdash;&mdash;此前CEnvi只有针对不同的操作系统的版本。所以事实上，非但不是Brendan Eich受到了Nombas <br />
-的影响，反而是Nombas受JavaScript而放弃了整个原来的语言设计，而且在产品策略上，还抄袭了Netscape <br />
+<p><font size="3">在1996年2月，CEnvi发布了最后一个2.x版本。这个版本是对以前版本的一些修补。但接下来，过了约一年 <br>
+半之后，CEnvi才发布下一个版本（v3.0）。从这个版本开始更名为ScriptEase，放弃了旧有的Cmm规格，而 <br>
+采用了JavaScript规范下的语法。并且自这个版本开始，ScriptEase发布Desktop和Web Server等多种不同 <br>
+的版本——此前CEnvi只有针对不同的操作系统的版本。所以事实上，非但不是Brendan Eich受到了Nombas <br>
+的影响，反而是Nombas受JavaScript而放弃了整个原来的语言设计，而且在产品策略上，还抄袭了Netscape <br>
 的LiveWire战略。</font>  </p>
 
-<p><font size="3">Nombas后来被收购掉，ScriptEase等系列产品不再维护。Nombas.com网站仍然可以访问，但只有一个告别页 <br />
+<p><font size="3">Nombas后来被收购掉，ScriptEase等系列产品不再维护。Nombas.com网站仍然可以访问，但只有一个告别页 <br>
 面，不过相应的，Netscape也好不到哪里去。</font>  </p>
 
-<p><font size="3">Mozilla是Netscape一个早期的Java开发团队的内部代码名。在Netscape 2.0 beta中包含的Java代码包中， <br />
-就已经可以看到这一标志了。不过该团队真正独立出来成为开源组织，并最终接手Netscape未竟事业，则 <br />
+<p><font size="3">Mozilla是Netscape一个早期的Java开发团队的内部代码名。在Netscape 2.0 beta中包含的Java代码包中， <br>
+就已经可以看到这一标志了。不过该团队真正独立出来成为开源组织，并最终接手Netscape未竟事业，则 <br>
 是晚至1998年1月以后的事了。</font>  </p>
 
-<p><font size="3">Mozilla与Mozilla Firefox使用两套版本编号。所以&ldquo;Mozilla 2&rdquo;是2006.10月开始发起的，而当时Mozilla <br />
-Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维护版本。同样有趣的是，Mozilla Firefox 3.x则在 <br />
-基于&ldquo;Mozilla 2&rdquo;这个项目开发，大概，在2008年中期会发布正式版本。&nbsp;</font></p>
+<p><font size="3">Mozilla与Mozilla Firefox使用两套版本编号。所以“Mozilla 2”是2006.10月开始发起的，而当时Mozilla <br>
+Firefox 2.0b1已经发布了——它基于“Mozilla 1”的维护版本。同样有趣的是，Mozilla Firefox 3.x则在 <br>
+基于“Mozilla 2”这个项目开发，大概，在2008年中期会发布正式版本。 </font></p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -354,7 +353,7 @@ Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-90.html">
                     关于Qomo 2.0 beta1的发布
                 </a>
@@ -365,7 +364,7 @@ Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -385,14 +384,14 @@ Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -408,7 +407,7 @@ Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -422,7 +421,7 @@ Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -451,4 +450,3 @@ Firefox 2.0b1已经发布了&mdash;&mdash;它基于&ldquo;Mozilla 1&rdquo;的维
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

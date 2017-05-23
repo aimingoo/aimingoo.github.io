@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomo V1.0 final 发布～</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Qomo V1.0 final 发布～" />
-    <meta property="og:description" content="终于写完了 V1.0 的全部代码～～也顺道整理了整个框架～终于可以发布final了。   ^.^   正式版中的重大改进，包括：   &amp;nbsp;－ 新的命名空间和路径算法，终于可以声称支持&amp;ldquo;命名空间&amp;rdquo;了   &amp;nbsp;－完整的builder系统。支持连接(link)和压缩(compress)代码了   &amp;nbsp;－（体验版本的）组件系统及其系统   &amp;nbsp;－完整的性能分析和测试框架，载入器($import)的性能提高   &amp;nbsp;－在Qomo.js中，将Ajax模块独立出来了   &amp;nbsp;－采用处理机与对象池的方法，在通用的公共类(Common Classes)中提供了Ajax的一个范例   晚些再补充上面的技术的资料文档。现打完收工先了。   下载地址：  Qomo V1.0 final [2007.01.31]" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-56.html" />
-    <meta property="article:published_time" content="2007-01-31T13:03:00.000Z" />
-    <meta property="article:modified_time" content="2007-01-31T13:03:00.000Z" />
-    <meta property="article:tag" content="文档" />
-    <meta property="article:tag" content="框架" />
-    <meta property="article:tag" content="算法" />
-    <meta property="article:tag" content="测试" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomo V1.0 final 发布～">
+    <meta property="og:description" content="终于写完了 V1.0 的全部代码～～也顺道整理了整个框架～终于可以发布final了。   ^.^   正式版中的重大改进，包括：   &amp;nbsp;－ 新的命名空间和路径算法，终于可以声称支持&amp;ldquo;命名空间&amp;rdquo;了   &amp;nbsp;－完整的builder系统。支持连接(link)和压缩(compress)代码了   &amp;nbsp;－（体验版本的）组件系统及其系统   &amp;nbsp;－完整的性能分析和测试框架，载入器($import)的性能提高   &amp;nbsp;－在Qomo.js中，将Ajax模块独立出来了   &amp;nbsp;－采用处理机与对象池的方法，在通用的公共类(Common Classes)中提供了Ajax的一个范例   晚些再补充上面的技术的资料文档。现打完收工先了。   下载地址：  Qomo V1.0 final [2007.01.31]">
+    <meta property="og:url" content="http://aimingoo.github.io/1-56.html">
+    <meta property="article:published_time" content="2007-01-31T13:03:00.000Z">
+    <meta property="article:modified_time" content="2007-01-31T13:03:00.000Z">
+    <meta property="article:tag" content="文档">
+    <meta property="article:tag" content="框架">
+    <meta property="article:tag" content="算法">
+    <meta property="article:tag" content="测试">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Qomo V1.0 final 发布～" />
-    <meta name="twitter:description" content="终于写完了 V1.0 的全部代码～～也顺道整理了整个框架～终于可以发布final了。   ^.^   正式版中的重大改进，包括：   &amp;nbsp;－ 新的命名空间和路径算法，终于可以声称支持&amp;ldquo;命名空间&amp;rdquo;了   &amp;nbsp;－完整的builder系统。支持连接(link)和压缩(compress)代码了   &amp;nbsp;－（体验版本的）组件系统及其系统   &amp;nbsp;－完整的性能分析和测试框架，载入器($import)的性能提高   &amp;nbsp;－在Qomo.js中，将Ajax模块独立出来了   &amp;nbsp;－采用处理机与对象池的方法，在通用的公共类(Common Classes)中提供了Ajax的一个范例   晚些再补充上面的技术的资料文档。现打完收工先了。   下载地址：  Qomo V1.0 final [2007.01.31]" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-56.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="文档, 框架, 算法, 测试" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomo V1.0 final 发布～">
+    <meta name="twitter:description" content="终于写完了 V1.0 的全部代码～～也顺道整理了整个框架～终于可以发布final了。   ^.^   正式版中的重大改进，包括：   &amp;nbsp;－ 新的命名空间和路径算法，终于可以声称支持&amp;ldquo;命名空间&amp;rdquo;了   &amp;nbsp;－完整的builder系统。支持连接(link)和压缩(compress)代码了   &amp;nbsp;－（体验版本的）组件系统及其系统   &amp;nbsp;－完整的性能分析和测试框架，载入器($import)的性能提高   &amp;nbsp;－在Qomo.js中，将Ajax模块独立出来了   &amp;nbsp;－采用处理机与对象池的方法，在通用的公共类(Common Classes)中提供了Ajax的一个范例   晚些再补充上面的技术的资料文档。现打完收工先了。   下载地址：  Qomo V1.0 final [2007.01.31]">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-56.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="文档, 框架, 算法, 测试">
     
     <script type="application/ld+json">
 {
@@ -85,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-wen-dang tag-kuang-jia tag-suan-fa tag-ce-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -114,7 +113,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -130,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/wen-dang/index.html">文档</a>, <a href="tag/kuang-jia/index.html">框架</a>, <a href="tag/suan-fa/index.html">算法</a>, <a href="tag/ce-shi/index.html">测试</a>
+                        <a href="tag/wen-dang/">文档</a>, <a href="tag/kuang-jia/">框架</a>, <a href="tag/suan-fa/">算法</a>, <a href="tag/ce-shi/">测试</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -154,27 +153,27 @@ ghost.init({
 
 <p>正式版中的重大改进，包括：  </p>
 
-<p>&nbsp;－ 新的命名空间和路径算法，终于可以声称支持&ldquo;命名空间&rdquo;了  </p>
+<p> － 新的命名空间和路径算法，终于可以声称支持“命名空间”了  </p>
 
-<p>&nbsp;－完整的builder系统。支持连接(link)和压缩(compress)代码了  </p>
+<p> －完整的builder系统。支持连接(link)和压缩(compress)代码了  </p>
 
-<p>&nbsp;－（体验版本的）组件系统及其系统  </p>
+<p> －（体验版本的）组件系统及其系统  </p>
 
-<p>&nbsp;－完整的性能分析和测试框架，载入器($import)的性能提高  </p>
+<p> －完整的性能分析和测试框架，载入器($import)的性能提高  </p>
 
-<p>&nbsp;－在Qomo.js中，将Ajax模块独立出来了  </p>
+<p> －在Qomo.js中，将Ajax模块独立出来了  </p>
 
-<p>&nbsp;－采用处理机与对象池的方法，在通用的公共类(Common Classes)中提供了Ajax的一个范例  </p>
+<p> －采用处理机与对象池的方法，在通用的公共类(Common Classes)中提供了Ajax的一个范例  </p>
 
 <p>晚些再补充上面的技术的资料文档。现打完收工先了。  </p>
 
-<p><font color="#ff0000">下载地址： <br />
-<strong>Qomo V1.0 final [2007.01.31]</strong> <br />
+<p><font color="#ff0000">下载地址： <br>
+<strong>Qomo V1.0 final [2007.01.31]</strong> <br>
 </font><a href="http://www.delphibbs.com/keylife/images/u40/Qomo.V1.final.zip">http://www.delphibbs.com/keylife/images/u40/Qomo.V1.final.zip</a>  </p>
 
 <p><font color="#ff0000"></font>  </p>
 
-<p><font color="#ff0000" size="4">又，Qomo v2.0的计划，将在一周内公布。</font>&nbsp;</p>
+<p><font color="#ff0000" size="4">又，Qomo v2.0的计划，将在一周内公布。</font> </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -191,7 +190,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-57.html">
                     Qomolangma框架库(三)：处理池与处理机
                 </a>
@@ -202,7 +201,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -222,14 +221,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -245,7 +244,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -259,7 +258,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -288,4 +287,3 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

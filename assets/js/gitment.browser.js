@@ -2844,7 +2844,7 @@ function $$C(Text) {
         'Issue Page': '所有评论',
         'Initialize Comments': '初始化本文的评论页',
         'Loading comments...': '加载评论...',
-        'Comments Not Initialized': '(未开放评论)',
+        'Error: Comments Not Initialized': '(未开放评论)',
         'No Comment Yet': '(还没有评论)',
         'Previous': '上一页',
         'Next': '下一页',
@@ -2854,6 +2854,8 @@ function $$C(Text) {
         'Comment': '发送',
         'Write': '评论',
         'Preview': '预览',
+        'Logging in...': '登入中...',
+        'Leave a comment': '(发表评论)',
         'Login': '登入',
         'Logout': '退出'
     }[Text] || Text);
@@ -3073,8 +3075,10 @@ function renderEditor(_ref3, instance) {
   container.innerHTML = '\n      ' + (user.login ? '<a class="gitment-editor-avatar" href="' + user.html_url + '" target="_blank">\n            <img class="gitment-editor-avatar-img" src="' + user.avatar_url + '"/>\n          </a>' : user.isLoggingIn ? '<div class="gitment-editor-avatar">' + _icons.spinner + '</div>' : '<a class="gitment-editor-avatar" href="' + instance.loginLink + '" title="login with GitHub">\n              ' + _icons.github + '\n            </a>') + '\n    </a>\n    <div class="gitment-editor-main">\n      <div class="gitment-editor-header">\n        <nav class="gitment-editor-tabs">\n          <button class="gitment-editor-tab gitment-selected">' +
     $$C('Write') + '</button>\n          <button class="gitment-editor-tab">' +
     $$C('Preview') + '</button>\n        </nav>\n        <div class="gitment-editor-login">\n          ' + (user.login ? '<a class="gitment-editor-logout-link">' +
-    $$C('Logout') + '</a>' : user.isLoggingIn ? 'Logging in...' : '<a class="gitment-editor-login-link" href="' + instance.loginLink + '">' +
-    $$C('Login') + '</a> with GitHub') + '\n        </div>\n      </div>\n      <div class="gitment-editor-body">\n        <div class="gitment-editor-write-field">\n          <textarea placeholder="Leave a comment" title="' + disabledTip + '" ' + shouldDisable + '></textarea>\n        </div>\n        <div class="gitment-editor-preview-field gitment-hidden">\n          <div class="gitment-editor-preview gitment-markdown"></div>\n        </div>\n      </div>\n    </div>\n    <div class="gitment-editor-footer">\n      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">\n        Styling with Markdown is supported\n      </a><BR> ' + gitmentCopyright + '\n      <button class="gitment-editor-submit" title="' + disabledTip + '" ' + shouldDisable + '>' +
+    $$C('Logout') + '</a>' : user.isLoggingIn ?
+    $$C('Logging in...') : '<a class="gitment-editor-login-link" href="' + instance.loginLink + '">' +
+    $$C('Login') + '</a> with GitHub') + '\n        </div>\n      </div>\n      <div class="gitment-editor-body">\n        <div class="gitment-editor-write-field">\n          <textarea placeholder="' +
+    $$C('Leave a comment') + '" title="' + disabledTip + '" ' + shouldDisable + '></textarea>\n        </div>\n        <div class="gitment-editor-preview-field gitment-hidden">\n          <div class="gitment-editor-preview gitment-markdown"></div>\n        </div>\n      </div>\n    </div>\n    <div class="gitment-editor-footer">\n      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">\n        Styling with Markdown is supported\n      </a><BR> ' + gitmentCopyright + '\n      <button class="gitment-editor-submit" title="' + disabledTip + '" ' + shouldDisable + '>' +
     $$C('Comment') + '</button>\n    </div>\n  ';
   if (user.login) {
     container.querySelector('.gitment-editor-logout-link').onclick = function () {
@@ -3352,6 +3356,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var scope = 'public_repo';
+var force_redirect_protocol = 'https';
 
 function extendRenderer(instance, renderer) {
   instance[renderer] = function (container) {
@@ -3384,7 +3389,7 @@ var Gitment = function () {
     key: 'loginLink',
     get: function get() {
       var oauthUri = 'https://github.com/login/oauth/authorize';
-      var redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, 'http');
+      var redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, force_redirect_protocol);
 
       var oauthParams = Object.assign({
         scope: scope,

@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomo的进展及相关说明~</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Qomo的进展及相关说明~" />
-    <meta property="og:description" content="关心Qomo项目的朋友可能注意到，在beta1之后，Qomo项目已经有近三个月没有更新了。其实这并不是项目组没有进一步的工作，而是陷于一些细节处的处理而延长了发布时间。   目前Qomo已经完成了UI框架的基本设计和框架层(主干)代码。在Qomo的RTL部分加入了Templet系统，在Debug部分加入了Profiler和Debugger，以及比较精巧的异常和断言处理机制的封装。公共代码库(Common)加入了Pool&amp;amp;Machine机制、timer&amp;amp;step机制等相关的应用工具库。UI组件库中也有一些代码加入。   此外，Zhe开始封装新的JS和DOM兼容层。这方面的工作已经得已展开。但是，基于Qomo的应用开发、UI组件库的开发处于停滞不前的状态。   但现在(仅指当前)，Qomo项目的这些代码尚未达到可发布beta2的品质，因此还不能发布出来。此外，UI框架层的设计比预想得要复杂，我们可能需要实现一个CSS 2/3 parser或者处理实用工具类。但是，我现在需要暂停一下我个人手边的工作，因此Qomo项目的beta2的发布可能会向后再推迟1.5~2个月。   暂停我手边的(关于Qomo项目)的工作的原因，是因为与出版社关于《大道至简》一书的出版协议已经谈妥，我需要整理这本书并参与出版相关的事宜。这件工作大概需要占用1个月的时间。   很报歉让大家久等。" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-45.html" />
-    <meta property="article:published_time" content="2006-07-04T18:02:00.000Z" />
-    <meta property="article:modified_time" content="2006-07-04T18:02:00.000Z" />
-    <meta property="article:tag" content="框架" />
-    <meta property="article:tag" content="出版" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomo的进展及相关说明~">
+    <meta property="og:description" content="关心Qomo项目的朋友可能注意到，在beta1之后，Qomo项目已经有近三个月没有更新了。其实这并不是项目组没有进一步的工作，而是陷于一些细节处的处理而延长了发布时间。   目前Qomo已经完成了UI框架的基本设计和框架层(主干)代码。在Qomo的RTL部分加入了Templet系统，在Debug部分加入了Profiler和Debugger，以及比较精巧的异常和断言处理机制的封装。公共代码库(Common)加入了Pool&amp;amp;Machine机制、timer&amp;amp;step机制等相关的应用工具库。UI组件库中也有一些代码加入。   此外，Zhe开始封装新的JS和DOM兼容层。这方面的工作已经得已展开。但是，基于Qomo的应用开发、UI组件库的开发处于停滞不前的状态。   但现在(仅指当前)，Qomo项目的这些代码尚未达到可发布beta2的品质，因此还不能发布出来。此外，UI框架层的设计比预想得要复杂，我们可能需要实现一个CSS 2/3 parser或者处理实用工具类。但是，我现在需要暂停一下我个人手边的工作，因此Qomo项目的beta2的发布可能会向后再推迟1.5~2个月。   暂停我手边的(关于Qomo项目)的工作的原因，是因为与出版社关于《大道至简》一书的出版协议已经谈妥，我需要整理这本书并参与出版相关的事宜。这件工作大概需要占用1个月的时间。   很报歉让大家久等。">
+    <meta property="og:url" content="http://aimingoo.github.io/1-45.html">
+    <meta property="article:published_time" content="2006-07-04T18:02:00.000Z">
+    <meta property="article:modified_time" content="2006-07-04T18:02:00.000Z">
+    <meta property="article:tag" content="框架">
+    <meta property="article:tag" content="出版">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Qomo的进展及相关说明~" />
-    <meta name="twitter:description" content="关心Qomo项目的朋友可能注意到，在beta1之后，Qomo项目已经有近三个月没有更新了。其实这并不是项目组没有进一步的工作，而是陷于一些细节处的处理而延长了发布时间。   目前Qomo已经完成了UI框架的基本设计和框架层(主干)代码。在Qomo的RTL部分加入了Templet系统，在Debug部分加入了Profiler和Debugger，以及比较精巧的异常和断言处理机制的封装。公共代码库(Common)加入了Pool&amp;amp;Machine机制、timer&amp;amp;step机制等相关的应用工具库。UI组件库中也有一些代码加入。   此外，Zhe开始封装新的JS和DOM兼容层。这方面的工作已经得已展开。但是，基于Qomo的应用开发、UI组件库的开发处于停滞不前的状态。   但现在(仅指当前)，Qomo项目的这些代码尚未达到可发布beta2的品质，因此还不能发布出来。此外，UI框架层的设计比预想得要复杂，我们可能需要实现一个CSS 2/3 parser或者处理实用工具类。但是，我现在需要暂停一下我个人手边的工作，因此Qomo项目的beta2的发布可能会向后再推迟1.5~2个月。   暂停我手边的(关于Qomo项目)的工作的原因，是因为与出版社关于《大道至简》一书的出版协议已经谈妥，我需要整理这本书并参与出版相关的事宜。这件工作大概需要占用1个月的时间。   很报歉让大家久等。" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-45.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="框架, 出版" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomo的进展及相关说明~">
+    <meta name="twitter:description" content="关心Qomo项目的朋友可能注意到，在beta1之后，Qomo项目已经有近三个月没有更新了。其实这并不是项目组没有进一步的工作，而是陷于一些细节处的处理而延长了发布时间。   目前Qomo已经完成了UI框架的基本设计和框架层(主干)代码。在Qomo的RTL部分加入了Templet系统，在Debug部分加入了Profiler和Debugger，以及比较精巧的异常和断言处理机制的封装。公共代码库(Common)加入了Pool&amp;amp;Machine机制、timer&amp;amp;step机制等相关的应用工具库。UI组件库中也有一些代码加入。   此外，Zhe开始封装新的JS和DOM兼容层。这方面的工作已经得已展开。但是，基于Qomo的应用开发、UI组件库的开发处于停滞不前的状态。   但现在(仅指当前)，Qomo项目的这些代码尚未达到可发布beta2的品质，因此还不能发布出来。此外，UI框架层的设计比预想得要复杂，我们可能需要实现一个CSS 2/3 parser或者处理实用工具类。但是，我现在需要暂停一下我个人手边的工作，因此Qomo项目的beta2的发布可能会向后再推迟1.5~2个月。   暂停我手边的(关于Qomo项目)的工作的原因，是因为与出版社关于《大道至简》一书的出版协议已经谈妥，我需要整理这本书并参与出版相关的事宜。这件工作大概需要占用1个月的时间。   很报歉让大家久等。">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-45.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="框架, 出版">
     
     <script type="application/ld+json">
 {
@@ -83,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-kuang-jia tag-chu-ban nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/kuang-jia/index.html">框架</a>, <a href="tag/chu-ban/index.html">出版</a>
+                        <a href="tag/kuang-jia/">框架</a>, <a href="tag/chu-ban/">出版</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -173,7 +172,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-221.html">
                     愚公到底是哪里人？
                 </a>
@@ -184,7 +183,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -204,14 +203,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -227,7 +226,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -241,7 +240,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -270,4 +269,3 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

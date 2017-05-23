@@ -1,42 +1,41 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>从基础开始：Qomo OpenProject中的一些关键词(2)</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="从基础开始：Qomo OpenProject中的一些关键词(2)" />
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-16.html" />
-    <meta property="article:published_time" content="2006-01-03T17:46:00.000Z" />
-    <meta property="article:modified_time" content="2006-01-03T17:46:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="从基础开始：Qomo OpenProject中的一些关键词(2)">
+    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta property="og:url" content="http://aimingoo.github.io/1-16.html">
+    <meta property="article:published_time" content="2006-01-03T17:46:00.000Z">
+    <meta property="article:modified_time" content="2006-01-03T17:46:00.000Z">
+    <meta property="article:tag" content="Javascript">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="从基础开始：Qomo OpenProject中的一些关键词(2)" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-16.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="从基础开始：Qomo OpenProject中的一些关键词(2)">
+    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-16.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript">
     
     <script type="application/ld+json">
 {
@@ -82,8 +81,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -111,7 +110,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +126,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +135,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>
+                        <a href="tag/javascript/">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,163 +144,163 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <hr>
 
 <p>Qomolangma OpenProject v0.9  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr />
+<hr>
 
-<p>七、Qomo OpenProject中的一些关键词(2) <br />
-~~~~~~~~~~~~~~~~~~ <br />
-接下来我们讲述一些在Rich Web Client中，而不仅是JavaScript中涉及到的一些关键词。我 <br />
+<p>七、Qomo OpenProject中的一些关键词(2) <br>
+~~~~~~~~~~~~~~~~~~ <br>
+接下来我们讲述一些在Rich Web Client中，而不仅是JavaScript中涉及到的一些关键词。我 <br>
 希望这对你理解Qomo OpenProject的设计，乃至整个B端开发的现状有帮助。  </p>
 
 <ol>
 <li>Rich Web Client 和 Rich Internet Application(RIA)  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>首先，RIA是Macromedia基于Flash在浏览器上的广泛应用而提出的一个&ldquo;实现丰富的浏览器 <br />
-端应用&rdquo;的框架。按照Macromedia的解释，RIA是符合Rich Web Client的定义的。也就是说， <br />
-RIA是Rich Web Client的一个具体的实现框架，也是开发人员在IE等能够运行Flash环境的浏 <br />
+<p>首先，RIA是Macromedia基于Flash在浏览器上的广泛应用而提出的一个“实现丰富的浏览器 <br>
+端应用”的框架。按照Macromedia的解释，RIA是符合Rich Web Client的定义的。也就是说， <br>
+RIA是Rich Web Client的一个具体的实现框架，也是开发人员在IE等能够运行Flash环境的浏 <br>
 览器上实现Rich Web Client的可选方案。  </p>
 
-<p>但显然RIA不是Rich Web Client的全部。W3C已经提出了在2006年里制订Rich Web Client(RWC) <br />
+<p>但显然RIA不是Rich Web Client的全部。W3C已经提出了在2006年里制订Rich Web Client(RWC) <br>
 标准的计划。然而在这个标准还没有出来的时候，如何说明RWC的概念呢？  </p>
 
-<p>从W3C对RWC的工作定义里可以看到，一个满足RWC的框架至少具备这样的一些特点： <br />
-&nbsp; 1). 在浏览器上实现对兼容文档格式(XHTML,SVG,SMIL,XForms等)进行处理的能力。 <br />
-&nbsp; 2). 具有丰富的界面交互能力。 <br />
-&nbsp; 3). 具有丰富的客户端逻辑。  </p>
+<p>从W3C对RWC的工作定义里可以看到，一个满足RWC的框架至少具备这样的一些特点： <br>
+  1). 在浏览器上实现对兼容文档格式(XHTML,SVG,SMIL,XForms等)进行处理的能力。 <br>
+  2). 具有丰富的界面交互能力。 <br>
+  3). 具有丰富的客户端逻辑。  </p>
 
-<p>W3C对RWC的规范包括&ldquo;兼容文档格式&rdquo;、&ldquo;Web APIs&rdquo;和&ldquo;Web应用程序格式(语言&amp;界面规约)&rdquo; <br />
-三个部分。这些内容按计划应当在2007年10月间完成标准制定。&mdash;&mdash;GOD！  </p>
+<p>W3C对RWC的规范包括“兼容文档格式”、“Web APIs”和“Web应用程序格式(语言&amp;界面规约)” <br>
+三个部分。这些内容按计划应当在2007年10月间完成标准制定。——GOD！  </p>
 
-<p>相关资料参考： <br />
+<p>相关资料参考： <br>
 <a href="http://www.w3.org/2006/rwc/">http://www.w3.org/2006/rwc/</a>  </p>
 
 <ol>
 <li>DOM与DHTML  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>微软在IE 4.0时代提出了Dynamic HTML (DHTML)标准。在Microsoft的DHTML中包含了如下内容： <br />
-&nbsp;- 动态样式表(Dynamic Styles) <br />
-&nbsp;- 动态上下文(Dynamic Content) <br />
-&nbsp;- 位置和动画(Positioning and Animation) <br />
-&nbsp;- 过滤器和切换器(Filters and Transitions) <br />
-&nbsp;- 字体下载(Font Download) <br />
-&nbsp;- 数据绑定(Data Binding) <br />
-&nbsp;- DHTML对象模型(DHTML Object Model)  </p>
+<p>微软在IE 4.0时代提出了Dynamic HTML (DHTML)标准。在Microsoft的DHTML中包含了如下内容： <br>
+ - 动态样式表(Dynamic Styles) <br>
+ - 动态上下文(Dynamic Content) <br>
+ - 位置和动画(Positioning and Animation) <br>
+ - 过滤器和切换器(Filters and Transitions) <br>
+ - 字体下载(Font Download) <br>
+ - 数据绑定(Data Binding) <br>
+ - DHTML对象模型(DHTML Object Model)  </p>
 
-<p>这其中与W3C提出的DOM(Document Object Model)相对应的其实只有DHTML Object Model这部 <br />
-分。而&ldquo;Dynamic Styles&rdquo;、&ldquo;Positioning and Animation&rdquo;、&ldquo;Font Download&rdquo;等则部分 <br />
+<p>这其中与W3C提出的DOM(Document Object Model)相对应的其实只有DHTML Object Model这部 <br>
+分。而“Dynamic Styles”、“Positioning and Animation”、“Font Download”等则部分 <br>
 地与W3C的CSS 1相容。  </p>
 
-<p>在IE5-IE6中，IE为DHTML实现了更多的特性，这包括： <br />
-&nbsp;- Dynamic HTML (DHTML) behaviors <br />
-&nbsp;- HTML Applications <br />
-&nbsp;- HTML + TIME 1/2 <br />
-&nbsp;- Vector Markup Language (VML)  </p>
+<p>在IE5-IE6中，IE为DHTML实现了更多的特性，这包括： <br>
+ - Dynamic HTML (DHTML) behaviors <br>
+ - HTML Applications <br>
+ - HTML + TIME 1/2 <br>
+ - Vector Markup Language (VML)  </p>
 
-<p>由于MS对Web浏览器的实现一度远远地超前了W3C对Web Browser相关的规范的制订，加上MS有 <br />
-意识地改变协议来定制&ldquo;事实标准&rdquo;。因此在IE5以后出现的许多浏览器特性都与W3C规范并不 <br />
-相容。&mdash;&mdash;当然在此期间，IE也在对HTML4、DOM1/2和CSS1/2的兼容上做出了一些实际工作。  </p>
+<p>由于MS对Web浏览器的实现一度远远地超前了W3C对Web Browser相关的规范的制订，加上MS有 <br>
+意识地改变协议来定制“事实标准”。因此在IE5以后出现的许多浏览器特性都与W3C规范并不 <br>
+相容。——当然在此期间，IE也在对HTML4、DOM1/2和CSS1/2的兼容上做出了一些实际工作。  </p>
 
-<p>DHTML一度被MS称为&ldquo;DHTML DOM&rdquo;，然而我建议你将二者区分开来。许多在DHTML里能使用的 <br />
+<p>DHTML一度被MS称为“DHTML DOM”，然而我建议你将二者区分开来。许多在DHTML里能使用的 <br>
 技术，在遵循W3C's DOM规范的浏览器上根本不能使用。  </p>
 
-<p>由于DOM与DHTML对Document Object的理解存在分歧，加上DHTML中既已存在的开发模型设计。 <br />
-因此在IE5以后，DHTML中存在了两种访问Document Object的方式。作为一种&ldquo;简单而粗糙&rdquo; <br />
-的分类，你可以将&ldquo;名字中包含Element的&rdquo;绝大多数方法/属性归为DHTML的定义，而将&ldquo;名 <br />
-字中包含Node&rdquo;的归为DOM的定义。同样的方式，你可以发现一大部分关于&ldquo;Name/Vlaue&rdquo;的 <br />
+<p>由于DOM与DHTML对Document Object的理解存在分歧，加上DHTML中既已存在的开发模型设计。 <br>
+因此在IE5以后，DHTML中存在了两种访问Document Object的方式。作为一种“简单而粗糙” <br>
+的分类，你可以将“名字中包含Element的”绝大多数方法/属性归为DHTML的定义，而将“名 <br>
+字中包含Node”的归为DOM的定义。同样的方式，你可以发现一大部分关于“Name/Vlaue”的 <br>
 属性方法是应该归为DOM的定义的。  </p>
 
-<p>你可以参考的一份重要的资料是：&ldquo;DOM L2的框架图&rdquo;(附后)。  </p>
+<p>你可以参考的一份重要的资料是：“DOM L2的框架图”(附后)。  </p>
 
 <p>相关资料参考：    </p>
 
-<hr />
+<hr>
 
-<p>DOM L2的框架图： <br />
-&nbsp; <a href="http://www.interq.or.jp/student/exeal/dss/image/domitf.png">http://www.interq.or.jp/student/exeal/dss/image/domitf.png</a>  </p>
+<p>DOM L2的框架图： <br>
+  <a href="http://www.interq.or.jp/student/exeal/dss/image/domitf.png">http://www.interq.or.jp/student/exeal/dss/image/domitf.png</a>  </p>
 
-<p>JavaScript&amp;HTML&amp;DOM的最重要的参考书《JavaScript 权威指南》： <br />
-&nbsp; <a href="http://www.china-pub.com/computers/common/info.asp?id=9296">http://www.china-pub.com/computers/common/info.asp?id=9296</a>  </p>
+<p>JavaScript&amp;HTML&amp;DOM的最重要的参考书《JavaScript 权威指南》： <br>
+  <a href="http://www.china-pub.com/computers/common/info.asp?id=9296">http://www.china-pub.com/computers/common/info.asp?id=9296</a>  </p>
 
 <ol>
 <li>CSS与Dynamic CSS(DCSS)  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>我第一次看到Cascading Style Sheets(CSS)，是从一本奇怪的书上。他讲述到了CSS的历史： <br />
+<p>我第一次看到Cascading Style Sheets(CSS)，是从一本奇怪的书上。他讲述到了CSS的历史： <br>
 这是一种从印刷业的既有标准中演化出来的网页排版样式规范。  </p>
 
-<p>这样的定义使得我在其后的很多年之中受益匪浅。它使我充分地理解了CSS中关于&ldquo;度量单 <br />
-位(units)&rdquo;的极端混乱和复杂的状况，并能使我从各种位置、高度以及其它古怪的定义(包 <br />
+<p>这样的定义使得我在其后的很多年之中受益匪浅。它使我充分地理解了CSS中关于“度量单 <br>
+位(units)”的极端混乱和复杂的状况，并能使我从各种位置、高度以及其它古怪的定义(包 <br>
 括它们的名字)中找到一种最适宜于网页的形式。  </p>
 
 <p>在绝大多数的时候，你应该记住的是：你在做的是一个网页，而不是一份印刷用的手册。  </p>
 
-<p>所以，你可以尽情地利用与网页相关的技术与特性，而忽略其它的部分。&mdash;&mdash;当然，如果你 <br />
-做一些&ldquo;必须相容于不同浏览平台和物理设备(如手持)&rdquo;的网页，那么你应该从头阅读W3C的 <br />
-CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到任何实际的作用。  </p>
+<p>所以，你可以尽情地利用与网页相关的技术与特性，而忽略其它的部分。——当然，如果你 <br>
+做一些“必须相容于不同浏览平台和物理设备(如手持)”的网页，那么你应该从头阅读W3C的 <br>
+CSS规范。——既便最后你发现它对你的开发工作起不到任何实际的作用。  </p>
 
-<p>而Dynamic CSS则相对地少有人知，除非你仔细地阅读MS的官方手册。在不多的几乎地方提到 <br />
-了这个名词。它主要表达的是三种特性： <br />
-&nbsp;- 在DOM中动态修改和构造CSS样式(styles)和规则(rules) <br />
-&nbsp;- 在CSS样式中使用表达式(Dynamic Properties/Expression) <br />
-&nbsp;- 在CSS样式中使用行为(Behaviors)  </p>
+<p>而Dynamic CSS则相对地少有人知，除非你仔细地阅读MS的官方手册。在不多的几乎地方提到 <br>
+了这个名词。它主要表达的是三种特性： <br>
+ - 在DOM中动态修改和构造CSS样式(styles)和规则(rules) <br>
+ - 在CSS样式中使用表达式(Dynamic Properties/Expression) <br>
+ - 在CSS样式中使用行为(Behaviors)  </p>
 
-<p>在样式表方面，MS对CSS 1的实现是完整但不完全规范的，对CSS 2的支持则不完整。关于这些 <br />
+<p>在样式表方面，MS对CSS 1的实现是完整但不完全规范的，对CSS 2的支持则不完整。关于这些 <br>
 细节可以参考附件中的《CSS权威指南》。  </p>
 
 <p>相关资料参考：    </p>
 
-<hr />
+<hr>
 
-<p>CSS的最重要的参考书《CSS权威指南》： <br />
-&nbsp; <a href="http://www.china-pub.com/computers/common/info.asp?id=2745">http://www.china-pub.com/computers/common/info.asp?id=2745</a>  </p>
+<p>CSS的最重要的参考书《CSS权威指南》： <br>
+  <a href="http://www.china-pub.com/computers/common/info.asp?id=2745">http://www.china-pub.com/computers/common/info.asp?id=2745</a>  </p>
 
 <ol>
-<li>HTML、XHTML、XML、X&hellip;&hellip;  </li>
+<li>HTML、XHTML、XML、X……  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>关于这个讨厌的话题，我实现不想说什么了。如果你有兴趣，看看下面这张图吧。 <br />
+<p>关于这个讨厌的话题，我实现不想说什么了。如果你有兴趣，看看下面这张图吧。 <br>
 <a href="http://kensall.com/big-picture/bigpix22.html">http://kensall.com/big-picture/bigpix22.html</a>  </p>
 
-<p>它同时也是一份完整的索引。&mdash;&mdash;点击一下每一个方块试试？  </p>
+<p>它同时也是一份完整的索引。——点击一下每一个方块试试？  </p>
 
 <ol>
 <li>IE中的扩展技术  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>除了在前面的章节中提及的MS对W3C的标准的扩展技术(如Behaviors、TIME、Data Binding等) <br />
-之外，IE中主要的扩展技术包括： <br />
-<font face="Courier New">&nbsp;- ActiveX Object : 实现Flash、SVG、OWC(Office Web Component)、VML等的核心技术。 <br />
-&nbsp;- ActiveX Form&nbsp;&nbsp; : 一些高级语言可以通过它来实现更复杂的IE扩展。 <br />
-&nbsp;- java applet&nbsp;&nbsp;&nbsp; : 很远古了。 <br />
-&nbsp;- DHtmlEditor&nbsp;&nbsp;&nbsp; : IE5以后版本已经内置了一个Editor，这是应用很广泛的一个扩展技术。 <br />
-&nbsp;- Flash&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Web上矢量图形的事实标准(尽管它只是ActiveX扩展的一个具体实现)。 <br />
-&nbsp;- VML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 使用VML来实现矢量图形，尽管没Flash/SVG强大，但胜在IE内置支持。 <br />
-&nbsp;- OWC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 四个基本组件：电子表格(SpreadSheet)、图表(Chart)、数据源( <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DataSourceControl)、动态报表(PivotTable) <br />
-&nbsp;- External HOST&nbsp; : 透过window.external来访问由HOST应用为IEFrame实现的接口对象/方法。</font>  </p>
+<p>除了在前面的章节中提及的MS对W3C的标准的扩展技术(如Behaviors、TIME、Data Binding等) <br>
+之外，IE中主要的扩展技术包括： <br>
+<font face="Courier New"> - ActiveX Object : 实现Flash、SVG、OWC(Office Web Component)、VML等的核心技术。 <br>
+ - ActiveX Form   : 一些高级语言可以通过它来实现更复杂的IE扩展。 <br>
+ - java applet    : 很远古了。 <br>
+ - DHtmlEditor    : IE5以后版本已经内置了一个Editor，这是应用很广泛的一个扩展技术。 <br>
+ - Flash          : Web上矢量图形的事实标准(尽管它只是ActiveX扩展的一个具体实现)。 <br>
+ - VML            : 使用VML来实现矢量图形，尽管没Flash/SVG强大，但胜在IE内置支持。 <br>
+ - OWC            : 四个基本组件：电子表格(SpreadSheet)、图表(Chart)、数据源( <br>
+                    DataSourceControl)、动态报表(PivotTable) <br>
+ - External HOST  : 透过window.external来访问由HOST应用为IEFrame实现的接口对象/方法。</font>  </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -318,7 +317,7 @@ CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-17.html">
                     关于Qomo OpenProject的进度(2006.01.04)
                 </a>
@@ -329,7 +328,7 @@ CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -349,14 +348,14 @@ CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -372,7 +371,7 @@ CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -386,7 +385,7 @@ CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -415,4 +414,3 @@ CSS规范。&mdash;&mdash;既便最后你发现它对你的开发工作起不到
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

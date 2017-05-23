@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>VCL已死，RAD已死(5)</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="VCL已死，RAD已死(5)" />
-    <meta property="og:description" content="VCL已死，RAD已死   &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     **[&amp;lt;&amp;lt;&amp;lt;-- 上一节](http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx)**         五、后RAD时代：领域的成熟     －－－－－     从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之     间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者     为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为     前端开发，或UI开发团队。     在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，     XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML—" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-131.html" />
-    <meta property="article:published_time" content="2008-12-25T13:52:00.000Z" />
-    <meta property="article:modified_time" content="2008-12-25T13:52:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="前端开发" />
-    <meta property="article:tag" content="浏览器" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VCL已死，RAD已死(5)">
+    <meta property="og:description" content="VCL已死，RAD已死   &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     **[&amp;lt;&amp;lt;&amp;lt;-- 上一节](http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx)**         五、后RAD时代：领域的成熟     －－－－－     从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之     间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者     为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为     前端开发，或UI开发团队。     在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，     XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML—">
+    <meta property="og:url" content="http://aimingoo.github.io/1-131.html">
+    <meta property="article:published_time" content="2008-12-25T13:52:00.000Z">
+    <meta property="article:modified_time" content="2008-12-25T13:52:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="前端开发">
+    <meta property="article:tag" content="浏览器">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="VCL已死，RAD已死(5)" />
-    <meta name="twitter:description" content="VCL已死，RAD已死   &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     **[&amp;lt;&amp;lt;&amp;lt;-- 上一节](http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx)**         五、后RAD时代：领域的成熟     －－－－－     从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之     间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者     为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为     前端开发，或UI开发团队。     在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，     XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML—" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-131.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 前端开发, 浏览器" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VCL已死，RAD已死(5)">
+    <meta name="twitter:description" content="VCL已死，RAD已死   &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     **[&amp;lt;&amp;lt;&amp;lt;-- 上一节](http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx)**         五、后RAD时代：领域的成熟     －－－－－     从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之     间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者     为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为     前端开发，或UI开发团队。     在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，     XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML—">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-131.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 前端开发, 浏览器">
     
     <script type="application/ld+json">
 {
@@ -84,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-qian-duan-kai-fa tag-liu-lan-qi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -113,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/qian-duan-kai-fa/index.html">前端开发</a>, <a href="tag/liu-lan-qi/index.html">浏览器</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/qian-duan-kai-fa/">前端开发</a>, <a href="tag/liu-lan-qi/">浏览器</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -149,7 +148,7 @@ ghost.init({
             <section class="post-content">
                 <p>VCL已死，RAD已死  </p>
 
-<p>&nbsp; &nbsp; &nbsp; &nbsp; ——SD2C中未能尽言的话题    </p>
+<p>        ——SD2C中未能尽言的话题    </p>
 
 <pre style="background-color:rgb(255,255,255)">**[&lt;&lt;&lt;-- 上一节](http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx)**</pre>  
 
@@ -163,7 +162,7 @@ ghost.init({
 
 <p>从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之    </p>
 
-<p>间并没有严&#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者    </p>
+<p>间并没有严格的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者    </p>
 
 <p>为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为    </p>
 
@@ -173,7 +172,7 @@ ghost.init({
 
 <p>XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有    </p>
 
-<p>领域就有跨领域的“通用”）。我们关注一下HTML&#43;CSS带来的描述能力，首先HTML负责了内    </p>
+<p>领域就有跨领域的“通用”）。我们关注一下HTML+CSS带来的描述能力，首先HTML负责了内    </p>
 
 <p>容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元    </p>
 
@@ -181,11 +180,11 @@ ghost.init({
 
 <p>个子集。    </p>
 
-<p>所以，事实上HTML&#43;CSS构成了视觉的“版式”与“修饰”。从这个角度上来看，它们是更接近    </p>
+<p>所以，事实上HTML+CSS构成了视觉的“版式”与“修饰”。从这个角度上来看，它们是更接近    </p>
 
-<p>设计领域的领域语言。而Javascript适时地出现，给HTML&#43;CSS带来了活力，这一切更深层面    </p>
+<p>设计领域的领域语言。而Javascript适时地出现，给HTML+CSS带来了活力，这一切更深层面    </p>
 
-<p>地源于DHTML/DOM的出现。这从文档结构的抽象上来看，HTML可以描述为“内联&#43;块”元素    </p>
+<p>地源于DHTML/DOM的出现。这从文档结构的抽象上来看，HTML可以描述为“内联+块”元素    </p>
 
 <p>的集合，前者是块的一个特例。而块的文档结构形式只会有“并列和内嵌”两种，这就是DOM    </p>
 
@@ -193,7 +192,7 @@ ghost.init({
 
 <p>HTML。同样的，CSS天生具有“属性继承/覆盖”的特性（层叠样式表的本义），它描述的语义    </p>
 
-<p>与UI设计中的“效果叠加”是完全对等的。因此，HTML&#43;CSS天生地更为亲切设计人员，并带    </p>
+<p>与UI设计中的“效果叠加”是完全对等的。因此，HTML+CSS天生地更为亲切设计人员，并带    </p>
 
 <p>来了以“效果展现”为主体的WEB设计的繁荣。    </p>
 
@@ -223,9 +222,9 @@ ghost.init({
 
 <p>的、嵌入的等）的首选时，它便隔离了操作系统与Web 环境下的UI。我们没有在任何    </p>
 
-<p>地方看到一项要求说：一个Page 必须要有一个跟浏览器Toolbar 风&#26684;相同的工具条，    </p>
+<p>地方看到一项要求说：一个Page 必须要有一个跟浏览器Toolbar 风格相同的工具条，    </p>
 
-<p>或跟窗体风&#26684;相同的菜单。从本质上来说，是浏览器的便捷与普众，催生了B/S 结构    </p>
+<p>或跟窗体风格相同的菜单。从本质上来说，是浏览器的便捷与普众，催生了B/S 结构    </p>
 
 <p>下的应用和服务开发。而这样一来，桌面原生的客户端就不复存在了，C/S 结构的应    </p>
 
@@ -243,7 +242,7 @@ ghost.init({
 
 <p>Flash Socket 以及HTML5 中的HTML Socket 带来了这种趋势，这种趋势让微软    </p>
 
-<p>措不及防。一方面Sliverlight 还在为Flash 仓促应战，另一方面IE&#43;JScript 的结构尚    </p>
+<p>措不及防。一方面Sliverlight 还在为Flash 仓促应战，另一方面IE+JScript 的结构尚    </p>
 
 <p>未完成六年来最大、最根本的变革（IE8、IE9 或IE10）。然而即使如此，一个如同操    </p>
 
@@ -267,9 +266,9 @@ ghost.init({
 
 <p>来实现，或交由独立的comet 兼容层来实现。但更确切地说，横向分层仍会带来更细    </p>
 
-<p>分领域的繁荣，例如JSON 或其他微数据&#26684;式，以及其他基于Socket 或http/https 进    </p>
+<p>分领域的繁荣，例如JSON 或其他微数据格式，以及其他基于Socket 或http/https 进    </p>
 
-<p>行交互的二进制数据&#26684;式将成为专门的研究领域。    </p>
+<p>行交互的二进制数据格式将成为专门的研究领域。    </p>
 
 <p>这其中的原因是，在B端带来的领域必然扩大到一个无法通过纵向切分来一次性    </p>
 
@@ -301,7 +300,7 @@ ghost.init({
 
 <p>漫长的了。    </p>
 
-<hr />
+<hr>
 
 <p>*注1：parentNode， nextSibling，previousSibling等属性  </p>
 
@@ -330,7 +329,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-132.html">
                     VCL已死，RAD已死(6) - 结语与预测
                 </a>
@@ -341,7 +340,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -361,14 +360,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -384,7 +383,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -398,7 +397,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -427,4 +426,3 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

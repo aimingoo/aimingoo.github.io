@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 23 May 2017 09:47:28 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（一）</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 23 May 2017 11:48:13 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（一）</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
 
 &lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
 
@@ -6,7 +6,7 @@
 
 &lt;p&gt;然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。&lt;/p&gt;
 
-&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国内受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
+&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;通过BlogToWordpress来将旧博客转到Wordpress导出文件
@@ -22,7 +22,7 @@
 
 &lt;p&gt;然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。&lt;/p&gt;
 
-&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国内受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
+&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;通过BlogToWordpress来将旧博客转到Wordpress导出文件
@@ -80,7 +80,7 @@
 &lt;p&gt;所谓本地博客，就是一个你在的电脑上运行的，在浏览器中可以使用&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href="http://localhost/"&gt;http://localhost/&lt;/a&gt; ...&lt;/p&gt;
+  &lt;p&gt;&lt;code&gt;http://localhost/ ...&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;来浏览的博客系统。我们下面就用Ghost来搭一个。&lt;/p&gt;
@@ -197,39 +197,32 @@ Ctrl+C to shut down
 &lt;li&gt;&lt;p&gt;一旦你将.zip导入到Ghost，你就可以在Ghost管理和更新它们，发布或静态化等等。因此我在后续文章中提到的过程再与传统博客（例如下载、转换的那些文件）就没什么关系了。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;如果你备份content整个目录（例如Ghost导入的图片位于&lt;code&gt;./content/images&lt;/code&gt;目录中），那么你可以随时重装Ghost，或者更新至新的版本而不会丢失数据。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Ghost导入的博客文章是可能存在格式问题的，也可能导致你正在使用的Ghost博客主题（缺省是Casper主题，在&lt;code&gt;Settings -&amp;gt; General&lt;/code&gt;中设置）格式混乱或无法使用，请自行编辑它们。我事实上将所有历年文章逐一更新过，并尽量使用了markdown格式——这样以后管理起来就方便了。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ghost的数据库在&lt;code&gt;./content/data&lt;/code&gt;目录中，对应于开发版的是&lt;code&gt;content/data/ghost-dev.db&lt;/code&gt;文件。如果你安装过sqlite，那么可以直接用命令行来操作它——或者e用你喜欢的GUI工具也行。例如：&lt;/p&gt;
-
-&lt;p&gt;```bash&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;sqlite3 -header -column ghost-dev.db 'select id, name, email from users'
-  id          name        email           &lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ghost的数据库在&lt;code&gt;./content/data&lt;/code&gt;目录中，对应于开发版的是&lt;code&gt;content/data/ghost-dev.db&lt;/code&gt;文件。如果你安装过sqlite，那么可以直接用命令行来操作它——或者e用你喜欢的GUI工具也行。例如：&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr&gt;
-
-&lt;p&gt;1           aimingoo    aiming@gmail.com
-  ```&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-bash"&gt;  &amp;gt; sqlite3 -header -column ghost-dev.db 'select id, name, email from users'
+  id          name        email           
+  ----------  ----------  ----------------
+  1           aimingoo    aiming@gmail.com
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;记住这个&lt;code&gt;id = 1&lt;/code&gt;，它是你的管理帐户id。在导入用的ghost.json文件中，它也被称为&lt;code&gt;author_id&lt;/code&gt;，在将来做多账户操作时你可能需要了解它。&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：&lt;/p&gt;
+&lt;li&gt;对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;```bash&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
+&lt;pre&gt;&lt;code class="language-bash"&gt;  &amp;gt; sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
   1519|《大道至简》的幕后故事：终结篇、勘误和PDF下载
   1595|近期的公开资源汇总(已完整)~
   ...
-  ```&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;如果你得到上述的&lt;code&gt;id&lt;/code&gt;值，那么可以直接在Ghost的管理界面中去编辑它——Ghost管理界面没有搜索功能。例如直接在浏览器上使用如下地址：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href="http://aimingoo.github.io/ghost/editor/1519/"&gt;http://aimingoo.github.io/ghost/editor/1519/&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;code&gt;http://aimingoo.github.io/ghost/editor/1519/&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title>再一次开始更新博客</title><description>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
 

@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>JavaScript面向对象的支持(7)</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="JavaScript面向对象的支持(7)" />
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-27.html" />
-    <meta property="article:published_time" content="2006-01-26T19:24:00.000Z" />
-    <meta property="article:modified_time" content="2006-01-26T19:24:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="正则表达式" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript面向对象的支持(7)">
+    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta property="og:url" content="http://aimingoo.github.io/1-27.html">
+    <meta property="article:published_time" content="2006-01-26T19:24:00.000Z">
+    <meta property="article:modified_time" content="2006-01-26T19:24:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="正则表达式">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="JavaScript面向对象的支持(7)" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-27.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 正则表达式" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JavaScript面向对象的支持(7)">
+    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-27.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 正则表达式">
     
     <script type="application/ld+json">
 {
@@ -83,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-zheng-ze-biao-da-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/index.html">正则表达式</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,243 +145,243 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <hr>
 
 <p>Qomolangma OpenProject v0.9  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr />
+<hr>
 
-<p>八、JavaScript面向对象的支持 <br />
-~~~~~~~~~~~~~~~~~~ <br />
+<p>八、JavaScript面向对象的支持 <br>
+~~~~~~~~~~~~~~~~~~ <br>
 (续)  </p>
 
 <ol>
 <li>JavaScript面向对象的支持的补充内容  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>&nbsp;1). 类型系统    </p>
+<p> 1). 类型系统    </p>
 
-<hr />
+<hr>
 
-<p>我们前面已经完整地描述过JavaScript的两种类型系统。包括： <br />
-&nbsp; - 基础类型系统：由typeof()返回值的六种基础类型 <br />
-&nbsp; - 对象类型系统：由new()返回值的、构造器和原型继承组织起来的类型系统  </p>
+<p>我们前面已经完整地描述过JavaScript的两种类型系统。包括： <br>
+  - 基础类型系统：由typeof()返回值的六种基础类型 <br>
+  - 对象类型系统：由new()返回值的、构造器和原型继承组织起来的类型系统  </p>
 
-<p>JavaScript是弱类型语言，因此类型自动转换是它语言特性的一个重要组成部分。但 <br />
-对于一个指定的变量而言，(在某一时刻，)它总是有确定的数据类型的。&ldquo;运算&rdquo;是 <br />
-导致类型转换的方法(但不是根源)，因此&ldquo;运算结果的类型&rdquo;的确定就非常重要。关 <br />
-于这一部分的内容，推荐大家阅读一份资料： <br />
-&nbsp; <a href="http://jibbering.com/faq/faq_notes/type_convert.html">http://jibbering.com/faq/faq<em>notes/type</em>convert.html</a>  </p>
+<p>JavaScript是弱类型语言，因此类型自动转换是它语言特性的一个重要组成部分。但 <br>
+对于一个指定的变量而言，(在某一时刻，)它总是有确定的数据类型的。“运算”是 <br>
+导致类型转换的方法(但不是根源)，因此“运算结果的类型”的确定就非常重要。关 <br>
+于这一部分的内容，推荐大家阅读一份资料： <br>
+  <a href="http://jibbering.com/faq/faq_notes/type_convert.html">http://jibbering.com/faq/faq<em>notes/type</em>convert.html</a>  </p>
 
-<p>类型系统中还有一个特殊的组成部分，就是&ldquo;直接量&rdquo;声明。下面的代码简述各种直 <br />
-接量声明的方法，但不再详述具体细节： <br />
-<font face="Courier New">//  </p>
+<p>类型系统中还有一个特殊的组成部分，就是“直接量”声明。下面的代码简述各种直 <br>
+接量声明的方法，但不再详述具体细节： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// 各种直接量声明(一些错误格式或特例请查看JScript手册) <br />
+<p>// 各种直接量声明(一些错误格式或特例请查看JScript手册) <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>// 1. Number <br />
-var n1 = 11;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 普通十进制数 <br />
-var n2 = 013;&nbsp;&nbsp;&nbsp;&nbsp; // 八进制数 <br />
-var n3 = 0xB;&nbsp;&nbsp;&nbsp;&nbsp; // 十六进制数 <br />
-var n4 = 1.2;&nbsp;&nbsp;&nbsp;&nbsp; // 浮点值 <br />
-var n5 =&nbsp; .2;&nbsp;&nbsp;&nbsp;&nbsp; // 浮点值 <br />
-var n6 = 1.0e-4;&nbsp; // (或1e-4)浮点值</font>  </p>
+<p>// 1. Number <br>
+var n1 = 11;      // 普通十进制数 <br>
+var n2 = 013;     // 八进制数 <br>
+var n3 = 0xB;     // 十六进制数 <br>
+var n4 = 1.2;     // 浮点值 <br>
+var n5 =  .2;     // 浮点值 <br>
+var n6 = 1.0e-4;  // (或1e-4)浮点值  </p>
 
-<p><font face="Courier New">// 2. String <br />
-var s1 = 'test';&nbsp; // (或&quot;test&quot;)字符串 <br />
-var s2 = &quot;test/n&quot;;// 带转义符的字符串(转义符规则参见手册) <br />
-var s3 = &quot;'test'&quot;;// 用&quot;&quot;、''以在字符串中使用引号 <br />
-var s4 = &quot;/xD&quot;;&nbsp;&nbsp; // 用转义符来声明不可键入的字符</font>  </p>
+<p><font face="Courier New">// 2. String <br>
+var s1 = 'test';  // (或"test")字符串 <br>
+var s2 = "test/n";// 带转义符的字符串(转义符规则参见手册) <br>
+var s3 = "'test'";// 用""、''以在字符串中使用引号 <br>
+var s4 = "/xD";   // 用转义符来声明不可键入的字符</font>  </p>
 
-<p><font face="Courier New">// 3. Boolean <br />
-var b1 = true; <br />
+<p><font face="Courier New">// 3. Boolean <br>
+var b1 = true; <br>
 var b2 = false;</font>  </p>
 
-<p><font face="Courier New">// 4. Function <br />
-function foo1() {};&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 利用编译器特性直接声明 <br />
+<p><font face="Courier New">// 4. Function <br>
+function foo1() {};       // 利用编译器特性直接声明 <br>
 var foo2 = function() {}; // 声明匿名函数</font>  </p>
 
-<p><font face="Courier New">// 5. Object <br />
-// * 请留意声明中对分隔符&ldquo;,&rdquo;的使用 <br />
-var obj1 = null;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 空对象是可以被直接声明的 <br />
-var obj2 = { <br />
-&nbsp; value1 : 'value',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 对象属性 <br />
-&nbsp; foo1&nbsp;&nbsp; : function() {}, // 利用匿名函数来直接声明对象方法 <br />
-&nbsp; foo2&nbsp;&nbsp; : foo2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 使方法指向已声明过的函数 <br />
+<p><font face="Courier New">// 5. Object <br>
+// * 请留意声明中对分隔符“,”的使用 <br>
+var obj1 = null;          // 空对象是可以被直接声明的 <br>
+var obj2 = { <br>
+  value1 : 'value',       // 对象属性 <br>
+  foo1   : function() {}, // 利用匿名函数来直接声明对象方法 <br>
+  foo2   : foo2           // 使方法指向已声明过的函数 <br>
 }</font>  </p>
 
-<p><font face="Courier New">// 6. RegExp <br />
-var r1 = /^[O|o]n/;&nbsp;&nbsp;&nbsp;&nbsp; // 使用一对&quot;/../&quot;表达的即是正则表达式 <br />
-var r2 = /^./gim;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (注意,) gim为正则表达式的三个参数</font>  </p>
+<p><font face="Courier New">// 6. RegExp <br>
+var r1 = /^[O|o]n/;     // 使用一对"/../"表达的即是正则表达式 <br>
+var r2 = /^./gim;       // (注意,) gim为正则表达式的三个参数</font>  </p>
 
-<p><font face="Courier New">// 7. Array <br />
-var arr1 = [1,,,1];&nbsp;&nbsp;&nbsp;&nbsp; // 直接声明, 包括一些&quot;未定义(undefined)&quot;值 <br />
-var arr2 = [1,[1,'a']]; // 异质(非单一类型)的数组声明 <br />
-var arr3 = [[1],[2]];&nbsp;&nbsp; // 多维数组(其实是从上一个概念衍生下来的</font>  </p>
+<p><font face="Courier New">// 7. Array <br>
+var arr1 = [1,,,1];     // 直接声明, 包括一些"未定义(undefined)"值 <br>
+var arr2 = [1,[1,'a']]; // 异质(非单一类型)的数组声明 <br>
+var arr3 = [[1],[2]];   // 多维数组(其实是从上一个概念衍生下来的</font>  </p>
 
-<p><font face="Courier New">// 8. undefined <br />
-var u1 = undefined;&nbsp;&nbsp;&nbsp;&nbsp; // 可以直接声明, 这里的undefined是Global的属性</font>  </p>
+<p><font face="Courier New">// 8. undefined <br>
+var u1 = undefined;     // 可以直接声明, 这里的undefined是Global的属性</font>  </p>
 
-<p><font face="Courier New">有些时候，我们可以&ldquo;即声明即使用&rdquo;一个直接量，下面的代码演示这一特性： <br />
+<p><font face="Courier New">有些时候，我们可以“即声明即使用”一个直接量，下面的代码演示这一特性： <br>
+//  </font></p>
+
+<hr>
+
+<p>// 直接量的“即声明即使用” <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>// 直接量的&ldquo;即声明即使用&rdquo; <br />
+<p>var obj = function () {   // 1. 声明了一个匿名函数 <br>
+  return {                // 2. 函数执行的结果是返回一个直接声明的"对象" <br>
+    value: 'test', <br>
+    method: function(){} <br>
+  } <br>
+}();                      // 3. 使匿名函数执行并返回结果，以完成obj变量的声明  </p>
+
+<p>在这个例子中，很多处用到了直接量的声明。这其中函数直接声明(并可以立即执行)的特 <br>
+性很有价值，例如在一个.js文件中试图执行一些代码，但不希望这些代码中的变量声明对 <br>
+全局代码导致影响，因此可以在外层包装一个匿名函数并使之执行，例如： <br>
+<font face="Courier New">//  </font></p>
+
+<hr>
+
+<p>// 匿名函数的执行 <br>
+// (注：void用于使后面的函数会被执行, 否则解释器会认为仅是声明函数) <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>var obj = function () {&nbsp;&nbsp; // 1. 声明了一个匿名函数 <br />
-&nbsp; return {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 2. 函数执行的结果是返回一个直接声明的&quot;对象&quot; <br />
-&nbsp;&nbsp;&nbsp; value: 'test', <br />
-&nbsp;&nbsp;&nbsp; method: function(){} <br />
-&nbsp; } <br />
-}();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 3. 使匿名函数执行并返回结果，以完成obj变量的声明</font>  </p>
+<p>void function() { <br>
+  if (isIE()) { <br>
+    // do something... <br>
+  } <br>
+}();  </p>
 
-<p>在这个例子中，很多处用到了直接量的声明。这其中函数直接声明(并可以立即执行)的特 <br />
-性很有价值，例如在一个.js文件中试图执行一些代码，但不希望这些代码中的变量声明对 <br />
-全局代码导致影响，因此可以在外层包装一个匿名函数并使之执行，例如： <br />
-<font face="Courier New">//  </p>
+<p> 2). 对象系统    </p>
 
-<hr />
+<hr>
 
-<p>// 匿名函数的执行 <br />
-// (注：void用于使后面的函数会被执行, 否则解释器会认为仅是声明函数) <br />
-//  </p>
-
-<hr />
-
-<p>void function() { <br />
-&nbsp; if (isIE()) { <br />
-&nbsp;&nbsp;&nbsp; // do something... <br />
-&nbsp; } <br />
-}();</font>  </p>
-
-<p>&nbsp;2). 对象系统    </p>
-
-<hr />
-
-<p>对象系统中一个未被提及的重要内容是delete运算。它用于删除数组元素、对象属性和已 <br />
+<p>对象系统中一个未被提及的重要内容是delete运算。它用于删除数组元素、对象属性和已 <br>
 声明的变量。  </p>
 
-<p>由于delete运算不能删除用var来声明的变量，也就意味着它只能删除在函数内／外声明 <br />
-的全局变量。&mdash;&mdash;这个说法有点别扭，但事实上的确如此。那么我们可以更深层地透视一 <br />
-个真想：delete运算删除变量的实质，是删除用户在window对象的上下文环境中声明的属 <br />
+<p>由于delete运算不能删除用var来声明的变量，也就意味着它只能删除在函数内／外声明 <br>
+的全局变量。——这个说法有点别扭，但事实上的确如此。那么我们可以更深层地透视一 <br>
+个真想：delete运算删除变量的实质，是删除用户在window对象的上下文环境中声明的属 <br>
 性。  </p>
 
-<p>回到前面有关&ldquo;上下文环境&rdquo;的讨论，我们注意到(在函数外)声明全局变量的三种形式： <br />
-<font face="Courier New">  </p>
+<p>回到前面有关“上下文环境”的讨论，我们注意到(在函数外)声明全局变量的三种形式： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var global<em>1 = '全局变量1'; <br />
-global</em>2 = '全局变量2';</font>  </p>
+<p>var global<em>1 = '全局变量1'; <br>
+global</em>2 = '全局变量2';  </p>
 
-<p><font face="Courier New">function foo() { <br />
-&nbsp; global_3 = '全局变量3'; <br />
-} <br />
+<p><font face="Courier New">function foo() { <br>
+  global_3 = '全局变量3'; <br>
+} <br>
 ----------</font>  </p>
 
-<p>全局变量2和3都是&ldquo;不用var声明的变量&rdquo;，这其实是在window对象的上下文环境中的 <br />
-属性声明。也就是说可以用window.global<em>2和window.global</em>3来存取它们。这三种声 <br />
-明window对象的属性的方法，与直接指定&ldquo;window.global_value = &lt;值&gt;&rdquo;这种方法的 <br />
-唯一区别，是在&ldquo;for .. in&rdquo;运算时，这三种方法声明的属性／方法都会被隐藏。如下 <br />
-例所示： <br />
-<font face="Courier New">//  </p>
+<p>全局变量2和3都是“不用var声明的变量”，这其实是在window对象的上下文环境中的 <br>
+属性声明。也就是说可以用window.global<em>2和window.global</em>3来存取它们。这三种声 <br>
+明window对象的属性的方法，与直接指定“window.global_value = &lt;值&gt;”这种方法的 <br>
+唯一区别，是在“for .. in”运算时，这三种方法声明的属性／方法都会被隐藏。如下 <br>
+例所示： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// 全局变量上下文环境的一些特点：属性名隐藏 <br />
+<p>// 全局变量上下文环境的一些特点：属性名隐藏 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>var global<em>1 = '全局变量1'; <br />
-global</em>2 = '全局变量2';</font>  </p>
+<p>var global<em>1 = '全局变量1'; <br>
+global</em>2 = '全局变量2';  </p>
 
-<p><font face="Courier New">void function foo() { <br />
-&nbsp; global_3 = '全局变量3'; <br />
+<p><font face="Courier New">void function foo() { <br>
+  global_3 = '全局变量3'; <br>
 }();</font>  </p>
 
 <p><font face="Courier New">window.global_4 = '全局变量4';</font>  </p>
 
-<p><font face="Courier New">for (var i in window) { <br />
-&nbsp; document.writeln(i, '&lt;br&gt;'); <br />
-} <br />
-document.writeln('&lt;HR&gt;'); <br />
-document.writeln(window.global<em>1, '&lt;BR&gt;'); <br />
-document.writeln(window.global</em>2, '&lt;BR&gt;'); <br />
+<p><font face="Courier New">for (var i in window) { <br>
+  document.writeln(i, '&lt;br&gt;'); <br>
+} <br>
+document.writeln('&lt;HR&gt;'); <br>
+document.writeln(window.global<em>1, '&lt;BR&gt;'); <br>
+document.writeln(window.global</em>2, '&lt;BR&gt;'); <br>
 document.writeln(window.global_3, '&lt;BR&gt;');</font>  </p>
 
-<p>我们注意到在返回的结果中不会出现全局变量1/2/3的属性名。但使用window.xxxx这种方 <br />
+<p>我们注意到在返回的结果中不会出现全局变量1/2/3的属性名。但使用window.xxxx这种方 <br>
 式仍可以存取到它们。  </p>
 
-<p>在window上下文环境中，global<em>1实质是该上下文中的私有变量，我们在其它代码中能存 <br />
-取到它，只是因为其它(所有的)代码都在该上下文之内。global</em>2/3则被(隐含地)声明成 <br />
+<p>在window上下文环境中，global<em>1实质是该上下文中的私有变量，我们在其它代码中能存 <br>
+取到它，只是因为其它(所有的)代码都在该上下文之内。global</em>2/3则被(隐含地)声明成 <br>
 window的属性，而global_4则显式地声明为window的属性。  </p>
 
-<p>因此我们回到前面的结论： <br />
-<strong>&nbsp; - 删除(不用var声明的)变量的实质，是删除window对象的属性。</strong>  </p>
+<p>因此我们回到前面的结论： <br>
+<strong>  - 删除(不用var声明的)变量的实质，是删除window对象的属性。</strong>  </p>
 
-<p>此外，我们也得到另外三条推论(最重要的是第一条)： <br />
-<strong>&nbsp; - delete能删除数组元素，实质上是因为数组下标也是数组对象的隐含属性。 <br />
-&nbsp; - 在复杂的系统中，为减少变量名冲突，应尽量避免全局变量(和声明)的使用，或采用 <br />
-&nbsp;&nbsp;&nbsp; delete运算来清理window对象的属性。 <br />
-&nbsp; - window对象是唯一可以让用户声明&ldquo;隐含的属性&rdquo;的对象。&mdash;&mdash;注意这只是表面的现 <br />
-&nbsp;&nbsp;&nbsp; 象，因为事实上这只是JavaScript规范带来的一个&ldquo;附加效果&rdquo;。:)</strong>  </p>
+<p>此外，我们也得到另外三条推论(最重要的是第一条)： <br>
+<strong>  - delete能删除数组元素，实质上是因为数组下标也是数组对象的隐含属性。 <br>
+  - 在复杂的系统中，为减少变量名冲突，应尽量避免全局变量(和声明)的使用，或采用 <br>
+    delete运算来清理window对象的属性。 <br>
+  - window对象是唯一可以让用户声明“隐含的属性”的对象。——注意这只是表面的现 <br>
+    象，因为事实上这只是JavaScript规范带来的一个“附加效果”。:)</strong>  </p>
 
-<p>delete清除window对象、系统对象、用户对象等的&ldquo;用户声明属性&rdquo;，但不能清除如prototype、 <br />
-constructor这样的系统属性。此外，delete也可以清除数组中的元素(但不会因为清除元 <br />
-素而使数组长度发生变化)。例如： <br />
-<font face="Courier New">//  </p>
+<p>delete清除window对象、系统对象、用户对象等的“用户声明属性”，但不能清除如prototype、 <br>
+constructor这样的系统属性。此外，delete也可以清除数组中的元素(但不会因为清除元 <br>
+素而使数组长度发生变化)。例如： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// delete运算的一些示例 <br />
+<p>// delete运算的一些示例 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>var arr = [1, 2, 3]; <br />
-var obj = {v1:1, v2:2}; <br />
-global_variant = 3;</font>  </p>
+<p>var arr = [1, 2, 3]; <br>
+var obj = {v1:1, v2:2}; <br>
+global_variant = 3;  </p>
 
-<p><font face="Courier New">delete arr[2]; <br />
-document.writeln('1' in arr, '&lt;BR&gt;');&nbsp; // 数组下标事实上也是数组对象的隐含属性 <br />
-document.writeln(arr.length, '&lt;BR&gt;');&nbsp; // 数组长度不会因delete而改变</font>  </p>
+<p><font face="Courier New">delete arr[2]; <br>
+document.writeln('1' in arr, '&lt;BR&gt;');  // 数组下标事实上也是数组对象的隐含属性 <br>
+document.writeln(arr.length, '&lt;BR&gt;');  // 数组长度不会因delete而改变</font>  </p>
 
-<p><font face="Courier New">delete obj.v2; <br />
+<p><font face="Courier New">delete obj.v2; <br>
 document.writeln('v2' in obj, '&lt;BR&gt;');</font>  </p>
 
-<p><font face="Courier New">document.writeln('global<em>variant' in window, '&lt;BR&gt;'); <br />
+<p><font face="Courier New">document.writeln('global<em>variant' in window, '&lt;BR&gt;'); <br>
 delete global</em>variant;</font>  </p>
 
-<p><font face="Courier New">// 以下的代码不能正常执行，这是IE的一个bug <br />
-if ('global<em>variant' in window) { <br />
-&nbsp;document.writeln('bug test：', global</em>variant, '&lt;BR&gt;'); <br />
+<p><font face="Courier New">// 以下的代码不能正常执行，这是IE的一个bug <br>
+if ('global<em>variant' in window) { <br>
+ document.writeln('bug test：', global</em>variant, '&lt;BR&gt;'); <br>
 }</font>  </p>
 
-<p>最后这行代码错误的根源，在于IE错误地检测了'global<em>variant'在window的对象属性 <br />
-中是否仍然存在。因为在同样的位置，&ldquo;('global</em>variant' in window)&rdquo;表达式的返 <br />
-回结果居然为true！&mdash;&mdash;firefox中没有这个bug。  </p>
+<p>最后这行代码错误的根源，在于IE错误地检测了'global<em>variant'在window的对象属性 <br>
+中是否仍然存在。因为在同样的位置，“('global</em>variant' in window)”表达式的返 <br>
+回结果居然为true！——firefox中没有这个bug。  </p>
 
-<p>delete清除掉属性或数组元素，并不表明脚本引擎会对于该属性／元素执行析构。对象 <br />
+<p>delete清除掉属性或数组元素，并不表明脚本引擎会对于该属性／元素执行析构。对象 <br>
 的析构操作是不确定的，关于这一点请查看更前面的内容。</p>
             </section>
 <!-- removed by aimingoo
@@ -400,7 +399,7 @@ if ('global<em>variant' in window) { <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-28.html">
                     新手的开源之路～
                 </a>
@@ -411,7 +410,7 @@ if ('global<em>variant' in window) { <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -431,14 +430,14 @@ if ('global<em>variant' in window) { <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -454,7 +453,7 @@ if ('global<em>variant' in window) { <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -468,7 +467,7 @@ if ('global<em>variant' in window) { <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -497,4 +496,3 @@ if ('global<em>variant' in window) { <br />
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

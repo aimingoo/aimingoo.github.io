@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>我的程序语言实践</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="我的程序语言实践" />
-    <meta property="og:description" content="动静之间，不变的本质   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;mdash;&amp;mdash;我的程序语言实践   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   引子  ＝＝＝＝  源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。   这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。   从动态语言到静态语言  ＝＝＝＝  我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&amp;mdash;&amp;mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-87.html" />
-    <meta property="article:published_time" content="2007-11-01T06:12:00.000Z" />
-    <meta property="article:modified_time" content="2007-11-01T06:12:00.000Z" />
-    <meta property="article:tag" content="pascal" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="数据结构" />
-    <meta property="article:tag" content="语言" />
-    <meta property="article:tag" content="delphi" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="我的程序语言实践">
+    <meta property="og:description" content="动静之间，不变的本质   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;mdash;&amp;mdash;我的程序语言实践   ===========   引子  ＝＝＝＝  源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。   这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。   从动态语言到静态语言  ＝＝＝＝  我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&amp;mdash;&amp;mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-87.html">
+    <meta property="article:published_time" content="2007-11-01T06:12:00.000Z">
+    <meta property="article:modified_time" content="2007-11-01T06:12:00.000Z">
+    <meta property="article:tag" content="pascal">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="数据结构">
+    <meta property="article:tag" content="语言">
+    <meta property="article:tag" content="delphi">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="我的程序语言实践" />
-    <meta name="twitter:description" content="动静之间，不变的本质   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;mdash;&amp;mdash;我的程序语言实践   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   引子  ＝＝＝＝  源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。   这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。   从动态语言到静态语言  ＝＝＝＝  我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&amp;mdash;&amp;mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-87.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="pascal, Javascript, 数据结构, 语言, delphi" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="我的程序语言实践">
+    <meta name="twitter:description" content="动静之间，不变的本质   &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;mdash;&amp;mdash;我的程序语言实践   ===========   引子  ＝＝＝＝  源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。   这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。   从动态语言到静态语言  ＝＝＝＝  我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&amp;mdash;&amp;mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-87.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="pascal, Javascript, 数据结构, 语言, delphi">
     
     <script type="application/ld+json">
 {
@@ -86,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-pascal tag-javascript tag-shu-ju-jie-gou tag-yu-yan tag-delphi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -115,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -131,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -140,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/pascal/index.html">pascal</a>, <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/shu-ju-jie-gou/index.html">数据结构</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/delphi/index.html">delphi</a>
+                        <a href="tag/pascal/">pascal</a>, <a href="tag/javascript/">Javascript</a>, <a href="tag/shu-ju-jie-gou/">数据结构</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/delphi/">delphi</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -151,19 +150,19 @@ ghost.init({
             <section class="post-content">
                 <p><span style="font-size: medium;">动静之间，不变的本质</span>  </p>
 
-<p><span style="font-size: medium;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &mdash;&mdash;我的程序语言实践</span>  </p>
+<p><span style="font-size: medium;">        ——我的程序语言实践</span>  </p>
 
 <p><span style="font-size: medium;">===========</span>  </p>
 
-<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">引子 <br />
-＝＝＝＝</span></span></span> <br />
+<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">引子 <br>
+＝＝＝＝</span></span></span> <br>
 <span style="font-size: small;">源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。</span>  </p>
 
 <p><span style="font-size: small;">这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。</span>  </p>
 
-<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">从动态语言到静态语言 <br />
-＝＝＝＝</span></span></span> <br />
-<span style="font-size: small;">我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&mdash;&mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，我用BASIC写过内存处理、端口处理程序。到了1997年的时候，我的一个朋友的毕业设计要用BASIC来写，当时我已经丢下BASIC两年了，但还是用了一晚的时间完成了一个考试管理系统，包括班级、学科管理、成绩管理和档案管理（含磁盘检测以上报档案）。当时我用了一个名为Turbo Basic的东东，是Borland做的最后一款BASIC语言的工具，据内幕说是因为与微软存在协议，后来Borland再也没出过这一语言的工具。</span>  </p>
+<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">从动态语言到静态语言 <br>
+＝＝＝＝</span></span></span> <br>
+<span style="font-size: small;">我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训——程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，我用BASIC写过内存处理、端口处理程序。到了1997年的时候，我的一个朋友的毕业设计要用BASIC来写，当时我已经丢下BASIC两年了，但还是用了一晚的时间完成了一个考试管理系统，包括班级、学科管理、成绩管理和档案管理（含磁盘检测以上报档案）。当时我用了一个名为Turbo Basic的东东，是Borland做的最后一款BASIC语言的工具，据内幕说是因为与微软存在协议，后来Borland再也没出过这一语言的工具。</span>  </p>
 
 <p><em>(*) 顺便补充一点，那个微机培训的课程是一个月，而我当时对文学感兴趣，因为要去北京参加一个笔会而只学了十天。我对文学的兴趣持续到1999年，在2000年的时候，一篇早期的文学作品拿了网易首届网络文学大届的散文金奖（这个大赛也只办了一届，哈哈）。而对文字的喜好则持续到现在，成了我写书作文的根基与动力。</em>  </p>
 
@@ -173,94 +172,94 @@ ghost.init({
 
 <p><span style="font-size: small;">然而《数据结构》却没有耽搁，对这门学科的学习成了我这么多年来理解编程的基础。再后来，我又开始自学汇编语言、算法语言（Pascal）和操作系统原理，到了1996年初，我基本上已经完成了对语言和系统的自学。这个时候，我的语言选择已经从Basic转到了Pascal。</span>  </p>
 
-<p><span style="font-size: small;">换言之，我从动态语言走到了静态语言。不过这样说，我可能被立即反问：它们是动态语言吗？我慎之又慎的思考之后的回答，仍然&ldquo;是&rdquo;。前面提到的DBASE、BASIC和批处理其实都有动态语言的特征&mdash;&mdash;尽管这在我学习它们时是不知的。</span>  </p>
+<p><span style="font-size: small;">换言之，我从动态语言走到了静态语言。不过这样说，我可能被立即反问：它们是动态语言吗？我慎之又慎的思考之后的回答，仍然“是”。前面提到的DBASE、BASIC和批处理其实都有动态语言的特征——尽管这在我学习它们时是不知的。</span>  </p>
 
-<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">回归动态－从Delphi到JavaScript <br />
-＝＝＝＝</span></span></span> <br />
-<span style="font-size: small;">知道我的朋友很多是因为Delphi以及我所写的《Delphi源代码分析》一书。我从1996年开始做一些商业产品的代码，一直到2003年都是使用的Pascal/Delphi系列语言，以及一些汇编语言。我从传统过程式开发转变到面向对象开发，用了非常长的时间&mdash;&mdash;超过两年。直到2003年的早些时候，我终于停下忙忙碌碌的、无止尽的代码书写，问了自己一个问题：Delphi是怎么回事？</span>  </p>
+<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">回归动态－从Delphi到JavaScript <br>
+＝＝＝＝</span></span></span> <br>
+<span style="font-size: small;">知道我的朋友很多是因为Delphi以及我所写的《Delphi源代码分析》一书。我从1996年开始做一些商业产品的代码，一直到2003年都是使用的Pascal/Delphi系列语言，以及一些汇编语言。我从传统过程式开发转变到面向对象开发，用了非常长的时间——超过两年。直到2003年的早些时候，我终于停下忙忙碌碌的、无止尽的代码书写，问了自己一个问题：Delphi是怎么回事？</span>  </p>
 
 <p><span style="font-size: small;">为了给自己解答这个问题，我辞掉所有的工作，静下心来研究这门语言。准确地说，是研究静态语言的语法、语义以及面向操作系统的编译与二进制文件生成。《Delphi源代码分析》这本书讲的就样的一些内容：语言的基本要素、操作系统对语言的要求、语言的实现等等。只不过我是通过对Delphi的源代码的分析来展现这些罢了。</span>  </p>
 
-<p><span style="font-size: small;">用了一年的时间，我终于看明白语言在&ldquo;结构&rdquo;方面的真相：所有的语言效果、语法以及二进制的执行能力，原来不过是操作系统理解的一堆&ldquo;可执行和可存取的数据结构&rdquo;。&ldquo;编译&rdquo;这一过程，无非是把这些细节隐藏起来，让程序员以为自己在写一种非常高级的、逻辑的、有趣的代码，而忽视掉背后的本质部分：静态的数据与指令。</span>  </p>
+<p><span style="font-size: small;">用了一年的时间，我终于看明白语言在“结构”方面的真相：所有的语言效果、语法以及二进制的执行能力，原来不过是操作系统理解的一堆“可执行和可存取的数据结构”。“编译”这一过程，无非是把这些细节隐藏起来，让程序员以为自己在写一种非常高级的、逻辑的、有趣的代码，而忽视掉背后的本质部分：静态的数据与指令。</span>  </p>
 
 <p><span style="font-size: small;">如同我此前对于Pascal/Delphi的盲目一样，我学用JavaScript之初也是盲目的。我选择JavaScript的唯一原因，只是因为我在Web上开发时找不到第二种可以通用的语言（如果当时我能选择一种类pascal语法的语言，我一定会错失学习JavaScript的良机）。</span>  </p>
 
-<p><span style="font-size: small;">我从1998年开始使用JavaScript，这离这门语言被创生出来不过三年时间&mdash;&mdash;以语言的历史而言，这算得上是&ldquo;追新&rdquo;了。在最初我无非是把它当成一种脚本化的过程式语言，以及用来响应网页里的OnXXXX事件的一些代码。但在一两年之后，在我深受Delphi中的面向对象编程思想的影响之后，我发现JavaScript令我不堪忍受：它毕竟不是一门具有完整的对象特性的语言。于是我开始试图实现JSOOP：JavaScript的面向对象编程。</span>  </p>
+<p><span style="font-size: small;">我从1998年开始使用JavaScript，这离这门语言被创生出来不过三年时间——以语言的历史而言，这算得上是“追新”了。在最初我无非是把它当成一种脚本化的过程式语言，以及用来响应网页里的OnXXXX事件的一些代码。但在一两年之后，在我深受Delphi中的面向对象编程思想的影响之后，我发现JavaScript令我不堪忍受：它毕竟不是一门具有完整的对象特性的语言。于是我开始试图实现JSOOP：JavaScript的面向对象编程。</span>  </p>
 
-<p><span style="font-size: small;">这一设想以及一些实践开始于2002年，但直到2004年初我才真正着手实施这个计划，到了2005年末这个项目延伸为现在的Qomo(Qomolangma OpenProject)。而我另一方面的计划&mdash;&mdash;自2005年初开始写的一本名为《B端开发》的书，也终于因为Qomo项目而被放弃，变成了《JavaScript语言精髓与编程实践》。因为在Qomo开发过程中，我发现讨论JavaScript这种语言本身，远比&ldquo;在浏览器端(B端)开发&rdquo;更为有趣。尽管，在这其间我还用过PHP、Java与C#等等，不过相对于后面要讨论的内容来说，这些已经不重要了。</span>  </p>
+<p><span style="font-size: small;">这一设想以及一些实践开始于2002年，但直到2004年初我才真正着手实施这个计划，到了2005年末这个项目延伸为现在的Qomo(Qomolangma OpenProject)。而我另一方面的计划——自2005年初开始写的一本名为《B端开发》的书，也终于因为Qomo项目而被放弃，变成了《JavaScript语言精髓与编程实践》。因为在Qomo开发过程中，我发现讨论JavaScript这种语言本身，远比“在浏览器端(B端)开发”更为有趣。尽管，在这其间我还用过PHP、Java与C#等等，不过相对于后面要讨论的内容来说，这些已经不重要了。</span>  </p>
 
 <p><span style="font-size: small;">因为我对编程的理解，终于从Delphi走回JavaScript，从静态回归到动态。</span>  </p>
 
-<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">JavaScript语言的基本特性 <br />
-＝＝＝＝</span></span></span> <br />
+<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">JavaScript语言的基本特性 <br>
+＝＝＝＝</span></span></span> <br>
 <span style="font-size: small;">到底JavaScript是怎样的、以及为什么会吸引我呢？如今我之视见，JavaScript语言包括了四个方面的语言特性：过程式语言、面向对象语言、函数式语言和动态语言。具有过程式特性，是它入门容易的原因；面向对象特性则使它符合主流的程序设计思想；函数式是JavaScript语言的根基，而动态语言则是它的外在表现，以及强大到难于驾驭的根源。</span>  </p>
 
-<p><span style="font-size: small;">前些时候在北京参与CSDN大会时，与一个老朋友谈到JavaScript，他说：JavaScript具有几乎所有主要语言形式的原子要素。我觉得，这个&ldquo;语言原子&rdquo;的概念就提得很好。的确，JavaScript在上述四个方面都表现平平，但每个方面都抓住了相应语言范型的精髓。不但如此，JavaScript还使用了一个最简而又最合理的方式来组织各种语言特性。仅以&ldquo;动态&rdquo;而论，《JavaScript语言精髓与编程实践》讲述了JavaScript所包括的四个方面的动态性质： <br />
-&nbsp;－ 动态执行 <br />
-&nbsp;－ 动态类型 <br />
-&nbsp;－ 重写 <br />
-&nbsp;－ 实现动态环境的基础数据结构 <br />
-源于本文篇幅，对于更深层面的问题便不讨论了，这里仅讨论一下静态执行与动态执行的某些本质上的差异。举个例子来说，下面的代码： <br />
-<span style="font-family: Courier New; font-size: x-small;">－－－－－－ <br />
-obj.aMethod(x,y,z); <br />
-－－－－－－</span> <br />
-这显然是一个对象方法调用。但对象方法是如何实现的呢？在静态语言中，因为有编译过程，所以我们把一个结构放在内存里，并使得它 <br />
-&nbsp; － 拥有一个对象实例指针指向obj， <br />
-&nbsp; － 拥有一个对象方法指针指向aMethod()在代码区的地址， <br />
-&nbsp; － 在有效代码的前后加入处理x,y,z这些参数的代码（例如入栈与清栈）。 <br />
+<p><span style="font-size: small;">前些时候在北京参与CSDN大会时，与一个老朋友谈到JavaScript，他说：JavaScript具有几乎所有主要语言形式的原子要素。我觉得，这个“语言原子”的概念就提得很好。的确，JavaScript在上述四个方面都表现平平，但每个方面都抓住了相应语言范型的精髓。不但如此，JavaScript还使用了一个最简而又最合理的方式来组织各种语言特性。仅以“动态”而论，《JavaScript语言精髓与编程实践》讲述了JavaScript所包括的四个方面的动态性质： <br>
+ － 动态执行 <br>
+ － 动态类型 <br>
+ － 重写 <br>
+ － 实现动态环境的基础数据结构 <br>
+源于本文篇幅，对于更深层面的问题便不讨论了，这里仅讨论一下静态执行与动态执行的某些本质上的差异。举个例子来说，下面的代码： <br>
+<span style="font-family: Courier New; font-size: x-small;">－－－－－－ <br>
+obj.aMethod(x,y,z); <br>
+－－－－－－</span> <br>
+这显然是一个对象方法调用。但对象方法是如何实现的呢？在静态语言中，因为有编译过程，所以我们把一个结构放在内存里，并使得它 <br>
+  － 拥有一个对象实例指针指向obj， <br>
+  － 拥有一个对象方法指针指向aMethod()在代码区的地址， <br>
+  － 在有效代码的前后加入处理x,y,z这些参数的代码（例如入栈与清栈）。 <br>
 在执行时，我们将obj与aMethod交给执行系统，并传入指定参数（的序列），然后就可以按照既已编译的规则来执行了。</span>  </p>
 
-<div><span style="font-size: small;">然而在JavaScript中，由于它是一个动态语言，因此编译的结果只是一个表达执行过程的语法树。这个语法树被存储为一个二叉树形式的数据结构。更细节的说，二叉树的Root/Left/Right三个节点分别表示运算符、运算元1、运算元2。以较为复杂的三元运算符&ldquo;?:&rdquo;来说，下面表达式：</span>  
+<div><span style="font-size: small;">然而在JavaScript中，由于它是一个动态语言，因此编译的结果只是一个表达执行过程的语法树。这个语法树被存储为一个二叉树形式的数据结构。更细节的说，二叉树的Root/Left/Right三个节点分别表示运算符、运算元1、运算元2。以较为复杂的三元运算符“?:”来说，下面表达式：</span>  
 <span style="font-family: Courier New;">－－－－－－  
 isTrue ? expr1 : expr2  
 －－－－－－</span>    
 <span style="font-size: small;">就被表达为</span>  
-<span style="font-family: Courier New;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; root(?)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&nbsp;&nbsp; /     
-left(isTrue)&nbsp; right(:)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /&nbsp; /    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; left(expr1) right(expr2)</span></div>  
+<span style="font-family: Courier New;">        root(?)  
+         /   /     
+left(isTrue)  right(:)  
+               /  /    
+       left(expr1) right(expr2)</span></div>  
 
-<div><span style="font-size: small;">&mdash;&mdash;学过数据结构的开发者一定对此不会陌生，因此我就不细讲实现和使用这个结构的过程了_（其实三元表达式不能描述为这个结构，但这里只为了说明问题，请不要去追究它。）_。不过这一结构也显然地可以陈述为一个lisp/scheme表达式。同样的道理，一个对象方法的过程亦是如此，用这样的方法来表达上面的&ldquo;对象方法调用&rdquo;，就可以用lisp/scheme方法来陈述：  
+<div><span style="font-size: small;">——学过数据结构的开发者一定对此不会陌生，因此我就不细讲实现和使用这个结构的过程了_（其实三元表达式不能描述为这个结构，但这里只为了说明问题，请不要去追究它。）_。不过这一结构也显然地可以陈述为一个lisp/scheme表达式。同样的道理，一个对象方法的过程亦是如此，用这样的方法来表达上面的“对象方法调用”，就可以用lisp/scheme方法来陈述：  
 <span style="font-family: Courier New; font-size: x-small;">－－－－－－  
 ((. obj aMethod) x y z)    
 －－－－－－</span>    
-正是这个细节，表明在JavaSctipt中所谓的&ldquo;对象方法调用&rdquo;，其本质上是函数式语言中的一个运算式。因其是一个运算式，所以能动态地（作为语法树的一部分）解释执行。</span></div>  
+正是这个细节，表明在JavaSctipt中所谓的“对象方法调用”，其本质上是函数式语言中的一个运算式。因其是一个运算式，所以能动态地（作为语法树的一部分）解释执行。</span></div>  
 
-<p><span style="font-size: small;">同样的方法，可以解构所有在JavaScript有关执行系统（语句、表达式、函数等）的问题，基本上都可以归结到函数式这个范围内。换而言之：函数式这个&ldquo;原子&rdquo;为JavaScript提供了执行和动态执行能力。</span>  </p>
+<p><span style="font-size: small;">同样的方法，可以解构所有在JavaScript有关执行系统（语句、表达式、函数等）的问题，基本上都可以归结到函数式这个范围内。换而言之：函数式这个“原子”为JavaScript提供了执行和动态执行能力。</span>  </p>
 
-<p><span style="font-size: small;">再往后，我考察了JavaScript在数据结构层面上的实现。这方面最精当（而又平凡）的解释是前两天在微软架构师有关语言的讨论中做出的：JavaScript的对象其实是&ldquo;属性包&rdquo;。不过，更专业而难解的词汇是&ldquo;关联数组&rdquo;。JavaScript使用关联数组作为动态化类型的基础，而静态的值类型仅包括布尔、数值、字符串类型（字符串兼具值与引用两方面特性）和undefined四种。当所有的类型被归结到这里时，就可以发现&ldquo;动态&rdquo;的另一层含义与&rdquo;引用&ldquo;结合了起来： <br />
-<span style="font-family: Courier New;">&nbsp; － 所谓引用，不过是动态地找到值的一种手段</span> <br />
-另一方面，对运算系统的考察，也会被归结到这里： <br />
-<span style="font-family: Courier New;">&nbsp; － 所谓运算，本质是针对值的运算</span></span>  </p>
+<p><span style="font-size: small;">再往后，我考察了JavaScript在数据结构层面上的实现。这方面最精当（而又平凡）的解释是前两天在微软架构师有关语言的讨论中做出的：JavaScript的对象其实是“属性包”。不过，更专业而难解的词汇是“关联数组”。JavaScript使用关联数组作为动态化类型的基础，而静态的值类型仅包括布尔、数值、字符串类型（字符串兼具值与引用两方面特性）和undefined四种。当所有的类型被归结到这里时，就可以发现“动态”的另一层含义与”引用“结合了起来： <br>
+<span style="font-family: Courier New;">  － 所谓引用，不过是动态地找到值的一种手段</span> <br>
+另一方面，对运算系统的考察，也会被归结到这里： <br>
+<span style="font-family: Courier New;">  － 所谓运算，本质是针对值的运算</span></span>  </p>
 
-<p><span style="font-size: small;">举个实例来说，例如： <br />
-<span style="font-family: Courier New; font-size: x-small;">－－－－－－ <br />
-aWindow.width = obj.aMethod(x,y,z); <br />
-－－－－－－</span> <br />
-其中".width&rdquo;运算的目的是找到一个值类型的属性；&ldquo;.aMethod()&rdquo;的目的是找到一个函数并调用它，然后返回某个值；&ldquo;＝&rdquo;运算则将某值传入某个存值的属性。</span>  </p>
+<p><span style="font-size: small;">举个实例来说，例如： <br>
+<span style="font-family: Courier New; font-size: x-small;">－－－－－－ <br>
+aWindow.width = obj.aMethod(x,y,z); <br>
+－－－－－－</span> <br>
+其中".width”运算的目的是找到一个值类型的属性；“.aMethod()”的目的是找到一个函数并调用它，然后返回某个值；“＝”运算则将某值传入某个存值的属性。</span>  </p>
 
-<p><span style="font-size: small;">所以，根源上来说，JavaScript中的所有运算都是围绕&ldquo;如何得到和使用值（类型）数据&rdquo;来的。对此更深入的推论是：所有的计算系统都是围绕这一根本目的来的。</span>  </p>
+<p><span style="font-size: small;">所以，根源上来说，JavaScript中的所有运算都是围绕“如何得到和使用值（类型）数据”来的。对此更深入的推论是：所有的计算系统都是围绕这一根本目的来的。</span>  </p>
 
-<p><span style="font-size: small;">在写《JavaScript语言精髓与编程实践》的过程中，我一次又一次地回顾了我对Delphi的所有理解，抛开那些将语法树静态化到内存结构和磁盘文件结构的过程，我看到：所有静态与动态语言，在本义上所追求的，无非是算法与结构的平衡&mdash;&mdash;即先满足算法实现一致性，还是先满足结构实现一致性的问题。</span>  </p>
+<p><span style="font-size: small;">在写《JavaScript语言精髓与编程实践》的过程中，我一次又一次地回顾了我对Delphi的所有理解，抛开那些将语法树静态化到内存结构和磁盘文件结构的过程，我看到：所有静态与动态语言，在本义上所追求的，无非是算法与结构的平衡——即先满足算法实现一致性，还是先满足结构实现一致性的问题。</span>  </p>
 
 <p><span style="font-size: small;">在这十余年之中，我从动态开始，深入静态又回归动态，最终我来到了原点：程序＝算法＋结构。</span>  </p>
 
-<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">学两种语言 <br />
-＝＝＝＝</span></span></span> <br />
-<span style="font-size: small;">在《程序设计语言实践》中对&ldquo;语言&rdquo;有一个分类法，将语言分类为&ldquo;说明式&rdquo;与&ldquo;命令式&rdquo;两种。Delphi以及C、C++、Java、C#等都被分为&ldquo;命令式&rdquo;语言范型的范畴；&ldquo;函数式&rdquo;语言则是&ldquo;说明式&rdquo;范型中的一种。我如今回顾我对语言的学习，其实十年也就学会了两门语言：一门是命令式的，一门是说明式的。当然从语言的实现方式来看，一门是静态的，一门是动态的。</span>  </p>
+<p><span style="font-size: medium;"><span style="FONT-WEIGHT: bold"><span style="font-size: medium;">学两种语言 <br>
+＝＝＝＝</span></span></span> <br>
+<span style="font-size: small;">在《程序设计语言实践》中对“语言”有一个分类法，将语言分类为“说明式”与“命令式”两种。Delphi以及C、C++、Java、C#等都被分为“命令式”语言范型的范畴；“函数式”语言则是“说明式”范型中的一种。我如今回顾我对语言的学习，其实十年也就学会了两门语言：一门是命令式的，一门是说明式的。当然从语言的实现方式来看，一门是静态的，一门是动态的。</span>  </p>
 
 <p><span style="font-size: small;">这便是我程序员生涯的全部了。</span>  </p>
 
-<p><span style="font-size: small;">我毕竟不是计算机科学的研究者，而只是其应用的实践者，因而我从一开始就缺乏对&ldquo;程序&rdquo;的某些科学的或学术层面上的认识是很正常的。也许有些人认为一开始程序便是如此，或者一门语言就应当是这样构成和实现的，那么可能他是从计算机科学走向应用，故而比我了解得多些。而我，大概在十年前学习编程，以及在后来很多年的实践中，仅被要求&ldquo;写出代码&rdquo;，而从未被要求了解&ldquo;什么是语言&rdquo;。所以我才会后知后觉，才会在很长的时间里迷失于那些精细的、沟壑纵横的语言表面而不自知。然而一如我现在所见到，与我曾相同地行进于那些沟壑的朋友，仍然在持续地迷惑着、盲目着，全然无觉于沟壑之外的瑰丽与宏伟。</span>  </p>
+<p><span style="font-size: small;">我毕竟不是计算机科学的研究者，而只是其应用的实践者，因而我从一开始就缺乏对“程序”的某些科学的或学术层面上的认识是很正常的。也许有些人认为一开始程序便是如此，或者一门语言就应当是这样构成和实现的，那么可能他是从计算机科学走向应用，故而比我了解得多些。而我，大概在十年前学习编程，以及在后来很多年的实践中，仅被要求“写出代码”，而从未被要求了解“什么是语言”。所以我才会后知后觉，才会在很长的时间里迷失于那些精细的、沟壑纵横的语言表面而不自知。然而一如我现在所见到，与我曾相同地行进于那些沟壑的朋友，仍然在持续地迷惑着、盲目着，全然无觉于沟壑之外的瑰丽与宏伟。</span>  </p>
 
-<p><span style="font-size: small;">前些天写过一篇BLOG，是推荐那篇&ldquo;十年学会编程&rdquo;的。那篇文章道出了我在十年编程实践之后，对程序语言的最深刻的感概。我们学习语言其实不必太多，深入一两种就可以了。如果在一种类型的语言上翻来覆去，例如学C、Delphi、Java、C#&hellip;&hellip;无非是求生存、讨生活，或者用以装点个人简历，于编程能力上提高是不大的。更多的人，因为面临太多的语言选择而浅尝辙止，多年之后仍远离程序根本，成为书写代码的机器，把书写代码的行数、程序个数或编程年限作为简历中最显要的部分。这在明眼人看来，无过是熟练的砖头工而已。</span>  </p>
+<p><span style="font-size: small;">前些天写过一篇BLOG，是推荐那篇“十年学会编程”的。那篇文章道出了我在十年编程实践之后，对程序语言的最深刻的感概。我们学习语言其实不必太多，深入一两种就可以了。如果在一种类型的语言上翻来覆去，例如学C、Delphi、Java、C#……无非是求生存、讨生活，或者用以装点个人简历，于编程能力上提高是不大的。更多的人，因为面临太多的语言选择而浅尝辙止，多年之后仍远离程序根本，成为书写代码的机器，把书写代码的行数、程序个数或编程年限作为简历中最显要的部分。这在明眼人看来，无过是熟练的砖头工而已。</span>  </p>
 
-<p><span style="font-size: small;">《大道至简》中说&ldquo;如今我已经不再专注于语言&rdquo;。其实在说完这句话之后，我就已经开始了对JavaScript的深入研究。在如此深入地研究一种语言，进而与另一种全然有别的语言比较补充之后，我对&ldquo;程序＝算法＋结构&rdquo;有了更深刻的理解与认识&mdash;&mdash;尽管这句名言从来未因我的认识而变化过，从来未因说明与命令的编程方式而变化过，也从来未因动态与静态的实现方法而变化过。</span>  </p>
+<p><span style="font-size: small;">《大道至简》中说“如今我已经不再专注于语言”。其实在说完这句话之后，我就已经开始了对JavaScript的深入研究。在如此深入地研究一种语言，进而与另一种全然有别的语言比较补充之后，我对“程序＝算法＋结构”有了更深刻的理解与认识——尽管这句名言从来未因我的认识而变化过，从来未因说明与命令的编程方式而变化过，也从来未因动态与静态的实现方法而变化过。</span>  </p>
 
 <p><span style="font-size: small;">动静之间，不变的是本质。我之所以写这篇文字，并非想说明这种本质是什么亦或如何得到，只是期望读者能在匆忙的行走中，时而停下了脚步，远远地观望一下目标罢了。</span>  </p>
 
-<p><span style="font-size: small;">而我，此时刻，正在做一个驻足观望的路人甲。&nbsp;</span></p>
+<p><span style="font-size: small;">而我，此时刻，正在做一个驻足观望的路人甲。 </span></p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -277,7 +276,7 @@ aWindow.width = obj.aMethod(x,y,z); <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-88.html">
                     《JavaScript引擎技术》－SD2大会中的PPT
                 </a>
@@ -288,7 +287,7 @@ aWindow.width = obj.aMethod(x,y,z); <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -308,14 +307,14 @@ aWindow.width = obj.aMethod(x,y,z); <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -331,7 +330,7 @@ aWindow.width = obj.aMethod(x,y,z); <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -345,7 +344,7 @@ aWindow.width = obj.aMethod(x,y,z); <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -374,4 +373,3 @@ aWindow.width = obj.aMethod(x,y,z); <br />
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

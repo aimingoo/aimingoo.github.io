@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>再议《JavaScript代码优化一例》</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="再议《JavaScript代码优化一例》" />
-    <meta property="og:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE &#x3D; /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE &#x3D; /object[0-9A-Za-z]{8}-[" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-81.html" />
-    <meta property="article:published_time" content="2007-08-29T10:07:00.000Z" />
-    <meta property="article:modified_time" content="2007-08-29T10:07:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="正则表达式" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="再议《JavaScript代码优化一例》">
+    <meta property="og:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE = /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE = /object[0-9A-Za-z]{8}-[">
+    <meta property="og:url" content="http://aimingoo.github.io/1-81.html">
+    <meta property="article:published_time" content="2007-08-29T10:07:00.000Z">
+    <meta property="article:modified_time" content="2007-08-29T10:07:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="正则表达式">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="再议《JavaScript代码优化一例》" />
-    <meta name="twitter:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE &#x3D; /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE &#x3D; /object[0-9A-Za-z]{8}-[" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-81.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 正则表达式" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="再议《JavaScript代码优化一例》">
+    <meta name="twitter:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE = /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE = /object[0-9A-Za-z]{8}-[">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-81.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 正则表达式">
     
     <script type="application/ld+json">
 {
@@ -83,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-zheng-ze-biao-da-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/index.html">正则表达式</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,162 +145,162 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>今天收到《程序员》第８期，读到杨建华先生的&ldquo;JavaSctipt代码优化一例&rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&nbsp;原例可以在杨先生的blog上找到： <br />
+                <p>今天收到《程序员》第８期，读到杨建华先生的“JavaSctipt代码优化一例”。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： <br>
 <a href="http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry">http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry</a>  </p>
 
-<p>一、正则表达式的创建代码 <br />
-－－－ <br />
-这样的创建代码实在冗余： <br />
-<font face="Courier New" size="2">var fnRE = /functor<em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i; <br />
-var objRE = /object</em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$/i; <br />
-var objRE<em>r =&nbsp; /radio</em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}<em>r/i; <br />
-var objRE</em>a = /object<em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}</em>a/i; <br />
-var objRE<em>m =&nbsp; /radio</em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}<em>m/i; <br />
-var objRE</em>d =&nbsp; /radio<em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}</em>d/i; <br />
-</font> <br />
-仔细读来，其实就是一个添加前后缀的GUID。那么可否写成如下： <br />
-<font face="Courier New">var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})'; <br />
-var fnRE =&nbsp;&nbsp;&nbsp;&nbsp; new RegExp('(functor<em>)'+ GUID, 'i'); <br />
-var objRE =&nbsp;&nbsp;&nbsp; new RegExp('(object</em>)' + GUID + '$', 'i'); <br />
-var objRE<em>r =&nbsp; new RegExp('(radio</em>)'&nbsp; + GUID + '<em>(r)', 'i'); <br />
-var objRE</em>a =&nbsp; new RegExp('(object<em>)' + GUID + '</em>(a)', 'i'); <br />
-var objRE<em>m =&nbsp; new RegExp('(radio</em>)'&nbsp; + GUID + '<em>(m)', 'i'); <br />
-var objRE</em>d =&nbsp; new RegExp('(radio<em>)'&nbsp; + GUID + '</em>(d)', 'i');</font>    </p>
+<p>一、正则表达式的创建代码 <br>
+－－－ <br>
+这样的创建代码实在冗余： <br>
+<font face="Courier New" size="2">var fnRE = /functor<em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i; <br>
+var objRE = /object</em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$/i; <br>
+var objRE<em>r =  /radio</em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}<em>r/i; <br>
+var objRE</em>a = /object<em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}</em>a/i; <br>
+var objRE<em>m =  /radio</em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}<em>m/i; <br>
+var objRE</em>d =  /radio<em>[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}</em>d/i; <br>
+</font> <br>
+仔细读来，其实就是一个添加前后缀的GUID。那么可否写成如下： <br>
+<font face="Courier New">var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})'; <br>
+var fnRE =     new RegExp('(functor<em>)'+ GUID, 'i'); <br>
+var objRE =    new RegExp('(object</em>)' + GUID + '$', 'i'); <br>
+var objRE<em>r =  new RegExp('(radio</em>)'  + GUID + '<em>(r)', 'i'); <br>
+var objRE</em>a =  new RegExp('(object<em>)' + GUID + '</em>(a)', 'i'); <br>
+var objRE<em>m =  new RegExp('(radio</em>)'  + GUID + '<em>(m)', 'i'); <br>
+var objRE</em>d =  new RegExp('(radio<em>)'  + GUID + '</em>(d)', 'i');</font>    </p>
 
-<p>这里看起来是用了字符串连接运算，但由于变量声明只运算一次，因此对效率没什么影响。而且可读性强了，修改起来也方便。 <br />
+<p>这里看起来是用了字符串连接运算，但由于变量声明只运算一次，因此对效率没什么影响。而且可读性强了，修改起来也方便。 <br>
 读注意这里用到了正则表达式中的分组'( )'，这在后面是会很有用的。  </p>
 
-<p>二、正则使用中的分组 <br />
-－－－ <br />
-代码总是通过 <br />
-<font face="Courier New">aryAList[<font color="#ff0000"><em>match[0].split(&quot;</em>&quot;)[1]</font>] = &quot;a<em>&quot;;</font> <br />
-这样的形式来从匹配中分离GUID，但如果使用上面的分组，那么这项运算就不必要了。简单的使用 <br />
-<font face="Courier New">aryAList[<font color="#ff0000"></em>match[2]</font>] = &quot;a_&quot;;</font> <br />
+<p>二、正则使用中的分组 <br>
+－－－ <br>
+代码总是通过 <br>
+<font face="Courier New">aryAList[<font color="#ff0000"><em>match[0].split("</em>")[1]</font>] = "a<em>";</em></font> <br>
+这样的形式来从匹配中分离GUID，但如果使用上面的分组，那么这项运算就不必要了。简单的使用 <br>
+<font face="Courier New">aryAList[<font color="#ff0000">match[2]</font>] = "a_";</font> <br>
 就可以得到结果。  </p>
 
-<p>三、应注意DOM引用的耗时 <br />
-－－－ <br />
-代码中，在循环内不断地访问DOM对象的成员，然而DOM对象的成员存取是耗时的。更细的说，每一个成员 <br />
-都会通过COM组件封装，因此效率是差的。所以下面的代码： <br />
-<font face="Courier New">&nbsp;else if ((<em>match = <font color="#ff0000"></em>obj.name.match</font>(objRE<em>m)) != null) &nbsp;{ <br />
-&nbsp;} <br />
-&nbsp;else if ((</em>match = <font color="#ff0000"><em>obj.name.match</font>(objRE</em>d)) != null)&nbsp; { <br />
-&nbsp;}</font> <br />
-应当被改作： <br />
-<font face="Courier New">var name = <em>obj.name; <br />
-&nbsp;else if ((</em>match = <strong><font color="#ff0000">name.match</font></strong>(objRE<em>m)) != null) &nbsp;{ <br />
-&nbsp;} <br />
-&nbsp;else if ((</em>match = <strong><font color="#ff0000">name.match</font></strong>(objRE_d)) != null)&nbsp; { <br />
-&nbsp;}</font>  </p>
+<p>三、应注意DOM引用的耗时 <br>
+－－－ <br>
+代码中，在循环内不断地访问DOM对象的成员，然而DOM对象的成员存取是耗时的。更细的说，每一个成员 <br>
+都会通过COM组件封装，因此效率是差的。所以下面的代码： <br>
+<font face="Courier New"> else if ((<em>match = <font color="#ff0000"></font></em>obj.name.match</font>(objRE<em>m)) != null)  { <br>
+ } <br>
+ else if ((</em>match = <font color="#ff0000"><em>obj.name.match</em></font>(objREd)) != null)  { <br>
+ } <br>
+应当被改作： <br>
+<font face="Courier New">var name = <em>obj.name; <br>
+ else if ((</em>match = <strong><font color="#ff0000">name.match</font></strong>(objRE<em>m)) != null)  { <br>
+ } <br>
+ else if ((</em>match = <strong><font color="#ff0000">name.match</font></strong>(objRE_d)) != null)  { <br>
+ }</font>  </p>
 
-<p>四、过于复杂的逻辑 <br />
-－－－ <br />
-代码过于依赖其它语言的编程经验，而忽略了JavaScript的自身特性。因此实现的逻辑中规中矩，但是难以 <br />
+<p>四、过于复杂的逻辑 <br>
+－－－ <br>
+代码过于依赖其它语言的编程经验，而忽略了JavaScript的自身特性。因此实现的逻辑中规中矩，但是难以 <br>
 扩展，而且复杂。例如循环中的大量if..else if ...连用。后文单独给出这部分的优化。  </p>
 
-<p>五、从StringBuilder()接口来看，优化程度不够 <br />
-－－－ <br />
-文章提到StringBuilder是一个字符串构建的高效对象。我留意到它的使用是： <br />
-<font face="Courier New">objectListEx.append(<em>id + &quot;:&quot; + _r + &quot;:&quot; + _a + &quot;:&quot; + _m + &quot;:&quot; + _d + &quot;;&quot;);</font> <br />
-那么可以说这个对象的优化是不够的。因为这里传入一个字符串参数，而传入参数又用字符串连接运算， <br />
-效率提升很有限。 <br />
-如果StringBuilder是用array.join来实现字符串拼接的话，那么更加良好的方式是允许在append中使用多 <br />
-个参数。例如： <br />
-<font face="Courier New">objectListEx.append = function() { <br />
-&nbsp; this.push.apply(this, arguments); <br />
-} <br />
-objectListEx.toString = function() { <br />
-&nbsp; return this.join(''); <br />
-}</font> <br />
-那么，上例的添加就可以写成： <br />
-<font face="Courier New">objectListEx.append(</em>id , &quot;:&quot; , _r , &quot;:&quot; , _a , &quot;:&quot; , _m , &quot;:&quot; , _d , &quot;;&quot;);</font> <br />
+<p>五、从StringBuilder()接口来看，优化程度不够 <br>
+－－－ <br>
+文章提到StringBuilder是一个字符串构建的高效对象。我留意到它的使用是： <br>
+<font face="Courier New">objectListEx.append(<em>id + ":" + _r + ":" + _a + ":" + _m + ":" + _d + ";");</em></font> <br>
+那么可以说这个对象的优化是不够的。因为这里传入一个字符串参数，而传入参数又用字符串连接运算， <br>
+效率提升很有限。 <br>
+如果StringBuilder是用array.join来实现字符串拼接的话，那么更加良好的方式是允许在append中使用多 <br>
+个参数。例如： <br>
+<font face="Courier New">objectListEx.append = function() { <br>
+  this.push.apply(this, arguments); <br>
+} <br>
+objectListEx.toString = function() { <br>
+  return this.join(''); <br>
+}</font> <br>
+那么，上例的添加就可以写成： <br>
+<font face="Courier New">objectListEx.append(id , ":" , _r , ":" , _a , ":" , _m , ":" , _d , ";");</font> <br>
 这就避免了多余的字符串连接运算。  </p>
 
-<p>六、新的优化后版本 <br />
-－－－ <br />
-<font face="Courier New">// optimized version <br />
-var functorListEx = new StringBuilder(); <br />
+<p>六、新的优化后版本 <br>
+－－－ <br>
+<font face="Courier New">// optimized version <br>
+var functorListEx = new StringBuilder(); <br>
 var objectListEx = new StringBuilder();</font>  </p>
 
-<p><font face="Courier New">var coll = document.getElementsByTagName(&quot;INPUT&quot;); <br />
-&nbsp; <br />
-// regular expression for matching <br />
-var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})'; <br />
-var fnRE =&nbsp;&nbsp;&nbsp;&nbsp; new RegExp('(functor<em>)'+ GUID, 'i'); <br />
-var objRE =&nbsp;&nbsp;&nbsp; new RegExp('(object</em>)' + GUID + '$', 'i'); <br />
-var objRE<em>r =&nbsp; new RegExp('(radio</em>)'&nbsp; + GUID + '<em>(r)', 'i'); <br />
-var objRE</em>a =&nbsp; new RegExp('(object<em>)' + GUID + '</em>(a)', 'i'); <br />
-var objRE<em>m =&nbsp; new RegExp('(radio</em>)'&nbsp; + GUID + '<em>(m)', 'i'); <br />
-var objRE</em>d =&nbsp; new RegExp('(radio<em>)'&nbsp; + GUID + '</em>(d)', 'i');</font>  </p>
+<p><font face="Courier New">var coll = document.getElementsByTagName("INPUT"); <br>
+  <br>
+// regular expression for matching <br>
+var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})'; <br>
+var fnRE =     new RegExp('(functor<em>)'+ GUID, 'i'); <br>
+var objRE =    new RegExp('(object</em>)' + GUID + '$', 'i'); <br>
+var objRE<em>r =  new RegExp('(radio</em>)'  + GUID + '<em>(r)', 'i'); <br>
+var objRE</em>a =  new RegExp('(object<em>)' + GUID + '</em>(a)', 'i'); <br>
+var objRE<em>m =  new RegExp('(radio</em>)'  + GUID + '<em>(m)', 'i'); <br>
+var objRE</em>d =  new RegExp('(radio<em>)'  + GUID + '</em>(d)', 'i');</font>  </p>
 
-<p><font face="Courier New">// helper data structures used by optimized algorithm <br />
-var aryObjList = new Array(); <br />
-var aryRList = new Array(); <br />
-var aryAList = new Array(); <br />
-var aryMList = new Array(); <br />
+<p><font face="Courier New">// helper data structures used by optimized algorithm <br>
+var aryObjList = new Array(); <br>
+var aryRList = new Array(); <br>
+var aryAList = new Array(); <br>
+var aryMList = new Array(); <br>
 var aryDList = new Array();</font>  </p>
 
-<p><font face="Courier New">var aryList = { <br />
-&nbsp; r: aryRList, <br />
-&nbsp; a: aryAList, <br />
-&nbsp; m: aryMList, <br />
-&nbsp; d: aryDList <br />
+<p><font face="Courier New">var aryList = { <br>
+  r: aryRList, <br>
+  a: aryAList, <br>
+  m: aryMList, <br>
+  d: aryDList <br>
 }</font>  </p>
 
-<p><font face="Courier New">// one pass scan to traverse the nodes collection (coll) to build functorListEx <br />
-// and intermediate arrays <br />
-for (var i=0,imax=coll.length; i&lt;imax; i++) { <br />
-&nbsp;var <em>obj = coll[i]; <br />
-&nbsp;if (!</em>obj.checked) continue; // &lt;-- 更快的检测 <br />
-&nbsp;if (_obj.type != &quot;checkbox&quot; &amp;&amp; _obj.type != &quot;radio&quot;) continue;</font>  </p>
+<p><font face="Courier New">// one pass scan to traverse the nodes collection (coll) to build functorListEx <br>
+// and intermediate arrays <br>
+for (var i=0,imax=coll.length; i&lt;imax; i++) { <br>
+ var <em>obj = coll[i]; <br>
+ if (!</em>obj.checked) continue; // &lt;-- 更快的检测 <br>
+ if (_obj.type != "checkbox" &amp;&amp; _obj.type != "radio") continue;</font>  </p>
 
-<p><font face="Courier New">&nbsp;var id = <em>obj.id, name = _obj.name; <br />
-<font color="#ff0000">&nbsp;var _match = id.match(fnRE) || name.match(objRE</em>r) || id.match(objRE<em>a) || <br />
-&nbsp;&nbsp; name.match(objRE</em>m) || name.match(objRE_d) || id.match(objRE);</font></font>  </p>
+<p><font face="Courier New"> var id = <em>obj.id, name = _obj.name; <br>
+<font color="#ff0000"> var _match = id.match(fnRE) || name.match(objRE</font></em>r) || id.match(objRE<em>a) || <br>
+   name.match(objRE</em>m) || name.match(objRE_d) || id.match(objRE);</font>  </p>
 
-<p><font face="Courier New">&nbsp;if (!_match) continue;</font>  </p>
+<p><font face="Courier New"> if (!_match) continue;</font>  </p>
 
-<p><font face="Courier New">&nbsp;var tag = <em>match[3], tag2 = tag+'</em>', guid = _match[2]; <br />
-&nbsp;switch (tag) { <br />
-&nbsp;&nbsp; 'a': aryList[tag][guid] = tag2; break;</font>  </p>
+<p><font face="Courier New"> var tag = <em>match[3], tag2 = tag+'</em>', guid = _match[2]; <br>
+ switch (tag) { <br>
+   'a': aryList[tag][guid] = tag2; break;</font>  </p>
 
-<p><font face="Courier New">&nbsp;&nbsp; 'r', 'm', 'd': <br />
-&nbsp;&nbsp;&nbsp;&nbsp; aryList[tag][guid] = tag2 + _obj.value; break;</font>  </p>
+<p><font face="Courier New">   'r', 'm', 'd': <br>
+     aryList[tag][guid] = tag2 + _obj.value; break;</font>  </p>
 
-<p><font face="Courier New">&nbsp;&nbsp; default : <br />
-&nbsp;&nbsp;&nbsp;&nbsp; if (<em>match[1]<mark>'functor</em>') { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; functorListEx.append(guid, &quot;;&quot;) <br />
-&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;&nbsp;&nbsp;&nbsp; else { // for <em>match[1]</mark>'object</em>' <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aryObjList.push(guid) <br />
-&nbsp;&nbsp;&nbsp;&nbsp; } <br />
-&nbsp;} <br />
+<p><font face="Courier New">   default : <br>
+     if (<em>match[1]<mark>'functor</mark></em>') { <br>
+       functorListEx.append(guid, ";") <br>
+     } <br>
+     else { // for <em>match[1]'object</em>' <br>
+       aryObjList.push(guid) <br>
+     } <br>
+ } <br>
 }</font>  </p>
 
-<p><font face="Courier New">// further process to build objectListEx from the intermediate arrays <br />
-for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
-&nbsp;var id = aryObjList[i]; <br />
-&nbsp;var r = aryRList[id] || &quot;&quot;; <br />
-&nbsp;var a = aryAList[id] || &quot;&quot;; <br />
-&nbsp;var m = aryMList[id] || &quot;&quot;; <br />
-&nbsp;var d = aryDList[id] || &quot;&quot;;</font>  </p>
+<p><font face="Courier New">// further process to build objectListEx from the intermediate arrays <br>
+for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
+ var id = aryObjList[i]; <br>
+ var r = aryRList[id] || ""; <br>
+ var a = aryAList[id] || ""; <br>
+ var m = aryMList[id] || ""; <br>
+ var d = aryDList[id] || "";</font>  </p>
 
-<p><font face="Courier New">&nbsp;objectListEx.append(id , &quot;:&quot; , r , &quot;:&quot; , a , &quot;:&quot; , m , &quot;:&quot; , d , &quot;;&quot;); <br />
+<p><font face="Courier New"> objectListEx.append(id , ":" , r , ":" , a , ":" , m , ":" , d , ";"); <br>
 }</font>  </p>
 
-<p>七、又一处小的优化 <br />
-－－－ <br />
-刚才想了想，其实上面代码中的switch还是啰嗦了。下面做一下下小的优化： <br />
-<font face="Courier New">&nbsp;switch (<em>match[1] + tag) { <br />
-&nbsp;&nbsp; 'functor</em>undefined': functorListEx.append(guid, &quot;;&quot;); break; <br />
-</font><font face="Courier New"> <br />
-&nbsp;&nbsp; 'object<em>undefined': aryObjList.push(guid); break; <br />
-</font><font face="Courier New"> <br />
-&nbsp;&nbsp; 'object</em>a': aryList[tag][guid] =&nbsp;&nbsp;tag2&nbsp;; break; <br />
-</font><font face="Courier New"> <br />
-&nbsp;&nbsp; default:&nbsp; // for r,m,d <br />
-&nbsp;&nbsp;&nbsp;&nbsp; aryList[tag][guid] =&nbsp;tag2&nbsp;+ _obj.value; <br />
-&nbsp;}</font>  </p>
+<p>七、又一处小的优化 <br>
+－－－ <br>
+刚才想了想，其实上面代码中的switch还是啰嗦了。下面做一下下小的优化： <br>
+<font face="Courier New"> switch (<em>match[1] + tag) { <br>
+   'functor</em>undefined': functorListEx.append(guid, ";"); break; <br>
+</font><font face="Courier New"> <br>
+   'object<em>undefined': aryObjList.push(guid); break; <br>
+</em></font><font face="Courier New"> <br>
+   'objecta': aryList[tag][guid] =  tag2 ; break; <br>
+</font><font face="Courier New"> <br>
+   default:  // for r,m,d <br>
+     aryList[tag][guid] = tag2 + _obj.value; <br>
+ }</font>  </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -318,7 +317,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-82.html">
                     一些JavaScript 1.6~1.8上的高级技巧～
                 </a>
@@ -329,7 +328,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -349,14 +348,14 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -372,7 +371,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -386,7 +385,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -415,4 +414,3 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br />
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

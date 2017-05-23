@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>像大师们一样思考——从“UML何时死掉”谈起</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="像大师们一样思考——从“UML何时死掉”谈起" />
-    <meta property="og:description" content="题记：     　　在与Ivar的访谈之后，我一直想把这一段过程写出来。我尝试拟过许多个题目，最后都写不成文章。几乎在我要放弃的时候，BLOG读者在评论中，对我所解释的“函数式语言”的置疑提醒了我：很多时候不是问题的答案令人置疑，而是问题的思想方法令人置疑。如同我问Ivar的问题，他的答案“令人怀疑的正确”，其实是思想方法的问题。不站在Ivar的历史，以及Ivar的成就的角度上去思考，你会认为Ivar是在应付我的责难。     　　事实上，那个访谈中，Ivar非常慎重地面对这个问题，并仔细地解释了他所提供的答案。可惜后来CSDN录制时，正好漏掉了这一段。非常遗憾，此回顾这些经历，既以钦佩，亦复深研。     像大师们一样思考     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——从“UML何时死掉”谈起     　　得了一个机会(1)，我问Ivar：“UML什么时候才会死掉呀”。我无意用这个     透着促狭味道的问题去为难大师，实在是因为这是我一直以来思考着的问题。向     UML之父去求解，自然是最好。     　　Ivar细毫没有认为我是在为难他，他诚恳的回答让我在那个会议中陷入了     深思。" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-121.html" />
-    <meta property="article:published_time" content="2008-10-08T18:11:00.000Z" />
-    <meta property="article:modified_time" content="2008-10-08T18:11:00.000Z" />
-    <meta property="article:tag" content="uml" />
-    <meta property="article:tag" content="lisp" />
-    <meta property="article:tag" content="数据结构" />
-    <meta property="article:tag" content="语言" />
-    <meta property="article:tag" content="算法" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="像大师们一样思考——从“UML何时死掉”谈起">
+    <meta property="og:description" content="题记：     　　在与Ivar的访谈之后，我一直想把这一段过程写出来。我尝试拟过许多个题目，最后都写不成文章。几乎在我要放弃的时候，BLOG读者在评论中，对我所解释的“函数式语言”的置疑提醒了我：很多时候不是问题的答案令人置疑，而是问题的思想方法令人置疑。如同我问Ivar的问题，他的答案“令人怀疑的正确”，其实是思想方法的问题。不站在Ivar的历史，以及Ivar的成就的角度上去思考，你会认为Ivar是在应付我的责难。     　　事实上，那个访谈中，Ivar非常慎重地面对这个问题，并仔细地解释了他所提供的答案。可惜后来CSDN录制时，正好漏掉了这一段。非常遗憾，此回顾这些经历，既以钦佩，亦复深研。     像大师们一样思考     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——从“UML何时死掉”谈起     　　得了一个机会(1)，我问Ivar：“UML什么时候才会死掉呀”。我无意用这个     透着促狭味道的问题去为难大师，实在是因为这是我一直以来思考着的问题。向     UML之父去求解，自然是最好。     　　Ivar细毫没有认为我是在为难他，他诚恳的回答让我在那个会议中陷入了     深思。">
+    <meta property="og:url" content="http://aimingoo.github.io/1-121.html">
+    <meta property="article:published_time" content="2008-10-08T18:11:00.000Z">
+    <meta property="article:modified_time" content="2008-10-08T18:11:00.000Z">
+    <meta property="article:tag" content="uml">
+    <meta property="article:tag" content="lisp">
+    <meta property="article:tag" content="数据结构">
+    <meta property="article:tag" content="语言">
+    <meta property="article:tag" content="算法">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="像大师们一样思考——从“UML何时死掉”谈起" />
-    <meta name="twitter:description" content="题记：     　　在与Ivar的访谈之后，我一直想把这一段过程写出来。我尝试拟过许多个题目，最后都写不成文章。几乎在我要放弃的时候，BLOG读者在评论中，对我所解释的“函数式语言”的置疑提醒了我：很多时候不是问题的答案令人置疑，而是问题的思想方法令人置疑。如同我问Ivar的问题，他的答案“令人怀疑的正确”，其实是思想方法的问题。不站在Ivar的历史，以及Ivar的成就的角度上去思考，你会认为Ivar是在应付我的责难。     　　事实上，那个访谈中，Ivar非常慎重地面对这个问题，并仔细地解释了他所提供的答案。可惜后来CSDN录制时，正好漏掉了这一段。非常遗憾，此回顾这些经历，既以钦佩，亦复深研。     像大师们一样思考     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——从“UML何时死掉”谈起     　　得了一个机会(1)，我问Ivar：“UML什么时候才会死掉呀”。我无意用这个     透着促狭味道的问题去为难大师，实在是因为这是我一直以来思考着的问题。向     UML之父去求解，自然是最好。     　　Ivar细毫没有认为我是在为难他，他诚恳的回答让我在那个会议中陷入了     深思。" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-121.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="uml, lisp, 数据结构, 语言, 算法" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="像大师们一样思考——从“UML何时死掉”谈起">
+    <meta name="twitter:description" content="题记：     　　在与Ivar的访谈之后，我一直想把这一段过程写出来。我尝试拟过许多个题目，最后都写不成文章。几乎在我要放弃的时候，BLOG读者在评论中，对我所解释的“函数式语言”的置疑提醒了我：很多时候不是问题的答案令人置疑，而是问题的思想方法令人置疑。如同我问Ivar的问题，他的答案“令人怀疑的正确”，其实是思想方法的问题。不站在Ivar的历史，以及Ivar的成就的角度上去思考，你会认为Ivar是在应付我的责难。     　　事实上，那个访谈中，Ivar非常慎重地面对这个问题，并仔细地解释了他所提供的答案。可惜后来CSDN录制时，正好漏掉了这一段。非常遗憾，此回顾这些经历，既以钦佩，亦复深研。     像大师们一样思考     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——从“UML何时死掉”谈起     　　得了一个机会(1)，我问Ivar：“UML什么时候才会死掉呀”。我无意用这个     透着促狭味道的问题去为难大师，实在是因为这是我一直以来思考着的问题。向     UML之父去求解，自然是最好。     　　Ivar细毫没有认为我是在为难他，他诚恳的回答让我在那个会议中陷入了     深思。">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-121.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="uml, lisp, 数据结构, 语言, 算法">
     
     <script type="application/ld+json">
 {
@@ -86,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-uml tag-lisp tag-shu-ju-jie-gou tag-yu-yan tag-suan-fa nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -115,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -131,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -140,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/uml/index.html">uml</a>, <a href="tag/lisp/index.html">lisp</a>, <a href="tag/shu-ju-jie-gou/index.html">数据结构</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/suan-fa/index.html">算法</a>
+                        <a href="tag/uml/">uml</a>, <a href="tag/lisp/">lisp</a>, <a href="tag/shu-ju-jie-gou/">数据结构</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/suan-fa/">算法</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -161,7 +160,7 @@ ghost.init({
 
 像大师们一样思考    
 
-&nbsp; &nbsp; &nbsp; &nbsp; ——从“UML何时死掉”谈起    
+        ——从“UML何时死掉”谈起    
 
 　　得了一个机会(1)，我问Ivar：“UML什么时候才会死掉呀”。我无意用这个    
 
@@ -217,7 +216,7 @@ UML之父去求解，自然是最好。
 
 　　Oh! Dijkstra愤怒的原因，在于原本看起来是如此“显然”、“理所当然”    
 
-的事情，却需要无比笨重的过程去证明它！如同我们明明知道“1&#43;1＝2”，但证    
+的事情，却需要无比笨重的过程去证明它！如同我们明明知道“1+1＝2”，但证    
 
 明这一点，既无趣又令人愤恨。    
 
@@ -229,7 +228,7 @@ UML之父去求解，自然是最好。
 
 的序中说“我们如今仍然在这个时代之中而不知觉于这本书的深远影响”，是意    
 
-有所指的。因为所谓的“面向对象程序设计”，其根基就是“结构化程序设计 &#43; 在    
+有所指的。因为所谓的“面向对象程序设计”，其根基就是“结构化程序设计 + 在    
 
 结构上更高层次的抽象”。而这“更高层次的抽象”，就是“对象”。    
 
@@ -287,7 +286,7 @@ Dijkstra的那篇札记，被收入《结构程序设计》一书，书里的另
 
 不是运算规则？那些珠子表达出来的“0~9”的排列，是不是输入输出的界面？    
 
-　　“我们&#43;算盘”就是一个完整的计算系统。这个计算系统的完整性，是图灵用    
+　　“我们+算盘”就是一个完整的计算系统。这个计算系统的完整性，是图灵用    
 
 了一个假想来说明的。图灵不过是用一个假想描述了一个事实，而这个事实，“看    
 
@@ -303,7 +302,7 @@ Dijkstra的那篇札记，被收入《结构程序设计》一书，书里的另
 
 　　对计算机根本问题的思考，许多会追溯到哲学思想的层面。IOPD和PDIO    
 
-的问题，“程序＝算法&#43;结构”的问题等等，就是这一类。还有一些会追溯到人类行    
+的问题，“程序＝算法+结构”的问题等等，就是这一类。还有一些会追溯到人类行    
 
 为学、语言学等层面，例如语言、语法、语义，以及有没有语用这样的问题。大    
 
@@ -315,7 +314,7 @@ Dijkstra的那篇札记，被收入《结构程序设计》一书，书里的另
 
 Dijkstra的引述，“引用未解释过的名词阐述公理或定理和作用于未解析过的    
 
-操作数的（命了名的）运算两者之间有着某种平行的相&#20284;性”。    
+操作数的（命了名的）运算两者之间有着某种平行的相似性”。    
 
 　　无论如何，我们“做一个计算机”，原始的目的不外两个。其一是“让它计算    
 
@@ -329,7 +328,7 @@ Dijkstra的引述，“引用未解释过的名词阐述公理或定理和作用
 
 算方式”。在这个“运算系统”中，“数学”并不是最初设定的。    
 
-　　命令式如何计算，函数式如何计算……类&#20284;于此的问题了解清楚了，我们对    
+　　命令式如何计算，函数式如何计算……类似于此的问题了解清楚了，我们对    
 
 这类语言也就了解了。再谈什么高阶函数（higher-order function）、克    
 
@@ -405,7 +404,7 @@ Generator Object原本就不是函数式语言的必备要素。
 
 (3)LISP的基础数据结构索引数组（表，LIST），LUA的基础数据结构是关    
 
-联数组（表，MAP）。&nbsp;</span>  
+联数组（表，MAP）。 </span>  
 
 <span style="font-size:13pt">    
 
@@ -415,7 +414,7 @@ Generator Object原本就不是函数式语言的必备要素。
 
 <p>（我与Ivar Jacobson先生，2008.07.21，CSDN软件工程研讨）  </p>
 
-<p><img src="http://album.hi.csdn.net/app_uploads/aimingoo/20081009/024102895.p.JPG" alt="" title="" />  </p>
+<p><img src="http://album.hi.csdn.net/app_uploads/aimingoo/20081009/024102895.p.JPG" alt="" title="">  </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -432,7 +431,7 @@ Generator Object原本就不是函数式语言的必备要素。
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-122.html">
                     Qomo之快速上手
                 </a>
@@ -443,7 +442,7 @@ Generator Object原本就不是函数式语言的必备要素。
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -463,14 +462,14 @@ Generator Object原本就不是函数式语言的必备要素。
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -486,7 +485,7 @@ Generator Object原本就不是函数式语言的必备要素。
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -500,7 +499,7 @@ Generator Object原本就不是函数式语言的必备要素。
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -529,4 +528,3 @@ Generator Object原本就不是函数式语言的必备要素。
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

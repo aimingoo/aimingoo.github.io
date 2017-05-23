@@ -1,42 +1,41 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>前端要给力之：URL应该有多长？</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="前端要给力之：URL应该有多长？" />
-    <meta property="og:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v&#x3D;083   https://static.alipay.net/build/js/home/home.js?t&#x3D;20101012   https://static.alipay.net/build/" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-162.html" />
-    <meta property="article:published_time" content="2010-12-17T05:06:00.000Z" />
-    <meta property="article:modified_time" content="2017-05-20T12:48:15.000Z" />
-    <meta property="article:tag" content="浏览器" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="前端要给力之：URL应该有多长？">
+    <meta property="og:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v=083   https://static.alipay.net/build/js/home/home.js?t=20101012   https://static.alipay.net/build/">
+    <meta property="og:url" content="http://aimingoo.github.io/1-162.html">
+    <meta property="article:published_time" content="2010-12-17T05:06:00.000Z">
+    <meta property="article:modified_time" content="2017-05-20T12:48:15.000Z">
+    <meta property="article:tag" content="浏览器">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="前端要给力之：URL应该有多长？" />
-    <meta name="twitter:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v&#x3D;083   https://static.alipay.net/build/js/home/home.js?t&#x3D;20101012   https://static.alipay.net/build/" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-162.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="浏览器" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="前端要给力之：URL应该有多长？">
+    <meta name="twitter:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v=083   https://static.alipay.net/build/js/home/home.js?t=20101012   https://static.alipay.net/build/">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-162.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="浏览器">
     
     <script type="application/ld+json">
 {
@@ -82,8 +81,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-liu-lan-qi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -111,7 +110,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +126,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +135,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/liu-lan-qi/index.html">浏览器</a>
+                        <a href="tag/liu-lan-qi/">浏览器</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,7 +144,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&ldquo;尽可能&rdquo;、&ldquo;尽量&rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？  </p>
+                <p>URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓“尽可能”、“尽量”只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？  </p>
 
 <p>就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的：</p>
 
@@ -158,20 +157,20 @@ https://static.alipay.net/min/?b=javascript&amp;amp;f=arale/lang/aspect.js,arale
 
 <p>注意最后一条。嗯，不要惊讶，的确是这样长的URL，确切的长度是443bytes。但这是长了呢？还是不算长呢？  </p>
 
-<p>要知道以IE为例，可以处理的URL长度为2048 bytes，也就是说，反正~~无论如何，IE是能处理的。其实，一般浏览器也没问题，所以，&ldquo;正确性&rdquo;是没问题。所以，接下来我们要说的是效率。  </p>
+<p>要知道以IE为例，可以处理的URL长度为2048 bytes，也就是说，反正~~无论如何，IE是能处理的。其实，一般浏览器也没问题，所以，“正确性”是没问题。所以，接下来我们要说的是效率。  </p>
 
 <h2 id="tcpip">一、TCP/IP协议中的包头问题</h2>
 
-<p>在TCP/IP网络中，底层协议是一回事，应用层协议又是一回事。所以作为应用层协议的HTTP，自身可以传输多大的内容，以及如何传输(例如HTTP包一般以48K为界限，超过48K时会出现应用层的分包，即所谓的multipart)这些都是由应用层来约定的。而在底层协议中，链路层与传输层对&ldquo;传多大的包&rdquo;有各自的约定。简单的说，传输层约定了IP数据包的MSS(最大分段尺寸)，链路层约定了MTU(最大传输单元)。如果一个IP数据包的大小超过MTU(即MSS+TCP报头+IP报头&gt;MTU)，则在链路层会将IP数据包拆成多个信息包传输。  </p>
+<p>在TCP/IP网络中，底层协议是一回事，应用层协议又是一回事。所以作为应用层协议的HTTP，自身可以传输多大的内容，以及如何传输(例如HTTP包一般以48K为界限，超过48K时会出现应用层的分包，即所谓的multipart)这些都是由应用层来约定的。而在底层协议中，链路层与传输层对“传多大的包”有各自的约定。简单的说，传输层约定了IP数据包的MSS(最大分段尺寸)，链路层约定了MTU(最大传输单元)。如果一个IP数据包的大小超过MTU(即MSS+TCP报头+IP报头&gt;MTU)，则在链路层会将IP数据包拆成多个信息包传输。  </p>
 
-<p>MSS与不同的传输环境相关，有两个推荐值。一般来说， <br />
-&nbsp;- 目标地址非本地地址(与源地址在不同一个网段)时，MSS默认值通常是536；否则， <br />
-&nbsp;- MSS默认值通常为1460。 <br />
-MTU与网络环境相关，也有两个推荐值。一般来说， <br />
-&nbsp;- 串口为576字节； <br />
-&nbsp;- 以太网为1500字节。  </p>
+<p>MSS与不同的传输环境相关，有两个推荐值。一般来说， <br>
+ - 目标地址非本地地址(与源地址在不同一个网段)时，MSS默认值通常是536；否则， <br>
+ - MSS默认值通常为1460。 <br>
+MTU与网络环境相关，也有两个推荐值。一般来说， <br>
+ - 串口为576字节； <br>
+ - 以太网为1500字节。  </p>
 
-<p>MTU/MSS的两种推荐值中都有40个字节的差异，即是(TCP报头+IP报头)的一般值，该值以120 bytes为上限(20+20字节的IP/TCP头部；40+40字节IP/TCP可选头部)。所以在复杂的网络环境中，应用层的网络协议可用的单个数据包的大小,最佳值应小于536-80=456字节，尽量限制在1460-80 = 1380字节以内。这样的限制，是综合考虑传输层与链路层协议的结果。不过一些常见的建议中，也会用536/1460这两个值，与这里的讨论没有太本质的差异。我只是强调，如果我们要一个&ldquo;足够优化的请求&rdquo;，那么极限值应该是多少？  </p>
+<p>MTU/MSS的两种推荐值中都有40个字节的差异，即是(TCP报头+IP报头)的一般值，该值以120 bytes为上限(20+20字节的IP/TCP头部；40+40字节IP/TCP可选头部)。所以在复杂的网络环境中，应用层的网络协议可用的单个数据包的大小,最佳值应小于536-80=456字节，尽量限制在1460-80 = 1380字节以内。这样的限制，是综合考虑传输层与链路层协议的结果。不过一些常见的建议中，也会用536/1460这两个值，与这里的讨论没有太本质的差异。我只是强调，如果我们要一个“足够优化的请求”，那么极限值应该是多少？  </p>
 
 <h2 id="http">二、HTTP协议中的包头问题</h2>
 
@@ -188,7 +187,7 @@ Connection:Keep-Alive
 Cookie: (...)  
 </code></pre>
 
-<p>这里的GET (...)可以跟着一个完整的GET请求的URL，而GET请求的参数也都放在这个URL上，因此可以不需要有单独的数据区。在上述的这个HTTP请求中，某些特定的客户端可能会多几个或少几个http head field，但通常字段都会比较短。我们仅以这个例子来说明，那么这个&ldquo;缺省的(不完整的)HTTP头&rdquo;用掉了多少字节呢？  </p>
+<p>这里的GET (...)可以跟着一个完整的GET请求的URL，而GET请求的参数也都放在这个URL上，因此可以不需要有单独的数据区。在上述的这个HTTP请求中，某些特定的客户端可能会多几个或少几个http head field，但通常字段都会比较短。我们仅以这个例子来说明，那么这个“缺省的(不完整的)HTTP头”用掉了多少字节呢？  </p>
 
 <p>答案是184字节。不过还需要强调，Referer与当前正在浏览的网址直接相关，例如当前正在浏览的页面是500字节长的URL，那么当前网页上的超链接点击时Referer字段都会填上这个500字节的URL，网页中过长的URL会使得点击超链接时消耗更多的传输，这里也是一例了。  </p>
 
@@ -203,7 +202,7 @@ Cookie: (...)
 <li><strong>使用536字节的边界值，即不考虑80字节的tcp/ip可选头部。</strong>  </li>
 </ul>
 
-<p>此外，需要强调的是User-Agent长度的可变性，例如上面的&ldquo;EmbeddedWB&hellip;&hellip;&rdquo;等64字节在一般的电脑中可能就没有，这是一个第三方组件。同样的，也可能因为其它的浏览器环境(例如傲游)导致这个字段更长。基于这个事实，我仍以本例中的这一特殊情况来做分析。  </p>
+<p>此外，需要强调的是User-Agent长度的可变性，例如上面的“EmbeddedWB……”等64字节在一般的电脑中可能就没有，这是一个第三方组件。同样的，也可能因为其它的浏览器环境(例如傲游)导致这个字段更长。基于这个事实，我仍以本例中的这一特殊情况来做分析。  </p>
 
 <p>以536字节为例，我们事实上还有78字节可用，因此在这里我们将<strong>优化的第一等级设为：70字节。</strong>建议公司可以根据服务器端收集的数据取一个平衡值。  </p>
 
@@ -211,22 +210,22 @@ Cookie: (...)
 
 <p>现在，Cookie是消耗最大的地方，以我当前的机器为例，该值有几种情况(对于不同的协议与域，是不一样的)：  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(1) 对于首页</strong></span><a href="http://www.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="http://www.alipay.net/">http://www.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有49字节：</strong> <br />
+<p><span style="font-family: courier new,courier;"><strong>(1) 对于首页</strong></span><a href="http://www.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="http://www.alipay.net/">http://www.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有49字节：</strong> <br>
 ali<em>apache</em>id=12.1.11.70.1275978936200.5; lastpg=</span>  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(2) 对于</strong></span><a href="http://*.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="http://*.alipay.net/">http://*.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有171字节：</strong> <br />
+<p><span style="font-family: courier new,courier;"><strong>(2) 对于</strong></span><a href="http://*.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="http://*.alipay.net/">http://*.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有171字节：</strong> <br>
 ali<em>apache</em>id=12.1.11.70.1275978936200.5; ali<em>apache</em>sid=12.1.46.46.128998714836.4|1289988948; ALIPAYJSESSIONID=bYWcn4Wq0Z5FBCoHzfpn2f1XxDAmBepay; ali<em>apache</em>tracktmp=uid=</span>  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(3) 对于</strong></span><a href="https://static.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="https://static.alipay.net/">https://static.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有307字节：</strong> <br />
+<p><span style="font-family: courier new,courier;"><strong>(3) 对于</strong></span><a href="https://static.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="https://static.alipay.net/">https://static.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有307字节：</strong> <br>
 cna=AKaaAhYBhU0BAeMdAHlnHNcd; ali<em>apache</em>id=169.17.198.19.1272623861747.7; payMethod=directPay; <em>tb</em>order=38016166656317; defaultBank=ICBC; <em>_utma=22931947.260433774.1277279158.1277279158.1282287558.2; _</em>utmz=22931947.1282287558.2.2.utmcsr=life.alipay.net|utmccn=(referral)|utmcmd=referral|utmcct=/index.php</span>  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(4) 对于http(s)://img.alipay.net/，值有379字节：</strong> <br />
+<p><span style="font-family: courier new,courier;"><strong>(4) 对于http(s)://img.alipay.net/，值有379字节：</strong> <br>
 apay<em>id=159588238.127262386236866.128979461890689.1289969142342368.137; cna=AKaaAhYBhU0BAeMdAHlnHNcd; ali</em>apache<em>id=169.17.198.19.1272623861747.7; payMethod=directPay; _tb</em>order=38016166656317; defaultBank=ICBC; <em>_utma=22931947.260433774.1277279158.1277279158.1282287558.2; _</em>utmz=22931947.1282287558.2.2.utmcsr=life.alipay.net|utmccn=(referral)|utmcmd=referral|utmcct=/index.php</span>  </p>
 
 <p><span style="font-family: courier new,courier;"><strong>(5) 其它情况。</strong></span>  </p>
 
-<p>为什么在2、3、4情况下出现了cookie使用的暴增呢？事实上，3、4两种情况虽然略有差异，但产生问题的根源与情况2是完全一致的。所以后文仅以情况2为例。跟踪其http request过程可知： <br />
-&nbsp;- 请求首页时，服务器端返回了四个set-cookie应答。  </p>
+<p>为什么在2、3、4情况下出现了cookie使用的暴增呢？事实上，3、4两种情况虽然略有差异，但产生问题的根源与情况2是完全一致的。所以后文仅以情况2为例。跟踪其http request过程可知： <br>
+ - 请求首页时，服务器端返回了四个set-cookie应答。  </p>
 
 <p>这四个应答(http response head)如下：</p>
 
@@ -236,14 +235,14 @@ Set-Cookie:ALIPAYJSESSIONID=bYWcn4Wq0Z5FBCoHzfpn2f1XxDAmBepay; Domain=.alipay.ne
 Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/  
 </code></pre>
 
-<p>所以在此后的所有http请求中，都将使用如前例(3)中的171字节的cookie。但是，显然的，至少有以下几种情况这些cookie是无意义的： <br />
-&nbsp;- 如果访问的是重定向页面，包括返回Status Code：302的重定向，以及html页面中使用http-meta的重定向； <br />
-&nbsp;- 如果访问的页面是被缓存的，例如返回Status Code：304的&ldquo;Not Modified&rdquo;； <br />
-&nbsp;- 如果访问的页面是静态的、无需识别cookie的，例如static.alipay.net中的.img、.js和.css文件等。  </p>
+<p>所以在此后的所有http请求中，都将使用如前例(3)中的171字节的cookie。但是，显然的，至少有以下几种情况这些cookie是无意义的： <br>
+ - 如果访问的是重定向页面，包括返回Status Code：302的重定向，以及html页面中使用http-meta的重定向； <br>
+ - 如果访问的页面是被缓存的，例如返回Status Code：304的“Not Modified”； <br>
+ - 如果访问的页面是静态的、无需识别cookie的，例如static.alipay.net中的.img、.js和.css文件等。  </p>
 
 <p>显然，我们在img、static中的图片或其它静态资源是可以被缓存的，而且无论是缓存还是第一次存取，cookie值都完全没有意义。对于静态页面(.html)来说，如果我们不是要通过http server来统计分析静态页面的访问情况，那么这些cookie也是不需要的。所以，对于这些资源、内容，我们应该强调的使这些cookie不被发送，或尽量少的使用(对于部分的.html静态页，我们可能仅仅需要用于分析用户访问链的session id)。  </p>
 
-<p>优化cookie的方式很简单：将这些静态资源部署在不以.alipay.net为domain的服务器/组里，或使用其它的独立域名。这种情况下，对于特定的&mdash;&mdash;当然也是最大量的一部分&mdash;&mdash;资源，COOKIE耗用可以降到0。  </p>
+<p>优化cookie的方式很简单：将这些静态资源部署在不以.alipay.net为domain的服务器/组里，或使用其它的独立域名。这种情况下，对于特定的——当然也是最大量的一部分——资源，COOKIE耗用可以降到0。  </p>
 
 <h2 id="url">四、缩短url</h2>
 
@@ -264,7 +263,7 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
 
 <p>字段f后面的，其实是arale这个脚本项目中的一些静态资源的拼接。在服务器端，min这个程序根据参数"b=javascript&amp;f=..."将一些脚本碎片拼接成一个单独.js文件并返回到浏览器，如果没有变化，则直接返回Status Code：304。  </p>
 
-<p>那么，事实上我们每次请求的&ldquo;f=...&rdquo;字段后面的参数块将会是完全一样的。或者，即使在不同的情况下要求拼接的文件列表不一样，也仅有相当有限的组合。这使我们自然的想到一个东西：求和。用这种方式对上述的字符串求一个key(例如hash、md5、crc)，然后我们就可以用这个唯一key来查找拼接后的.js内容&mdash;&mdash;这也意味着min程序不需要每次都拼接文本。这样一来，上面的URL可以变成(以对f字段后的396字节求crc32为例)：    </p>
+<p>那么，事实上我们每次请求的“f=...”字段后面的参数块将会是完全一样的。或者，即使在不同的情况下要求拼接的文件列表不一样，也仅有相当有限的组合。这使我们自然的想到一个东西：求和。用这种方式对上述的字符串求一个key(例如hash、md5、crc)，然后我们就可以用这个唯一key来查找拼接后的.js内容——这也意味着min程序不需要每次都拼接文本。这样一来，上面的URL可以变成(以对f字段后的396字节求crc32为例)：    </p>
 
 <blockquote>
   <p><code>/min?b=javascript&amp;f=313466DB</code></p>
@@ -284,12 +283,12 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
 
 <p>1、twritter中早就使用这样的技术了。  </p>
 
-<p>2、与arale项目类似的，YQL(Yahoo! Query Language)项目也有类似的需求，因此他们将&ldquo;在URL上传入一个sql&rdquo;通过上述技术变成了一个短名，例如： <br />
-<a href="http://y.ahoo.it/iHQ8c0sv">http://y.ahoo.it/iHQ8c0sv</a> <br />
-相当于 <br />
+<p>2、与arale项目类似的，YQL(Yahoo! Query Language)项目也有类似的需求，因此他们将“在URL上传入一个sql”通过上述技术变成了一个短名，例如： <br>
+<a href="http://y.ahoo.it/iHQ8c0sv">http://y.ahoo.it/iHQ8c0sv</a> <br>
+相当于 <br>
 <a href="http://developer.yahoo.com/yql/console/?q=select%20woeid%20from%20geo.places%20where%20text%3D%22san%20francisco%2C%20ca%22">http://developer.yahoo.com/yql/console/?q=select%20woeid%20from%20geo.places%20where%20text%3D%22san%20francisco%2C%20ca%22</a>  </p>
 
-<p>3、微软还&ldquo;傻傻说不清楚&rdquo;，所以你看他们的官网很慢。^^.  </p>
+<p>3、微软还“傻傻说不清楚”，所以你看他们的官网很慢。^^.  </p>
 
 <p>4、当我们有条件将http头部减小到456字节以下时，应尽力为之。例如旺旺因为有独立客户端，所以可以定制http request head，以缩减User-Agent等字段。  </p>
 
@@ -312,7 +311,7 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-163.html">
                     前端要给力之：原子，与原子联结的友类、友函数
                 </a>
@@ -323,7 +322,7 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -343,14 +342,14 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -366,7 +365,7 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -380,7 +379,7 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -409,4 +408,3 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>

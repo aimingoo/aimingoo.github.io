@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma框架库(二)：时间线与时间处理器</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=43146b773f">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=43146b773f">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=43146b773f">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Qomolangma框架库(二)：时间线与时间处理器" />
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
-    <meta property="og:url" content="http://aimingoo.github.io/1-51.html" />
-    <meta property="article:published_time" content="2006-10-22T04:49:00.000Z" />
-    <meta property="article:modified_time" content="2006-10-22T04:49:00.000Z" />
-    <meta property="article:tag" content="文档" />
-    <meta property="article:tag" content="框架" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomolangma框架库(二)：时间线与时间处理器">
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
+    <meta property="og:url" content="http://aimingoo.github.io/1-51.html">
+    <meta property="article:published_time" content="2006-10-22T04:49:00.000Z">
+    <meta property="article:modified_time" content="2006-10-22T04:49:00.000Z">
+    <meta property="article:tag" content="文档">
+    <meta property="article:tag" content="框架">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Qomolangma框架库(二)：时间线与时间处理器" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-51.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="文档, 框架" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomolangma框架库(二)：时间线与时间处理器">
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-51.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="文档, 框架">
     
     <script type="application/ld+json">
 {
@@ -83,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-wen-dang tag-kuang-jia nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/wen-dang/index.html">文档</a>, <a href="tag/kuang-jia/index.html">框架</a>
+                        <a href="tag/wen-dang/">文档</a>, <a href="tag/kuang-jia/">框架</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,539 +145,539 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <hr>
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：../../Qomo_team.txt <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+项目团队：../../Qomo_team.txt <br>
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr />
+<hr>
 
-<p>一、框架库：时间线与时间处理器 <br />
-~~~~~~~~~~~~~~~~<del> <br />
-几乎所有的动画特效都与时间线有关系。在一般的应用软件里，会提供一个固定间隔的时间 <br />
-线，设计人员则在时间线上描述指定的时间里会发生的事件。这些事件被连续起来，就成为 <br />
-了动画；而一组时间线合并起来，就成了动画场景。  </p>
+<p>一、框架库：时间线与时间处理器 <br>
+~~~~~~~~~~~~~~~~<del> <br>
+几乎所有的动画特效都与时间线有关系。在一般的应用软件里，会提供一个固定间隔的时间 <br>
+线，设计人员则在时间线上描述指定的时间里会发生的事件。这些事件被连续起来，就成为 <br>
+了动画；而一组时间线合并起来，就成了动画场景。  </del></p>
 
-<p>Qomo里实现时间线的初衷，只是为了在绘制界面组件的效果时，提供一些用时间控制的效果。 <br />
-例如窗体关闭/隐藏时的卷入效果(以及在打开时的展开)；又例如一个Outlook风格的纵向Bar <br />
+<p>Qomo里实现时间线的初衷，只是为了在绘制界面组件的效果时，提供一些用时间控制的效果。 <br>
+例如窗体关闭/隐藏时的卷入效果(以及在打开时的展开)；又例如一个Outlook风格的纵向Bar <br>
 在点击一个按钮时的展开。  </p>
 
-<p>在Windows32和vista风格的界面设计中，这些组件都具有一些特殊的动画效果。例如窗体弹 <br />
+<p>在Windows32和vista风格的界面设计中，这些组件都具有一些特殊的动画效果。例如窗体弹 <br>
 出或控件的淡入淡出。这些动态效果其实都是在时间线的基础上来实现的。  </p>
 
-<p>但这些仍然只是单一组件，或一类组件的单一特效。这种情况下，只能算是&ldquo;动态效果&rdquo;。 <br />
-复杂的设计是&ldquo;一组时间线+一组元素&rdquo;，这种情况通常表现为动画场景。  </p>
+<p>但这些仍然只是单一组件，或一类组件的单一特效。这种情况下，只能算是“动态效果”。 <br>
+复杂的设计是“一组时间线+一组元素”，这种情况通常表现为动画场景。  </p>
 
-<p>动画场景有些时候并不用&ldquo;时间线&rdquo;来控制，而是有&ldquo;帧&rdquo;来控制。多画面的帧切换也就构 <br />
-成了动画。所以，在每一个帧事件中的处理，通常就是&ldquo;效果渲染&rdquo;。当然，实际来做的时 <br />
-候会更加复杂，涉及到非常多的演染技术。但如今动画制作领域的关键技术，就是这里提到 <br />
+<p>动画场景有些时候并不用“时间线”来控制，而是有“帧”来控制。多画面的帧切换也就构 <br>
+成了动画。所以，在每一个帧事件中的处理，通常就是“效果渲染”。当然，实际来做的时 <br>
+候会更加复杂，涉及到非常多的演染技术。但如今动画制作领域的关键技术，就是这里提到 <br>
 的时间线与帧。  </p>
 
-<p>Qomo框架库同时实现时间线与帧，但对二者不提供有偏好的推荐。Qomo中，二者的区别表现 <br />
-在：时间线并不精确，而且并不按标准时间间隔提供；帧是纯序列化的演染空间和数据供应， <br />
+<p>Qomo框架库同时实现时间线与帧，但对二者不提供有偏好的推荐。Qomo中，二者的区别表现 <br>
+在：时间线并不精确，而且并不按标准时间间隔提供；帧是纯序列化的演染空间和数据供应， <br>
 但与时间并不精确的重叠。  </p>
 
-<p>这一切根源在于IE等浏览器中并没有足够精度的时钟或日期对象。所以如果你真的打算用JS <br />
-或Qomo来做过于复杂的、涉及时间线或帧序列的动画场景，那可能效果并不会如你想象的平 <br />
+<p>这一切根源在于IE等浏览器中并没有足够精度的时钟或日期对象。所以如果你真的打算用JS <br>
+或Qomo来做过于复杂的、涉及时间线或帧序列的动画场景，那可能效果并不会如你想象的平 <br>
 滑。  </p>
 
-<p><font color="#ff0000"><strong>随本次文档发布的是Qomo Beta 2 update 2, 文档下载在：</strong> <br />
-</font><a href="http://www.01cn.net/users/aimingoo/files/Qomo.V1(b2.upd2).zip">http://www.01cn.net/users/aimingoo/files/Qomo.V1(b2.upd2).zip</a> <br />
-<font color="#ff0000"><strong>将文档解压后，覆盖到Qomo Beta 2的目录中即可。Qomo Beta 2下载：</strong></font> <br />
+<p><font color="#ff0000"><strong>随本次文档发布的是Qomo Beta 2 update 2, 文档下载在：</strong> <br>
+</font><a href="http://www.01cn.net/users/aimingoo/files/Qomo.V1(b2.upd2).zip">http://www.01cn.net/users/aimingoo/files/Qomo.V1(b2.upd2).zip</a> <br>
+<font color="#ff0000"><strong>将文档解压后，覆盖到Qomo Beta 2的目录中即可。Qomo Beta 2下载：</strong></font> <br>
 <a href="http://www.01cn.net/users/aimingoo/files/Qomo.V1(b2).zip">http://www.01cn.net/users/aimingoo/files/Qomo.V1(b2).zip</a>  </p>
 
-<p>二、时间处理体系的设计 <br />
-</del>~~~~~~~~~~~~~~<del> <br />
-Qomo把一个动画效果理解为&ldquo;时间变化&rdquo;和&ldquo;数据变化&rdquo;两个部分。Qomo认为，无论时间变 <br />
-化还是数据变化，都可以导致动画效果的产生。  </p>
+<p>二、时间处理体系的设计 <br>
+~~~~~~~~~~~~~~<del> <br>
+Qomo把一个动画效果理解为“时间变化”和“数据变化”两个部分。Qomo认为，无论时间变 <br>
+化还是数据变化，都可以导致动画效果的产生。  </del></p>
 
-<p>例如在窗口弹出效果中，一方面可以是&ldquo;每单位时间窗口变大的比例(data)成曲线&rdquo;，另一 <br />
-方面也可以是&ldquo;窗口每变大单位比例所用的时间(time)成曲线&rdquo;，两者之任一，都可以产生 <br />
-动态效果，但代码却不一样： <br />
-<font face="Courier New">  </p>
+<p>例如在窗口弹出效果中，一方面可以是“每单位时间窗口变大的比例(data)成曲线”，另一 <br>
+方面也可以是“窗口每变大单位比例所用的时间(time)成曲线”，两者之任一，都可以产生 <br>
+动态效果，但代码却不一样： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>function resize_win(v) { <br />
-&nbsp; win.width = win.width * v; <br />
-&nbsp; win.height = win.height * v; <br />
-}</font>  </p>
+<p>function resize_win(v) { <br>
+  win.width = win.width * v; <br>
+  win.height = win.height * v; <br>
+}  </p>
 
-<p><font face="Courier New">// 第一种 <br />
-var data = 1; <br />
-setInterval(&quot;resize_win(data=data*1.2))&quot;, 10);</font>  </p>
+<p><font face="Courier New">// 第一种 <br>
+var data = 1; <br>
+setInterval("resize_win(data=data*1.2))", 10);</font>  </p>
 
-<p><font face="Courier New">// 第二种 <br />
-var time = 1000; <br />
-setTimeout(function() { <br />
-&nbsp; resize_win(1.2); <br />
-&nbsp; setTimeout(arguments.callee, time=time<em>0.8); <br />
-}, time=time</em>0.8); <br />
+<p><font face="Courier New">// 第二种 <br>
+var time = 1000; <br>
+setTimeout(function() { <br>
+  resize_win(1.2); <br>
+  setTimeout(arguments.callee, time=time<em>0.8); <br>
+}, time=time</em>0.8); <br>
 ------------------</font>  </p>
 
-<p>Qomo也认可时间与数据同时发生的变化，也就是&ldquo;非固定间隔的时间线&rdquo;下的数据变化。尽 <br />
+<p>Qomo也认可时间与数据同时发生的变化，也就是“非固定间隔的时间线”下的数据变化。尽 <br>
 管在实用中这种变化很难处理，但可以产生独特的效果。  </p>
 
-<p>Qomo把具备理解这种逻辑的能力对象称为&ldquo;时间处理器(TimeMachine)&rdquo;。这个类接口描述为： <br />
-<font face="Courier New">  </p>
+<p>Qomo把具备理解这种逻辑的能力对象称为“时间处理器(TimeMachine)”。这个类接口描述为： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>ITimeMachine = function() { <br />
-&nbsp; this.start = Abstract;&nbsp;&nbsp;&nbsp; // function(time, data) {} <br />
-&nbsp; this.OnTimer = Abstract;&nbsp; // function(step, data) {} <br />
-&nbsp; this.stop = Abstract; <br />
-} <br />
-------------------</font>  </p>
+<p>ITimeMachine = function() { <br>
+  this.start = Abstract;    // function(time, data) {} <br>
+  this.OnTimer = Abstract;  // function(step, data) {} <br>
+  this.stop = Abstract; <br>
+} <br>
+------------------  </p>
 
-<p>其中，ITimeMachine.start()方法的入口有time与data。它们不是单纯的值，而一个TSteper <br />
+<p>其中，ITimeMachine.start()方法的入口有time与data。它们不是单纯的值，而一个TSteper <br>
 类型的对象。这种对象用于产生每个单位间隔可释出的值(新的数据，或者新的时间间隔)。  </p>
 
-<p>三者的关系主要建立在OnTimer事件的step参数上。因为TSteper类的事件OnStep的类型声明为 <br />
-<font face="Courier New">  </p>
+<p>三者的关系主要建立在OnTimer事件的step参数上。因为TSteper类的事件OnStep的类型声明为 <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>TOnStep = function(nStep, nLast) {} <br />
-------------------</font> <br />
+<p>TOnStep = function(nStep, nLast) {} <br>
+------------------ <br>
 其中nStep表明第几步，nLast表明上一步产生的数据，作为此次产生数据使用的参考。  </p>
 
-<p>因此，整个Qomo的时间处理体系表达的逻辑就是： <br />
-<font face="Courier New">&nbsp;- TimeMachine.OnTime，time.OnStep和data.OnStep在相同的step值时产生一组数据; <br />
-&nbsp;- 在相同的step下，OnTime针对于data.OnStep产生的数据data所进行的处理； <br />
-&nbsp;- TimeMachine通过time.OnStep来得到下一次发生处理的延时。</font>  </p>
+<p>因此，整个Qomo的时间处理体系表达的逻辑就是： <br>
+<font face="Courier New"> - TimeMachine.OnTime，time.OnStep和data.OnStep在相同的step值时产生一组数据; <br>
+ - 在相同的step下，OnTime针对于data.OnStep产生的数据data所进行的处理； <br>
+ - TimeMachine通过time.OnStep来得到下一次发生处理的延时。</font>  </p>
 
-<p>&nbsp;所以，Qomo在时间处理体系上的类继承图设计如下：    </p>
+<p> 所以，Qomo在时间处理体系上的类继承图设计如下：    </p>
 
-<hr />
+<hr>
 
-<p><img src="content/images/bkImages/other_site/p_blog_timer_architectur-9.jpg" alt="" title="" /> <br />
+<p><img src="content/images/bkImages/other_site/p_blog_timer_architectur-9.jpg" alt="" title=""> <br>
 (images/timer_architectur.jpg)    </p>
 
-<hr />
+<hr>
 
-<p>其中TTimer是对window.setInterval和window.setTimeout的一个封装；TTimeline派生自 <br />
-TTimeMachine，用于简化&ldquo;固定间隔的时间线&rdquo;的处理。TYuiSteper继承自TSteper，它的 <br />
-部分代码来自于Yahoo UI开源项目。其中有一个名为TStepTrigger类，它的作用是在每次 <br />
+<p>其中TTimer是对window.setInterval和window.setTimeout的一个封装；TTimeline派生自 <br>
+TTimeMachine，用于简化“固定间隔的时间线”的处理。TYuiSteper继承自TSteper，它的 <br>
+部分代码来自于Yahoo UI开源项目。其中有一个名为TStepTrigger类，它的作用是在每次 <br>
 step时计算数据/时间值的增量，是一个工具类，也来自于对Yahoo UI中相同功能的封装。  </p>
 
-<p>三、测试代码及分析(1) <br />
-</del>~~~~~~~~~~~~~~~~ <br />
-Qomo最初打算按Yahoo UI中的动画效果演示来做一个DEMO，因此这个DEMO最初的效果，只 <br />
+<p>三、测试代码及分析(1) <br>
+~~~~~~~~~~~~~~~~ <br>
+Qomo最初打算按Yahoo UI中的动画效果演示来做一个DEMO，因此这个DEMO最初的效果，只 <br>
 是在屏幕上的一个点，从位置A飞行到位置B。  </p>
 
-<p>飞行过程有一点要求： <br />
-&nbsp; - 飞行中速度是可控的，便如渐快/渐慢，或快-慢-快这样的变化；  </p>
+<p>飞行过程有一点要求： <br>
+  - 飞行中速度是可控的，便如渐快/渐慢，或快-慢-快这样的变化；  </p>
 
-<p>我们说过，速度可以表现为单位时间内的数据(飞行长度)变化，也可以表现为单位数据所 <br />
-耗的时间不同。在示例中，我们使用前者，也就是&ldquo;单位时间&rdquo;。那么显然，我们可以使 <br />
+<p>我们说过，速度可以表现为单位时间内的数据(飞行长度)变化，也可以表现为单位数据所 <br>
+耗的时间不同。在示例中，我们使用前者，也就是“单位时间”。那么显然，我们可以使 <br>
 用一个TTimeline组件来控制整个过程。  </p>
 
-<p>所以基本的代码框架就是： <br />
-<font face="Courier New">  </p>
+<p>所以基本的代码框架就是： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&lt;body&gt; <br />
-&lt;div id=dot style=&quot;font-size:0; width:10px; height:10px; background:red; position:absolute&quot;&gt;&lt;/div&gt; <br />
-&lt;/body&gt;</font>  </p>
+<p>&lt;body&gt; <br>
+&lt;div id=dot style="font-size:0; width:10px; height:10px; background:red; position:absolute"&gt;&lt;/div&gt; <br>
+&lt;/body&gt;  </p>
 
-<p><font face="Courier New">&lt;script&gt; <br />
-// 0. 初始数据 <br />
-var el = document.getElementById('dot'); <br />
+<p><font face="Courier New">&lt;script&gt; <br>
+// 0. 初始数据 <br>
+var el = document.getElementById('dot'); <br>
 var x0 = el.offsetLeft, x1 = 400;</font>  </p>
 
-<p><font face="Courier New">// 1. 构造一个时钟及其处理程序 <br />
-var doFly = function(step, data) { <br />
-&nbsp; var sty = this.get('TimerData').style; <br />
-&nbsp; sty.left = data; <br />
-} <br />
-var T2 = TTimeline.Create(doFly); <br />
+<p><font face="Courier New">// 1. 构造一个时钟及其处理程序 <br>
+var doFly = function(step, data) { <br>
+  var sty = this.get('TimerData').style; <br>
+  sty.left = data; <br>
+} <br>
+var T2 = TTimeline.Create(doFly); <br>
 T2.set('TimerData', el);</font>  </p>
 
-<p><font face="Courier New">// 2. 构建一个数据发生器, 用于向时钟提供数据 <br />
-provide = TYuiSteper.Create(); <br />
-provide.set('From', x0); <br />
-provide.set('To', x1); <br />
-// 缺省值 <br />
-// provide.set('Frames', 100); <br />
+<p><font face="Courier New">// 2. 构建一个数据发生器, 用于向时钟提供数据 <br>
+provide = TYuiSteper.Create(); <br>
+provide.set('From', x0); <br>
+provide.set('To', x1); <br>
+// 缺省值 <br>
+// provide.set('Frames', 100); <br>
 // provide.set('Easing', 'easeOut');</font>  </p>
 
-<p><font face="Courier New">// 4. 启动时钟 <br />
-T2.start(provide, 1); <br />
-&lt;/script&gt;    </p>
+<p><font face="Courier New">// 4. 启动时钟 <br>
+T2.start(provide, 1); <br>
+&lt;/script&gt;    </font></p>
 
-<hr />
+<hr>
 
-<p></font>这个示例的完整代码参见(DOCUMENTs/TestCase/T_TimeLine2.html)。  </p>
+<p>这个示例的完整代码参见(DOCUMENTs/TestCase/T_TimeLine2.html)。  </p>
 
-<p><img src="content/images/bkImages/other_site/p_blog_T_Timeline2-9.jpg" alt="" title="" /> <br />
+<p><img src="content/images/bkImages/other_site/p_blog_T_Timeline2-9.jpg" alt="" title=""> <br>
 运行效果参见(DOCUMENTs/TestCase/images/T_TimeLine2.jpg)。  </p>
 
-<p>我们看到，数据发生器提供的一组参数的含义，就是&ldquo;用100次的周期，产生x0~x1之间的平 <br />
-滑变化的数据，采用的数据变化的算法为easeOut&rdquo;。  </p>
+<p>我们看到，数据发生器提供的一组参数的含义，就是“用100次的周期，产生x0~x1之间的平 <br>
+滑变化的数据，采用的数据变化的算法为easeOut”。  </p>
 
-<p>这个数据发生器被作为Timeline的参数传入： <br />
-<font face="Courier New">  </p>
+<p>这个数据发生器被作为Timeline的参数传入： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>T2.start(provide, 1); <br />
-------------------</font> <br />
+<p>T2.start(provide, 1); <br>
+------------------ <br>
 表明数据使用provide提供的值，而时间采用1ms为间隔的时间线。  </p>
 
-<p>那么，在&ldquo;100次的周期&rdquo;中，时间处理器(T2)的变化是什么呢？这在T2被创建的时候就声明 <br />
-过了： <br />
-<font face="Courier New">  </p>
+<p>那么，在“100次的周期”中，时间处理器(T2)的变化是什么呢？这在T2被创建的时候就声明 <br>
+过了： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var T2 = TTimeline.Create(doFly); <br />
-T2.set('TimerData', el); <br />
-------------------</font> <br />
-创建时的这行代码与下面的代码是相同的： <br />
-<font face="Courier New">  </p>
+<p>var T2 = TTimeline.Create(doFly); <br>
+T2.set('TimerData', el); <br>
+------------------ <br>
+创建时的这行代码与下面的代码是相同的： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var T2 = new Timeline(doFly);</font>  </p>
+<p>var T2 = new Timeline(doFly);  </p>
 
 <p><font face="Courier New">或</font>  </p>
 
-<p><font face="Courier New">var T2 = TTimeline.Create(); <br />
-T2.OnTimer.add(doFly);  </p>
+<p><font face="Courier New">var T2 = TTimeline.Create(); <br>
+T2.OnTimer.add(doFly);  </font></p>
 
-<hr />
+<hr>
 
-<p></font>而后我们初始化了TimerData属性的值，它表明这个时间关注的数据对象是el。  </p>
+<p>而后我们初始化了TimerData属性的值，它表明这个时间关注的数据对象是el。  </p>
 
-<p>在每次时间处理器被激活时，我们看到的doFly操作是这样： <br />
-<font face="Courier New">  </p>
+<p>在每次时间处理器被激活时，我们看到的doFly操作是这样： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var doFly = function(step, data) { <br />
-&nbsp; var sty = this.get('TimerData').style; <br />
-&nbsp; sty.left = data; <br />
-} <br />
-------------------</font> <br />
+<p>var doFly = function(step, data) { <br>
+  var sty = this.get('TimerData').style; <br>
+  sty.left = data; <br>
+} <br>
+------------------ <br>
 我们从TimerData属性中取出el元素，并修改el.style.left，就完成了飞行动画。  </p>
 
-<p>我们在T2.start()之前，可以调整一些数据发生器的参数，就可以改变这个飞行动画的效果。 <br />
-这些参数包括： <br />
-<font face="Courier New">  </p>
+<p>我们在T2.start()之前，可以调整一些数据发生器的参数，就可以改变这个飞行动画的效果。 <br>
+这些参数包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>this.set('Easing', 'easeOut'); // 数据产生的方法 <br />
-this.set('Frames', 100); // 帧数，控制step的总数 <br />
-this.set('Fps', 200);&nbsp;&nbsp; // 帧速率, qomo beta2中未实现.  </p>
+<p>this.set('Easing', 'easeOut'); // 数据产生的方法 <br>
+this.set('Frames', 100); // 帧数，控制step的总数 <br>
+this.set('Fps', 200);   // 帧速率, qomo beta2中未实现.  </p>
 
-<hr />
+<hr>
 
-<p></font>其中Easing的取值参考StepTrigger.js中TStepTrigger类的方法，目前包括： <br />
-<font face="Courier New">  </p>
+<p>其中Easing的取值参考StepTrigger.js中TStepTrigger类的方法，目前包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>easeNone <br />
-easeIn <br />
-easeOut <br />
-easeBoth <br />
-backIn <br />
-backOut <br />
-backBoth <br />
-------------------</font>  </p>
+<p>easeNone <br>
+easeIn <br>
+easeOut <br>
+easeBoth <br>
+backIn <br>
+backOut <br>
+backBoth <br>
+------------------  </p>
 
-<p>四、测试代码及分析(2) <br />
-~~~~~~~~~~~~~~~~<del> <br />
-接下来，对飞行过程又增加了一点要求： <br />
-&nbsp; - 飞行的路线是可控的，而不是单纯的A-B的直线。  </p>
+<p>四、测试代码及分析(2) <br>
+~~~~~~~~~~~~~~~~<del> <br>
+接下来，对飞行过程又增加了一点要求： <br>
+  - 飞行的路线是可控的，而不是单纯的A-B的直线。  </del></p>
 
-<p>路线可控是通过&ldquo;控制点&rdquo;来实现的。贝赛尔曲线的特点是&ldquo;在两点之间增加一个控制点， <br />
-即可以形成贝赛尔曲线&rdquo;。用来做&ldquo;飞行路线&rdquo;，那么即是：无论在两点之间增加多少个 <br />
+<p>路线可控是通过“控制点”来实现的。贝赛尔曲线的特点是“在两点之间增加一个控制点， <br>
+即可以形成贝赛尔曲线”。用来做“飞行路线”，那么即是：无论在两点之间增加多少个 <br>
 控制点，则通过贝赛尔曲线的连结，最终可以从A点飞行到B点。  </p>
 
-<p>这与上面的示例还有一点明显不一致的地方：飞行的坐标是x,y同时发生变化，而非单一 <br />
-地在x方向上平移。所以这个需求其实包含了两个技术要点： <br />
-&nbsp; - 处理器(TTimeline)与提供者(TYuiSteper)都需要能处理两个以上的数据 <br />
-&nbsp; - 提供者能够有更复杂的运算能力  </p>
+<p>这与上面的示例还有一点明显不一致的地方：飞行的坐标是x,y同时发生变化，而非单一 <br>
+地在x方向上平移。所以这个需求其实包含了两个技术要点： <br>
+  - 处理器(TTimeline)与提供者(TYuiSteper)都需要能处理两个以上的数据 <br>
+  - 提供者能够有更复杂的运算能力  </p>
 
-<p>但是，需要留意的是，这个需求的基本逻辑并没有变化：要求一个文档对象(element)能 <br />
-做飞行的动态效果。因此我们在上面的代码框架上做一些修改： <br />
-<font face="Courier New">  </p>
+<p>但是，需要留意的是，这个需求的基本逻辑并没有变化：要求一个文档对象(element)能 <br>
+做飞行的动态效果。因此我们在上面的代码框架上做一些修改： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 0. 初始数据 <br />
-var el = document.getElementById('dot'); <br />
-var fromPoint = [el.offsetLeft, el.offsetTop];</font>  </p>
+<p>// 0. 初始数据 <br>
+var el = document.getElementById('dot'); <br>
+var fromPoint = [el.offsetLeft, el.offsetTop];  </p>
 
-<p><font face="Courier New">// 1. 构造一个时钟及其处理程序 <br />
-var doFly = function(step, data) { <br />
-&nbsp; var sty = this.get('TimerData').style; <br />
-&nbsp; sty.left = data[0]; <br />
-&nbsp; sty.right = data[1]; <br />
-} <br />
-var T2 = TTimeline.Create(doFly); <br />
+<p><font face="Courier New">// 1. 构造一个时钟及其处理程序 <br>
+var doFly = function(step, data) { <br>
+  var sty = this.get('TimerData').style; <br>
+  sty.left = data[0]; <br>
+  sty.right = data[1]; <br>
+} <br>
+var T2 = TTimeline.Create(doFly); <br>
 T2.set('TimerData', el);</font>  </p>
 
-<p><font face="Courier New">// 2. 构建一个数据发生器, 用于向时钟提供数据 <br />
-provide = TYuiSteper.Create(); <br />
-provide.set('Points', [ <br />
-&nbsp;fromPoint,&nbsp;&nbsp;&nbsp; // from: x0, y0 <br />
-&nbsp;[400, 400]&nbsp;&nbsp;&nbsp; // to:&nbsp;&nbsp; x1, y1 <br />
+<p><font face="Courier New">// 2. 构建一个数据发生器, 用于向时钟提供数据 <br>
+provide = TYuiSteper.Create(); <br>
+provide.set('Points', [ <br>
+ fromPoint,    // from: x0, y0 <br>
+ [400, 400]    // to:   x1, y1 <br>
 ]);</font>  </p>
 
-<p><font face="Courier New">// 5. 启动时钟 <br />
-T2.start(provide, 1);  </p>
+<p><font face="Courier New">// 5. 启动时钟 <br>
+T2.start(provide, 1);  </font></p>
 
-<hr />
+<hr>
 
-<p></font>这个示例的完整代码参见(DOCUMENTs/TestCase/T_TimeLine3.html)。  </p>
+<p>这个示例的完整代码参见(DOCUMENTs/TestCase/T_TimeLine3.html)。  </p>
 
-<p>我们看到，基本上我们只重新约定了doFly与provide交互的数据格式(从原来的单一值， <br />
+<p>我们看到，基本上我们只重新约定了doFly与provide交互的数据格式(从原来的单一值， <br>
 变成数组表示的坐标点)，然后我们就完成了主要代码。  </p>
 
-<p>但是我们前面说过，路线可控是通过贝赛尔曲线来实现的。当贝赛尔曲线只有起始点与 <br />
-结束点，而没有中间控制点时，其实将绘制为一条直线。也就是说，上例的实飞行路线 <br />
+<p>但是我们前面说过，路线可控是通过贝赛尔曲线来实现的。当贝赛尔曲线只有起始点与 <br>
+结束点，而没有中间控制点时，其实将绘制为一条直线。也就是说，上例的实飞行路线 <br>
 的效果是从fromPoint到[400, 400]的一条直线。  </p>
 
-<p>但我们只需要调整控制点，即可以完成&ldquo;可控的飞行路线&rdquo;。例如： <br />
-<font face="Courier New">  </p>
+<p>但我们只需要调整控制点，即可以完成“可控的飞行路线”。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>provide.set('Points', [ <br />
-&nbsp;fromPoint,&nbsp;&nbsp;&nbsp; // from: x0, y0 <br />
-&nbsp;[200, 180], <br />
-&nbsp;[500, 600], <br />
-&nbsp;[200, 400], <br />
-&nbsp;[1024, 200], <br />
-&nbsp;[100,320], <br />
-&nbsp;[400, 400]&nbsp;&nbsp;&nbsp; // to:&nbsp;&nbsp; x1, y1 <br />
-]); <br />
-------------------</font> <br />
-我们注意到一点事实：我们并没有修改任何屏幕表现的算法，也没有修改代码框架，就 <br />
-实现了UI上的表达效果的可控。这其实是&ldquo;数据提供&rdquo;与&ldquo;数据表现&rdquo;分离所带来的效 <br />
-果。在现代的UI设计上，数据表现与数据提供，以及业务逻辑三者的分离，是一个非常 <br />
+<p>provide.set('Points', [ <br>
+ fromPoint,    // from: x0, y0 <br>
+ [200, 180], <br>
+ [500, 600], <br>
+ [200, 400], <br>
+ [1024, 200], <br>
+ [100,320], <br>
+ [400, 400]    // to:   x1, y1 <br>
+]); <br>
+------------------ <br>
+我们注意到一点事实：我们并没有修改任何屏幕表现的算法，也没有修改代码框架，就 <br>
+实现了UI上的表达效果的可控。这其实是“数据提供”与“数据表现”分离所带来的效 <br>
+果。在现代的UI设计上，数据表现与数据提供，以及业务逻辑三者的分离，是一个非常 <br>
 关键的话题。  </p>
 
-<p>五、测试代码及分析(3) <br />
-</del>~~~~~~~~~~~~~~~~ <br />
-在阅读代码的朋友可能已经发现，真实代码中的示例与这里讲述的稍有差异。但更仔细 <br />
-地看代码，你会发现更有价值的东西：我们在界面上绘制了一条曲线，但没有修改原来 <br />
+<p>五、测试代码及分析(3) <br>
+~~~~~~~~~~~~~~~~ <br>
+在阅读代码的朋友可能已经发现，真实代码中的示例与这里讲述的稍有差异。但更仔细 <br>
+地看代码，你会发现更有价值的东西：我们在界面上绘制了一条曲线，但没有修改原来 <br>
 框架中的任何代码！  </p>
 
-<p>我们前面提到的例子，都只是要求&ldquo;一个点在界面上从A飞行到B&rdquo;。但是，这个飞行的 <br />
-效果却难以被观察。&mdash;&mdash;大家知道，点的轨迹是线。因此如果我们将这个飞行过程中的 <br />
+<p>我们前面提到的例子，都只是要求“一个点在界面上从A飞行到B”。但是，这个飞行的 <br>
+效果却难以被观察。——大家知道，点的轨迹是线。因此如果我们将这个飞行过程中的 <br>
 点连接起来，就应该是一条直线/曲线表达的飞行轨迹。  </p>
 
-<p>但从业务需求上来说，这条&ldquo;飞行轨迹&rdquo;并不是原始需求中的部分。&mdash;&mdash;它只是我们在 <br />
-开发过程中，需要进行的观察。简而言之，要么我们写一些代码嵌在原来的业务逻辑中， <br />
+<p>但从业务需求上来说，这条“飞行轨迹”并不是原始需求中的部分。——它只是我们在 <br>
+开发过程中，需要进行的观察。简而言之，要么我们写一些代码嵌在原来的业务逻辑中， <br>
 要么我们做一个新系统在原来的业务之外观察它。  </p>
 
-<p>这个&ldquo;在原来的业务之外&rdquo;观察的系统，其实就可以用AOP来实现。因为AOP本来就是用 <br />
-来观察一批对象的行为的。所以我们在T<em>TimeLine2.html和T</em>TimeLine3.html这两个示 <br />
+<p>这个“在原来的业务之外”观察的系统，其实就可以用AOP来实现。因为AOP本来就是用 <br>
+来观察一批对象的行为的。所以我们在T<em>TimeLine2.html和T</em>TimeLine3.html这两个示 <br>
 例中都用了AOP。  </p>
 
-<p>两个代码中只有极少的不同，主要差异还是在于data提供的格式不一致。我们以T_Time- <br />
-Line3.html为例： <br />
-<font face="Courier New">  </p>
+<p>两个代码中只有极少的不同，主要差异还是在于data提供的格式不一致。我们以T_Time- <br>
+Line3.html为例： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 3. 使用切面来观察绘制过程 <br />
-var asp<em>OnTimer = new ObjectAspect(T2, 'OnTimer', 'Event', fromPoint); //push a meta</em>data <br />
-asp_OnTimer.OnAfter.add(function(o, n, p, a, v) { <br />
-&nbsp; var data = a[1], pt = this.get('MetaData')[0]; <br />
-&nbsp; drawLine(pt[0], pt[1], data[0], data[1], 'red', 1, 0); <br />
-&nbsp; this.set('MetaData', [data]); <br />
-&nbsp; $debug(a[0], ':', data); <br />
+<p>// 3. 使用切面来观察绘制过程 <br>
+var asp<em>OnTimer = new ObjectAspect(T2, 'OnTimer', 'Event', fromPoint); //push a meta</em>data <br>
+asp_OnTimer.OnAfter.add(function(o, n, p, a, v) { <br>
+  var data = a[1], pt = this.get('MetaData')[0]; <br>
+  drawLine(pt[0], pt[1], data[0], data[1], 'red', 1, 0); <br>
+  this.set('MetaData', [data]); <br>
+  $debug(a[0], ':', data); <br>
 });    </p>
 
-<hr />
+<hr>
 
-<p></font>运行效果参见(DOCUMENTs/TestCase/images/T<em>TimeLine3</em>1.jpg)。 <br />
-<img src="content/images/bkImages/other_site/p_blog_T_Timeline3_1-9.jpg" alt="" title="" />  </p>
+<p>运行效果参见(DOCUMENTs/TestCase/images/T<em>TimeLine3</em>1.jpg)。 <br>
+<img src="content/images/bkImages/other_site/p_blog_T_Timeline3_1-9.jpg" alt="" title="">  </p>
 
-<p>这里用到了一个以前在讲AOP时未详述的meta<em>data。所谓meta</em>data，是与一个切面相关 <br />
-的数据，它应当在切面进入时通过aspect自身可访问到。它是切面方法执行过程中的参 <br />
+<p>这里用到了一个以前在讲AOP时未详述的meta<em>data。所谓meta</em>data，是与一个切面相关 <br>
+的数据，它应当在切面进入时通过aspect自身可访问到。它是切面方法执行过程中的参 <br>
 考数据。  </p>
 
-<p>这个aspect需要一个起点，来做轨迹绘制的第一个坐标。这个起点就是fromPoint。它在切 <br />
-面创建时被传入。所以&quot;MetaData&quot;属性的值。&mdash;&mdash;MetaData是一个数组，所以fromPoint实 <br />
+<p>这个aspect需要一个起点，来做轨迹绘制的第一个坐标。这个起点就是fromPoint。它在切 <br>
+面创建时被传入。所以"MetaData"属性的值。——MetaData是一个数组，所以fromPoint实 <br>
 际上是该属性值的第一个元素。  </p>
 
-<p>所以我们看到了切面的OnAfter中添加了一个事件处理函数。其中： <br />
-<font face="Courier New">  </p>
+<p>所以我们看到了切面的OnAfter中添加了一个事件处理函数。其中： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var data = a[1], pt = this.get('MetaData')[0]; <br />
-// ...</font>  </p>
+<p>var data = a[1], pt = this.get('MetaData')[0]; <br>
+// ...  </p>
 
-<p><font face="Courier New">this.set('MetaData', [data]); <br />
-------------------</font> <br />
-data是当前的&ldquo;被观察系统&rdquo;正在处理的数据，而pt则是上一次的数据，它被不断更新着。 <br />
-该事件的入口参数a，是被观察者T2.OnTimer调用时的参数。我们知道这个事件的声明是： <br />
-<font face="Courier New">  </p>
+<p><font face="Courier New">this.set('MetaData', [data]); <br>
+------------------</font> <br>
+data是当前的“被观察系统”正在处理的数据，而pt则是上一次的数据，它被不断更新着。 <br>
+该事件的入口参数a，是被观察者T2.OnTimer调用时的参数。我们知道这个事件的声明是： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>T2.OnTimer = function(step, data) { } <br />
-------------------</font> <br />
+<p>T2.OnTimer = function(step, data) { } <br>
+------------------ <br>
 所以第一个参数就是data，这就是data=a[1]的由来。  </p>
 
-<p>最后，由于我们知道data与切面的元数据(MetaData[0])都是表示点的数据。所以下面这 <br />
-行代码就是画线了： <br />
-<font face="Courier New">  </p>
+<p>最后，由于我们知道data与切面的元数据(MetaData[0])都是表示点的数据。所以下面这 <br>
+行代码就是画线了： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>drawLine(pt[0], pt[1], data[0], data[1], ...); <br />
-------------------</font>  </p>
+<p>drawLine(pt[0], pt[1], data[0], data[1], ...); <br>
+------------------  </p>
 
-<p>我们回顾一下前面的内容，由于OnTimer的调用与数据提供者有关。也就是说，provide提 <br />
-供多少数据，则界面上显示多少数据。&mdash;&mdash;而这个&ldquo;多少数据&rdquo;是由TSteper中的step值来 <br />
-控制的。也就是OnTimer中的第一个参数，或说是OnStep中的第一个参数。因此，在切面中， <br />
-我们可以通过下面的代码显示出数据的变化： <br />
-<font face="Courier New">  </p>
+<p>我们回顾一下前面的内容，由于OnTimer的调用与数据提供者有关。也就是说，provide提 <br>
+供多少数据，则界面上显示多少数据。——而这个“多少数据”是由TSteper中的step值来 <br>
+控制的。也就是OnTimer中的第一个参数，或说是OnStep中的第一个参数。因此，在切面中， <br>
+我们可以通过下面的代码显示出数据的变化： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>$debug(a[0], ':', data); <br />
-------------------</font>  </p>
+<p>$debug(a[0], ':', data); <br>
+------------------  </p>
 
-<p>在这个示例中，如果我们可以改变provide的一些属性，那么就可以在界面上看到这些变化 <br />
-了。例如缺省情况下，Frames值为100帧，所以界面上显示了100条数据。但如果改成10帧， <br />
-那么显示数据也减少了，而曲线也就不足够平滑了： <br />
-<font face="Courier New">  </p>
+<p>在这个示例中，如果我们可以改变provide的一些属性，那么就可以在界面上看到这些变化 <br>
+了。例如缺省情况下，Frames值为100帧，所以界面上显示了100条数据。但如果改成10帧， <br>
+那么显示数据也减少了，而曲线也就不足够平滑了： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 2. 构建一个数据发生器, 用于向时钟提供数据 <br />
-provide = TYuiSteper.Create(); <br />
-provide.set('Frames', 10); <br />
-------------------</font> <br />
-运行效果参见(DOCUMENTs/TestCase/images/T<em>TimeLine3</em>2.jpg)。 <br />
-<img src="content/images/bkImages/other_site/p_blog_T_Timeline3_2-9.jpg" alt="" title="" />  </p>
+<p>// 2. 构建一个数据发生器, 用于向时钟提供数据 <br>
+provide = TYuiSteper.Create(); <br>
+provide.set('Frames', 10); <br>
+------------------ <br>
+运行效果参见(DOCUMENTs/TestCase/images/T<em>TimeLine3</em>2.jpg)。 <br>
+<img src="content/images/bkImages/other_site/p_blog_T_Timeline3_2-9.jpg" alt="" title="">  </p>
 
 <p>而如果你修改时间线的间隔，也会发现显示效果不够平滑了。例如：    </p>
 
-<hr />
+<hr>
 
-<p>// 5. 启动时钟 <br />
+<p>// 5. 启动时钟 <br>
 T2.start(provide, 200);  </p>
 
-<hr />
+<hr>
 
-<p>六、测试代码及分析(4) <br />
-~~~~~~~~~~~~~~~~~~ <br />
+<p>六、测试代码及分析(4) <br>
+~~~~~~~~~~~~~~~~~~ <br>
 这一小节的分析，我们只是简单地说一下这个测试代码的界面控制。  </p>
 
-<p>如果一个时间线被设计得过长，例如1000 * 1ms，那么我们就可能需要一个随时可以中断 <br />
-的时间线。也就是说，时间不但能被start，也能被stop。因此，TTimer这个基类就设计了 <br />
-一些基本的控制逻辑。包括： <br />
-<font face="Courier New">  </p>
+<p>如果一个时间线被设计得过长，例如1000 * 1ms，那么我们就可能需要一个随时可以中断 <br>
+的时间线。也就是说，时间不但能被start，也能被stop。因此，TTimer这个基类就设计了 <br>
+一些基本的控制逻辑。包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>TTimer.start() <br />
-&nbsp; TTimer.OnStart <br />
-&nbsp; TTimer.OnTimer <br />
-TTimer.stop() <br />
-&nbsp; TTimer.OnStop <br />
-------------------</font>  </p>
+<p>TTimer.start() <br>
+  TTimer.OnStart <br>
+  TTimer.OnTimer <br>
+TTimer.stop() <br>
+  TTimer.OnStop <br>
+------------------  </p>
 
-<p>因此，为了测试这些逻辑，示例中也包括下面的一些代码： <br />
-<font face="Courier New">  </p>
+<p>因此，为了测试这些逻辑，示例中也包括下面的一些代码： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 4. 测试基类中的控制方法 <br />
-T2.OnStart.add(function() { <br />
-&nbsp; $debug(' -- timer start --'); <br />
-}); <br />
-T2.OnStop.add(function() { <br />
-&nbsp; $debug(' -- timer stop --'); <br />
-}); <br />
-document.onclick = function() { <br />
-&nbsp; T2.stop(); <br />
-} <br />
-------------------</font>  </p>
+<p>// 4. 测试基类中的控制方法 <br>
+T2.OnStart.add(function() { <br>
+  $debug(' -- timer start --'); <br>
+}); <br>
+T2.OnStop.add(function() { <br>
+  $debug(' -- timer stop --'); <br>
+}); <br>
+document.onclick = function() { <br>
+  T2.stop(); <br>
+} <br>
+------------------  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>七、其它 <br />
-~~~~~~~~~~~~~~~~~~ <br />
+<p>七、其它 <br>
+~~~~~~~~~~~~~~~~~~ <br>
 本文档中，我们讲述了Qomo的时间框架，也结合实例讲述了AOP的用法。  </p>
 
-<p>&nbsp; 1. 关于在界面上的图形绘制 <br />
-&nbsp;   </p>
+<p>  1. 关于在界面上的图形绘制 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 大家在本文档中看到的图形都比较精细，但运行代码包中示例时看到的线条却比较粗糙。这是 <br />
-因为文档中使用的drawLine()来自于一个更精细的图形代码包。我将在后续的版本发布中，公开 <br />
-这个图形库。&mdash;&mdash;目前在Qomo中有一个VML的图形库，还有在TestCase中用的drawLine.js。但这 <br />
+<p>  大家在本文档中看到的图形都比较精细，但运行代码包中示例时看到的线条却比较粗糙。这是 <br>
+因为文档中使用的drawLine()来自于一个更精细的图形代码包。我将在后续的版本发布中，公开 <br>
+这个图形库。——目前在Qomo中有一个VML的图形库，还有在TestCase中用的drawLine.js。但这 <br>
 些都不是Qomo最终的图形框架。  </p>
 
-<p>&nbsp;&nbsp; 更新的图形框架在设计和实现中，并没有完成，故暂不公开。  </p>
+<p>   更新的图形框架在设计和实现中，并没有完成，故暂不公开。  </p>
 
-<p>&nbsp; 2. 关于兼容性问题 <br />
-&nbsp;   </p>
+<p>  2. 关于兼容性问题 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 目前大家看到的示例代码在FireFox上不能运行。其实只有一个原因，就是FF里没有insertAdj- <br />
-acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图，以及用$debug来输出文字。 <br />
+<p>  目前大家看到的示例代码在FireFox上不能运行。其实只有一个原因，就是FF里没有insertAdj- <br>
+acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图，以及用$debug来输出文字。 <br>
 因此去掉相关的代码后，就可以运行示例了。  </p>
 
-<p>&nbsp; 在开发中的版本，已经解决过insertAdjacentHTML等问题，因此是可以run在firefox上的。但 <br />
+<p>  在开发中的版本，已经解决过insertAdjacentHTML等问题，因此是可以run在firefox上的。但 <br>
 这些代码放在一个还没有被pub出来的DOM兼容层上，因此也暂时不公开。  </p>
 
-<p>&nbsp; Qomo试图在DOM上很好的兼容Firefox等浏览器，但目前看起仍有较大的困难。:(  </p>
+<p>  Qomo试图在DOM上很好的兼容Firefox等浏览器，但目前看起仍有较大的困难。:(  </p>
 
-<p>&nbsp; 3. 关于TTimer类 <br />
-&nbsp;   </p>
+<p>  3. 关于TTimer类 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; TTimer类是对window.setTimeout和window.setInterval的封装。它明显的特点是规范了这两个 <br />
-方法的使用流程。&mdash;&mdash;在Qomo中，二者的使用将没有明显的差异。  </p>
+<p>  TTimer类是对window.setTimeout和window.setInterval的封装。它明显的特点是规范了这两个 <br>
+方法的使用流程。——在Qomo中，二者的使用将没有明显的差异。  </p>
 
-<p>&nbsp; 由于TTimer.OnTimer事实上已经支持使用TSteper，因此TTimer能使用Steper.js中的各种类。这 <br />
+<p>  由于TTimer.OnTimer事实上已经支持使用TSteper，因此TTimer能使用Steper.js中的各种类。这 <br>
 个示例在T_Timeline.html中。  </p>
 
-<p>&nbsp; TTimer类另一个最大的特点，是便得OnTimer中能够使用类方法，并正确地传入对象的this引用。 <br />
-&mdash;&mdash;而setTimeout与setInterval只能传入函数引用，不能传入方法。因此this引用总是指向window。 <br />
-<font face="Courier New">  </p>
+<p>  TTimer类另一个最大的特点，是便得OnTimer中能够使用类方法，并正确地传入对象的this引用。 <br>
+——而setTimeout与setInterval只能传入函数引用，不能传入方法。因此this引用总是指向window。 <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>setTimeout(function() { <br />
-&nbsp; alert(this === window); <br />
-}, 1000); <br />
------------</font>  </p>
+<p>setTimeout(function() { <br>
+  alert(this === window); <br>
+}, 1000); <br>
+-----------  </p>
 
-<p>&nbsp; 4. Qomo时间框架上的一些TODO <br />
-&nbsp;   </p>
+<p>  4. Qomo时间框架上的一些TODO <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 事实上目前的Qomo时间框架并不完整。例如还没有处理Fps(帧速率)，以及修正由IE的setTimeout() <br />
-精度带来的时间线不规则。&mdash;&mdash;这其实需要在运算中做时间补偿。 <br />
-&nbsp; Qomo应该还有一个能表现&ldquo;时间与数据同时变化&rdquo;的效果的示例。  </p>
+<p>  事实上目前的Qomo时间框架并不完整。例如还没有处理Fps(帧速率)，以及修正由IE的setTimeout() <br>
+精度带来的时间线不规则。——这其实需要在运算中做时间补偿。 <br>
+  Qomo应该还有一个能表现“时间与数据同时变化”的效果的示例。  </p>
 
-<p>&nbsp; 这些代码将在beta 3发布时统一提供。&nbsp;</p>
+<p>  这些代码将在beta 3发布时统一提供。 </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -695,7 +694,7 @@ acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-225.html">
                     盘点我的三十岁~
                 </a>
@@ -706,7 +705,7 @@ acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=43146b773f">
 <script src="assets/js/gitment.browser.js?v=43146b773f"></script>
 
 <script type="text/javascript">
@@ -726,14 +725,14 @@ acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -749,7 +748,7 @@ acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -763,7 +762,7 @@ acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -792,4 +791,3 @@ acentHTML方法，因此也就不能用drawLine.js中的代码在界面上画图
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=43146b773f"></script>
 </body>
 
-</html>
