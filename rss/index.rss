@@ -1,4 +1,215 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 23 May 2017 11:48:13 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（一）</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 26 May 2017 18:04:20 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（二）</title><description>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
+
+&lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
+
+&lt;h2 id="4github"&gt;4. Github开工&lt;/h2&gt;
+
+&lt;p&gt;你得先有Github账号。然后，创建一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到&lt;code&gt;GitHub Pages&lt;/code&gt;，检查一下，他可能已经缺省写着：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;Your site is published at https://xxxxxx.&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-1720/</link><guid isPermaLink="false">16433c0c-40f9-4978-9fe3-f56cb56b2102</guid><dc:creator>aimingoo</dc:creator><pubDate>Fri, 26 May 2017 18:02:33 GMT</pubDate><content:encoded>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
+
+&lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
+
+&lt;h2 id="4github"&gt;4. Github开工&lt;/h2&gt;
+
+&lt;p&gt;你得先有Github账号。然后，创建一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到&lt;code&gt;GitHub Pages&lt;/code&gt;，检查一下，他可能已经缺省写着：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;Your site is published at https://xxxxxx.github.io/&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;OK。建议你将Features中的&lt;code&gt;Wikis&lt;/code&gt;与&lt;code&gt;Restrict editing to collaborators only&lt;/code&gt;设为关闭，而&lt;code&gt;Issues&lt;/code&gt;建议开启——我相信你用得到它。&lt;/p&gt;
+
+&lt;p&gt;最后，你还可以在&lt;code&gt;Theme chooser&lt;/code&gt;中选一个Theme。不过对我来说没什么意义，因为我将使用Ghost中的Theme。不过，如果你使用了Github的Theme，那么你的主页根目录——也就是&lt;code&gt;xxxxxx.github.io&lt;/code&gt;这个仓库的根目录下就会多一个&lt;code&gt;_config.yml&lt;/code&gt;文件。&lt;/p&gt;
+
+&lt;p&gt;此外，还总是会有一个&lt;code&gt;README.md&lt;/code&gt;文件，知道Github的人都知道这个文件用来做什么，建议你留着——尽管删除掉也没什么影响。&lt;/p&gt;
+
+&lt;p&gt;除了上述两个文件，Github什么都没给你，一切都得自己来干。&lt;/p&gt;
+
+&lt;p&gt;当然，只要你创建了这个仓库，那么&lt;code&gt;https://xxxxxx.github.io&lt;/code&gt;就已经可以访问了；如果你更新这个仓库，那么网站也就自动更新了。&lt;/p&gt;
+
+&lt;p&gt;很酷。&lt;/p&gt;
+
+&lt;h2 id="5githubpages"&gt;5. 从本地博客到Github Pages&lt;/h2&gt;
+
+&lt;p&gt;尽管几乎所有的Ghost用户都被推荐使用Buster来生成静态页（generate static pages），但这个工具确实相当不好用，按某博主所说『&lt;strong&gt;是个大坑&lt;/strong&gt;』，不过我也建议你看看他的博客文章（&lt;a href="https://mrcotter.github.io/ghost-to-github-pages/"&gt;在这里&lt;/a&gt;），写得很细致了。不过如果你不怎么用Python的话，我建议你不要安装pyenv和多版本的python，直接用MacOSX原装的就好——或者只用Brew安装Python 2.x。&lt;/p&gt;
+
+&lt;p&gt;参考上面这位博主（&lt;a href="https://mrcotter.github.io/author/kris/"&gt;Kris Cotter&lt;/a&gt;）的文章，我写了一个名为&lt;code&gt;makesite.sh&lt;/code&gt;的脚本，它配合Buster使用，并主要用来填Buster的一些坑。下面说说这个工具。&lt;/p&gt;
+
+&lt;h3 id="51makesitesh"&gt;5.1 使用makesite.sh的标准过程&lt;/h3&gt;
+
+&lt;p&gt;参考下面的控制台命令：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;## 取一份你的Github Pages仓库，例如(YOURNAME/YOURNAME.github.io)
+&amp;gt; git clone https://github.com/YOURNAME/YOURNAME.github.io
+&amp;gt; cd ./YOURNAME.github.io
+
+## 定制一下git exclude files
+&amp;gt; echo -e '\nstatic/\nmakesite.sh\npatchme.sh\nbuster.log’ &amp;gt;&amp;gt; .git/info/exclude
+
+## 下载makesite.sh文件到本地仓库
+&amp;gt; wget -nv 'https://github.com/aimingoo/ghost-utils/raw/master/makesite.sh'
+
+## 使用帮助
+&amp;gt; bash makesite.sh --help
+###########################################################################
+ Usage:
+  &amp;gt; bash makesite.sh --generate --reset-domain --short-path --deploy-now
+ ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面列举了makesite.sh对&lt;code&gt;Ghost -&amp;gt; Github Pages&lt;/code&gt;的一个标准过程的理解，亦即是分成四步：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;generate: 调用Buster生成静态页&lt;/li&gt;
+&lt;li&gt;reset-domain: 重置本地博客的domain到远端（YOURNAME.github.io）&lt;/li&gt;
+&lt;li&gt;short-path: 生成简短的网页路径&lt;/li&gt;
+&lt;li&gt;deploy-now: 部署到Github仓库&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你可以使用参数来开启或关闭任何一个步骤，或者从任何一个步骤开始（而无视于其它步骤）。缺省情况下所有的步骤都是关闭的，只检查一下当前目录下是否存在&lt;code&gt;./static&lt;/code&gt;子目录。——注意这个目录是被保留，不被提交到Github仓库中去的（所以前面的脚本中我将它添加到了&lt;code&gt;.git/info/exclude&lt;/code&gt;文件中）。&lt;/p&gt;
+
+&lt;p&gt;整个过程需要依赖&lt;code&gt;git&lt;/code&gt;和&lt;code&gt;buster&lt;/code&gt;两个工具，另外需要&lt;code&gt;wget&lt;/code&gt;、&lt;code&gt;grep&lt;/code&gt;和MacOSX版本的&lt;code&gt;sed&lt;/code&gt;。如果你是在别的系统上运行这个脚本，你"可能"需要改一下sed的命令行参数。&lt;/p&gt;
+
+&lt;p&gt;如果你只是生成静态页而不部署它，那么你不需要使用&lt;code&gt;--deploy-now&lt;/code&gt;参数，这种情况下没有安装git也是可以的。但我总是建议你先安装buster：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;## 使用Python的PIP安装buster
+&amp;gt; pip install buster
+
+## 如果你没有wget或git
+&amp;gt; brew install wget git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="52makesitesh"&gt;5.2 makesite.sh的配置与参数&lt;/h3&gt;
+
+&lt;p&gt;如果你读makesite.sh的源代码，你会发现它处理参数的代码非常漂亮（嘿~嘿~）。&lt;/p&gt;
+
+&lt;p&gt;这些参数可以有两种格式：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;--reset-domain=false&lt;/code&gt;：指定reset-domain参数值为false。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;--reset-domain&lt;/code&gt;：这种省略掉值的情况，等效于&lt;code&gt;--reset-domain=true&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;也可以指定字符串值，例如设置你的domain（缺省值是我的"aimingoo.github.io"）：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;--domain='YOURNAME.github.io'&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;所有通过命令行参数传入的参数配置，都有相对应的bash变量（全大写字符），所以你也可以直接修改.sh脚本中的变量缺省值，以避免每次都要通过命令行指定（例如，尤其是&lt;code&gt;--domain&lt;/code&gt;和&lt;code&gt;--generate-info&lt;/code&gt;这样的参数）。&lt;/p&gt;
+
+&lt;p&gt;由于通常你都需要配置自己的domain参数，所以我没有将makesite.sh写成通用脚本，而是建议你每个Github本地仓库下载一份独立的，并修改其中DOMAIN变量的缺省值。&lt;/p&gt;
+
+&lt;p&gt;也正是因此，它也被加入了git的排除文件列表。&lt;/p&gt;
+
+&lt;h2 id="6"&gt;6. 填了哪些坑？&lt;/h2&gt;
+
+&lt;p&gt;前面说过makesite.sh用来填Buster的一些坑的。但填了哪些坑呢？下面讲讲技术问题。&lt;/p&gt;
+
+&lt;h3 id="61busterwget"&gt;6.1 Buster调用wget时的参数问题&lt;/h3&gt;
+
+&lt;h4 id="611buster5pages"&gt;6.1.1 Buster其实只帮你抓5页Pages&lt;/h4&gt;
+
+&lt;p&gt;如果你的博客很多，有很多的分页（比如我的就有五十多页），那么你很容易就发现其实Buster只帮你抓了其中的5页——很郁闷吧。&lt;/p&gt;
+
+&lt;p&gt;这是因为Buster调用wget来抓取页面，而它在递归下载时默认搜索的递归尝试就是5层，这个需要修改&lt;code&gt;--level&lt;/code&gt;参数。&lt;/p&gt;
+
+&lt;h4 id="612"&gt;6.1.2 你可能需要忽略掉一些抓取页面&lt;/h4&gt;
+
+&lt;p&gt;Ghost默认会帮你生成很多东西，有SEO用的amp文件、sitemap文件或rss文件，又例如最新的ld+json数据。然而你不见得都需要用到，其中最严重的就是amp，因为这相当于你生成了两份博客，所以我们需要用&lt;code&gt;--reject-regex&lt;/code&gt;来忽略掉它。&lt;/p&gt;
+
+&lt;p&gt;还有一种情况非常特殊。在Ghost博客里，tag页可能有两种url（事实上所有的页面都会有这两种页）：&lt;code&gt;/tags/XXX&lt;/code&gt;和&lt;code&gt;tags/XXX/&lt;/code&gt;。别小看多出来的这个斜杠&lt;code&gt;/&lt;/code&gt;：当wget访问&lt;code&gt;/XXX&lt;/code&gt;页时，它是将url理解为文件的，因此将要写入的是文件XXX（如果加上&lt;code&gt;--adjust-extension&lt;/code&gt;参数那么就写入XXX.html）；而访问&lt;code&gt;/XXX/&lt;/code&gt;时，wget认为它访问的是目录，所以也就会尝试创建XXX这个目录并写入&lt;code&gt;./XXX/index.html&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;然而我们设想一个问题：如果一个网站中既有&lt;code&gt;/tags/XXX&lt;/code&gt;又有&lt;code&gt;tags/XXX/&lt;/code&gt;，那么当wget先找到前者的时候，就会在当前目录下写一个XXX文件，而下一次它找到后一种的时候，会发生什么呢？&lt;/p&gt;
+
+&lt;p&gt;这有三种可能性：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果有XXX目录，而又要创建XXX文件的话，wget会创建一个名为XXX.1的文件；&lt;/li&gt;
+&lt;li&gt;如果反过来是有XXX文件的情况下，
+&lt;ul&gt;&lt;li&gt;需要再创建./XXX/目录，那么wget直接覆盖XXX文件，于是旧的XXX文件丢失，多出来一个新的XXX目录；&lt;/li&gt;
+&lt;li&gt;需要创建&lt;code&gt;./XXX/yyy/index.html&lt;/code&gt;这样的子级目录中的文件的话，那么很不幸，wget抛出一个异常&lt;code&gt;./XXX/yyy : Not a directory&lt;/code&gt;，写文件不成功。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以，我们需要忽略掉一些抓取页面，因为他们可能先于一个目录创建之前要写入，又或者与已写入的文件冲突，再或者根本就是多余的、重复的页。&lt;/p&gt;
+
+&lt;h4 id="613busterpy"&gt;6.1.3 不修改buster.py的做法&lt;/h4&gt;
+
+&lt;p&gt;为了不修改Buster的源代码，我在makesite.sh中定义了一个名为wget的函数，并且在当前进程中导出它。这样一来，由于Buster是由makesite.sh这个shell脚本launch起来的，那么当它调用wget下载的时候，就调用了我们在程序中修改过的版本。&lt;/p&gt;
+
+&lt;p&gt;——这是一种在当前脚本中打patch的方法（可以不修改buster.py的源代码）。基本的代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;##
+## 参见makesite.sh源代码
+##
+
+## 声明函数并追加参数
+function wget { $RAW_WGET --level=0 inf --reject-regex=... }
+
+## 取原始的wget的路径并导出到当前环境中
+export RAW_WGET=`which wget`
+
+## 将wget函数导出到当前环境中
+export -f wget
+
+## 调用buster，这时buster将使用我们在代码中声明的wget函数来下载
+buster ...  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="62"&gt;6.2 移除版本号&lt;/h3&gt;
+
+&lt;p&gt;在新近一些的前端技巧中，为JavaScript和CSS文件加上版本号已经是很流行的做法了。然而这意味着Buster抓取的文件会存成类似&lt;code&gt;shared/ghost-url.js?v=3edb33f1b1&lt;/code&gt;这样的名字。&lt;/p&gt;
+
+&lt;p&gt;所以在makesite.sh中有两行代码来对&lt;code&gt;assets&lt;/code&gt;和&lt;code&gt;shared&lt;/code&gt;目录中的资源做更名，以移除这种版本号：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;## 移除assets目录中的资源版本号
+&amp;gt; find static/assets -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
+
+## 移除shared目录中的资源版本号(通常只有/ghost-url.js这个文件)
+&amp;gt; find static/shared -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="63resetdomainshortpath"&gt;6.3 从reset-domain到short-path&lt;/h3&gt;
+
+&lt;p&gt;reset-domain是&lt;a href="https://mrcotter.github.io/author/kris/"&gt;Kris Cotter&lt;/a&gt;最早版本代码中的功能，简单地说就是将Buster下载的网页文件中残留的&lt;code&gt;localhost:2368&lt;/code&gt;再做一次替换，所以我将这个过程叫做reset-domain。&lt;/p&gt;
+
+&lt;p&gt;事实上wget的&lt;code&gt;--convert-links&lt;/code&gt;参数做过一次高性能的链接转换，但这远远不够——这些转换基于wget的html parser中对"链接"的定义（可以参见tag&lt;em&gt;attr html&lt;/em&gt;allow这个数据结构，位于wget源码html.c中）。而reset-domain针对的是可能存在的文本替换——而无论对象是否是.html，或者是否是真实的url链接。&lt;/p&gt;
+
+&lt;p&gt;经过这两轮的处理（generate和reset-domain）之后，事实上整个&lt;code&gt;./static&lt;/code&gt;目录下的文件已经可以作为静态页发布了。确切地说，你已经可以使用下面的命令来部署本地git仓库，将它推到你的主页&lt;code&gt;YOURNAME.github.io&lt;/code&gt;中去了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; bash makesite.sh --deploy-now
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然而makesite.sh脚本还在这个操作之前插入了一个&lt;code&gt;--short-path&lt;/code&gt;——我想你已经注意到这一点了。&lt;/p&gt;
+
+&lt;p&gt;这个short-path的目的是将Ghost生成的类似于&lt;code&gt;/your--post-full-title----as-slug/index.html&lt;/code&gt;这样长的“目录名+文件名”变得短一些。它基本的想法就是让主页根目录下不要太多的目录，因此将这些目录中的index.html上移到它们的父目录中——对于所有的posts来说，其实也就是根目录下。&lt;/p&gt;
+
+&lt;p&gt;这个过程其实有一个更好的解决方案，就是将所有这些文件移入到&lt;code&gt;/posts/your--post-full-title----as-slug.html&lt;/code&gt;，这样一来主页根目录下就只有一个posts目录了。我尝试过，但之后放弃了，因为我写不出一个有效的正则表达式来替换所有“其它”页面中的url——到该页面的新位置。&lt;/p&gt;
+
+&lt;p&gt;好吧，总而言之，我们做了一点工作（尽管实际上这是效率最低的一个步骤）。所以你还是可以在部署之前尝试一下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; bash makesite.sh --short-path
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="631url"&gt;6.3.1 更短的url&lt;/h4&gt;
+
+&lt;p&gt;我的主页&lt;code&gt;aimingoo.github.io&lt;/code&gt;中其实使用的是更短的url地址，而并不是Ghost中缺省地按照文章标题通过拼音转换而来——后面这种文件名生成得太长太难看了。这种『更短的url』其实是通过为每个post设置它独自的slug属性而得到的，这需要为每篇文章在Ghost后台管理界面去编辑Post的属性。&lt;/p&gt;
+
+&lt;p&gt;这也是上一篇博客中提到的&lt;code&gt;putrefy.js&lt;/code&gt;这个工具（&lt;a href="https://github.com/aimingoo/ghost-utils"&gt;在这里&lt;/a&gt;）中会有一个&lt;code&gt;SLUG_FROMID&lt;/code&gt;参数的原因。当配置这个参数为true时，你从旧博客中导入的文章就将自动地以&lt;code&gt;author_id&lt;/code&gt;作为前缀，并加上post_id作为slug了——我的博客就是用这种方法来导入的。当然，你也可以将&lt;code&gt;SLUG_FROMID&lt;/code&gt;配置为别的什么字符串来作为前缀。&lt;/p&gt;
+
+&lt;p&gt;但是，你在Ghost后台新添加的文章，就需要你手工地改slug了。这个今后我会发布个小工具来自动化的，这里暂且不提。&lt;/p&gt;
+
+&lt;h3 id="64patchmesh"&gt;6.4 关于patchme.sh&lt;/h3&gt;
+
+&lt;p&gt;这是在makesite.sh中留下的一小处补丁程序。你可以编写一段shell代码（放在makesite.sh同目录中就可以了），让makesite.sh在正式地deploy-now操作之前，由你自己来对&lt;code&gt;./static&lt;/code&gt;目录中的页面做些修补。这偶尔也是必要的，例如我现在这篇文章是在介绍Ghost，那就不可避免地会用到&lt;code&gt;localhost:2368&lt;/code&gt;这样的url地址，而按照Buster和makesite.sh的规则，它们就可能被替换成线上Github仓库中的地址了——所以需要one by one地patch。&lt;/p&gt;
+
+&lt;p&gt;当然，你也可以写点别的什么代码。&lt;/p&gt;
+
+&lt;p&gt;尤其是……程序员总想干点什么黑活之类的啦。&lt;/p&gt;
+
+&lt;p&gt;你懂的。&lt;/p&gt;</content:encoded></item><item><title>博客迁移手记（一）</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
 
 &lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
 
@@ -14,7 +225,7 @@
 &lt;li&gt;它会抓取图片等文件作为附件保存到指定目录。&lt;/li&gt;
 &lt;li&gt;cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用&lt;a href="https://github.com/yanyingwang/cnblog2jekyll"&gt;cnblog2jekyll&lt;/a&gt;中的generate&lt;em&gt;markdown&lt;/em&gt;all。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
-&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1719/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><dc:creator>aimingoo</dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1719/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><category>博客</category><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
 
 &lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
 
@@ -1787,46 +1998,4 @@ Promise.all([1,2,3])
 
 &lt;p&gt;架构在根底上来说，是一种系统化的视角。如果你将一个对象理解为“系统”，或“有系统性的”，那么它就必然存在内部的关系与外部的边界——否则，必是离散的，或混沌不清的。而架构的“范围”与“联接件”，谈的就是这个对象的内部关系与外部边界。如果你具有架构思维，那么在你的视角下，凡事、凡物、凡内外，无不如此。  &lt;/p&gt;
 
-&lt;p&gt;而架构师，要么离散上述关系、肢解上述结构，要么通过明确的方式来固化上述的关系与结构。如是，是做架构。&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之一：“软件工程”的学法与用法</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题是：软件工程要怎么学，学了有什么用、怎么用？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;首先，软件工程是学不得的。是所谓“学之不得”，通过死学，是得不到什么有价&amp;#20540;的东西的。我们必须自己提一些问题，然后来求解，通过这个求解的过程，来学习与领会它。我想第一个要问的问题，就是“什么是工程”。我们学工科、理科、文科之类，为什么要这么分呢？工程为什么是“工科”的一部分呢？更有趣的问题是，为什么没有所谓的“文学工程”呢？  &lt;/p&gt;
-
-&lt;p&gt;工程就本意，指向的就是“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-186/</link><guid isPermaLink="false">a19d588b-ad06-4207-b5b3-8b9cc44dda3d</guid><category>软件工程</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 12:46:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题是：软件工程要怎么学，学了有什么用、怎么用？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;首先，软件工程是学不得的。是所谓“学之不得”，通过死学，是得不到什么有价&amp;#20540;的东西的。我们必须自己提一些问题，然后来求解，通过这个求解的过程，来学习与领会它。我想第一个要问的问题，就是“什么是工程”。我们学工科、理科、文科之类，为什么要这么分呢？工程为什么是“工科”的一部分呢？更有趣的问题是，为什么没有所谓的“文学工程”呢？  &lt;/p&gt;
-
-&lt;p&gt;工程就本意，指向的就是“产出一个东西”。工科，也偏向于“实做一个东西”。你不能去找理论数学或理论物理的人，去做一个实际的产出来。工科，以及这里谈的工程，就是要“做出一个东西”。而软件工程，无非就是要讨论“做一个软件”这件事的做法，而已。  &lt;/p&gt;
-
-&lt;p&gt;但是我们要看到，“做一件事”，要确定做法，所以说要谈到“软件的开发”，于是有了写软件的代码工人，写软件的技术与方法等等。但这个问题不是软件工程本身讨论的，它被归在了“工具”这个范畴内。同样，“做一件事”，还涉及到“人”，但也不归在软件工程本身讨论，而归在了管理中。等等类&amp;#20284;这些的东西，都因为有各自的学科，而被划分出去了，“软件工程”这门功课的本身，就只剩下了一个“纯学术”的东西，它只讨论“软件该怎么做”的问题，而放弃了具体做法中的具体的人、具体的技术和具体的研发对象。这个“软件怎么做”的问题，被学“工科”的思想用了一个简单的模型来讲，就是：软件工程＝（做一个面向软件开发的工程的）过程&amp;#43;方法&amp;#43;工具。  &lt;/p&gt;
-
-&lt;p&gt;但是有趣的事情是，凡工科，凡“做一个东西”，要把这个事情工程化，好象它的结论都会“用一个过程，找一些方法，拿一些工具，来做”。所以，将软件工程化，与将任何事情工程化，并没有本质的区别。从工业革命开始到现在，前辈们都是这样做的。纯理论的来说，做的模式都是如此。换而言之，上面那个公式/模型，也可以简而言之为“软件工程＝用工程化的方法，来做软件”。  &lt;/p&gt;
-
-&lt;p&gt;你再看那本叫《软件工程》的书，写的就是没用嘛。因为这纯粹不需要讲，懂了“将一件事工程化，都不过是如上的方法”，那么整本书也就成了个备查手册——查查别人都用了什么过程、方法与工具，以及有什么效果。  &lt;/p&gt;
-
-&lt;p&gt;学“软件工程”，学得懂了上面的这点东西，就够了。在工科来说，剩下的就是“练习”了。如同操刀杀牛，同一个过程，练3、5遍不行，练3~50遍总是行的。学“软件工程”也不过如此，一套过程、方法与工具用熟了，不过是把工夫做足了，做纯熟了而已。  &lt;/p&gt;
-
-&lt;p&gt;而对于一个具体的工程（例如一个具体的项目）来说，上面的东西几乎完全无用。为什么呢？因为我们前面说过，《软件工程》这样的一门学科把“什么东西”、“什么人”、“做的技术”这些东西清理了出去，变成了一门纯粹的“工学”。而事实上，一个具体的工程项目，却正好是包含在这些东西、人、技术上面的。所以做具体工程的，碰到人的问题，就要谈管理，而“我学了软件工程”并不表明我会管理；碰到东西的问题，就要谈产品，而“我学了软件工程”并不表明我会产品设计；等等如此。我们的一个具体的工程，并不一定具有一个“面面俱到”的团队，所以实作工程的时候，总是这方面不足哪方面不够，碰到的问题总不在书里。  &lt;/p&gt;
-
-&lt;p&gt;但，你再看看，你面临的这件事、这个项目，这个具体的工程，就解决问题的法子来说，也不过是“找到一个过程，用一些方法，拿一些工具”来做，而已。所以，真懂软件工程的人，知道这个原理——这个在《软件工程》这本书中讲的核心原理，就够了。其它的，神见杀神，佛见杀佛，自个去做便是了。哪有在一个具体的工程里谈什么RUP的，谈XP的？就好象说，你明明已经在千军万马里了，还从太极的起手式耍起！开玩笑嘛！见一个砍翻一个，砍错了该Y的倒霉，就是如此嘛。  &lt;/p&gt;
-
-&lt;p&gt;套路有没有呢？原则有没有呢？还是有的，《大道至简》里说过，千军万马里面用剑，不要去砍，剑身是用来挡的，剑尖是用来刺的，刺死砍伤，用最有效的法子，就好。这就是些基本原则了。到一个具体的工程里了，对A员工到软声细语，对B员工要敲敲打打，对C员工的测试一定要复测……等等这些，你在工程中去总结就好。因人、因事、因环境、因目标对象一一应对，然后你就成功了，就牛人了，就项目精英了，就50多岁了。  &lt;/p&gt;
-
-&lt;p&gt;练就。不练，怎么有成就呢？《软件工程》只讲一个核心原理，真到做了，还是一个项目、一群人、一个产品目标。三个方面的东西，一个不可少地去照顾到了，去找到他们的方法、过程与工具了，去磨过去拼过，才有结果的。  &lt;/p&gt;
-
-&lt;p&gt;我从来不相信学完《软件工程》就去做工程的那个人。  &lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;而架构师，要么离散上述关系、肢解上述结构，要么通过明确的方式来固化上述的关系与结构。如是，是做架构。&lt;/p&gt;</content:encoded></item></channel></rss>

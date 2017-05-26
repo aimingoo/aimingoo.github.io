@@ -3463,7 +3463,7 @@ var Gitment = function () {
       this.state.user.isLoggingIn = true;
       _utils.http.post('/login/oauth/access_token',
         'code=' + code + '&client_id=' + client_id, // !! the gateway accept form-urlencoded only.
-        'http://gitment.16mb.com')
+        'https://aimingoo.heliohost.org')
       .then(function (data) {
         _this.accessToken = data.access_token;
         _this.update();
