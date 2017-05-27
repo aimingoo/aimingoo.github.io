@@ -1,0 +1,409 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>博客迁移手记（三）</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=8444992c76">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=8444992c76">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=8444992c76">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=8444992c76">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=8444992c76">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=8444992c76">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="博客迁移手记（三）">
+    <meta property="og:description" content="接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&amp;gt; General -&amp;gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁(在这里)发布的kaldorei - 0.8.0，你可以下载或阅读这个Theme相关的说明（这里）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。 但我还是做了一些修改。 7.1 一些基本和简单的使用 Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。 kaldorei主题是使用这个方式来实现『历史归档』">
+    <meta property="og:url" content="http://aimingoo.github.io/1-1721.html">
+    <meta property="article:published_time" content="2017-05-27T19:28:21.000Z">
+    <meta property="article:modified_time" content="2017-05-27T19:28:21.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="博客迁移手记（三）">
+    <meta name="twitter:description" content="接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&amp;gt; General -&amp;gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁(在这里)发布的kaldorei - 0.8.0，你可以下载或阅读这个Theme相关的说明（这里）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。 但我还是做了一些修改。 7.1 一些基本和简单的使用 Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。 kaldorei主题是使用这个方式来实现『历史归档』">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1721.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "博客迁移手记（三）",
+    "url": "http://aimingoo.github.io/1-1721.html",
+    "datePublished": "2017-05-27T19:28:21.000Z",
+    "dateModified": "2017-05-27T19:28:21.000Z",
+    "description": "接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&amp;gt; General -&amp;gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁(在这里)发布的kaldorei - 0.8.0，你可以下载或阅读这个Theme相关的说明（这里）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。 但我还是做了一些修改。 7.1 一些基本和简单的使用 Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。 kaldorei主题是使用这个方式来实现『历史归档』",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=8444992c76"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+</head>
+
+<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=8444992c76"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-1721.html">博客迁移手记（三）</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2017-05-28">a few seconds ago</time>
+                        <time class="post-date" datetime="2017-05-28">(2017-05-28)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <p>接下来我们聊一下如何定制这个博客的风格。</p>
+
+<h2 id="7themes">7. 定制Themes</h2>
+
+<p>Ghost缺省使用的主题叫casper theme，你可以在博客管理界面<code>Settings -&gt; General -&gt; Themes</code>中找到你当前安装过的全部Themes，并任意激活/删除它们。</p>
+
+<p>有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的<code>content/themes/</code>目录下。</p>
+
+<p>我选择的是使用小蘿蔔丁(<a href="http://xlbd.me/">在这里</a>)发布的<code>kaldorei - 0.8.0</code>，你可以下载或阅读这个Theme相关的说明（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei">这里</a>）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。</p>
+
+<p>但我还是做了一些修改。</p>
+
+<h3 id="71">7.1 一些基本和简单的使用</h3>
+
+<p>Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。</p>
+
+<p>kaldorei主题是使用这个方式来实现『历史归档』的功能（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#%E5%BC%80%E5%90%AF%E5%BD%92%E6%A1%A3%E5%8A%9F%E8%83%BD">参考这里</a>），这也相当于介绍了『定制静态页』功能的用法——所以我的博客的『关于』页面就是这样做的。</p>
+
+<h4 id="711">7.1.1 处理背景色与背景图片</h4>
+
+<p>需要两个操作。其一：</p>
+
+<pre><code class="language-css">/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
+body {  
+    margin: 0;
+    background: #000;
+}
+</code></pre>
+
+<p>其二，在default.hbs模板的body标签之后添加如下风格样式：</p>
+
+<pre><code class="language-html">&lt;style&gt;  
+body {  
+    background-image: url(/assets/img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+.site-wrapper {
+    background: none;
+}
+
+.main-header {
+    background: none;
+    border-bottom: none;
+}
+
+.main-nav a {
+    color: #FFF;
+}
+&lt;/style&gt;  
+</code></pre>
+
+<p>注意这个风格中的背景图片是放在Ghost安装目录下的<code>content/themes/ghost-theme-kaldorei/assets/img</code>目录中的。makesite.sh脚本（或Buster工具）会搜索到这个文件，并下载这个文件到你的static目录中。</p>
+
+<h4 id="712">7.1.2 为每篇博客添加『编辑』按钮</h4>
+
+<p>当添加了这个按钮之后，我在本地博客中读博文的时就可以随时编辑它，而不必总是回到管理后台去找到这篇文章——Ghost后台没有搜索功能。</p>
+
+<p>因为添加的这个按钮对线上的用户没有意义，所以在我的<code>makesite.sh</code>脚本中有一处代码会将它从<code>./static</code>中的静态页面中清理掉。</p>
+
+<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/post.hbs --&gt;  
+&lt;span class="post-meta-item pull-right"&gt;  
+  &lt;!-- 在这个位置插入如下行 --&gt;
+  &lt;a href="/ghost/editor/{{id}}/" target="_blank"&gt;编辑&lt;/a&gt;
+&lt;/span&gt;  
+</code></pre>
+
+<h4 id="713">7.1.3 移除所有页脚</h4>
+
+<p>纯粹只是个人不喜欢而已，因此除了保留版权说明之外，其它页脚本全部合并/删除掉了。基本上你在.hbs文件中搜索<code>-footer</code>然后自己斟情清理就行了。</p>
+
+<pre><code class="language- bash">&gt; grep 'footer' *.hbs partials/*
+</code></pre>
+
+<h4 id="714">7.1.4 定制个人信息</h4>
+
+<p>相关的信息页面在如下模板中，斟情修改（许多信息可以在博客后台的个人配置与网页配置中定制）：</p>
+
+<pre><code>## 清理掉部分社交信息
+ghost-theme-kaldorei/partials/social.hbs  
+ghost-theme-kaldorei/partials/post_author.hbs  
+## 我移除掉了标签数量的统计
+ghost-theme-kaldorei/partials/site_stat.hbs  
+</code></pre>
+
+<h4 id="715">7.1.5 在博客文章中显示作者信息</h4>
+
+<p>kaldorei主题并没有特别强调多作者博客的功能，所以它的文章（post）中只显示标签云，而不显示该文章的作者信息。因此我添加了这一功能，但需要做的修改极少：</p>
+
+<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&gt;  
+&lt;!-- 注意在下面位置的is标签后面，多添加一个post参数，就可以了 --&gt;  
+    {{! 作者：显示作者信息 }}
+    {{#is "author, post"}}
+</code></pre>
+
+<p>关于多作者博客的支持，我打算另开一篇博文来讲。</p>
+
+<p>^^.</p>
+
+<h3 id="72">7.2 将站点信息与云标签静态化</h3>
+
+<p>Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site<em>stat)』或『标签云(tag</em>cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。</p>
+
+<p>原因是这样，比如说你的site_stat里有一个『站点发表了多少篇文章』的计数，那么，显然你添加/删除一篇博客，就得让所有静态面这个位置的计数变一下；又例如标签名，你添加一个标签那么全站所有页的标签云都要动态生成一下。</p>
+
+<p>而事实上——99%的博客文章或静态页面在内容上都没有什么变化 。所以，能不能将这些动态变化的信息静态化掉，不至于每次都要重新生成？</p>
+
+<p>是能的。我采用的策略是：用js装载这些静态化的信息。</p>
+
+<h4 id="721">7.2.1 为标签云添加一个静态页</h4>
+
+<p>在博客后台添加一篇新的博客，将它的页面url设置成tag_cloud，并配配置它为静态页面（参见『历史归档』的做法，<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#%E5%BC%80%E5%90%AF%E5%BD%92%E6%A1%A3%E5%8A%9F%E8%83%BD">在这里</a>）。这一篇博客的内容可以为空。</p>
+
+<p>然后在<code>content/themes/ghost-theme-kaldorei/</code>目录下新添加一个名为<code>page-tag-cloud.hbs</code>的模板——它将是上面这篇文章的专用模板，Ghost是通过文件名来识别的。内容如下：</p>
+
+<pre><code class="language-javascript">document.writeln(function cloudTagHtmlContext() {/*  
+  {{&gt; "tag_cloud"}}
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+</code></pre>
+
+<p>注意，这是一段标准的JavaScript代码，并且事实上只有一行：</p>
+
+<pre><code class="language-javascript">document.writeln(...);  
+</code></pre>
+
+<p>当Ghost将在后台把<code>page-tag-cloud.hbs</code>当成标准的模板文件来处理，所以它会填充其中的Ghost标志，并装载子模板页。而生成出来的静态页实际上是一个.js的文本文件，并且放在（我们在对应博客文章后台配置的）<code>/tag_cloud</code>这个位置上——不过没有扩展名而已。</p>
+
+<p>这段脚本的作用仅仅是将cloudTagHtmlContext()这个函数（也可以是匿名函数）中的内容取出来，然后写在网页上。</p>
+
+<p>这段代码总是通用的，可以用来将任意模板/网页转换成这样一个脚本文件，以便于动态装载。</p>
+
+<h4 id="722">7.2.2 修改其它模板以装入上述脚本</h4>
+
+<p>这很简单，在sitebar.hbs这个文件中找到<code>{{&gt; "tag_cloud"}}</code>，然后替换成下面的即可：</p>
+
+<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&gt;  
+&lt;!-- 找到{{&gt; "tag_cloud"}}然后替换成下面的脚本 --&gt;  
+&lt;script type="text/javascript" src="/tag-cloud"&gt;&lt;/script&gt;  
+</code></pre>
+
+<h4 id="723site_stat">7.2.3 关于site_stat</h4>
+
+<p>与tag_cloud的处理类似，我添加了<code>/profile_site</code>静态页，并且添加模板如下：</p>
+
+<pre><code class="language-javascript">// file at ghost-theme-kaldorei/page-profile-site.hbs
+document.writeln(function cloudTagHtmlContext() {/*  
+    &lt;hr&gt; {{&gt; "site_stat"}}
+    &lt;hr&gt; {{&gt; "social"}}
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+</code></pre>
+
+<p>同样，最后你需要改一下<code>partials/profile.hbs</code>相应位置来装载<code>/profile_site</code>这个脚本文件。</p>
+
+<h3 id="73">7.3 其它</h3>
+
+<p>事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。</p>
+
+<p>不同的主题的修改会略有区别，本文只供参考。</p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-1720.html">
+                    博客迁移手记（二）
+                </a>
+            </span>
+
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=8444992c76">
+<script src="assets/js/gitment.browser.js?v=8444992c76"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I'm here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i> 
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=8444992c76"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=8444992c76"></script>
+</body>
+

@@ -1,4 +1,178 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 26 May 2017 18:04:20 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（二）</title><description>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sat, 27 May 2017 19:28:47 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（三）</title><description>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
+
+&lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
+
+&lt;p&gt;Ghost缺省使用的主题叫casper theme，你可以在博客管理界面&lt;code&gt;Settings -&amp;gt; General -&amp;gt; Themes&lt;/code&gt;中找到你当前安装过的全部Themes，并任意激活/删除它们。&lt;/p&gt;
+
+&lt;p&gt;有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的&lt;code&gt;content/themes/&lt;/code&gt;目录下。&lt;/p&gt;
+
+&lt;p&gt;我选择的是使用小蘿蔔丁(&lt;a href="http://xlbd.me/"&gt;在这里&lt;/a&gt;)发布的&lt;code&gt;kaldorei - 0.8.0&lt;/code&gt;，你可以下载或阅读这个Theme相关的说明（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei"&gt;这里&lt;/a&gt;）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。&lt;/p&gt;
+
+&lt;p&gt;但我还是做了一些修改。&lt;/p&gt;
+
+&lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
+
+&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1721/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
+
+&lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
+
+&lt;p&gt;Ghost缺省使用的主题叫casper theme，你可以在博客管理界面&lt;code&gt;Settings -&amp;gt; General -&amp;gt; Themes&lt;/code&gt;中找到你当前安装过的全部Themes，并任意激活/删除它们。&lt;/p&gt;
+
+&lt;p&gt;有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的&lt;code&gt;content/themes/&lt;/code&gt;目录下。&lt;/p&gt;
+
+&lt;p&gt;我选择的是使用小蘿蔔丁(&lt;a href="http://xlbd.me/"&gt;在这里&lt;/a&gt;)发布的&lt;code&gt;kaldorei - 0.8.0&lt;/code&gt;，你可以下载或阅读这个Theme相关的说明（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei"&gt;这里&lt;/a&gt;）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。&lt;/p&gt;
+
+&lt;p&gt;但我还是做了一些修改。&lt;/p&gt;
+
+&lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
+
+&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。&lt;/p&gt;
+
+&lt;p&gt;kaldorei主题是使用这个方式来实现『历史归档』的功能（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能"&gt;参考这里&lt;/a&gt;），这也相当于介绍了『定制静态页』功能的用法——所以我的博客的『关于』页面就是这样做的。&lt;/p&gt;
+
+&lt;h4 id="711"&gt;7.1.1 处理背景色与背景图片&lt;/h4&gt;
+
+&lt;p&gt;需要两个操作。其一：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-css"&gt;/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
+body {  
+    margin: 0;
+    background: #000;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其二，在default.hbs模板的body标签之后添加如下风格样式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;style&amp;gt;  
+body {  
+    background-image: url(/assets/img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+.site-wrapper {
+    background: none;
+}
+
+.main-header {
+    background: none;
+    border-bottom: none;
+}
+
+.main-nav a {
+    color: #FFF;
+}
+&amp;lt;/style&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意这个风格中的背景图片是放在Ghost安装目录下的&lt;code&gt;content/themes/ghost-theme-kaldorei/assets/img&lt;/code&gt;目录中的。makesite.sh脚本（或Buster工具）会搜索到这个文件，并下载这个文件到你的static目录中。&lt;/p&gt;
+
+&lt;h4 id="712"&gt;7.1.2 为每篇博客添加『编辑』按钮&lt;/h4&gt;
+
+&lt;p&gt;当添加了这个按钮之后，我在本地博客中读博文的时就可以随时编辑它，而不必总是回到管理后台去找到这篇文章——Ghost后台没有搜索功能。&lt;/p&gt;
+
+&lt;p&gt;因为添加的这个按钮对线上的用户没有意义，所以在我的&lt;code&gt;makesite.sh&lt;/code&gt;脚本中有一处代码会将它从&lt;code&gt;./static&lt;/code&gt;中的静态页面中清理掉。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- modify file at ./ghost-theme-kaldorei/post.hbs --&amp;gt;  
+&amp;lt;span class="post-meta-item pull-right"&amp;gt;  
+  &amp;lt;!-- 在这个位置插入如下行 --&amp;gt;
+  &amp;lt;a href="/ghost/editor/{{id}}/" target="_blank"&amp;gt;编辑&amp;lt;/a&amp;gt;
+&amp;lt;/span&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="713"&gt;7.1.3 移除所有页脚&lt;/h4&gt;
+
+&lt;p&gt;纯粹只是个人不喜欢而已，因此除了保留版权说明之外，其它页脚本全部合并/删除掉了。基本上你在.hbs文件中搜索&lt;code&gt;-footer&lt;/code&gt;然后自己斟情清理就行了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language- bash"&gt;&amp;gt; grep 'footer' *.hbs partials/*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="714"&gt;7.1.4 定制个人信息&lt;/h4&gt;
+
+&lt;p&gt;相关的信息页面在如下模板中，斟情修改（许多信息可以在博客后台的个人配置与网页配置中定制）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## 清理掉部分社交信息
+ghost-theme-kaldorei/partials/social.hbs  
+ghost-theme-kaldorei/partials/post_author.hbs  
+## 我移除掉了标签数量的统计
+ghost-theme-kaldorei/partials/site_stat.hbs  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="715"&gt;7.1.5 在博客文章中显示作者信息&lt;/h4&gt;
+
+&lt;p&gt;kaldorei主题并没有特别强调多作者博客的功能，所以它的文章（post）中只显示标签云，而不显示该文章的作者信息。因此我添加了这一功能，但需要做的修改极少：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&amp;gt;  
+&amp;lt;!-- 注意在下面位置的is标签后面，多添加一个post参数，就可以了 --&amp;gt;  
+    {{! 作者：显示作者信息 }}
+    {{#is "author, post"}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关于多作者博客的支持，我打算另开一篇博文来讲。&lt;/p&gt;
+
+&lt;p&gt;^^.&lt;/p&gt;
+
+&lt;h3 id="72"&gt;7.2 将站点信息与云标签静态化&lt;/h3&gt;
+
+&lt;p&gt;Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site&lt;em&gt;stat)』或『标签云(tag&lt;/em&gt;cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。&lt;/p&gt;
+
+&lt;p&gt;原因是这样，比如说你的site_stat里有一个『站点发表了多少篇文章』的计数，那么，显然你添加/删除一篇博客，就得让所有静态面这个位置的计数变一下；又例如标签名，你添加一个标签那么全站所有页的标签云都要动态生成一下。&lt;/p&gt;
+
+&lt;p&gt;而事实上——99%的博客文章或静态页面在内容上都没有什么变化 。所以，能不能将这些动态变化的信息静态化掉，不至于每次都要重新生成？&lt;/p&gt;
+
+&lt;p&gt;是能的。我采用的策略是：用js装载这些静态化的信息。&lt;/p&gt;
+
+&lt;h4 id="721"&gt;7.2.1 为标签云添加一个静态页&lt;/h4&gt;
+
+&lt;p&gt;在博客后台添加一篇新的博客，将它的页面url设置成tag_cloud，并配配置它为静态页面（参见『历史归档』的做法，&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能"&gt;在这里&lt;/a&gt;）。这一篇博客的内容可以为空。&lt;/p&gt;
+
+&lt;p&gt;然后在&lt;code&gt;content/themes/ghost-theme-kaldorei/&lt;/code&gt;目录下新添加一个名为&lt;code&gt;page-tag-cloud.hbs&lt;/code&gt;的模板——它将是上面这篇文章的专用模板，Ghost是通过文件名来识别的。内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;document.writeln(function cloudTagHtmlContext() {/*  
+  {{&amp;gt; "tag_cloud"}}
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意，这是一段标准的JavaScript代码，并且事实上只有一行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;document.writeln(...);  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;当Ghost将在后台把&lt;code&gt;page-tag-cloud.hbs&lt;/code&gt;当成标准的模板文件来处理，所以它会填充其中的Ghost标志，并装载子模板页。而生成出来的静态页实际上是一个.js的文本文件，并且放在（我们在对应博客文章后台配置的）&lt;code&gt;/tag_cloud&lt;/code&gt;这个位置上——不过没有扩展名而已。&lt;/p&gt;
+
+&lt;p&gt;这段脚本的作用仅仅是将cloudTagHtmlContext()这个函数（也可以是匿名函数）中的内容取出来，然后写在网页上。&lt;/p&gt;
+
+&lt;p&gt;这段代码总是通用的，可以用来将任意模板/网页转换成这样一个脚本文件，以便于动态装载。&lt;/p&gt;
+
+&lt;h4 id="722"&gt;7.2.2 修改其它模板以装入上述脚本&lt;/h4&gt;
+
+&lt;p&gt;这很简单，在sitebar.hbs这个文件中找到&lt;code&gt;{{&amp;gt; "tag_cloud"}}&lt;/code&gt;，然后替换成下面的即可：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&amp;gt;  
+&amp;lt;!-- 找到{{&amp;gt; "tag_cloud"}}然后替换成下面的脚本 --&amp;gt;  
+&amp;lt;script type="text/javascript" src="/tag-cloud"&amp;gt;&amp;lt;/script&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="723site_stat"&gt;7.2.3 关于site_stat&lt;/h4&gt;
+
+&lt;p&gt;与tag_cloud的处理类似，我添加了&lt;code&gt;/profile_site&lt;/code&gt;静态页，并且添加模板如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;// file at ghost-theme-kaldorei/page-profile-site.hbs
+document.writeln(function cloudTagHtmlContext() {/*  
+    &amp;lt;hr&amp;gt; {{&amp;gt; "site_stat"}}
+    &amp;lt;hr&amp;gt; {{&amp;gt; "social"}}
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;同样，最后你需要改一下&lt;code&gt;partials/profile.hbs&lt;/code&gt;相应位置来装载&lt;code&gt;/profile_site&lt;/code&gt;这个脚本文件。&lt;/p&gt;
+
+&lt;h3 id="73"&gt;7.3 其它&lt;/h3&gt;
+
+&lt;p&gt;事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。&lt;/p&gt;
+
+&lt;p&gt;不同的主题的修改会略有区别，本文只供参考。&lt;/p&gt;</content:encoded></item><item><title>博客迁移手记（二）</title><description>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
 
 &lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
 
@@ -1966,36 +2140,4 @@ Promise.all([1,2,3])
 
 &lt;p&gt;再回复一下您最后的这个问题。简单地说，我认为没有“比例”这样的东西。“软件工程”纯以工学的方式来讲，是有构成与组成的，因为这是它的“问题集”。但在工程实践中，是实践的背景决定了我们如何投入实施力量，而不是一个学术的指导或行事表&amp;#26684;。我常说“真正的管理者，是不看管理的技术书的”，当我们把“软件工程”当成一种技术，试图从技术书中找到公式与规则的企图，都死死地陷入在技术思想中，陷入在“工欲善其事，必先利其器”的工匠思维中。  &lt;/p&gt;
 
-&lt;p&gt;所以我常说“如果你认为这句话对，说明你是‘工’”，因为这原本就是你的工作方法、状态以及你构建知识、能力的基本模式。——引自​《大道至易》&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之二：什么是架构？以及什么是架构师？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题是：什么是架构？以及什么是架构师？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过，而在另一本《大道至易——实践者的思想》才有所讨论。不过这里我还是乐于解释一下一些基本的问题，或谈谈我的一些基本的观点。  &lt;/p&gt;
-
-&lt;p&gt;仅以架构而言，要讨论的问题总的来说就两个方面，一是“范围”，就是项目与项目目标要做多大、多久，做到怎样效果的问题，并且围绕这个“范围”来给出一些合理的方案给开发实施的团队。二是“联接件”，就是如果上述的范围要由多个阶段或多个构件来构成，那么这些范围或构件之间如何关联的，以及如何确保这些关联是长期有效的。​  &lt;/p&gt;
-
-&lt;p&gt;为了简单的说清这个架构的概念，以一个插件的架构来说，就是确定“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-187/</link><guid isPermaLink="false">2ab7aded-1ed3-4a9d-a1fd-4c1c95bc887a</guid><category>软件工程</category><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 14:43:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题是：什么是架构？以及什么是架构师？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过，而在另一本《大道至易——实践者的思想》才有所讨论。不过这里我还是乐于解释一下一些基本的问题，或谈谈我的一些基本的观点。  &lt;/p&gt;
-
-&lt;p&gt;仅以架构而言，要讨论的问题总的来说就两个方面，一是“范围”，就是项目与项目目标要做多大、多久，做到怎样效果的问题，并且围绕这个“范围”来给出一些合理的方案给开发实施的团队。二是“联接件”，就是如果上述的范围要由多个阶段或多个构件来构成，那么这些范围或构件之间如何关联的，以及如何确保这些关联是长期有效的。​  &lt;/p&gt;
-
-&lt;p&gt;为了简单的说清这个架构的概念，以一个插件的架构来说，就是确定“插件用于补充主体软件的某个功能”，并确定“插件与主体软件之间如何衔接通讯”。那么有了这两点，插件的架构，也就设计完了。把这个模式扩大到一个平台，或一个大型的系统，或者细化到它们的各个局部中去，就是“平台架构”或“系统架构”了。当然，这仅在简单地、形式化地在讨论“架构”这个东西，因为“架构”与规模问题尽管有关系，但并非是一一对应的。不能说“大系统就要架构，小东西就不需要”，这样的认识是不正确的。  &lt;/p&gt;
-
-&lt;p&gt;架构在根底上来说，是一种系统化的视角。如果你将一个对象理解为“系统”，或“有系统性的”，那么它就必然存在内部的关系与外部的边界——否则，必是离散的，或混沌不清的。而架构的“范围”与“联接件”，谈的就是这个对象的内部关系与外部边界。如果你具有架构思维，那么在你的视角下，凡事、凡物、凡内外，无不如此。  &lt;/p&gt;
-
-&lt;p&gt;而架构师，要么离散上述关系、肢解上述结构，要么通过明确的方式来固化上述的关系与结构。如是，是做架构。&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;所以我常说“如果你认为这句话对，说明你是‘工’”，因为这原本就是你的工作方法、状态以及你构建知识、能力的基本模式。——引自​《大道至易》&lt;/p&gt;</content:encoded></item></channel></rss>

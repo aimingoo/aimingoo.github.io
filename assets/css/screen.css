@@ -1787,6 +1787,7 @@ body.nav-opened .site-wrapper {
 }
 .navigation.site-stat {
     padding: 0px 25px;
+    text-align: center;
 }
 
 /* Site Stat Style */

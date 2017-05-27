@@ -1,21 +1,32 @@
 document.writeln(function siteProfileHtmlContext() {/*
-<hr>
-<nav class="navigation site-stat">
+  <hr> <nav class="navigation site-stat">
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>264</strong>
+                <strong>265</strong>
         </span>
         <span class="site-stat-item-name">文章</span>
     </div>
     <div class="site-stat-item">
         <span class="site-stat-item-count">
+<script>
+document.writeln('<strong>', '\
+            \
+'.replace(/^\s*|\s*$/g, '') || 0, '<' + '/strong>');
+</script>
         </span>
         <span class="site-stat-item-name">推荐</span>
     </div>
+<!--
+    <div class="site-stat-item">
+        <span class="site-stat-item-count">
+                <strong>34</strong>
+        </span>
+        <span class="site-stat-item-name">标签</span>
+    </div>
+-->
 </nav>
 
-<hr>
-<nav class="navigation social">
+  <hr> <nav class="navigation social">
     <ul class="social">
         <li>
             <a href="http://weibo.com/aimingoo" class="social-weibo">
@@ -27,6 +38,18 @@ document.writeln(function siteProfileHtmlContext() {/*
                 <i class="fa fa-xlg fa-github" data-original-title="GitHub主页" data-rel="tooltip"></i>
             </a>
         </li>
+<!--
+        <li>
+            <a href="#" class="social-music">
+                <i class="fa fa-xlg fa-music" data-original-title="网易云音乐" data-rel="tooltip"></i>
+            </a>
+        </li>
+        <li>
+            <a href="mailto:#" class="social-mail">
+                <i class="fa fa-xlg fa-envelope-o" data-original-title="私信博主" data-rel="tooltip"></i>
+            </a>
+        </li>
+-->
         <li>
             <a href="rss/index.html" class="social-rss">
                 <i class="fa fa-xlg fa-rss" data-original-title="订阅本站" data-rel="tooltip"></i>
@@ -34,4 +57,5 @@ document.writeln(function siteProfileHtmlContext() {/*
         </li>
     </ul>
 </nav>
+
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
