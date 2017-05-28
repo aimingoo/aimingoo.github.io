@@ -10,13 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=8444992c76">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=96a7740888">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=8444992c76">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=8444992c76">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/monokai-sublime.css?v=8444992c76">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=8444992c76">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=8444992c76">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=96a7740888">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
@@ -25,13 +25,19 @@
     <meta property="og:description" content="接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&amp;gt; General -&amp;gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁(在这里)发布的kaldorei - 0.8.0，你可以下载或阅读这个Theme相关的说明（这里）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。 但我还是做了一些修改。 7.1 一些基本和简单的使用 Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。 kaldorei主题是使用这个方式来实现『历史归档』">
     <meta property="og:url" content="http://aimingoo.github.io/1-1721.html">
     <meta property="article:published_time" content="2017-05-27T19:28:21.000Z">
-    <meta property="article:modified_time" content="2017-05-27T19:28:21.000Z">
+    <meta property="article:modified_time" content="2017-05-28T18:12:02.000Z">
+    <meta property="article:tag" content="Ghost">
+    <meta property="article:tag" content="博客">
+    <meta property="article:tag" content="Javascript">
+    
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="博客迁移手记（三）">
     <meta name="twitter:description" content="接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&amp;gt; General -&amp;gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁(在这里)发布的kaldorei - 0.8.0，你可以下载或阅读这个Theme相关的说明（这里）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。 但我还是做了一些修改。 7.1 一些基本和简单的使用 Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。 kaldorei主题是使用这个方式来实现『历史归档』">
     <meta name="twitter:url" content="http://aimingoo.github.io/1-1721.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Ghost, 博客, Javascript">
     
     <script type="application/ld+json">
 {
@@ -60,7 +66,8 @@
     "headline": "博客迁移手记（三）",
     "url": "http://aimingoo.github.io/1-1721.html",
     "datePublished": "2017-05-27T19:28:21.000Z",
-    "dateModified": "2017-05-27T19:28:21.000Z",
+    "dateModified": "2017-05-28T18:12:02.000Z",
+    "keywords": "Ghost, 博客, Javascript",
     "description": "接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&amp;gt; General -&amp;gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁(在这里)发布的kaldorei - 0.8.0，你可以下载或阅读这个Theme相关的说明（这里）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。 但我还是做了一些修改。 7.1 一些基本和简单的使用 Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。 kaldorei主题是使用这个方式来实现『历史归档』",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -69,7 +76,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=8444992c76"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=96a7740888"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -80,7 +87,7 @@ ghost.init({
     <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
-<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-ghost-tag tag-bo-ke tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -88,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=8444992c76"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=96a7740888"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -115,7 +122,7 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post">
+        <article class="post tag-ghost-tag tag-bo-ke tag-javascript">
             <header class="post-header">
                 <h1 class="post-title"><a href="1-1721.html">博客迁移手记（三）</a></h1>
                 <section class="post-meta">
@@ -125,12 +132,12 @@ ghost.init({
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-05-28">a few seconds ago</time>
+                        <time class="post-date" datetime="2017-05-28">a day ago</time>
                         <time class="post-date" datetime="2017-05-28">(2017-05-28)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        
+                        <a href="tag/ghost-tag/">Ghost</a>, <a href="tag/bo-ke/">博客</a>, <a href="tag/javascript/">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -241,6 +248,56 @@ ghost-theme-kaldorei/partials/site_stat.hbs
 
 <p>^^.</p>
 
+<h4 id="716">7.1.6 修改语法高亮</h4>
+
+<p>在default.hbs中载入新的highlight style即可：</p>
+
+<pre><code class="language-html">&lt;!-- kaldorei的缺省风格是monokai-sublime.css, 在styles目录下找个新的换上就Ok --&gt;  
+&lt;!-- 可以先查看https://highlightjs.org/static/demo/来选择风格 --&gt;  
+&lt;link rel="stylesheet" type="text/css" href="{{asset "plugins/highlight-9.1.0/styles/xcode.css"}}" /&gt;  
+</code></pre>
+
+<h4 id="717">7.1.7 指定文章置顶</h4>
+
+<p>置顶文章是常见的博客操作，你可以将一篇文章设置为<code>featured</code>，并且通过修改模板来使它们置顶。这会涉及到不少的修改。</p>
+
+<p>好在所谓『置顶』操作其实只会发生在带有<code>（列表）list</code>性质的页面中，这类页面在Ghost中称为<code>paged</code>，它只出现在以下三类页面上：index, tag and author（<a href="https://themes.ghost.org/docs/paged-context#section-description">参见这里</a>）。在这三类页面中，可以用loop模板去列举所有页，但它们的<code>第1页</code>是paged为false的，而之后的<code>第2..n页</code>则是paged为true的。可以通过这种区别来将你需要的内容置顶，并在其它页面中筛除它们。</p>
+
+<p>在具体实现中，由于<code>{{get}}</code>标记在<code>filter</code>设置时不能使用包含或查找操作（它能使用的运算支持<a href="https://api.ghost.org/docs/filter">在这里</a>），所以tag页不能用index/author页相同的方法来实现置顶。然而此外唯一可能做这个运算的<code>{{has}}</code>标记却不支持参数传入——所以，你已经知道结果了：在tag页中不支持（按标签分类过的）置顶。</p>
+
+<pre><code class="language-html">&lt;!-- 在loop.hbs中用以下代码分别载入置顶风格的posts --&gt;  
+{{^is "paged"}}
+    {{! list all feated posts on top }}
+    {{#is "index"}}
+    {{#get "posts" filter="featured:true" limit="all" as |featured|}}
+    {{#foreach featured}}
+        {{&gt; content_featured}}
+    {{/foreach}}
+    {{/get}}
+    {{/is}}
+
+    {{#is "author"}}
+    {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" as |featured|}}
+    {{#foreach featured}}
+        {{&gt; content_featured}}
+    {{/foreach}}
+    {{/get}}
+    {{/is}}
+{{/is}}
+
+&lt;!-- 紧接着载入普通风格的posts --&gt;  
+    {{! This is the post loop - each post will be output using this markup }}
+    {{#foreach posts}}
+    {{#unless featured}}
+        {{&gt; content_post}}
+    {{/unless}}
+    {{/foreach}}
+</code></pre>
+
+<p>然后在<code>partials/content_featured.hbs</code>和<code>partials/content_post.hbs</code>中分别设置两种样式即可。——可以将原来在loop.hbs中<code>foreach posts</code>的代码块直接接到<code>partials/content_post.hbs</code>中。</p>
+
+<p>最后，一些细节可以参考这里：<a href="https://www.ghostforbeginners.com/move-featured-posts-to-the-top-of-your-blog/">Move Featured Posts to the Top of your Blog</a>。</p>
+
 <h3 id="72">7.2 将站点信息与云标签静态化</h3>
 
 <p>Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site<em>stat)』或『标签云(tag</em>cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。</p>
@@ -316,13 +373,19 @@ document.writeln(function cloudTagHtmlContext() {/*
                 </a>
             </span>
 
+            <span class="post-nav-next">
+                <a href="1-1722.html">
+                    博客迁移手记（四）
+                </a>
+                下一篇
+            </span>
         </aside>
 
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=8444992c76">
-<script src="assets/js/gitment.browser.js?v=8444992c76"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=96a7740888">
+<script src="assets/js/gitment.browser.js?v=96a7740888"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -391,19 +454,19 @@ document.writeln(function cloudTagHtmlContext() {/*
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=96a7740888"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=8444992c76"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=8444992c76"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=96a7740888"></script>
 </body>
 

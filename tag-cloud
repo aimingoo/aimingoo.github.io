@@ -34,8 +34,8 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
-				<a href="http://aimingoo.github.io/tag/javascript" class="tag-item">Javascript (78)</a>
-				<a href="http://aimingoo.github.io/tag/za-tan" class="tag-item">杂谈 (63)</a>
+				<a href="http://aimingoo.github.io/tag/javascript" class="tag-item">Javascript (79)</a>
+				<a href="http://aimingoo.github.io/tag/za-tan" class="tag-item">杂谈 (64)</a>
 				<a href="http://aimingoo.github.io/tag/yu-yan" class="tag-item">语言 (51)</a>
 				<a href="http://aimingoo.github.io/tag/delphi" class="tag-item">delphi (41)</a>
 				<a href="http://aimingoo.github.io/tag/bian-cheng" class="tag-item">编程 (30)</a>
@@ -66,8 +66,9 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/lisp" class="tag-item">lisp (5)</a>
 				<a href="http://aimingoo.github.io/tag/bian-yi-qi" class="tag-item">编译器 (5)</a>
 				<a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (5)</a>
+				<a href="http://aimingoo.github.io/tag/bo-ke" class="tag-item">博客 (2)</a>
 				<a href="http://aimingoo.github.io/tag/android" class="tag-item">android (1)</a>
-				<a href="http://aimingoo.github.io/tag/bo-ke" class="tag-item">博客 (1)</a>
+				<a href="http://aimingoo.github.io/tag/ghost-tag" class="tag-item">Ghost (1)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));

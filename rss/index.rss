@@ -1,4 +1,190 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sat, 27 May 2017 19:28:47 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（三）</title><description>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 28 May 2017 18:46:14 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（四）</title><description>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
+
+&lt;p&gt;这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。&lt;/p&gt;
+
+&lt;h2 id="8"&gt;8. 问题出在哪里&lt;/h2&gt;
+
+&lt;p&gt;Gitment（&lt;a href="https://github.com/imsun/gitment"&gt;项目&lt;/a&gt;）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（&lt;a href="https://imsun.net/"&gt;https://imsun.net/&lt;/a&gt;）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github真的可能被屏蔽，尽管这种可能性已经越来越小&lt;/li&gt;
+&lt;li&gt;要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。&lt;/p&gt;
+
+&lt;p&gt;这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var gitment = new Gitment({  
+  id: '页面 ID', // 可选。默认为 location.href&lt;/code&gt;&lt;/pre&gt;</description><link>http://aimingoo.github.io/1-1722/</link><guid isPermaLink="false">bfa19ad7-3e78-4560-a7ff-f79104c7dd8d</guid><dc:creator>aimingoo</dc:creator><pubDate>Sun, 28 May 2017 18:17:49 GMT</pubDate><content:encoded>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
+
+&lt;p&gt;这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。&lt;/p&gt;
+
+&lt;h2 id="8"&gt;8. 问题出在哪里&lt;/h2&gt;
+
+&lt;p&gt;Gitment（&lt;a href="https://github.com/imsun/gitment"&gt;项目&lt;/a&gt;）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（&lt;a href="https://imsun.net/"&gt;https://imsun.net/&lt;/a&gt;）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Github真的可能被屏蔽，尽管这种可能性已经越来越小&lt;/li&gt;
+&lt;li&gt;要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。&lt;/p&gt;
+
+&lt;p&gt;这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var gitment = new Gitment({  
+  id: '页面 ID', // 可选。默认为 location.href
+  owner: '你的 GitHub ID',
+  repo: '存储评论的 repo',
+  oauth: {
+    client_id: '你的 client ID',
+    client_secret: '你的 client secret',
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个&lt;code&gt;client_secret&lt;/code&gt;来自于你在自己的Github个人配置&lt;code&gt;Settings -&amp;gt; Developer Settings -&amp;gt; OAuth applicatoins&lt;/code&gt;中创建一个application时所生成的secret，这个secret提供了所谓的单点登录认证，以确保其它的Github用户在经过同意后使用你的博客中的Gitment模块来发评化——这种用法类似于新浪、微信、QQ等等的小应用。&lt;/p&gt;
+
+&lt;p&gt;通常你需要这个secret有访问者的repo级别的访问权限（因为添加评论其实上是向repo的issues中添加comments），而一旦有人劫持了访问者的access_token，那么它就可以仿冒访问者在任意的github仓库中添加comments、以及issues——看起来很可怕不是？而且事实上看起来这个权限还更大，可以操作访问者自己的仓库。&lt;/p&gt;
+
+&lt;p&gt;Gitment的作者为什么要留下这么一个漏洞呢？Github又为什么会允许这样一个漏洞存在呢？&lt;/p&gt;
+
+&lt;h3 id="81gitment"&gt;8.1 Gitment干了什么？&lt;/h3&gt;
+
+&lt;p&gt;其实Gitment的作者是好心的。他在源代码中是这么写的：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;this.state.user.isLoggingIn = true  
+http.post('https://gh-oauth.imsun.net', {  
+    code,
+    client_id,
+    client_secret
+  }, '')
+  .then(data =&amp;gt; {
+    this.accessToken = data.access_token;
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这段代码的意思，是拿你在Github后台生成的一对&lt;code&gt;client_id/client_secret&lt;/code&gt;验证信息，去&lt;code&gt;https://gh-oauth.imsun.net&lt;/code&gt;上面换取access_token，而这个access_token才是当前登录的Github用户在你的博客用发评论时使用的验证信息。这个access_token会记录在cookies中，并且每次调用Github api时作为Authorization头信息提交给Github验证身份。&lt;/p&gt;
+
+&lt;p&gt;你把client_id和client_secret同时给了imsun.net，这是不对的；即使你信任imsun.net，然而把它公布在源代码中，也是不对的。——所以，事实上如果你在博客中部署了上述代码，你还会收到来自Github的一封邮件，提醒你不应该将token放在源代码中（是的，Github会扫描提交的源代码）。&lt;/p&gt;
+
+&lt;p&gt;Gitment的作者并不是不知道这个问题，他只是好心的想帮你解决一个问题——这个我们下面会讲到——然而他带来了更严重的问题。&lt;/p&gt;
+
+&lt;h3 id="82github"&gt;8.2 深入了解Github的单点登录和应用授权&lt;/h3&gt;
+
+&lt;p&gt;如果你在Github站外使用它的单点登录（也就是提示你用Github账户登录以使用某种功能），那么在这个网页中——其实也可以不是前端的网页，而是后端应用——需要调用Github API，来将当前用户引导到下面的Github的登录和授权页面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;GET https://github.com/login/oauth/authorize  
+    ?scope=(权限范围, Gitment预设的是'public_repo')
+    &amp;amp;client_id=(验证应用的client_id)
+    &amp;amp;redirect_url=(验证成功后的返回url, Gitment预设的是当前页)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这时，（如果当前用户/访客没有登录过，那么）它看到的页面是下面这样的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（界面1：跨站应用的单点登录界面）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-1.png" alt="github_auth_step-1"&gt;&lt;/p&gt;
+
+&lt;p&gt;如果访客还没有为这个应用授权过（或者他已经是Github的登录用户），那么他之后还会看到下面这个界面：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（界面2：授权）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-2.png" alt="github_auth_step-2"&gt;&lt;/p&gt;
+
+&lt;p&gt;这两步的目的就是让访客登录，并且让他确认你的应用（例如Gitment）能够使用他的账号中的哪些权限。一旦用户确认过这个授权，那么在他的Github账号后台&lt;code&gt;Settings -&amp;gt; Authorized OAuth Apps&lt;/code&gt;中就可以看到这个应用（也能Revoke掉它），并且下次就不用再确认授权了。&lt;/p&gt;
+
+&lt;p&gt;注意到上述'will redirect to'的地址——它在使用API提交时的配置细节在Github API的说明中有（&lt;a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/#redirect-urls"&gt;在这里&lt;/a&gt;），简单地说它必须以Application在后台的配置作为前缀。在我们这里讨论的Gitment中，作者将它设置为当前正在访问的网页——例如某篇博客文章（Post）。&lt;/p&gt;
+
+&lt;p&gt;接下来如果Github验证并授权了访问的账户，它就会通过HTTP调用来返回304并带上一个Location地址，这个地址就是上面的redirect_url，并且会在这个url后面多带一个&lt;code&gt;code&lt;/code&gt;参数。以我的站点上的某个具体的post来说，返回的时候这个Header是下面这样的：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Location:https://aimingoo.github.io/1-1718.html?code=40299d8475d3679c8c8c  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在静态页面（例如1-1718.html）中从url取参数的方法就不用细讲了。于是接下来Giment取到这个参数&lt;code&gt;code&lt;/code&gt;，它还需要再做一次验证，才能真正的让当前用户能够使用Github API。这个验证操作需要调用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;POST https://github.com/login/oauth/access_token  
+    client_id: ...
+    client_secret: ...
+    code: ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;并且它使用POST请求的Accept header来决定以何种格式（xml/json/url-encode）来返回数据。显然地，这里需要在浏览器中使用AJAX请求来向&lt;code&gt;https://github.com/&lt;/code&gt;调用这个API。&lt;/p&gt;
+
+&lt;p&gt;问题就出在这一步。&lt;/p&gt;
+
+&lt;h3 id="83githuboauth"&gt;8.3 Github OAuth并不支持浏览器跨站访问&lt;/h3&gt;
+
+&lt;p&gt;如果你在命令行上或者其它代码中直接访问上述POST API，那么不错，你能拿到返回数据access_token，然而不幸的是：Gitment在浏览器上，只能使用Ajax。&lt;/p&gt;
+
+&lt;p&gt;事实上Gitment可以调用上述API并返回数据，但是注意发起这个API的地址（以上面的post为例）与调用的Github API地址分别是：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;https://aimingoo.github.io/1-1718.html  
+https://github.com/login/oauth/access_token  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;于是浏览器说：这是一个跨站访问！浏览器会把POST请求拆成两个，先发一枚OPTIONS请求问问github.com是否支持跨站，如果github.com接受了OPTIONS并正确返回，那么浏览器才接下来发POST请求。——OPTIONS请求是没有POST BODY区的，显示这是为了浪费服务器接受大型的POST请求时浪费资源。关于这个过程的细节，可以参考阮一峰老师的文章『&lt;a href="http://www.ruanyifeng.com/blog/2016/04/cors.html"&gt;跨域资源共享 CORS 详解&lt;/a&gt;』。简单地说，服务器端对OPTIONS和POST请求都必须在返回头中包括&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt;字段，并使该字段带有正确的来源Origin信息。——这样一来，浏览器就会认为服务器是接受跨站访问的了。&lt;/p&gt;
+
+&lt;p&gt;然而Github的access_token接口并不返回上述头。而且，可以预见的将来，它都不会有这个头。因为这是正确的——我们确实不应该在浏览器上直接使用这个接口，并且公开接口中的client_secret。从另一方面来说，这个access_token接口是应该在一个浏览器用户受信的后端应用中，亦即是我们称为Gitment模板的应用内部发起调用的，它可以持有client_secret而不必告诉任何人，这是Github确认『该应用合法』的唯一凭据。&lt;/p&gt;
+
+&lt;p&gt;Gitment没有办法同时做到两件事：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;既可以使用一个惟一、统一的Giment client_secret凭据，&lt;/li&gt;
+&lt;li&gt;又在redirect_url中指定某个非确定的博客返回地址。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这使得作者无法公开发布一个公众使用的、不需要每个博主去Github后台配置OAuth Application服务的应用。而接下来，作者也有没办法在没有client_secret凭据的情况下，帮你调用Github's access_token接口。&lt;/p&gt;
+
+&lt;p&gt;所以，你看到了结果：Gitment的代码要求在网页中泄露你的client_secret，然后提交到&lt;code&gt;https://gh-oauth.imsun.net&lt;/code&gt;去，作者会帮助你调用Github API，然后返回一个access_token。&lt;/p&gt;
+
+&lt;p&gt;只有这样，当前的访问才能用这个access_token为每一个XHR Request建立有效的Authorization头。&lt;/p&gt;
+
+&lt;p&gt;问题的根源，仅仅是出在Github OAuth并不支持浏览器跨站访问——它的返回头用没有Access-Control-Allow-Origin。&lt;/p&gt;
+
+&lt;h3 id="84api"&gt;8.4 API网关&lt;/h3&gt;
+
+&lt;p&gt;显然，这绝壁了就是API网关要干的事情。如果我有一个API网关，那么我就只需要接受来自浏览器的Gitment请求，然后将API转发到Github，并且在返回头上塞上一个Access-Control-Allow-Origin就万事大吉了！&lt;/p&gt;
+
+&lt;p&gt;是的，这是对的。不幸的是，没有这么个东东——而且要开放可信的。&lt;/p&gt;
+
+&lt;p&gt;我尝试过阿里云的API网关！很牛x的产品，价格也不贵，而且配置操作一路极顺畅，Ding dong Ding dong分分钟就建好了网关，但是——不能定制返回的HTTP Header！&lt;/p&gt;
+
+&lt;p&gt;我尝试过微软Azure里的API网关！也很牛x产品，骗了我一块钱人民币，居然让我连配置都完不成——最最反程序员的产品就非它莫属了。&lt;/p&gt;
+
+&lt;p&gt;我尝试过很多很多云服务或云端微服务的API网关产品，要么是根本连页面都打不开的，要么就是不支持CORS跨站的。简单地说：你就算想花钱也是花不出去的。&lt;/p&gt;
+
+&lt;p&gt;不过真想花钱，还是有一个法子的。你可以租一台虚拟主机，然后在上面架一个Nginx，通过配置来代理这个POST请求并在返回中加上Access-Control-Allow-Origin头。是的，这相当不错，连代码也不用写。但是搞云主机啊，分分钟收钱的。——你的API能访问几次？一个小小小小得不得了的博客，一个月能用10来条评论就不错了，调用上面的登录接口，大概也就三五次吧！&lt;/p&gt;
+
+&lt;p&gt;不值当搞台云主机啊！&lt;/p&gt;
+
+&lt;p&gt;于是，我说：&lt;/p&gt;
+
+&lt;h3 id="85sir"&gt;8.5 写点代码吧，Sir&lt;/h3&gt;
+
+&lt;p&gt;要写点代码就其实很好办了，用NodeJS也好、PHP/ASP也行，其实甚至BASH脚本都搞得定。只需响应前端（frontend）来的POST请求，然后去Github API接口（backend）上拿数据，在返回前端之前塞上个Header就行了。&lt;/p&gt;
+
+&lt;p&gt;不过具体要做起来，就麻烦一点了。我用PHP写了一个名为intersect的项目（&lt;a href="https://github.com/aimingoo/intersect"&gt;在这里&lt;/a&gt;），它修改自&lt;a href="https://github.com/stamat/corsica"&gt;CORSica&lt;/a&gt;，不过添加了不少的特性：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HTTPS POST支持&lt;/li&gt;
+&lt;li&gt;添加可配置字段（例如为Github API添加client_secret）&lt;/li&gt;
+&lt;li&gt;处理前后端不同的Connection方法&lt;/li&gt;
+&lt;li&gt;处理Transfer-Encoding&lt;/li&gt;
+&lt;li&gt;处理Content-Length的变化&lt;/li&gt;
+&lt;li&gt;一些防止滥用的简单guard代码&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;基本上，我的意思是说，它简单的配置下就可用了；而且稍作定制，也可以作为一个通用的CORS网关。所以，接下来，你就需要找一个能放PHP代码的免费主页，然后把intersect放上去，配置其中的&lt;code&gt;DOMAIN_ACCEPT&lt;/code&gt;和&lt;code&gt;PRIVATE_CLIENT_SECRET&lt;/code&gt;。这样这个网站就能拿来替代Gitment中对&lt;code&gt;https://gh-oauth.imsun.net&lt;/code&gt;的访问了。&lt;/p&gt;
+
+&lt;p&gt;当然，Gitment还需要稍稍的改点代码。&lt;/p&gt;
+
+&lt;p&gt;这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。&lt;/p&gt;</content:encoded></item><item><title>博客迁移手记（三）</title><description>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
 
 &lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
 
@@ -12,7 +198,7 @@
 
 &lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
 
-&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1721/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
+&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1721/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><category>Ghost</category><category>博客</category><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
 
 &lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
 
@@ -113,6 +299,56 @@ ghost-theme-kaldorei/partials/site_stat.hbs
 &lt;p&gt;关于多作者博客的支持，我打算另开一篇博文来讲。&lt;/p&gt;
 
 &lt;p&gt;^^.&lt;/p&gt;
+
+&lt;h4 id="716"&gt;7.1.6 修改语法高亮&lt;/h4&gt;
+
+&lt;p&gt;在default.hbs中载入新的highlight style即可：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- kaldorei的缺省风格是monokai-sublime.css, 在styles目录下找个新的换上就Ok --&amp;gt;  
+&amp;lt;!-- 可以先查看https://highlightjs.org/static/demo/来选择风格 --&amp;gt;  
+&amp;lt;link rel="stylesheet" type="text/css" href="{{asset "plugins/highlight-9.1.0/styles/xcode.css"}}" /&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id="717"&gt;7.1.7 指定文章置顶&lt;/h4&gt;
+
+&lt;p&gt;置顶文章是常见的博客操作，你可以将一篇文章设置为&lt;code&gt;featured&lt;/code&gt;，并且通过修改模板来使它们置顶。这会涉及到不少的修改。&lt;/p&gt;
+
+&lt;p&gt;好在所谓『置顶』操作其实只会发生在带有&lt;code&gt;（列表）list&lt;/code&gt;性质的页面中，这类页面在Ghost中称为&lt;code&gt;paged&lt;/code&gt;，它只出现在以下三类页面上：index, tag and author（&lt;a href="https://themes.ghost.org/docs/paged-context#section-description"&gt;参见这里&lt;/a&gt;）。在这三类页面中，可以用loop模板去列举所有页，但它们的&lt;code&gt;第1页&lt;/code&gt;是paged为false的，而之后的&lt;code&gt;第2..n页&lt;/code&gt;则是paged为true的。可以通过这种区别来将你需要的内容置顶，并在其它页面中筛除它们。&lt;/p&gt;
+
+&lt;p&gt;在具体实现中，由于&lt;code&gt;{{get}}&lt;/code&gt;标记在&lt;code&gt;filter&lt;/code&gt;设置时不能使用包含或查找操作（它能使用的运算支持&lt;a href="https://api.ghost.org/docs/filter"&gt;在这里&lt;/a&gt;），所以tag页不能用index/author页相同的方法来实现置顶。然而此外唯一可能做这个运算的&lt;code&gt;{{has}}&lt;/code&gt;标记却不支持参数传入——所以，你已经知道结果了：在tag页中不支持（按标签分类过的）置顶。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- 在loop.hbs中用以下代码分别载入置顶风格的posts --&amp;gt;  
+{{^is "paged"}}
+    {{! list all feated posts on top }}
+    {{#is "index"}}
+    {{#get "posts" filter="featured:true" limit="all" as |featured|}}
+    {{#foreach featured}}
+        {{&amp;gt; content_featured}}
+    {{/foreach}}
+    {{/get}}
+    {{/is}}
+
+    {{#is "author"}}
+    {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" as |featured|}}
+    {{#foreach featured}}
+        {{&amp;gt; content_featured}}
+    {{/foreach}}
+    {{/get}}
+    {{/is}}
+{{/is}}
+
+&amp;lt;!-- 紧接着载入普通风格的posts --&amp;gt;  
+    {{! This is the post loop - each post will be output using this markup }}
+    {{#foreach posts}}
+    {{#unless featured}}
+        {{&amp;gt; content_post}}
+    {{/unless}}
+    {{/foreach}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后在&lt;code&gt;partials/content_featured.hbs&lt;/code&gt;和&lt;code&gt;partials/content_post.hbs&lt;/code&gt;中分别设置两种样式即可。——可以将原来在loop.hbs中&lt;code&gt;foreach posts&lt;/code&gt;的代码块直接接到&lt;code&gt;partials/content_post.hbs&lt;/code&gt;中。&lt;/p&gt;
+
+&lt;p&gt;最后，一些细节可以参考这里：&lt;a href="https://www.ghostforbeginners.com/move-featured-posts-to-the-top-of-your-blog/"&gt;Move Featured Posts to the Top of your Blog&lt;/a&gt;。&lt;/p&gt;
 
 &lt;h3 id="72"&gt;7.2 将站点信息与云标签静态化&lt;/h3&gt;
 
@@ -631,7 +867,7 @@ Ctrl+C to shut down
 &lt;ul&gt;
 &lt;li&gt;全站交付。&lt;/li&gt;
 &lt;li&gt;2009年之后的博客文章全部进行了修订。&lt;/li&gt;
-&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1718/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
+&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1718/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><category>杂谈</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
 
 &lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
 
@@ -2087,57 +2323,4 @@ Promise.all([1,2,3])
 
 &lt;p&gt;答：  &lt;/p&gt;
 
-&lt;p&gt;你在哪里？是谁？在做什么？这些就是基本的组织问题。&amp;nbsp;&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？  &lt;/p&gt;
-
-&lt;p&gt;问：  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;一、关于架构。    &lt;/p&gt;
-  
-  &lt;p&gt;我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？    &lt;/p&gt;
-  
-  &lt;p&gt;二、关于软件工程。    &lt;/p&gt;
-  
-  &lt;p&gt;我一直的理解为　软件工程 = 工具 &amp;#43;方法&amp;#43;过程。    &lt;/p&gt;
-  
-  &lt;p&gt;想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-188/</link><guid isPermaLink="false">fe1bbf48-3db4-4fc2-913a-f2b43d9e458d</guid><category>软件工程</category><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 14:48:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？  &lt;/p&gt;
-
-&lt;p&gt;问：  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;一、关于架构。    &lt;/p&gt;
-  
-  &lt;p&gt;我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？    &lt;/p&gt;
-  
-  &lt;p&gt;二、关于软件工程。    &lt;/p&gt;
-  
-  &lt;p&gt;我一直的理解为　软件工程 = 工具 &amp;#43;方法&amp;#43;过程。    &lt;/p&gt;
-  
-  &lt;p&gt;想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：    &lt;/p&gt;
-
-&lt;p&gt;学界的，尤其是国内学界的讨论中，历来有一个问题。就是讨论一个东西，总是在说“什么是这个东西”，而不是“这个东西是什么”。有些时候，行文上看起来还是前者，实底上却做成了后者。而jazz（提问者）的这个看法，也就存在这样的问题，即是说，您实质上是在说着“把复杂的问题变简单，就是做架构”。这个观点，本质上说是的“怎么做架构”的问题，而并不能解释“架构是什么”，以及“架构怎么做”的问题。  &lt;/p&gt;
-
-&lt;p&gt;我常说的一个例子，我们去动物园，看到老虎说“这是动物”，又看到狮子也说“这是动物”，再看到鳄鱼还是说“这是动物”。于是我们就可以据此说“老虎&amp;#43;狮子&amp;#43;鳄鱼”就是动物吗？显然这是个笑话了。但我们往往讨论事情的时候就跳不开这个坑，比如说“解决复杂度的问题，就是架构”，并以此来认为这是架构的全部。  &lt;/p&gt;
-
-&lt;p&gt;很好，我们回到往前一点。架构是什么呢？在我前面的贴子里是没有讲的，而只是讲到了“架构作为一个结果，它由两种东西组成”，以及“架构思维可以由对这两种东西的思考而来”。但这些，我坦承这并不是在解释“架构是什么”。但是，我也不能在这里直接地谈论并给出一个“架构是什么”的答案。正因为我能给出的答案看起来是那样的简单、直接和毫无意义，所以它会被任何人无情地忽略，认为那不过是一句废话。而我在《大道至易》中，对这个答案作出了结构性的分析与解释。我建议任何对这个问题有兴趣的人，去研读这本书的“第十二章 架构原则，技艺、艺术与美”。我在那一章的前言中写着：  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我对架构的认识与思想，只是架构可能的认识与思想中的一个方面，是其可能的解中的方式之一。我必须提及这一方面与方式的核心指导原则，这些原则的正确性必将表达为：它可以为其他的认识与思想提供依据，是其他有效的、可供讨论的认识与思想不可违逆的基本前设。本书对架构的谈论，只是这些原则下的一个运用示例；这些原则来源于这些示例的思考过程，并超越于这个过程的结果——本书所讨论的架构。​  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;所以，我希望更为严肃的方式来讨论这个学术性的话题，即是“架构是什么”。而不是“我认为这样做就是做架构”，或“我看到某个架构是这样做的”。我不认为那是答案，并且认为那个方向离答案越行越远。如我此前在“动物园”的比喻中所说的，我们管窥所得的斑斑点点，都不是那个问题的全集或全解；而“管窥”这样的方法，也不是求解的正确方法。  &lt;/p&gt;
-
-&lt;p&gt;再回复一下您最后的这个问题。简单地说，我认为没有“比例”这样的东西。“软件工程”纯以工学的方式来讲，是有构成与组成的，因为这是它的“问题集”。但在工程实践中，是实践的背景决定了我们如何投入实施力量，而不是一个学术的指导或行事表&amp;#26684;。我常说“真正的管理者，是不看管理的技术书的”，当我们把“软件工程”当成一种技术，试图从技术书中找到公式与规则的企图，都死死地陷入在技术思想中，陷入在“工欲善其事，必先利其器”的工匠思维中。  &lt;/p&gt;
-
-&lt;p&gt;所以我常说“如果你认为这句话对，说明你是‘工’”，因为这原本就是你的工作方法、状态以及你构建知识、能力的基本模式。——引自​《大道至易》&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;你在哪里？是谁？在做什么？这些就是基本的组织问题。&amp;nbsp;&lt;/p&gt;</content:encoded></item></channel></rss>
