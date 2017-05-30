@@ -1,4 +1,305 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 28 May 2017 18:46:14 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记（四）</title><description>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 30 May 2017 07:55:49 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>博客迁移手记之快速导航</title><description>&lt;p&gt;本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。&lt;/p&gt;
+
+&lt;p&gt;于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。&lt;/p&gt;
+
+&lt;h2 id=""&gt;快速导航&lt;/h2&gt;
+
+&lt;p&gt;博客迁移手记（一）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用BlogToWordpress迁移你的博客&lt;/li&gt;
+&lt;li&gt;使用本地博客Ghost的快速指南与导入工具&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（二）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;从本地博客到Github Pages的最佳指南&lt;/li&gt;
+&lt;li&gt;makesite.sh使用手册&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（三）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以kaldorei为例详解Ghost Theme的定制&lt;/li&gt;
+&lt;li&gt;Ghost中文章置顶的实现方法&lt;/li&gt;
+&lt;li&gt;如何最大程度地静态化Ghost博客&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（四）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Gitment大坑：谈谈secret泄露的前因后果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（五）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如何获得一个支持HTTPS的免费空间&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（六）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;用intersect来做Gitment的API网关&lt;/li&gt;
+&lt;li&gt;Gitment的一些Bug修复与补强&lt;/li&gt;
+&lt;li&gt;Gitment的简单多语言支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=""&gt;其它：&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+  &lt;li&gt;&lt;p&gt;我最终改掉了这组博客文章的标题。&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;p&gt;这充分说明使用短标题是正确的。&lt;/p&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-1724/</link><guid isPermaLink="false">b9502886-b86f-4f2e-b8c1-ee5f4a67f92e</guid><category>博客</category><category>Gitment</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 30 May 2017 07:48:53 GMT</pubDate><content:encoded>&lt;p&gt;本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。&lt;/p&gt;
+
+&lt;p&gt;于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。&lt;/p&gt;
+
+&lt;h2 id=""&gt;快速导航&lt;/h2&gt;
+
+&lt;p&gt;博客迁移手记（一）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用BlogToWordpress迁移你的博客&lt;/li&gt;
+&lt;li&gt;使用本地博客Ghost的快速指南与导入工具&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（二）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;从本地博客到Github Pages的最佳指南&lt;/li&gt;
+&lt;li&gt;makesite.sh使用手册&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（三）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以kaldorei为例详解Ghost Theme的定制&lt;/li&gt;
+&lt;li&gt;Ghost中文章置顶的实现方法&lt;/li&gt;
+&lt;li&gt;如何最大程度地静态化Ghost博客&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（四）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Gitment大坑：谈谈secret泄露的前因后果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（五）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如何获得一个支持HTTPS的免费空间&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;博客迁移手记（六）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;用intersect来做Gitment的API网关&lt;/li&gt;
+&lt;li&gt;Gitment的一些Bug修复与补强&lt;/li&gt;
+&lt;li&gt;Gitment的简单多语言支持&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=""&gt;其它：&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+  &lt;li&gt;&lt;p&gt;我最终改掉了这组博客文章的标题。&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;p&gt;这充分说明使用短标题是正确的。&lt;/p&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title>手记5：如何获得一个支持HTTPS的免费空间</title><description>&lt;p&gt;下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。&lt;/p&gt;
+
+&lt;h2 id="10https"&gt;10. 让免费主页空间支持HTTPS&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？&lt;/p&gt;
+  
+  &lt;p&gt;好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。&lt;/p&gt;
+
+&lt;h3 id="101https"&gt;10.1 你的主页空间是不是支持HTTPS？&lt;/h3&gt;
+
+&lt;p&gt;好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"&gt;&lt;/p&gt;
+
+&lt;p&gt;免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Private Key，私钥，它通常与下面的CSR是成对的。
+&lt;ul&gt;&lt;li&gt;CSR，证书验证请求（Cerificate Signing Request）。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Certificate，&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1723/</link><guid isPermaLink="false">fa7313be-e458-4280-8739-ab40307afcd0</guid><category>博客</category><category>SSL</category><category>HTTPS</category><category>免费空间</category><category>证书</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 30 May 2017 07:25:00 GMT</pubDate><content:encoded>&lt;p&gt;下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。&lt;/p&gt;
+
+&lt;h2 id="10https"&gt;10. 让免费主页空间支持HTTPS&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？&lt;/p&gt;
+  
+  &lt;p&gt;好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。&lt;/p&gt;
+
+&lt;h3 id="101https"&gt;10.1 你的主页空间是不是支持HTTPS？&lt;/h3&gt;
+
+&lt;p&gt;好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"&gt;&lt;/p&gt;
+
+&lt;p&gt;免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Private Key，私钥，它通常与下面的CSR是成对的。
+&lt;ul&gt;&lt;li&gt;CSR，证书验证请求（Cerificate Signing Request）。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Certificate，验证信息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;简单的逻辑是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;假设你先有了一个私钥（Private Key），然后&lt;/li&gt;
+&lt;li&gt;你用私钥对一些『要验证的信息』加密，生成了一个验证请求（CSR），最后&lt;/li&gt;
+&lt;li&gt;你要找一个有公信力的机构来证明CSR是你的；如果验证通过他就给你发一份Certificate。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你最后从『公信力机构』拿到的这个Certificate就是SSL凭证。——找到你的免费空间后台管理中的Certificate填进去，OK，你的网站就支持&lt;code&gt;https&lt;/code&gt;了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;当然这其中还有很多的细节，比如免费空间服务商怎么把你的Certificate装到Web服务器上面去等等等等。不过除非你是要搞台云主机自己来架服务器，这些就先不要了解了吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="102certificate"&gt;10.2 两种获得Certificate的方法&lt;/h3&gt;
+
+&lt;p&gt;这三个信息有两种方式来获得。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一种是你的免费空间提供商为你生成Private Key/CSR这一对信息，然后你将其中的CSR提交给『公信力机构』，后者给你发Certificate文本。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以这种情况下你看到免费空间后台管理的SSL配置中会有一个『Generate Key/CSR』按钮，按一下就得到了前面信息了——如果只能填入而不能Generate，那么你也可以自己做，例如在MacOSX中的工具keytool或OpenSSL（&lt;a href="https://faq.xiaoz.me/archives/100.html"&gt;参考这里&lt;/a&gt;，或&lt;a href="https://onlinehelp.tableau.com/current/server/zh-cn/ssl_cert_create.htm"&gt;这里&lt;/a&gt;）。与之对应的，在『公信力机构』的证书申请流程中会有一个类似这样的提示：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-provide_your_csr.png" alt="ssl_step-provide_your_csr"&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;另一种是『公信力机构』一次性地为你把上述三步全做了——他不需要你提供CSR，而是为你生成一个Private Key，然后自己生成CSR、完成验证并最后把Private Key交还给你。例如阿里云为你提供的验证服务就是这样（它后台用的是Symantec的免费DV服务）。这种情况下，你就需要将其中的Private Key交给免费空间提供商了——所以你的免费空间后台管理的SSL配置中，通常在『Generate Key/CSR』按钮旁边，就还会有一个『Upload Key』的功能，这个Key，指的就是Private Key。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;好了。简单地汇总一下上面的信息：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;找一个『公信力机构』，让他证明你的网站是你的；  &lt;/li&gt;
+&lt;li&gt;如果他要CSR，你就给他；如果他不要CSR，那么他应该给你Private Key。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;当然，如果你的主页空间不给你提供ssl功能（没有地方让你提交『公信力机构』验证过的Certificate），那么——换一家吧。&lt;/p&gt;
+
+&lt;h3 id="103"&gt;10.3 怎么证明『你的网站是你的』&lt;/h3&gt;
+
+&lt;p&gt;所谓的『公信力机构』要颁发SSL签证，其实是想说明『因为这个网站你是你的，所以我发了这个证明给你』。因此无论如何，这个机构也要有办法来证明『你的网站是你的』，而不仅仅是因为你提交了CSR申请。&lt;/p&gt;
+
+&lt;p&gt;所以一旦你申请了，那么你就要为接下来的验证工作做准备，而这取决于不同的『公信力机构』采用的验证方法。下面举三种例子。&lt;/p&gt;
+
+&lt;h4 id="1031symantec"&gt;10.3.1 阿里云或Symantec的签证&lt;/h4&gt;
+
+&lt;p&gt;阿里云可以为你的网站提供1年的免费SSL签证，它的这项服务是通过Symantec签证机构来做的（所以腾讯云也是这样）。所以下面的要其实是在说Symantec的签证要求。&lt;/p&gt;
+
+&lt;p&gt;阿里云是允许你通过修改DNS或在指定的主页位置放一个名为名为&lt;code&gt;fileauth.txt&lt;/code&gt;的文本文件（一个详细的过程可以&lt;a href="https://yfdxs.com/ali-ssl-amh.html"&gt;看过里&lt;/a&gt;，如果你能修改DNS的CNAME配置那么&lt;a href="https://www.xiaoz.me/archives/7442"&gt;看这里&lt;/a&gt;）。这样，你就必须要：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;有这个网站（或主页）的ftp账号；并且，  &lt;/li&gt;
+&lt;li&gt;可以创建名为&lt;code&gt;.well-known&lt;/code&gt;这样以点字符开始的目录名（基于Windows系统的主机不能创建这样的名称）；并且，  &lt;/li&gt;
+&lt;li&gt;可以确保能通过&lt;code&gt;http://your-domain-name/.well-know/...&lt;/code&gt;这样的url路径下载到上述文本文件（注意：如果你的网站已经开通了https，那么它会优先访问https开头的地址）。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;问题往往出在第3步。这是因为Symantec会优先去https开头的地址下载验证文件，而一般会提供ssl的主机/免费空间都会默认的给你装一个『自主签名的SSL证书』，这个证书事实上会被认为是无效的——因此Symantec就会验证不通过。&lt;/p&gt;
+
+&lt;p&gt;这种情况下你可以曲线救国：先去找别的机构签一个短期一些（通常是3个月）的证书，让这个https地址生效了，然后再回头过验证Symantec的签证（话说，我就是这么干的）。&lt;/p&gt;
+
+&lt;p&gt;不过，有些时候事情并不那么美妙，因为即使你的主页空间『信誓旦旦』地说他们开放了SSL，并且无论如何你都把文件传到了正确的地方，甚至你看起来也的确可以通过https/http来访问到上述的&lt;code&gt;fileauth.txt&lt;/code&gt;文件的URL地址，但是——你就是通不过Symantec（或者阿里云、腾讯云等等）的验证——它们找不到上面的这个文件。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注意：我就是因为这个问题申请了又放弃了近二十个免费主页空间。相信我，如果你逐一去试，不会好到哪里去的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;问题出在哪儿呢？&lt;/p&gt;
+
+&lt;p&gt;这是因为非常非常多的『免费主页』本质上都是要在你的主页上挂广告才能活下去的，他们挂广告的方法真的很纷纷多啊。其中一种常用的，就是串改你的url地址，它会把浏览器访问到的url改成带广告代码的，然后自己搞点弹窗啊什么的，最后才重定向到你真实的地址。——这个过程浏览器认得，而『公信力机构』的验证程序可认不得啊，后者在读取验证文件的时候并不支持为浏览器准备的重定向！&lt;/p&gt;
+
+&lt;p&gt;所以，一旦你申请到一个主页空间，先用curl去访问一下，如果是下面这种返回：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; curl 'http://your-domain-name/'
+&amp;lt;html&amp;gt;  
+&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;403 Forbidden&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;  
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;好吧，它的意思是说不支持curl这样的直接访问，一般来说就不能用了。不过如果你不死心，可以再试试伪装成浏览器：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; curl -H 'User-Agent:Mozilla/5.0' 'http://your-domain-name/'
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;script type="text/javascript" ...  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;那么你就真的不用想了：上面的就是挂广告的代码了，你还想什么呢。&lt;/p&gt;
+
+&lt;p&gt;所以你看，我申请了很多又很多个免费空间，都作废了。&lt;/p&gt;
+
+&lt;h4 id="1032instantssl"&gt;10.3.2 试试别的验证方法，例如instantssl的&lt;/h4&gt;
+
+&lt;p&gt;这家『公信力机构』也非常棒，他提供3个月免费的签证。我们上面说过，你可以尝试『曲线救国』，或者干脆就每三个月签一回，都行。&lt;/p&gt;
+
+&lt;p&gt;重要的是，instantssl采用的是邮件验证，而不是验证ftp文件。&lt;/p&gt;
+
+&lt;p&gt;instantssl是科摩多（comodo）提供的一项SSL证书发放服务，所以你用&lt;a href="http://www.comodo.cn/"&gt;comodo.cn&lt;/a&gt;或&lt;a href="http://www.instantssl.cn/"&gt;instantssl.cn&lt;/a&gt;访问都是可以的。他要求你提供自己准备的CSR，之后会提示你会把证书邮寄给你的网站的admin邮箱账号。&lt;/p&gt;
+
+&lt;p&gt;所以，这就要求你的主页空间给你开通邮箱服务，并且你能自定义类似&lt;code&gt;admin@yourname.freespace.xyz&lt;/code&gt;这样的邮箱名——这个instantssl可以让你选，不过总的来说就那几种特定的。&lt;/p&gt;
+
+&lt;p&gt;很好，如果你有这样的免费空间，或者你就是能得到这样的邮箱，那么试试instantssl的吧。我知道&lt;a href="http://infinityfree.net"&gt;infinityfree&lt;/a&gt;免费空间提供这样的邮箱服务，比如我其实申请了一个&lt;code&gt;.epizy.com&lt;/code&gt;的二级域名。但很不幸我没有通过instantssl的验证——它提供我相应名字的签证已经发过了。&lt;/p&gt;
+
+&lt;p&gt;不知道为什么。反正，你也许可以试试。&lt;/p&gt;
+
+&lt;h4 id="1033"&gt;10.3.3 还有一些别的不错的签证机构&lt;/h4&gt;
+
+&lt;p&gt;有个非常非常著名的、推动https的签证组织，叫&lt;code&gt;Let’s Encrypt&lt;/code&gt;。这个签证非常好用，所以也常常有自己做虚拟主机的来用它（&lt;a href="https://www.freehao123.com/lets-encrypt/"&gt;https://www.freehao123.com/lets-encrypt/&lt;/a&gt;），很多介绍中也首推就是它（&lt;a href="https://www.freehao123.com/top-8-free-ssl-cert/"&gt;例如这里&lt;/a&gt;）。&lt;/p&gt;
+
+&lt;p&gt;然而它对web域名签证并不友好，所以就有人搞了网站来做这件事，最好用的就是这家了：&lt;a href="https://www.sslforfree.com/"&gt;https://www.sslforfree.com/&lt;/a&gt;，它发的也是3个月的免费签证。你可以先看看这个教学&lt;a href="https://changken.biz/969"&gt;SSLforFree 免费SSL凭证&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;SSLforFree的验证过程与阿里云/Symantec的类似，也是要求你传一个文件到ftp上（或者改DNS CNAME），不过他不验证https，所以多数『提供了无效的https的免费空间』来说也能很好的通过验证——除了我上面说的挂广告代码的那种情况。&lt;/p&gt;
+
+&lt;p&gt;也许还有其它好的，有知道的不妨推荐给我。&lt;/p&gt;
+
+&lt;h3 id="104"&gt;10.4 安装你得到的凭证&lt;/h3&gt;
+
+&lt;p&gt;『公信力机构』最终给你的是名为Certificate的凭证。并且，&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果是他帮你生成的CSR，那么他会给你Private Key；&lt;/li&gt;
+&lt;li&gt;一般来说他会给你一个它作为签证机构的公钥，不过由于使用者（例如你的主页空间服务商）能直接从网站上搜到这个公钥，所以没有给你也是正常的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你需要在后台把Certificate凭证和Private Key给上传(Upload)或更新(Update)到你的管理后台——如果它有类似『SSL管理』这样的功能的话。例如：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（第1步先上传你的证书）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_ssl.png" alt="ssl_step-update_ssl"&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;（然后点下面的『管理SSL站点』）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_site-1.png" alt="ssl_step-update_site"&gt;&lt;/p&gt;</content:encoded></item><item><title>手记4：谈谈Gitment中泄露secret的前因后果与解决方法</title><description>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
 
 &lt;p&gt;这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。&lt;/p&gt;
 
@@ -16,7 +317,7 @@
 &lt;p&gt;这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-javascript"&gt;var gitment = new Gitment({  
-  id: '页面 ID', // 可选。默认为 location.href&lt;/code&gt;&lt;/pre&gt;</description><link>http://aimingoo.github.io/1-1722/</link><guid isPermaLink="false">bfa19ad7-3e78-4560-a7ff-f79104c7dd8d</guid><dc:creator>aimingoo</dc:creator><pubDate>Sun, 28 May 2017 18:17:49 GMT</pubDate><content:encoded>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
+  id: '页面 ID', // 可选。默认为 location.href&lt;/code&gt;&lt;/pre&gt;</description><link>http://aimingoo.github.io/1-1722/</link><guid isPermaLink="false">bfa19ad7-3e78-4560-a7ff-f79104c7dd8d</guid><category>博客</category><category>Javascript</category><category>Github</category><category>Gitment</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Sun, 28 May 2017 18:17:49 GMT</pubDate><content:encoded>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
 
 &lt;p&gt;这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。&lt;/p&gt;
 
@@ -184,7 +485,7 @@ https://github.com/login/oauth/access_token
 
 &lt;p&gt;当然，Gitment还需要稍稍的改点代码。&lt;/p&gt;
 
-&lt;p&gt;这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。&lt;/p&gt;</content:encoded></item><item><title>博客迁移手记（三）</title><description>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
+&lt;p&gt;这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。&lt;/p&gt;</content:encoded></item><item><title>手记3：实例教学之Ghost模板定制</title><description>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
 
 &lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
 
@@ -352,7 +653,7 @@ ghost-theme-kaldorei/partials/site_stat.hbs
 
 &lt;h3 id="72"&gt;7.2 将站点信息与云标签静态化&lt;/h3&gt;
 
-&lt;p&gt;Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site&lt;em&gt;stat)』或『标签云(tag&lt;/em&gt;cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。&lt;/p&gt;
+&lt;p&gt;Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site_stat)』或『标签云(tag_cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。&lt;/p&gt;
 
 &lt;p&gt;原因是这样，比如说你的site_stat里有一个『站点发表了多少篇文章』的计数，那么，显然你添加/删除一篇博客，就得让所有静态面这个位置的计数变一下；又例如标签名，你添加一个标签那么全站所有页的标签云都要动态生成一下。&lt;/p&gt;
 
@@ -406,9 +707,9 @@ document.writeln(function cloudTagHtmlContext() {/*
 
 &lt;h3 id="73"&gt;7.3 其它&lt;/h3&gt;
 
-&lt;p&gt;事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。&lt;/p&gt;
+&lt;p&gt;事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的有关『静态化』的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。&lt;/p&gt;
 
-&lt;p&gt;不同的主题的修改会略有区别，本文只供参考。&lt;/p&gt;</content:encoded></item><item><title>博客迁移手记（二）</title><description>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
+&lt;p&gt;不同的主题的修改会略有区别，本文只供参考。&lt;/p&gt;</content:encoded></item><item><title>手记2：从本地博客到Github Pages的最佳指南及工具</title><description>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
 
 &lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
 
@@ -417,7 +718,7 @@ document.writeln(function cloudTagHtmlContext() {/*
 &lt;p&gt;你得先有Github账号。然后，创建一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到&lt;code&gt;GitHub Pages&lt;/code&gt;，检查一下，他可能已经缺省写着：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;Your site is published at https://xxxxxx.&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-1720/</link><guid isPermaLink="false">16433c0c-40f9-4978-9fe3-f56cb56b2102</guid><dc:creator>aimingoo</dc:creator><pubDate>Fri, 26 May 2017 18:02:33 GMT</pubDate><content:encoded>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
+  &lt;p&gt;&lt;code&gt;Your site is published at https://xxxxxx.&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-1720/</link><guid isPermaLink="false">16433c0c-40f9-4978-9fe3-f56cb56b2102</guid><category>博客</category><category>Ghost</category><category>Github</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Fri, 26 May 2017 18:02:33 GMT</pubDate><content:encoded>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
 
 &lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
 
@@ -619,7 +920,7 @@ buster ...
 
 &lt;p&gt;尤其是……程序员总想干点什么黑活之类的啦。&lt;/p&gt;
 
-&lt;p&gt;你懂的。&lt;/p&gt;</content:encoded></item><item><title>博客迁移手记（一）</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+&lt;p&gt;你懂的。&lt;/p&gt;</content:encoded></item><item><title>手记1：迁移博客之全程工具</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
 
 &lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
 
@@ -635,7 +936,7 @@ buster ...
 &lt;li&gt;它会抓取图片等文件作为附件保存到指定目录。&lt;/li&gt;
 &lt;li&gt;cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用&lt;a href="https://github.com/yanyingwang/cnblog2jekyll"&gt;cnblog2jekyll&lt;/a&gt;中的generate&lt;em&gt;markdown&lt;/em&gt;all。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
-&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1719/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><category>博客</category><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1719/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><category>博客</category><category>Javascript</category><category>Ghost</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
 
 &lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
 
@@ -849,7 +1150,7 @@ Ctrl+C to shut down
 
 &lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
 
-&lt;p&gt;于是大家就有了这个在github上的新站。这里把以前在&lt;/p&gt;
+&lt;p&gt;于是就有了这个在github上的新站。这里把以前在&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;新浪博客 - &lt;a href="http://blog.sina.com.cn/aimingoo"&gt;http://blog.sina.com.cn/aimingoo&lt;/a&gt;&lt;/li&gt;
@@ -867,11 +1168,11 @@ Ctrl+C to shut down
 &lt;ul&gt;
 &lt;li&gt;全站交付。&lt;/li&gt;
 &lt;li&gt;2009年之后的博客文章全部进行了修订。&lt;/li&gt;
-&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1718/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><category>杂谈</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
+&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1718/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><category>杂谈</category><category>博客</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
 
 &lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
 
-&lt;p&gt;于是大家就有了这个在github上的新站。这里把以前在&lt;/p&gt;
+&lt;p&gt;于是就有了这个在github上的新站。这里把以前在&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;新浪博客 - &lt;a href="http://blog.sina.com.cn/aimingoo"&gt;http://blog.sina.com.cn/aimingoo&lt;/a&gt;&lt;/li&gt;
@@ -911,7 +1212,7 @@ Ctrl+C to shut down
 
 &lt;p&gt;首先，这个世界是有状态的，那些看起来存在y/n两个分支的节点，就存在于这种状态——选择还没有发生，就还有可能。  &lt;/p&gt;
 
-&lt;p&gt;然而无论某一个节点的选择是什么，这个的世界的结果（的规模）是确定的，它必然演进到世界最下层中的状态的某一个。只不过这个最下层的规模足够大，所以在世界中的“未决”因素足够多的情况下，这个世界就看起来“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-196/</link><guid isPermaLink="false">c5aecbe8-bfd2-4086-998d-940262d8320b</guid><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Mon, 10 Aug 2015 09:35:00 GMT</pubDate><content:encoded>&lt;h1 id="thepromisesworld"&gt;确定的世界 - The Promise’s World&lt;/h1&gt;
+&lt;p&gt;然而无论某一个节点的选择是什么，这个的世界的结果（的规模）是确定的，它必然演进到世界最下层中的状态的某一个。只不过这个最下层的规模足够大，所以在世界中的“未决”因素足够多的情况下，这个世界就看起来“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-196/</link><guid isPermaLink="false">c5aecbe8-bfd2-4086-998d-940262d8320b</guid><category>Javascript</category><category>Promise</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Mon, 10 Aug 2015 09:35:00 GMT</pubDate><content:encoded>&lt;h1 id="thepromisesworld"&gt;确定的世界 - The Promise’s World&lt;/h1&gt;
 
 &lt;p&gt;—— Promise的逻辑以及在Lua中的实现  &lt;/p&gt;
 
@@ -2239,88 +2540,4 @@ Promise.all([1,2,3])
   &lt;p&gt;问：您怎么看待权利与规范？  &lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;答：真正的特权，是制定规范。无视规范是特权者的特权，无规范是打破特权的神器。但，无规范则无社会框架：没有如水的组织，亦无如水的社会。无规范如是梦中。而做梦，是个体的最终自由和最终动力。    &lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题：小作坊如何实施所谓的软件工程？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“很大”，“很学术”，或者看起来谈种种“敏捷”，但实际去做的时候就成了条条框框。大家在第一认识上要知道，大多数实践中谈及的“工程”，都是工程方法而已。  &lt;/p&gt;
-
-&lt;p&gt;既是方法，也就需要因事、因人而宜。无论某种工程方法打着怎样的旗号，说怎样漂亮的话，给你展示怎样的数据，落到你的“具体工程”的实处，都是要调适的。具体来说，要先看人，先培训整体一致的工程认识；然后再规划事，形成较简洁适用的过程方法，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-190/</link><guid isPermaLink="false">17c57514-1b45-4aaa-a7aa-807f2df06e62</guid><category>软件工程</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题：小作坊如何实施所谓的软件工程？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“很大”，“很学术”，或者看起来谈种种“敏捷”，但实际去做的时候就成了条条框框。大家在第一认识上要知道，大多数实践中谈及的“工程”，都是工程方法而已。  &lt;/p&gt;
-
-&lt;p&gt;既是方法，也就需要因事、因人而宜。无论某种工程方法打着怎样的旗号，说怎样漂亮的话，给你展示怎样的数据，落到你的“具体工程”的实处，都是要调适的。具体来说，要先看人，先培训整体一致的工程认识；然后再规划事，形成较简洁适用的过程方法，以及核查的机制。有了这两点作为底子，工程才可能从0到1，走过“没有工程”的阶段。  &lt;/p&gt;
-
-&lt;p&gt;一个团队总是要从小到大的，如果在小规模的时候都没有工程素质，那到大规模的时候来补，也是很痛苦的。同样的，个体开发人员也是如此，不对自己加以职业化的要求，换公司换团队换做法的时候，也是很痛苦的。因此在这个问题上，我认为个人培养与团队培养一样重要，知道有些事在哪种情况下要做、该做，以及该做到何种程度，对一些问题有着基本的、工程化的认识，是每个程序员应有的素质。如果你的团队达不到这一点，那么，请培训他们。我建议培训要自己来做，既是让自己认识清楚，也是了解大家的一个过程。  &lt;/p&gt;
-
-&lt;p&gt;最后再说到细节，即是“如何做”的问题。这方面我很久以前就有公开的资料了，请至如下地址：  &lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://skydrive.live.com/?cid=F9303C43D5CEAFB3&amp;amp;id=F9303C43D5CEAFB3%21805"&gt;https://skydrive.live.com/?cid=F9303C43D5CEAFB3&amp;amp;id=F9303C43D5CEAFB3%21805&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;下载Chapter2，有两个part。这个实战过程讲了一个两个人的团队，一个完整的项目过程，以及将它工程化的全程。我不是说这个示例就做得很好很完美，我只建议大家关注这件事的做法：我们应该这样来因事因人（亦即是因项目、因团队）地“定制”我们的工程方法。&lt;/p&gt;</content:encoded></item><item><title>OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？</title><description>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;修炼自己，服人之口莫若服人之心，你得让自己可以服众。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;人际关系很重要，但过于圆滑则不适合做技术团队的管理。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;领导者的第一要素是看清方向，第二要素才是领导力的问题。所以若真能高瞻远瞩，众人莫不拜服之。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;技法为下，心性为上。行正则言顺，讨巧之事偶可为之，不可作管理与领导术。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;大约能想到这些吧，个人之见而已。&amp;nbsp;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;又问：看清组织的内容是什么？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;你在哪里？是谁？&lt;/p&gt;</description><link>http://aimingoo.github.io/1-189/</link><guid isPermaLink="false">7eba9f36-7e36-49d4-be44-b993a007417e</guid><category>软件工程</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 02 Jan 2013 14:57:00 GMT</pubDate><content:encoded>&lt;p&gt;我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  &lt;/p&gt;
-
-&lt;p&gt;原贴在这里：&lt;a href="http://www.oschina.net/question/12_78459"&gt;http://www.oschina.net/question/12_78459&lt;/a&gt;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;修炼自己，服人之口莫若服人之心，你得让自己可以服众。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;人际关系很重要，但过于圆滑则不适合做技术团队的管理。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;领导者的第一要素是看清方向，第二要素才是领导力的问题。所以若真能高瞻远瞩，众人莫不拜服之。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;技法为下，心性为上。行正则言顺，讨巧之事偶可为之，不可作管理与领导术。&amp;nbsp;  &lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;大约能想到这些吧，个人之见而已。&amp;nbsp;  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;又问：看清组织的内容是什么？  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;答：  &lt;/p&gt;
-
-&lt;p&gt;你在哪里？是谁？在做什么？这些就是基本的组织问题。&amp;nbsp;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;答：真正的特权，是制定规范。无视规范是特权者的特权，无规范是打破特权的神器。但，无规范则无社会框架：没有如水的组织，亦无如水的社会。无规范如是梦中。而做梦，是个体的最终自由和最终动力。    &lt;/p&gt;</content:encoded></item></channel></rss>

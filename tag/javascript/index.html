@@ -88,15 +88,42 @@ ghost.init({
         <div class="tag-meta-content">
             <label class="page-title">标签：Javascript</label>
             <span class="page-description">
-                共计 79 篇文章
+                共计 80 篇文章
             </span>
         </div>
     </section>
 
 
-            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+            <article class="post tag-bo-ke tag-javascript tag-github tag-gitment tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
-            <h1 class="post-title"><a href="../../1-1721.html">博客迁移手记（三）</a></h1>
+            <h1 class="post-title"><a href="../../1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/github/">Github</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="../../author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-05-29">2 days ago</time>
+                <time class="post-date" datetime="2017-05-29">(2017-05-29)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="../bo-ke/">博客</a>, <a href="index.html">Javascript</a>, <a href="../github/">Github</a>, <a href="../gitment/">Gitment</a>, <a href="../opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="../../1-1722.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header">
+            <h1 class="post-title"><a href="../../1-1721.html">手记3：实例教学之Ghost模板定制</a></h1>
         </header>
         <section class="post-excerpt">
             <p>接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&gt; General -&gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁( ... </p>
@@ -110,7 +137,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-05-28">a day ago</time>
+                <time class="post-date" datetime="2017-05-28">3 days ago</time>
                 <time class="post-date" datetime="2017-05-28">(2017-05-28)</time>
             </span>
             <span class="post-meta-item post-meta-tags">
@@ -121,34 +148,34 @@ ghost.init({
                 <a class="read-more" href="../../1-1721.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-bo-ke tag-javascript tag-ghost-tag" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
-            <h1 class="post-title"><a href="../../1-1719.html">博客迁移手记（一）</a></h1>
+            <h1 class="post-title"><a href="../../1-1719.html">手记1：迁移博客之全程工具</a></h1>
         </header>
         <section class="post-excerpt">
             <p>在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。 1. 如何迁移你的博客 - 推荐BlogToWordpress 确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。 然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。 在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。 ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/ghost-tag/">Ghost</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="../../author/aimingoo/">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-05-23">6 days ago</time>
+                <time class="post-date" datetime="2017-05-23">7 days ago</time>
                 <time class="post-date" datetime="2017-05-23">(2017-05-23)</time>
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../bo-ke/">博客</a>, <a href="index.html">Javascript</a>
+                <a href="../bo-ke/">博客</a>, <a href="index.html">Javascript</a>, <a href="../ghost-tag/">Ghost</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../1-1719.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-promise tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="../../1-196.html">确定的世界 - The Promise's World</a></h1>
         </header>
@@ -157,7 +184,7 @@ ghost.init({
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/promise/">Promise</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="../../author/aimingoo/">aimingoo</a>
@@ -169,7 +196,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="index.html">Javascript</a>
+                <a href="index.html">Javascript</a>, <a href="../promise/">Promise</a>, <a href="../opensource-project/">OpenSource Project</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../1-196.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -335,33 +362,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../1-171.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>            <article class="post tag-javascript tag-kuang-jia tag-yin-qing tag-bian-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header">
-            <h1 class="post-title"><a href="../../1-170.html">JavaScript类型总览(图)</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>    这个图来自于《JavaScript语言精髓与编程实践》第三章P184页。最近在改第二版，这张图重做了，需要的可以对照着看。关注这个体系的朋友可以参考如下：   再谈JavaScript的数据类型问题     http://blog.csdn.net/aimingoo/article/details/6634977   三谈类型问题：ECMAScript为什么错了？     http://blog.csdn.net/aimingoo/article/details/ ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/kuang-jia/">框架</a>, <a href="/tag/yin-qing/">引擎</a>, <a href="/tag/bian-cheng/">编程</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="../../author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2011-08-10">6 years ago</time>
-                <time class="post-date" datetime="2011-08-10">(2011-08-10)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="index.html">Javascript</a>, <a href="../kuang-jia/">框架</a>, <a href="../yin-qing/">引擎</a>, <a href="../bian-cheng/">编程</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="../../1-170.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>

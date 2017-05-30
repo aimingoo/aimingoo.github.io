@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>博客迁移手记（四）</title>
+    <title>手记4：谈谈Gitment中泄露secret的前因后果与解决方法</title>
     <meta name="description" content="">
 
     <meta name="HandheldFriendly" content="True">
@@ -21,17 +21,25 @@
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="博客迁移手记（四）">
+    <meta property="og:title" content="手记4：谈谈Gitment中泄露secret的前因后果与解决方法">
     <meta property="og:description" content="本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment = new Gitment({     id: '页面 ID', // 可选。默认为 location.href">
     <meta property="og:url" content="http://aimingoo.github.io/1-1722.html">
     <meta property="article:published_time" content="2017-05-28T18:17:49.000Z">
-    <meta property="article:modified_time" content="2017-05-28T18:28:23.000Z">
+    <meta property="article:modified_time" content="2017-05-30T07:52:52.000Z">
+    <meta property="article:tag" content="博客">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Github">
+    <meta property="article:tag" content="Gitment">
+    <meta property="article:tag" content="OpenSource Project">
+    
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="博客迁移手记（四）">
+    <meta name="twitter:title" content="手记4：谈谈Gitment中泄露secret的前因后果与解决方法">
     <meta name="twitter:description" content="本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment = new Gitment({     id: '页面 ID', // 可选。默认为 location.href">
     <meta name="twitter:url" content="http://aimingoo.github.io/1-1722.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="博客, Javascript, Github, Gitment, OpenSource Project">
     
     <script type="application/ld+json">
 {
@@ -57,10 +65,11 @@
         ],
         "description": "I&#x27;m here."
     },
-    "headline": "博客迁移手记（四）",
+    "headline": "手记4：谈谈Gitment中泄露secret的前因后果与解决方法",
     "url": "http://aimingoo.github.io/1-1722.html",
     "datePublished": "2017-05-28T18:17:49.000Z",
-    "dateModified": "2017-05-28T18:28:23.000Z",
+    "dateModified": "2017-05-30T07:52:52.000Z",
+    "keywords": "博客, Javascript, Github, Gitment, OpenSource Project",
     "description": "本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment &#x3D; new Gitment({     id: &#x27;页面 ID&#x27;, // 可选。默认为 location.href",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -80,7 +89,7 @@ ghost.init({
     <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
-<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-bo-ke tag-javascript tag-github tag-gitment tag-opensource-project nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -115,9 +124,9 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post">
+        <article class="post tag-bo-ke tag-javascript tag-github tag-gitment tag-opensource-project">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1722.html">博客迁移手记（四）</a></h1>
+                <h1 class="post-title"><a href="1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -125,12 +134,12 @@ ghost.init({
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-05-29">28 minutes ago</time>
+                        <time class="post-date" datetime="2017-05-29">2 days ago</time>
                         <time class="post-date" datetime="2017-05-29">(2017-05-29)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        
+                        <a href="tag/bo-ke/">博客</a>, <a href="tag/javascript/">Javascript</a>, <a href="tag/github/">Github</a>, <a href="tag/gitment/">Gitment</a>, <a href="tag/opensource-project/">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -320,10 +329,16 @@ https://github.com/login/oauth/access_token
             <span class="post-nav-prev">
                 上一篇
                 <a href="1-1721.html">
-                    博客迁移手记（三）
+                    手记3：实例教学之Ghost模板定制
                 </a>
             </span>
 
+            <span class="post-nav-next">
+                <a href="1-1723.html">
+                    手记5：如何获得一个支持HTTPS的免费空间
+                </a>
+                下一篇
+            </span>
         </aside>
 
         <section class="post comments">

@@ -2935,7 +2935,6 @@ function renderComments(_ref2, instance) {
       initHint.appendChild(initButton);
       errorBlock.appendChild(initHint);
     } else {
-      ;
       errorBlock.innerText = $$C(error);
       if (error === _constants.NOT_INITIALIZED_ERROR) {
           errorBlock.style = 'margin: 0;';
