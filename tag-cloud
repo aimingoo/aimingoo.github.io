@@ -34,7 +34,7 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
-				<a href="http://aimingoo.github.io/tag/javascript" class="tag-item">Javascript (80)</a>
+				<a href="http://aimingoo.github.io/tag/javascript" class="tag-item">Javascript (81)</a>
 				<a href="http://aimingoo.github.io/tag/za-tan" class="tag-item">杂谈 (64)</a>
 				<a href="http://aimingoo.github.io/tag/yu-yan" class="tag-item">语言 (51)</a>
 				<a href="http://aimingoo.github.io/tag/delphi" class="tag-item">delphi (41)</a>
@@ -53,11 +53,11 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/shu-ju-jie-gou" class="tag-item">数据结构 (9)</a>
 				<a href="http://aimingoo.github.io/tag/oop" class="tag-item">oop (9)</a>
 				<a href="http://aimingoo.github.io/tag/jia-gou-she-ji" class="tag-item">架构设计 (8)</a>
+				<a href="http://aimingoo.github.io/tag/qian-duan-kai-fa" class="tag-item">前端开发 (8)</a>
 				<a href="http://aimingoo.github.io/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (8)</a>
-				<a href="http://aimingoo.github.io/tag/qian-duan-kai-fa" class="tag-item">前端开发 (7)</a>
+				<a href="http://aimingoo.github.io/tag/bo-ke" class="tag-item">博客 (8)</a>
 				<a href="http://aimingoo.github.io/tag/shu-ju-ku" class="tag-item">数据库 (7)</a>
 				<a href="http://aimingoo.github.io/tag/du-shu" class="tag-item">读书 (7)</a>
-				<a href="http://aimingoo.github.io/tag/bo-ke" class="tag-item">博客 (7)</a>
 				<a href="http://aimingoo.github.io/tag/xiang-mu-guan-li" class="tag-item">项目管理 (6)</a>
 				<a href="http://aimingoo.github.io/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (6)</a>
 				<a href="http://aimingoo.github.io/tag/hui-bian" class="tag-item">汇编 (6)</a>
@@ -67,10 +67,10 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/lisp" class="tag-item">lisp (5)</a>
 				<a href="http://aimingoo.github.io/tag/bian-yi-qi" class="tag-item">编译器 (5)</a>
 				<a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (5)</a>
-				<a href="http://aimingoo.github.io/tag/opensource-project" class="tag-item">OpenSource Project (4)</a>
+				<a href="http://aimingoo.github.io/tag/opensource-project" class="tag-item">OpenSource Project (5)</a>
 				<a href="http://aimingoo.github.io/tag/ghost-tag" class="tag-item">Ghost (3)</a>
-				<a href="http://aimingoo.github.io/tag/github" class="tag-item">Github (2)</a>
-				<a href="http://aimingoo.github.io/tag/gitment" class="tag-item">Gitment (2)</a>
+				<a href="http://aimingoo.github.io/tag/github" class="tag-item">Github (3)</a>
+				<a href="http://aimingoo.github.io/tag/gitment" class="tag-item">Gitment (3)</a>
 				<a href="http://aimingoo.github.io/tag/android" class="tag-item">android (1)</a>
 				<a href="http://aimingoo.github.io/tag/promise" class="tag-item">Promise (1)</a>
 				<a href="http://aimingoo.github.io/tag/ssl" class="tag-item">SSL (1)</a>

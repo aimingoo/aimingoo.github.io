@@ -1,0 +1,424 @@
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>手记6：改造Gitment</title>
+    <meta name="description" content="">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=96a7740888">
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=96a7740888">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=96a7740888">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="手记6：改造Gitment">
+    <meta property="og:description" content="本文所述的修改请参考我Fork的Gitment项目：Giment at aimingoo's project space 接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。 11. 改造Gitment 折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如makesite.sh（在这里）。 最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。   注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。 所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：Giment updates by">
+    <meta property="og:url" content="http://aimingoo.github.io/1-1725.html">
+    <meta property="article:published_time" content="2017-05-31T16:46:14.000Z">
+    <meta property="article:modified_time" content="2017-05-31T16:47:01.000Z">
+    <meta property="article:tag" content="博客">
+    <meta property="article:tag" content="Gitment">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="OpenSource Project">
+    <meta property="article:tag" content="Github">
+    <meta property="article:tag" content="前端开发">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="手记6：改造Gitment">
+    <meta name="twitter:description" content="本文所述的修改请参考我Fork的Gitment项目：Giment at aimingoo's project space 接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。 11. 改造Gitment 折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如makesite.sh（在这里）。 最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。   注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。 所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：Giment updates by">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1725.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="博客, Gitment, Javascript, OpenSource Project, Github, 前端开发">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "手记6：改造Gitment",
+    "url": "http://aimingoo.github.io/1-1725.html",
+    "datePublished": "2017-05-31T16:46:14.000Z",
+    "dateModified": "2017-05-31T16:47:01.000Z",
+    "keywords": "博客, Gitment, Javascript, OpenSource Project, Github, 前端开发",
+    "description": "本文所述的修改请参考我Fork的Gitment项目：Giment at aimingoo&#x27;s project space 接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。 11. 改造Gitment 折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如makesite.sh（在这里）。 最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。   注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。 所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：Giment updates by",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=96a7740888"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+</head>
+
+<body class="post-template tag-bo-ke tag-gitment tag-javascript tag-opensource-project tag-github tag-qian-duan-kai-fa nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=96a7740888"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-bo-ke tag-gitment tag-javascript tag-opensource-project tag-github tag-qian-duan-kai-fa">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-1725.html">手记6：改造Gitment</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2017-06-01">an hour ago</time>
+                        <time class="post-date" datetime="2017-06-01">(2017-06-01)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="tag/bo-ke/">博客</a>, <a href="tag/gitment/">Gitment</a>, <a href="tag/javascript/">Javascript</a>, <a href="tag/opensource-project/">OpenSource Project</a>, <a href="tag/github/">Github</a>, <a href="tag/qian-duan-kai-fa/">前端开发</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <blockquote>
+  <p>本文所述的修改请参考我Fork的Gitment项目：<a href="https://github.com/aimingoo/gitment">Giment at aimingoo's project space</a></p>
+</blockquote>
+
+<p>接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。</p>
+
+<h2 id="11gitment">11. 改造Gitment</h2>
+
+<p>折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如<code>makesite.sh</code>（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）。</p>
+
+<p>最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。</p>
+
+<blockquote>
+  <p>注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。</p>
+</blockquote>
+
+<p>所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：<a href="https://github.com/aimingoo/gitment">Giment updates by aimingoo</a></p>
+
+<h3 id="111httphttpsgithubpages">11.1 更有效地支持HTTP/HTTPS的Github Pages</h3>
+
+<p>我们前面说过Github pages也分别支持HTTP和HTTPS两种协议，如果你有幸得到一个HTTP的Github pages site——真的很有幸了，得是以前创建的仓库，新仓库已经没有这个选择了——那么，你仍然可以将intersect（<a href="https://github.com/aimingoo/intersect">在这里</a>）部署在一个仅支持HTTP的Web站点上。</p>
+
+<p>也就是说，只能选择Github pages和intersect同时支持HTTPS，或者反过来选择同时不支持。有趣的是，在Github pages使用HTTP的情况下，Github<strong>同时</strong>也允许访问者通过HTTPS协议来访问你的主页。这样一来就带来了一个问题：在你的Github oAuth Application后台配置中，你只能设置一个callback地址。</p>
+
+<p>所以我在Gitment中加了一个名为<code>force_redirect_protocol</code>的选择，它会在调用</p>
+
+<blockquote>
+  <p><a href="https://github.com/login/oauth/authorize">https://github.com/login/oauth/authorize</a></p>
+</blockquote>
+
+<p>时强制redirect_uri参数使用与Github oAuth Application后台配置一致的值，这样才能在HTTPS/HTTP网站上同时通过authorize验证，并且最后总是使用redirect_uri所设置的协议下的地址。</p>
+
+<pre><code class="language-javascript">// Update (Getment Proj)/src/gitment.js
+
+// Github setting of 'Authorization callback URL' in your OAuth application
+const force_redirect_protocol = 'https'  
+...
+
+class Gitment {  
+  ...
+  get loginLink() {
+    const oauthUri = 'https://github.com/login/oauth/authorize'
+    const redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, force_redirect_protocol);
+    ...
+</code></pre>
+
+<h3 id="112gitmentintersect">11.2 使Gitment支持intersect</h3>
+
+<p>intersect这个PHP项目（<a href="https://github.com/aimingoo/intersect">在这里</a>）并没有完全地实现API Geteway特性。比如说，当它转发一个POST请求时，如果你需要添加新的数据到Request，那么就需要根据POST data的不同类型（Content-Type）来决定如何修改：在JSON中添加一个字段，或在不同的encode data中添加一个数据等等；并且还要正确的修改Content-Length。</p>
+
+<p>所以考虑到简单，intersect只支持在GET请求中，或在使用form-urlencoded协议的POST请求中添加数据。例如我们要追加client_secret这个参数并传送到后端，那么就该选用POST协议。</p>
+
+<p>考虑到Gitment实现XHR请求时的特殊性（它专门实现了一个ajaxFactory），我在修改Gitment项目时更要求：</p>
+
+<blockquote>
+  <p>如果使用POST方法，并强制要求使用form-urlencoded协议，那么应该在<code>http.post()</code>方法中传入字符串格式的data，而不能传入对象。</p>
+</blockquote>
+
+<p>接下来的实现就比较简单了（修改utils.js中的Ajax接口）：</p>
+
+<pre><code class="language-javascript">// Update (Getment Proj)/src/utils.js, es6 syntax
+
+function ajaxFactory(method) {  
+  ...
+  // 在accept头中加上form-urlencoded支持
+  req.setRequestHeader('Accept', '..., application/x-www-form-urlencoded')
+
+  // 在Response数据的解码中支持form-urlencoded
+  req.addEventListener('load', () =&gt; {
+    ...
+    if (/urlencoded/.test(contentType)) {
+       data = req.responseText ? Query.parse(res) : {}
+       ...
+
+  // 强制Requestr的POST协议对string data使用form-urlencoded
+  if (method !== 'GET' &amp;&amp; method !== 'DELETE') {
+    if (isString(data)) {
+      body = data
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    ...
+</code></pre>
+
+<p>第二步（修改Gitment.js）：</p>
+
+<pre><code class="language-javascript">// Update (Getment Proj)/src/gitment.js, es6 syntax
+
+class Gitment {  
+  constructor(options = {}) {
+    ...
+    const { client_id, client_secret, proxy_gateway } = this.oauth
+
+    ...
+    var login = !proxy_gateway
+      ? http.post('https://gh-oauth.imsun.net', {code, client_id, client_secret}, '')
+      : http.post('/login/oauth/access_token', `code=${code}&amp;client_id=${client_id}`, proxy_gateway);
+
+    login.then(data =&gt; {
+      this.accessToken = data.access_token
+      ...
+</code></pre>
+
+<p>第三步（Gitment创建时Options）：</p>
+
+<pre><code class="language-javascript">// 现在在Gitment创建时的Options中就可以使用proxy_gateway选项了
+//    - 保持了与旧的client_secert的兼容，二选一配置即可
+const gitment = new Gitment({  
+  id: 'Your page ID', // optional
+  owner: 'Your GitHub ID',
+  repo: 'The repo to store comments',
+  oauth: {
+    client_id: 'Your client ID',
+    proxy_gateway: 'https://your_intersect_gateway'
+    // client_secret: 'Your client secret, either this or proxy_gateway',
+  },
+  // ...
+  // For more available options, check out the documentation below
+})
+</code></pre>
+
+<h3 id="113">11.3 多语言支持</h3>
+
+<p>Gitment的作者没有提供多语言支持是觉得『不必要』，因为Github的用户要是这几个单词也不认得大概就只能回家卖烤红薯了。但我的问题在于，我打算做一个多人博客，所以博客的读者还真有不少与Github无关。</p>
+
+<p>所以，我得需要一个多语言支持。</p>
+
+<p>简单的做法，就是写一个这样的translator：</p>
+
+<pre><code class="language-javascript">// save as (Getment Proj)/src/translator.js
+export function english(Text) {  
+    return Text;
+}
+
+export function chinese(Text) {  
+    return ({
+        'Issue Page': '所有评论',
+        'Initialize Comments': '初始化本文的评论页',
+    ...
+}
+
+export default english;  
+</code></pre>
+
+<p>这里用的都是ES6的语法。这几个简单的export说明当前模块导出了<code>english/chinese</code>等等名字，是用来作为提供多语言支持的翻译函数——在不同语言的函数中添加对照表来支持更多的内容。</p>
+
+<p>使用的时候也挺简单的，在Gitment的<code>src/theme/default.js</code>模块中将它装载进来：</p>
+
+<pre><code class="language-javascript">// 注：如果使用英文(不翻译)，那么以下两种导入方法是等效的
+//    import { english as $ } from 'translator'
+//  import $ from 'translator'
+import { chinese as $ } from 'translator'  
+...
+</code></pre>
+
+<p>然后在需要多语言的地方使用下面的代码即可：</p>
+
+<pre><code class="language-javascript">// 例如，原始代码
+//    issueLink.innerText = 'Issue Page'
+// 改成：
+issueLink.innerText = $('Issue Page')  
+</code></pre>
+
+<p>一处处地找到，改完就Ok啦。</p>
+
+<blockquote>
+  <p>注意：Gitment使用了ES6的语法，所以有些地方是用ES6的模板字符串的，这些地方要使用类似${$('english text')} 这样的方法来转换。</p>
+</blockquote>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-1724.html">
+                    博客迁移手记之快速导航
+                </a>
+            </span>
+
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=96a7740888">
+<script src="assets/js/gitment.browser.js?v=96a7740888"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I'm here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i> 
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=96a7740888"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=96a7740888"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=96a7740888"></script>
+</body>
+
