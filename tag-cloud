@@ -77,6 +77,8 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/https" class="tag-item">HTTPS (1)</a>
 				<a href="http://aimingoo.github.io/tag/mian-fei-kong-jian" class="tag-item">免费空间 (1)</a>
 				<a href="http://aimingoo.github.io/tag/zheng-shu" class="tag-item">证书 (1)</a>
+				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (1)</a>
+				<a href="http://aimingoo.github.io/tag/kindle" class="tag-item">Kindle (1)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));
