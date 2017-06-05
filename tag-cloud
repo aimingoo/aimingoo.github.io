@@ -62,23 +62,26 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (6)</a>
 				<a href="http://aimingoo.github.io/tag/hui-bian" class="tag-item">汇编 (6)</a>
 				<a href="http://aimingoo.github.io/tag/yin-qing" class="tag-item">引擎 (6)</a>
+				<a href="http://aimingoo.github.io/tag/opensource-project" class="tag-item">OpenSource Project (6)</a>
 				<a href="http://aimingoo.github.io/tag/pascal" class="tag-item">pascal (5)</a>
 				<a href="http://aimingoo.github.io/tag/uml" class="tag-item">uml (5)</a>
 				<a href="http://aimingoo.github.io/tag/lisp" class="tag-item">lisp (5)</a>
 				<a href="http://aimingoo.github.io/tag/bian-yi-qi" class="tag-item">编译器 (5)</a>
 				<a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (5)</a>
-				<a href="http://aimingoo.github.io/tag/opensource-project" class="tag-item">OpenSource Project (5)</a>
 				<a href="http://aimingoo.github.io/tag/ghost-tag" class="tag-item">Ghost (3)</a>
 				<a href="http://aimingoo.github.io/tag/github" class="tag-item">Github (3)</a>
 				<a href="http://aimingoo.github.io/tag/gitment" class="tag-item">Gitment (3)</a>
+				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (2)</a>
 				<a href="http://aimingoo.github.io/tag/android" class="tag-item">android (1)</a>
 				<a href="http://aimingoo.github.io/tag/promise" class="tag-item">Promise (1)</a>
 				<a href="http://aimingoo.github.io/tag/ssl" class="tag-item">SSL (1)</a>
 				<a href="http://aimingoo.github.io/tag/https" class="tag-item">HTTPS (1)</a>
 				<a href="http://aimingoo.github.io/tag/mian-fei-kong-jian" class="tag-item">免费空间 (1)</a>
 				<a href="http://aimingoo.github.io/tag/zheng-shu" class="tag-item">证书 (1)</a>
-				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (1)</a>
 				<a href="http://aimingoo.github.io/tag/kindle" class="tag-item">Kindle (1)</a>
+				<a href="http://aimingoo.github.io/tag/svg" class="tag-item">svg (1)</a>
+				<a href="http://aimingoo.github.io/tag/imagemagick" class="tag-item">ImageMagick (1)</a>
+				<a href="http://aimingoo.github.io/tag/tu-xing-chu-li" class="tag-item">图形处理 (1)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));

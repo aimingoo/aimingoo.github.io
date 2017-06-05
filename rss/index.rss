@@ -1,15 +1,220 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sat, 03 Jun 2017 11:21:44 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Kindle电子书中该用多大的图片</title><description>&lt;blockquote&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Mon, 05 Jun 2017 11:54:49 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>详解ImageMagick中SVG的支持</title><description>&lt;p&gt;事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -verbose your.svg
+Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB  
+  Base filename: your.svg
+  Format: PNG (Portable Network Graphics)
+  Mime type: image/png
+  Class: DirectClass
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ImageMagick主要有三种支持SVG的方式，包括内置（Internal）、内建（Build-in）和委托（Delegate）。&lt;/p&gt;
+
+&lt;p&gt;在高版本的ImageMagick中MSVG总是内置的；而稍早些的版本中，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1727/</link><guid isPermaLink="false">a849bf10-dbd6-4709-a2c2-dec2bc6c193c</guid><category>svg</category><category>ImageMagick</category><category>图形处理</category><category>OpenSource Project</category><category>电子书</category><dc:creator>aimingoo</dc:creator><pubDate>Mon, 05 Jun 2017 11:54:13 GMT</pubDate><content:encoded>&lt;p&gt;事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -verbose your.svg
+Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB  
+  Base filename: your.svg
+  Format: PNG (Portable Network Graphics)
+  Mime type: image/png
+  Class: DirectClass
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ImageMagick主要有三种支持SVG的方式，包括内置（Internal）、内建（Build-in）和委托（Delegate）。&lt;/p&gt;
+
+&lt;p&gt;在高版本的ImageMagick中MSVG总是内置的；而稍早些的版本中，ImageMagick是混合了『内建』和『委托』两种方式来提供SVG的支持的。&lt;strong&gt;需要强调的是&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;请尽量不要直接使用内置的MSVG。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id="msvg"&gt;内置的MSVG&lt;/h2&gt;
+
+&lt;p&gt;ImageMagick的高版本内置了一个SVG渲染器。它有两种称谓，在代码中叫做&lt;code&gt;IMAGEMAGICK_SVG&lt;/code&gt;，例如在编译中提供相应的开关参数；而在用户级别的配置或接口中，它称为MSVG（这里的M是Magick的首字母）。它完整的名称是&lt;code&gt;ImageMagick's own SVG internal renderer&lt;/code&gt;，所以&lt;code&gt;自有SVG（Own SVG）&lt;/code&gt;、&lt;code&gt;内部渲染器（internal renderer）&lt;/code&gt;以及&lt;code&gt;MSVG&lt;/code&gt;其实指的都是同一个东西：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; convert -list format | grep SVG
+     MSVG  SVG       rw+   ImageMagick's own SVG internal renderer
+      SVG  SVG       rw+   Scalable Vector Graphics (XML 2.9.4)
+     SVGZ  SVG       rw+   Compressed Scalable Vector Graphics (XML 2.9.4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意这里的『XML 2.9.4』其实也是MSVG引擎的一部分，它实际上指的是&lt;code&gt;libxml2&lt;/code&gt;这个库的版本，因为MSVG是基于xml解析并自行渲染的svg引擎。&lt;/p&gt;
+
+&lt;p&gt;由于MSVG存在很多限制，所以ImageMagick『千万百计』地隐藏了它的存在——哈哈，其实没有这么夸张，它们是承认这个东西的存在并且提供官方支持的（&lt;a href="http://www.imagemagick.org/Usage/draw/#svg"&gt;在这里&lt;/a&gt;）。&lt;/p&gt;
+
+&lt;p&gt;在ImageMagick &lt;strong&gt;6.6.7-10&lt;/strong&gt;之后的版本中，MSVG总是缺省内置支持(&lt;code&gt;WITH_IMAGEMAGICK_SVG&lt;/code&gt;参数缺省打开)，即使是在&lt;code&gt;WITHOUT_X11&lt;/code&gt;状态下，编译过程也只是给出WARN级别的警告。&lt;/p&gt;
+
+&lt;p&gt;而在此前（ 但晚于v6.3.3-5之后的）版本中，如果&lt;code&gt;WITHOUT_X11&lt;/code&gt;，那么编译时将不会内置支持SVG。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;参考：&lt;a href="https://www.freshports.org/graphics/ImageMagick/"&gt;https://www.freshports.org/graphics/ImageMagick/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;任何情况下，如果你只是想启用MSVG（以避开其它引擎的影响），那么你可以在input文件名上加上"msvg:"前缀（v6.3.4以后）。例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -verbose 'msvg:your.svg'
+Image: your.svg  
+  Base filename: b2t_8-2.svg
+  Format: MVG (Magick Vector Graphics)
+  Class: DirectClass
+  Geometry: 485x306+0+0
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;你也可以使用&lt;code&gt;-draw&lt;/code&gt;参数来开启一个MSVG的画板并操作它。例如（将这块画板作为源，转换成PNG格式输出）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# http://www.imagemagick.org/Usage/draw/#svg
+&amp;gt; convert -size 10x6 xc:skyblue  -fill black \
+          -draw 'color 6,3 point' -scale 100x60 draw_color_point.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=""&gt;内建模式及其开启&lt;/h2&gt;
+
+&lt;p&gt;如果ImageMagick在安装时包含librsvg模块，那么就会启用内建模式（所以Build-in SVG也往往直接称为RSVG）。一旦包含这个模块，那么它的优先级比内置的MSVG要高。&lt;/p&gt;
+
+&lt;p&gt;如果你是使用brew来安装的ImageMagick，那么你可以用：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; brew info imagemagick
+...
+Optional: fontconfig ✔, little-cms ✘, little-cms2 ✔, libwmf ✘, librsvg ✔ ...  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;来查看当前环境是否能支持rsvg。如上，&lt;code&gt;librsvg&lt;/code&gt;已经安装了，那么就可以通过安装参数来开启它（或使用&lt;code&gt;brew reinstall&lt;/code&gt;重新安装）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 你可能需要先安装librsvg模块
+#    - brew install librsvg
+&amp;gt; brew install imagemagick --with-librsvg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果你不是使用brew，那么你可以使用如下命令来查看：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; convert -list configure | grep -Eoe '--with-rsvg(=[^\-]+)?'
+--with-rsvg=no
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果没有rsvg的支持，那么你需要自己编译ImageMagick，相关的操作&lt;a href="http://www.imagemagick.org/script/advanced-unix-installation.php"&gt;在这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;如果你成功安装了rsvg支持，那么可以看到如下信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# build-in的delegate中包含了rsvg
+&amp;gt; identify -version | grep --color rsvg
+Delegates (built-in): bzlib cairo fontconfig freetype jng jpeg ltdl lzma png rsvg tiff xml zlib
+
+# 或format中使用了rsvg来支持svg
+&amp;gt; identify -list format | grep -i svg
+convert -list format | grep -i svg  
+     MSVG  SVG       rw+   ImageMagick's own SVG internal renderer
+      SVG  SVG       rw+   Scalable Vector Graphics (RSVG 2.40.17)
+     SVGZ  SVG       rw+   Compressed Scalable Vector Graphics (RSVG 2.40.17)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注1：一些资料中称需要使用&lt;code&gt;--use-rsvg&lt;/code&gt;参数在编译中开启rsvg支持，这可能是一个被放弃的、早期的构建参数。&lt;/p&gt;
+  
+  &lt;p&gt;注2：在brew中用的参数是&lt;code&gt;--with-librsvg&lt;/code&gt;，而实际上编译时使用的是&lt;code&gt;--with-rsvg&lt;/code&gt;参数。这个转换操作是在brew安装用的formula文件中完成的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;委托模式的开启&lt;/h2&gt;
+
+&lt;p&gt;通常情况下，ImageMagick会在内置的MSVG和内建模式（RSVG）之间选择一个；如果二者都没有，那么它会选择第三种，也就是委托模式。&lt;/p&gt;
+
+&lt;p&gt;你总是可以通过如下命令查看ImageMagick委托（外部程序）来进行的图形转换，包括SVG：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; convert -list delegate | grep 'svg'
+...
+svg =&amp;gt;          "rsvg-convert' -o '%o' '%i"  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注：严格来说，前面说的内建模式事实上也是一种委托。只不过它是在编译时build-in的，所以在&lt;code&gt;--help&lt;/code&gt;参数显示的信息中就能直接看到，并且会影响&lt;code&gt;-format&lt;/code&gt;显示的格式支持；而在&lt;code&gt;-list delegate&lt;/code&gt; 所列举的委托关系中，却并不会出现。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由于只有MSVG和rsvg都不生效时才会开启委托模式，但高版本中ImageMagick中总是内置MSVG，所以是很难触发委托模式的。因此，如果你做这个尝试，那么你需要一个不内置MSVG的低版本ImageMagick，并且在编译中关闭&lt;code&gt;--with-rsvg&lt;/code&gt;选项。OK，这样你就可以看到ImageMagick调用了上述委托中的&lt;code&gt;rsvg-convert&lt;/code&gt;来进行转换。&lt;/p&gt;
+
+&lt;p&gt;当然，也有例外，因为其实还是有一个后门来做这件事的，这就是所谓的内部委托。&lt;/p&gt;
+
+&lt;h3 id=""&gt;内部委托&lt;/h3&gt;
+
+&lt;p&gt;准确地说法：MSVG这个内部渲染器提供了一个『内部委托（special internal delegates）』。这种内部委托与上面的&lt;code&gt;rsvg-convert&lt;/code&gt;采用的是类似机制，但是通过&lt;code&gt;-list delegate&lt;/code&gt;命令是无法查看到的——你得打开配置文件自己来找：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 查看你的ImageMagick将读取哪些配置文件
+&amp;gt; convert -debug all -list delegate 2&amp;gt;&amp;amp;1 | grep 'delegates.xml'
+Searching for configure file: ...  
+...
+Path: /usr/local/Cellar/imagemagick/7.0.5-9/etc/ImageMagick-7/delegates.xml  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意前面有一个搜索优先顺序的列表（你可能用得上），不过这里我们只需要关心最后这个&lt;code&gt;Path&lt;/code&gt;就好了。打开这个文件，查找&lt;code&gt;svg:decode&lt;/code&gt;，将&lt;code&gt;stealth="True"&lt;/code&gt;删除掉。现在你就可以看到它了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; convert -list delegate | grep -Ee 'svg(:decode)? ='
+        svg =&amp;gt;          "rsvg-convert' -o '%o' '%i"
+ svg:decode =&amp;gt;          "inkscape' '%s' --export-png='%s' --export-dpi='%s' --export-background='%s' --export-background-opacity='%s' &amp;gt; '%s' 2&amp;gt;&amp;amp;1"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注：内部委托与一般的（外部程序的）委托模式处理逻辑是一样的，只是在高版本的ImageMagick用&lt;code&gt;svg:decode&lt;/code&gt;替代了&lt;code&gt;svg&lt;/code&gt;这个入口而已。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;是的，你应该已经注意到了，这个内部的委托指向了inkscape。你可以安装inkscape来支持这个委托。例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; brew cask install xquartz inkscape
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=""&gt;接管内部委托&lt;/h3&gt;
+
+&lt;p&gt;你也可以自己写个脚本来将操作转发到你的处理程序（类似于代理）。例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;#!/bin/bash
+DPI="${3##*=}"  
+rsvg-convert --format=png --output="${2##*=}" --dpi-x="${DPI%%,*}" --dpi-y="${DPI##*,}" --background-color="${4##*=}" "$1"  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;将这个脚本另存到搜索路径中，并命名为&lt;code&gt;inkscape&lt;/code&gt;，加上可执行权限。OK，你就看到&lt;code&gt;svg:decode&lt;/code&gt;的相关调用转发到你的脚本中，并交给rsvg-convert处理了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注意：如果内部委托调用出错（程序退出代码大于0），那么ImageMagick将再次调用MSVG来完成处理。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当然，我们也可以把这个接管的脖本程序写得通用一点。比如将delegates.xml中的&lt;code&gt;svg:decode&lt;/code&gt;项修改到一个统一的模式（以后就可以不用改了，不过sv要注意其中的&lt;code&gt;YOUR_SCRIPT_NAME&lt;/code&gt;应该修改得与后面的脚本名一致）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-xml"&gt;&amp;lt;delegate decode="svg:decode" command="&amp;amp;quot;YOUR_SCRIPT_NAME&amp;amp;quot; &amp;amp;quot;%s&amp;amp;quot; &amp;amp;quot;%s&amp;amp;quot; &amp;amp;quot;%s&amp;amp;quot; &amp;amp;quot;%s&amp;amp;quot; &amp;amp;quot;%s&amp;amp;quot; &amp;amp;gt; &amp;amp;quot;%s&amp;amp;quot; 2&amp;amp;gt;&amp;amp;amp;1"/&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后安装自己的工具（下面以cairosvg这个工具为例，首先安装它）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# @see: http://cairosvg.org/
+&amp;gt; pip3 install cairosvg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后写调用脚本（&lt;code&gt;YOUR_SCRIPT_NAME&lt;/code&gt;）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;#!/bin/bash
+
+# in arguments:
+#    inFile outFile dpi bgColor bgOpacity
+DPIX="${3%%,*}"  # format - xRes,yRes  
+BGCOLOR="$4" # format - string, #xxxxxx, or rgb(r%,g%,b%)  
+cairosvg -f png -o "$2" -d "$DPIX" "$1"  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最后将这个脚本另存、更名、更改可执行权限。&lt;/p&gt;
+
+&lt;p&gt;在你使用identify、convert等等工具处理svg时，都将调用上述脚本。所以，现在你可以随意用新的转换工具来替换MSVG了。&lt;/p&gt;
+
+&lt;p&gt;我的开源项目&lt;a href="https://github.com/aimingoo/svg-provider"&gt;svg-provider&lt;/a&gt;是一个较完整的实现，其主要是在参数的处理上面进行了优化，并且可以适配更多的转换工具。&lt;/p&gt;</content:encoded></item><item><title>Kindle电子书中该用多大的图片</title><description>&lt;blockquote&gt;
   &lt;p&gt;注1：本文所涉及的工具，可以采用如下方法安装：&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 含identify,convert,pdfinfo,pdftoppm等
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 含identify,convert,mogrify,pdfinfo,pdftoppm等
 &amp;gt; brew install ghostscript imagemagick cpdf poppler
 # 含pdfcrop等
 &amp;gt; brew cask install xquartz mactex inkscape
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;注2：本文缺省是使用PNG图片，使用.JPG的方法是一致的（有极少数的转换工具不同）。&lt;/p&gt;
+  &lt;p&gt;注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。&lt;/p&gt;
@@ -20,14 +225,14 @@
   &lt;p&gt;注1：本文所涉及的工具，可以采用如下方法安装：&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 含identify,convert,pdfinfo,pdftoppm等
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 含identify,convert,mogrify,pdfinfo,pdftoppm等
 &amp;gt; brew install ghostscript imagemagick cpdf poppler
 # 含pdfcrop等
 &amp;gt; brew cask install xquartz mactex inkscape
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;注2：本文缺省是使用PNG图片，使用.JPG的方法是一致的（有极少数的转换工具不同）。&lt;/p&gt;
+  &lt;p&gt;注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。&lt;/p&gt;
@@ -138,7 +343,7 @@
 &lt;p&gt;那么：一张&lt;code&gt;520x320px&lt;/code&gt;大小的&lt;code&gt;300dpi&lt;/code&gt;的图片，到底是怎样大小呢？&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;高度320px是上面所说到的620px的一半略多。这是因为我们在电子书上通常不会把一张图做到全屏大小，而使用以半屏高为上限的图片有利于书籍的自动排版。&lt;/p&gt;
+  &lt;p&gt;高度320px是上面所说到的622px的一半略多。这是因为我们在电子书上通常不会把一张图做到全屏大小，而使用以半屏高为上限的图片有利于书籍的自动排版。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=""&gt;面积计算&lt;/h3&gt;
@@ -153,10 +358,10 @@
 &lt;p&gt;或者为了避免你总是手工计算，那么查看上面创建的图片的信息也可以（设图片名为test.png）：&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;注意：identify是ImageMagick中的一个工具，在使用&lt;code&gt;brew install imagemagick&lt;/code&gt;安装后会有同时得到这个命令行工具。&lt;/p&gt;
+  &lt;p&gt;注意：identify是ImageMagick中的一个工具，在使用&lt;code&gt;brew install imagemagick&lt;/code&gt;安装后会同时得到这个命令行工具。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -units  -verbose ./test.png | grep -E 'Units:|Resolution|Print|Geometry'
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -verbose ./test.png | grep -E 'Units:|Resolution|Print'
   Resolution: 118.11x118.11
   Print size: 4.40268 x 2.70934
   Units: PixelsPerCentimeter
@@ -164,7 +369,7 @@
 
 &lt;p&gt;注意identify对图片来说缺省单位是厘米（Centimeter），而不是习惯上PPI/DPI中所说的英寸（Inch），所以Resolution显示是118.11（DPCM，Dots Per Centimeter）。如果你想要显示为DPI，那么应该这样：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -units PixelsPerInch -verbose ./test.png | grep -E 'units:|resolution|print'
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; identify -units PixelsPerInch -verbose ./test.png | grep -E 'Units:|Resolution|Print'
   Resolution: 300x300
   Print size: 1.73333 x 1.06667
   Units: PixelsPerInch
@@ -403,7 +608,7 @@ Conversion of standard_image_templet_520.pdf into standard_image_templet_520.png
   Units: PixelsPerInch
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;最后，需要补充一点：就效果来说，基于图像autocrop与pdfcrop并没有太大的差别——反正我是分不出来。另外，你也可能想尝试使用imagemagick中的trim操作来替代autocrop：&lt;/p&gt;
+&lt;p&gt;最后需要补充一点：就效果来说，基于图像autocrop与pdfcrop并没有太大的差别——反正我是分不出来。另外，你也可能想尝试使用imagemagick中的trim操作来替代autocrop：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="language-bash"&gt;# 使用nconvert但不autocrop
 &amp;gt; nconvert -xall -dpi 300 -out png -o pic original.pdf 1&amp;gt;/dev/null
@@ -1091,11 +1296,11 @@ https://github.com/login/oauth/access_token
 
 &lt;p&gt;我选择的是使用小蘿蔔丁(&lt;a href="http://xlbd.me/"&gt;在这里&lt;/a&gt;)发布的&lt;code&gt;kaldorei - 0.8.0&lt;/code&gt;，你可以下载或阅读这个Theme相关的说明（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei"&gt;这里&lt;/a&gt;）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。&lt;/p&gt;
 
-&lt;p&gt;但我还是做了一些修改。&lt;/p&gt;
+&lt;p&gt;但我还是做了一些修改（关于Themes的基础使用与修改改可以参考&lt;a href="http://docs.ghost.org/zh/themes/"&gt;这里&lt;/a&gt;）。&lt;/p&gt;
 
 &lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
 
-&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1721/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><category>Ghost</category><category>博客</category><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
+&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1721/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><category>Ghost</category><category>博客</category><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
 
 &lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
 
@@ -1105,7 +1310,7 @@ https://github.com/login/oauth/access_token
 
 &lt;p&gt;我选择的是使用小蘿蔔丁(&lt;a href="http://xlbd.me/"&gt;在这里&lt;/a&gt;)发布的&lt;code&gt;kaldorei - 0.8.0&lt;/code&gt;，你可以下载或阅读这个Theme相关的说明（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei"&gt;这里&lt;/a&gt;）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。&lt;/p&gt;
 
-&lt;p&gt;但我还是做了一些修改。&lt;/p&gt;
+&lt;p&gt;但我还是做了一些修改（关于Themes的基础使用与修改改可以参考&lt;a href="http://docs.ghost.org/zh/themes/"&gt;这里&lt;/a&gt;）。&lt;/p&gt;
 
 &lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
 
@@ -2981,77 +3186,4 @@ Promise.all([1,2,3])
   
   &lt;p&gt;@aimingoo/aiming at gmail.com/ aimingoo at &lt;br&gt;
   wandoujia.com/2836420/来自疯人院 at 此人危险切勿靠近 at 塞纳里奥 at 二区 at WoW&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title>CSDN的SDCC大会(2013)中使用的PPT分享</title><description>&lt;p&gt;SDCC大会今天开完个。呵呵~  &lt;/p&gt;
-
-&lt;p&gt;PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  &lt;/p&gt;
-
-&lt;p&gt;这里说说这个大会中我的Topic。  &lt;/p&gt;
-
-&lt;p&gt;此前CSDN向我约了一个主题，我回复说，  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div&gt;一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：&lt;/div&gt;  
-
-&lt;blockquote&gt;
-  &lt;p&gt;这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 &lt;a href="http://sdcc.csdn.net"&gt;http://sdcc.csdn.net&lt;/a&gt; ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-193/</link><guid isPermaLink="false">e0985263-c38c-4b33-a7d6-64ffd832d573</guid><dc:creator>aimingoo</dc:creator><pubDate>Sat, 31 Aug 2013 14:02:00 GMT</pubDate><content:encoded>&lt;p&gt;SDCC大会今天开完个。呵呵~  &lt;/p&gt;
-
-&lt;p&gt;PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  &lt;/p&gt;
-
-&lt;p&gt;这里说说这个大会中我的Topic。  &lt;/p&gt;
-
-&lt;p&gt;此前CSDN向我约了一个主题，我回复说，  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div&gt;一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：&lt;/div&gt;  
-
-&lt;blockquote&gt;
-  &lt;p&gt;这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 &lt;a href="http://sdcc.csdn.net"&gt;http://sdcc.csdn.net&lt;/a&gt; ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;于是轮到我泪流满面了，因为按照这个思路，&amp;nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  &lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，那就有些不合用的地方了。再则，若这些SDCC的架构场只是讨论网站架构下的实战，那就与听众的这种期待相去甚远了。  &lt;/p&gt;
-  
-  &lt;p&gt;“架构的意图”是讨论一个架构“为什么要被做出来”的。也就是说，我们不是画一个架构图告诉团队说“按这个做”就可以了。架构师必须对“架构的意图”进行清晰的刻画，这是这个架构长期存在的基本意义与价值。我曾经说“意图是架构的灵魂”，不理解或不赋予架构某种“意图”，则架构终究是个死物，看不入眼的。在这个topic中，我会例举一些架构实践中的案例，来说明“其中存在或不存在某种意图”，以及如何识别与定义它。但我并不在乎这个例举是否是网站架构，这是与sdcc在这个议题上有别的地方。  &lt;/p&gt;
-  
-  &lt;p&gt;请斟情考虑我的topic。  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;再回邮件时，鸫翔同学终于确定在SDCC上用这个话题了，也就是“寻找架构的来处：意图”。在我看来，一旦架构师没有意图，那么系统只是目标系统的某一时间上的静态映像。仅此而已。但是，什么才是这样的意图？我们如何得到或形成意图呢？为什么说“获得意图”才架构的精髓呢？“意图之于架构”的本质究竟是什么？这些是我在本讲演中希望与大家分享与讨论的。  &lt;/p&gt;
-
-&lt;p&gt;“架构的意图”其实是一个有关架构的完整的体系中的一个话题，我称这个体系为：架构意图驱动的过程模型。在&lt;span style="font-size:14px;color:#3366ff;"&gt;&lt;a href="http://t.cn/zWb8Qac"&gt;《大道至易》&lt;/a&gt;&lt;/span&gt;里面，我在总论中讲了其中“架构”（和架构师）这一概念的出处，定义了架构这个概念；在第10、11章中讨论了这个架构的整个模型与完整的实践。而最终的，又从这个实践中总结提升了“五项核心原则”，作为了第12章。这些内容，就是《大道至易》一书中有关“架构”的全部内容——其它的内容是讲软件工程和软件开发技术的。  &lt;/p&gt;
-
-&lt;p&gt;下面这张图，我梳理了一下这几年来我有关架构的分享与讲演（这些都是公开的，很多有视频呵，可以试试在&lt;a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3#cid=F9303C43D5CEAFB3&amp;amp;id=F9303C43D5CEAFB3%21730"&gt;这里找&lt;/a&gt;）。  &lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/20130831215259515.png" alt="" title=""&gt;  &lt;/p&gt;
-
-&lt;p&gt;大体上，我在2012年之前主要偏向于架构思想的分享（也讲讲能力模型和交付对象——例如设计神马的），而2013开始的所有topic，都在完成下面这个模型中所讲的知识结构：  &lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/20130831215509640.png" alt="" title=""&gt;    &lt;/p&gt;
-
-&lt;p&gt;最后打个小广告，模型中讲的“2013 架构的核心指导原则”，是今年10月将在上海的一场讲演。&lt;a href="http://www.thinkinlamp.com/"&gt;在这里在这里……&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;PPT的下载  &lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;在这里在这里在这里（视频神马的，我就没权限公开了，请大家关注CSDN吧）：  &lt;/p&gt;
-
-&lt;p&gt;&lt;a href="http://vdisk.weibo.com/s/yXPCfhgzhwOnY"&gt;http://vdisk.weibo.com/s/yXPCfhgzhwOnY&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;或  &lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;amp;id=F9303C43D5CEAFB3%211231"&gt;https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;amp;id=F9303C43D5CEAFB3%211231&lt;/a&gt;  &lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;/blockquote&gt;</content:encoded></item></channel></rss>

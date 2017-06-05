@@ -22,16 +22,16 @@
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Kindle电子书中该用多大的图片">
-    <meta property="og:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用.JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、">
+    <meta property="og:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、">
     <meta property="og:url" content="http://aimingoo.github.io/1-1726.html">
     <meta property="article:published_time" content="2017-06-03T10:54:54.000Z">
-    <meta property="article:modified_time" content="2017-06-03T11:08:24.000Z">
+    <meta property="article:modified_time" content="2017-06-04T03:29:16.000Z">
     <meta property="article:tag" content="电子书">
     <meta property="article:tag" content="Kindle">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Kindle电子书中该用多大的图片">
-    <meta name="twitter:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用.JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、">
+    <meta name="twitter:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、">
     <meta name="twitter:url" content="http://aimingoo.github.io/1-1726.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
@@ -65,9 +65,9 @@
     "headline": "Kindle电子书中该用多大的图片",
     "url": "http://aimingoo.github.io/1-1726.html",
     "datePublished": "2017-06-03T10:54:54.000Z",
-    "dateModified": "2017-06-03T11:08:24.000Z",
+    "dateModified": "2017-06-04T03:29:16.000Z",
     "keywords": "电子书, Kindle",
-    "description": "注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用.JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、",
+    "description": "注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -131,7 +131,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-06-03">27 minutes ago</time>
+                        <time class="post-date" datetime="2017-06-03">2 days ago</time>
                         <time class="post-date" datetime="2017-06-03">(2017-06-03)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
@@ -149,14 +149,14 @@ ghost.init({
   <p>注1：本文所涉及的工具，可以采用如下方法安装：</p>
 </blockquote>
 
-<pre><code class="language-bash"># 含identify,convert,pdfinfo,pdftoppm等
+<pre><code class="language-bash"># 含identify,convert,mogrify,pdfinfo,pdftoppm等
 &gt; brew install ghostscript imagemagick cpdf poppler
 # 含pdfcrop等
 &gt; brew cask install xquartz mactex inkscape
 </code></pre>
 
 <blockquote>
-  <p>注2：本文缺省是使用PNG图片，使用.JPG的方法是一致的（有极少数的转换工具不同）。</p>
+  <p>注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。</p>
 </blockquote>
 
 <p>如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。</p>
@@ -267,7 +267,7 @@ ghost.init({
 <p>那么：一张<code>520x320px</code>大小的<code>300dpi</code>的图片，到底是怎样大小呢？</p>
 
 <blockquote>
-  <p>高度320px是上面所说到的620px的一半略多。这是因为我们在电子书上通常不会把一张图做到全屏大小，而使用以半屏高为上限的图片有利于书籍的自动排版。</p>
+  <p>高度320px是上面所说到的622px的一半略多。这是因为我们在电子书上通常不会把一张图做到全屏大小，而使用以半屏高为上限的图片有利于书籍的自动排版。</p>
 </blockquote>
 
 <h3 id="">面积计算</h3>
@@ -282,10 +282,10 @@ ghost.init({
 <p>或者为了避免你总是手工计算，那么查看上面创建的图片的信息也可以（设图片名为test.png）：</p>
 
 <blockquote>
-  <p>注意：identify是ImageMagick中的一个工具，在使用<code>brew install imagemagick</code>安装后会有同时得到这个命令行工具。</p>
+  <p>注意：identify是ImageMagick中的一个工具，在使用<code>brew install imagemagick</code>安装后会同时得到这个命令行工具。</p>
 </blockquote>
 
-<pre><code class="language-bash">&gt; identify -units  -verbose ./test.png | grep -E 'Units:|Resolution|Print|Geometry'
+<pre><code class="language-bash">&gt; identify -verbose ./test.png | grep -E 'Units:|Resolution|Print'
   Resolution: 118.11x118.11
   Print size: 4.40268 x 2.70934
   Units: PixelsPerCentimeter
@@ -293,7 +293,7 @@ ghost.init({
 
 <p>注意identify对图片来说缺省单位是厘米（Centimeter），而不是习惯上PPI/DPI中所说的英寸（Inch），所以Resolution显示是118.11（DPCM，Dots Per Centimeter）。如果你想要显示为DPI，那么应该这样：</p>
 
-<pre><code class="language-bash">&gt; identify -units PixelsPerInch -verbose ./test.png | grep -E 'units:|resolution|print'
+<pre><code class="language-bash">&gt; identify -units PixelsPerInch -verbose ./test.png | grep -E 'Units:|Resolution|Print'
   Resolution: 300x300
   Print size: 1.73333 x 1.06667
   Units: PixelsPerInch
@@ -532,7 +532,7 @@ Conversion of standard_image_templet_520.pdf into standard_image_templet_520.png
   Units: PixelsPerInch
 </code></pre>
 
-<p>最后，需要补充一点：就效果来说，基于图像autocrop与pdfcrop并没有太大的差别——反正我是分不出来。另外，你也可能想尝试使用imagemagick中的trim操作来替代autocrop：</p>
+<p>最后需要补充一点：就效果来说，基于图像autocrop与pdfcrop并没有太大的差别——反正我是分不出来。另外，你也可能想尝试使用imagemagick中的trim操作来替代autocrop：</p>
 
 <pre><code class="language-bash"># 使用nconvert但不autocrop
 &gt; nconvert -xall -dpi 300 -out png -o pic original.pdf 1&gt;/dev/null
@@ -558,6 +558,12 @@ Conversion of croped.pdf into pic-0.png OK
                 </a>
             </span>
 
+            <span class="post-nav-next">
+                <a href="1-1727.html">
+                    详解ImageMagick中SVG的支持
+                </a>
+                下一篇
+            </span>
         </aside>
 
         <section class="post comments">
