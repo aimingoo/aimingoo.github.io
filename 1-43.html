@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(八)：Qomo中的AOP框架</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomolangma实现篇(八)：Qomo中的AOP框架">
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-43.html">
-    <meta property="article:published_time" content="2006-04-16T20:33:00.000Z">
-    <meta property="article:modified_time" content="2017-05-17T06:21:51.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="框架">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomolangma实现篇(八)：Qomo中的AOP框架" />
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-43.html" />
+    <meta property="article:published_time" content="2006-04-16T20:33:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-17T06:21:51.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="框架" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomolangma实现篇(八)：Qomo中的AOP框架">
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-43.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 框架">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomolangma实现篇(八)：Qomo中的AOP框架" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-43.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 框架" />
     
     <script type="application/ld+json">
 {
@@ -82,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-kuang-jia nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -111,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/kuang-jia/">框架</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/kuang-jia/index.html">框架</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,733 +146,733 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：../../Qomo_team.txt <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：../../Qomo_team.txt <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>一、Qomolangma中的AOP <br>
-~~~~~~~~~~~~~~~~<del>  </del></p>
+<p>一、Qomolangma中的AOP <br />
+~~~~~~~~~~~~~~~~<del>  </p>
 
-<p>AOP(面向切面编程)有没有必要在JavaScript中实现，一直以来是个问题。滥用AOP的特性，将导致系统 <br>
-效率下降、性能不稳定等后果。因此在展开下面的讨论之前，我需要先提醒Qomoer：尽管我们拥有了强 <br>
+<p>AOP(面向切面编程)有没有必要在JavaScript中实现，一直以来是个问题。滥用AOP的特性，将导致系统 <br />
+效率下降、性能不稳定等后果。因此在展开下面的讨论之前，我需要先提醒Qomoer：尽管我们拥有了强 <br />
 大的AOP框架，但如果你不足够了解它，那么还是慎用之。  </p>
 
-<p>前面在讲述Interface的时候提到，Qomo是鉴于AOP的需要，而为之提供了强大的Interface机制。但这并 <br>
-不是说用户需要定义很多接口，才能使用AOP。——Interface是在Qomo实现AOP中的“定制切面”时使用 <br>
+<p>前面在讲述Interface的时候提到，Qomo是鉴于AOP的需要，而为之提供了强大的Interface机制。但这并 <br />
+不是说用户需要定义很多接口，才能使用AOP。&mdash;&mdash;Interface是在Qomo实现AOP中的&ldquo;定制切面&rdquo;时使用 <br />
 到的关键技术，而不是用户使用AOP时所必须的技术。  </p>
 
-<p>Qomo的AOP框架依赖于Qomo中提供的如下特性： <br>
-<font face="Courier New">  - 接口机制：Interface.js <br>
-  - JSEnhance中的事件多投：MuEvent() <br>
-  - Qomo的OOP框架：Object.js</font>  </p>
+<p>Qomo的AOP框架依赖于Qomo中提供的如下特性： <br />
+<font face="Courier New">&nbsp; - 接口机制：Interface.js <br />
+&nbsp; - JSEnhance中的事件多投：MuEvent() <br />
+&nbsp; - Qomo的OOP框架：Object.js</font>  </p>
 
-<p><font face="Courier New">TODO: beta1 中，Qomo并未完成实现在Qomo框架内部的各个IJoPoints。但这完全不影响用户使用AOP机 <br>
-      制本身。因为AOP机制在beta1中已经是完整的了。</font>  </p>
+<p><font face="Courier New">TODO: beta1 中，Qomo并未完成实现在Qomo框架内部的各个IJoPoints。但这完全不影响用户使用AOP机 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 制本身。因为AOP机制在beta1中已经是完整的了。</font>  </p>
 
-<p>二、AOP基础 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>二、AOP基础 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>如果你需要一本专业的书籍来指导你学习AOP，那么我比较推荐《面向方面软件开发(AOSD)》这本书。 <br>
-Aspect被译作“方面”、“切面”和“剖面”都是有的，请不要追究这个用词。  </p>
+<p>如果你需要一本专业的书籍来指导你学习AOP，那么我比较推荐《面向方面软件开发(AOSD)》这本书。 <br />
+Aspect被译作&ldquo;方面&rdquo;、&ldquo;切面&rdquo;和&ldquo;剖面&rdquo;都是有的，请不要追究这个用词。  </p>
 
-<p>AOSD中介绍到AOP中的几个关键术语： <br>
-<font face="Courier New">  - 联接点(join point)：程序的结构或者执行流中定义好的“位置”。Qomo中简写为JoPoint。 <br>
-  - 通知(advice)：在联接点上会发生的一种行为，这种行为能力是AOP框架来提供的。 <br>
-  - 编织(weaving): 将核心功能与方面组合在一起，以“产生一个(基于AOP的)工作系统的过程”。 <br>
-  - 周围、之前与之后(around, before and after)：联接点上(常见的)三种"通知(advice)"能力。</font>  </p>
+<p>AOSD中介绍到AOP中的几个关键术语： <br />
+<font face="Courier New">&nbsp; - 联接点(join point)：程序的结构或者执行流中定义好的&ldquo;位置&rdquo;。Qomo中简写为JoPoint。 <br />
+&nbsp; - 通知(advice)：在联接点上会发生的一种行为，这种行为能力是AOP框架来提供的。 <br />
+&nbsp; - 编织(weaving): 将核心功能与方面组合在一起，以&ldquo;产生一个(基于AOP的)工作系统的过程&rdquo;。 <br />
+&nbsp; - 周围、之前与之后(around, before and after)：联接点上(常见的)三种&quot;通知(advice)&quot;能力。</font>  </p>
 
-<p>Qomo中用到的几个名词／术语： <br>
-<font face="Courier New">  - 观察者与被观察者(observer/observable)：一个切面中，观察者是切面(aspect)，被观察者是 <br>
-    切面(当前)拦截到的对象。 <br>
-  - 切点(pointcut)：与“联接点(join point)”对应，切点是对这个“联接点位置”的一个描述。 <br>
-    AspectJ中使用“切点原语(一种表达式)”来描述pointcut，而Qomo使用一个表示名字的字符串。 <br>
-  - 元数据(metadata)：在处理切面或执行切面代码时所需要的一些数据。这可以是用户在建立切面 <br>
-    时初始的任何数据，甚至是用于获取数据的函数回调。 <br>
-  - 引导(Introduction)：Qomo中的一种切面事件，发生在before通知之前，可以决定切面的行为是 <br>
-    否需要发生——是否需要拦截并发出通知。</font>  </p>
+<p>Qomo中用到的几个名词／术语： <br />
+<font face="Courier New">&nbsp; - 观察者与被观察者(observer/observable)：一个切面中，观察者是切面(aspect)，被观察者是 <br />
+&nbsp;&nbsp;&nbsp; 切面(当前)拦截到的对象。 <br />
+&nbsp; - 切点(pointcut)：与&ldquo;联接点(join point)&rdquo;对应，切点是对这个&ldquo;联接点位置&rdquo;的一个描述。 <br />
+&nbsp;&nbsp;&nbsp; AspectJ中使用&ldquo;切点原语(一种表达式)&rdquo;来描述pointcut，而Qomo使用一个表示名字的字符串。 <br />
+&nbsp; - 元数据(metadata)：在处理切面或执行切面代码时所需要的一些数据。这可以是用户在建立切面 <br />
+&nbsp;&nbsp;&nbsp; 时初始的任何数据，甚至是用于获取数据的函数回调。 <br />
+&nbsp; - 引导(Introduction)：Qomo中的一种切面事件，发生在before通知之前，可以决定切面的行为是 <br />
+&nbsp;&nbsp;&nbsp; 否需要发生&mdash;&mdash;是否需要拦截并发出通知。</font>  </p>
 
-<p>另一个关键的名词是"切面(Ascpect)"，它首先是基于OOP体系的一个概念，切面描述的是对“一组” <br>
-对象实例的共同行为能力的“一个关注”。也就是说：如果你希望了解一些对象(无论它们是否是同 <br>
-一父类／基类)的一些相类同的行为，那么你可以将这些行为发生的“位置”理解成一个“切面”。 <br>
-而AOP就是一套针对这个“切面”进行编程的框架。  </p>
+<p>另一个关键的名词是&quot;切面(Ascpect)&quot;，它首先是基于OOP体系的一个概念，切面描述的是对&ldquo;一组&rdquo; <br />
+对象实例的共同行为能力的&ldquo;一个关注&rdquo;。也就是说：如果你希望了解一些对象(无论它们是否是同 <br />
+一父类／基类)的一些相类同的行为，那么你可以将这些行为发生的&ldquo;位置&rdquo;理解成一个&ldquo;切面&rdquo;。 <br />
+而AOP就是一套针对这个&ldquo;切面&rdquo;进行编程的框架。  </p>
 
-<p>一个经常被提到的“切面”是“(记录一些对象行为的)日志系统”。而在Qomo中，AOP被用来作为实 <br>
+<p>一个经常被提到的&ldquo;切面&rdquo;是&ldquo;(记录一些对象行为的)日志系统&rdquo;。而在Qomo中，AOP被用来作为实 <br />
 现JavaScript Profiler的基础技术。  </p>
 
-<p>最后一个比较学术的名词是“不知觉性(obliviousness)”，这是AOP的特性之一。它要求加入一段 <br>
-AOP的代码对原有系统不会产生可察觉的影响。——需要强调的是：around通知可能改变原有系统的 <br>
-行为，这可能使得“不知觉性”被破坏或者产生歧义。  </p>
+<p>最后一个比较学术的名词是&ldquo;不知觉性(obliviousness)&rdquo;，这是AOP的特性之一。它要求加入一段 <br />
+AOP的代码对原有系统不会产生可察觉的影响。&mdash;&mdash;需要强调的是：around通知可能改变原有系统的 <br />
+行为，这可能使得&ldquo;不知觉性&rdquo;被破坏或者产生歧义。  </p>
 
-<p>三、一些其它JS框架中的AOP <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>三、一些其它JS框架中的AOP <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>在高级语言中被经常提及的AOP系统包括AspectJ和Spring。与之相比较，目前可见的一些其它JS框 <br>
+<p>在高级语言中被经常提及的AOP系统包括AspectJ和Spring。与之相比较，目前可见的一些其它JS框 <br />
 架中提供的AOP能力就非常弱了。  </p>
 
-<p>影响最广的一个JS AOP实现框架(概念化的模型)是"AOP Fun with JavaScript"，你可以在这里读到 <br>
-这篇文档的全文： <br>
-   <a href="http://www.jroller.com/page/deep/20030701">http://www.jroller.com/page/deep/20030701</a>  </p>
+<p>影响最广的一个JS AOP实现框架(概念化的模型)是&quot;AOP Fun with JavaScript&quot;，你可以在这里读到 <br />
+这篇文档的全文： <br />
+&nbsp;&nbsp; <a href="http://www.jroller.com/page/deep/20030701">http://www.jroller.com/page/deep/20030701</a>  </p>
 
-<p>此后就有更多声称支持AOP的JS框架出现，例如Dojo。在Dojo中实现了对函数/方法的五种通知类型： <br>
-<font face="Courier New">  - before <br>
-  - before-around <br>
-  - around <br>
-  - after <br>
-  - after-around</font> <br>
-Dojo中采用的语法是这样的： <br>
-<font face="Courier New">  </font></p>
+<p>此后就有更多声称支持AOP的JS框架出现，例如Dojo。在Dojo中实现了对函数/方法的五种通知类型： <br />
+<font face="Courier New">&nbsp; - before <br />
+&nbsp; - before-around <br />
+&nbsp; - around <br />
+&nbsp; - after <br />
+&nbsp; - after-around</font> <br />
+Dojo中采用的语法是这样的： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>observable = { <br>
-  method : function () { ... } <br>
-} <br>
-aspect = { <br>
-  func : function() { ... } <br>
-}  </p>
+<p>observable = { <br />
+&nbsp; method : function () { ... } <br />
+} <br />
+aspect = { <br />
+&nbsp; func : function() { ... } <br />
+}</font>  </p>
 
-<p><font face="Courier New">dojo.event.connect('before',  // 通知类型 <br>
-  observable, 'method',       // 被观察者及被观察的方法 <br>
-  aspect, 'func');            // 切面 <br>
+<p><font face="Courier New">dojo.event.connect('before',&nbsp; // 通知类型 <br />
+&nbsp; observable, 'method',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 被观察者及被观察的方法 <br />
+&nbsp; aspect, 'func');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 切面 <br />
 ---------------</font>  </p>
 
-<p>另外一篇描述AOP实现的文档是： <br>
-  <a href="http://www.dotvoid.com/view.php?id=43">http://www.dotvoid.com/view.php?id=43</a>  </p>
+<p>另外一篇描述AOP实现的文档是： <br />
+&nbsp; <a href="http://www.dotvoid.com/view.php?id=43">http://www.dotvoid.com/view.php?id=43</a>  </p>
 
-<p>它提供Introduction事件，Before、After和Around三种通知。但这个实现方案中切面的声明，以及 <br>
-与被观察者之间的关系都处理得较为复杂。而且，事实上它破坏了AOP系统所要求的“不知觉性”。  </p>
+<p>它提供Introduction事件，Before、After和Around三种通知。但这个实现方案中切面的声明，以及 <br />
+与被观察者之间的关系都处理得较为复杂。而且，事实上它破坏了AOP系统所要求的&ldquo;不知觉性&rdquo;。  </p>
 
-<p>四、Qomo中AOP语法 <br>
-~~~~~~~~~~~~~~~~  </p>
+<p>四、Qomo中AOP语法 <br />
+</del>~~~~~~~~~~~~~~~~  </p>
 
-<p>Qomo中，Aspect是一个标准的Qomo对象。也就是说，Qomo中存在TAspect类及其子类。这包括： <br>
-<font face="Courier New">  </font></p>
+<p>Qomo中，Aspect是一个标准的Qomo对象。也就是说，Qomo中存在TAspect类及其子类。这包括： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>TAspect <br>
-  - TFunctionAspect <br>
-  - TClassAspect <br>
-  - TObjectAspect <br>
-  - TCustomAspect <br>
---------------- <br>
+<p>TAspect <br />
+&nbsp; - TFunctionAspect <br />
+&nbsp; - TClassAspect <br />
+&nbsp; - TObjectAspect <br />
+&nbsp; - TCustomAspect <br />
+---------------</font> <br />
 其中TAspect是一个抽象基类，因此你不应当创建它的实例。  </p>
 
-<p>  1. 创建切面 <br>
-    </p>
+<p>&nbsp; 1. 创建切面 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  可以用标准的Qomo OOP语法，或者标准JavaScript语法来创建切面，例如： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; 可以用标准的Qomo OOP语法，或者标准JavaScript语法来创建切面，例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var a_Aspect = new ObjectAspect(); <br>
----------------  </p>
-
-<p>Qomo的切面对象具有如下接口 <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>IAspect = function() { <br>
-  this.supported = Abstract; <br>
-  this.assign = Abstract; <br>
-  this.unassign = Abstract; <br>
-  this.merge = Abstract; <br>
-  this.unmerge = Abstract; <br>
-  this.combine = Abstract; <br>
-  this.uncombine = Abstract;  </p>
-
-<p><font face="Courier New">  this.OnIntroduction = Abstract; <br>
-  this.OnBefore = Abstract; <br>
-  this.OnAfter = Abstract; <br>
-  this.OnAround = Abstract; <br>
-} <br>
+<p>var a_Aspect = new ObjectAspect(); <br />
 ---------------</font>  </p>
 
-<p>  2. 切点 <br>
-    </p>
+<p>Qomo的切面对象具有如下接口 <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>在使用一个已经创建的切面对象之前，你应该先了解该切面能否支持(supported)某些切点 <br>
-(pointcut)。Qomo对此的约定如下： <br>
-<font face="Courier New">  </font></p>
+<p>IAspect = function() { <br />
+&nbsp; this.supported = Abstract; <br />
+&nbsp; this.assign = Abstract; <br />
+&nbsp; this.unassign = Abstract; <br />
+&nbsp; this.merge = Abstract; <br />
+&nbsp; this.unmerge = Abstract; <br />
+&nbsp; this.combine = Abstract; <br />
+&nbsp; this.uncombine = Abstract;</font>  </p>
 
-<hr>
+<p><font face="Courier New">&nbsp; this.OnIntroduction = Abstract; <br />
+&nbsp; this.OnBefore = Abstract; <br />
+&nbsp; this.OnAfter = Abstract; <br />
+&nbsp; this.OnAround = Abstract; <br />
+} <br />
+---------------</font>  </p>
 
-<p> - support pointcut: <br>
-     for TFunctionAspect : 'Function' <br>
-     for TClassAspect  : 'Method' <br>
-     for TObjectAspect : 'Method', 'Event', 'AttrGetter', 'AttrSettter' <br>
-     for TCustomAspect : &lt;可以通过用户代码为被观察者定制切点&gt; <br>
----------------  </p>
+<p>&nbsp; 2. 切点 <br />
+&nbsp;   </p>
 
-<p>下面的代码用于检测一个切面是否能切入某种切点: <br>
-<font face="Courier New">  </font></p>
+<hr />
 
-<hr>
+<p>在使用一个已经创建的切面对象之前，你应该先了解该切面能否支持(supported)某些切点 <br />
+(pointcut)。Qomo对此的约定如下： <br />
+<font face="Courier New">  </p>
 
-<p>var a<em>Aspect = new ObjectAspect(); <br>
-alert(a</em>Aspect.supported('AttrGetter'); <br>
-alert(a_Aspect.supported('Function'); <br>
----------------  </p>
+<hr />
 
-<p>  3. 关联(assign)被观察对象 <br>
-    </p>
+<p>&nbsp;- support pointcut: <br />
+&nbsp;&nbsp;&nbsp;&nbsp; for TFunctionAspect : 'Function' <br />
+&nbsp;&nbsp;&nbsp;&nbsp; for TClassAspect&nbsp; : 'Method' <br />
+&nbsp;&nbsp;&nbsp;&nbsp; for TObjectAspect : 'Method', 'Event', 'AttrGetter', 'AttrSettter' <br />
+&nbsp;&nbsp;&nbsp;&nbsp; for TCustomAspect : &lt;可以通过用户代码为被观察者定制切点&gt; <br />
+---------------</font>  </p>
 
-<hr>
+<p>下面的代码用于检测一个切面是否能切入某种切点: <br />
+<font face="Courier New">  </p>
 
-<p>  切面要被关联到一个或一些具体的被观察者(observable)才会有意义。这通过assign()方 <br>
-法来实现： <br>
-<font face="Courier New">  </font></p>
+<hr />
 
-<hr>
+<p>var a<em>Aspect = new ObjectAspect(); <br />
+alert(a</em>Aspect.supported('AttrGetter'); <br />
+alert(a_Aspect.supported('Function'); <br />
+---------------</font>  </p>
 
-<p>// assign()的语法： <br>
-// function assign(host, name, pointcut) { ... } <br>
-var a<em>Aspect = new ObjectAspect(); <br>
-a</em>Aspect.assign(aObject, '&lt;method_name&gt;', 'Method'); <br>
----------------  </p>
+<p>&nbsp; 3. 关联(assign)被观察对象 <br />
+&nbsp;   </p>
 
-<p>对于不同的被观察对象，host、name和pointcut的含义不尽相同。详情如下： <br>
-<font face="Courier New">   </font></p>
+<hr />
 
-<hr>
+<p>&nbsp; 切面要被关联到一个或一些具体的被观察者(observable)才会有意义。这通过assign()方 <br />
+法来实现： <br />
+<font face="Courier New">  </p>
 
-<p>  observable           &lt;host&gt;             &lt;name&gt;                     &lt;pointcut&gt; <br>
-    </p>
+<hr />
 
-<hr>
+<p>// assign()的语法： <br />
+// function assign(host, name, pointcut) { ... } <br />
+var a<em>Aspect = new ObjectAspect(); <br />
+a</em>Aspect.assign(aObject, '&lt;method_name&gt;', 'Method'); <br />
+---------------</font>  </p>
 
-<p>  对象                 object instance    方法／事件／特性名         'Method', 'Event', ... <br>
-  函数                 a function         函数名                     'Function' <br>
-  类                   Qomo's class       该类实例(原型)的方法名     'Method'(only) <br>
-  支持定制切面的函数   a function         用户设定的一个任意标签     &lt;host&gt;函数内实现的JoPoint <br>
-  -----------------------------------------------------------------------------------------------  </p>
+<p>对于不同的被观察对象，host、name和pointcut的含义不尽相同。详情如下： <br />
+<font face="Courier New">&nbsp;  </p>
 
-<p>切面可以在创建时即关联到目标。例如： <br>
-<font face="Courier New">  </font></p>
+<hr />
 
-<hr>
+<p>&nbsp; observable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;host&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;name&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;pointcut&gt; <br />
+&nbsp;   </p>
 
-<p>// assign()的语法： <br>
-// function assign(host, name, pointcut) { ... } <br>
-var a<em>Aspect = new ObjectAspect(aObject, '&lt;method</em>name&gt;', 'Method'); <br>
---------------- <br>
+<hr />
+
+<p>&nbsp; 对象&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object instance&nbsp;&nbsp;&nbsp; 方法／事件／特性名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Method', 'Event', ... <br />
+&nbsp; 函数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 函数名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Function' <br />
+&nbsp; 类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qomo's class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 该类实例(原型)的方法名&nbsp;&nbsp;&nbsp;&nbsp; 'Method'(only) <br />
+&nbsp; 支持定制切面的函数&nbsp;&nbsp; a function&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 用户设定的一个任意标签&nbsp;&nbsp;&nbsp;&nbsp; &lt;host&gt;函数内实现的JoPoint <br />
+&nbsp; -----------------------------------------------------------------------------------------------</font>  </p>
+
+<p>切面可以在创建时即关联到目标。例如： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>// assign()的语法： <br />
+// function assign(host, name, pointcut) { ... } <br />
+var a<em>Aspect = new ObjectAspect(aObject, '&lt;method</em>name&gt;', 'Method'); <br />
+---------------</font> <br />
 它的参数表与assign()是一致的。  </p>
 
-<p>  4. 多投事件MuEvent()的“中断投送”特性 <br>
-    </p>
+<p>&nbsp; 4. 多投事件MuEvent()的&ldquo;中断投送&rdquo;特性 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  在介绍AOP的进一步特性之前，先公开Qomo中多投事件的一个未公开特性，即“中断投送”。该 <br>
-特性在以前的发布代码中已经提供，而并非为AOP单独实现的。假定如下代码： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; 在介绍AOP的进一步特性之前，先公开Qomo中多投事件的一个未公开特性，即&ldquo;中断投送&rdquo;。该 <br />
+特性在以前的发布代码中已经提供，而并非为AOP单独实现的。假定如下代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var obj = new Object(); <br>
-obj.OnRun = new MuEvent(); <br>
-obj.run = function() { return obj.OnRun() } <br>
-obj.OnRun.add(func<em>01); <br>
-obj.OnRun.add(func</em>02); <br>
-obj.OnRun.add(func<em>03); <br>
---------------- <br>
-缺省行为下，obj.run()调用将导致func</em>01等三个函数先后被调用，这个过程不会被打断。而且 <br>
-由于run()行为需要一个返回值，因此OnRun()调用期间，三个函数中最后一个"非undefined"的 <br>
-返回值将会被传出。——例如func<em>02返回了'a</em>string'，而func<em>03返回的是undefined，则run() <br>
+<p>var obj = new Object(); <br />
+obj.OnRun = new MuEvent(); <br />
+obj.run = function() { return obj.OnRun() } <br />
+obj.OnRun.add(func<em>01); <br />
+obj.OnRun.add(func</em>02); <br />
+obj.OnRun.add(func<em>03); <br />
+---------------</font> <br />
+缺省行为下，obj.run()调用将导致func</em>01等三个函数先后被调用，这个过程不会被打断。而且 <br />
+由于run()行为需要一个返回值，因此OnRun()调用期间，三个函数中最后一个&quot;非undefined&quot;的 <br />
+返回值将会被传出。&mdash;&mdash;例如func<em>02返回了'a</em>string'，而func<em>03返回的是undefined，则run() <br />
 将返回'a</em>string'。  </p>
 
-<p>上述的是MuEvent()内部的缺省机制。但是，如果我们在func<em>02中不希望继续投送事件，也就是 <br>
-说func</em>03得不到执行呢？下面的代码解释这一点： <br>
-<font face="Courier New">  </font></p>
+<p>上述的是MuEvent()内部的缺省机制。但是，如果我们在func<em>02中不希望继续投送事件，也就是 <br />
+说func</em>03得不到执行呢？下面的代码解释这一点： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function func_02 { <br>
-  // do somethings..  </p>
+<p>function func_02 { <br />
+&nbsp; // do somethings..</font>  </p>
 
-<p><font face="Courier New">  if ( if<em>you</em>want ) { <br>
-    return new BreakEventCast('a<em>string'); <br>
-  } <br>
-} <br>
----------------</em></font> <br>
-也就是说，事件响应代码只需要返回一个BreakEventCast()的实例，即可中断MuEvent()的继续投 <br>
-送。func02同样也可以返回有效值，例如'a<em>string'；或者不传入参数，则此前的事件响应代码 <br>
-中“最后一个‘非undefined’”的值将被返回。——上例中即是func</em>01的返回值。  </p>
+<p><font face="Courier New">&nbsp; if ( if<em>you</em>want ) { <br />
+&nbsp;&nbsp;&nbsp; return new BreakEventCast('a<em>string'); <br />
+&nbsp; } <br />
+} <br />
+---------------</font> <br />
+也就是说，事件响应代码只需要返回一个BreakEventCast()的实例，即可中断MuEvent()的继续投 <br />
+送。func</em>02同样也可以返回有效值，例如'a<em>string'；或者不传入参数，则此前的事件响应代码 <br />
+中&ldquo;最后一个&lsquo;非undefined&rsquo;&rdquo;的值将被返回。&mdash;&mdash;上例中即是func</em>01的返回值。  </p>
 
-<p>  5. 切面上的行为：通知的事件及其响应 <br>
-    </p>
+<p>&nbsp; 5. 切面上的行为：通知的事件及其响应 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  创建切面的目的，是观察“对象(或目标)”在切面上的行为。AOP中通常用“通知”机制来使得 <br>
-用户代码可以“响应”这些行为。在Qomo中，使用多投事件(MuEvent对象)来完成这件事。这意味 <br>
-着用户可以为一个切面定制任意多个响应： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; 创建切面的目的，是观察&ldquo;对象(或目标)&rdquo;在切面上的行为。AOP中通常用&ldquo;通知&rdquo;机制来使得 <br />
+用户代码可以&ldquo;响应&rdquo;这些行为。在Qomo中，使用多投事件(MuEvent对象)来完成这件事。这意味 <br />
+着用户可以为一个切面定制任意多个响应： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { <br>
-  this.run = function() { }; <br>
-} <br>
-var obj = new MyObject();  </p>
+<p>function MyObject() { <br />
+&nbsp; this.run = function() { }; <br />
+} <br />
+var obj = new MyObject();</font>  </p>
 
-<p><font face="Courier New">// 1. 创建切面并关联, 添加 <br>
+<p><font face="Courier New">// 1. 创建切面并关联, 添加 <br />
 var asp = new ObjectAspect(obj, 'run', 'Method');</font>  </p>
 
-<p><font face="Courier New">// 2. 定制切面上的行为 <br>
-asp.OnIntroduction.add(func<em>01); <br>
-asp.OnIntroduction.add(func</em>02); <br>
+<p><font face="Courier New">// 2. 定制切面上的行为 <br />
+asp.OnIntroduction.add(func<em>01); <br />
+asp.OnIntroduction.add(func</em>02); <br />
 asp.OnAfter.add(func_03);</font>  </p>
 
-<p><font face="Courier New">// 3. (测试)调用对象方法 <br>
-obj.run(); <br>
+<p><font face="Courier New">// 3. (测试)调用对象方法 <br />
+obj.run(); <br />
 ---------------</font>  </p>
 
-<p>这个切面上OnIntroduction的事件有func<em>01和func</em>02两个响应函数。而OnAfter事件有func_03。 <br>
-切面上这样的行为一共有四个(Introduction, Before, After, Around)，通知事件分别为： <br>
-<font face="Courier New">   - OnIntroduction : 导引。切面其它行为发生之前检测行为是否需要发生； <br>
-   - OnBefore = 切面行为前。 <br>
-   - OnAfter = 切面行为后。 <br>
-   - OnAround = 切面行为周围。切面关注对象(observable)在调用之前，检测是否需要调用。</font>  </p>
+<p>这个切面上OnIntroduction的事件有func<em>01和func</em>02两个响应函数。而OnAfter事件有func_03。 <br />
+切面上这样的行为一共有四个(Introduction, Before, After, Around)，通知事件分别为： <br />
+<font face="Courier New">&nbsp;&nbsp; - OnIntroduction : 导引。切面其它行为发生之前检测行为是否需要发生； <br />
+&nbsp;&nbsp; - OnBefore = 切面行为前。 <br />
+&nbsp;&nbsp; - OnAfter = 切面行为后。 <br />
+&nbsp;&nbsp; - OnAround = 切面行为周围。切面关注对象(observable)在调用之前，检测是否需要调用。</font>  </p>
 
-<p>下面的形式化的逻辑代码，用于说明这些通知之间的关系： <br>
-<font face="Courier New">  </font></p>
+<p>下面的形式化的逻辑代码，用于说明这些通知之间的关系： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var intro = OnIntroduction(); <br>
-if (intro) OnBefore();  </p>
+<p>var intro = OnIntroduction(); <br />
+if (intro) OnBefore();</font>  </p>
 
-<p><font face="Courier New">var cancel = intro ? OnAround() : false; <br>
+<p><font face="Courier New">var cancel = intro ? OnAround() : false; <br />
 if (!cancel) value = call<em>observable</em>method<em>or</em>more();</font>  </p>
 
-<p><font face="Courier New">if (intro) OnAfter(); <br>
+<p><font face="Courier New">if (intro) OnAfter(); <br />
 ---------------</font>  </p>
 
-<p>上面这些切面上的事件响应函数可以得到的入口参数约定是： <br>
-<font face="Courier New">  </font></p>
+<p>上面这些切面上的事件响应函数可以得到的入口参数约定是： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>TOnAspectBehavior = function(observable, aspectname, pointcut, args) {}; <br>
-TOnIntroduction = function(observable, aspectname, pointcut, args) {}; <br>
----------------  </p>
+<p>TOnAspectBehavior = function(observable, aspectname, pointcut, args) {}; <br />
+TOnIntroduction = function(observable, aspectname, pointcut, args) {}; <br />
+---------------</font>  </p>
 
-<p>我通常会把这四个参数缩写为o, n, p, a。例如： <br>
-<font face="Courier New">  </font></p>
+<p>我通常会把这四个参数缩写为o, n, p, a。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>asp.OnIntroduction.add(function(o, n, p, a) { <br>
-  alert(n); <br>
-}); <br>
---------------- <br>
-而按照MuEvent()的约定，在事件响应代码中使用的this对象，将会是切面本身，也就是这里的 <br>
-asp(即Aspect)。——切面是观察者(observer)，assign到的对象是被观察者(observable)。  </p>
+<p>asp.OnIntroduction.add(function(o, n, p, a) { <br />
+&nbsp; alert(n); <br />
+}); <br />
+---------------</font> <br />
+而按照MuEvent()的约定，在事件响应代码中使用的this对象，将会是切面本身，也就是这里的 <br />
+asp(即Aspect)。&mdash;&mdash;切面是观察者(observer)，assign到的对象是被观察者(observable)。  </p>
 
-<p>举例来说，如果我们要构造一个切面，使其： <br>
-<font face="Courier New">  - 关注于类MyObject()的所有实例中value&gt;5的对象，并 <br>
-  - 使value&gt;10的对象的方法run()不被执行</font> <br>
-那么可以通过如下的AOP代码来实现： <br>
-<font face="Courier New">  </font></p>
+<p>举例来说，如果我们要构造一个切面，使其： <br />
+<font face="Courier New">&nbsp; - 关注于类MyObject()的所有实例中value&gt;5的对象，并 <br />
+&nbsp; - 使value&gt;10的对象的方法run()不被执行</font> <br />
+那么可以通过如下的AOP代码来实现： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var value = 0; <br>
-function MyObject() { <br>
-  this.run = function() { <br>
-    alert(this.value) <br>
-  }  </p>
+<p>var value = 0; <br />
+function MyObject() { <br />
+&nbsp; this.run = function() { <br />
+&nbsp;&nbsp;&nbsp; alert(this.value) <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  this.Create = function() { <br>
-    this.value = value++; <br>
-  } <br>
-} <br>
+<p><font face="Courier New">&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; this.value = value++; <br />
+&nbsp; } <br />
+} <br />
 TMyObject = Class(TObject, 'MyObject');</font>  </p>
 
-<p><font face="Courier New">// 切面上的行为 <br>
-var asp = new ClassAspect(TMyObject, 'run', 'Method'); <br>
-asp.OnIntroduction.add(function(o, n, p, a) { <br>
-  if (o.value &lt;= 5) return false; <br>
-}); <br>
-asp.OnAround.add(function(o, n, p, a) { <br>
-  if (o.value &gt; 10) return false; <br>
+<p><font face="Courier New">// 切面上的行为 <br />
+var asp = new ClassAspect(TMyObject, 'run', 'Method'); <br />
+asp.OnIntroduction.add(function(o, n, p, a) { <br />
+&nbsp; if (o.value &lt;= 5) return false; <br />
+}); <br />
+asp.OnAround.add(function(o, n, p, a) { <br />
+&nbsp; if (o.value &gt; 10) return false; <br />
 });</font>  </p>
 
-<p><font face="Courier New">// 测试 <br>
-for (var i=0; i&lt;20; i++) { <br>
-  var obj = new MyObject(); <br>
-  obj.run(); <br>
-} <br>
+<p><font face="Courier New">// 测试 <br />
+for (var i=0; i&lt;20; i++) { <br />
+&nbsp; var obj = new MyObject(); <br />
+&nbsp; obj.run(); <br />
+} <br />
 ---------------</font>  </p>
 
-<p>  6. 定制连结点 <br>
-    </p>
+<p>&nbsp; 6. 定制连结点 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  如果试图观察目标的内部行为，而不是外部的方法／事件，则传统的JS AOP机制将无能为 <br>
-力。——例如我们想观察对象在“构造过程中”发生的行为，而不是对构造结束后的所产生 <br>
+<p>&nbsp; 如果试图观察目标的内部行为，而不是外部的方法／事件，则传统的JS AOP机制将无能为 <br />
+力。&mdash;&mdash;例如我们想观察对象在&ldquo;构造过程中&rdquo;发生的行为，而不是对构造结束后的所产生 <br />
 的实例进行观察。  </p>
 
-<p>例如，如果我们有一个MyFunc()的实现： <br>
-<font face="Courier New">  </font></p>
+<p>例如，如果我们有一个MyFunc()的实现： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>MyFunc = function() { <br>
-  // 1. 一些MyFunc()中的逻辑代码 <br>
-  var func<em>01 = function() { <br>
-    alert('hi, func</em>01'); <br>
-  }  </p>
+<p>MyFunc = function() { <br />
+&nbsp; // 1. 一些MyFunc()中的逻辑代码 <br />
+&nbsp; var func<em>01 = function() { <br />
+&nbsp;&nbsp;&nbsp; alert('hi, func</em>01'); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  var func<em>02 = function() { <br>
-    alert('hi, func</em>01'); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; var func<em>02 = function() { <br />
+&nbsp;&nbsp;&nbsp; alert('hi, func</em>01'); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // 2. 实现MyFunc() <br>
-  function <em>MyFunc() { <br>
-    func</em>01(); <br>
-    func_02(); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; // 2. 实现MyFunc() <br />
+&nbsp; function <em>MyFunc() { <br />
+&nbsp;&nbsp;&nbsp; func</em>01(); <br />
+&nbsp;&nbsp;&nbsp; func_02(); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // 3. 返回MyFunc() <br>
-  return _MyFunc; <br>
-}();    </font></p>
+<p><font face="Courier New">&nbsp; // 3. 返回MyFunc() <br />
+&nbsp; return _MyFunc; <br />
+}();    </p>
 
-<hr>
+<hr />
 
-<p>我们需要对这个例子中的func<em>01()和func</em>02()进行观察。但很显然，在MyFunc()的外部是 <br>
+<p></font>我们需要对这个例子中的func<em>01()和func</em>02()进行观察。但很显然，在MyFunc()的外部是 <br />
 无论如何也看不到这两个方法的。  </p>
 
-<p>相较于其它AOP系统，Qomo在这方面提供了更强大的特性。Qomo允许开发人员在“当前函数 <br>
-中”为外部系统定制连结点。这看起来与AOP系统的“不知觉性”有些背离，但也可能是实 <br>
-现这种机制的唯一方法。——除非JavaScript解释器内部提供等同的功能，或者单独编写外 <br>
+<p>相较于其它AOP系统，Qomo在这方面提供了更强大的特性。Qomo允许开发人员在&ldquo;当前函数 <br />
+中&rdquo;为外部系统定制连结点。这看起来与AOP系统的&ldquo;不知觉性&rdquo;有些背离，但也可能是实 <br />
+现这种机制的唯一方法。&mdash;&mdash;除非JavaScript解释器内部提供等同的功能，或者单独编写外 <br />
 部的paser。  </p>
 
-<p>Qomo中这个“定制连结点”的机制要求“observable有能力告知外部系统自己可提供的连接 <br>
-点(Join Point)”，但是当这些连接点被AOP系统接入(或切入)时，observable却是“不知 <br>
-觉”的。这种能为被Qomo分解成两个部分： <br>
-<font face="Courier New">  - Qomo提供一组工具，来使observable可以产生连结点，并在连结点上产生通知 <br>
-  - observable应当将这些连结点通过一个IJoPoints接口向外抛出</font>  </p>
+<p>Qomo中这个&ldquo;定制连结点&rdquo;的机制要求&ldquo;observable有能力告知外部系统自己可提供的连接 <br />
+点(Join Point)&rdquo;，但是当这些连接点被AOP系统接入(或切入)时，observable却是&ldquo;不知 <br />
+觉&rdquo;的。这种能为被Qomo分解成两个部分： <br />
+<font face="Courier New">&nbsp; - Qomo提供一组工具，来使observable可以产生连结点，并在连结点上产生通知 <br />
+&nbsp; - observable应当将这些连结点通过一个IJoPoints接口向外抛出</font>  </p>
 
-<p>因此Qomo要求MyFunc()在实现中添加一些代码来暴露它的连结点。这用到了三种技术： <br>
-<font face="Courier New">  - 连接点(Join Points)：产生可供外部使用的连结点。对外部代码它表现为pointcut。 <br>
-  - 编织(weaving)：使连结点与目标的内部的“位置(或位置上的方法)”发生关系。 <br>
-  - 聚合(Aggregate)：Qomo使用“(内部的)聚合”来暴露一个实体内部的接口。</font>  </p>
+<p>因此Qomo要求MyFunc()在实现中添加一些代码来暴露它的连结点。这用到了三种技术： <br />
+<font face="Courier New">&nbsp; - 连接点(Join Points)：产生可供外部使用的连结点。对外部代码它表现为pointcut。 <br />
+&nbsp; - 编织(weaving)：使连结点与目标的内部的&ldquo;位置(或位置上的方法)&rdquo;发生关系。 <br />
+&nbsp; - 聚合(Aggregate)：Qomo使用&ldquo;(内部的)聚合&rdquo;来暴露一个实体内部的接口。</font>  </p>
 
 <p>下面的代码演示如何在上面的MyFunc()中定制连结点：    </p>
 
-<hr>
+<hr />
 
-<p><font face="Courier New">MyFunc = function() { <br>
-  // CustomAOP<em>1: 创建连接点 <br>
-  var _joinpoints</em> = new JoPoints(); <br>
-  <em>joinpoints</em>.add('step1');  // 'step1'切点(pointcut) <br>
-  <em>joinpoints</em>.add('step2');  // 'step2'切点(pointcut)</font>  </p>
+<p><font face="Courier New">MyFunc = function() { <br />
+&nbsp; // CustomAOP<em>1: 创建连接点 <br />
+&nbsp; var _joinpoints</em> = new JoPoints(); <br />
+&nbsp; <em>joinpoints</em>.add('step1');&nbsp; // 'step1'切点(pointcut) <br />
+&nbsp; <em>joinpoints</em>.add('step2');&nbsp; // 'step2'切点(pointcut)</font>  </p>
 
-<p><font face="Courier New">  // CustomAOP<em>2: 编织(或织入) <br>
-  // 1. 对MyFunc()中的逻辑代码 <br>
-  var func</em>01 = <em>joinpoints</em>.weaving('step1', function() { <br>
-    alert('hi, func_01'); <br>
-  });</font>  </p>
+<p><font face="Courier New">&nbsp; // CustomAOP<em>2: 编织(或织入) <br />
+&nbsp; // 1. 对MyFunc()中的逻辑代码 <br />
+&nbsp; var func</em>01 = <em>joinpoints</em>.weaving('step1', function() { <br />
+&nbsp;&nbsp;&nbsp; alert('hi, func_01'); <br />
+&nbsp; });</font>  </p>
 
-<p><font face="Courier New">  var func<em>02 = _joinpoints</em>.weaving('step2', function() { <br>
-    alert('hi, func_02'); <br>
-  });</font>  </p>
+<p><font face="Courier New">&nbsp; var func<em>02 = _joinpoints</em>.weaving('step2', function() { <br />
+&nbsp;&nbsp;&nbsp; alert('hi, func_02'); <br />
+&nbsp; });</font>  </p>
 
-<p><font face="Courier New">  // 2. 实现MyFunc() <br>
-  function <em>MyFunc() { <br>
-    func</em>01(); <br>
-    func_02(); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; // 2. 实现MyFunc() <br />
+&nbsp; function <em>MyFunc() { <br />
+&nbsp;&nbsp;&nbsp; func</em>01(); <br />
+&nbsp;&nbsp;&nbsp; func_02(); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // CustomAOP<em>3: 聚合IJoPoints接口 <br>
-  var _Intfs = Aggregate(</em>MyFunc, IJoPoints); <br>
-  var intf = <em>Intfs.GetInterface(IJoPoints); <br>
-  intf.getLength = function() { return _joinpoints</em>.length } <br>
-  intf.items = function(i) { return <em>joinpoints</em>.items(i) } <br>
-  intf.names = function(i) { if (!isNaN(i)) return <em>joinpoints</em>[i] }</font>  </p>
+<p><font face="Courier New">&nbsp; // CustomAOP<em>3: 聚合IJoPoints接口 <br />
+&nbsp; var _Intfs = Aggregate(</em>MyFunc, IJoPoints); <br />
+&nbsp; var intf = <em>Intfs.GetInterface(IJoPoints); <br />
+&nbsp; intf.getLength = function() { return _joinpoints</em>.length } <br />
+&nbsp; intf.items = function(i) { return <em>joinpoints</em>.items(i) } <br />
+&nbsp; intf.names = function(i) { if (!isNaN(i)) return <em>joinpoints</em>[i] }</font>  </p>
 
-<p><font face="Courier New">  // 3. 返回MyFunc() <br>
-  return _MyFunc; <br>
-}(); <br>
+<p><font face="Courier New">&nbsp; // 3. 返回MyFunc() <br />
+&nbsp; return _MyFunc; <br />
+}(); <br />
 ---------------</font>  </p>
 
-<p>我们看到，在这个例子中，对MyFunc()的程序原有结构并没有太大的变化。最关键的 <br>
+<p>我们看到，在这个例子中，对MyFunc()的程序原有结构并没有太大的变化。最关键的 <br />
 地方，是<em>MyFunc()、func</em>01()和func_02()内部实现代码并没有变化。  </p>
 
-<p>接下来，我们来创建切面，并书写有关切面上的行为的代码。亦即是测试MyFunc()： <br>
-<font face="Courier New">  </font></p>
+<p>接下来，我们来创建切面，并书写有关切面上的行为的代码。亦即是测试MyFunc()： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var asp = new CustomAspect(MyFunc, 'test_aspect', 'step1'); <br>
-asp.OnAfter.add(function() { <br>
-  alert('do OnAfter'); <br>
-});  </p>
+<p>var asp = new CustomAspect(MyFunc, 'test_aspect', 'step1'); <br />
+asp.OnAfter.add(function() { <br />
+&nbsp; alert('do OnAfter'); <br />
+});</font>  </p>
 
-<p><font face="Courier New">// 测试 <br>
-MyFunc(); <br>
+<p><font face="Courier New">// 测试 <br />
+MyFunc(); <br />
 ---------------</font>  </p>
 
-<p><font face="Courier New">测试的结果，我们发现显示如下信息：  </font></p>
+<p><font face="Courier New">测试的结果，我们发现显示如下信息：  </p>
 
-<hr>
+<hr />
 
-<p>hi, func<em>01 <br>
-do OnAfter <br>
+<p>hi, func<em>01 <br />
+do OnAfter <br />
 hi, func</em>02  </p>
 
-<hr>
+<hr />
 
-<p>这表现切面asp已经成功地切入func<em>01，并在它执行完之后、funct</em>02()执行之前调 <br>
+<p></font>这表现切面asp已经成功地切入func<em>01，并在它执行完之后、funct</em>02()执行之前调 <br />
 用到了asp.OnAfter();  </p>
 
-<p>  8. 切面的合并(merge)和联合(combine) <br>
-    </p>
+<p>&nbsp; 8. 切面的合并(merge)和联合(combine) <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中的切面有四种被关注者对象：类、对象、函数和定制连接点的函数。但是AOP <br>
+<p>&nbsp; Qomo中的切面有四种被关注者对象：类、对象、函数和定制连接点的函数。但是AOP <br />
 的本意是不区分这些被关注者的类型的。  </p>
 
-<p>那么，如果使得一个切面能够处理更复杂的observable呢？Qomo提出了切面的合并和联 <br>
+<p>那么，如果使得一个切面能够处理更复杂的observable呢？Qomo提出了切面的合并和联 <br />
 合这两个概念。  </p>
 
-<p>合并，是指切面A将切面B的行为加到自身，使A拥有B的关注能力。但不改变B的能力。 <br>
-联合，是指切面A和其它切面(B,C,D, ...)的行为联合在一起，作为A~D(或者更多)共有 <br>
+<p>合并，是指切面A将切面B的行为加到自身，使A拥有B的关注能力。但不改变B的能力。 <br />
+联合，是指切面A和其它切面(B,C,D, ...)的行为联合在一起，作为A~D(或者更多)共有 <br />
 的关注能力。  </p>
 
 <p>下图说明这两种技术的不同：    </p>
 
-<hr>
+<hr />
 
 <p>(images/aspect<em>merge</em>combine.png)  </p>
 
-<p><a href="http://www.01cn.net/users/aimingoo/files/aspect_merge_combine.png"><img src="http://www.01cn.net/users/aimingoo/files/aspect_merge_combine.png" alt="" title=""></a>    </p>
+<p><a href="http://www.01cn.net/users/aimingoo/files/aspect_merge_combine.png"><img src="http://www.01cn.net/users/aimingoo/files/aspect_merge_combine.png" alt="" title="" /></a>    </p>
 
-<hr>
+<hr />
 
-<p>如果我们要记录一批目标的执行(例如做log系统)，那么下面的Aspect()代码可能是一 <br>
-个不错的示例： <br>
-<font face="Courier New">  </font></p>
+<p>如果我们要记录一批目标的执行(例如做log系统)，那么下面的Aspect()代码可能是一 <br />
+个不错的示例： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObjectEx() { } <br>
-function MyObject () { <br>
-  this.getValue = function () { <br>
-    return 100; <br>
-  } <br>
-  this.run = function() { <br>
-    alert(this.get('Value')); <br>
-  } <br>
-} <br>
-TMyObject = Class(TObject, 'MyObject');  </p>
+<p>function MyObjectEx() { } <br />
+function MyObject () { <br />
+&nbsp; this.getValue = function () { <br />
+&nbsp;&nbsp;&nbsp; return 100; <br />
+&nbsp; } <br />
+&nbsp; this.run = function() { <br />
+&nbsp;&nbsp;&nbsp; alert(this.get('Value')); <br />
+&nbsp; } <br />
+} <br />
+TMyObject = Class(TObject, 'MyObject');</font>  </p>
 
-<p><font face="Courier New">var obj = new MyObject(); <br>
-var A1 = new ObjectAspect(obj, 'Value', 'AttrGetter'); <br>
-var A2 = new ClassAspect(TMyObject, 'run', 'Method'); <br>
-var A3 = new CustomAspect(Class, 'a<em>custom</em>aspect', 'Initializtion'); <br>
+<p><font face="Courier New">var obj = new MyObject(); <br />
+var A1 = new ObjectAspect(obj, 'Value', 'AttrGetter'); <br />
+var A2 = new ClassAspect(TMyObject, 'run', 'Method'); <br />
+var A3 = new CustomAspect(Class, 'a<em>custom</em>aspect', 'Initializtion'); <br />
 var A4 = new FunctionAspect($import, '$import', 'Function');</font>  </p>
 
-<p><font face="Courier New">A1.OnBefore.add(function(o, n, p, a) { <br>
-  document.writeln('Before: ', n, '&lt;br&gt;'); <br>
+<p><font face="Courier New">A1.OnBefore.add(function(o, n, p, a) { <br />
+&nbsp; document.writeln('Before: ', n, '&lt;br&gt;'); <br />
 });</font>  </p>
 
-<p><font face="Courier New">A2.OnAfter.add(function(o, n, p, a) { <br>
-  document.writeln('After: ', n, '&lt;br&gt;'); <br>
+<p><font face="Courier New">A2.OnAfter.add(function(o, n, p, a) { <br />
+&nbsp; document.writeln('After: ', n, '&lt;br&gt;'); <br />
 });</font>  </p>
 
-<p><font face="Courier New">// 测试 <br>
-A1.combine(A2, A3, A4); <br>
-TMyObjectEx = Class(TMyObject, 'MyObjectEx'); <br>
-obj.run(); <br>
-$import('2.js'); <br>
+<p><font face="Courier New">// 测试 <br />
+A1.combine(A2, A3, A4); <br />
+TMyObjectEx = Class(TMyObject, 'MyObjectEx'); <br />
+obj.run(); <br />
+$import('2.js'); <br />
 ---------------</font>  </p>
 
-<p>五、Qomo中AOP的实现技术 <br>
-~~~~~~~~~~~~~~~~~~ <br>
-AOP尽管复杂、强大，但是核心技术却非常简单。前面讲到过AOP的通知和响应逻辑： <br>
-<font face="Courier New">  </font></p>
+<p>五、Qomo中AOP的实现技术 <br />
+~~~~~~~~~~~~~~~~~~ <br />
+AOP尽管复杂、强大，但是核心技术却非常简单。前面讲到过AOP的通知和响应逻辑： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var intro = OnIntroduction(); <br>
-if (intro) OnBefore();  </p>
+<p>var intro = OnIntroduction(); <br />
+if (intro) OnBefore();</font>  </p>
 
-<p><font face="Courier New">var cancel = intro ? OnAround() : false; <br>
+<p><font face="Courier New">var cancel = intro ? OnAround() : false; <br />
 if (!cancel) value = call<em>observable</em>method<em>or</em>more();</font>  </p>
 
-<p><font face="Courier New">if (intro) OnAfter(); <br>
+<p><font face="Courier New">if (intro) OnAfter(); <br />
 ---------------</font>  </p>
 
-<p>这样的核心逻辑被实现在JSenhancd.js的JoPoints()和Aspect.js里的$Aspect()函数 <br>
-中： <br>
-<font face="Courier New">  </font></p>
+<p>这样的核心逻辑被实现在JSenhancd.js的JoPoints()和Aspect.js里的$Aspect()函数 <br />
+中： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  function $Aspect(pointcut, foo) { <br>
-    var _aspect = this; <br>
-    var point = pointcut; <br>
-    var name = _aspect.get('AspectName'); <br>
-    var f = foo;  </p>
+<p>&nbsp; function $Aspect(pointcut, foo) { <br />
+&nbsp;&nbsp;&nbsp; var _aspect = this; <br />
+&nbsp;&nbsp;&nbsp; var point = pointcut; <br />
+&nbsp;&nbsp;&nbsp; var name = _aspect.get('AspectName'); <br />
+&nbsp;&nbsp;&nbsp; var f = foo;</font>  </p>
 
-<p><font face="Courier New">    // AOP的核心逻辑 <br>
-    return function($A) { <br>
-      if ($A<mark>=GetHandle) return f;</mark></font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // AOP的核心逻辑 <br />
+&nbsp;&nbsp;&nbsp; return function($A) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ($A<mark>=GetHandle) return f;</font>  </p>
 
-<p><font face="Courier New">      // (略) <br>
-      return _value; <br>
-    } <br>
-  } <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (略) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return _value; <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp; } <br />
 ---------------</font>  </p>
 
-<p>$Aspect()中暂存了_aspect, point, name等引用，供核心逻辑部分安全地调用。另 <br>
-外也暂存了foo()的引用，亦即是Aspect()对象所关注的方法。这可以用于核心逻辑 <br>
+<p>$Aspect()中暂存了_aspect, point, name等引用，供核心逻辑部分安全地调用。另 <br />
+外也暂存了foo()的引用，亦即是Aspect()对象所关注的方法。这可以用于核心逻辑 <br />
 部分调用，也用于在unassign()的时候还原被关注者。  </p>
 
-<p>GetHandle在上面代码中有特殊的作用，它是在Aspect()对象中声明的局部变量，当 <br>
-调用切面的unassign()方法时，事实上会调用： <br>
-<font face="Courier New">  </font></p>
+<p>GetHandle在上面代码中有特殊的作用，它是在Aspect()对象中声明的局部变量，当 <br />
+调用切面的unassign()方法时，事实上会调用： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
 <p>instance[n](GetHandle);  </p>
 
-<hr>
+<hr />
 
-<p>这样的代码instance[n]即是被AOP替换的方法，这样的调用就会回到核心逻辑，从而 <br>
-执行到下面的代码： <br>
-<font face="Courier New">  </font></p>
+<p></font>这样的代码instance[n]即是被AOP替换的方法，这样的调用就会回到核心逻辑，从而 <br />
+执行到下面的代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>    // AOP的核心逻辑 <br>
-    return function($A) { <br>
-      if ($A=GetHandle) return f; <br>
-      // ... <br>
-    } <br>
---------------- <br>
-这样就返回了最初暂存的foo()的引用。由于unassign()只需要执行： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp;&nbsp;&nbsp; // AOP的核心逻辑 <br />
+&nbsp;&nbsp;&nbsp; return function($A) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ($A</mark>=GetHandle) return f; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp;&nbsp;&nbsp; } <br />
+---------------</font> <br />
+这样就返回了最初暂存的foo()的引用。由于unassign()只需要执行： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>instance[n] = instance[n](GetHandle); <br>
---------------- <br>
+<p>instance[n] = instance[n](GetHandle); <br />
+---------------</font> <br />
 即可完成操作。  </p>
 
-<p>由于GetHandle被稳藏在Aspect()内部，因此在外部不可能通过该对象来套取任何信 <br>
+<p>由于GetHandle被稳藏在Aspect()内部，因此在外部不可能通过该对象来套取任何信 <br />
 息，或者试图跳过unassign()来破坏切面的逻辑。  </p>
 
-<p>类似的技巧还被用于解决在“实现篇(四)”中讲述过的“多投事件”的“强壮就不 <br>
-快，快就不强壮”的矛盾。在beta1中采用了上述的技巧来实现search()，达到Ｏ(1) <br>
-的性能： <br>
-<font face="Courier New">  </font></p>
+<p>类似的技巧还被用于解决在&ldquo;实现篇(四)&rdquo;中讲述过的&ldquo;多投事件&rdquo;的&ldquo;强壮就不 <br />
+快，快就不强壮&rdquo;的矛盾。在beta1中采用了上述的技巧来实现search()，达到Ｏ(1) <br />
+的性能： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>MuEvent = function () { <br>
-  var GetHandle = {};  </p>
+<p>MuEvent = function () { <br />
+&nbsp; var GetHandle = {};</font>  </p>
 
-<p><font face="Courier New">  var all = { <br>
-    length : 0, <br>
-    search : function(ME) { <br>
-      var i = ME(GetHandle), me = all[i];     // 1. 取handle, 并取值 <br>
-      if (me &amp;&amp; me['event']<mark>=ME) return me;  // 2. 复核 <br>
-    } <br>
-  }</mark></font>  </p>
+<p><font face="Courier New">&nbsp; var all = { <br />
+&nbsp;&nbsp;&nbsp; length : 0, <br />
+&nbsp;&nbsp;&nbsp; search : function(ME) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var i = ME(GetHandle), me = all[i];&nbsp;&nbsp;&nbsp;&nbsp; // 1. 取handle, 并取值 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (me &amp;&amp; me['event']<mark>=ME) return me;&nbsp; // 2. 复核 <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // ... <br>
-    var ME = function($E) { <br>
-      if ($E=GetHandle) return handle; <br>
-      // ... <br>
-}(); <br>
+<p><font face="Courier New">&nbsp; // ... <br />
+&nbsp;&nbsp;&nbsp; var ME = function($E) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ($E</mark>=GetHandle) return handle; <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+}(); <br />
 ---------------</font>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p>六、其它 <br>
+<p>六、其它 <br />
 ~~~~~~~~~~~~~~~~~~  </p>
 
-<p>  1. SmartAspect <br>
-    </p>
+<p>&nbsp; 1. SmartAspect <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  我曾试图实现出一个“智能的切面”，它可以理解入口参数的host是对象、类、函数或者是用户定 <br>
-制的。但是我在后来由于无法妥善处理AttrGetter与AttrSetter，因此放弃了这一想法。这直接使得 <br>
+<p>&nbsp; 我曾试图实现出一个&ldquo;智能的切面&rdquo;，它可以理解入口参数的host是对象、类、函数或者是用户定 <br />
+制的。但是我在后来由于无法妥善处理AttrGetter与AttrSetter，因此放弃了这一想法。这直接使得 <br />
 最终确定下来的assign()入口参数有了如今的设计。  </p>
 
-<p>另外一个方面的原因，是因为assign()的三个入口参数(以及其后的meta data参数)，都是AOP中确定 <br>
+<p>另外一个方面的原因，是因为assign()的三个入口参数(以及其后的meta data参数)，都是AOP中确定 <br />
 的概念。因此将它们替换或者去除掉，未见得是合理的设计。  </p>
 
-<p>  2. Qomo中提供的连接点 <br>
-    </p>
+<p>&nbsp; 2. Qomo中提供的连接点 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中内置为以下函数提供了连接点(下表可能在今后被动态维护)： <br>
- <font face="Courier New">   </font></p>
+<p>&nbsp; Qomo中内置为以下函数提供了连接点(下表可能在今后被动态维护)： <br />
+&nbsp;<font face="Courier New">   </p>
 
-<hr>
+<hr />
 
-<p>  函数            连接点/切点       含义                                  其它 <br>
-    </p>
+<p>&nbsp; 函数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 连接点/切点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 含义&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其它 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Class()         'Initializtion'   “类初始化过程”开始 <br>
-                  'Initialized'     “类初始化过程”结束 <br>
-                  'RegisterToSpc'    将类注册到活动命名空间               beta1未提供 <br>
-  cls.Create()    'Initializtion'   类(cls)开始构造一个新对象实例         (同上) <br>
-                  'Initialized'     类(cls)完成构造一个新对象实例         (同上) <br>
-  obj.Create()    'Initializtion'   “对象(obj)初始化过程”开始           (同上) <br>
-                  'Initialized'     “对象(obj)初始化过程”结束           (同上) <br>
-  $import()       'Decode'          对responseBody解码                    (同上) <br>
-                  'HttpGet'         载入获取url上的内容并解码             (同上) <br>
-                  'TransitionUrl'   转换Url地址                           (同上) <br>
-  MuEvent()       'NewInstance'     创建新的多投事件对象                  (同上) <br>
-                  'Close'           关闭多投特性                          (同上) <br>
-  -----------------------------------------------------------------------------------------------  </p>
+<p>&nbsp; Class()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Initializtion'&nbsp;&nbsp; &ldquo;类初始化过程&rdquo;开始 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Initialized'&nbsp;&nbsp;&nbsp;&nbsp; &ldquo;类初始化过程&rdquo;结束 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'RegisterToSpc'&nbsp;&nbsp;&nbsp; 将类注册到活动命名空间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; beta1未提供 <br />
+&nbsp; cls.Create()&nbsp;&nbsp;&nbsp; 'Initializtion'&nbsp;&nbsp; 类(cls)开始构造一个新对象实例&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Initialized'&nbsp;&nbsp;&nbsp;&nbsp; 类(cls)完成构造一个新对象实例&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp; obj.Create()&nbsp;&nbsp;&nbsp; 'Initializtion'&nbsp;&nbsp; &ldquo;对象(obj)初始化过程&rdquo;开始&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Initialized'&nbsp;&nbsp;&nbsp;&nbsp; &ldquo;对象(obj)初始化过程&rdquo;结束&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp; $import()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Decode'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对responseBody解码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'HttpGet'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 载入获取url上的内容并解码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'TransitionUrl'&nbsp;&nbsp; 转换Url地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp; MuEvent()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'NewInstance'&nbsp;&nbsp;&nbsp;&nbsp; 创建新的多投事件对象&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'Close'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 关闭多投特性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (同上) <br />
+&nbsp; -----------------------------------------------------------------------------------------------</font>  </p>
 
-<p>  3. 其它之其它 <br>
-    </p>
+<p>&nbsp; 3. 其它之其它 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  根本上来说，Aspect的基类理解两种目标的切面行为：方法(含事件)与特性。对于Custom类型的切面， <br>
+<p>&nbsp; 根本上来说，Aspect的基类理解两种目标的切面行为：方法(含事件)与特性。对于Custom类型的切面， <br />
 只能是方法。  </p>
 
-<p>不能在切面例程中，调用受影响的被切方法／特性。 例如在一个'Name'的'attrGetter'切面中，调用 <br>
-observable.get('Name')。或者在'run'的'Method'切面中，调用observable.run()。——很显然，这 <br>
+<p>不能在切面例程中，调用受影响的被切方法／特性。 例如在一个'Name'的'attrGetter'切面中，调用 <br />
+observable.get('Name')。或者在'run'的'Method'切面中，调用observable.run()。&mdash;&mdash;很显然，这 <br />
 将导致一个锁死的递归。  </p>
 
-<p>AOP系统的其它两个示例参见： <br>
-<font face="Courier New">  /Framework/DOCUMENTs/AdvObjectDemo4.html     : Qomo中AOP的基本示例 <br>
-  /Framework/DOCUMENTs/AdvObjectDemo5.html     : Qomo中AOP的合并与联合的示例</font>  </p>
+<p>AOP系统的其它两个示例参见： <br />
+<font face="Courier New">&nbsp; /Framework/DOCUMENTs/AdvObjectDemo4.html&nbsp;&nbsp;&nbsp;&nbsp; : Qomo中AOP的基本示例 <br />
+&nbsp; /Framework/DOCUMENTs/AdvObjectDemo5.html&nbsp;&nbsp;&nbsp;&nbsp; : Qomo中AOP的合并与联合的示例</font>  </p>
 
-<p>Qomo的AOP系统可用于Qomo的OOP系统之外的其它对象与函数。尽管Qomo的AOP依赖OOP和Interface，但对 <br>
-第三方系统来说，仍然不难从中分离出一个非Qomo的OOP实现的继承关系的AOP。——当然，我想要实现 <br>
+<p>Qomo的AOP系统可用于Qomo的OOP系统之外的其它对象与函数。尽管Qomo的AOP依赖OOP和Interface，但对 <br />
+第三方系统来说，仍然不难从中分离出一个非Qomo的OOP实现的继承关系的AOP。&mdash;&mdash;当然，我想要实现 <br />
 CustomAspect，仍然是需要完整的Interface特性的。</p>
             </section>
 <!-- removed by aimingoo
@@ -889,7 +890,7 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-44.html">
                     Qomo OpenProject beta1 精彩图集～
                 </a>
@@ -900,7 +901,7 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -920,14 +921,14 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -943,7 +944,7 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -957,7 +958,7 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -986,3 +987,4 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>

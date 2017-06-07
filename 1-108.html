@@ -1,44 +1,45 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>对JavaScript的eval()中使用函数的进一步讨论~</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="对JavaScript的eval()中使用函数的进一步讨论~">
-    <meta property="og:description" content='《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript  和SpiderMonkey中表现不一样：  －－－－－－－－  var func = eval("(function(){})");  alert(typeof func);  －－－－－－－－  更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够  清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一  下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门  地来分析一个具体问题。   首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须  先将执行文本理解为语句。如下：  －－－－－－－－  eval("1")  －－－－－－－－  在JS看来，由于eval()必须执行语句，因此"1"不再是直接量表达式，而是直接量表达式语  句，也就是相当于“1;”。这些内容，在“5.2.2&amp;nbsp; 动态执行过程中的语句、'>
-    <meta property="og:url" content="http://aimingoo.github.io/1-108.html">
-    <meta property="article:published_time" content="2008-07-22T12:29:00.000Z">
-    <meta property="article:modified_time" content="2008-07-22T12:29:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="编译器">
-    <meta property="article:tag" content="编程">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="对JavaScript的eval()中使用函数的进一步讨论~" />
+    <meta property="og:description" content="《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript  和SpiderMonkey中表现不一样：  －－－－－－－－  var func &#x3D; eval(&quot;(function(){})&quot;);  alert(typeof func);  －－－－－－－－  更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够  清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一  下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门  地来分析一个具体问题。   首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须  先将执行文本理解为语句。如下：  －－－－－－－－  eval(&quot;1&quot;)  －－－－－－－－  在JS看来，由于eval()必须执行语句，因此&quot;1&quot;不再是直接量表达式，而是直接量表达式语  句，也就是相当于“1;”。这些内容，在“5.2.2&amp;nbsp; 动态执行过程中的语句、" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-108.html" />
+    <meta property="article:published_time" content="2008-07-22T12:29:00.000Z" />
+    <meta property="article:modified_time" content="2008-07-22T12:29:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="编译器" />
+    <meta property="article:tag" content="编程" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="对JavaScript的eval()中使用函数的进一步讨论~">
-    <meta name="twitter:description" content='《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript  和SpiderMonkey中表现不一样：  －－－－－－－－  var func = eval("(function(){})");  alert(typeof func);  －－－－－－－－  更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够  清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一  下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门  地来分析一个具体问题。   首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须  先将执行文本理解为语句。如下：  －－－－－－－－  eval("1")  －－－－－－－－  在JS看来，由于eval()必须执行语句，因此"1"不再是直接量表达式，而是直接量表达式语  句，也就是相当于“1;”。这些内容，在“5.2.2&amp;nbsp; 动态执行过程中的语句、'>
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-108.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, 编译器, 编程">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="对JavaScript的eval()中使用函数的进一步讨论~" />
+    <meta name="twitter:description" content="《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript  和SpiderMonkey中表现不一样：  －－－－－－－－  var func &#x3D; eval(&quot;(function(){})&quot;);  alert(typeof func);  －－－－－－－－  更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够  清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一  下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门  地来分析一个具体问题。   首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须  先将执行文本理解为语句。如下：  －－－－－－－－  eval(&quot;1&quot;)  －－－－－－－－  在JS看来，由于eval()必须执行语句，因此&quot;1&quot;不再是直接量表达式，而是直接量表达式语  句，也就是相当于“1;”。这些内容，在“5.2.2&amp;nbsp; 动态执行过程中的语句、" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-108.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 编译器, 编程" />
     
     <script type="application/ld+json">
 {
@@ -84,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-bian-yi-qi tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -113,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/bian-yi-qi/">编译器</a>, <a href="tag/bian-cheng/">编程</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/bian-yi-qi/index.html">编译器</a>, <a href="tag/bian-cheng/index.html">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,162 +148,162 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript <br>
-和SpiderMonkey中表现不一样： <br>
-－－－－－－－－ <br>
-var func = eval("(function(){})"); <br>
-alert(typeof func); <br>
-－－－－－－－－ <br>
-更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够 <br>
-清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一 <br>
-下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门 <br>
+                <p>《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript <br />
+和SpiderMonkey中表现不一样： <br />
+－－－－－－－－ <br />
+var func = eval("(function(){})"); <br />
+alert(typeof func); <br />
+－－－－－－－－ <br />
+更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够 <br />
+清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一 <br />
+下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门 <br />
 地来分析一个具体问题。  </p>
 
-<p>首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须 <br>
-先将执行文本理解为语句。如下： <br>
-－－－－－－－－ <br>
-eval("1") <br>
-－－－－－－－－ <br>
-在JS看来，由于eval()必须执行语句，因此"1"不再是直接量表达式，而是直接量表达式语 <br>
-句，也就是相当于“1;”。这些内容，在“5.2.2  动态执行过程中的语句、表达式与值” <br>
+<p>首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须 <br />
+先将执行文本理解为语句。如下： <br />
+－－－－－－－－ <br />
+eval("1") <br />
+－－－－－－－－ <br />
+在JS看来，由于eval()必须执行语句，因此"1"不再是直接量表达式，而是直接量表达式语 <br />
+句，也就是相当于“1;”。这些内容，在“5.2.2&nbsp; 动态执行过程中的语句、表达式与值” <br />
 中有详细解释。  </p>
 
-<p>所以，eval()的返回值，其实是语句最后一个（有效的）子句的返回值。接下来，我们需 <br>
-要了解“声明语句”和“表达式”。例如： <br>
-－－－－－－－－ <br>
-function x() { <br>
-  //.... <br>
-} <br>
-－－－－－－－－ <br>
-很明显，这是一个具名函数的“声明语句”。注意的是，“声明语句”是不返回值的。也 <br>
-就是说，声明语句是在语法解释期，由预编译器处理的，而在执行期它是没意义的——没 <br>
-有值，也没有返回值。例如单纯的“var X”，是一个声明语句，它就不会返回值，而对于 <br>
-“var X=100”来说，JS就处理成一个声明语句，和一个在执行期的赋值语句，它就有返回 <br>
+<p>所以，eval()的返回值，其实是语句最后一个（有效的）子句的返回值。接下来，我们需 <br />
+要了解“声明语句”和“表达式”。例如： <br />
+－－－－－－－－ <br />
+function x() { <br />
+&nbsp; //.... <br />
+} <br />
+－－－－－－－－ <br />
+很明显，这是一个具名函数的“声明语句”。注意的是，“声明语句”是不返回值的。也 <br />
+就是说，声明语句是在语法解释期，由预编译器处理的，而在执行期它是没意义的——没 <br />
+有值，也没有返回值。例如单纯的“var X”，是一个声明语句，它就不会返回值，而对于 <br />
+“var X=100”来说，JS就处理成一个声明语句，和一个在执行期的赋值语句，它就有返回 <br />
 值（后者的值）。  </p>
 
-<p>上面的规则对于JScript和SpiderMonkey来说都是一样的，这没有区别。有区别的是接下来的 <br>
-内容。首先，SpiderMonkey承认“函数表达式（function expression）”，为了直接这样一种 <br>
-特性，它约在“函数表达式”中出现的“函数名”是无效的。因为“函数名”是“声明语 <br>
-句”来陈述的，而“表达式”是比语句更小（或更低级）的一个级别，因此不可能在“表 <br>
-达式”中出现“语句声明”，所以只好在表达式中忽略函数名。这样一来，SpiderMonkey中 <br>
-下面语句： <br>
-－－－－－－－－ <br>
-x = "1234" + (function X() {}); <br>
-－－－－－－ <br>
-中函数X就没有标识符的效果，它对表达式之外的、或者全局的“标识符”都不会构成影 <br>
-响。更进一步地说： <br>
-－－－－－－－－ <br>
-var X = 100; <br>
-x = "1234" + (function X() {}); <br>
-－－－－－－ <br>
-在这样两行代码中，变量X不会被重写，因为第二行中的函数名X是无效的。关于这些内 <br>
-容，在书中“5.4.2.1  语法声明与语句含义不一致的问题”有详细解释。  </p>
+<p>上面的规则对于JScript和SpiderMonkey来说都是一样的，这没有区别。有区别的是接下来的 <br />
+内容。首先，SpiderMonkey承认“函数表达式（function expression）”，为了直接这样一种 <br />
+特性，它约在“函数表达式”中出现的“函数名”是无效的。因为“函数名”是“声明语 <br />
+句”来陈述的，而“表达式”是比语句更小（或更低级）的一个级别，因此不可能在“表 <br />
+达式”中出现“语句声明”，所以只好在表达式中忽略函数名。这样一来，SpiderMonkey中 <br />
+下面语句： <br />
+－－－－－－－－ <br />
+x = "1234" + (function X() {}); <br />
+－－－－－－ <br />
+中函数X就没有标识符的效果，它对表达式之外的、或者全局的“标识符”都不会构成影 <br />
+响。更进一步地说： <br />
+－－－－－－－－ <br />
+var X = 100; <br />
+x = "1234" + (function X() {}); <br />
+－－－－－－ <br />
+在这样两行代码中，变量X不会被重写，因为第二行中的函数名X是无效的。关于这些内 <br />
+容，在书中“5.4.2.1&nbsp; 语法声明与语句含义不一致的问题”有详细解释。  </p>
 
-<p>正是在上面这个小节中，还讨论到了MS JScript对这个问题的处理。JScript承认在代码内文 <br>
-的任意位置出现的函数标识符声明。也就是说，由于上面的标识符是有效的，所以全局变 <br>
-量中的“X”就会被重写。但是，正是由于这个缘故，JScript就必须对下面这个问题做解释： <br>
-－－－－－－ <br>
-eval("(function(){})"); <br>
-eval("(function X(){})"); <br>
-－－－－－－ <br>
-请问：这两行代码在语义上有没有不同？由于SpiderMonkey承认函数表达式，因此把两个 <br>
-都解释为表达式的运算元；而JScript要承认第二行代码中的变量名X，因此只好两个都解释 <br>
-为语句。也就是说，在缺省情况下，JScript认为第一行是匿名函数“声明语句”，第二行则 <br>
-是具名函数声明语句。因此，如同前面所说的，“声明语句”不返回值，所以在JScript中两 <br>
+<p>正是在上面这个小节中，还讨论到了MS JScript对这个问题的处理。JScript承认在代码内文 <br />
+的任意位置出现的函数标识符声明。也就是说，由于上面的标识符是有效的，所以全局变 <br />
+量中的“X”就会被重写。但是，正是由于这个缘故，JScript就必须对下面这个问题做解释： <br />
+－－－－－－ <br />
+eval("(function(){})"); <br />
+eval("(function X(){})"); <br />
+－－－－－－ <br />
+请问：这两行代码在语义上有没有不同？由于SpiderMonkey承认函数表达式，因此把两个 <br />
+都解释为表达式的运算元；而JScript要承认第二行代码中的变量名X，因此只好两个都解释 <br />
+为语句。也就是说，在缺省情况下，JScript认为第一行是匿名函数“声明语句”，第二行则 <br />
+是具名函数声明语句。因此，如同前面所说的，“声明语句”不返回值，所以在JScript中两 <br />
 行代码都返回undefined，而且第二行代码声明了一个变量名X。  </p>
 
-<p>关于这个问题，我在脚注中说“函数声明的语句含义”的确是有些含糊的。无论如何，只需 <br>
-要简单地理解为JScript认为这里是“函数语句声明”，而SpiderMonkey认为这里是“函数表达 <br>
+<p>关于这个问题，我在脚注中说“函数声明的语句含义”的确是有些含糊的。无论如何，只需 <br />
+要简单地理解为JScript认为这里是“函数语句声明”，而SpiderMonkey认为这里是“函数表达 <br />
 式声明”就可以了。  </p>
 
-<p>好。到这里为止，我们大概只解释清楚了： <br>
-－－－－－－ <br>
-eval("(function(){})"); <br>
-eval("(function X(){})"); <br>
-－－－－－－ <br>
-这两行语句的效果，以及产生这种效果的原因。但是，对于我在书上的例子和脚注说明，仍 <br>
-然是有疑问的。这来源于这段文字和代码： <br>
-－－－－－－ <br>
-不过在JScript中存在一个例外：<font color="#800000"><strong>函数直接量（这里指匿名函数）不能通过这种方式来获得</strong></font>。例如下面的代码： <br>
-var func = eval("(function() { })"); <br>
-// 输出"undefined" <br>
-alert(typeof func); <br>
-<font color="#800000"><strong>这种情况下，可以具名函数来得到它(*)。</strong></font>例如：……………… <br>
-－－－－－－ <br>
-先留意这段文字是上下文相关的。我只是想说明如何能向变量"func"赋一个有效的值。这涉 <br>
-及到两种方法： <br>
-－－－－－－ <br>
-// 方法1，用匿名函数 <br>
-var func = eval("(function() { })"); <br>
+<p>好。到这里为止，我们大概只解释清楚了： <br />
+－－－－－－ <br />
+eval("(function(){})"); <br />
+eval("(function X(){})"); <br />
+－－－－－－ <br />
+这两行语句的效果，以及产生这种效果的原因。但是，对于我在书上的例子和脚注说明，仍 <br />
+然是有疑问的。这来源于这段文字和代码： <br />
+－－－－－－ <br />
+不过在JScript中存在一个例外：<font color="#800000"><strong>函数直接量（这里指匿名函数）不能通过这种方式来获得</strong></font>。例如下面的代码： <br />
+var func = eval("(function() { })"); <br />
+// 输出"undefined" <br />
+alert(typeof func); <br />
+<font color="#800000"><strong>这种情况下，可以具名函数来得到它(*)。</strong></font>例如：……………… <br />
+－－－－－－ <br />
+先留意这段文字是上下文相关的。我只是想说明如何能向变量"func"赋一个有效的值。这涉 <br />
+及到两种方法： <br />
+－－－－－－ <br />
+// 方法1，用匿名函数 <br />
+var func = eval("(function() { })"); <br />
 alert(typeof func);  </p>
 
-<p>// 方法2，用具名函数 <br>
-var func; <br>
-eval("function func() { }"); <br>
-alert(typeof func); <br>
-－－－－－－ <br>
-这段话的意思是“在JScript中使用方法1(用匿名函数的方法)是不行的，需要使用第二种”， <br>
-而在脚注中，说SpiderMonkey正好相反，也仅指这个例子而言——在SpiderMonkey中，第 <br>
+<p>// 方法2，用具名函数 <br />
+var func; <br />
+eval("function func() { }"); <br />
+alert(typeof func); <br />
+－－－－－－ <br />
+这段话的意思是“在JScript中使用方法1(用匿名函数的方法)是不行的，需要使用第二种”， <br />
+而在脚注中，说SpiderMonkey正好相反，也仅指这个例子而言——在SpiderMonkey中，第 <br />
 二种方法是无效的，而第一种是有效的。  </p>
 
-<p>这里与前述的内容稍有差异的是，方法2并没有使用“返回值”，而只是通过eval()语句中 <br>
-<font color="#800000"><strong>利用函数名声明的效果</strong></font>，来影响全局变量func。而正是由于SpiderMonkey不承认这个声明的 <br>
+<p>这里与前述的内容稍有差异的是，方法2并没有使用“返回值”，而只是通过eval()语句中 <br />
+<font color="#800000"><strong>利用函数名声明的效果</strong></font>，来影响全局变量func。而正是由于SpiderMonkey不承认这个声明的 <br />
 标识符，所以是无效的。  </p>
 
-<p>同样的原因，读者I22141说修改成下面这样： <br>
-－－－－－－ <br>
-var func = eval("function func() { }"); <br>
-－－－－－－ <br>
-在SpiderMonkey中则是<strong><font color="#800000">利用了返回值</font></strong>，与上面这个示例已经不是同一个问题了。所以I22141 <br>
-所问“(那么你所说的在SpiderMonkey中可以用eval()返回一个匿名函数，而对具名函数却只 <br>
+<p>同样的原因，读者I22141说修改成下面这样： <br />
+－－－－－－ <br />
+var func = eval("function func() { }"); <br />
+－－－－－－ <br />
+在SpiderMonkey中则是<strong><font color="#800000">利用了返回值</font></strong>，与上面这个示例已经不是同一个问题了。所以I22141 <br />
+所问“(那么你所说的在SpiderMonkey中可以用eval()返回一个匿名函数，而对具名函数却只 <br />
 能返回undefined是什么含义？)”，也是脱离了这个示例的一个设问。  </p>
 
-<p>最后再来讲述一个细节问题，这在书上也未有提及，其实也是一个很怪异的事件。首先，在 <br>
-上面我说，在JScript中： <br>
-－－－－－－－－ <br>
-// 第一种情况 <br>
-var func = eval("(function(){})"); <br>
-alert(typeof func); // 显示"undefined" <br>
-－－－－－－－－ <br>
-这里显示undefined是因为JScript将后面的函数解释为匿名函数声明，所以没有值。其实是相对 <br>
-要牵强一些的。因为我们修改一下： <br>
-－－－－－－－－ <br>
-// 第二种情况 <br>
-var func = eval("(1, function(){})"); <br>
-alert(typeof func);  // 显示"function" <br>
-－－－－－－－－ <br>
-就不同了。那么到底为什么第一种情况下，JScript就一定是理解为“声明语句”而不是表达 <br>
-式呢？我不得确知。我只是从： <br>
-－－－－－－－－ <br>
-// 第三种情况 <br>
-var X; <br>
-eval("(function X(){})"); <br>
-alert(typeof X); // 显示"function" <br>
-－－－－－－－－ <br>
-这种情况下存在“语句声明”的效果来推断第一种情况的。更为奇特的是，我不清楚为什 <br>
-么JScript容许在一个表达式运算符“(...)”中存在一个“语句”——因为理论上说，这种情 <br>
-况是在语法分析中难于解释的。我甚至在“5.4.2.1  语法声明与语句含义不一致的问题”提 <br>
-到下面的代码： <br>
-－－－－－－－－ <br>
-// 示例5：语法声明阶段重写 <br>
-// 重写 <br>
-(function Object(){ <br>
+<p>最后再来讲述一个细节问题，这在书上也未有提及，其实也是一个很怪异的事件。首先，在 <br />
+上面我说，在JScript中： <br />
+－－－－－－－－ <br />
+// 第一种情况 <br />
+var func = eval("(function(){})"); <br />
+alert(typeof func); // 显示"undefined" <br />
+－－－－－－－－ <br />
+这里显示undefined是因为JScript将后面的函数解释为匿名函数声明，所以没有值。其实是相对 <br />
+要牵强一些的。因为我们修改一下： <br />
+－－－－－－－－ <br />
+// 第二种情况 <br />
+var func = eval("(1, function(){})"); <br />
+alert(typeof func);&nbsp; // 显示"function" <br />
+－－－－－－－－ <br />
+就不同了。那么到底为什么第一种情况下，JScript就一定是理解为“声明语句”而不是表达 <br />
+式呢？我不得确知。我只是从： <br />
+－－－－－－－－ <br />
+// 第三种情况 <br />
+var X; <br />
+eval("(function X(){})"); <br />
+alert(typeof X); // 显示"function" <br />
+－－－－－－－－ <br />
+这种情况下存在“语句声明”的效果来推断第一种情况的。更为奇特的是，我不清楚为什 <br />
+么JScript容许在一个表达式运算符“(...)”中存在一个“语句”——因为理论上说，这种情 <br />
+况是在语法分析中难于解释的。我甚至在“5.4.2.1&nbsp; 语法声明与语句含义不一致的问题”提 <br />
+到下面的代码： <br />
+－－－－－－－－ <br />
+// 示例5：语法声明阶段重写 <br />
+// 重写 <br />
+(function Object(){ <br />
 }).prototype.value = 100;  </p>
 
-<p>// 显示值undefined <br>
-var obj = new Object(); <br>
-alert(obj.value); <br>
-－－－－－－－－ <br>
-是因为执行期“(X).prototype.value”中的那个函数X，与语句分析期覆盖了全局的Object标识 <br>
-符的函数，不是同一个。但，我仍然不明白，为什么JScript允许在表达式中存在声明语句。 <br>
-与此更为相悖的是，如果要承认这样的假设，那么为什么下面的语句不能执行： <br>
-－－－－－－－－ <br>
-(var x=100); <br>
-－－－－－－－－ <br>
-然而如果不承认，那么下面的代码却又能正常执行： <br>
-－－－－－－－－ <br>
-(function X() {}); <br>
-－－－－－－－－ <br>
+<p>// 显示值undefined <br />
+var obj = new Object(); <br />
+alert(obj.value); <br />
+－－－－－－－－ <br />
+是因为执行期“(X).prototype.value”中的那个函数X，与语句分析期覆盖了全局的Object标识 <br />
+符的函数，不是同一个。但，我仍然不明白，为什么JScript允许在表达式中存在声明语句。 <br />
+与此更为相悖的是，如果要承认这样的假设，那么为什么下面的语句不能执行： <br />
+－－－－－－－－ <br />
+(var x=100); <br />
+－－－－－－－－ <br />
+然而如果不承认，那么下面的代码却又能正常执行： <br />
+－－－－－－－－ <br />
+(function X() {}); <br />
+－－－－－－－－ <br />
 OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
             </section>
 <!-- removed by aimingoo
@@ -320,7 +321,7 @@ OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-109.html">
                     JavaScript全局优化带来的负面效果……
                 </a>
@@ -331,7 +332,7 @@ OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -351,14 +352,14 @@ OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -374,7 +375,7 @@ OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -388,7 +389,7 @@ OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -417,3 +418,4 @@ OH... 在这个问题的最终答案上，我仍然是迷惑的。  </p>
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>

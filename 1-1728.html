@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>在电子书中使用SVG</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="在电子书中使用SVG" />
+    <meta property="og:description" content="在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1728.html" />
+    <meta property="article:published_time" content="2017-06-07T19:02:44.000Z" />
+    <meta property="article:modified_time" content="2017-06-07T19:03:42.000Z" />
+    <meta property="article:tag" content="电子书" />
+    <meta property="article:tag" content="OpenSource Project" />
+    <meta property="article:tag" content="svg" />
+    <meta property="article:tag" content="ImageMagick" />
+    <meta property="article:tag" content="Kindle" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="在电子书中使用SVG" />
+    <meta name="twitter:description" content="在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1728.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="电子书, OpenSource Project, svg, ImageMagick, Kindle" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "在电子书中使用SVG",
+    "url": "http://aimingoo.github.io/1-1728.html",
+    "datePublished": "2017-06-07T19:02:44.000Z",
+    "dateModified": "2017-06-07T19:03:42.000Z",
+    "keywords": "电子书, OpenSource Project, svg, ImageMagick, Kindle",
+    "description": "在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="shared/ghost-url.js?v=42df3ecac3"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+</head>
+
+<body class="post-template tag-dian-zi-shu tag-opensource-project tag-svg tag-imagemagick tag-kindle nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=42df3ecac3"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-dian-zi-shu tag-opensource-project tag-svg tag-imagemagick tag-kindle">
+            <header class="post-header">
+                <h1 class="post-title"><a href="1-1728.html">在电子书中使用SVG</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2017-06-08">a minute ago</time>
+                        <time class="post-date" datetime="2017-06-08">(2017-06-08)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="tag/dian-zi-shu/index.html">电子书</a>, <a href="tag/opensource-project/index.html">OpenSource Project</a>, <a href="tag/svg/index.html">svg</a>, <a href="tag/imagemagick/index.html">ImageMagick</a>, <a href="tag/kindle/index.html">Kindle</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <blockquote>
+  <p>在之前的文章中，我们讨论了《<a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="http://aimingoo.github.io/1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
+</blockquote>
+
+<p>在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。</p>
+
+<p>因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。</p>
+
+<h2 id="svg">一些.svg相关的基础知识</h2>
+
+<p>与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。</p>
+
+<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
+
+<p>所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是：</p>
+
+<ul>
+<li>.pdf约定默认的分辨率是72DPI；而</li>
+<li>.svg通常约定的是90DPI。</li>
+</ul>
+
+<p>然而即使是同一个软件的不同版本，也可能修改这个约定。例如Inkscape 从v0.92版本开始就默认使用96DPI的约定——而之前它是90DPI（<a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.92#Important_changes">参见这里</a>，以及<a href="http://wiki.inkscape.org/wiki/index.php/Units_In_Inkscape">这里</a>）。</p>
+
+<p>相对好一些的消息是：能够实现SVG处理的引擎并不太多——所以上述的一些不确定的限制条件也就相对来说容易穷举。这些引擎主要包括Cario、Inkscape、Apache Batik和一些浏览器上的Canvas。当然，此前讲过的ImageMagick内置的MSVG也算一个，不过它实在弱到没朋友，不提也罢。很多工具其实是以上述引擎为内核或库的，其中最常用的是Cario，包括rsvg在内的许多库/包都只是Cario上的一个封装。</p>
+
+<blockquote>
+  <p>注1：Cario库也支持PDF，所以Inkscape、Poppler等都使用它来输出PDF和PostScript文档（生成的.pdf文件元信息中Creator也是Cario）。但是Inkscape的SVG渲染引擎是自有的，相关信息可以参考<a href="https://en.wikipedia.org/wiki/Cairo_(graphics)">这里</a>。</p>
+</blockquote>
+
+<p>本文中提到的一些工具可以用如下方式安装：</p>
+
+<pre><code class="language-bash">## rsvg, rsvg-convert, and cario ...
+&gt; brew install libsvg librsvg libsvg-cairo cairo
+
+## pdf2svg, mactex(pdfcrop), Inkscape, more...
+&gt; brew install pdf2svg
+&gt; brew cask install xquartz mactex inkscape
+
+# ImageMagick(identify,convert,mogrify...), and pdfinfo or cpdf
+&gt; brew install ghostscript imagemagick cpdf poppler
+
+## cairosvg for python
+&gt; pip3 install cairosvg
+
+## svginfo
+&gt; git clone http://github.com/aimingoo/svginfo
+&gt; install svginfo/svginfo /usr/local/bin/
+</code></pre>
+
+<h2 id="pdfsvg">从PDF到SVG</h2>
+
+<p>你可能已经习惯使用种种矢量图形工具并用来制作.svg，反正我不是。我通常是用PowerPoint或Keynote来制作它们（尤其是表格）并存储为PDF，然后由.pdf转为.svg。</p>
+
+<p>这个过程看起来麻烦，但确实靠谱。</p>
+
+<p>总的来说，从PDF到SVG的工具主要有两个（<a href="https://en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#How_to_convert_a_PDF_to_SVG">Wiki上也是这么说的</a>）。其中最方便、快捷和安全的应该是cityinthesky的pdf2svg，他使用Poppler+Cario；另一个是inkscape，除了在字体处理上表现不稳定之外，它还需要XQuartz的支持（这就比较庞大了）。</p>
+
+<p>pdf2svg可以直接使用brew安装，它的开源项目<a href="http://www.cityinthesky.co.uk/opensource/pdf2svg">在这里</a>，或<a href="https://github.com/indraniel/pdf2svg">这里</a>。采用相同技术实现的还有<a href="https://github.com/indraniel/pdf2svg">Perl</a>和<a href="https://github.com/jakobwesthoff/pdf2svg">Vala</a>的版本——因为使用的都是相同的库，因此效果应该没差。其它可选的方案包括<a href="https://github.com/ContentMine/pdf2svg">Java</a>、<a href="https://github.com/ststeiger/Pdf2Svg">C#</a>版的等等，但采用的是各自语言下的引擎，我没有一一试过。</p>
+
+<p>使用pdf2svg的参数如下：</p>
+
+<pre><code class="language-bash">&gt; pdf2svg --help
+Usage: pdf2svg &lt;in file.pdf&gt; &lt;out file.svg&gt; [&lt;page no&gt;]  
+</code></pre>
+
+<p>其中<code>&lt;page no&gt;</code>可以使用字符串<code>all</code>。</p>
+
+<p>注意pdf2svg并不能指定输出的.svg的大小、DPI等等。其实你使用inkscape来转换也一样没有这类参数——在转换目标格式为.svg时，inkscape仅会多出<code>--export-text-to-path</code>、<code>--export-id</code>两个参数可用。此外，inkscape只能处理单页的PDF：</p>
+
+<pre><code class="language-bash">&gt; inkscape -z --export-plain-svg=&lt;out file.svg&gt; &lt;in file.pdf&gt;
+</code></pre>
+
+<p>最后，pdf2svg与inkscape转换出来的.svg文件的页面大小其实是一样，但是它们使用的单位并不相同。如下：</p>
+
+<pre><code class="language-bash">## inkscape
+&gt; svginfo by-inkscape.svg
+width: 152.5  
+height: 77.5  
+viewBox: 0 0 152.5 77.5
+
+## pdf2svg, and more...
+&gt; svginfo by-cario.svg
+width: 122pt  
+height: 62pt  
+viewBox: 0 0 122 62  
+</code></pre>
+
+<p>注意inkscape转出时使用了缺省单位，这通常是指px；而cario转出时使用的是pt。对于上例来说，原始的pdf文件信息如下：</p>
+
+<pre><code class="language-bash">&gt; pdfinfo my.pdf | grep 'Page size'
+Page size:      122 x 62 pts  
+</code></pre>
+
+<p>可见，两种引擎事实上都是直接以该页面大小的pt值作为.svg的宽高，只不过inkscape转换成了相应的px值。</p>
+
+<blockquote>
+  <p>注1：需要强调的是，上述版本的inkscape的采用的是90DPI的.svg设定，而PDF默认为72DPI。所以从<code>.PDF的Pts</code>到<code>.SVG的px</code>的转换系数是<code>90/72</code>，即<code>width = 122pt * 90/72 = 152.5px</code>。</p>
+  
+  <p>注2：就我的测试来说，Inkscape在处理<code>PDF -&gt; png</code>的转换时不能正确的识别中文字体，其它类型下的转换我并没有一一试过。</p>
+</blockquote>
+
+<h2 id="svginfoimagemagick">svginfo: 不要相信ImageMagick的显示</h2>
+
+<p>如果你使用<code>identify -verbose your.svg</code>来查看svg的信息的话，那么由于ImageMagick可能工作在不同的SVG模式下，所以输出的信息也就不同。——这就是我的上一篇文章为什么叫《详解ImageMagick中SVG的支持》的原因。</p>
+
+<p>我测试了一下上文中提到的4种模式，如下：</p>
+
+<pre><code>## test information of 'identify -verbose your.svg'
+===&gt; MODE: internal, use MSVG
+  Geometry: 485x306+0+0
+  Units: Undefined
+===&gt; MODE: build-in, use RSVG/librsvg
+  Geometry: 517x327+0+0
+  Resolution: 37.8x37.8
+  Print size: 13.6772x8.65079
+  Units: PixelsPerCentimeter
+===&gt; MODE: delegate(internal), use inkscape
+  Geometry: 517x327+0+0
+  Resolution: 37.8x37.8
+  Print size: 13.6772x8.65079
+  Units: PixelsPerCentimeter
+===&gt; MODE: delegate, use rsvg-convert
+  Geometry: 517x327+0+0
+  Units: Undefined
+</code></pre>
+
+<p>这四种模式中，MSVG是唯一一个不转换成图片（因为内置xml解析和svg支持）的方式，也是它与别的模式看起来有差异的原因。此外，由于缺省使用了<code>PixelsPerCentimeter</code>单位，所以Resolution显示是<code>37.8x37.8</code>，换算成英寸则是96DPI。</p>
+
+<p>那么这个<code>your.svg</code>的大小到底是多少呢？很不幸，它真实的数据是<code>388x245 pts</code>。</p>
+
+<p>因为svg缺省是工作在90dpi模式下的，所以MSVG用90dpi来换算.svg的大小，就得到了<code>388 * 90/72 = 485px</code>的宽，而其它模式都是先转换成图片，并指定了参数96DPI，这时宽度就成了<code>388 * 96/72 = 517px</code>。</p>
+
+<p>所以无论如何（除非你能确切指定使用某一种SVG引擎），对于.svg来说，ImageMagick显示的大小是作不得准的。更好的办法是直接显示.svg中的元信息，例如使用<code>svginfo</code>这个工具（<a href="https://github.com/aimingoo/svginfo">下载在这里</a>）：</p>
+
+<pre><code class="language-bash">&gt; svginfo your.svg
+width: 388pt  
+height: 245pt  
+viewBox: 0 0 388 245  
+zoomAndPan: magnify  
+preserveAspectRatio: none  
+</code></pre>
+
+<p>在.svg的元信息中保存的width/height值可能有很多种单位（<a href="http://www.sarasoueidan.com/blog/svg-coordinate-systems/#svg-viewport">参见这里</a>，或<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Positions">中文译本</a>，缺省是px，但与具体设备有关）。</p>
+
+<h2 id="svg">电子书并其实不能『很正确』地显示.svg文件</h2>
+
+<p>现在我们得到了.svg，并且我们确切地知道它的大小与.pdf的Page Size的Pts值存在<code>90:72</code>的关系（因为默认精度不同）。所以我们只需要控制.pdf的大小，就可以得到合适的.svg文件了。——不考虑.svg的工具的话，在.pdf的工具套件中还有cpdf，还有gs等等可用，很丰富。</p>
+
+<p>但是，真正的一张520pts(或者是520px)大小的.svg，会如何显示在电子书上呢？</p>
+
+<p>答案是：不一定。</p>
+
+<p>如果你在电子书中用<code>&lt;img src="xxx.png"&gt;</code>来插入一张图片而没有指定它的宽高，那么几乎所有的排版引擎都能理解这个行为：</p>
+
+<ul>
+<li>将xxx.png图片信息中的宽高信息作为显示宽高；</li>
+<li>如果这个宽高大于设备的可见区域，则缩小到合适的大小。</li>
+</ul>
+
+<p>——所以，在电子书中使用图片时只需要考虑图片的精度，其它方面几乎是完美的、自适应的。</p>
+
+<p>然而如果你用同样的方法来插入一个.svg文件，那么由于pt这个单位的存在，所以设备如何显示就成了『谜之问题』了。首先我们要知道，</p>
+
+<blockquote>
+  <p>如果一个.svg是使用px作为单位（也包括没有单位而缺省的），那么将采用与图片一致的规则。</p>
+</blockquote>
+
+<p>这是一条重要的原则，也成为检测其它.svg单位的关键钥匙。</p>
+
+<p>例如以前面的your.svg为例——它使用了pt作为单位，是388pt。由于.svg是缺省以90DPI为来计算pt值的，所以MSVG还原成px时，显示的是485px的宽。但是到了实际物理设备时，却不一定是以90DPI——这个假想值——来处理的了。例如在Macbook上的iBooks中显示时，iBooks的SVG渲染引擎采用了96DPI的预设值，所以就将显示成<code>388 * 96/72 = 517px</code>；又例如我是要在Kindle Paperwhite3上来显示它，那么由于Kindle使用它的PPI（300DPI）来作为预设值，所以显示出来就应该是惊人的<code>1616px</code>。——好吧，你知道Kindle显示不下了，而.svg是矢量缩放的，所以最终只是按可见区域的全宽来显示它。</p>
+
+<p>电子书的这个处理方案正确不呢？答案是『正确』。因为这其实就是pt作为单位的原始用意。它看起来不是那么『很正确』的原因在于：这样一来，我们就不知道到底该做多大的.svg才能在不同的物理设备上适用了。</p>
+
+<p>那么，最终只剩下了两条规则适用：</p>
+
+<ul>
+<li>在文件中明确使用px作为单位来指定大小的.svg；或者，</li>
+<li>在使用<code>&lt;img ...&gt;</code>标签插入.svg时，指定它的宽高信息。</li>
+</ul>
+
+<h2 id="pxsvg">使用px作为单位来指定大小的.svg</h2>
+
+<p>使用Inkscape转出的.svg是作用缺省单位px的。但是这个转换是采用.pdf的Points换算过来的，为此你必须将.pdf放大一些，才能在Inkscape中得到你预期的的px值大小。这个换算关系如下：</p>
+
+<pre><code class="language-bash"># 步骤1：将.PDF的大小换算成300DPI下比例(放大300/90倍)
+#    - 因为pdf转成svg时还要再放大90/72倍，所以这里不需要直接用300/72作系数
+&gt; cpdf -scale-page "3.33333 3.33333" -scale-to-fit-scale 3.33333 -o new_300DPI.pdf my.pdf
+
+# 步骤2：将新文件转换成.svg
+&gt; inkscape -z --export-plain-svg=my.svg new_300DPI.pdf
+
+# 查看原始的my.pdf的信息
+&gt; pdfinfo my.pdf | grep 'Page size'
+Page size:      122 x 62 pts
+
+# 查看中间文件.pdf的大小
+&gt; pdfinfo new_300DPI.pdf | grep 'Page size'
+Page size:      406.666 x 206.666 pts
+
+# 查看新的.svg的信息
+&gt; svginfo my.svg
+width: 508.33282  
+height: 258.33307  
+viewBox: 0 0 508.33282 258.33307  
+zoomAndPan: magnify  
+preserveAspectRatio: none  
+</code></pre>
+
+<p>验证方法：制作一张<code>508 x 258</code>的图片，与my.svg一起插入到电子书中，它们显示起来将是相同大小。</p>
+
+<h2 id="svg">正确插入.svg的宽高信息</h2>
+
+<p>我们也可以选择如下的途径（在这个过程中不需要对调整中间文件与.svg的大小）：</p>
+
+<blockquote>
+  <ul>
+  <li>从.ppt/.key转换到.pdf，再</li>
+  <li>从.pdf转换到.svg，最后</li>
+  <li>在电子书中插入.svg的宽度信息。</li>
+  </ul>
+</blockquote>
+
+<p>我们假设以.html作为生成电子书的中间格式（如果你真做过电子书的话，你应该知道我为什么这么假设），那么事实上我们就只需要扫描所有的.svg，通过svginfo来查看信息，经过计算并将正确的宽高信息写到.html就好了。</p>
+
+<p>我们需要知道相应的.svg与最初预设的宽高上限（注意考虑到实际使用，我只预设了x方向上限，并不处理y方向）。我们之前说过：合理的预设是<code>520px</code>。所以，例如480px宽的.svg，那么我们就将<code>&lt;img …&gt;</code>中的width值回写成<code>92.3%</code>。</p>
+
+<p>我想，你可能已经发现问题了：这个92.3%应该是指的图片相对于当前设备宽的比例啊，而不是图片自己的宽度值。——是的，我的确是这样考虑的，至于为什么，你得仔细去思考了。</p>
+
+<p>其它（建议综合我最近的几篇文章来理解下述过程）：</p>
+
+<ul>
+<li>我们原始设计的宽是520px，在300DPI情况下的物理宽是1.73333inch；</li>
+<li>当把上述文档输出成PDF时，物理宽（Print Size）不变；而精度变成了PDF默认的72，所以在转换成Points值时变成了124.8pt，即<code>1.73333inch * 72pt/inch</code>；</li>
+<li>我们再从.pdf转到.svg时是pt by pt的，所以相应的.svg值是124.8pt；
+<ul><li>如果使用pdf2svg，则转换出的.svg是<code>width = 156</code>，使用了缺省单位px；</li></ul></li>
+<li>使用<code>identify msvg:your.svg</code>取值最快，但要注意它总是以px为单位显示宽高信息；
+<ul><li>在不支持MSVG的ImageMagick的低版本中，建议用svginfo取值并转换单位</li></ul></li>
+</ul>
+
+<p>相关操作如下（下载<a href="content/images/attachments/standard_image_templet_520.pdf">standard<em>image</em>templet_520.pdf</a>）：</p>
+
+<pre><code class="language-bash"># 步骤1：使用hires参数和高的resolution值可以使crop操作更精确
+#    - 输出的.pdf的精度与该参数值是无关的
+&gt; pdfcrop --hires --resolution 1200 standard_image_templet_520.pdf croped.pdf
+
+# 步骤2：转换pdf到svg
+&gt; pdf2svg croped.pdf standard_image_templet_520.svg 1
+
+# 使用pdfinfo查看信息
+&gt; pdfinfo croped.pdf | grep 'Page size'
+Page size:      124.8 x 73.26 pts
+
+# 使用svginfo查看信息
+&gt; svginfo standard_image_templet_520.svg
+width: 124.8pt  
+height: 73.26pt  
+viewBox: 0 0 124.8 73.26  
+zoomAndPan: magnify  
+preserveAspectRatio: none
+
+# 使用identify查看信息(强制使用MSVG引擎)
+&gt; identify msvg:standard_image_templet_520.svg | xargs -n1
+msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg  
+MSVG  
+156x92  
+156x92+0+0  
+...
+</code></pre>
+
+<h2 id="">黑科技：最后一点补充</h2>
+
+<p>如果：</p>
+
+<ul>
+<li>你确实想让.svg用px作为单位，以避免修改电子书中的width/height信息；并且，</li>
+<li>你确实又憎恨Inkscape的巨大安装包和超慢速度，以及它只能处理单页的问题；并且，</li>
+<li>你不太担心pdf2svg转换后的.svg文件较大的问题；并且，</li>
+<li>……</li>
+</ul>
+
+<p>也许你只是纯粹的点处理爱好者（px fans?），那么好吧，我们讲一种最简单（目前看来也挺安全，但……我不做任何保证）的黑科技。下面仍然以<code>standard_image_templet_520.pdf</code>这个文件为例：</p>
+
+<pre><code class="language-bash"># 步骤1：在300DPI下crop，以提高crop的计算精度
+#    - 输出的croped.pdf的精度与该参数值是无关的
+&gt; pdfcrop --hires --resolution 300 standard_image_templet_520.pdf croped.pdf
+
+# 步骤1：将.PDF的大小假想成px单位，直接换算成300DPI下的大小
+#    - 也就说无脑放大300/72倍就行啦
+&gt; cpdf -scale-page "4.166667 4.166667" -scale-to-fit-scale 4.166667 -o scaled.pdf croped.pdf
+
+# 步骤3：使用pdf2svg转换
+#    - pdf2svg得到的.svg是使用pt为单位的, 无脑改成px就行啦
+#    - pdf2svg可处理多页(会成批生成文件，所以不要用stdout；这里只做单页的示例)
+#    - 使用sed时只替换了&lt;svg ...&gt;标签中的width/height，其它的不作处理
+&gt; pdf2svg scaled.pdf /dev/stdout 1 |\
+    sed -E '1,/^&lt;svg/s/(width|height)="([0-9.]*)pt"/\1="\2px"/g' &gt;\
+    standard_image_templet_520.svg
+
+# 查看最终的svg的大小
+&gt; svginfo standard_image_templet_520.svg
+width: 520.000042px  
+height: 305.000024px  
+viewBox: 0 0 520.000042 305.000024  
+zoomAndPan: magnify  
+preserveAspectRatio: none
+
+# 使用ImageMagick的MSVG模式查看
+&gt; identify msvg:standard_image_templet_520.svg | xargs -n2
+msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG  
+520x305 520x305+0+0  
+16-bit sRGB  
+...
+</code></pre>
+
+<p>为什么能这么做呢？</p>
+
+<p>首先，我们知道.svg文件中其实并没有精度信息，所有的元素都是基于页面的大小来做换算的。而且，我们在这里用pdf2svg转换出的.svg还有两个特性：</p>
+
+<ul>
+<li>字体已经被转换成矢量信息，因此.svg中不包含字体及字体大小信息；</li>
+<li>只有\<svg …\>元素包含了页面宽高信息，其它元素是基于该信息的矢量。</li>
+</ul>
+
+<p>所以我们可以安全地将pt值直接替换成px。而这个方法，对于Inkscape生成的.svg就不适用，对比一下上面的两个特性你就明白了。反过来说，正是由于Cario引擎（pdf2svg使用的svg引擎）并不完整支持以px为单位的svg，所以使用该引擎——以及使用该引擎实现的工具来转换上述（修改后的）.svg到.png或其它格式的时候也是会出问题；而相对应的，Inkscape却能正确处理——它的引擎支持以px为单位的.svg。</p>
+
+<p>最后，多啰嗦一句。由于pdf2svg转换时将字体转换成了矢量信息，这使得通过这种.svg转换成图片或其它格式时不会因为缺少字体而失真（相对应的，Inkscape就存在字体问题）。但是缺点也是有的，就是.svg文件会比较大一些，可能相应的处理速度也会略慢。</p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="1-1727.html">
+                    详解ImageMagick中SVG的支持
+                </a>
+            </span>
+
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
+<script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I&#x27;m here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=42df3ecac3"></script>
+    
+
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=42df3ecac3"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
+</body>
+
+</html>

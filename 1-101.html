@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>旧文重发：产品线工程：团队迭代及其问题</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="旧文重发：产品线工程：团队迭代及其问题">
-    <meta property="og:description" content="这一篇发布于2007.04月的InfoQ首期中文版中。      产品线工程：团队迭代及其问题    ### 问题   项目到了末期，总是长期、持续的维护。这种维护的工作甚至占到了整个周期的三分之二以上。而维护工作过程中会发生什么，是少有人讨论的，因为对于多数工程专家来说，这是在&amp;ldquo;项目结束之后&amp;rdquo;的事件。   在我看来，维护周期的产出有一种可能：后续版本。这种情况大多数会出现在自主研发的产品上；源于客户需求，也会出现在一些面向客户的项目中。此外，基于客户项目的产品化，也是可能的输出。   这些输出的共同点是：没有改变项目的实质，而是对项目的延续或者完善。因此，客户项目的产品化也可以视为新版本，产品从技术研发到市场化也可以视为新版本。总之，项目的阶段性结束和持续维护，并不等于走向死亡，而可能是新版本的开始。这种过程如下图所示           该图很明显的表达了一种工程观点：V2与V1在两个不同的项目阶段中。这看起来很合理，甚至在实践中也常常这样做。但上图中潜在的问题是：如果维护工作的周期延长，则V2与维护存在资源争用。下图进一步描述这种可能性：           当出现这种资源争用的局面时，公司比较明智的做法，当然是强化维护工作，而延缓V2开发的启动。因为如果不维护，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-101.html">
-    <meta property="article:published_time" content="2008-06-01T16:07:00.000Z">
-    <meta property="article:modified_time" content="2008-06-01T16:07:00.000Z">
-    <meta property="article:tag" content="产品">
-    <meta property="article:tag" content="编程">
-    <meta property="article:tag" content="测试">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="旧文重发：产品线工程：团队迭代及其问题" />
+    <meta property="og:description" content="这一篇发布于2007.04月的InfoQ首期中文版中。      产品线工程：团队迭代及其问题    ### 问题   项目到了末期，总是长期、持续的维护。这种维护的工作甚至占到了整个周期的三分之二以上。而维护工作过程中会发生什么，是少有人讨论的，因为对于多数工程专家来说，这是在&amp;ldquo;项目结束之后&amp;rdquo;的事件。   在我看来，维护周期的产出有一种可能：后续版本。这种情况大多数会出现在自主研发的产品上；源于客户需求，也会出现在一些面向客户的项目中。此外，基于客户项目的产品化，也是可能的输出。   这些输出的共同点是：没有改变项目的实质，而是对项目的延续或者完善。因此，客户项目的产品化也可以视为新版本，产品从技术研发到市场化也可以视为新版本。总之，项目的阶段性结束和持续维护，并不等于走向死亡，而可能是新版本的开始。这种过程如下图所示           该图很明显的表达了一种工程观点：V2与V1在两个不同的项目阶段中。这看起来很合理，甚至在实践中也常常这样做。但上图中潜在的问题是：如果维护工作的周期延长，则V2与维护存在资源争用。下图进一步描述这种可能性：           当出现这种资源争用的局面时，公司比较明智的做法，当然是强化维护工作，而延缓V2开发的启动。因为如果不维护，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-101.html" />
+    <meta property="article:published_time" content="2008-06-01T16:07:00.000Z" />
+    <meta property="article:modified_time" content="2008-06-01T16:07:00.000Z" />
+    <meta property="article:tag" content="产品" />
+    <meta property="article:tag" content="编程" />
+    <meta property="article:tag" content="测试" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="旧文重发：产品线工程：团队迭代及其问题">
-    <meta name="twitter:description" content="这一篇发布于2007.04月的InfoQ首期中文版中。      产品线工程：团队迭代及其问题    ### 问题   项目到了末期，总是长期、持续的维护。这种维护的工作甚至占到了整个周期的三分之二以上。而维护工作过程中会发生什么，是少有人讨论的，因为对于多数工程专家来说，这是在&amp;ldquo;项目结束之后&amp;rdquo;的事件。   在我看来，维护周期的产出有一种可能：后续版本。这种情况大多数会出现在自主研发的产品上；源于客户需求，也会出现在一些面向客户的项目中。此外，基于客户项目的产品化，也是可能的输出。   这些输出的共同点是：没有改变项目的实质，而是对项目的延续或者完善。因此，客户项目的产品化也可以视为新版本，产品从技术研发到市场化也可以视为新版本。总之，项目的阶段性结束和持续维护，并不等于走向死亡，而可能是新版本的开始。这种过程如下图所示           该图很明显的表达了一种工程观点：V2与V1在两个不同的项目阶段中。这看起来很合理，甚至在实践中也常常这样做。但上图中潜在的问题是：如果维护工作的周期延长，则V2与维护存在资源争用。下图进一步描述这种可能性：           当出现这种资源争用的局面时，公司比较明智的做法，当然是强化维护工作，而延缓V2开发的启动。因为如果不维护，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-101.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="产品, 编程, 测试">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="旧文重发：产品线工程：团队迭代及其问题" />
+    <meta name="twitter:description" content="这一篇发布于2007.04月的InfoQ首期中文版中。      产品线工程：团队迭代及其问题    ### 问题   项目到了末期，总是长期、持续的维护。这种维护的工作甚至占到了整个周期的三分之二以上。而维护工作过程中会发生什么，是少有人讨论的，因为对于多数工程专家来说，这是在&amp;ldquo;项目结束之后&amp;rdquo;的事件。   在我看来，维护周期的产出有一种可能：后续版本。这种情况大多数会出现在自主研发的产品上；源于客户需求，也会出现在一些面向客户的项目中。此外，基于客户项目的产品化，也是可能的输出。   这些输出的共同点是：没有改变项目的实质，而是对项目的延续或者完善。因此，客户项目的产品化也可以视为新版本，产品从技术研发到市场化也可以视为新版本。总之，项目的阶段性结束和持续维护，并不等于走向死亡，而可能是新版本的开始。这种过程如下图所示           该图很明显的表达了一种工程观点：V2与V1在两个不同的项目阶段中。这看起来很合理，甚至在实践中也常常这样做。但上图中潜在的问题是：如果维护工作的周期延长，则V2与维护存在资源争用。下图进一步描述这种可能性：           当出现这种资源争用的局面时，公司比较明智的做法，当然是强化维护工作，而延缓V2开发的启动。因为如果不维护，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-101.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="产品, 编程, 测试" />
     
     <script type="application/ld+json">
 {
@@ -83,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-chan-pin tag-bian-cheng tag-ce-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +113,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/chan-pin/">产品</a>, <a href="tag/bian-cheng/">编程</a>, <a href="tag/ce-shi/">测试</a>
+                        <a href="tag/chan-pin/index.html">产品</a>, <a href="tag/bian-cheng/index.html">编程</a>, <a href="tag/ce-shi/index.html">测试</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -158,32 +159,32 @@ ghost.init({
 
 ### 问题  
 
-项目到了末期，总是长期、持续的维护。这种维护的工作甚至占到了整个周期的三分之二以上。而维护工作过程中会发生什么，是少有人讨论的，因为对于多数工程专家来说，这是在“项目结束之后”的事件。</div>  
+项目到了末期，总是长期、持续的维护。这种维护的工作甚至占到了整个周期的三分之二以上。而维护工作过程中会发生什么，是少有人讨论的，因为对于多数工程专家来说，这是在&ldquo;项目结束之后&rdquo;的事件。</div>  
 
 <div>在我看来，维护周期的产出有一种可能：后续版本。这种情况大多数会出现在自主研发的产品上；源于客户需求，也会出现在一些面向客户的项目中。此外，基于客户项目的产品化，也是可能的输出。</div>  
 
 <div>这些输出的共同点是：没有改变项目的实质，而是对项目的延续或者完善。因此，客户项目的产品化也可以视为新版本，产品从技术研发到市场化也可以视为新版本。总之，项目的阶段性结束和持续维护，并不等于走向死亡，而可能是新版本的开始。这种过程如下图所示  
 </div>  
 
-<p><img src="content/images/bkImages/other_site/www_infoq_image001-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/other_site/www_infoq_image001-9.gif" alt="" title="" />    </p>
 
 <div>该图很明显的表达了一种工程观点：V2与V1在两个不同的项目阶段中。这看起来很合理，甚至在实践中也常常这样做。但上图中潜在的问题是：如果维护工作的周期延长，则V2与维护存在资源争用。下图进一步描述这种可能性：  
 </div>  
 
-<p><img src="content/images/bkImages/other_site/www_infoq_image002-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/other_site/www_infoq_image002-9.gif" alt="" title="" />    </p>
 
 <div>当出现这种资源争用的局面时，公司比较明智的做法，当然是强化维护工作，而延缓V2开发的启动。因为如果不维护，则会导致客户不满而流失既有市场，或因产品功能不完备而导致市场化受阻。     
 
 </div>  
 
-<div>但是，我们不能直接通过持续维护的旧版本来产生新版本——后者应该是一个完整的、有独立性的产品。当资源争用出现时，公司的短期行为与产品的长期策略就不可避免的存在冲突。就我所知的，冲突的结果往往是：</div>  
-&gt; <div>  
-&gt; <li>旧版本得以维护，客户被短期满足；然后，   </li>  
-&gt; <li>新版本的启动受阻，因此研发周期延后；然后，   </li>  
-&gt; <li>同类产品竞争力加强，客户流失；然后，   </li>  
-&gt; <li>新版本匆忙发布，功能与稳定性受到影响，客户流失加剧；然后，   </li>  
-&gt; <li>产品线收益下降，团队萎缩，新旧版本都陷于维护，失去了更新版本的研发能力。 </li>  
-&gt; </div>  
+<div>但是，我们不能直接通过持续维护的旧版本来产生新版本&mdash;&mdash;后者应该是一个完整的、有独立性的产品。当资源争用出现时，公司的短期行为与产品的长期策略就不可避免的存在冲突。就我所知的，冲突的结果往往是：</div>  
+> <div>  
+> <li>旧版本得以维护，客户被短期满足；然后， &nbsp; </li>  
+> <li>新版本的启动受阻，因此研发周期延后；然后， &nbsp; </li>  
+> <li>同类产品竞争力加强，客户流失；然后， &nbsp; </li>  
+> <li>新版本匆忙发布，功能与稳定性受到影响，客户流失加剧；然后， &nbsp; </li>  
+> <li>产品线收益下降，团队萎缩，新旧版本都陷于维护，失去了更新版本的研发能力。 </li>  
+> </div>  
 <div>这种局面下，整个产品线便已经死亡了。而其根源，正是在于面临强大的市场压力时，旧版本交付与新版本启动过程占用了较多的时间，导致战略推进受阻。</div>  
 <div>  
 </div>  
@@ -193,11 +194,11 @@ ghost.init({
 <div>  
 </div>  
 
-<div>除了上述情况，大多数时候我们都会为“下一个版本如何启动”的问题所困扰。而传统的工程模型中，并不讨论这个问题——产品的延续性会在项目可行性分析和公司战略层被讨论，但在“一个项目”被实施的过程中并不会被考虑。</div>  
+<div>除了上述情况，大多数时候我们都会为&ldquo;下一个版本如何启动&rdquo;的问题所困扰。而传统的工程模型中，并不讨论这个问题&mdash;&mdash;产品的延续性会在项目可行性分析和公司战略层被讨论，但在&ldquo;一个项目&rdquo;被实施的过程中并不会被考虑。</div>  
 <div>  
 </div>  
 
-<div>本文假设需要两个团队来完成新、旧版本的更迭，并基于基本的工程原理，尝试通过组织方法与管理艺术来最小化这个过程的开销。并简单地说明“团队迭代”这种工程模式的原理、优势与问题。</div>  
+<div>本文假设需要两个团队来完成新、旧版本的更迭，并基于基本的工程原理，尝试通过组织方法与管理艺术来最小化这个过程的开销。并简单地说明&ldquo;团队迭代&rdquo;这种工程模式的原理、优势与问题。</div>  
 <div>  
 </div>  
 
@@ -211,19 +212,19 @@ ghost.init({
 
 ![](/content/images/bkImages/other_site/www_infoq_image003-9.jpg)    
 
-对于业务建模、需求、分析与设计工作来说，在项目的先启与精化阶段，需要设计者（包括分析、设计和架构等）的大量参与；在构建阶段开始后，需求被（相对地）固化，而设计的调整也渐趋减少，而开发资源逐渐增加。直到后来，开发团队必然发现设计师、架构师和需求（用户）对他们指手划脚的时间越来越少，而测试团队却更深地影响着他们的开发计划——实施过程、测试过程等在不停的迭代，但计划与设计基本不变化。</div>  
+对于业务建模、需求、分析与设计工作来说，在项目的先启与精化阶段，需要设计者（包括分析、设计和架构等）的大量参与；在构建阶段开始后，需求被（相对地）固化，而设计的调整也渐趋减少，而开发资源逐渐增加。直到后来，开发团队必然发现设计师、架构师和需求（用户）对他们指手划脚的时间越来越少，而测试团队却更深地影响着他们的开发计划&mdash;&mdash;实施过程、测试过程等在不停的迭代，但计划与设计基本不变化。</div>  
 <div>  
 </div>  
 
-<div>一般来说，我们的大多数团队的人力资源用在“实现（编码）”，并以相对独立的团队来完成“设计”与“测试”。而这些团队的工作周期用工作量并不是一致的。以致于《人月神话》的作者会问：“在等待时，实现人员应该做什么？”</div>  
+<div>一般来说，我们的大多数团队的人力资源用在&ldquo;实现（编码）&rdquo;，并以相对独立的团队来完成&ldquo;设计&rdquo;与&ldquo;测试&rdquo;。而这些团队的工作周期用工作量并不是一致的。以致于《人月神话》的作者会问：&ldquo;在等待时，实现人员应该做什么？&rdquo;</div>  
 <div>  
 </div>  
 
-<div>《人月神话》假设了一个“10个设计师、150人的开发团队”规模的项目。在这个项目中，程序经理提出了一个问题：体系结构团队需要10个月完成计划与设计，而他的150人却因此“只能坐在那儿干等10个月”。</div>  
+<div>《人月神话》假设了一个&ldquo;10个设计师、150人的开发团队&rdquo;规模的项目。在这个项目中，程序经理提出了一个问题：体系结构团队需要10个月完成计划与设计，而他的150人却因此&ldquo;只能坐在那儿干等10个月&rdquo;。</div>  
 <div>  
 </div>  
 
-<div>Brooks提出的解决之道是“在（设计）说明完成的时候，才雇用编程实现人员”。当然，这是在三十年前的说法，大概会因此有人说这是“瀑布”的遗迹。但通过我们上面的分析，我们也应发现在客观事实上，先启、精化阶段与构建阶段所需要的人力资源的配比并不相同。以本例中的开发团队来说，在最初的10个月中，大概只需要8~20个开发人员参与到实现过程即可。</div>  
+<div>Brooks提出的解决之道是&ldquo;在（设计）说明完成的时候，才雇用编程实现人员&rdquo;。当然，这是在三十年前的说法，大概会因此有人说这是&ldquo;瀑布&rdquo;的遗迹。但通过我们上面的分析，我们也应发现在客观事实上，先启、精化阶段与构建阶段所需要的人力资源的配比并不相同。以本例中的开发团队来说，在最初的10个月中，大概只需要8~20个开发人员参与到实现过程即可。</div>  
 <div>  
 </div>  
 
@@ -231,7 +232,7 @@ ghost.init({
 <div>  
 </div>  
 
-<div>然而接下来你也会发现，这个问题换个环境依然成立：在实现时，设计人员应该做什么？因为在构建阶段中，大多数的项目资源被消耗在实现和测试的循环里面，而构架、设计和需求存在（在项目周期中的）一致性，因此这些相关的设计、分析人员便处于“等待”状态。</div>  
+<div>然而接下来你也会发现，这个问题换个环境依然成立：在实现时，设计人员应该做什么？因为在构建阶段中，大多数的项目资源被消耗在实现和测试的循环里面，而构架、设计和需求存在（在项目周期中的）一致性，因此这些相关的设计、分析人员便处于&ldquo;等待&rdquo;状态。</div>  
 <div>  
 </div>  
 
@@ -241,34 +242,34 @@ ghost.init({
 
 </div>  
 
-<div>“10个设计师、150人的开发团队”，在总长度为3年的时间内，总是存在资源被空耗。Brooks对此的建议被推而广的结果是：在前期雇一批设计师，并在后期解散他们；对编程实现人员则反之。</div>  
+<div>&ldquo;10个设计师、150人的开发团队&rdquo;，在总长度为3年的时间内，总是存在资源被空耗。Brooks对此的建议被推而广的结果是：在前期雇一批设计师，并在后期解散他们；对编程实现人员则反之。</div>  
 <div>  
 </div>  
 
-<div>我们应该认识到：这样反覆的组织结构，在一个公司来说是难于成为现实的。但是，对于以“职责分配”作为组织建构的基本原则的软件公司来说，我们可以给出一个简单的“AB团队模型”，并象下面这样看待问题： </div>  
-&gt; <div>  
-&gt; <li>A团队以实现为主，在初期需要“设计工作”的引导并确定方向； </li>  
-&gt; <li>B团队以设计为主，在设计的后期逐渐引入“实现工作”。 </li>  
-&gt; </div>  
+<div>我们应该认识到：这样反覆的组织结构，在一个公司来说是难于成为现实的。但是，对于以&ldquo;职责分配&rdquo;作为组织建构的基本原则的软件公司来说，我们可以给出一个简单的&ldquo;AB团队模型&rdquo;，并象下面这样看待问题： </div>  
+> <div>  
+> <li>A团队以实现为主，在初期需要&ldquo;设计工作&rdquo;的引导并确定方向； </li>  
+> <li>B团队以设计为主，在设计的后期逐渐引入&ldquo;实现工作&rdquo;。 </li>  
+> </div>  
 <div>可见这两个团队对人力和时间的需求都将出现交叉。这种交叉会带来一种微妙的平衡。如下图所示：  
 </div>  
 
-<p><img src="content/images/bkImages/other_site/www_infoq_image004-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/other_site/www_infoq_image004-9.gif" alt="" title="" />    </p>
 
-<div>这就是所谓的“团队迭代”。他讨论的不是A或B团队的具体工程方法，而是A和B团队出现重叠的这段时间里的工程方法。准确地说，就是这张图中B线和V2线所界定的时间区间中的工程方法。这两条线的基本定义是指： </div>  
-&gt; <div>  
-&gt; <li>B线：B团队发起并从A团队开始争用富余资源的时间； </li>  
-&gt; <li>V2线：B团队与A团队结束资源争用的时间。 </li>  
-&gt; </div>  
+<div>这就是所谓的&ldquo;团队迭代&rdquo;。他讨论的不是A或B团队的具体工程方法，而是A和B团队出现重叠的这段时间里的工程方法。准确地说，就是这张图中B线和V2线所界定的时间区间中的工程方法。这两条线的基本定义是指： </div>  
+> <div>  
+> <li>B线：B团队发起并从A团队开始争用富余资源的时间； </li>  
+> <li>V2线：B团队与A团队结束资源争用的时间。 </li>  
+> </div>  
 <div>  
 
 ### 组织的基本原则  
 
-我们现将面临一个问题，这个问题首先是与上面的这个“V2线”的名称有关。因为我们需要确定A、B两个团队的关系与组织模式。</div>  
+我们现将面临一个问题，这个问题首先是与上面的这个&ldquo;V2线&rdquo;的名称有关。因为我们需要确定A、B两个团队的关系与组织模式。</div>  
 <div>  
 </div>  
 
-<div>之所以叫“V2线”，是因为我们必须确定B团队与A团队的工作目标，是在同一产品方面上的不同阶段。也就是说，B团队是在为A团队的后续版本而工作。如果没有这个前提，那么A、B的资源争用就是纯粹的战略方向之争，并不是工程方法所能解决的问题。</div>  
+<div>之所以叫&ldquo;V2线&rdquo;，是因为我们必须确定B团队与A团队的工作目标，是在同一产品方面上的不同阶段。也就是说，B团队是在为A团队的后续版本而工作。如果没有这个前提，那么A、B的资源争用就是纯粹的战略方向之争，并不是工程方法所能解决的问题。</div>  
 <div>  
 </div>  
 
@@ -285,7 +286,7 @@ ghost.init({
 
 ### T线  
 
-组织结构中不存在职权冲突，并不等于不存在矛盾。AB团队模型与生俱来的问题就是“资源争用”。</div>  
+组织结构中不存在职权冲突，并不等于不存在矛盾。AB团队模型与生俱来的问题就是&ldquo;资源争用&rdquo;。</div>  
 <div>  
 </div>  
 
@@ -293,19 +294,19 @@ ghost.init({
 <div>  
 </div>  
 
-<div>然而B团队不可能总在“不停的计划和分析”，它必然要从A团队汲取资源，来完成设计阶段的实现、测试等工作。这个过程中发生的主要事件是“人力置换”，我们把它的起点位置称为“T线”。如下图所示：    
+<div>然而B团队不可能总在&ldquo;不停的计划和分析&rdquo;，它必然要从A团队汲取资源，来完成设计阶段的实现、测试等工作。这个过程中发生的主要事件是&ldquo;人力置换&rdquo;，我们把它的起点位置称为&ldquo;T线&rdquo;。如下图所示：    
 
 ![](/content/images/bkImages/other_site/www_infoq_image005-9.gif)    
 
-由于A、B团队是同一项目的后续版本，因此当B团队出现的人力需求，是可以由A团队的富余人力来弥补的。——事实上正是如此，当B团队需要引入设计人员来组建时，A团队正好设计人员过剩；当B团队开始需要开发人员来实现时，A团队正好进入维护周期，开发人员会出现过剩。B团队从设计过程向实施过程完成过渡的同时，也就完成了从A团队吸纳人力的过程。</div>  
+由于A、B团队是同一项目的后续版本，因此当B团队出现的人力需求，是可以由A团队的富余人力来弥补的。&mdash;&mdash;事实上正是如此，当B团队需要引入设计人员来组建时，A团队正好设计人员过剩；当B团队开始需要开发人员来实现时，A团队正好进入维护周期，开发人员会出现过剩。B团队从设计过程向实施过程完成过渡的同时，也就完成了从A团队吸纳人力的过程。</div>  
 <div>  
 </div>  
 
-<div>因此当B团队结束（开发型）项目团队的建设（或称为转变）的过程时，A团队也将进入项目的最终维护期。这个时候，最空闲的人力将是项目经理（事实A团队已经没剩下多少开发力量）。而B团队正好缺乏一个有实施经验的项目经理来驱动下一个阶段的工作。——换而言之，A团队的经理正好是B团队所需要的那个。</div>  
+<div>因此当B团队结束（开发型）项目团队的建设（或称为转变）的过程时，A团队也将进入项目的最终维护期。这个时候，最空闲的人力将是项目经理（事实A团队已经没剩下多少开发力量）。而B团队正好缺乏一个有实施经验的项目经理来驱动下一个阶段的工作。&mdash;&mdash;换而言之，A团队的经理正好是B团队所需要的那个。</div>  
 <div>  
 </div>  
 
-<div>现在，对于A团队的经理来说，他在事实上持续地领导了相同项目前后两个版本的开发。而且开发人员在较大的程度上也是一致的。——可能由于项目的扩大，B团队还需要对外吸纳更多的人员，但骨干一定还是从A团队中迁移过来的部分。</div>  
+<div>现在，对于A团队的经理来说，他在事实上持续地领导了相同项目前后两个版本的开发。而且开发人员在较大的程度上也是一致的。&mdash;&mdash;可能由于项目的扩大，B团队还需要对外吸纳更多的人员，但骨干一定还是从A团队中迁移过来的部分。</div>  
 <div>  
 </div>  
 
@@ -321,11 +322,11 @@ ghost.init({
 <div>  
 </div>  
 
-<div>最后，我们解决了Brooks的问题：在等待时，实现人员应该做什么？其实这个问题的根本于“等待”而不是“做什么”。我们应该问：为什么会有等待？显然，如果没有等待，那么我们的开发人员自然知道他该做什么。</div>  
+<div>最后，我们解决了Brooks的问题：在等待时，实现人员应该做什么？其实这个问题的根本于&ldquo;等待&rdquo;而不是&ldquo;做什么&rdquo;。我们应该问：为什么会有等待？显然，如果没有等待，那么我们的开发人员自然知道他该做什么。</div>  
 <div>  
 </div>  
 
-<div>团队迭代模式通过争用来消除了等待，使“等待时做什么”的问题变成了“如何平衡资源争用”。对于Brooks的原始问题，Brooks的答案是对的，但同时要付出“项目周期”的代价。而对于新的“平衡资源”的问题，我们在工程过程对资源的客观需求中找到了平衡点。通过在B线、T线和V2线之间合理地调配资源、分配管理职权和设定阶段目标，我们能够用灵活的管理技术和组织模式，来换得了更好的构架一致性、产品（线）延续性、团队的稳定性和（最重要的）更短的迭代周期。</div>  
+<div>团队迭代模式通过争用来消除了等待，使&ldquo;等待时做什么&rdquo;的问题变成了&ldquo;如何平衡资源争用&rdquo;。对于Brooks的原始问题，Brooks的答案是对的，但同时要付出&ldquo;项目周期&rdquo;的代价。而对于新的&ldquo;平衡资源&rdquo;的问题，我们在工程过程对资源的客观需求中找到了平衡点。通过在B线、T线和V2线之间合理地调配资源、分配管理职权和设定阶段目标，我们能够用灵活的管理技术和组织模式，来换得了更好的构架一致性、产品（线）延续性、团队的稳定性和（最重要的）更短的迭代周期。</div>  
 <div>  
 </div>  
 
@@ -355,7 +356,7 @@ ghost.init({
 <div>  
 </div>  
 
-<div>最后的，也是最关键的问题：工程人员的素质。无论是现在，还是将来，应用“基于项目的迭代”这样的模型，都要求：  
+<div>最后的，也是最关键的问题：工程人员的素质。无论是现在，还是将来，应用&ldquo;基于项目的迭代&rdquo;这样的模型，都要求：  
 </div>  
 
 <blockquote>
@@ -381,7 +382,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-102.html">
                     旧文重发：程序员的七种武器
                 </a>
@@ -392,7 +393,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -412,14 +413,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -435,7 +436,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -449,7 +450,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -478,3 +479,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>

@@ -1,41 +1,42 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>内训资料公开：设计师的实战过程(1)</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="内训资料公开：设计师的实战过程(1)">
-    <meta property="og:description" content="&amp;nbsp;    今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。   这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。   完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。   架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。   资料包括录音（但没有视频），和课程中的PPT以及相关资料。   &amp;nbsp;   下载都在这里：">
-    <meta property="og:url" content="http://aimingoo.github.io/1-113.html">
-    <meta property="article:published_time" content="2008-07-29T17:01:00.000Z">
-    <meta property="article:modified_time" content="2008-07-29T17:01:00.000Z">
-    <meta property="article:tag" content="文档">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="内训资料公开：设计师的实战过程(1)" />
+    <meta property="og:description" content="&amp;nbsp;    今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。   这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。   完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。   架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。   资料包括录音（但没有视频），和课程中的PPT以及相关资料。   &amp;nbsp;   下载都在这里：" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-113.html" />
+    <meta property="article:published_time" content="2008-07-29T17:01:00.000Z" />
+    <meta property="article:modified_time" content="2008-07-29T17:01:00.000Z" />
+    <meta property="article:tag" content="文档" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="内训资料公开：设计师的实战过程(1)">
-    <meta name="twitter:description" content="&amp;nbsp;    今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。   这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。   完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。   架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。   资料包括录音（但没有视频），和课程中的PPT以及相关资料。   &amp;nbsp;   下载都在这里：">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-113.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="文档">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="内训资料公开：设计师的实战过程(1)" />
+    <meta name="twitter:description" content="&amp;nbsp;    今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。   这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。   完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。   架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。   资料包括录音（但没有视频），和课程中的PPT以及相关资料。   &amp;nbsp;   下载都在这里：" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-113.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="文档" />
     
     <script type="application/ld+json">
 {
@@ -81,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-wen-dang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -110,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -126,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/wen-dang/">文档</a>
+                        <a href="tag/wen-dang/index.html">文档</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,7 +145,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>    </p>
+                <p>&nbsp;   </p>
 
 <p>今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。  </p>
 
@@ -156,28 +157,28 @@ ghost.init({
 
 <p>资料包括录音（但没有视频），和课程中的PPT以及相关资料。  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p>下载都在这里： <br>
+<p>下载都在这里： <br />
 <a href="http://groups.google.com/group/qomo/files">http://groups.google.com/group/qomo/files</a>  </p>
 
 <p>－－－－－  </p>
 
-<p><font color="#800000">The Designer, Chapter 1.zip        ：第一讲</font>  </p>
+<p><font color="#800000">The Designer, Chapter 1.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：第一讲</font>  </p>
 
 <p><font color="#800000">The Designer, Player(Platform4).zip ：AMR格式录音的播放器</font>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><font color="#800000">也可以通过CSDN下载频道下载： <br>
+<p><font color="#800000">也可以通过CSDN下载频道下载： <br />
 －－－－－</font>  </p>
 
-<p><a href="http://download.csdn.net/source/562755">http://download.csdn.net/source/562755</a> <br>
+<p><a href="http://download.csdn.net/source/562755">http://download.csdn.net/source/562755</a> <br />
 <a href="http://download.csdn.net/source/562739">http://download.csdn.net/source/562739</a>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><font color="#800000"><strong>一讲一讲的发吧。后续的第二节和第三节，过些天再上传。</strong></font></p>
             </section>
@@ -196,7 +197,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-114.html">
                     杂家与集成
                 </a>
@@ -207,7 +208,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -227,14 +228,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -250,7 +251,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -264,7 +265,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -293,3 +294,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>

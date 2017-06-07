@@ -1,44 +1,45 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>伴随开发人员成长的问题：工程重要，还是算法重要？细节重要，还是架构重要？</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="伴随开发人员成长的问题：工程重要，还是算法重要？细节重要，还是架构重要？">
-    <meta property="og:description" content="为了考虑一段代码中的字符串处理效率问题，我写了一个测试程序来检测字符串引用，然后把它贴在delphibbs里(http://www.delphibbs.com/delphibbs/dispq.asp?lid=1220572)。随后这引起了对软件工程和开发技巧的争论。下面的文字很大程度上代表了我当时(2002年中)对开发技术、技巧的观点，我想这与现在的很多开发人员的观点是一致的：   说实在的，现在越来越多的人员都在说要重工程，而不要重算法，不要重技巧；陷于程序的枝节，不如跳出来考虑总体结构。   看起来说得很对，但问题是，为什么到现在M$的编译器的速度都比Borland的慢？M$在这上面追了这么多年，什么样的软件工程没搞过，却怎么还是比人家的慢？   现在个人机越来越高档，对于个人而言，好象是永远也不用到CPU极限一样。但是，服务器呢？成千上万个人在用，服务器端的软件不讲求效率和性能，面临的可能就是不断地找机房管理员重启服务器！   在大谈软件工程的时代，我来追求一两行代码的性能，可能是老土，但如果做服务器程序的人，没有土一点的思想，不明白编译器的细节，可能是行不通的。   早些日子一个知名的程序员(我的同事)说他的程序象美国造的军用匕首，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-11.html">
-    <meta property="article:published_time" content="2005-12-04T14:07:00.000Z">
-    <meta property="article:modified_time" content="2005-12-04T14:07:00.000Z">
-    <meta property="article:tag" content="编译器">
-    <meta property="article:tag" content="delphi">
-    <meta property="article:tag" content="代码分析">
-    <meta property="article:tag" content="算法">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="伴随开发人员成长的问题：工程重要，还是算法重要？细节重要，还是架构重要？" />
+    <meta property="og:description" content="为了考虑一段代码中的字符串处理效率问题，我写了一个测试程序来检测字符串引用，然后把它贴在delphibbs里(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;1220572)。随后这引起了对软件工程和开发技巧的争论。下面的文字很大程度上代表了我当时(2002年中)对开发技术、技巧的观点，我想这与现在的很多开发人员的观点是一致的：   说实在的，现在越来越多的人员都在说要重工程，而不要重算法，不要重技巧；陷于程序的枝节，不如跳出来考虑总体结构。   看起来说得很对，但问题是，为什么到现在M$的编译器的速度都比Borland的慢？M$在这上面追了这么多年，什么样的软件工程没搞过，却怎么还是比人家的慢？   现在个人机越来越高档，对于个人而言，好象是永远也不用到CPU极限一样。但是，服务器呢？成千上万个人在用，服务器端的软件不讲求效率和性能，面临的可能就是不断地找机房管理员重启服务器！   在大谈软件工程的时代，我来追求一两行代码的性能，可能是老土，但如果做服务器程序的人，没有土一点的思想，不明白编译器的细节，可能是行不通的。   早些日子一个知名的程序员(我的同事)说他的程序象美国造的军用匕首，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-11.html" />
+    <meta property="article:published_time" content="2005-12-04T14:07:00.000Z" />
+    <meta property="article:modified_time" content="2005-12-04T14:07:00.000Z" />
+    <meta property="article:tag" content="编译器" />
+    <meta property="article:tag" content="delphi" />
+    <meta property="article:tag" content="代码分析" />
+    <meta property="article:tag" content="算法" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="伴随开发人员成长的问题：工程重要，还是算法重要？细节重要，还是架构重要？">
-    <meta name="twitter:description" content="为了考虑一段代码中的字符串处理效率问题，我写了一个测试程序来检测字符串引用，然后把它贴在delphibbs里(http://www.delphibbs.com/delphibbs/dispq.asp?lid=1220572)。随后这引起了对软件工程和开发技巧的争论。下面的文字很大程度上代表了我当时(2002年中)对开发技术、技巧的观点，我想这与现在的很多开发人员的观点是一致的：   说实在的，现在越来越多的人员都在说要重工程，而不要重算法，不要重技巧；陷于程序的枝节，不如跳出来考虑总体结构。   看起来说得很对，但问题是，为什么到现在M$的编译器的速度都比Borland的慢？M$在这上面追了这么多年，什么样的软件工程没搞过，却怎么还是比人家的慢？   现在个人机越来越高档，对于个人而言，好象是永远也不用到CPU极限一样。但是，服务器呢？成千上万个人在用，服务器端的软件不讲求效率和性能，面临的可能就是不断地找机房管理员重启服务器！   在大谈软件工程的时代，我来追求一两行代码的性能，可能是老土，但如果做服务器程序的人，没有土一点的思想，不明白编译器的细节，可能是行不通的。   早些日子一个知名的程序员(我的同事)说他的程序象美国造的军用匕首，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-11.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="编译器, delphi, 代码分析, 算法">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="伴随开发人员成长的问题：工程重要，还是算法重要？细节重要，还是架构重要？" />
+    <meta name="twitter:description" content="为了考虑一段代码中的字符串处理效率问题，我写了一个测试程序来检测字符串引用，然后把它贴在delphibbs里(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;1220572)。随后这引起了对软件工程和开发技巧的争论。下面的文字很大程度上代表了我当时(2002年中)对开发技术、技巧的观点，我想这与现在的很多开发人员的观点是一致的：   说实在的，现在越来越多的人员都在说要重工程，而不要重算法，不要重技巧；陷于程序的枝节，不如跳出来考虑总体结构。   看起来说得很对，但问题是，为什么到现在M$的编译器的速度都比Borland的慢？M$在这上面追了这么多年，什么样的软件工程没搞过，却怎么还是比人家的慢？   现在个人机越来越高档，对于个人而言，好象是永远也不用到CPU极限一样。但是，服务器呢？成千上万个人在用，服务器端的软件不讲求效率和性能，面临的可能就是不断地找机房管理员重启服务器！   在大谈软件工程的时代，我来追求一两行代码的性能，可能是老土，但如果做服务器程序的人，没有土一点的思想，不明白编译器的细节，可能是行不通的。   早些日子一个知名的程序员(我的同事)说他的程序象美国造的军用匕首，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-11.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="编译器, delphi, 代码分析, 算法" />
     
     <script type="application/ld+json">
 {
@@ -84,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-bian-yi-qi tag-delphi tag-delphiyuan-dai-ma-fen-xi tag-suan-fa nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -113,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/bian-yi-qi/">编译器</a>, <a href="tag/delphi/">delphi</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>, <a href="tag/suan-fa/">算法</a>
+                        <a href="tag/bian-yi-qi/index.html">编译器</a>, <a href="tag/delphi/index.html">delphi</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/index.html">代码分析</a>, <a href="tag/suan-fa/index.html">算法</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -149,7 +150,7 @@ ghost.init({
             <section class="post-content">
                 <p>为了考虑一段代码中的字符串处理效率问题，我写了一个测试程序来检测字符串引用，然后把它贴在delphibbs里(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=1220572">http://www.delphibbs.com/delphibbs/dispq.asp?lid=1220572</a>)。随后这引起了对软件工程和开发技巧的争论。下面的文字很大程度上代表了我当时(2002年中)对开发技术、技巧的观点，我想这与现在的很多开发人员的观点是一致的：  </p>
 
-<hr>
+<hr />
 
 <p>说实在的，现在越来越多的人员都在说要重工程，而不要重算法，不要重技巧；陷于程序的枝节，不如跳出来考虑总体结构。  </p>
 
@@ -161,19 +162,19 @@ ghost.init({
 
 <p>早些日子一个知名的程序员(我的同事)说他的程序象美国造的军用匕首，精巧好用，科技含量十足，而另一个程序员写的程序象前苏联的坦克，耗油、声音大但用三十年不会返修，连螺丝钉都不会掉一个。  </p>
 
-<p>我就说，前者适合做个人工具软件，后者适合做服务器端……  </p>
+<p>我就说，前者适合做个人工具软件，后者适合做服务器端&hellip;&hellip;  </p>
 
-<hr>
+<hr />
 
-<p>基本上，即使是现在，我仍然不会去否定这种“出自程序员”的观点。但站在另外的角度，例如“软件工程的实践者”，我却在思考“语言只是工具”以及“语言只是工程中的细节”这样的问题；或者站在架构师的角度，开始思考“如果有性能需求，那么就在技术细部做处理”、“不要把‘新技术’与‘好方法’给等同起来”这样的问题。  </p>
+<p>基本上，即使是现在，我仍然不会去否定这种&ldquo;出自程序员&rdquo;的观点。但站在另外的角度，例如&ldquo;软件工程的实践者&rdquo;，我却在思考&ldquo;语言只是工具&rdquo;以及&ldquo;语言只是工程中的细节&rdquo;这样的问题；或者站在架构师的角度，开始思考&ldquo;如果有性能需求，那么就在技术细部做处理&rdquo;、&ldquo;不要把&lsquo;新技术&rsquo;与&lsquo;好方法&rsquo;给等同起来&rdquo;这样的问题。  </p>
 
-<p>我开始否认技术与技巧，是与承认它们、思考它们同时并进的。在《Delphi源代码分析》的前言里头，我就写过：“通常，如果你发现‘必须使用技巧来解决问题’，那么你应当考虑‘是否方案设计错误’”，而写这句话的同时，我正在自相矛盾地研究着Delphi内部的细节与技巧。  </p>
+<p>我开始否认技术与技巧，是与承认它们、思考它们同时并进的。在《Delphi源代码分析》的前言里头，我就写过：&ldquo;通常，如果你发现&lsquo;必须使用技巧来解决问题&rsquo;，那么你应当考虑&lsquo;是否方案设计错误&rsquo;&rdquo;，而写这句话的同时，我正在自相矛盾地研究着Delphi内部的细节与技巧。  </p>
 
 <p>而现在，我一面在如同2002年持上述现点一样地用技术和技巧来实现一些架构的细部，同时又在实践着我在《大道至简》中写过的言论：语言只是工具。  </p>
 
 <p>我们对于事物的认识总是渐进的，你不能指望孔子、老子、庄子这些先贤们在二、三十岁的时候就有如今我们所知所见的思想深度，因而你也不能期望没有软件开发实践的新手们去相信你对工程和架构的理念。如同我在三年前固执于效率、技巧与细节那样，我们总能看到开发人员最正常、最真实以及最可爱的一面：持着与细致。  </p>
 
-<p>然而我现在的观点是：“如何做”只是手段问题，“做什么”，才应当是关注的焦点。  </p>
+<p>然而我现在的观点是：&ldquo;如何做&rdquo;只是手段问题，&ldquo;做什么&rdquo;，才应当是关注的焦点。  </p>
 
 <p>因而我还想问的是：为什么到现在M$的编译器还是比Borland的慢，然而VS.NET已经绝对占领了未来Windows平台上开发的市场？</p>
             </section>
@@ -192,7 +193,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-12.html">
                     善于使用资源的程序员才是好程序员
                 </a>
@@ -203,7 +204,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -223,14 +224,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -246,7 +247,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -260,7 +261,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -289,3 +290,4 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>

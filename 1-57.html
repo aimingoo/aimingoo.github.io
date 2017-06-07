@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma框架库(三)：处理池与处理机</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomolangma框架库(三)：处理池与处理机">
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-57.html">
-    <meta property="article:published_time" content="2007-01-31T18:57:00.000Z">
-    <meta property="article:modified_time" content="2007-01-31T18:57:00.000Z">
-    <meta property="article:tag" content="框架">
-    <meta property="article:tag" content="浏览器">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomolangma框架库(三)：处理池与处理机" />
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-57.html" />
+    <meta property="article:published_time" content="2007-01-31T18:57:00.000Z" />
+    <meta property="article:modified_time" content="2007-01-31T18:57:00.000Z" />
+    <meta property="article:tag" content="框架" />
+    <meta property="article:tag" content="浏览器" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomolangma框架库(三)：处理池与处理机">
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-57.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="框架, 浏览器">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomolangma框架库(三)：处理池与处理机" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-57.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="框架, 浏览器" />
     
     <script type="application/ld+json">
 {
@@ -82,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-kuang-jia tag-liu-lan-qi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -111,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/kuang-jia/">框架</a>, <a href="tag/liu-lan-qi/">浏览器</a>
+                        <a href="tag/kuang-jia/index.html">框架</a>, <a href="tag/liu-lan-qi/index.html">浏览器</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,57 +146,57 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：../../Qomo_team.txt <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：../../Qomo_team.txt <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>一、框架库：处理池与处理机 <br>
-~~~~~~~~~~~~~~~~<del> <br>
-严格地说，Pool被译成“池”即可，只是在Qomo的TPool类中，所有放在“池”中的对象都是 <br>
-处理机(Machine)，因此这个TPool被称为“处理池”类。  </del></p>
+<p>一、框架库：处理池与处理机 <br />
+~~~~~~~~~~~~~~~~<del> <br />
+严格地说，Pool被译成&ldquo;池&rdquo;即可，只是在Qomo的TPool类中，所有放在&ldquo;池&rdquo;中的对象都是 <br />
+处理机(Machine)，因此这个TPool被称为&ldquo;处理池&rdquo;类。  </p>
 
-<p>Pool的出现早在WEUI的时代，其目的是处理同步的、缓存的XmlHttp对象。因此，Machine也 <br>
-就在事实上只实现了“THttpGetMachine”。这个HttpGetMachine也能处理POST类型的HTTP请 <br>
-求，所以，严格地说，它应该名为“THttpMachine”。  </p>
+<p>Pool的出现早在WEUI的时代，其目的是处理同步的、缓存的XmlHttp对象。因此，Machine也 <br />
+就在事实上只实现了&ldquo;THttpGetMachine&rdquo;。这个HttpGetMachine也能处理POST类型的HTTP请 <br />
+求，所以，严格地说，它应该名为&ldquo;THttpMachine&rdquo;。  </p>
 
-<p>Pool是一种机制，并不局限在使用 HttpGetMachine 上。HttpGetMachine只是Machine的一个 <br>
+<p>Pool是一种机制，并不局限在使用 HttpGetMachine 上。HttpGetMachine只是Machine的一个 <br />
 实现实例。我们先澄清这一点，以避免开发人员把它当成了Ajax技术的另一个名词。  </p>
 
-<p>HttpGetMachine已经处理了兼容问题。随便指出，Framework/Common下的公共类，都是可以 <br>
+<p>HttpGetMachine已经处理了兼容问题。随便指出，Framework/Common下的公共类，都是可以 <br />
 在mozilla兼容浏览器中使用的。  </p>
 
-<p>二、池化的架构 <br>
-~~~~~~~~~~~~~~<del> <br>
-Pool提供四种能力： <br>
-  - 注册处理机类(Machine Class) <br>
-  - 管理处理机实例(Machine Instance) <br>
-  - 调度处理机(包括状态：resume, sleep, free) <br>
-  - 管理数据(Data)对象  </del></p>
+<p>二、池化的架构 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+Pool提供四种能力： <br />
+&nbsp; - 注册处理机类(Machine Class) <br />
+&nbsp; - 管理处理机实例(Machine Instance) <br />
+&nbsp; - 调度处理机(包括状态：resume, sleep, free) <br />
+&nbsp; - 管理数据(Data)对象  </p>
 
-<p>处理机类提供处理数据(Data)的能力，数据(Data)的结构对Pool来说是完全透明，Pool只在 <br>
+<p>处理机类提供处理数据(Data)的能力，数据(Data)的结构对Pool来说是完全透明，Pool只在 <br />
 调度过程中，将数据传给处理器，处理器如何识别、使用、修改这个数据，Pool完全不知。  </p>
 
-<p>处理机应当具体的能力有： <br>
-  - 提供 OnStateChange 事件，响应来自Pool的调度状态(resume, free) <br>
-  - 在必要的时候，激活OnStateChange事件，以通知Pool进入调度状态(sleep)  </p>
+<p>处理机应当具体的能力有： <br />
+&nbsp; - 提供 OnStateChange 事件，响应来自Pool的调度状态(resume, free) <br />
+&nbsp; - 在必要的时候，激活OnStateChange事件，以通知Pool进入调度状态(sleep)  </p>
 
-<p>事实上，Pool和Machine都可以响应三种状态，架构中没有约定哪种状态由谁发出，或者是由 <br>
-谁处理（并终结）。但在目前的设计中， <br>
-  - Machine处理完一段事务后，（类似于线程一样，）应触发sleep状态. <br>
-  - Pool在调用push()方法填入新的数据时，如果有空闲的Machine，则触发该Machine的result； <br>
-    否则，(在Pool未满的情况下，将)尝试创建新的Machine，会触发它Machine的resume. <br>
-  - Machine处理完自己的事务并进入sleep状态时，如果Pool有未处理数据，则为该Machine <br>
-    触发一个新的resume.  </p>
+<p>事实上，Pool和Machine都可以响应三种状态，架构中没有约定哪种状态由谁发出，或者是由 <br />
+谁处理（并终结）。但在目前的设计中， <br />
+&nbsp; - Machine处理完一段事务后，（类似于线程一样，）应触发sleep状态. <br />
+&nbsp; - Pool在调用push()方法填入新的数据时，如果有空闲的Machine，则触发该Machine的result； <br />
+&nbsp;&nbsp;&nbsp; 否则，(在Pool未满的情况下，将)尝试创建新的Machine，会触发它Machine的resume. <br />
+&nbsp; - Machine处理完自己的事务并进入sleep状态时，如果Pool有未处理数据，则为该Machine <br />
+&nbsp;&nbsp;&nbsp; 触发一个新的resume.  </p>
 
 <p>Pool和Machine可以根据需要重新设定触发方式，但不能改变对各状态值的含义的约定。  </p>
 
@@ -203,275 +204,275 @@ Pool提供四种能力： <br>
 
 <p>Machine的启动时间，以及Data处理的结束时间，是没有时序和关联的。  </p>
 
-<p>三、使用处理池 <br>
-~~~~~~~~~~~~~~<del> <br>
-同一个处理池中，只能使用相同的处理机。这在处理池创建时就需要定义好。例如： <br>
-<font face="Courier New">  </font></del></p>
+<p>三、使用处理池 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+同一个处理池中，只能使用相同的处理机。这在处理池创建时就需要定义好。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 声明一个处理THttpGetMachine的池，池的大小(深度)为10 <br>
-var pool = new Pool(THttpGetMachine, 10); <br>
-------------------  </p>
+<p>// 声明一个处理THttpGetMachine的池，池的大小(深度)为10 <br />
+var pool = new Pool(THttpGetMachine, 10); <br />
+------------------</font>  </p>
 
-<p>这里，池的大小为10表明池中容纳THttpGetMachine实例的上限为10个。当Machine在忙(Busy)时， <br>
-如果有新的数据请求处理，则会尝试创建新的Machine。当上限设定数的Machine都在忙时，数据 <br>
+<p>这里，池的大小为10表明池中容纳THttpGetMachine实例的上限为10个。当Machine在忙(Busy)时， <br />
+如果有新的数据请求处理，则会尝试创建新的Machine。当上限设定数的Machine都在忙时，数据 <br />
 被缓存到队列中等待处理。  </p>
 
-<p>从原理上来说，无论是创建大小为1个还是100个的池，最终所有的数据都能得到处理。只是处理 <br>
-的并发量不一样，因此速度和性能也就有差异。——池的大小通常是经验值。  </p>
+<p>从原理上来说，无论是创建大小为1个还是100个的池，最终所有的数据都能得到处理。只是处理 <br />
+的并发量不一样，因此速度和性能也就有差异。&mdash;&mdash;池的大小通常是经验值。  </p>
 
-<p>池创建后立即开始工作。但它只响应一个方法： <br>
-<font face="Courier New">  </font></p>
+<p>池创建后立即开始工作。但它只响应一个方法： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>pool.push( <em>your</em>data ); <br>
-------------------  </p>
+<p>pool.push( <em>your</em>data ); <br />
+------------------</font>  </p>
 
-<p>这里的<em>your</em>data是用户自已决定的一种结构，它对于Pool来说是透明的。当它被处理时，会被 <br>
+<p>这里的<em>your</em>data是用户自已决定的一种结构，它对于Pool来说是透明的。当它被处理时，会被 <br />
 传递到某个Machine实例，而这个实例确切地知道如何处理这种数据。  </p>
 
-<p>对于THttpGetMachine来说，它能处理一个对象，该对象有一个名为src的属性，即： <br>
-<font face="Courier New">  </font></p>
+<p>对于THttpGetMachine来说，它能处理一个对象，该对象有一个名为src的属性，即： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var data = { src: "<a href="http://www.doany.net/"><font face="Courier New"><a href="http://www.doany.net/">http://www.doany.net/</a></font></a><font face="Courier New">" }; <br>
-pool.push( data ); <br>
-------------------</font> <br>
-这里并不限制必须是一个对象，也不限制必须是直接量声明。当然，直接量的好处，是你可以这 <br>
-样写代码： <br>
-<font face="Courier New">  </font></p>
+<p>var data = { src: &quot;</font><a href="http://www.doany.net/"><font face="Courier New"><a href="http://www.doany.net/">http://www.doany.net/</a></font></a><font face="Courier New">&quot; }; <br />
+pool.push( data ); <br />
+------------------</font> <br />
+这里并不限制必须是一个对象，也不限制必须是直接量声明。当然，直接量的好处，是你可以这 <br />
+样写代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>pool.push({ src: "<a href="http://www.doany.net/"><font face="Courier New"><a href="http://www.doany.net/">http://www.doany.net/</a></font></a><font face="Courier New">" }); <br>
+<p>pool.push({ src: &quot;</font><a href="http://www.doany.net/"><font face="Courier New"><a href="http://www.doany.net/">http://www.doany.net/</a></font></a><font face="Courier New">&quot; }); <br />
 ------------------</font>  </p>
 
-<p>四、使用处理机 <br>
-~~~~~~~~~~~~~~<del> <br>
-如何处理机被实现过，那么使用者只需要非常简单地调用，即可完成处理，而无需关注具体的处 <br>
-理机与处理池的调度过程。在上面这个使用THttpGetMachine的例子中，我们的基本代码如下： <br>
-<font face="Courier New">  </font></del></p>
+<p>四、使用处理机 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+如何处理机被实现过，那么使用者只需要非常简单地调用，即可完成处理，而无需关注具体的处 <br />
+理机与处理池的调度过程。在上面这个使用THttpGetMachine的例子中，我们的基本代码如下： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 1. 处理数据时的动作 <br>
-function doAction(state) { <br>
-  // THttpGetMachine约定state值4表明下载完毕 <br>
-  if (state <mark> 4) { <br>
-    alert('Url: %s/nLength: %s'.format(this.data.src, this.get('XMLHTTP').responseText.length)); <br>
-  } <br>
-}  </mark></p>
-
-<p><font face="Courier New">// 2. Pool的状态变更响应 <br>
-function doOnStateChange(mac, state) { <br>
-  doAction.call(mac, state); <br>
+<p>// 1. 处理数据时的动作 <br />
+function doAction(state) { <br />
+&nbsp; // THttpGetMachine约定state值4表明下载完毕 <br />
+&nbsp; if (state <mark> 4) { <br />
+&nbsp;&nbsp;&nbsp; alert('Url: %s/nLength: %s'.format(this.data.src, this.get('XMLHTTP').responseText.length)); <br />
+&nbsp; } <br />
 }</font>  </p>
 
-<p><font face="Courier New">// 3. 创建pool并添加事件响应 <br>
-var pool = new Pool(THttpGetMachine, 10); <br>
+<p><font face="Courier New">// 2. Pool的状态变更响应 <br />
+function doOnStateChange(mac, state) { <br />
+&nbsp; doAction.call(mac, state); <br />
+}</font>  </p>
+
+<p><font face="Courier New">// 3. 创建pool并添加事件响应 <br />
+var pool = new Pool(THttpGetMachine, 10); <br />
 pool.OnStateChange.add(doOnStateChange);</font>  </p>
 
-<p><font face="Courier New">// 4. 处理数据 <br>
-pool.push({ src: "</font><a href="http://www.doany.net/"><font face="Courier New"><a href="http://www.doany.net/">http://www.doany.net/</a></font></a><font face="Courier New">" }); <br>
+<p><font face="Courier New">// 4. 处理数据 <br />
+pool.push({ src: &quot;</font><a href="http://www.doany.net/"><font face="Courier New"><a href="http://www.doany.net/">http://www.doany.net/</a></font></a><font face="Courier New">&quot; }); <br />
 ------------------</font>  </p>
 
-<p>上面的步骤1、2可以有更灵活的处理方式，包括"this"的传递、数据(Data)的分析、状态(State) <br>
+<p>上面的步骤1、2可以有更灵活的处理方式，包括&quot;this&quot;的传递、数据(Data)的分析、状态(State) <br />
 的识别等等，这些都是用户代码中的技巧。但在THttpGetMachine中，基本的使用方法是如上的。  </p>
 
 <p>下面讲述处理机的实现方法。因为Qomo的框架允许用户自行扩充各种不同的处理机。  </p>
 
-<p>四、实现处理机(1)：基本结构 <br>
-~~~~~~~~~~~~~~<del> <br>
-处理机需要具有两个属性： <br>
-  - data: 当处理机被TPool调度时，data指向需要被处理的数据 <br>
-  - pool: 当处理机被TPool调度时，pool指向Pool自身  </del></p>
+<p>四、实现处理机(1)：基本结构 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+处理机需要具有两个属性： <br />
+&nbsp; - data: 当处理机被TPool调度时，data指向需要被处理的数据 <br />
+&nbsp; - pool: 当处理机被TPool调度时，pool指向Pool自身  </p>
 
-<p>所以我们看到，THttpGetMachine实现中，为每个对象声明了这两个属性： <br>
-<font face="Courier New">  </font></p>
+<p>所以我们看到，THttpGetMachine实现中，为每个对象声明了这两个属性： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function HttpGetMachine () { <br>
-  //... <br>
-  <br>
-  this.Create = function() { <br>
-    this.data = null; <br>
-    this.pool = null;  </p>
+<p>function HttpGetMachine () { <br />
+&nbsp; //... <br />
+&nbsp; <br />
+&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; this.data = null; <br />
+&nbsp;&nbsp;&nbsp; this.pool = null;</font>  </p>
 
-<p><font face="Courier New">    // ... <br>
-  } <br>
-} <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; } <br />
+} <br />
 ------------------</font>  </p>
 
-<p>我们说过，处理机明确地知道它将处理的数据的格式。因此，在THttpGetMachine的实现中，它 <br>
-响应OnStateChange时的处理代码如下： <br>
-<font face="Courier New">  </font></p>
+<p>我们说过，处理机明确地知道它将处理的数据的格式。因此，在THttpGetMachine的实现中，它 <br />
+响应OnStateChange时的处理代码如下： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var doStateChange = function(state) { <br>
-  if (state'resume') { <br>
-    // 获取或创建 XmlHttpRequest 对象、设置属性等 <br>
-    var xmlHttp = ... <br>
-    var method = 'GET';  </p>
+<p>var doStateChange = function(state) { <br />
+&nbsp; if (state</mark>'resume') { <br />
+&nbsp;&nbsp;&nbsp; // 获取或创建 XmlHttpRequest 对象、设置属性等 <br />
+&nbsp;&nbsp;&nbsp; var xmlHttp = ... <br />
+&nbsp;&nbsp;&nbsp; var method = 'GET';</font>  </p>
 
-<p><font face="Courier New">    // this 指向 Machine 自身 <br>
-    var src = this.data.src;</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // this 指向 Machine 自身 <br />
+&nbsp;&nbsp;&nbsp; var src = this.data.src;</font>  </p>
 
-<p><font face="Courier New">    // src 指向需要当前 Machine 处理的URL地址，因此应该通过类似如下代码来获取数据 <br>
-    xmlHttp.open(method, src, true); <br>
-    xmlHttp.send(null); <br>
-  } <br>
-  else if (state<mark>'free') { <br>
-    // ... <br>
-  } <br>
-} <br>
-------------------</mark></font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // src 指向需要当前 Machine 处理的URL地址，因此应该通过类似如下代码来获取数据 <br />
+&nbsp;&nbsp;&nbsp; xmlHttp.open(method, src, true); <br />
+&nbsp;&nbsp;&nbsp; xmlHttp.send(null); <br />
+&nbsp; } <br />
+&nbsp; else if (state<mark>'free') { <br />
+&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; } <br />
+} <br />
+------------------</font>  </p>
 
-<p>五、实现处理机(2)：自定义状态 <br>
-~~~~~~~~~~~~~~<del> <br>
-我们发现，这里的代码中，只处理了XmlHttpRequest开始下载的行为，那么这个对象下载完成 <br>
-之后应该如何处理呢？  </del></p>
+<p>五、实现处理机(2)：自定义状态 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+我们发现，这里的代码中，只处理了XmlHttpRequest开始下载的行为，那么这个对象下载完成 <br />
+之后应该如何处理呢？  </p>
 
-<p>对于XmlHttpRequest来说，同步调用时，onreadystatechange事件会被对象触发。而这个状态其 <br>
-实对Pool来说，是透明的。这时，Pool会把这个状态交回给Machine。这个过程在Pool和Machine <br>
+<p>对于XmlHttpRequest来说，同步调用时，onreadystatechange事件会被对象触发。而这个状态其 <br />
+实对Pool来说，是透明的。这时，Pool会把这个状态交回给Machine。这个过程在Pool和Machine <br />
 中传递，但只被Machine处理。  </p>
 
-<p>这些状态，被称为自定义状态——例如前面提到过的状态值“4”。它们是由Machine负责处理的。 <br>
-THttpGetMachine使用如下的方法来实现自定义状态： <br>
-<font face="Courier New">  </font></p>
+<p>这些状态，被称为自定义状态&mdash;&mdash;例如前面提到过的状态值&ldquo;4&rdquo;。它们是由Machine负责处理的。 <br />
+THttpGetMachine使用如下的方法来实现自定义状态： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 定义XMLHTTP.onreadystatechange事件的响应句柄 <br>
-var onreadystatechange = function() { <br>
-  var xmlHttp = this.get('XMLHTTP');  </p>
+<p>// 定义XMLHTTP.onreadystatechange事件的响应句柄 <br />
+var onreadystatechange = function() { <br />
+&nbsp; var xmlHttp = this.get('XMLHTTP');</font>  </p>
 
-<p><font face="Courier New">  this.OnStateChange(xmlHttp.readyState);</font>  </p>
+<p><font face="Courier New">&nbsp; this.OnStateChange(xmlHttp.readyState);</font>  </p>
 
-<p><font face="Courier New">  if (xmlHttp.readyState4) { <br>
-    this.OnStateChange('sleep') <br>
-  } <br>
+<p><font face="Courier New">&nbsp; if (xmlHttp.readyState</mark>4) { <br />
+&nbsp;&nbsp;&nbsp; this.OnStateChange('sleep') <br />
+&nbsp; } <br />
 }</font>  </p>
 
-<p><font face="Courier New">// HttpGetMachine的对象构造过程 <br>
-  this.Create = function() { <br>
-    //..</font>  </p>
+<p><font face="Courier New">// HttpGetMachine的对象构造过程 <br />
+&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; //..</font>  </p>
 
-<p><font face="Courier New">    var ajx = new Ajax(); <br>
-    var mac = this; <br>
-    this.set('XMLHTTP', ajx);</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; var ajx = new Ajax(); <br />
+&nbsp;&nbsp;&nbsp; var mac = this; <br />
+&nbsp;&nbsp;&nbsp; this.set('XMLHTTP', ajx);</font>  </p>
 
-<p><font face="Courier New">    // 将函数封装为方法，以使this在函数内有效 <br>
-    this.get('XMLHTTP').onreadystatechange = function() { <br>
-      onreadystatechange.apply(mac, arguments); <br>
-    } <br>
-  } <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // 将函数封装为方法，以使this在函数内有效 <br />
+&nbsp;&nbsp;&nbsp; this.get('XMLHTTP').onreadystatechange = function() { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onreadystatechange.apply(mac, arguments); <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp; } <br />
 ------------------</font>  </p>
 
-<p>我们看到，HttpGetMachine内部处理了XmlHttpRequest对象的状态变更，并通过调用 <br>
-<font face="Courier New">  </font></p>
+<p>我们看到，HttpGetMachine内部处理了XmlHttpRequest对象的状态变更，并通过调用 <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  this.OnStateChange(xmlHttp.readyState); <br>
------------------- <br>
+<p>&nbsp; this.OnStateChange(xmlHttp.readyState); <br />
+------------------</font> <br />
 来向处理器自身／子类／事件处理程序传递该状态，同时Pool也会感知到这个事件并响应它。  </p>
 
-<p>这样，xmlHttp.readyState这个自定义状态就成功地在架构的全局完成了传递——如果有事件 <br>
+<p>这样，xmlHttp.readyState这个自定义状态就成功地在架构的全局完成了传递&mdash;&mdash;如果有事件 <br />
 处理程序需要处理这个状态的话，就可以得到响应的机会。  </p>
 
-<p>onreadystatechange中有一段代码用于激活处理机的"sleep"状态。因为这个xmlHttp已经完成 <br>
-了它的“处理任务”，也就是获取数据。而且，完成下载的状态值“4”也经在上一行代码中 <br>
-向架构全局发布了通知，这意味着（如果有响应者的话）已经完成了处理过程。所以这里触发 <br>
-了"sleep"状态。  </p>
+<p>onreadystatechange中有一段代码用于激活处理机的&quot;sleep&quot;状态。因为这个xmlHttp已经完成 <br />
+了它的&ldquo;处理任务&rdquo;，也就是获取数据。而且，完成下载的状态值&ldquo;4&rdquo;也经在上一行代码中 <br />
+向架构全局发布了通知，这意味着（如果有响应者的话）已经完成了处理过程。所以这里触发 <br />
+了&quot;sleep&quot;状态。  </p>
 
-<p>上面的代码与Qomo代码包中稍有差距。代码包中的_changer()函数用于封装这个过程，而原因 <br>
+<p>上面的代码与Qomo代码包中稍有差距。代码包中的_changer()函数用于封装这个过程，而原因 <br />
 只是因为在Mozilla引擎中，xmlHttp.onreadystatechange会在处理完成后被自动置null。  </p>
 
-<p>六、处理机的高级使用方法 <br>
-~~~~~~~~~~~~~~<del> <br>
-Qomo的类继承结构允许你进一步的实现THttpGetMachine的子类，或者创建新的Machine类，以 <br>
-处理其它的数据。一般来讲，你不必要重写Pool。  </del></p>
+<p>六、处理机的高级使用方法 <br />
+</del>~~~~~~~~~~~~~~<del> <br />
+Qomo的类继承结构允许你进一步的实现THttpGetMachine的子类，或者创建新的Machine类，以 <br />
+处理其它的数据。一般来讲，你不必要重写Pool。  </p>
 
-<p>在前面的基本用法中，数据的处理程序是挂在Pool.OnStateChange事件上的。但这并不是理想 <br>
-的用法，事实上，处理的最终处理应当由Machine负责。因此，下面的代码更符合逻辑： <br>
-<font face="Courier New">  </font></p>
+<p>在前面的基本用法中，数据的处理程序是挂在Pool.OnStateChange事件上的。但这并不是理想 <br />
+的用法，事实上，处理的最终处理应当由Machine负责。因此，下面的代码更符合逻辑： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyMachine() { <br>
-  var doStateChange = function(mac, state) { <br>
-    // if (state == 4) ... <br>
-    // ... <br>
-  }  </p>
+<p>function MyMachine() { <br />
+&nbsp; var doStateChange = function(mac, state) { <br />
+&nbsp;&nbsp;&nbsp; // if (state == 4) ... <br />
+&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  this.Create = function() { <br>
-    this.OnStateChange.add(doStateChange); <br>
-  } <br>
+<p><font face="Courier New">&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; this.OnStateChange.add(doStateChange); <br />
+&nbsp; } <br />
 }</font>  </p>
 
 <p><font face="Courier New">TMyMachine = Class(THttpGetMahine, 'MyMachine');</font>  </p>
 
-<p><font face="Courier New">var pool = new Pool(TMyMachine, 10); <br>
-//... <br>
+<p><font face="Courier New">var pool = new Pool(TMyMachine, 10); <br />
+//... <br />
 ------------------</font>  </p>
 
-<p>也许你还不明白这种结构的价值，那么下面的例子，讲述如何处理不同的网页。——事实上， <br>
-这已经实现了一个动态获取并分析网页（搜索引擎？）的基本结构，或者你也可以用它来做 <br>
-RSS分析。 <br>
-<font face="Courier New">  </font></p>
+<p>也许你还不明白这种结构的价值，那么下面的例子，讲述如何处理不同的网页。&mdash;&mdash;事实上， <br />
+这已经实现了一个动态获取并分析网页（搜索引擎？）的基本结构，或者你也可以用它来做 <br />
+RSS分析。 <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  var analy_tree = { <br>
-    sina: function(ctx) { <br>
-      // ... <br>
-    },  </p>
+<p>&nbsp; var analy_tree = { <br />
+&nbsp;&nbsp;&nbsp; sina: function(ctx) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp;&nbsp;&nbsp; },</font>  </p>
 
-<p><font face="Courier New">    baidu: function(ctx) { <br>
-      // ... <br>
-    },</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; baidu: function(ctx) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp;&nbsp;&nbsp; },</font>  </p>
 
-<p><font face="Courier New">    google = function(ctx) { <br>
-      // ... <br>
-    } <br>
-  };</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; google = function(ctx) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp; };</font>  </p>
 
-<p><font face="Courier New">  funtion getHostFromUrl() { <br>
-    // 分析URL，对不同的url返回其host，或返回特定的分析器标识(analy_tree的属性名) <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; funtion getHostFromUrl() { <br />
+&nbsp;&nbsp;&nbsp; // 分析URL，对不同的url返回其host，或返回特定的分析器标识(analy_tree的属性名) <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  var doStateChange = function(mac, state) { <br>
-    if (state != 4) return;</font>  </p>
+<p><font face="Courier New">&nbsp; var doStateChange = function(mac, state) { <br />
+&nbsp;&nbsp;&nbsp; if (state != 4) return;</font>  </p>
 
-<p><font face="Courier New">    var host = getHostFromUrl(this.data.src); <br>
-    var analizer = analy_tree[host]; <br>
-    if (analizer) { <br>
-      analizer.call(this, this.get('XMLHTTP').responseText); <br>
-    } <br>
-  } <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; var host = getHostFromUrl(this.data.src); <br />
+&nbsp;&nbsp;&nbsp; var analizer = analy_tree[host]; <br />
+&nbsp;&nbsp;&nbsp; if (analizer) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; analizer.call(this, this.get('XMLHTTP').responseText); <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp; } <br />
 ------------------</font>  </p>
 
 <p>更多的代码，我就不写了。哈哈～～  </p>
 
-<p>七、其它 <br>
-~~~~~~~~~~~~~~~~ <br>
-详见示例： <br>
-  /Framework/DOCUMENTs/TestCase/T_Ajax.html  </p>
+<p>七、其它 <br />
+</del>~~~~~~~~~~~~~~~~ <br />
+详见示例： <br />
+&nbsp; /Framework/DOCUMENTs/TestCase/T_Ajax.html  </p>
 
-<p>这个示例是可以运行在FireFox等Mozilla系列浏览器上的。但由于有跨域数据存取的问题(我在 <br>
+<p>这个示例是可以运行在FireFox等Mozilla系列浏览器上的。但由于有跨域数据存取的问题(我在 <br />
 示例中访问了非本机的Url)，因此你可能会看到一个警告框，请确定即可。  </p>
 
-<p>在这个文件： <br>
-  /Framework/DOCUMENTs/TestCase/T_AjaxPriviledge(FF).html  </p>
+<p>在这个文件： <br />
+&nbsp; /Framework/DOCUMENTs/TestCase/T_AjaxPriviledge(FF).html  </p>
 
 <p>中是一个解释mozilla系列浏览器上跨域存取的示例。但目前来说，没有方法能清除那个提示框。  </p>
 
-<p>^.^ </p>
+<p>^.^&nbsp;</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -488,7 +489,7 @@ RSS分析。 <br>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-228.html">
                     2007年的几件事
                 </a>
@@ -499,7 +500,7 @@ RSS分析。 <br>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -519,14 +520,14 @@ RSS分析。 <br>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -542,7 +543,7 @@ RSS分析。 <br>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -556,7 +557,7 @@ RSS分析。 <br>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -585,3 +586,4 @@ RSS分析。 <br>
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>

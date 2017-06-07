@@ -1,4 +1,2089 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 23 May 2017 09:47:28 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[博客迁移手记（一）]]></title><description><![CDATA[<p>在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 07 Jun 2017 19:04:10 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[在电子书中使用SVG]]></title><description><![CDATA[<blockquote>
+  <p>在之前的文章中，我们讨论了《<a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="http://aimingoo.github.io/1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
+</blockquote>
+
+<p>在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。</p>
+
+<p>因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。</p>
+
+<h2 id="svg">一些.svg相关的基础知识</h2>
+
+<p>与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。</p>
+
+<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
+
+<p>所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是：</p>
+
+<ul>
+<li>.pdf约定默认的分辨率是72DPI；而</li>
+<li>.svg通常约定的是90DPI。</li>
+</ul>
+
+<p>然而即使是同一个软件的不同版本，</p>]]></description><link>http://aimingoo.github.io/1-1728.html/</link><guid isPermaLink="false">d18ac6ba-a8ce-4b89-8f4e-57b5655612c7</guid><category><![CDATA[电子书]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[svg]]></category><category><![CDATA[ImageMagick]]></category><category><![CDATA[Kindle]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 07 Jun 2017 19:02:44 GMT</pubDate><content:encoded><![CDATA[<blockquote>
+  <p>在之前的文章中，我们讨论了《<a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="http://aimingoo.github.io/1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
+</blockquote>
+
+<p>在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。</p>
+
+<p>因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。</p>
+
+<h2 id="svg">一些.svg相关的基础知识</h2>
+
+<p>与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。</p>
+
+<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
+
+<p>所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是：</p>
+
+<ul>
+<li>.pdf约定默认的分辨率是72DPI；而</li>
+<li>.svg通常约定的是90DPI。</li>
+</ul>
+
+<p>然而即使是同一个软件的不同版本，也可能修改这个约定。例如Inkscape 从v0.92版本开始就默认使用96DPI的约定——而之前它是90DPI（<a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.92#Important_changes">参见这里</a>，以及<a href="http://wiki.inkscape.org/wiki/index.php/Units_In_Inkscape">这里</a>）。</p>
+
+<p>相对好一些的消息是：能够实现SVG处理的引擎并不太多——所以上述的一些不确定的限制条件也就相对来说容易穷举。这些引擎主要包括Cario、Inkscape、Apache Batik和一些浏览器上的Canvas。当然，此前讲过的ImageMagick内置的MSVG也算一个，不过它实在弱到没朋友，不提也罢。很多工具其实是以上述引擎为内核或库的，其中最常用的是Cario，包括rsvg在内的许多库/包都只是Cario上的一个封装。</p>
+
+<blockquote>
+  <p>注1：Cario库也支持PDF，所以Inkscape、Poppler等都使用它来输出PDF和PostScript文档（生成的.pdf文件元信息中Creator也是Cario）。但是Inkscape的SVG渲染引擎是自有的，相关信息可以参考<a href="https://en.wikipedia.org/wiki/Cairo_(graphics)">这里</a>。</p>
+</blockquote>
+
+<p>本文中提到的一些工具可以用如下方式安装：</p>
+
+<pre><code class="language-bash">## rsvg, rsvg-convert, and cario ...
+&gt; brew install libsvg librsvg libsvg-cairo cairo
+
+## pdf2svg, mactex(pdfcrop), Inkscape, more...
+&gt; brew install pdf2svg
+&gt; brew cask install xquartz mactex inkscape
+
+# ImageMagick(identify,convert,mogrify...), and pdfinfo or cpdf
+&gt; brew install ghostscript imagemagick cpdf poppler
+
+## cairosvg for python
+&gt; pip3 install cairosvg
+
+## svginfo
+&gt; git clone http://github.com/aimingoo/svginfo
+&gt; install svginfo/svginfo /usr/local/bin/
+</code></pre>
+
+<h2 id="pdfsvg">从PDF到SVG</h2>
+
+<p>你可能已经习惯使用种种矢量图形工具并用来制作.svg，反正我不是。我通常是用PowerPoint或Keynote来制作它们（尤其是表格）并存储为PDF，然后由.pdf转为.svg。</p>
+
+<p>这个过程看起来麻烦，但确实靠谱。</p>
+
+<p>总的来说，从PDF到SVG的工具主要有两个（<a href="https://en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#How_to_convert_a_PDF_to_SVG">Wiki上也是这么说的</a>）。其中最方便、快捷和安全的应该是cityinthesky的pdf2svg，他使用Poppler+Cario；另一个是inkscape，除了在字体处理上表现不稳定之外，它还需要XQuartz的支持（这就比较庞大了）。</p>
+
+<p>pdf2svg可以直接使用brew安装，它的开源项目<a href="http://www.cityinthesky.co.uk/opensource/pdf2svg">在这里</a>，或<a href="https://github.com/indraniel/pdf2svg">这里</a>。采用相同技术实现的还有<a href="https://github.com/indraniel/pdf2svg">Perl</a>和<a href="https://github.com/jakobwesthoff/pdf2svg">Vala</a>的版本——因为使用的都是相同的库，因此效果应该没差。其它可选的方案包括<a href="https://github.com/ContentMine/pdf2svg">Java</a>、<a href="https://github.com/ststeiger/Pdf2Svg">C#</a>版的等等，但采用的是各自语言下的引擎，我没有一一试过。</p>
+
+<p>使用pdf2svg的参数如下：</p>
+
+<pre><code class="language-bash">&gt; pdf2svg --help
+Usage: pdf2svg &lt;in file.pdf&gt; &lt;out file.svg&gt; [&lt;page no&gt;]  
+</code></pre>
+
+<p>其中<code>&lt;page no&gt;</code>可以使用字符串<code>all</code>。</p>
+
+<p>注意pdf2svg并不能指定输出的.svg的大小、DPI等等。其实你使用inkscape来转换也一样没有这类参数——在转换目标格式为.svg时，inkscape仅会多出<code>--export-text-to-path</code>、<code>--export-id</code>两个参数可用。此外，inkscape只能处理单页的PDF：</p>
+
+<pre><code class="language-bash">&gt; inkscape -z --export-plain-svg=&lt;out file.svg&gt; &lt;in file.pdf&gt;
+</code></pre>
+
+<p>最后，pdf2svg与inkscape转换出来的.svg文件的页面大小其实是一样，但是它们使用的单位并不相同。如下：</p>
+
+<pre><code class="language-bash">## inkscape
+&gt; svginfo by-inkscape.svg
+width: 152.5  
+height: 77.5  
+viewBox: 0 0 152.5 77.5
+
+## pdf2svg, and more...
+&gt; svginfo by-cario.svg
+width: 122pt  
+height: 62pt  
+viewBox: 0 0 122 62  
+</code></pre>
+
+<p>注意inkscape转出时使用了缺省单位，这通常是指px；而cario转出时使用的是pt。对于上例来说，原始的pdf文件信息如下：</p>
+
+<pre><code class="language-bash">&gt; pdfinfo my.pdf | grep 'Page size'
+Page size:      122 x 62 pts  
+</code></pre>
+
+<p>可见，两种引擎事实上都是直接以该页面大小的pt值作为.svg的宽高，只不过inkscape转换成了相应的px值。</p>
+
+<blockquote>
+  <p>注1：需要强调的是，上述版本的inkscape的采用的是90DPI的.svg设定，而PDF默认为72DPI。所以从<code>.PDF的Pts</code>到<code>.SVG的px</code>的转换系数是<code>90/72</code>，即<code>width = 122pt * 90/72 = 152.5px</code>。</p>
+  
+  <p>注2：就我的测试来说，Inkscape在处理<code>PDF -&gt; png</code>的转换时不能正确的识别中文字体，其它类型下的转换我并没有一一试过。</p>
+</blockquote>
+
+<h2 id="svginfoimagemagick">svginfo: 不要相信ImageMagick的显示</h2>
+
+<p>如果你使用<code>identify -verbose your.svg</code>来查看svg的信息的话，那么由于ImageMagick可能工作在不同的SVG模式下，所以输出的信息也就不同。——这就是我的上一篇文章为什么叫《详解ImageMagick中SVG的支持》的原因。</p>
+
+<p>我测试了一下上文中提到的4种模式，如下：</p>
+
+<pre><code>## test information of 'identify -verbose your.svg'
+===&gt; MODE: internal, use MSVG
+  Geometry: 485x306+0+0
+  Units: Undefined
+===&gt; MODE: build-in, use RSVG/librsvg
+  Geometry: 517x327+0+0
+  Resolution: 37.8x37.8
+  Print size: 13.6772x8.65079
+  Units: PixelsPerCentimeter
+===&gt; MODE: delegate(internal), use inkscape
+  Geometry: 517x327+0+0
+  Resolution: 37.8x37.8
+  Print size: 13.6772x8.65079
+  Units: PixelsPerCentimeter
+===&gt; MODE: delegate, use rsvg-convert
+  Geometry: 517x327+0+0
+  Units: Undefined
+</code></pre>
+
+<p>这四种模式中，MSVG是唯一一个不转换成图片（因为内置xml解析和svg支持）的方式，也是它与别的模式看起来有差异的原因。此外，由于缺省使用了<code>PixelsPerCentimeter</code>单位，所以Resolution显示是<code>37.8x37.8</code>，换算成英寸则是96DPI。</p>
+
+<p>那么这个<code>your.svg</code>的大小到底是多少呢？很不幸，它真实的数据是<code>388x245 pts</code>。</p>
+
+<p>因为svg缺省是工作在90dpi模式下的，所以MSVG用90dpi来换算.svg的大小，就得到了<code>388 * 90/72 = 485px</code>的宽，而其它模式都是先转换成图片，并指定了参数96DPI，这时宽度就成了<code>388 * 96/72 = 517px</code>。</p>
+
+<p>所以无论如何（除非你能确切指定使用某一种SVG引擎），对于.svg来说，ImageMagick显示的大小是作不得准的。更好的办法是直接显示.svg中的元信息，例如使用<code>svginfo</code>这个工具（<a href="https://github.com/aimingoo/svginfo">下载在这里</a>）：</p>
+
+<pre><code class="language-bash">&gt; svginfo your.svg
+width: 388pt  
+height: 245pt  
+viewBox: 0 0 388 245  
+zoomAndPan: magnify  
+preserveAspectRatio: none  
+</code></pre>
+
+<p>在.svg的元信息中保存的width/height值可能有很多种单位（<a href="http://www.sarasoueidan.com/blog/svg-coordinate-systems/#svg-viewport">参见这里</a>，或<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Positions">中文译本</a>，缺省是px，但与具体设备有关）。</p>
+
+<h2 id="svg">电子书并其实不能『很正确』地显示.svg文件</h2>
+
+<p>现在我们得到了.svg，并且我们确切地知道它的大小与.pdf的Page Size的Pts值存在<code>90:72</code>的关系（因为默认精度不同）。所以我们只需要控制.pdf的大小，就可以得到合适的.svg文件了。——不考虑.svg的工具的话，在.pdf的工具套件中还有cpdf，还有gs等等可用，很丰富。</p>
+
+<p>但是，真正的一张520pts(或者是520px)大小的.svg，会如何显示在电子书上呢？</p>
+
+<p>答案是：不一定。</p>
+
+<p>如果你在电子书中用<code>&lt;img src="xxx.png"&gt;</code>来插入一张图片而没有指定它的宽高，那么几乎所有的排版引擎都能理解这个行为：</p>
+
+<ul>
+<li>将xxx.png图片信息中的宽高信息作为显示宽高；</li>
+<li>如果这个宽高大于设备的可见区域，则缩小到合适的大小。</li>
+</ul>
+
+<p>——所以，在电子书中使用图片时只需要考虑图片的精度，其它方面几乎是完美的、自适应的。</p>
+
+<p>然而如果你用同样的方法来插入一个.svg文件，那么由于pt这个单位的存在，所以设备如何显示就成了『谜之问题』了。首先我们要知道，</p>
+
+<blockquote>
+  <p>如果一个.svg是使用px作为单位（也包括没有单位而缺省的），那么将采用与图片一致的规则。</p>
+</blockquote>
+
+<p>这是一条重要的原则，也成为检测其它.svg单位的关键钥匙。</p>
+
+<p>例如以前面的your.svg为例——它使用了pt作为单位，是388pt。由于.svg是缺省以90DPI为来计算pt值的，所以MSVG还原成px时，显示的是485px的宽。但是到了实际物理设备时，却不一定是以90DPI——这个假想值——来处理的了。例如在Macbook上的iBooks中显示时，iBooks的SVG渲染引擎采用了96DPI的预设值，所以就将显示成<code>388 * 96/72 = 517px</code>；又例如我是要在Kindle Paperwhite3上来显示它，那么由于Kindle使用它的PPI（300DPI）来作为预设值，所以显示出来就应该是惊人的<code>1616px</code>。——好吧，你知道Kindle显示不下了，而.svg是矢量缩放的，所以最终只是按可见区域的全宽来显示它。</p>
+
+<p>电子书的这个处理方案正确不呢？答案是『正确』。因为这其实就是pt作为单位的原始用意。它看起来不是那么『很正确』的原因在于：这样一来，我们就不知道到底该做多大的.svg才能在不同的物理设备上适用了。</p>
+
+<p>那么，最终只剩下了两条规则适用：</p>
+
+<ul>
+<li>在文件中明确使用px作为单位来指定大小的.svg；或者，</li>
+<li>在使用<code>&lt;img ...&gt;</code>标签插入.svg时，指定它的宽高信息。</li>
+</ul>
+
+<h2 id="pxsvg">使用px作为单位来指定大小的.svg</h2>
+
+<p>使用Inkscape转出的.svg是作用缺省单位px的。但是这个转换是采用.pdf的Points换算过来的，为此你必须将.pdf放大一些，才能在Inkscape中得到你预期的的px值大小。这个换算关系如下：</p>
+
+<pre><code class="language-bash"># 步骤1：将.PDF的大小换算成300DPI下比例(放大300/90倍)
+#    - 因为pdf转成svg时还要再放大90/72倍，所以这里不需要直接用300/72作系数
+&gt; cpdf -scale-page "3.33333 3.33333" -scale-to-fit-scale 3.33333 -o new_300DPI.pdf my.pdf
+
+# 步骤2：将新文件转换成.svg
+&gt; inkscape -z --export-plain-svg=my.svg new_300DPI.pdf
+
+# 查看原始的my.pdf的信息
+&gt; pdfinfo my.pdf | grep 'Page size'
+Page size:      122 x 62 pts
+
+# 查看中间文件.pdf的大小
+&gt; pdfinfo new_300DPI.pdf | grep 'Page size'
+Page size:      406.666 x 206.666 pts
+
+# 查看新的.svg的信息
+&gt; svginfo my.svg
+width: 508.33282  
+height: 258.33307  
+viewBox: 0 0 508.33282 258.33307  
+zoomAndPan: magnify  
+preserveAspectRatio: none  
+</code></pre>
+
+<p>验证方法：制作一张<code>508 x 258</code>的图片，与my.svg一起插入到电子书中，它们显示起来将是相同大小。</p>
+
+<h2 id="svg">正确插入.svg的宽高信息</h2>
+
+<p>我们也可以选择如下的途径（在这个过程中不需要对调整中间文件与.svg的大小）：</p>
+
+<blockquote>
+  <ul>
+  <li>从.ppt/.key转换到.pdf，再</li>
+  <li>从.pdf转换到.svg，最后</li>
+  <li>在电子书中插入.svg的宽度信息。</li>
+  </ul>
+</blockquote>
+
+<p>我们假设以.html作为生成电子书的中间格式（如果你真做过电子书的话，你应该知道我为什么这么假设），那么事实上我们就只需要扫描所有的.svg，通过svginfo来查看信息，经过计算并将正确的宽高信息写到.html就好了。</p>
+
+<p>我们需要知道相应的.svg与最初预设的宽高上限（注意考虑到实际使用，我只预设了x方向上限，并不处理y方向）。我们之前说过：合理的预设是<code>520px</code>。所以，例如480px宽的.svg，那么我们就将<code>&lt;img …&gt;</code>中的width值回写成<code>92.3%</code>。</p>
+
+<p>我想，你可能已经发现问题了：这个92.3%应该是指的图片相对于当前设备宽的比例啊，而不是图片自己的宽度值。——是的，我的确是这样考虑的，至于为什么，你得仔细去思考了。</p>
+
+<p>其它（建议综合我最近的几篇文章来理解下述过程）：</p>
+
+<ul>
+<li>我们原始设计的宽是520px，在300DPI情况下的物理宽是1.73333inch；</li>
+<li>当把上述文档输出成PDF时，物理宽（Print Size）不变；而精度变成了PDF默认的72，所以在转换成Points值时变成了124.8pt，即<code>1.73333inch * 72pt/inch</code>；</li>
+<li>我们再从.pdf转到.svg时是pt by pt的，所以相应的.svg值是124.8pt；
+<ul><li>如果使用pdf2svg，则转换出的.svg是<code>width = 156</code>，使用了缺省单位px；</li></ul></li>
+<li>使用<code>identify msvg:your.svg</code>取值最快，但要注意它总是以px为单位显示宽高信息；
+<ul><li>在不支持MSVG的ImageMagick的低版本中，建议用svginfo取值并转换单位</li></ul></li>
+</ul>
+
+<p>相关操作如下（下载<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.pdf">standard<em>image</em>templet_520.pdf</a>）：</p>
+
+<pre><code class="language-bash"># 步骤1：使用hires参数和高的resolution值可以使crop操作更精确
+#    - 输出的.pdf的精度与该参数值是无关的
+&gt; pdfcrop --hires --resolution 1200 standard_image_templet_520.pdf croped.pdf
+
+# 步骤2：转换pdf到svg
+&gt; pdf2svg croped.pdf standard_image_templet_520.svg 1
+
+# 使用pdfinfo查看信息
+&gt; pdfinfo croped.pdf | grep 'Page size'
+Page size:      124.8 x 73.26 pts
+
+# 使用svginfo查看信息
+&gt; svginfo standard_image_templet_520.svg
+width: 124.8pt  
+height: 73.26pt  
+viewBox: 0 0 124.8 73.26  
+zoomAndPan: magnify  
+preserveAspectRatio: none
+
+# 使用identify查看信息(强制使用MSVG引擎)
+&gt; identify msvg:standard_image_templet_520.svg | xargs -n1
+msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg  
+MSVG  
+156x92  
+156x92+0+0  
+...
+</code></pre>
+
+<h2 id="">黑科技：最后一点补充</h2>
+
+<p>如果：</p>
+
+<ul>
+<li>你确实想让.svg用px作为单位，以避免修改电子书中的width/height信息；并且，</li>
+<li>你确实又憎恨Inkscape的巨大安装包和超慢速度，以及它只能处理单页的问题；并且，</li>
+<li>你不太担心pdf2svg转换后的.svg文件较大的问题；并且，</li>
+<li>……</li>
+</ul>
+
+<p>也许你只是纯粹的点处理爱好者（px fans?），那么好吧，我们讲一种最简单（目前看来也挺安全，但……我不做任何保证）的黑科技。下面仍然以<code>standard_image_templet_520.pdf</code>这个文件为例：</p>
+
+<pre><code class="language-bash"># 步骤1：在300DPI下crop，以提高crop的计算精度
+#    - 输出的croped.pdf的精度与该参数值是无关的
+&gt; pdfcrop --hires --resolution 300 standard_image_templet_520.pdf croped.pdf
+
+# 步骤1：将.PDF的大小假想成px单位，直接换算成300DPI下的大小
+#    - 也就说无脑放大300/72倍就行啦
+&gt; cpdf -scale-page "4.166667 4.166667" -scale-to-fit-scale 4.166667 -o scaled.pdf croped.pdf
+
+# 步骤3：使用pdf2svg转换
+#    - pdf2svg得到的.svg是使用pt为单位的, 无脑改成px就行啦
+#    - pdf2svg可处理多页(会成批生成文件，所以不要用stdout；这里只做单页的示例)
+#    - 使用sed时只替换了&lt;svg ...&gt;标签中的width/height，其它的不作处理
+&gt; pdf2svg scaled.pdf /dev/stdout 1 |\
+    sed -E '1,/^&lt;svg/s/(width|height)="([0-9.]*)pt"/\1="\2px"/g' &gt;\
+    standard_image_templet_520.svg
+
+# 查看最终的svg的大小
+&gt; svginfo standard_image_templet_520.svg
+width: 520.000042px  
+height: 305.000024px  
+viewBox: 0 0 520.000042 305.000024  
+zoomAndPan: magnify  
+preserveAspectRatio: none
+
+# 使用ImageMagick的MSVG模式查看
+&gt; identify msvg:standard_image_templet_520.svg | xargs -n2
+msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG  
+520x305 520x305+0+0  
+16-bit sRGB  
+...
+</code></pre>
+
+<p>为什么能这么做呢？</p>
+
+<p>首先，我们知道.svg文件中其实并没有精度信息，所有的元素都是基于页面的大小来做换算的。而且，我们在这里用pdf2svg转换出的.svg还有两个特性：</p>
+
+<ul>
+<li>字体已经被转换成矢量信息，因此.svg中不包含字体及字体大小信息；</li>
+<li>只有\<svg …\="">元素包含了页面宽高信息，其它元素是基于该信息的矢量。</svg></li>
+</ul>
+
+<p>所以我们可以安全地将pt值直接替换成px。而这个方法，对于Inkscape生成的.svg就不适用，对比一下上面的两个特性你就明白了。反过来说，正是由于Cario引擎（pdf2svg使用的svg引擎）并不完整支持以px为单位的svg，所以使用该引擎——以及使用该引擎实现的工具来转换上述（修改后的）.svg到.png或其它格式的时候也是会出问题；而相对应的，Inkscape却能正确处理——它的引擎支持以px为单位的.svg。</p>
+
+<p>最后，多啰嗦一句。由于pdf2svg转换时将字体转换成了矢量信息，这使得通过这种.svg转换成图片或其它格式时不会因为缺少字体而失真（相对应的，Inkscape就存在字体问题）。但是缺点也是有的，就是.svg文件会比较大一些，可能相应的处理速度也会略慢。</p>]]></content:encoded></item><item><title><![CDATA[详解ImageMagick中SVG的支持]]></title><description><![CDATA[<p>事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片：</p>
+
+<pre><code class="language-bash">&gt; identify -verbose your.svg
+Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB  
+  Base filename: your.svg
+  Format: PNG (Portable Network Graphics)
+  Mime type: image/png
+  Class: DirectClass
+...
+</code></pre>
+
+<p>ImageMagick主要有三种支持SVG的方式，包括内置（Internal）、内建（Build-in）和委托（Delegate）。</p>
+
+<p>在高版本的ImageMagick中MSVG总是内置的；而稍早些的版本中，</p>]]></description><link>http://aimingoo.github.io/1-1727.html/</link><guid isPermaLink="false">a849bf10-dbd6-4709-a2c2-dec2bc6c193c</guid><category><![CDATA[svg]]></category><category><![CDATA[ImageMagick]]></category><category><![CDATA[图形处理]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 05 Jun 2017 11:54:13 GMT</pubDate><content:encoded><![CDATA[<p>事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片：</p>
+
+<pre><code class="language-bash">&gt; identify -verbose your.svg
+Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB  
+  Base filename: your.svg
+  Format: PNG (Portable Network Graphics)
+  Mime type: image/png
+  Class: DirectClass
+...
+</code></pre>
+
+<p>ImageMagick主要有三种支持SVG的方式，包括内置（Internal）、内建（Build-in）和委托（Delegate）。</p>
+
+<p>在高版本的ImageMagick中MSVG总是内置的；而稍早些的版本中，ImageMagick是混合了『内建』和『委托』两种方式来提供SVG的支持的。<strong>需要强调的是</strong>：</p>
+
+<blockquote>
+  <p>请尽量不要直接使用内置的MSVG。</p>
+</blockquote>
+
+<h2 id="msvg">内置的MSVG</h2>
+
+<p>ImageMagick的高版本内置了一个SVG渲染器。它有两种称谓，在代码中叫做<code>IMAGEMAGICK_SVG</code>，例如在编译中提供相应的开关参数；而在用户级别的配置或接口中，它称为MSVG（这里的M是Magick的首字母）。它完整的名称是<code>ImageMagick's own SVG internal renderer</code>，所以<code>自有SVG（Own SVG）</code>、<code>内部渲染器（internal renderer）</code>以及<code>MSVG</code>其实指的都是同一个东西：</p>
+
+<pre><code class="language-bash">&gt; convert -list format | grep SVG
+     MSVG  SVG       rw+   ImageMagick's own SVG internal renderer
+      SVG  SVG       rw+   Scalable Vector Graphics (XML 2.9.4)
+     SVGZ  SVG       rw+   Compressed Scalable Vector Graphics (XML 2.9.4)
+</code></pre>
+
+<p>注意这里的『XML 2.9.4』其实也是MSVG引擎的一部分，它实际上指的是<code>libxml2</code>这个库的版本，因为MSVG是基于xml解析并自行渲染的svg引擎。</p>
+
+<p>由于MSVG存在很多限制，所以ImageMagick『千万百计』地隐藏了它的存在——哈哈，其实没有这么夸张，它们是承认这个东西的存在并且提供官方支持的（<a href="http://www.imagemagick.org/Usage/draw/#svg">在这里</a>）。</p>
+
+<p>在ImageMagick <strong>6.6.7-10</strong>之后的版本中，MSVG总是缺省内置支持(<code>WITH_IMAGEMAGICK_SVG</code>参数缺省打开)，即使是在<code>WITHOUT_X11</code>状态下，编译过程也只是给出WARN级别的警告。</p>
+
+<p>而在此前（ 但晚于v6.3.3-5之后的）版本中，如果<code>WITHOUT_X11</code>，那么编译时将不会内置支持SVG。</p>
+
+<blockquote>
+  <p>参考：<a href="https://www.freshports.org/graphics/ImageMagick/">https://www.freshports.org/graphics/ImageMagick/</a></p>
+</blockquote>
+
+<p>任何情况下，如果你只是想启用MSVG（以避开其它引擎的影响），那么你可以在input文件名上加上"msvg:"前缀（v6.3.4以后）。例如：</p>
+
+<pre><code class="language-bash">&gt; identify -verbose 'msvg:your.svg'
+Image: your.svg  
+  Base filename: b2t_8-2.svg
+  Format: MVG (Magick Vector Graphics)
+  Class: DirectClass
+  Geometry: 485x306+0+0
+...
+</code></pre>
+
+<p>你也可以使用<code>-draw</code>参数来开启一个MSVG的画板并操作它。例如（将这块画板作为源，转换成PNG格式输出）：</p>
+
+<pre><code class="language-bash"># http://www.imagemagick.org/Usage/draw/#svg
+&gt; convert -size 10x6 xc:skyblue  -fill black \
+          -draw 'color 6,3 point' -scale 100x60 draw_color_point.png
+</code></pre>
+
+<h2 id="">内建模式及其开启</h2>
+
+<p>如果ImageMagick在安装时包含librsvg模块，那么就会启用内建模式（所以Build-in SVG也往往直接称为RSVG）。一旦包含这个模块，那么它的优先级比内置的MSVG要高。</p>
+
+<p>如果你是使用brew来安装的ImageMagick，那么你可以用：</p>
+
+<pre><code class="language-bash">&gt; brew info imagemagick
+...
+Optional: fontconfig ✔, little-cms ✘, little-cms2 ✔, libwmf ✘, librsvg ✔ ...  
+</code></pre>
+
+<p>来查看当前环境是否能支持rsvg。如上，<code>librsvg</code>已经安装了，那么就可以通过安装参数来开启它（或使用<code>brew reinstall</code>重新安装）：</p>
+
+<pre><code class="language-bash"># 你可能需要先安装librsvg模块
+#    - brew install librsvg
+&gt; brew install imagemagick --with-librsvg
+</code></pre>
+
+<p>如果你不是使用brew，那么你可以使用如下命令来查看：</p>
+
+<pre><code class="language-bash">&gt; convert -list configure | grep -Eoe '--with-rsvg(=[^\-]+)?'
+--with-rsvg=no
+</code></pre>
+
+<p>如果没有rsvg的支持，那么你需要自己编译ImageMagick，相关的操作<a href="http://www.imagemagick.org/script/advanced-unix-installation.php">在这里</a>。</p>
+
+<p>如果你成功安装了rsvg支持，那么可以看到如下信息：</p>
+
+<pre><code class="language-bash"># build-in的delegate中包含了rsvg
+&gt; identify -version | grep --color rsvg
+Delegates (built-in): bzlib cairo fontconfig freetype jng jpeg ltdl lzma png rsvg tiff xml zlib
+
+# 或format中使用了rsvg来支持svg
+&gt; identify -list format | grep -i svg
+convert -list format | grep -i svg  
+     MSVG  SVG       rw+   ImageMagick's own SVG internal renderer
+      SVG  SVG       rw+   Scalable Vector Graphics (RSVG 2.40.17)
+     SVGZ  SVG       rw+   Compressed Scalable Vector Graphics (RSVG 2.40.17)
+</code></pre>
+
+<blockquote>
+  <p>注1：一些资料中称需要使用<code>--use-rsvg</code>参数在编译中开启rsvg支持，这可能是一个被放弃的、早期的构建参数。</p>
+  
+  <p>注2：在brew中用的参数是<code>--with-librsvg</code>，而实际上编译时使用的是<code>--with-rsvg</code>参数。这个转换操作是在brew安装用的formula文件中完成的。</p>
+</blockquote>
+
+<h2 id="">委托模式的开启</h2>
+
+<p>通常情况下，ImageMagick会在内置的MSVG和内建模式（RSVG）之间选择一个；如果二者都没有，那么它会选择第三种，也就是委托模式。</p>
+
+<p>你总是可以通过如下命令查看ImageMagick委托（外部程序）来进行的图形转换，包括SVG：</p>
+
+<pre><code>&gt; convert -list delegate | grep 'svg'
+...
+svg =&gt;          "rsvg-convert' -o '%o' '%i"  
+</code></pre>
+
+<blockquote>
+  <p>注：严格来说，前面说的内建模式事实上也是一种委托。只不过它是在编译时build-in的，所以在<code>--help</code>参数显示的信息中就能直接看到，并且会影响<code>-format</code>显示的格式支持；而在<code>-list delegate</code> 所列举的委托关系中，却并不会出现。</p>
+</blockquote>
+
+<p>由于只有MSVG和rsvg都不生效时才会开启委托模式，但高版本中ImageMagick中总是内置MSVG，所以是很难触发委托模式的。因此，如果你做这个尝试，那么你需要一个不内置MSVG的低版本ImageMagick，并且在编译中关闭<code>--with-rsvg</code>选项。OK，这样你就可以看到ImageMagick调用了上述委托中的<code>rsvg-convert</code>来进行转换。</p>
+
+<p>当然，也有例外，因为其实还是有一个后门来做这件事的，这就是所谓的内部委托。</p>
+
+<h3 id="">内部委托</h3>
+
+<p>准确地说法：MSVG这个内部渲染器提供了一个『内部委托（special internal delegates）』。这种内部委托与上面的<code>rsvg-convert</code>采用的是类似机制，但是通过<code>-list delegate</code>命令是无法查看到的——你得打开配置文件自己来找：</p>
+
+<pre><code class="language-bash"># 查看你的ImageMagick将读取哪些配置文件
+&gt; convert -debug all -list delegate 2&gt;&amp;1 | grep 'delegates.xml'
+Searching for configure file: ...  
+...
+Path: /usr/local/Cellar/imagemagick/7.0.5-9/etc/ImageMagick-7/delegates.xml  
+</code></pre>
+
+<p>注意前面有一个搜索优先顺序的列表（你可能用得上），不过这里我们只需要关心最后这个<code>Path</code>就好了。打开这个文件，查找<code>svg:decode</code>，将<code>stealth="True"</code>删除掉。现在你就可以看到它了：</p>
+
+<pre><code class="language-bash">&gt; convert -list delegate | grep -Ee 'svg(:decode)? ='
+        svg =&gt;          "rsvg-convert' -o '%o' '%i"
+ svg:decode =&gt;          "inkscape' '%s' --export-png='%s' --export-dpi='%s' --export-background='%s' --export-background-opacity='%s' &gt; '%s' 2&gt;&amp;1"
+</code></pre>
+
+<blockquote>
+  <p>注：内部委托与一般的（外部程序的）委托模式处理逻辑是一样的，只是在高版本的ImageMagick用<code>svg:decode</code>替代了<code>svg</code>这个入口而已。</p>
+</blockquote>
+
+<p>是的，你应该已经注意到了，这个内部的委托指向了inkscape。你可以安装inkscape来支持这个委托。例如：</p>
+
+<pre><code class="language-bash">&gt; brew cask install xquartz inkscape
+</code></pre>
+
+<h3 id="">接管内部委托</h3>
+
+<p>你也可以自己写个脚本来将操作转发到你的处理程序（类似于代理）。例如：</p>
+
+<pre><code class="language-bash">#!/bin/bash
+DPI="${3##*=}"  
+rsvg-convert --format=png --output="${2##*=}" --dpi-x="${DPI%%,*}" --dpi-y="${DPI##*,}" --background-color="${4##*=}" "$1"  
+</code></pre>
+
+<p>将这个脚本另存到搜索路径中，并命名为<code>inkscape</code>，加上可执行权限。OK，你就看到<code>svg:decode</code>的相关调用转发到你的脚本中，并交给rsvg-convert处理了。</p>
+
+<blockquote>
+  <p>注意：如果内部委托调用出错（程序退出代码大于0），那么ImageMagick将再次调用MSVG来完成处理。</p>
+</blockquote>
+
+<p>当然，我们也可以把这个接管的脚本程序写得通用一点。比如将delegates.xml中的<code>svg:decode</code>项修改到一个统一的模式（以后就可以不用改了，不过sv要注意其中的<code>YOUR_SCRIPT_NAME</code>应该修改得与后面的脚本名一致）：</p>
+
+<pre><code class="language-xml">&lt;delegate decode="svg:decode" command="&amp;quot;YOUR_SCRIPT_NAME&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;gt; &amp;quot;%s&amp;quot; 2&amp;gt;&amp;amp;1"/&gt;  
+</code></pre>
+
+<p>然后安装自己的工具（下面以cairosvg这个工具为例，首先安装它）：</p>
+
+<pre><code class="language-bash"># @see: http://cairosvg.org/
+&gt; pip3 install cairosvg
+</code></pre>
+
+<p>然后写调用脚本（<code>YOUR_SCRIPT_NAME</code>）：</p>
+
+<pre><code class="language-bash">#!/bin/bash
+
+# in arguments:
+#    inFile outFile dpi bgColor bgOpacity
+DPIX="${3%%,*}"  # format - xRes,yRes  
+BGCOLOR="$4" # format - string, #xxxxxx, or rgb(r%,g%,b%)  
+cairosvg -f png -o "$2" -d "$DPIX" "$1"  
+</code></pre>
+
+<p>最后将这个脚本另存、更名、更改可执行权限。</p>
+
+<p>在你使用identify、convert等等工具处理svg时，都将调用上述脚本。所以，现在你可以随意用新的转换工具来替换MSVG了。</p>
+
+<p>我的开源项目<a href="https://github.com/aimingoo/svg-provider">svg-provider</a>是一个较完整的实现，其主要是在参数的处理上面进行了优化，并且可以适配更多的转换工具。</p>]]></content:encoded></item><item><title><![CDATA[Kindle电子书中该用多大的图片]]></title><description><![CDATA[<blockquote>
+  <p>注1：本文所涉及的工具，可以采用如下方法安装：</p>
+</blockquote>
+
+<pre><code class="language-bash"># 含identify,convert,mogrify,pdfinfo,pdftoppm等
+&gt; brew install ghostscript imagemagick cpdf poppler
+# 含pdfcrop等
+&gt; brew cask install xquartz mactex inkscape
+</code></pre>
+
+<blockquote>
+  <p>注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。</p>
+</blockquote>
+
+<p>如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。</p>
+
+<p>在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。</p>
+
+<p>你最好的选择是：使用一个阅读器不会对它进行缩放的、</p>]]></description><link>http://aimingoo.github.io/1-1726.html/</link><guid isPermaLink="false">5655d162-8a13-48e2-8125-387c794db87a</guid><category><![CDATA[电子书]]></category><category><![CDATA[Kindle]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 03 Jun 2017 10:54:54 GMT</pubDate><content:encoded><![CDATA[<blockquote>
+  <p>注1：本文所涉及的工具，可以采用如下方法安装：</p>
+</blockquote>
+
+<pre><code class="language-bash"># 含identify,convert,mogrify,pdfinfo,pdftoppm等
+&gt; brew install ghostscript imagemagick cpdf poppler
+# 含pdfcrop等
+&gt; brew cask install xquartz mactex inkscape
+</code></pre>
+
+<blockquote>
+  <p>注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。</p>
+</blockquote>
+
+<p>如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。</p>
+
+<p>在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。</p>
+
+<p>你最好的选择是：使用一个阅读器不会对它进行缩放的、确定大小的图片。</p>
+
+<p>那么这样一张图片应该是多大呢？</p>
+
+<h2 id="">阅读器有多大，图片就有多大</h2>
+
+<p>答案如标题所说。只要你确切知道阅读器（的可阅读区）的大小，那么制作相同大小的图片就好了。不过对于Kindle——当然也可能包括别的电子书阅读器来说，这个大小要打个折扣。这是因为Kindle设定图片最大宽高度不得超过大约80%的可阅读区。一旦超过这个大小——该值其实是一个不确定的魔法数值，这在后面会更讲到——那么阅读器就会主动缩小这个图片。</p>
+
+<p>Kindle发行过的一些阅读器的规格主要包括（相关数据<a href="http://socialcompare.com/en/comparison/amazon-kindle-product-line-comparison">在这里</a>，最新近的一些<a href="http://www.toptenreviews.com/mobile/ebook-readers/best-kindle-comparisons/">在这里</a>）：</p>
+
+<style type="text/css">  
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+.tg .tg-yw4l{vertical-align:top}
+</style>  
+
+<table class="tg">  
+  <tr>
+    <th class="tg-yw4l">分辨率</th>
+    <th class="tg-yw4l">类型</th>
+    <th class="tg-yw4l">Pixel Per Inch</th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">1024x600</td>
+    <td class="tg-yw4l">ISP LCD</td>
+    <td class="tg-yw4l">169/171 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">1280x800</td>
+    <td class="tg-yw4l">ISP LCD</td>
+    <td class="tg-yw4l">149/189/216/252 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">1920x1200</td>
+    <td class="tg-yw4l">ISP LCD</td>
+    <td class="tg-yw4l">254/323 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">2560x1600</td>
+    <td class="tg-yw4l">ISP LCD</td>
+    <td class="tg-yw4l">339 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">800x600</td>
+    <td class="tg-yw4l">E Ink</td>
+    <td class="tg-yw4l">167 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">1024x758</td>
+    <td class="tg-yw4l">E Ink</td>
+    <td class="tg-yw4l">212 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">1200x824</td>
+    <td class="tg-yw4l">E Ink</td>
+    <td class="tg-yw4l">150 PPI</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">1448x1072</td>
+    <td class="tg-yw4l">E Ink</td>
+    <td class="tg-yw4l">300 PPI</td>
+  </tr>
+</table>
+
+<p>不仅如此，Kindle还发行过一系列平板的版本（当然使用的是LCD屏而不是电子墨水屏），这些屏幕的规格就更复杂了，例如官方公布的一些规格（<a href="https://developer.amazon.com/public/solutions/devices/fire-tablets/specifications/01-device-and-feature-specifications">在这里</a>）。</p>
+
+<p>综合上面的数据，从实用性的角度来说，我们应该制作宽度小于600*80%左右大小的图片。这条规则在大多数设备上都是适用的——关于这个问题其实是有过广泛的讨论的（例如<a href="https://www.epubble.com/kindle-maximum-image-size/">在这里</a>，以及amazon开发者信息<a href="https://developer.amazon.com/public/solutions/devices/fire-tablets/app-development/01--screen-layout-and-resolution">在这里</a>）。但这个值不但与设备有关，甚至还与不同的Kindle版本有关，以至于有人发布出测试用的电子书，用来确定在不同设备上的适配图片大小（<a href="https://www.epubble.com/wp-content/download/KindleMaximumImageSize.prc">Kindle Maximum Image Size (PRC)</a> ）。</p>
+
+<p>好吧，总之我们是只看结论的对不。那么，这个结论如下：</p>
+
+<blockquote>
+  <p>建议你将图片的大小控制在<code>520*622px</code>以内。</p>
+</blockquote>
+
+<p>也就是说，图片宽度在520px以内（<code>640*0.8125</code> or <code>600*.87</code>）。</p>
+
+<h2 id="">如何做这样大小的图片</h2>
+
+<p>下面我们来讲『如何做』。</p>
+
+<h3 id="">什么是『这样大小』</h3>
+
+<p>首先确定一下『这样大小』到底是怎样大。</p>
+
+<p>因为我们所谓520px的图片，其实要从像素点换算成印刷用的厘米(cm)、英寸(in)或磅值(pt)，这些看起来麻烦的东西，通常是平面设计师的基本功。</p>
+
+<p>在显示器上的所谓520px，实际含义是『在一个72ppi的设备上显示520pixel』（注3）。这里的PPI是『像素/英寸(Pixel Per Inch)』，这通常用在显示输出类的设备上；更经常的，你可能看到的是用Dots来表示Pixel，就是DPI了（注4）。一般情况下，这两种说法并不需要区分，都称作分辨率(Resolution ratio)、质量/精度/密度(quality/density)——具体到不同场合则是打印分辨率、显示分辨率、图片精度等等，<a href="http://www.uigreat.com/article/131">参见这里</a>）。</p>
+
+<blockquote>
+  <p>注3: 对于PPI，Windows系统默认为96， Mac OS系统默认PPI 为72。在使用Macbook Pro的Retina屏时，它的默认值是110。</p>
+  
+  <p>注4: 注意，我们说宽520px时实际上是在讲一张图片的"Pixel Dimensions（点阵面积）"中x方向的大小，而72dpi/ppi却是指获得（例如扫描设备）或输出（例如显示设备）这个点阵图时的精度。</p>
+</blockquote>
+
+<p>我们前面列出Kindel的设备参数时，设备的PPI是很复杂的，从149到339有非常多种；而它们显示具体图像的分辨率，也有800x600 .. 2560x1600等非常多种模式。不考虑其具体映射和实现的细节的话，你可以认为：</p>
+
+<blockquote>
+  <p>我们使用300DPI的图片，在多数设备上总是可行的。</p>
+</blockquote>
+
+<p>那么：一张<code>520x320px</code>大小的<code>300dpi</code>的图片，到底是怎样大小呢？</p>
+
+<blockquote>
+  <p>高度320px是上面所说到的622px的一半略多。这是因为我们在电子书上通常不会把一张图做到全屏大小，而使用以半屏高为上限的图片有利于书籍的自动排版。</p>
+</blockquote>
+
+<h3 id="">面积计算</h3>
+
+<p>想知道这个大小，那么只需要在图形制作软件中新建一张图片，设置像素大小（即是Pixel Dimensions）为520x320px，然后设置分辨率为300DPI，就一切OK了——通常这种情况下我们不需要去手工计算。然而如果你在PowerPoint或Keynote里去做类似的事情，就会发现：.ppt中设置页面是使用厘米(cm)，而.key中却是使用磅（pt）。我们的难题之一，便是要做这个转换（以宽520px为例）：</p>
+
+<ul>
+<li>520/300*2.54 = 4.4026（厘米）
+<ul><li>1英寸 = 2.54厘米</li></ul></li>
+</ul>
+
+<p>或者为了避免你总是手工计算，那么查看上面创建的图片的信息也可以（设图片名为test.png）：</p>
+
+<blockquote>
+  <p>注意：identify是ImageMagick中的一个工具，在使用<code>brew install imagemagick</code>安装后会同时得到这个命令行工具。</p>
+</blockquote>
+
+<pre><code class="language-bash">&gt; identify -verbose ./test.png | grep -E 'Units:|Resolution|Print'
+  Resolution: 118.11x118.11
+  Print size: 4.40268 x 2.70934
+  Units: PixelsPerCentimeter
+</code></pre>
+
+<p>注意identify对图片来说缺省单位是厘米（Centimeter），而不是习惯上PPI/DPI中所说的英寸（Inch），所以Resolution显示是118.11（DPCM，Dots Per Centimeter）。如果你想要显示为DPI，那么应该这样：</p>
+
+<pre><code class="language-bash">&gt; identify -units PixelsPerInch -verbose ./test.png | grep -E 'Units:|Resolution|Print'
+  Resolution: 300x300
+  Print size: 1.73333 x 1.06667
+  Units: PixelsPerInch
+</code></pre>
+
+<h2 id="pptkeynote">在ppt或keynote上实作</h2>
+
+<p>我们具体使用ppt/key的时候，其实会比上面的520x320px要略大一点，然后使用参考线来辅助作图。这是为了在ppt/key中具体画图时边界上留一点余量，便于操作。具体来说，我推荐的是使用：</p>
+
+<ul>
+<li>在.ppt中设置页面大小为<code>4.8x3.5</code>cm，或</li>
+<li>在.key中设置页面大小为<code>136x99</code>pt</li>
+</ul>
+
+<p>接下来在PPT中设置两三条辅助线（以PPT为例，你可以下载这个模板<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.ppt">PPT格式</a>或<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.key">Keynote格式</a>）：</p>
+
+<ul>
+<li>右、左侧2.14cm各一条</li>
+<li>右侧2.26cm一条</li>
+</ul>
+
+<p>如下图所示：</p>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/06/standard_image_templet_520.png" alt="standard_image_templet_520"></p>
+
+<p>我们通常作图时让内容保持在正中间的<code>2.14*2</code>的范围内即可，当右侧使用到极限时会是<code>2.14+2.26cm</code>，亦即是全宽520px。同时，如果是4磅大小的文字，单行可以容纳30~31个（如图）。我建议采用4磅文字，其下限是3.5磅。</p>
+
+<p>最后，当你在上面的页面上完成图、表之后，如果你使用PPT，那么可以直接在图形上鼠标右键，选『另存为图片』，然后选PDF（注4）；如果你使用Keynote，请在文件菜单中选『导出』，仍然也是选PDF。</p>
+
+<blockquote>
+  <p>强烈说明：注意这里要用PDF！</p>
+</blockquote>
+
+<p>接下来，你在Macbook中的『预览（Preview）』工具中打开上述PDF文件，再选导出到PNG，并设置分辨率为300 dpi。即可。</p>
+
+<p>我们验证一下这样得到的一个.png的信息（注5）：</p>
+
+<pre><code class="language-bash">&gt; identify -verbose ./ppt533.png | grep -E 'Units:|Resolution|Print|Geometry'
+  Geometry: 533x191+0+0
+  Resolution: 118.11x118.11  ## 如果使用-units PixelsPerInch，则这里为300DPI
+  Print size: 4.51274x1.61714
+  Units: PixelsPerCentimeter
+</code></pre>
+
+<blockquote>
+  <p>注4: 我们后面将使用在PPT中选中图形导出的这个PDF（命名为ppt533.pdf），以及转换后的图片（ppt533.png）。稍后我们会讲述Keynote中的处理方法。此外，如果你在PPT绘制了很多东西，那么建议你先建个组(Group)再导出它们。</p>
+  
+  <p>注5: 你会注意到这个宽度不是预期的520px。这是因为PPT选中图形导出时会默认添加边框，所以如果你只使用模板中间的安全部分，那么上述方法总是安全的；否则你需要使用crop工具去切掉周边的空白区。关于这个部分的内容，我们在下面还会讲到。</p>
+</blockquote>
+
+<h3 id="pdfpng">理解PDF与PNG文件大小之间的关系</h3>
+
+<p>为了讨论这个问题，我们再检查一下上面生成的PDF文件：</p>
+
+<pre><code class="language-bash">&gt; identify -verbose ./ppt533.pdf | grep -E 'Units:|Resolution|Print|Geometry'
+  Geometry: 128x46+0+0
+  Resolution: 72x72
+  Print size: 1.77778x0.638889
+  Units: Undefined
+</code></pre>
+
+<p>你会注意到PDF文件中<code>Units</code>值是没有的。这是PDF格式特殊的地方，事实上在它的文件格式中并没有包含Resolution、Print size和Units的信息——上面由identify得到的信息是计算出来的，而不是文件中的元数据信息。更具体地说，PDF是约定了默认使用72x72DPI的分辨率（所以Identify也直接在默认时使用了Inch作为单位，与图片的默认值不同），而且它是使用Points（磅值/点）来表明大小。那么显而易见的，上述的Print Size是简单地通过<code>128/72</code>就可以得来了——PDF默认采用72x72的DPI原因，也正在于磅值与英寸的换算关系就是<code>72:1</code>（关于这一点，请参见<a href="http://www.cnblogs.com/stronghorse/p/4913346.html">老马的文章</a>）。</p>
+
+<p>所以现在你可以得到两个与大小相关的信息，一个是宽高信息(Pts)，也称为页面大小(Page Size)，另一个是可推算出来的打印面积(inch)。而在从PDF转换到PNG图片的过程中，通常就以这个转换后的打印面积来作为图片物理大小。</p>
+
+<p>接下来我们来逆推一下一张300DPI的PNG图片该是怎样的。如果这张图片是如上的1.77778宽度，并且由于DPI设定是300，那么显然图片在x方向的点阵大小（pixels）应该就是<code>300*1.77778=533px</code>。具体来看上面这张通过『预览』工具导出的<code>ppt533.png</code>，它的信息就是这样：</p>
+
+<pre><code class="language-bash">&gt; identify -units PixelsPerInch -verbose ./ppt533.png | grep -E 'Units:|Resolution|Print|Geometry'
+  Geometry: 533x191+0+0
+  Resolution: 300x300
+  Print size: 1.77667x0.636667
+  Units: PixelsPerInch
+</code></pre>
+
+<p>也就是说：在转换过程中，通常是保证<code>Print size</code>大小不变。</p>
+
+<h3 id="ghostscriptdpi">在GhostScript中对DPI的一点不同理解</h3>
+
+<p>如果你不想直接使用『预览』工具来导出，那么你可以为它建立一个automator任务或服务——这样就可以在命令行上使用了。或者，你也可以尝试使用GhostScript（也就是gs）这个命令行工具。</p>
+
+<p>但是如果你使用GhostScript来将PDF转换成PNG，那么缺省情况下它是将Points直接对应地转换为Pixels的——也就是将PDF中的一个打印点，转换为图片中的一个像素点。因此假使你不使用设置分辨率的<code>-r</code>参数，那么你就将直接转换得到一个<code>128x46 pixels, 72DPI</code>的图片。</p>
+
+<pre><code class="language-bash"># (下面这个结果显然不是你想要的)
+&gt; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -sOutputFile=128px.png ppt533.pdf
+</code></pre>
+
+<p>更进一步，如果使用<code>-r 300</code>来指定300DPI输出，那么图片要有533 px的宽度（这个我们上面已经计算过了），而原始的PDF只有128 pts的宽度。所以这时，你将会得到一个低质量的、从128放大到533的图片。</p>
+
+<p>如果你需要用gs来转换pdf到png，那么你应该先放大这个pdf到合适的宽高大小，然后再输出。下面是其中一种可能的方案：</p>
+
+<pre><code class="language-bash"># 先放大300/72=4.1667倍
+#    - 也可以使用另一个开源工具pdfScale
+#    - 目的是使pts与我们要得到的图片pixels点数对应，以确保图片质量足够
+&gt; cpdf -scale-page "4.1667 4.1667" -scale-to-fit-scale 4.1667 -o 300dpi.pdf ppt533.pdf
+# 再转换得到300DPI的图片
+&gt; gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r300 -sOutputFile=300dpi.png 300dpi.pdf
+# 再reszie图片
+#    - 转换成png时Page Size大小将保持不变，因此需要按72/300为比例换回去
+&gt; convert 300dpi.png -resize 24% ppt533.png
+</code></pre>
+
+<p>现在我们再来看看这张图片：</p>
+
+<pre><code class="language-bash">&gt; identify -units PixelsPerInch -verbose ppt533.png | grep -E 'Units:|Resolution|Print|Geometry'
+  Geometry: 533x192+0+0
+  Resolution: 300x300
+  Print size: 1.77667x0.64
+  Units: PixelsPerInch
+</code></pre>
+
+<p>虽然这个过程是能得到符合我们要求的图片，但的确过于复杂。我们后面将介绍一些其它不使用GhostScript的方法。</p>
+
+<h2 id="pdf">使用导出PDF文件的方法来得到图片的一些问题</h2>
+
+<h3 id="1pdf">1) 成批导出与转换PDF文件</h3>
+
+<p>如果总是在PowerPoint中将图形对象选中然后右键导出成PDF，那么在成批处理时就会比较繁琐；另外，在Keynote中根本就没有这个操作。所以事实上我们一般还是会将整个的PPT/Keynote文件另存、导出为.PDF文件。这样的文件称为多页PDF——很显然地，因为我们见到的大多数PDF文件都是多页的，并且它们的页面大小是一致的。</p>
+
+<p>然而事实上我们要处理的每张PNG图片都可能大小不同，因为在PPT/Keynote中实际作图的有效区并不一样大。你可以选择将PDF从多页转换成一批单页，或者寻找能直接处理多页PDF的工具。——不幸的是，一些情况下后面这类工具并不太容易得到。</p>
+
+<p>所以如果你真的需要先转换成单页PDF，那么我建议你使用pdfseparate这个工具，它包含在poppler这个工具包中。用法如下：</p>
+
+<pre><code class="language-bash"># 第二个参数是文件名模板，必须包含'%d'来作页码的占位符
+#    - 目标文件的目录必须先创建(例如本例中的extract)
+&gt; mkdir ./extract
+&gt; pdfseparate your.pdf './extract/page%d.pdf'
+</code></pre>
+
+<h3 id="2">2) 要切掉空白</h3>
+
+<p>在转换到图片之前，我们还得先留意一下这个.pdf外围的空白区。</p>
+
+<p>在上例中，如果你在Keynote中导出.pdf，或者在PowerPoint中导出页面（而不是选中图形导出），那么你将导出的是整个页。我们上面说过，为了制作方便，我们的整个页其实要略大一些，而只有参考线中间部分的图形是在电子书中有效的。</p>
+
+<p>那么我们其实需要的是自动切掉图形外围的空白区(trim/crop)——在不同的软件中，可能是这两种功能之一。你可以选择处理最终生成的.png图片，这可以仍然使用上述ImageMagick套件中的convert（你安装之后在命令行中就有了），也可以早先做一步，对.pdf进行trim/crop操作。</p>
+
+<p>这可以使用一个非常著名（而且名实相符）的软件，叫pdfcrop。它是perl脚本，可以你可以直接从官方下载（<a href="https://sourceforge.net/projects/pdfcrop/files/">例如这里</a>），或者安装一个TeX套件包内含（使用<code>brew cask install mactex</code>）。使用起来也很简单：</p>
+
+<pre><code class="language-bash"># Usage: pdfcrop &lt;input[.pdf]&gt; [output file]
+&gt; pdfcrop xxx-300dpi.pdf croped.pdf
+</code></pre>
+
+<p>如果省略output参数，则它以input文件名自动生成<code>-crop.pdf</code>后缀的文件。</p>
+
+<p>另一个相对来说也很可靠的工具叫pdfCropMargins，它可选的参数也更多。比如：</p>
+
+<pre><code class="language-bash"># pdfCropMargins可选使用Ghostscript或pdftoppm作为将pdf渲染为图片的工具
+#  - 参数-gsr表明使用Ghostscript（缺省是pdftoppm）, 参数-gsp表明gs可执行文件的路径
+#  - 参数-p/-p4来指定relative original margin模式的边距
+#   * 可以用-a/-a4指定边距的absolute offset值
+#   * 参数-ap/-ap4是在剪切前计算最终页面大小时使用的(p是指preCrop)
+#   * 参数-m/-mp是用在uniform模式下指定边距，并隐式地打开该模式(或显式使用-u参数)
+&gt; pdf-crop-margins -p 0 -gsr -gsp /usr/local/bin/gs -o croped.pdf your.pdf
+</code></pre>
+
+<p>pdfCropMargins与pdfcrop都有resolution参数：</p>
+
+<ul>
+<li>在pdfcrop中是<code>--resolution</code></li>
+<li>在pdfCropMargins中则是<code>-x/-y</code>，或<code>--xRes/--yRes</code></li>
+</ul>
+
+<p>这个参数是用在将PDF渲染成图片时提高图片精度的。因为这两个工具实际上都是先将PDF渲染成图片，然后根据图片来查找margins的，所以提高这一精度就意味着查找margins更准确。但这个参数并不会影响转换后的PDF的质量。</p>
+
+<p>其它：</p>
+
+<ul>
+<li>在pdfcrop中建议打开<code>--hires</code>以提高crop的质量，这种情况下margin计算更精确
+<ul><li>在pdfCropMargins中的参数<code>-ap/-ap4</code>正好相反，较不精确但速度更快</li></ul></li>
+<li>使用较低的resolution值速度更快，这与内部将pdf转为图片时的速度效率有关
+<ul><li>pdfcrop缺省的resolution值为72dpi，而pdfCropMargins缺省为150dpi</li></ul></li>
+<li>在pdfCropMargins中缺省使用的pdftoppm会比gs引擎要慢一点</li>
+<li>在pdfcrop中指定TeX引擎为<code>--xetex</code>时，crop运算的效果常常会出错</li>
+</ul>
+
+<h3 id="3pdfpng">3) PDF转换到PNG图片时的工具选择</h3>
+
+<p>无论PDF是否经过crop，你最终都只是想得到图片，所以这最后一步尤其重要。</p>
+
+<p>切记要给转换软件指定300dpi的输出精度——如上所述，我们是按这个精度来设计的图片大小。除了『预览』这个软件之外，能指定转换精度的软件看起来不少，但大多数并不合用（注意gs是可用的，但并不方便，这在之前我们已经专门讲过了）。例如下面这几个：</p>
+
+<pre><code class="language-bash"># 使用inkscape
+#   - 只能处理单页pdf，可能会因字体不匹配而出现字体异常；效果好于gs，且能将dpi置为300
+&gt; inkscape --without-gui --export-dpi=300 --export-png='300dpi.png' croped-p1.pdf
+
+# 使用ImageMagick中的convert
+#   - convert的density用于指定源pdf为300dpi, 而输出的png其实总是72dpi
+#   - 只能处理单页pdf，但视觉效果好于gs(也好于gs的DEVICE=pnggray)
+&gt; convert -density 300 croped-p1.pdf -background white -flatten 'error-dpi.png'
+
+# 使用pdf2png
+#    - Github: https://github.com/kaorukobo/pdf2png-mac
+#    - 能逐页处理，但输出png的精度受xcode中的组件影响(缺省是144dpi)
+#    - 参数--dpi是用于指定源pdf的dpi值的
+&gt; pdf2png --dpi 300 --page 1 --output '144dpi.png' croped.pdf
+</code></pre>
+
+<p>事实上所有这类软件都是将源PDF理解为72dpi，所以针对源来指定的Resolution值其实是用于建立一个缩放工厂（scaleFactor），以便得到等同于指定DPI大小的图像。而不同的软件的区别仅在于是否能在输出PNG时，有效的指定png图片的dpi——例如pdf2png是基于xcode的NSMakeRect()，而该组件默认精度在retina screens上就是144dpi。</p>
+
+<p>所以请仔细review这个过程，其实完全等同于『在GhostScript中对DPI的一点不同理解』小节中所讲述的：1. 先放大PDF；2. 渲染成PNG到指定精度；3. 缩小PNG到指定大小。</p>
+
+<h3 id="4">4) 一步到位</h3>
+
+<p>如果你希望一步到位地解决上述问题，那么我目前只有一个工具推荐：</p>
+
+<blockquote>
+  <p>注：nconvert是<strong>xnview</strong>提供的一个非商用免费工具，<a href="http://www.xnview.com/en/nconvert/">下载在这里</a></p>
+</blockquote>
+
+<pre><code class="language-bash"># 用ncovert将croped.pdf转换到png
+&gt; nconvert -xall -dpi 300 -out png -o pic croped.pdf 1&gt;/dev/null
+Conversion of croped.pdf into pic-0.png OK  
+Conversion of croped.pdf into pic-1.png OK  
+Conversion of croped.pdf into pic-2.png OK  
+...
+
+# 或者不对original.pdf做crop操作，而是直接在nconvert中转换并autocrop图像
+#    - autocrop参数格式为"tol r g b"，其中tol是容错值，rgb为crop掉的颜色
+&gt; nconvert -xall -dpi 300 -out png -o pic -autocrop 0 255 255 255 original.pdf 1&gt;/dev/null
+Conversion of croped.pdf into pic-0.png OK  
+...
+</code></pre>
+
+<p>所以，本文中的模板所导出的PDF(<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.pdf">在这里</a>)转换成png所采用的方法就是如下：</p>
+
+<pre><code class="language-bash"># 在PowerPoint/Keynote中将ppt导出成.pdf，然后
+#    - nconvert是从0页开始对pdf计数的
+&gt; nconvert -page 0 -dpi 300 -out png -autocrop 0 255 255 255 standard_image_templet_520.pdf 1&gt;/dev/null
+Conversion of standard_image_templet_520.pdf into standard_image_templet_520.png OK
+
+# 查看png文件的信息(现在就真的是520px宽+300DPI了)
+&gt; identify -units PixelsPerInch -verbose standard_image_templet_520.png | grep -E 'Units:|Resolution|Print|Geometry'
+  Geometry: 520x306+0+0
+  Resolution: 300x300
+  Print size: 1.73333x1.02
+  Units: PixelsPerInch
+</code></pre>
+
+<p>最后需要补充一点：就效果来说，基于图像autocrop与pdfcrop并没有太大的差别——反正我是分不出来。另外，你也可能想尝试使用imagemagick中的trim操作来替代autocrop：</p>
+
+<pre><code class="language-bash"># 使用nconvert但不autocrop
+&gt; nconvert -xall -dpi 300 -out png -o pic original.pdf 1&gt;/dev/null
+Conversion of croped.pdf into pic-0.png OK  
+...
+
+# 使用imagemagick中的mogrify工具, -fuzz 0%与autocrop中的tol参数类似
+&gt; find . -name 'pic-*.png' | xargs -n1 mogrify -fuzz 0% -trim +repage
+</code></pre>]]></content:encoded></item><item><title><![CDATA[手记6：改造Gitment]]></title><description><![CDATA[<blockquote>
+  <p>本文所述的修改请参考我Fork的Gitment项目：<a href="https://github.com/aimingoo/gitment">Giment at aimingoo's project space</a></p>
+</blockquote>
+
+<p>接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。</p>
+
+<h2 id="11gitment">11. 改造Gitment</h2>
+
+<p>折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如<code>makesite.sh</code>（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）。</p>
+
+<p>最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。</p>
+
+<blockquote>
+  <p>注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。</p>
+</blockquote>
+
+<p>所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：<a href="https://github.com/aimingoo/gitment">Giment updates</a></p>]]></description><link>http://aimingoo.github.io/1-1725.html/</link><guid isPermaLink="false">eaab0e82-64c5-4cbb-a31d-64ae617b936b</guid><category><![CDATA[博客]]></category><category><![CDATA[Gitment]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Github]]></category><category><![CDATA[前端开发]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 31 May 2017 16:46:14 GMT</pubDate><content:encoded><![CDATA[<blockquote>
+  <p>本文所述的修改请参考我Fork的Gitment项目：<a href="https://github.com/aimingoo/gitment">Giment at aimingoo's project space</a></p>
+</blockquote>
+
+<p>接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。</p>
+
+<h2 id="11gitment">11. 改造Gitment</h2>
+
+<p>折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如<code>makesite.sh</code>（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）。</p>
+
+<p>最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。</p>
+
+<blockquote>
+  <p>注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。</p>
+</blockquote>
+
+<p>所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：<a href="https://github.com/aimingoo/gitment">Giment updates by aimingoo</a></p>
+
+<h3 id="111httphttpsgithubpages">11.1 更有效地支持HTTP/HTTPS的Github Pages</h3>
+
+<p>我们前面说过Github pages也分别支持HTTP和HTTPS两种协议，如果你有幸得到一个HTTP的Github pages site——真的很有幸了，得是以前创建的仓库，新仓库已经没有这个选择了——那么，你仍然可以将intersect（<a href="https://github.com/aimingoo/intersect">在这里</a>）部署在一个仅支持HTTP的Web站点上。</p>
+
+<p>也就是说，只能选择Github pages和intersect同时支持HTTPS，或者反过来选择同时不支持。有趣的是，在Github pages使用HTTP的情况下，Github<strong>同时</strong>也允许访问者通过HTTPS协议来访问你的主页。这样一来就带来了一个问题：在你的Github oAuth Application后台配置中，你只能设置一个callback地址。</p>
+
+<p>所以我在Gitment中加了一个名为<code>force_redirect_protocol</code>的选择，它会在调用</p>
+
+<blockquote>
+  <p><a href="https://github.com/login/oauth/authorize">https://github.com/login/oauth/authorize</a></p>
+</blockquote>
+
+<p>时强制redirect_uri参数使用与Github oAuth Application后台配置一致的值，这样才能在HTTPS/HTTP网站上同时通过authorize验证，并且最后总是使用redirect_uri所设置的协议下的地址。</p>
+
+<pre><code class="language-javascript">// Update (Getment Proj)/src/gitment.js
+
+// Github setting of 'Authorization callback URL' in your OAuth application
+const force_redirect_protocol = 'https'  
+...
+
+class Gitment {  
+  ...
+  get loginLink() {
+    const oauthUri = 'https://github.com/login/oauth/authorize'
+    const redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, force_redirect_protocol);
+    ...
+</code></pre>
+
+<h3 id="112gitmentintersect">11.2 使Gitment支持intersect</h3>
+
+<p>intersect这个PHP项目（<a href="https://github.com/aimingoo/intersect">在这里</a>）并没有完全地实现API Geteway特性。比如说，当它转发一个POST请求时，如果你需要添加新的数据到Request，那么就需要根据POST data的不同类型（Content-Type）来决定如何修改：在JSON中添加一个字段，或在不同的encode data中添加一个数据等等；并且还要正确的修改Content-Length。</p>
+
+<p>所以考虑到简单，intersect只支持在GET请求中，或在使用form-urlencoded协议的POST请求中添加数据。例如我们要追加client_secret这个参数并传送到后端，那么就该选用POST协议。</p>
+
+<p>考虑到Gitment实现XHR请求时的特殊性（它专门实现了一个ajaxFactory），我在修改Gitment项目时更要求：</p>
+
+<blockquote>
+  <p>如果使用POST方法，并强制要求使用form-urlencoded协议，那么应该在<code>http.post()</code>方法中传入字符串格式的data，而不能传入对象。</p>
+</blockquote>
+
+<p>接下来的实现就比较简单了（修改utils.js中的Ajax接口）：</p>
+
+<pre><code class="language-javascript">// Update (Getment Proj)/src/utils.js, es6 syntax
+
+function ajaxFactory(method) {  
+  ...
+  // 在accept头中加上form-urlencoded支持
+  req.setRequestHeader('Accept', '..., application/x-www-form-urlencoded')
+
+  // 在Response数据的解码中支持form-urlencoded
+  req.addEventListener('load', () =&gt; {
+    ...
+    if (/urlencoded/.test(contentType)) {
+       data = req.responseText ? Query.parse(res) : {}
+       ...
+
+  // 强制Requestr的POST协议对string data使用form-urlencoded
+  if (method !== 'GET' &amp;&amp; method !== 'DELETE') {
+    if (isString(data)) {
+      body = data
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    ...
+</code></pre>
+
+<p>第二步（修改Gitment.js）：</p>
+
+<pre><code class="language-javascript">// Update (Getment Proj)/src/gitment.js, es6 syntax
+
+class Gitment {  
+  constructor(options = {}) {
+    ...
+    const { client_id, client_secret, proxy_gateway } = this.oauth
+
+    ...
+    var login = !proxy_gateway
+      ? http.post('https://gh-oauth.imsun.net', {code, client_id, client_secret}, '')
+      : http.post('/login/oauth/access_token', `code=${code}&amp;client_id=${client_id}`, proxy_gateway);
+
+    login.then(data =&gt; {
+      this.accessToken = data.access_token
+      ...
+</code></pre>
+
+<p>第三步（Gitment创建时Options）：</p>
+
+<pre><code class="language-javascript">// 现在在Gitment创建时的Options中就可以使用proxy_gateway选项了
+//    - 保持了与旧的client_secert的兼容，二选一配置即可
+const gitment = new Gitment({  
+  id: 'Your page ID', // optional
+  owner: 'Your GitHub ID',
+  repo: 'The repo to store comments',
+  oauth: {
+    client_id: 'Your client ID',
+    proxy_gateway: 'https://your_intersect_gateway'
+    // client_secret: 'Your client secret, either this or proxy_gateway',
+  },
+  // ...
+  // For more available options, check out the documentation below
+})
+</code></pre>
+
+<h3 id="113">11.3 多语言支持</h3>
+
+<p>Gitment的作者没有提供多语言支持是觉得『不必要』，因为Github的用户要是这几个单词也不认得大概就只能回家卖烤红薯了。但我的问题在于，我打算做一个多人博客，所以博客的读者还真有不少与Github无关。</p>
+
+<p>所以，我得需要一个多语言支持。</p>
+
+<p>简单的做法，就是写一个这样的translator：</p>
+
+<pre><code class="language-javascript">// save as (Getment Proj)/src/translator.js
+export function english(Text) {  
+    return Text;
+}
+
+export function chinese(Text) {  
+    return ({
+        'Issue Page': '所有评论',
+        'Initialize Comments': '初始化本文的评论页',
+        ...
+    }[Text]||Text);
+}
+
+export default english;  
+</code></pre>
+
+<p>这里用的都是ES6的语法。这几个简单的export说明当前模块导出了<code>english/chinese</code>等等名字，是用来作为提供多语言支持的翻译函数——在不同语言的函数中添加对照表来支持更多的内容。</p>
+
+<p>使用的时候也挺简单的，在Gitment的<code>src/theme/default.js</code>模块中将它装载进来：</p>
+
+<pre><code class="language-javascript">// 注：如果使用英文(不翻译)，那么以下两种导入方法是等效的
+//    import { english as $ } from '../translator'
+//  import $ from '../translator'
+import { chinese as $ } from '../translator'  
+...
+</code></pre>
+
+<p>然后在需要多语言的地方使用下面的代码即可：</p>
+
+<pre><code class="language-javascript">// 例如，原始代码
+//    issueLink.innerText = 'Issue Page'
+// 改成：
+issueLink.innerText = $('Issue Page')  
+</code></pre>
+
+<p>一处处地找到，改完就Ok啦。</p>
+
+<blockquote>
+  <p>注意：Gitment使用了ES6的语法，所以有些地方是用ES6的模板字符串的，这些地方要使用类似${$('english text')} 这样的方法来转换。</p>
+</blockquote>]]></content:encoded></item><item><title><![CDATA[博客迁移手记之快速导航]]></title><description><![CDATA[<p>本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。</p>
+
+<p>于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。</p>
+
+<h2 id="">快速导航</h2>
+
+<p>博客迁移手记（一）</p>
+
+<ul>
+<li>使用BlogToWordpress迁移你的博客</li>
+<li>使用本地博客Ghost的快速指南与导入工具</li>
+</ul>
+
+<p>博客迁移手记（二）</p>
+
+<ul>
+<li>从本地博客到Github Pages的最佳指南</li>
+<li>makesite.sh使用手册</li>
+</ul>
+
+<p>博客迁移手记（三）</p>
+
+<ul>
+<li>以kaldorei为例详解Ghost Theme的定制</li>
+<li>Ghost中文章置顶的实现方法</li>
+<li>如何最大程度地静态化Ghost博客</li>
+</ul>
+
+<p>博客迁移手记（四）</p>
+
+<ul>
+<li>Gitment大坑：谈谈secret泄露的前因后果</li>
+</ul>
+
+<p>博客迁移手记（五）</p>
+
+<ul>
+<li>如何获得一个支持HTTPS的免费空间</li>
+</ul>
+
+<p>博客迁移手记（六）</p>
+
+<ul>
+<li>用intersect来做Gitment的API网关</li>
+<li>Gitment的一些Bug修复与补强</li>
+<li>Gitment的简单多语言支持</li>
+</ul>
+
+<h2 id="">其它：</h2>
+
+<blockquote>
+  <ul>
+  <li><p>我最终改掉了这组博客文章的标题。</p></li>
+  <li><p>这充分说明使用短标题是正确的。</p></li>
+  </ul>
+</blockquote>]]></description><link>http://aimingoo.github.io/1-1724.html/</link><guid isPermaLink="false">b9502886-b86f-4f2e-b8c1-ee5f4a67f92e</guid><category><![CDATA[博客]]></category><category><![CDATA[Gitment]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 30 May 2017 07:48:53 GMT</pubDate><content:encoded><![CDATA[<p>本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。</p>
+
+<p>于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。</p>
+
+<h2 id="">快速导航</h2>
+
+<p>博客迁移手记（一）</p>
+
+<ul>
+<li>使用BlogToWordpress迁移你的博客</li>
+<li>使用本地博客Ghost的快速指南与导入工具</li>
+</ul>
+
+<p>博客迁移手记（二）</p>
+
+<ul>
+<li>从本地博客到Github Pages的最佳指南</li>
+<li>makesite.sh使用手册</li>
+</ul>
+
+<p>博客迁移手记（三）</p>
+
+<ul>
+<li>以kaldorei为例详解Ghost Theme的定制</li>
+<li>Ghost中文章置顶的实现方法</li>
+<li>如何最大程度地静态化Ghost博客</li>
+</ul>
+
+<p>博客迁移手记（四）</p>
+
+<ul>
+<li>Gitment大坑：谈谈secret泄露的前因后果</li>
+</ul>
+
+<p>博客迁移手记（五）</p>
+
+<ul>
+<li>如何获得一个支持HTTPS的免费空间</li>
+</ul>
+
+<p>博客迁移手记（六）</p>
+
+<ul>
+<li>用intersect来做Gitment的API网关</li>
+<li>Gitment的一些Bug修复与补强</li>
+<li>Gitment的简单多语言支持</li>
+</ul>
+
+<h2 id="">其它：</h2>
+
+<blockquote>
+  <ul>
+  <li><p>我最终改掉了这组博客文章的标题。</p></li>
+  <li><p>这充分说明使用短标题是正确的。</p></li>
+  </ul>
+</blockquote>]]></content:encoded></item><item><title><![CDATA[手记5：如何获得一个支持HTTPS的免费空间]]></title><description><![CDATA[<p>下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。</p>
+
+<h2 id="10https">10. 让免费主页空间支持HTTPS</h2>
+
+<blockquote>
+  <p>好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？</p>
+  
+  <p>好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。</p>
+</blockquote>
+
+<p>免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。</p>
+
+<h3 id="101https">10.1 你的主页空间是不是支持HTTPS？</h3>
+
+<p>好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：</p>
+
+<blockquote>
+  <p>（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）</p>
+</blockquote>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"></p>
+
+<p>免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：</p>
+
+<ul>
+<li>Private Key，私钥，它通常与下面的CSR是成对的。
+<ul><li>CSR，证书验证请求（Cerificate Signing Request）。</li></ul></li>
+<li>Certificate，</li></ul>]]></description><link>http://aimingoo.github.io/1-1723.html/</link><guid isPermaLink="false">fa7313be-e458-4280-8739-ab40307afcd0</guid><category><![CDATA[博客]]></category><category><![CDATA[SSL]]></category><category><![CDATA[HTTPS]]></category><category><![CDATA[免费空间]]></category><category><![CDATA[证书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 30 May 2017 07:25:00 GMT</pubDate><content:encoded><![CDATA[<p>下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。</p>
+
+<h2 id="10https">10. 让免费主页空间支持HTTPS</h2>
+
+<blockquote>
+  <p>好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？</p>
+  
+  <p>好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。</p>
+</blockquote>
+
+<p>免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。</p>
+
+<h3 id="101https">10.1 你的主页空间是不是支持HTTPS？</h3>
+
+<p>好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：</p>
+
+<blockquote>
+  <p>（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）</p>
+</blockquote>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"></p>
+
+<p>免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：</p>
+
+<ul>
+<li>Private Key，私钥，它通常与下面的CSR是成对的。
+<ul><li>CSR，证书验证请求（Cerificate Signing Request）。</li></ul></li>
+<li>Certificate，验证信息。</li>
+</ul>
+
+<p>简单的逻辑是：</p>
+
+<ul>
+<li>假设你先有了一个私钥（Private Key），然后</li>
+<li>你用私钥对一些『要验证的信息』加密，生成了一个验证请求（CSR），最后</li>
+<li>你要找一个有公信力的机构来证明CSR是你的；如果验证通过他就给你发一份Certificate。</li>
+</ul>
+
+<p>你最后从『公信力机构』拿到的这个Certificate就是SSL凭证。——找到你的免费空间后台管理中的Certificate填进去，OK，你的网站就支持<code>https</code>了。</p>
+
+<blockquote>
+  <p>当然这其中还有很多的细节，比如免费空间服务商怎么把你的Certificate装到Web服务器上面去等等等等。不过除非你是要搞台云主机自己来架服务器，这些就先不要了解了吧。</p>
+</blockquote>
+
+<h3 id="102certificate">10.2 两种获得Certificate的方法</h3>
+
+<p>这三个信息有两种方式来获得。</p>
+
+<ul>
+<li>一种是你的免费空间提供商为你生成Private Key/CSR这一对信息，然后你将其中的CSR提交给『公信力机构』，后者给你发Certificate文本。</li>
+</ul>
+
+<p>所以这种情况下你看到免费空间后台管理的SSL配置中会有一个『Generate Key/CSR』按钮，按一下就得到了前面信息了——如果只能填入而不能Generate，那么你也可以自己做，例如在MacOSX中的工具keytool或OpenSSL（<a href="https://faq.xiaoz.me/archives/100.html">参考这里</a>，或<a href="https://onlinehelp.tableau.com/current/server/zh-cn/ssl_cert_create.htm">这里</a>）。与之对应的，在『公信力机构』的证书申请流程中会有一个类似这样的提示：</p>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-provide_your_csr.png" alt="ssl_step-provide_your_csr"></p>
+
+<ul>
+<li>另一种是『公信力机构』一次性地为你把上述三步全做了——他不需要你提供CSR，而是为你生成一个Private Key，然后自己生成CSR、完成验证并最后把Private Key交还给你。例如阿里云为你提供的验证服务就是这样（它后台用的是Symantec的免费DV服务）。这种情况下，你就需要将其中的Private Key交给免费空间提供商了——所以你的免费空间后台管理的SSL配置中，通常在『Generate Key/CSR』按钮旁边，就还会有一个『Upload Key』的功能，这个Key，指的就是Private Key。</li>
+</ul>
+
+<p>好了。简单地汇总一下上面的信息：</p>
+
+<ol>
+<li>找一个『公信力机构』，让他证明你的网站是你的；  </li>
+<li>如果他要CSR，你就给他；如果他不要CSR，那么他应该给你Private Key。</li>
+</ol>
+
+<p>当然，如果你的主页空间不给你提供ssl功能（没有地方让你提交『公信力机构』验证过的Certificate），那么——换一家吧。</p>
+
+<h3 id="103">10.3 怎么证明『你的网站是你的』</h3>
+
+<p>所谓的『公信力机构』要颁发SSL签证，其实是想说明『因为这个网站你是你的，所以我发了这个证明给你』。因此无论如何，这个机构也要有办法来证明『你的网站是你的』，而不仅仅是因为你提交了CSR申请。</p>
+
+<p>所以一旦你申请了，那么你就要为接下来的验证工作做准备，而这取决于不同的『公信力机构』采用的验证方法。下面举三种例子。</p>
+
+<h4 id="1031symantec">10.3.1 阿里云或Symantec的签证</h4>
+
+<p>阿里云可以为你的网站提供1年的免费SSL签证，它的这项服务是通过Symantec签证机构来做的（所以腾讯云也是这样）。所以下面其实是在说Symantec的签证要求。</p>
+
+<p>阿里云是允许你通过修改DNS或在指定的主页位置放一个名为<code>fileauth.txt</code>的文本文件（一个详细的过程可以<a href="https://yfdxs.com/ali-ssl-amh.html">看过里</a>，如果你能修改DNS的CNAME配置那么<a href="https://www.xiaoz.me/archives/7442">看这里</a>）。这样，你就必须要：</p>
+
+<ol>
+<li>有这个网站（或主页）的ftp账号；并且，  </li>
+<li>可以创建名为<code>.well-known</code>这样以点字符开始的目录名（基于Windows系统的主机不能创建这样的名称）；并且，  </li>
+<li>可以确保能通过<code>http://your-domain-name/.well-know/...</code>这样的url路径下载到上述文本文件（注意：如果你的网站已经开通了https，那么它会优先访问https开头的地址）。</li>
+</ol>
+
+<p>问题往往出在第3步。这是因为Symantec会优先去https开头的地址下载验证文件，而一般会提供ssl的主机/免费空间都会默认的给你装一个『自主签名的SSL证书』，这个证书事实上会被认为是无效的——因此Symantec就会验证不通过。</p>
+
+<p>这种情况下你可以曲线救国：先去找别的机构签一个短期一些（通常是3个月）的证书，让这个https地址生效了，然后再回头过验证Symantec的签证（话说，我就是这么干的）。</p>
+
+<p>不过，有些时候事情并不那么美妙，因为即使你的主页空间『信誓旦旦』地说他们开放了SSL，并且无论如何你都把文件传到了正确的地方，甚至你看起来也的确可以通过https/http来访问到上述的<code>fileauth.txt</code>文件的URL地址，但是——你就是通不过Symantec（或者阿里云、腾讯云等等）的验证——它们找不到上面的这个文件。</p>
+
+<blockquote>
+  <p>注意：我就是因为这个问题申请了又放弃了近二十个免费主页空间。相信我，如果你逐一去试，不会好到哪里去的。</p>
+</blockquote>
+
+<p>问题出在哪儿呢？</p>
+
+<p>这是因为非常非常多的『免费主页』本质上都是要在你的主页上挂广告才能活下去的，他们挂广告的方法真的很纷纷多啊。其中一种常用的，就是串改你的url地址，它会把浏览器访问到的url改成带广告代码的，然后自己搞点弹窗啊什么的，最后才重定向到你真实的地址。——这个过程浏览器认得，而『公信力机构』的验证程序可认不得啊，后者在读取验证文件的时候并不支持为浏览器准备的重定向！</p>
+
+<p>所以，一旦你申请到一个主页空间，先用curl去访问一下，如果是下面这种返回：</p>
+
+<pre><code class="language-bash">&gt; curl 'http://your-domain-name/'
+&lt;html&gt;  
+&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt;&lt;/head&gt;  
+...
+</code></pre>
+
+<p>好吧，它的意思是说不支持curl这样的直接访问，一般来说就不能用了。不过如果你不死心，可以再试试伪装成浏览器：</p>
+
+<pre><code class="language-bash">&gt; curl -H 'User-Agent:Mozilla/5.0' 'http://your-domain-name/'
+&lt;html&gt;&lt;body&gt;&lt;script type="text/javascript" ...  
+</code></pre>
+
+<p>那么你就真的不用想了：上面的就是挂广告的代码了，你还想什么呢。</p>
+
+<p>所以你看，我申请了很多又很多个免费空间，都作废了。</p>
+
+<h4 id="1032instantssl">10.3.2 试试别的验证方法，例如instantssl的</h4>
+
+<p>这家『公信力机构』也非常棒，他提供3个月免费的签证。我们上面说过，你可以尝试『曲线救国』，或者干脆就每三个月签一回，都行。</p>
+
+<p>重要的是，instantssl采用的是邮件验证，而不是验证ftp文件。</p>
+
+<p>instantssl是科摩多（comodo）提供的一项SSL证书发放服务，所以你用<a href="http://www.comodo.cn/">comodo.cn</a>或<a href="http://www.instantssl.cn/">instantssl.cn</a>访问都是可以的。他要求你提供自己准备的CSR，之后会提示你会把证书邮寄给你的网站的admin邮箱账号。</p>
+
+<p>所以，这就要求你的主页空间给你开通邮箱服务，并且你能自定义类似<code>admin@yourname.freespace.xyz</code>这样的邮箱名——这个instantssl可以让你选，不过总的来说就那几种特定的。</p>
+
+<p>很好，如果你有这样的免费空间，或者你就是能得到这样的邮箱，那么试试instantssl的吧。我知道<a href="http://infinityfree.net">infinityfree</a>免费空间提供这样的邮箱服务，比如我其实申请了一个<code>.epizy.com</code>的二级域名。但很不幸我没有通过instantssl的验证——它提示我相应名字的签证已经发过了。</p>
+
+<p>不知道为什么。反正，你也许可以试试。</p>
+
+<h4 id="1033">10.3.3 还有一些别的不错的签证机构</h4>
+
+<p>有个非常非常著名的、推动https的签证组织，叫<code>Let’s Encrypt</code>。这个签证非常好用，所以也常常有自己做虚拟主机的来用它（<a href="https://www.freehao123.com/lets-encrypt/">https://www.freehao123.com/lets-encrypt/</a>），很多介绍中也首推就是它（<a href="https://www.freehao123.com/top-8-free-ssl-cert/">例如这里</a>）。</p>
+
+<p>然而它对web域名签证并不友好，所以就有人搞了网站来做这件事，最好用的就是这家了：<a href="https://www.sslforfree.com/">https://www.sslforfree.com/</a>，它发的也是3个月的免费签证。你可以先看看这个教学<a href="https://changken.biz/969">SSLforFree 免费SSL凭证</a>。</p>
+
+<p>SSLforFree的验证过程与阿里云/Symantec的类似，也是要求你传一个文件到ftp上（或者改DNS CNAME），不过他不验证https，所以多数『提供了无效的https的免费空间』来说也能很好的通过验证——除了我上面说的挂广告代码的那种情况。</p>
+
+<p>也许还有其它好的，有知道的不妨推荐给我。</p>
+
+<h3 id="104">10.4 安装你得到的凭证</h3>
+
+<p>『公信力机构』最终给你的是名为Certificate的凭证。并且，</p>
+
+<ul>
+<li>如果是他帮你生成的CSR，那么他会给你Private Key；</li>
+<li>一般来说他会给你一个它作为签证机构的公钥，不过由于使用者（例如你的主页空间服务商）能直接从网站上搜到这个公钥，所以没有给你也是正常的。</li>
+</ul>
+
+<p>你需要在后台把Certificate凭证和Private Key给上传(Upload)或更新(Update)到你的管理后台——如果它有类似『SSL管理』这样的功能的话。例如：</p>
+
+<blockquote>
+  <p>（第1步先上传你的证书）</p>
+</blockquote>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_ssl.png" alt="ssl_step-update_ssl"></p>
+
+<blockquote>
+  <p>（然后点下面的『管理SSL站点』）</p>
+</blockquote>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_site-1.png" alt="ssl_step-update_site"></p>]]></content:encoded></item><item><title><![CDATA[手记4：谈谈Gitment中泄露secret的前因后果与解决方法]]></title><description><![CDATA[<p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……</p>
+
+<p>这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。</p>
+
+<h2 id="8">8. 问题出在哪里</h2>
+
+<p>Gitment（<a href="https://github.com/imsun/gitment">项目</a>）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（<a href="https://imsun.net/">https://imsun.net/</a>）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：</p>
+
+<ul>
+<li>Github真的可能被屏蔽，尽管这种可能性已经越来越小</li>
+<li>要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的</li>
+</ul>
+
+<p>但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。</p>
+
+<p>这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：</p>
+
+<pre><code class="language-javascript">var gitment = new Gitment({  
+  id: '页面 ID', // 可选。默认为 location.href</code></pre>]]></description><link>http://aimingoo.github.io/1-1722.html/</link><guid isPermaLink="false">bfa19ad7-3e78-4560-a7ff-f79104c7dd8d</guid><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Github]]></category><category><![CDATA[Gitment]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 28 May 2017 18:17:49 GMT</pubDate><content:encoded><![CDATA[<p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……</p>
+
+<p>这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。</p>
+
+<h2 id="8">8. 问题出在哪里</h2>
+
+<p>Gitment（<a href="https://github.com/imsun/gitment">项目</a>）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（<a href="https://imsun.net/">https://imsun.net/</a>）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：</p>
+
+<ul>
+<li>Github真的可能被屏蔽，尽管这种可能性已经越来越小</li>
+<li>要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的</li>
+</ul>
+
+<p>但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。</p>
+
+<p>这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：</p>
+
+<pre><code class="language-javascript">var gitment = new Gitment({  
+  id: '页面 ID', // 可选。默认为 location.href
+  owner: '你的 GitHub ID',
+  repo: '存储评论的 repo',
+  oauth: {
+    client_id: '你的 client ID',
+    client_secret: '你的 client secret',
+    ...
+</code></pre>
+
+<p>这个<code>client_secret</code>来自于你在自己的Github个人配置<code>Settings -&gt; Developer Settings -&gt; OAuth applicatoins</code>中创建一个application时所生成的secret，这个secret提供了所谓的单点登录认证，以确保其它的Github用户在经过同意后使用你的博客中的Gitment模块来发评化——这种用法类似于新浪、微信、QQ等等的小应用。</p>
+
+<p>通常你需要这个secret有访问者的repo级别的访问权限（因为添加评论其实上是向repo的issues中添加comments），而一旦有人劫持了访问者的access_token，那么它就可以仿冒访问者在任意的github仓库中添加comments、以及issues——看起来很可怕不是？而且事实上看起来这个权限还更大，可以操作访问者自己的仓库。</p>
+
+<p>Gitment的作者为什么要留下这么一个漏洞呢？Github又为什么会允许这样一个漏洞存在呢？</p>
+
+<h3 id="81gitment">8.1 Gitment干了什么？</h3>
+
+<p>其实Gitment的作者是好心的。他在源代码中是这么写的：</p>
+
+<pre><code class="language-javascript">this.state.user.isLoggingIn = true  
+http.post('https://gh-oauth.imsun.net', {  
+    code,
+    client_id,
+    client_secret
+  }, '')
+  .then(data =&gt; {
+    this.accessToken = data.access_token;
+    ...
+</code></pre>
+
+<p>这段代码的意思，是拿你在Github后台生成的一对<code>client_id/client_secret</code>验证信息，去<code>https://gh-oauth.imsun.net</code>上面换取access_token，而这个access_token才是当前登录的Github用户在你的博客用发评论时使用的验证信息。这个access_token会记录在cookies中，并且每次调用Github api时作为Authorization头信息提交给Github验证身份。</p>
+
+<p>你把client_id和client_secret同时给了imsun.net，这是不对的；即使你信任imsun.net，然而把它公布在源代码中，也是不对的。——所以，事实上如果你在博客中部署了上述代码，你还会收到来自Github的一封邮件，提醒你不应该将token放在源代码中（是的，Github会扫描提交的源代码）。</p>
+
+<p>Gitment的作者并不是不知道这个问题，他只是好心的想帮你解决一个问题——这个我们下面会讲到——然而他带来了更严重的问题。</p>
+
+<h3 id="82github">8.2 深入了解Github的单点登录和应用授权</h3>
+
+<p>如果你在Github站外使用它的单点登录（也就是提示你用Github账户登录以使用某种功能），那么在这个网页中——其实也可以不是前端的网页，而是后端应用——需要调用Github API，来将当前用户引导到下面的Github的登录和授权页面：</p>
+
+<pre><code class="language-bash">GET https://github.com/login/oauth/authorize  
+    ?scope=(权限范围, Gitment预设的是'public_repo')
+    &amp;client_id=(验证应用的client_id)
+    &amp;redirect_url=(验证成功后的返回url, Gitment预设的是当前页)
+</code></pre>
+
+<p>这时，（如果当前用户/访客没有登录过，那么）它看到的页面是下面这样的：</p>
+
+<blockquote>
+  <p>（界面1：跨站应用的单点登录界面）</p>
+</blockquote>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-1.png" alt="github_auth_step-1"></p>
+
+<p>如果访客还没有为这个应用授权过（或者他已经是Github的登录用户），那么他之后还会看到下面这个界面：</p>
+
+<blockquote>
+  <p>（界面2：授权）</p>
+</blockquote>
+
+<p><img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-2.png" alt="github_auth_step-2"></p>
+
+<p>这两步的目的就是让访客登录，并且让他确认你的应用（例如Gitment）能够使用他的账号中的哪些权限。一旦用户确认过这个授权，那么在他的Github账号后台<code>Settings -&gt; Authorized OAuth Apps</code>中就可以看到这个应用（也能Revoke掉它），并且下次就不用再确认授权了。</p>
+
+<p>注意到上述'will redirect to'的地址——它在使用API提交时的配置细节在Github API的说明中有（<a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/#redirect-urls">在这里</a>），简单地说它必须以Application在后台的配置作为前缀。在我们这里讨论的Gitment中，作者将它设置为当前正在访问的网页——例如某篇博客文章（Post）。</p>
+
+<p>接下来如果Github验证并授权了访问的账户，它就会通过HTTP调用来返回304并带上一个Location地址，这个地址就是上面的redirect_url，并且会在这个url后面多带一个<code>code</code>参数。以我的站点上的某个具体的post来说，返回的时候这个Header是下面这样的：</p>
+
+<pre><code>Location:https://aimingoo.github.io/1-1718.html?code=40299d8475d3679c8c8c  
+</code></pre>
+
+<p>在静态页面（例如1-1718.html）中从url取参数的方法就不用细讲了。于是接下来Giment取到这个参数<code>code</code>，它还需要再做一次验证，才能真正的让当前用户能够使用Github API。这个验证操作需要调用：</p>
+
+<pre><code class="language-bash">POST https://github.com/login/oauth/access_token  
+    client_id: ...
+    client_secret: ...
+    code: ...
+</code></pre>
+
+<p>并且它使用POST请求的Accept header来决定以何种格式（xml/json/url-encode）来返回数据。显然地，这里需要在浏览器中使用AJAX请求来向<code>https://github.com/</code>调用这个API。</p>
+
+<p>问题就出在这一步。</p>
+
+<h3 id="83githuboauth">8.3 Github OAuth并不支持浏览器跨站访问</h3>
+
+<p>如果你在命令行上或者其它代码中直接访问上述POST API，那么不错，你能拿到返回数据access_token，然而不幸的是：Gitment在浏览器上，只能使用Ajax。</p>
+
+<p>事实上Gitment可以调用上述API并返回数据，但是注意发起这个API的地址（以上面的post为例）与调用的Github API地址分别是：</p>
+
+<pre><code>https://aimingoo.github.io/1-1718.html  
+https://github.com/login/oauth/access_token  
+</code></pre>
+
+<p>于是浏览器说：这是一个跨站访问！浏览器会把POST请求拆成两个，先发一枚OPTIONS请求问问github.com是否支持跨站，如果github.com接受了OPTIONS并正确返回，那么浏览器才接下来发POST请求。——OPTIONS请求是没有POST BODY区的，显示这是为了浪费服务器接受大型的POST请求时浪费资源。关于这个过程的细节，可以参考阮一峰老师的文章『<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a>』。简单地说，服务器端对OPTIONS和POST请求都必须在返回头中包括<code>Access-Control-Allow-Origin</code>字段，并使该字段带有正确的来源Origin信息。——这样一来，浏览器就会认为服务器是接受跨站访问的了。</p>
+
+<p>然而Github的access_token接口并不返回上述头。而且，可以预见的将来，它都不会有这个头。因为这是正确的——我们确实不应该在浏览器上直接使用这个接口，并且公开接口中的client_secret。从另一方面来说，这个access_token接口是应该在一个浏览器用户受信的后端应用中，亦即是我们称为Gitment模板的应用内部发起调用的，它可以持有client_secret而不必告诉任何人，这是Github确认『该应用合法』的唯一凭据。</p>
+
+<p>Gitment没有办法同时做到两件事：</p>
+
+<ul>
+<li>既可以使用一个惟一、统一的Giment client_secret凭据，</li>
+<li>又在redirect_url中指定某个非确定的博客返回地址。</li>
+</ul>
+
+<p>这使得作者无法公开发布一个公众使用的、不需要每个博主去Github后台配置OAuth Application服务的应用。而接下来，作者也有没办法在没有client_secret凭据的情况下，帮你调用Github's access_token接口。</p>
+
+<p>所以，你看到了结果：Gitment的代码要求在网页中泄露你的client_secret，然后提交到<code>https://gh-oauth.imsun.net</code>去，作者会帮助你调用Github API，然后返回一个access_token。</p>
+
+<p>只有这样，当前的访问才能用这个access_token为每一个XHR Request建立有效的Authorization头。</p>
+
+<p>问题的根源，仅仅是出在Github OAuth并不支持浏览器跨站访问——它的返回头用没有Access-Control-Allow-Origin。</p>
+
+<h3 id="84api">8.4 API网关</h3>
+
+<p>显然，这绝壁了就是API网关要干的事情。如果我有一个API网关，那么我就只需要接受来自浏览器的Gitment请求，然后将API转发到Github，并且在返回头上塞上一个Access-Control-Allow-Origin就万事大吉了！</p>
+
+<p>是的，这是对的。不幸的是，没有这么个东东——而且要开放可信的。</p>
+
+<p>我尝试过阿里云的API网关！很牛x的产品，价格也不贵，而且配置操作一路极顺畅，Ding dong Ding dong分分钟就建好了网关，但是——不能定制返回的HTTP Header！</p>
+
+<p>我尝试过微软Azure里的API网关！也很牛x产品，骗了我一块钱人民币，居然让我连配置都完不成——最最反程序员的产品就非它莫属了。</p>
+
+<p>我尝试过很多很多云服务或云端微服务的API网关产品，要么是根本连页面都打不开的，要么就是不支持CORS跨站的。简单地说：你就算想花钱也是花不出去的。</p>
+
+<p>不过真想花钱，还是有一个法子的。你可以租一台虚拟主机，然后在上面架一个Nginx，通过配置来代理这个POST请求并在返回中加上Access-Control-Allow-Origin头。是的，这相当不错，连代码也不用写。但是搞云主机啊，分分钟收钱的。——你的API能访问几次？一个小小小小得不得了的博客，一个月能用10来条评论就不错了，调用上面的登录接口，大概也就三五次吧！</p>
+
+<p>不值当搞台云主机啊！</p>
+
+<p>于是，我说：</p>
+
+<h3 id="85sir">8.5 写点代码吧，Sir</h3>
+
+<p>要写点代码就其实很好办了，用NodeJS也好、PHP/ASP也行，其实甚至BASH脚本都搞得定。只需响应前端（frontend）来的POST请求，然后去Github API接口（backend）上拿数据，在返回前端之前塞上个Header就行了。</p>
+
+<p>不过具体要做起来，就麻烦一点了。我用PHP写了一个名为intersect的项目（<a href="https://github.com/aimingoo/intersect">在这里</a>），它修改自<a href="https://github.com/stamat/corsica">CORSica</a>，不过添加了不少的特性：</p>
+
+<ul>
+<li>HTTPS POST支持</li>
+<li>添加可配置字段（例如为Github API添加client_secret）</li>
+<li>处理前后端不同的Connection方法</li>
+<li>处理Transfer-Encoding</li>
+<li>处理Content-Length的变化</li>
+<li>一些防止滥用的简单guard代码</li>
+<li>...</li>
+</ul>
+
+<p>基本上，我的意思是说，它简单的配置下就可用了；而且稍作定制，也可以作为一个通用的CORS网关。所以，接下来，你就需要找一个能放PHP代码的免费主页，然后把intersect放上去，配置其中的<code>DOMAIN_ACCEPT</code>和<code>PRIVATE_CLIENT_SECRET</code>。这样这个网站就能拿来替代Gitment中对<code>https://gh-oauth.imsun.net</code>的访问了。</p>
+
+<p>当然，Gitment还需要稍稍的改点代码。</p>
+
+<p>这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。</p>]]></content:encoded></item><item><title><![CDATA[手记3：实例教学之Ghost模板定制]]></title><description><![CDATA[<p>接下来我们聊一下如何定制这个博客的风格。</p>
+
+<h2 id="7themes">7. 定制Themes</h2>
+
+<p>Ghost缺省使用的主题叫casper theme，你可以在博客管理界面<code>Settings -&gt; General -&gt; Themes</code>中找到你当前安装过的全部Themes，并任意激活/删除它们。</p>
+
+<p>有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的<code>content/themes/</code>目录下。</p>
+
+<p>我选择的是使用小蘿蔔丁(<a href="http://xlbd.me/">在这里</a>)发布的<code>kaldorei - 0.8.0</code>，你可以下载或阅读这个Theme相关的说明（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei">这里</a>）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。</p>
+
+<p>但我还是做了一些修改（关于Themes的基础使用与修改改可以参考<a href="http://docs.ghost.org/zh/themes/">这里</a>）。</p>
+
+<h3 id="71">7.1 一些基本和简单的使用</h3>
+
+<p>Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）</p>]]></description><link>http://aimingoo.github.io/1-1721.html/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded><![CDATA[<p>接下来我们聊一下如何定制这个博客的风格。</p>
+
+<h2 id="7themes">7. 定制Themes</h2>
+
+<p>Ghost缺省使用的主题叫casper theme，你可以在博客管理界面<code>Settings -&gt; General -&gt; Themes</code>中找到你当前安装过的全部Themes，并任意激活/删除它们。</p>
+
+<p>有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的<code>content/themes/</code>目录下。</p>
+
+<p>我选择的是使用小蘿蔔丁(<a href="http://xlbd.me/">在这里</a>)发布的<code>kaldorei - 0.8.0</code>，你可以下载或阅读这个Theme相关的说明（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei">这里</a>）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。</p>
+
+<p>但我还是做了一些修改（关于Themes的基础使用与修改改可以参考<a href="http://docs.ghost.org/zh/themes/">这里</a>）。</p>
+
+<h3 id="71">7.1 一些基本和简单的使用</h3>
+
+<p>Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。</p>
+
+<p>kaldorei主题是使用这个方式来实现『历史归档』的功能（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能">参考这里</a>），这也相当于介绍了『定制静态页』功能的用法——所以我的博客的『关于』页面就是这样做的。</p>
+
+<h4 id="711">7.1.1 处理背景色与背景图片</h4>
+
+<p>需要两个操作。其一：</p>
+
+<pre><code class="language-css">/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
+body {  
+    margin: 0;
+    background: #000;
+}
+</code></pre>
+
+<p>其二，在default.hbs模板的body标签之后添加如下风格样式：</p>
+
+<pre><code class="language-html">&lt;style&gt;  
+body {  
+    background-image: url(/assets/img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+.site-wrapper {
+    background: none;
+}
+
+.main-header {
+    background: none;
+    border-bottom: none;
+}
+
+.main-nav a {
+    color: #FFF;
+}
+&lt;/style&gt;  
+</code></pre>
+
+<p>注意这个风格中的背景图片是放在Ghost安装目录下的<code>content/themes/ghost-theme-kaldorei/assets/img</code>目录中的。makesite.sh脚本（或Buster工具）会搜索到这个文件，并下载这个文件到你的static目录中。</p>
+
+<h4 id="712">7.1.2 为每篇博客添加『编辑』按钮</h4>
+
+<p>当添加了这个按钮之后，我在本地博客中读博文的时就可以随时编辑它，而不必总是回到管理后台去找到这篇文章——Ghost后台没有搜索功能。</p>
+
+<p>因为添加的这个按钮对线上的用户没有意义，所以在我的<code>makesite.sh</code>脚本中有一处代码会将它从<code>./static</code>中的静态页面中清理掉。</p>
+
+<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/post.hbs --&gt;  
+&lt;span class="post-meta-item pull-right"&gt;  
+  &lt;!-- 在这个位置插入如下行 --&gt;
+  &lt;a href="/ghost/editor/{{id}}/" target="_blank"&gt;编辑&lt;/a&gt;
+&lt;/span&gt;  
+</code></pre>
+
+<h4 id="713">7.1.3 移除所有页脚</h4>
+
+<p>纯粹只是个人不喜欢而已，因此除了保留版权说明之外，其它页脚本全部合并/删除掉了。基本上你在.hbs文件中搜索<code>-footer</code>然后自己斟情清理就行了。</p>
+
+<pre><code class="language- bash">&gt; grep 'footer' *.hbs partials/*
+</code></pre>
+
+<h4 id="714">7.1.4 定制个人信息</h4>
+
+<p>相关的信息页面在如下模板中，斟情修改（许多信息可以在博客后台的个人配置与网页配置中定制）：</p>
+
+<pre><code>## 清理掉部分社交信息
+ghost-theme-kaldorei/partials/social.hbs  
+ghost-theme-kaldorei/partials/post_author.hbs  
+## 我移除掉了标签数量的统计
+ghost-theme-kaldorei/partials/site_stat.hbs  
+</code></pre>
+
+<h4 id="715">7.1.5 在博客文章中显示作者信息</h4>
+
+<p>kaldorei主题并没有特别强调多作者博客的功能，所以它的文章（post）中只显示标签云，而不显示该文章的作者信息。因此我添加了这一功能，但需要做的修改极少：</p>
+
+<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&gt;  
+&lt;!-- 注意在下面位置的is标签后面，多添加一个post参数，就可以了 --&gt;  
+    {{! 作者：显示作者信息 }}
+    {{#is "author, post"}}
+</code></pre>
+
+<p>关于多作者博客的支持，我打算另开一篇博文来讲。</p>
+
+<p>^^.</p>
+
+<h4 id="716">7.1.6 修改语法高亮</h4>
+
+<p>在default.hbs中载入新的highlight style即可：</p>
+
+<pre><code class="language-html">&lt;!-- kaldorei的缺省风格是monokai-sublime.css, 在styles目录下找个新的换上就Ok --&gt;  
+&lt;!-- 可以先查看https://highlightjs.org/static/demo/来选择风格 --&gt;  
+&lt;link rel="stylesheet" type="text/css" href="{{asset "plugins/highlight-9.1.0/styles/xcode.css"}}" /&gt;  
+</code></pre>
+
+<p>此外，你可能需要调整高亮代码左侧的行号背景（或其它），那么应修改如下样式表：</p>
+
+<pre><code class="language-css">/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
+.pre-numbering {
+    position: absolute;
+    ...
+}
+
+.pre-numbering li {
+    ...
+}
+</code></pre>
+
+<h4 id="717">7.1.7 指定文章置顶</h4>
+
+<p>置顶文章是常见的博客操作，你可以将一篇文章设置为<code>featured</code>，并且通过修改模板来使它们置顶。这会涉及到不少的修改。</p>
+
+<p>好在所谓『置顶』操作其实只会发生在带有<code>（列表）list</code>性质的页面中，这类页面在Ghost中称为<code>paged</code>，它只出现在以下三类页面上：index, tag and author（<a href="https://themes.ghost.org/docs/paged-context#section-description">参见这里</a>）。在这三类页面中，可以用loop模板去列举所有页，但它们的<code>第1页</code>是paged为false的，而之后的<code>第2..n页</code>则是paged为true的。可以通过这种区别来将你需要的内容置顶，并在其它页面中筛除它们。</p>
+
+<p>在具体实现中，由于<code>{{get}}</code>标记在<code>filter</code>设置时不能使用包含或查找操作（它能使用的运算支持<a href="https://api.ghost.org/docs/filter">在这里</a>），所以tag页不能用index/author页相同的方法来实现置顶。然而此外唯一可能做这个运算的<code>{{has}}</code>标记却不支持参数传入——所以，你已经知道结果了：在tag页中不支持（按标签分类过的）置顶。</p>
+
+<pre><code class="language-html">&lt;!-- 在loop.hbs中用以下代码分别载入置顶风格的posts --&gt;  
+{{^is "paged"}}
+    {{! list all feated posts on top }}
+    {{#is "index"}}
+    {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
+    {{#foreach featured}}
+        {{&gt; content_featured}}
+    {{/foreach}}
+    {{/get}}
+    {{/is}}
+
+    {{#is "author"}}
+    {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
+    {{#foreach featured}}
+        {{&gt; content_featured}}
+    {{/foreach}}
+    {{/get}}
+    {{/is}}
+{{/is}}
+
+&lt;!-- 紧接着载入普通风格的posts --&gt;  
+    {{#foreach posts}}
+    {{#is "tag"}}
+        {{&gt; content_post}}
+    {{else}}
+        {{#unless featured}}
+        {{&gt; content_post}}
+        {{/unless}}
+    {{/is}}
+    {{/foreach}}
+</code></pre>
+
+<p>然后在<code>partials/content_featured.hbs</code>和<code>partials/content_post.hbs</code>中分别设置两种样式即可。——可以将原来在loop.hbs中<code>foreach posts</code>的代码块直接接到<code>partials/content_post.hbs</code>中。</p>
+
+<p>最后，一些细节可以参考这里：<a href="https://www.ghostforbeginners.com/move-featured-posts-to-the-top-of-your-blog/">Move Featured Posts to the Top of your Blog</a>。</p>
+
+<h3 id="72">7.2 将站点信息与云标签静态化</h3>
+
+<p>Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site_stat)』或『标签云(tag_cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。</p>
+
+<p>原因是这样，比如说你的site_stat里有一个『站点发表了多少篇文章』的计数，那么，显然你添加/删除一篇博客，就得让所有静态面这个位置的计数变一下；又例如标签名，你添加一个标签那么全站所有页的标签云都要动态生成一下。</p>
+
+<p>而事实上——99%的博客文章或静态页面在内容上都没有什么变化 。所以，能不能将这些动态变化的信息静态化掉，不至于每次都要重新生成？</p>
+
+<p>是能的。我采用的策略是：用js装载这些静态化的信息。</p>
+
+<h4 id="721">7.2.1 为标签云添加一个静态页</h4>
+
+<p>在博客后台添加一篇新的博客，将它的页面url设置成tag_cloud，并配配置它为静态页面（参见『历史归档』的做法，<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能">在这里</a>）。这一篇博客的内容可以为空。</p>
+
+<p>然后在<code>content/themes/ghost-theme-kaldorei/</code>目录下新添加一个名为<code>page-tag-cloud.hbs</code>的模板——它将是上面这篇文章的专用模板，Ghost是通过文件名来识别的。内容如下：</p>
+
+<pre><code class="language-javascript">document.writeln(function cloudTagHtmlContext() {/*  
+  {{&gt; "tag_cloud"}}
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+</code></pre>
+
+<p>注意，这是一段标准的JavaScript代码，并且事实上只有一行：</p>
+
+<pre><code class="language-javascript">document.writeln(...);  
+</code></pre>
+
+<p>当Ghost将在后台把<code>page-tag-cloud.hbs</code>当成标准的模板文件来处理，所以它会填充其中的Ghost标志，并装载子模板页。而生成出来的静态页实际上是一个.js的文本文件，并且放在（我们在对应博客文章后台配置的）<code>/tag_cloud</code>这个位置上——不过没有扩展名而已。</p>
+
+<p>这段脚本的作用仅仅是将cloudTagHtmlContext()这个函数（也可以是匿名函数）中的内容取出来，然后写在网页上。</p>
+
+<p>这段代码总是通用的，可以用来将任意模板/网页转换成这样一个脚本文件，以便于动态装载。</p>
+
+<h4 id="722">7.2.2 修改其它模板以装入上述脚本</h4>
+
+<p>这很简单，在sitebar.hbs这个文件中找到<code>{{&gt; "tag_cloud"}}</code>，然后替换成下面的即可：</p>
+
+<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&gt;  
+&lt;!-- 找到{{&gt; "tag_cloud"}}然后替换成下面的脚本 --&gt;  
+&lt;script type="text/javascript" src="/tag-cloud"&gt;&lt;/script&gt;  
+</code></pre>
+
+<h4 id="723site_stat">7.2.3 关于site_stat</h4>
+
+<p>与tag_cloud的处理类似，我添加了<code>/profile_site</code>静态页，并且添加模板如下：</p>
+
+<pre><code class="language-javascript">// file at ghost-theme-kaldorei/page-profile-site.hbs
+document.writeln(function cloudTagHtmlContext() {/*  
+    &lt;hr&gt; {{&gt; "site_stat"}}
+    &lt;hr&gt; {{&gt; "social"}}
+*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+</code></pre>
+
+<p>同样，最后你需要改一下<code>partials/profile.hbs</code>相应位置来装载<code>/profile_site</code>这个脚本文件。</p>
+
+<h3 id="73">7.3 其它</h3>
+
+<p>事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的有关『静态化』的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。</p>
+
+<p>不同的主题的修改会略有区别，本文只供参考。</p>]]></content:encoded></item><item><title><![CDATA[手记2：从本地博客到Github Pages的最佳指南及工具]]></title><description><![CDATA[<p>现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。</p>
+
+<p>如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为<code>xxxxxx.github.io</code>的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。</p>
+
+<h2 id="4github">4. Github开工</h2>
+
+<p>你得先有Github账号。然后，创建一个名为<code>xxxxxx.github.io</code>的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到<code>GitHub Pages</code>，检查一下，他可能已经缺省写着：</p>
+
+<blockquote>
+  <p><code>Your site is published at https://xxxxxx.</code></p></blockquote>]]></description><link>http://aimingoo.github.io/1-1720.html/</link><guid isPermaLink="false">16433c0c-40f9-4978-9fe3-f56cb56b2102</guid><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Github]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 26 May 2017 18:02:33 GMT</pubDate><content:encoded><![CDATA[<p>现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。</p>
+
+<p>如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为<code>xxxxxx.github.io</code>的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。</p>
+
+<h2 id="4github">4. Github开工</h2>
+
+<p>你得先有Github账号。然后，创建一个名为<code>xxxxxx.github.io</code>的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到<code>GitHub Pages</code>，检查一下，他可能已经缺省写着：</p>
+
+<blockquote>
+  <p><code>Your site is published at https://xxxxxx.github.io/</code></p>
+</blockquote>
+
+<p>OK。建议你将Features中的<code>Wikis</code>与<code>Restrict editing to collaborators only</code>设为关闭，而<code>Issues</code>建议开启——我相信你用得到它。</p>
+
+<p>最后，你还可以在<code>Theme chooser</code>中选一个Theme。不过对我来说没什么意义，因为我将使用Ghost中的Theme。不过，如果你使用了Github的Theme，那么你的主页根目录——也就是<code>xxxxxx.github.io</code>这个仓库的根目录下就会多一个<code>_config.yml</code>文件。</p>
+
+<p>此外，还总是会有一个<code>README.md</code>文件，知道Github的人都知道这个文件用来做什么，建议你留着——尽管删除掉也没什么影响。</p>
+
+<p>除了上述两个文件，Github什么都没给你，一切都得自己来干。</p>
+
+<p>当然，只要你创建了这个仓库，那么<code>https://xxxxxx.github.io</code>就已经可以访问了；如果你更新这个仓库，那么网站也就自动更新了。</p>
+
+<p>很酷。</p>
+
+<h2 id="5githubpages">5. 从本地博客到Github Pages</h2>
+
+<p>尽管几乎所有的Ghost用户都被推荐使用Buster来生成静态页（generate static pages），但这个工具确实相当不好用，按某博主所说『<strong>是个大坑</strong>』，不过我也建议你看看他的博客文章（<a href="https://mrcotter.github.io/ghost-to-github-pages/">在这里</a>），写得很细致了。不过如果你不怎么用Python的话，我建议你不要安装pyenv和多版本的python，直接用MacOSX原装的就好——或者只用Brew安装Python 2.x。</p>
+
+<p>参考上面这位博主（<a href="https://mrcotter.github.io/author/kris/">Kris Cotter</a>）的文章，我写了一个名为<code>makesite.sh</code>的脚本，它配合Buster使用，并主要用来填Buster的一些坑。下面说说这个工具。</p>
+
+<h3 id="51makesitesh">5.1 使用makesite.sh的标准过程</h3>
+
+<p>参考下面的控制台命令：</p>
+
+<pre><code class="language-bash">## 取一份你的Github Pages仓库，例如(YOURNAME/YOURNAME.github.io)
+&gt; git clone https://github.com/YOURNAME/YOURNAME.github.io
+&gt; cd ./YOURNAME.github.io
+
+## 定制一下git exclude files
+&gt; echo -e '\nstatic/\nmakesite.sh\npatchme.sh\nbuster.log’ &gt;&gt; .git/info/exclude
+
+## 下载makesite.sh文件到本地仓库
+&gt; wget -nv 'https://github.com/aimingoo/ghost-utils/raw/master/makesite.sh'
+
+## 使用帮助
+&gt; bash makesite.sh --help
+###########################################################################
+ Usage:
+  &gt; bash makesite.sh --generate --reset-domain --short-path --deploy-now
+ ...
+</code></pre>
+
+<p>上面列举了makesite.sh对<code>Ghost -&gt; Github Pages</code>的一个标准过程的理解，亦即是分成四步：</p>
+
+<ul>
+<li>generate: 调用Buster生成静态页</li>
+<li>reset-domain: 重置本地博客的domain到远端（YOURNAME.github.io）</li>
+<li>short-path: 生成简短的网页路径</li>
+<li>deploy-now: 部署到Github仓库</li>
+</ul>
+
+<p>你可以使用参数来开启或关闭任何一个步骤，或者从任何一个步骤开始（而无视于其它步骤）。缺省情况下所有的步骤都是关闭的，只检查一下当前目录下是否存在<code>./static</code>子目录。——注意这个目录是被保留，不被提交到Github仓库中去的（所以前面的脚本中我将它添加到了<code>.git/info/exclude</code>文件中）。</p>
+
+<p>整个过程需要依赖<code>git</code>和<code>buster</code>两个工具，另外需要<code>wget</code>、<code>grep</code>和MacOSX版本的<code>sed</code>。如果你是在别的系统上运行这个脚本，你"可能"需要改一下sed的命令行参数。</p>
+
+<p>如果你只是生成静态页而不部署它，那么你不需要使用<code>--deploy-now</code>参数，这种情况下没有安装git也是可以的。但我总是建议你先安装buster：</p>
+
+<pre><code class="language-bash">## 使用Python的PIP安装buster
+&gt; pip install buster
+
+## 如果你没有wget或git
+&gt; brew install wget git
+</code></pre>
+
+<h3 id="52makesitesh">5.2 makesite.sh的配置与参数</h3>
+
+<p>如果你读makesite.sh的源代码，你会发现它处理参数的代码非常漂亮（嘿~嘿~）。</p>
+
+<p>这些参数可以有两种格式：</p>
+
+<ul>
+<li><p><code>--reset-domain=false</code>：指定reset-domain参数值为false。</p></li>
+<li><p><code>--reset-domain</code>：这种省略掉值的情况，等效于<code>--reset-domain=true</code>。</p></li>
+</ul>
+
+<p>也可以指定字符串值，例如设置你的domain（缺省值是我的"aimingoo.github.io"）：</p>
+
+<blockquote>
+  <p><code>--domain='YOURNAME.github.io'</code></p>
+</blockquote>
+
+<p>所有通过命令行参数传入的参数配置，都有相对应的bash变量（全大写字符），所以你也可以直接修改.sh脚本中的变量缺省值，以避免每次都要通过命令行指定（例如，尤其是<code>--domain</code>和<code>--generate-info</code>这样的参数）。</p>
+
+<p>由于通常你都需要配置自己的domain参数，所以我没有将makesite.sh写成通用脚本，而是建议你每个Github本地仓库下载一份独立的，并修改其中DOMAIN变量的缺省值。</p>
+
+<p>也正是因此，它也被加入了git的排除文件列表。</p>
+
+<h2 id="6">6. 填了哪些坑？</h2>
+
+<p>前面说过makesite.sh用来填Buster的一些坑的。但填了哪些坑呢？下面讲讲技术问题。</p>
+
+<h3 id="61busterwget">6.1 Buster调用wget时的参数问题</h3>
+
+<h4 id="611buster5pages">6.1.1 Buster其实只帮你抓5页Pages</h4>
+
+<p>如果你的博客很多，有很多的分页（比如我的就有五十多页），那么你很容易就发现其实Buster只帮你抓了其中的5页——很郁闷吧。</p>
+
+<p>这是因为Buster调用wget来抓取页面，而它在递归下载时默认搜索的递归尝试就是5层，这个需要修改<code>--level</code>参数。</p>
+
+<h4 id="612">6.1.2 你可能需要忽略掉一些抓取页面</h4>
+
+<p>Ghost默认会帮你生成很多东西，有SEO用的amp文件、sitemap文件或rss文件，又例如最新的ld+json数据。然而你不见得都需要用到，其中最严重的就是amp，因为这相当于你生成了两份博客，所以我们需要用<code>--reject-regex</code>来忽略掉它。</p>
+
+<p>还有一种情况非常特殊。在Ghost博客里，tag页可能有两种url（事实上所有的页面都会有这两种页）：<code>/tags/XXX</code>和<code>tags/XXX/</code>。别小看多出来的这个斜杠<code>/</code>：当wget访问<code>/XXX</code>页时，它是将url理解为文件的，因此将要写入的是文件XXX（如果加上<code>--adjust-extension</code>参数那么就写入XXX.html）；而访问<code>/XXX/</code>时，wget认为它访问的是目录，所以也就会尝试创建XXX这个目录并写入<code>./XXX/index.html</code>。</p>
+
+<p>然而我们设想一个问题：如果一个网站中既有<code>/tags/XXX</code>又有<code>tags/XXX/</code>，那么当wget先找到前者的时候，就会在当前目录下写一个XXX文件，而下一次它找到后一种的时候，会发生什么呢？</p>
+
+<p>这有三种可能性：</p>
+
+<ul>
+<li>如果有XXX目录，而又要创建XXX文件的话，wget会创建一个名为XXX.1的文件；</li>
+<li>如果反过来是有XXX文件的情况下，
+<ul><li>需要再创建./XXX/目录，那么wget直接覆盖XXX文件，于是旧的XXX文件丢失，多出来一个新的XXX目录；</li>
+<li>需要创建<code>./XXX/yyy/index.html</code>这样的子级目录中的文件的话，那么很不幸，wget抛出一个异常<code>./XXX/yyy : Not a directory</code>，写文件不成功。</li></ul></li>
+</ul>
+
+<p>所以，我们需要忽略掉一些抓取页面，因为他们可能先于一个目录创建之前要写入，又或者与已写入的文件冲突，再或者根本就是多余的、重复的页。</p>
+
+<h4 id="613busterpy">6.1.3 不修改buster.py的做法</h4>
+
+<p>为了不修改Buster的源代码，我在makesite.sh中定义了一个名为wget的函数，并且在当前进程中导出它。这样一来，由于Buster是由makesite.sh这个shell脚本launch起来的，那么当它调用wget下载的时候，就调用了我们在程序中修改过的版本。</p>
+
+<p>——这是一种在当前脚本中打patch的方法（可以不修改buster.py的源代码）。基本的代码如下：</p>
+
+<pre><code class="language-bash">##
+## 参见makesite.sh源代码
+##
+
+## 声明函数并追加参数
+function wget { $RAW_WGET --level=0 inf --reject-regex=... }
+
+## 取原始的wget的路径并导出到当前环境中
+export RAW_WGET=`which wget`
+
+## 将wget函数导出到当前环境中
+export -f wget
+
+## 调用buster，这时buster将使用我们在代码中声明的wget函数来下载
+buster ...  
+</code></pre>
+
+<h3 id="62">6.2 移除版本号</h3>
+
+<p>在新近一些的前端技巧中，为JavaScript和CSS文件加上版本号已经是很流行的做法了。然而这意味着Buster抓取的文件会存成类似<code>shared/ghost-url.js?v=3edb33f1b1</code>这样的名字。</p>
+
+<p>所以在makesite.sh中有两行代码来对<code>assets</code>和<code>shared</code>目录中的资源做更名，以移除这种版本号：</p>
+
+<pre><code class="language-bash">## 移除assets目录中的资源版本号
+&gt; find static/assets -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
+
+## 移除shared目录中的资源版本号(通常只有/ghost-url.js这个文件)
+&gt; find static/shared -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
+</code></pre>
+
+<h3 id="63resetdomainshortpath">6.3 从reset-domain到short-path</h3>
+
+<p>reset-domain是<a href="https://mrcotter.github.io/author/kris/">Kris Cotter</a>最早版本代码中的功能，简单地说就是将Buster下载的网页文件中残留的<code>localhost:2368</code>再做一次替换，所以我将这个过程叫做reset-domain。</p>
+
+<p>事实上wget的<code>--convert-links</code>参数做过一次高性能的链接转换，但这远远不够——这些转换基于wget的html parser中对"链接"的定义（可以参见tag<em>attr html</em>allow这个数据结构，位于wget源码html.c中）。而reset-domain针对的是可能存在的文本替换——而无论对象是否是.html，或者是否是真实的url链接。</p>
+
+<p>经过这两轮的处理（generate和reset-domain）之后，事实上整个<code>./static</code>目录下的文件已经可以作为静态页发布了。确切地说，你已经可以使用下面的命令来部署本地git仓库，将它推到你的主页<code>YOURNAME.github.io</code>中去了：</p>
+
+<pre><code class="language-bash">&gt; bash makesite.sh --deploy-now
+</code></pre>
+
+<p>然而makesite.sh脚本还在这个操作之前插入了一个<code>--short-path</code>——我想你已经注意到这一点了。</p>
+
+<p>这个short-path的目的是将Ghost生成的类似于<code>/your--post-full-title----as-slug/index.html</code>这样长的“目录名+文件名”变得短一些。它基本的想法就是让主页根目录下不要太多的目录，因此将这些目录中的index.html上移到它们的父目录中——对于所有的posts来说，其实也就是根目录下。</p>
+
+<p>这个过程其实有一个更好的解决方案，就是将所有这些文件移入到<code>/posts/your--post-full-title----as-slug.html</code>，这样一来主页根目录下就只有一个posts目录了。我尝试过，但之后放弃了，因为我写不出一个有效的正则表达式来替换所有“其它”页面中的url——到该页面的新位置。</p>
+
+<p>好吧，总而言之，我们做了一点工作（尽管实际上这是效率最低的一个步骤）。所以你还是可以在部署之前尝试一下：</p>
+
+<pre><code class="language-bash">&gt; bash makesite.sh --short-path
+</code></pre>
+
+<h4 id="631url">6.3.1 更短的url</h4>
+
+<p>我的主页<code>aimingoo.github.io</code>中其实使用的是更短的url地址，而并不是Ghost中缺省地按照文章标题通过拼音转换而来——后面这种文件名生成得太长太难看了。这种『更短的url』其实是通过为每个post设置它独自的slug属性而得到的，这需要为每篇文章在Ghost后台管理界面去编辑Post的属性。</p>
+
+<p>这也是上一篇博客中提到的<code>putrefy.js</code>这个工具（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）中会有一个<code>SLUG_FROMID</code>参数的原因。当配置这个参数为true时，你从旧博客中导入的文章就将自动地以<code>author_id</code>作为前缀，并加上post_id作为slug了——我的博客就是用这种方法来导入的。当然，你也可以将<code>SLUG_FROMID</code>配置为别的什么字符串来作为前缀。</p>
+
+<p>但是，你在Ghost后台新添加的文章，就需要你手工地改slug了。这个今后我会发布个小工具来自动化的，这里暂且不提。</p>
+
+<h3 id="64patchmesh">6.4 关于patchme.sh</h3>
+
+<p>这是在makesite.sh中留下的一小处补丁程序。你可以编写一段shell代码（放在makesite.sh同目录中就可以了），让makesite.sh在正式地deploy-now操作之前，由你自己来对<code>./static</code>目录中的页面做些修补。这偶尔也是必要的，例如我现在这篇文章是在介绍Ghost，那就不可避免地会用到<code>localhost:2368</code>这样的url地址，而按照Buster和makesite.sh的规则，它们就可能被替换成线上Github仓库中的地址了——所以需要one by one地patch。</p>
+
+<p>当然，你也可以写点别的什么代码。</p>
+
+<p>尤其是……程序员总想干点什么黑活之类的啦。</p>
+
+<p>你懂的。</p>]]></content:encoded></item><item><title><![CDATA[手记1：迁移博客之全程工具]]></title><description><![CDATA[<p>在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。</p>
 
 <h2 id="1blogtowordpress">1. 如何迁移你的博客 - 推荐BlogToWordpress</h2>
 
@@ -6,7 +2091,7 @@
 
 <p>然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。</p>
 
-<p>在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国内受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：</p>
+<p>在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：</p>
 
 <ul>
 <li>通过BlogToWordpress来将旧博客转到Wordpress导出文件
@@ -14,7 +2099,7 @@
 <li>它会抓取图片等文件作为附件保存到指定目录。</li>
 <li>cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用<a href="https://github.com/yanyingwang/cnblog2jekyll">cnblog2jekyll</a>中的generate<em>markdown</em>all。</li></ul></li>
 <li>通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
-<ul><li>我最终使用的是Ghost博客系统，</li></ul></li></ul>]]></description><link>http://aimingoo.github.io/1-1719.html/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded><![CDATA[<p>在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。</p>
+<ul><li>我最终使用的是Ghost博客系统，</li></ul></li></ul>]]></description><link>http://aimingoo.github.io/1-1719.html/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Ghost]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded><![CDATA[<p>在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。</p>
 
 <h2 id="1blogtowordpress">1. 如何迁移你的博客 - 推荐BlogToWordpress</h2>
 
@@ -22,7 +2107,7 @@
 
 <p>然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。</p>
 
-<p>在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国内受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：</p>
+<p>在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：</p>
 
 <ul>
 <li>通过BlogToWordpress来将旧博客转到Wordpress导出文件
@@ -80,7 +2165,7 @@
 <p>所谓本地博客，就是一个你在的电脑上运行的，在浏览器中可以使用</p>
 
 <blockquote>
-  <p><a href="http://localhost/">http://localhost/</a> ...</p>
+  <p><code>http://localhost/ ...</code></p>
 </blockquote>
 
 <p>来浏览的博客系统。我们下面就用Ghost来搭一个。</p>
@@ -197,45 +2282,38 @@ Ctrl+C to shut down
 <li><p>一旦你将.zip导入到Ghost，你就可以在Ghost管理和更新它们，发布或静态化等等。因此我在后续文章中提到的过程再与传统博客（例如下载、转换的那些文件）就没什么关系了。</p></li>
 <li><p>如果你备份content整个目录（例如Ghost导入的图片位于<code>./content/images</code>目录中），那么你可以随时重装Ghost，或者更新至新的版本而不会丢失数据。</p></li>
 <li><p>Ghost导入的博客文章是可能存在格式问题的，也可能导致你正在使用的Ghost博客主题（缺省是Casper主题，在<code>Settings -&gt; General</code>中设置）格式混乱或无法使用，请自行编辑它们。我事实上将所有历年文章逐一更新过，并尽量使用了markdown格式——这样以后管理起来就方便了。</p></li>
-<li><p>Ghost的数据库在<code>./content/data</code>目录中，对应于开发版的是<code>content/data/ghost-dev.db</code>文件。如果你安装过sqlite，那么可以直接用命令行来操作它——或者e用你喜欢的GUI工具也行。例如：</p>
-
-<p>```bash</p>
-
-<blockquote>
-  <p>sqlite3 -header -column ghost-dev.db 'select id, name, email from users'
-  id          name        email           </p>
-</blockquote></li>
+<li><p>Ghost的数据库在<code>./content/data</code>目录中，对应于开发版的是<code>content/data/ghost-dev.db</code>文件。如果你安装过sqlite，那么可以直接用命令行来操作它——或者e用你喜欢的GUI工具也行。例如：</p></li>
 </ul>
 
-<hr>
-
-<p>1           aimingoo    aiming@gmail.com
-  ```</p>
+<pre><code class="language-bash">  &gt; sqlite3 -header -column ghost-dev.db 'select id, name, email from users'
+  id          name        email           
+  ----------  ----------  ----------------
+  1           aimingoo    aiming@gmail.com
+</code></pre>
 
 <p>记住这个<code>id = 1</code>，它是你的管理帐户id。在导入用的ghost.json文件中，它也被称为<code>author_id</code>，在将来做多账户操作时你可能需要了解它。</p>
 
 <ul>
-<li><p>对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：</p>
+<li>对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：</li>
+</ul>
 
-<p>```bash</p>
-
-<blockquote>
-  <p>sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
+<pre><code class="language-bash">  &gt; sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
   1519|《大道至简》的幕后故事：终结篇、勘误和PDF下载
   1595|近期的公开资源汇总(已完整)~
   ...
-  ```</p>
-</blockquote></li>
+</code></pre>
+
+<ul>
 <li><p>如果你得到上述的<code>id</code>值，那么可以直接在Ghost的管理界面中去编辑它——Ghost管理界面没有搜索功能。例如直接在浏览器上使用如下地址：</p>
 
 <blockquote>
-  <p></p>
+  <p><code>http://aimingoo.github.io/ghost/editor/1519/</code></p>
 </blockquote></li>
 </ul>]]></content:encoded></item><item><title><![CDATA[再一次开始更新博客]]></title><description><![CDATA[<h2 id="">新博客的开张</h2>
 
 <p>最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。</p>
 
-<p>于是大家就有了这个在github上的新站。这里把以前在</p>
+<p>于是就有了这个在github上的新站。这里把以前在</p>
 
 <ul>
 <li>新浪博客 - <a href="http://blog.sina.com.cn/aimingoo">http://blog.sina.com.cn/aimingoo</a></li>
@@ -253,11 +2331,11 @@ Ctrl+C to shut down
 <ul>
 <li>全站交付。</li>
 <li>2009年之后的博客文章全部进行了修订。</li>
-</ul>]]></description><link>http://aimingoo.github.io/1-1718.html/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded><![CDATA[<h2 id="">新博客的开张</h2>
+</ul>]]></description><link>http://aimingoo.github.io/1-1718.html/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><category><![CDATA[杂谈]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded><![CDATA[<h2 id="">新博客的开张</h2>
 
 <p>最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。</p>
 
-<p>于是大家就有了这个在github上的新站。这里把以前在</p>
+<p>于是就有了这个在github上的新站。这里把以前在</p>
 
 <ul>
 <li>新浪博客 - <a href="http://blog.sina.com.cn/aimingoo">http://blog.sina.com.cn/aimingoo</a></li>
@@ -297,7 +2375,7 @@ Ctrl+C to shut down
 
 <p>首先，这个世界是有状态的，那些看起来存在y/n两个分支的节点，就存在于这种状态——选择还没有发生，就还有可能。  </p>
 
-<p>然而无论某一个节点的选择是什么，这个的世界的结果（的规模）是确定的，它必然演进到世界最下层中的状态的某一个。只不过这个最下层的规模足够大，所以在世界中的“未决”因素足够多的情况下，这个世界就看起来“</p>]]></description><link>http://aimingoo.github.io/1-196.html/</link><guid isPermaLink="false">c5aecbe8-bfd2-4086-998d-940262d8320b</guid><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 10 Aug 2015 09:35:00 GMT</pubDate><content:encoded><![CDATA[<h1 id="thepromisesworld">确定的世界 - The Promise’s World</h1>
+<p>然而无论某一个节点的选择是什么，这个的世界的结果（的规模）是确定的，它必然演进到世界最下层中的状态的某一个。只不过这个最下层的规模足够大，所以在世界中的“未决”因素足够多的情况下，这个世界就看起来“</p>]]></description><link>http://aimingoo.github.io/1-196.html/</link><guid isPermaLink="false">c5aecbe8-bfd2-4086-998d-940262d8320b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[Promise]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 10 Aug 2015 09:35:00 GMT</pubDate><content:encoded><![CDATA[<h1 id="thepromisesworld">确定的世界 - The Promise’s World</h1>
 
 <p>—— Promise的逻辑以及在Lua中的实现  </p>
 
@@ -1419,421 +3497,4 @@ Promise.all([1,2,3])
 <ol>
 <li>PPT：<a href="http://aimingoo.github.io/content/images/attachments/Principles_Of_Arch.2014.zip">详解架构之核心指导原则</a>  </li>
 <li>视频（无）。</li>
-</ol>]]></content:encoded></item><item><title><![CDATA[续鸡零狗碎：谈谈这些豌豆们]]></title><description><![CDATA[<p>刚到豌豆不久的时候，崔阿（@cuijin）在一次例会上说“要把你最想一起工作的人招到豌豆荚来”。听到这句话的时候我就心中一动，那时，我第一个想到的就是邓草原。</p>
-
-<p>认识草原是08年的事情，那时候他刚刚从加拿大回国，而我则刚刚兴致盎然地搭上Erlang班车。我们第一次见面我便问他对erlang的看法（因为听说他是erlang ide for netbeans的作者）。他轻描淡写地说：弱类型语言在开发大型系统时是很难维护的。我当时没太往心里去，后来才知道，他那时已经写过了10万行以上的erlang代码了。再后来，当我回顾erlang在国内的起起落落时，才觉得草原的那句话并非泛泛而谈，实在是指向实质的。</p>
-
-<p>于是我总是想着“一定要把草原同学拉到公司里来”。有这件事挂在心里头，吃饭也香了，上楼也有劲了，一口气写上千行代码都不累了……而没想到跟他真聊这个事情的时候，却很是顺利。总的来说，他只关心两件事：要做点啥，以及这个公司是个啥样子？</p>
-
-<p>豌豆荚是个啥样子的公司呢？我不是这些天站在QCon的讲台上才来想这个问题的，我很早就在想了。不单单是应付草原的这个提问，也是对我自己的一个交待。我此前几年在盛大和阿里，正好面临着两个极端，前者是“太没文化（基本没有文化建设）”，后者则“太有文化”。两种文化风格我都不满意，</p>]]></description><link>http://aimingoo.github.io/1-262.html/</link><guid isPermaLink="false">aae11803-91b8-406e-89cb-4f37464a2b15</guid><category><![CDATA[杂谈]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 07 Dec 2013 13:27:32 GMT</pubDate><content:encoded><![CDATA[<p>刚到豌豆不久的时候，崔阿（@cuijin）在一次例会上说“要把你最想一起工作的人招到豌豆荚来”。听到这句话的时候我就心中一动，那时，我第一个想到的就是邓草原。</p>
-
-<p>认识草原是08年的事情，那时候他刚刚从加拿大回国，而我则刚刚兴致盎然地搭上Erlang班车。我们第一次见面我便问他对erlang的看法（因为听说他是erlang ide for netbeans的作者）。他轻描淡写地说：弱类型语言在开发大型系统时是很难维护的。我当时没太往心里去，后来才知道，他那时已经写过了10万行以上的erlang代码了。再后来，当我回顾erlang在国内的起起落落时，才觉得草原的那句话并非泛泛而谈，实在是指向实质的。</p>
-
-<p>于是我总是想着“一定要把草原同学拉到公司里来”。有这件事挂在心里头，吃饭也香了，上楼也有劲了，一口气写上千行代码都不累了……而没想到跟他真聊这个事情的时候，却很是顺利。总的来说，他只关心两件事：要做点啥，以及这个公司是个啥样子？</p>
-
-<p>豌豆荚是个啥样子的公司呢？我不是这些天站在QCon的讲台上才来想这个问题的，我很早就在想了。不单单是应付草原的这个提问，也是对我自己的一个交待。我此前几年在盛大和阿里，正好面临着两个极端，前者是“太没文化（基本没有文化建设）”，后者则“太有文化”。两种文化风格我都不满意，都很难融得进去，都很难说“在文化上有什么激励我的地方”。所以，此前的那么多年里，我从来不在公众场合谈阿里的文化，又或者谈盛大的文化。对，既便我在做软件工程的或者组织管理的讲演，我也不用他们来做例子——根底里来讲，我没法透彻地观察这两种文化，因而也就没法深刻地去谈论他们。</p>
-
-<p>豌豆荚不同。他正在构建自己文化风格，并把这种风格作为生产力的一部分。所以当晓良（@潘晓良）拜访豌豆荚时，我们坐在一起吃着工作餐聊天，他就很惊叹“会有这样的一种文化风格”，既是他期望看到的，又渐渐在其它公司里失去的……他甚至连我们的午餐的吃法都很欣赏，觉得“这样吃午饭真的很好”——我不知道他是在这样的表达上词穷呢，还是只有这样的表达才是真的贴合他的感受。而这次拜访便是我在QCon上讲“文化与效能：豌豆荚如何通过文化建设来提升团队效能”这个话题的起因，以至于晓良打电话给我的时候，我连“讲什么”都没想好，却已经有“应该讲一讲”的欲望了。</p>
-
-<p>我的感受中，豌豆荚的“开放、精致与有爱”中最显而易见的就是“开放”。这是一种与众不同的开放，他不讲一种确定的形式，例如把“向开源社区贡献多少个项目”作为指标；也不讲一种确定的方法，例如要求大家都去搞敏捷或者更具体的站立会议。豌豆荚的开放是自上而下的，连每一个员工都觉得“俊煜是一个很简单的人”。昨天的全员周会上，一个新豌豆提到俊煜时，居然说“最大的印象是‘俊煜从来不换衣服’”——因为俊煜在公司的着装向来平淡，颜色灰暗款式统一风格陈旧，以至于乏善可陈。同样，自上而下的行事也是透明的，例如前一段做OKRs review（一种类似KPI的考核）的时候，崔阿就坦然地在全员的周会上给大家说：我们没准备好；我们年初定了标准，但我们现在把标准改了；我们觉得OKR的机制里有矛盾的地方；我们还在调整……类似这样的事情，在他们那里表达出来就是那么自然。让你觉得诚恳，没有虚的、遮遮掩掩的成分在里头。每个人都乐于接受别人的观察、批评与指导，因为每个人都觉得自己还有不足，还有地方没想到，还有地方是别人比我做得更好的……这是一个谦逊的、乐于接受一切新鲜事物，乐于探索一切新的方法的公司。这种乐于接受和乐于探索的文化，才是在本质上开放的文化，才是真正有益的，真正有利于效能的。</p>
-
-<p>所以跟草原谈豌豆荚的时候，我并没有太深入的谈“希望你来做什么事”，或者“豌豆荚是一个有着什么文化的公司”。我更多的是给他谈到我的这种直觉感受，我只是强调说：这是一个可以做事的公司。我在此前很长时间是“没法做事”的，而“没法做事”却又要在一个公司或者一个职位上呆着，那个跟关小黑屋是一样的感受。我觉得我在豌豆荚与其它的一些公司中做选择的时候，这种“可以放开手脚”的感觉是我最看重的，也是最直接影响了我的东西。我想，这或许也是能打动草原的众多理由中的一个吧。</p>
-
-<p>然而“能放开手脚”并不代表什么，比如事实上它并不意味着豌豆荚就会给你所需要的资源。我在到公司之前冯锋（@JackFenng）就给我说：你要做什么事情，你得去告诉大家，争取大家的支持，而不是从管理层面上分派下去，那在贵荚是行不通的。是的，这就是贵荚的风格——你想要做什么事，就自己来，别找领导——严格地说，这里没什么领导；官派的作风在贵荚是没有的。你要服众，那单单说一个职务职级，或者十几年的从业背景，这些统统行不通。你能采用的方法，就是让大家真正相信你在做一件有益于公司的、有益于用户的、有益于这个社会的事情。这样一件事，哪怕只是让大家乐一下——比如今年愚人节的空气洗白白，也会得到支持。反之，就是声音叫得天响，也没人理你。再牛的牛人在这里也一样平等，从一个人头做起，从一支小团队做起，从一件具体的事情做起……</p>
-
-<p>所以所谓“放开手脚”本意上就是没有绑住你手脚的东西，但没了绑住手脚的东西之后，你还会不会行走，却是自己的事情。</p>
-
-<p>最终观察到这一点，让我很庆幸自己加入了这样一家公司：每个人都有手有脚，都开放透明，都真诚热情，都知道走他们自己的路，也都知道：在走自己的路的同时，可以对别人好一点。</p>
-
-<p>关于这一点点，我想，也就是所谓的有爱了。  </p>
-
-<blockquote>
-  <p>又，好吧，既然都是这样的软文了，那就再软一些：</p>
-  
-  <p>以下，请对贵荚感兴趣的同学，或有痣于成为一名豌豆的大师，记一下我的邮箱电话号码以及微博帐户，有简历发简历，没简历发私信……皆是善举。再又，顺带帮上海一相当靠谱团队招前端工程师若干名，欢迎对帝都无感而有兴趣了解一下魔都霾情的同学请看过来看过来，同样有简历发简历，没简历发私信……再又又，招主T一名，奶若干，DPS若干，近战三修四修若干，无人死服死公会新人团招人。</p>
-  
-  <p>@aimingoo/aiming at gmail.com/ aimingoo at <br>
-  wandoujia.com/2836420/来自疯人院 at 此人危险切勿靠近 at 塞纳里奥 at 二区 at WoW</p>
-</blockquote>]]></content:encoded></item><item><title><![CDATA[CSDN的SDCC大会(2013)中使用的PPT分享]]></title><description><![CDATA[<p>SDCC大会今天开完个。呵呵~  </p>
-
-<p>PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  </p>
-
-<p>这里说说这个大会中我的Topic。  </p>
-
-<p>此前CSDN向我约了一个主题，我回复说，  </p>
-
-<blockquote>
-  <p>我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  </p>
-</blockquote>
-
-<div>一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：</div>  
-
-<blockquote>
-  <p>这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 <a href="http://sdcc.csdn.net">http://sdcc.csdn.net</a> ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  </p>
-</blockquote>
-
-<p>于是轮到我泪流满面了，因为按照这个思路，&nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  </p>
-
-<blockquote>
-  <p>我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，</p></blockquote>]]></description><link>http://aimingoo.github.io/1-193.html/</link><guid isPermaLink="false">e0985263-c38c-4b33-a7d6-64ffd832d573</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 31 Aug 2013 14:02:00 GMT</pubDate><content:encoded><![CDATA[<p>SDCC大会今天开完个。呵呵~  </p>
-
-<p>PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。  </p>
-
-<p>这里说说这个大会中我的Topic。  </p>
-
-<p>此前CSDN向我约了一个主题，我回复说，  </p>
-
-<blockquote>
-  <p>我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。  </p>
-</blockquote>
-
-<div>一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：</div>  
-
-<blockquote>
-  <p>这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 <a href="http://sdcc.csdn.net">http://sdcc.csdn.net</a> ），不知您的议题放置在这个论坛是否合适？或者还请您看一下为您安排在哪个论坛会更合适一些。  </p>
-</blockquote>
-
-<p>于是轮到我泪流满面了，因为按照这个思路，&nbsp;“架构的意图”这个主题大概是放不到架构这个专场的。而且准确的说，没有哪个专场合适来讲这个话题。于是我回邮件道：  </p>
-
-<blockquote>
-  <p>我所谈的“实践”，将是实践中的所得，也会例举一些实践来佐证我的观点，但并不偏向于某种“实战”的方法或技术。所以，若“架构实践”仍有意讨论实践，那我这个主题还是可用的；若是讨论实战，那就有些不合用的地方了。再则，若这些SDCC的架构场只是讨论网站架构下的实战，那就与听众的这种期待相去甚远了。  </p>
-  
-  <p>“架构的意图”是讨论一个架构“为什么要被做出来”的。也就是说，我们不是画一个架构图告诉团队说“按这个做”就可以了。架构师必须对“架构的意图”进行清晰的刻画，这是这个架构长期存在的基本意义与价值。我曾经说“意图是架构的灵魂”，不理解或不赋予架构某种“意图”，则架构终究是个死物，看不入眼的。在这个topic中，我会例举一些架构实践中的案例，来说明“其中存在或不存在某种意图”，以及如何识别与定义它。但我并不在乎这个例举是否是网站架构，这是与sdcc在这个议题上有别的地方。  </p>
-  
-  <p>请斟情考虑我的topic。  </p>
-</blockquote>
-
-<p>再回邮件时，鸫翔同学终于确定在SDCC上用这个话题了，也就是“寻找架构的来处：意图”。在我看来，一旦架构师没有意图，那么系统只是目标系统的某一时间上的静态映像。仅此而已。但是，什么才是这样的意图？我们如何得到或形成意图呢？为什么说“获得意图”才架构的精髓呢？“意图之于架构”的本质究竟是什么？这些是我在本讲演中希望与大家分享与讨论的。  </p>
-
-<p>“架构的意图”其实是一个有关架构的完整的体系中的一个话题，我称这个体系为：架构意图驱动的过程模型。在<span style="font-size:14px;color:#3366ff;"><a href="http://t.cn/zWb8Qac">《大道至易》</a></span>里面，我在总论中讲了其中“架构”（和架构师）这一概念的出处，定义了架构这个概念；在第10、11章中讨论了这个架构的整个模型与完整的实践。而最终的，又从这个实践中总结提升了“五项核心原则”，作为了第12章。这些内容，就是《大道至易》一书中有关“架构”的全部内容——其它的内容是讲软件工程和软件开发技术的。  </p>
-
-<p>下面这张图，我梳理了一下这几年来我有关架构的分享与讲演（这些都是公开的，很多有视频呵，可以试试在<a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3#cid=F9303C43D5CEAFB3&amp;id=F9303C43D5CEAFB3%21730">这里找</a>）。  </p>
-
-<p><img src="http://aimingoo.github.io/content/images/20130831215259515.png" alt="" title="">  </p>
-
-<p>大体上，我在2012年之前主要偏向于架构思想的分享（也讲讲能力模型和交付对象——例如设计神马的），而2013开始的所有topic，都在完成下面这个模型中所讲的知识结构：  </p>
-
-<p><img src="http://aimingoo.github.io/content/images/20130831215509640.png" alt="" title="">    </p>
-
-<p>最后打个小广告，模型中讲的“2013 架构的核心指导原则”，是今年10月将在上海的一场讲演。<a href="http://www.thinkinlamp.com/">在这里在这里……</a>  </p>
-
-<p>PPT的下载  </p>
-
-<hr>
-
-<p>在这里在这里在这里（视频神马的，我就没权限公开了，请大家关注CSDN吧）：  </p>
-
-<p><a href="http://vdisk.weibo.com/s/yXPCfhgzhwOnY">http://vdisk.weibo.com/s/yXPCfhgzhwOnY</a>  </p>
-
-<p>或  </p>
-
-<p><a href="https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;id=F9303C43D5CEAFB3%211231">https://skydrive.live.com/?cid=f9303c43d5ceafb3&amp;id=F9303C43D5CEAFB3%211231</a>  </p>]]></content:encoded></item><item><title><![CDATA[MPD大会上使用的PPT分享 - 2013]]></title><description><![CDATA[<p>MPD（软件工作坊，<a href="http://www.mpd.so/beijing/agenda.php">在这里在这里</a>）中我的内容是“架构的过程“。架构是一个过程而非结果，是我的主要观点。本主题讨论两种不同视角下的架构过程与具体方法。将在实践环境中与大家完成一个系统的分析，评价与构建。并尝试性地讨论“架构过程论”的局限性。  </p>
-
-<p>下面是此次分享中的完整PPT，与大会中用到的略有区别。其中，还有程文宇先生的一份《系统架构方法》，可供参考。  </p>
-
-<p>下载位于： <br>
-<a href="http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public">http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public</a> <br>
-或 <br>
-<a href="http://aimingoo.skydrive.live.com/browse.aspx/.Public">http://aimingoo.skydrive.live.com/browse.aspx/.Public</a>    </p>
-
-<p>在其中的<strong><span style="color:#663333;">“</span><span style="color:#cc0000;">2013 架构的实战过程</span><span style="color:#663333;">”</span></strong>目录中。</p>]]></description><link>http://aimingoo.github.io/1-192.html/</link><guid isPermaLink="false">d0d929d3-8059-4dd2-8cf6-c5a82f67434c</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 15 Jun 2013 13:50:00 GMT</pubDate><content:encoded><![CDATA[<p>MPD（软件工作坊，<a href="http://www.mpd.so/beijing/agenda.php">在这里在这里</a>）中我的内容是“架构的过程“。架构是一个过程而非结果，是我的主要观点。本主题讨论两种不同视角下的架构过程与具体方法。将在实践环境中与大家完成一个系统的分析，评价与构建。并尝试性地讨论“架构过程论”的局限性。  </p>
-
-<p>下面是此次分享中的完整PPT，与大会中用到的略有区别。其中，还有程文宇先生的一份《系统架构方法》，可供参考。  </p>
-
-<p>下载位于： <br>
-<a href="http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public">http://cid-f9303c43d5ceafb3.skydrive.live.com/browse.aspx/.Public</a> <br>
-或 <br>
-<a href="http://aimingoo.skydrive.live.com/browse.aspx/.Public">http://aimingoo.skydrive.live.com/browse.aspx/.Public</a>    </p>
-
-<p>在其中的<strong><span style="color:#663333;">“</span><span style="color:#cc0000;">2013 架构的实战过程</span><span style="color:#663333;">”</span></strong>目录中。</p>]]></content:encoded></item><item><title><![CDATA[OSCHINA答读者问之六：杂谈（完结篇）]]></title><description><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<p>本篇的问题：（没有主题，呵呵）  </p>
-
-<blockquote>
-  <p>问：我们公司准备进行“敏捷测试”。有没什么建议~！  </p>
-</blockquote>
-
-<p>答：基本上，所有带着“敏捷”字头的，我都很难有建议。那是个黑洞，什么概念都往里扔，却没人担负解释的责任。:)  </p>
-
-<blockquote>
-  <p>问：软件工程的风险控制，有没有什么可以一般都遵循的规律或者说指导原则？  </p>
-</blockquote>
-
-<p>答：我只知道一条，向一个进行中的项目添加人手和添加特性，都是万恶之始。  </p>
-
-<blockquote>
-  <p>问：对于没有确定需求的开发工作,您有什么好的建议？  </p>
-</blockquote>
-
-<p>答：事实上很难“确定需求”，软件工程为解决需求变化问题已经努力很多年了。现今的一些情况是，以类&#20284;</p>]]></description><link>http://aimingoo.github.io/1-191.html/</link><guid isPermaLink="false">6d0fad1e-6e34-41ec-a069-6b2ac7bbade0</guid><category><![CDATA[软件工程]]></category><category><![CDATA[架构]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Jan 2013 15:17:00 GMT</pubDate><content:encoded><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<p>本篇的问题：（没有主题，呵呵）  </p>
-
-<blockquote>
-  <p>问：我们公司准备进行“敏捷测试”。有没什么建议~！  </p>
-</blockquote>
-
-<p>答：基本上，所有带着“敏捷”字头的，我都很难有建议。那是个黑洞，什么概念都往里扔，却没人担负解释的责任。:)  </p>
-
-<blockquote>
-  <p>问：软件工程的风险控制，有没有什么可以一般都遵循的规律或者说指导原则？  </p>
-</blockquote>
-
-<p>答：我只知道一条，向一个进行中的项目添加人手和添加特性，都是万恶之始。  </p>
-
-<blockquote>
-  <p>问：对于没有确定需求的开发工作,您有什么好的建议？  </p>
-</blockquote>
-
-<p>答：事实上很难“确定需求”，软件工程为解决需求变化问题已经努力很多年了。现今的一些情况是，以类&#20284;于快速迭代、每日构建等方式来应对需求的变化；用原型等方式在较少代价下将需求尽量确定下来；强化测试以在需求变化下保障品质等等。但背后的事实是：我们承认和接受了“变化的需求”。一些极端的情况，就是把客户拉到Team中，让变化直接反馈在阶段产品中，或者让客户自己都疲于变化。总之，这些已既成事实。  </p>
-
-<blockquote>
-  <p>问：软件工程，请问一些中小型项目有必要用吗？  </p>
-</blockquote>
-
-<p>答：无关大小。你要用“工程化的方式去做那个软件”，就必然要讨论软件工程的问题。但显然，你要得到“那个软件”，可以买的，可以外包啊，为什么一定要“工程化开发”呢？所以与大小无关，取决于你打算“如何得到它”。  </p>
-
-<blockquote>
-  <p>问：大公司架构主要负责什么工作？  </p>
-</blockquote>
-
-<p>答：很多架构师在大公司混饭吃，所以切莫以“公司大小”来看架构师的优劣。将“做架构”以及“做更优秀的架构”作为一个修炼的过程，而不是将自己变成更加的开发高手，就好了。至于变化说到底就是一个“需求要不要满足”的问题，个人意见是“接受需求，控制变化”。但这与敏捷与否是无关的，后者是表象。  </p>
-
-<blockquote>
-  <p>问：软件工程学到什么程度才算合&#26684;?  </p>
-</blockquote>
-
-<p>答：知道那本叫《软件工程》的书一点儿也不重要，就合&#26684;了。  </p>
-
-<blockquote>
-  <p>问：您感觉像软件工程这样的课程应该怎么来上呢？  </p>
-</blockquote>
-
-<p>答：按“标准过程”做一两个项目即好。但条件是：要考核每个人的工作量，评估成效；并针对上述结果做出激励机制；并针对激励机制的价&#20540;写出论文。至于项目最终成不成，做不做得出软件，无视之。  </p>
-
-<blockquote>
-  <p>问题：有没有（类&#20284;标准过程的）完整的简单实例给大家来一份啊？  </p>
-</blockquote>
-
-<p>答：请写一个记事本软件。条件是：用十个人开发，其中三个人决定记事本软件的产品特征项、版本规划。  </p>
-
-<blockquote>
-  <p>问：您怎么看待权利与规范？  </p>
-</blockquote>
-
-<p>答：真正的特权，是制定规范。无视规范是特权者的特权，无规范是打破特权的神器。但，无规范则无社会框架：没有如水的组织，亦无如水的社会。无规范如是梦中。而做梦，是个体的最终自由和最终动力。    </p>]]></content:encoded></item><item><title><![CDATA[OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？]]></title><description><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题：小作坊如何实施所谓的软件工程？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“很大”，“很学术”，或者看起来谈种种“敏捷”，但实际去做的时候就成了条条框框。大家在第一认识上要知道，大多数实践中谈及的“工程”，都是工程方法而已。  </p>
-
-<p>既是方法，也就需要因事、因人而宜。无论某种工程方法打着怎样的旗号，说怎样漂亮的话，给你展示怎样的数据，落到你的“具体工程”的实处，都是要调适的。具体来说，要先看人，先培训整体一致的工程认识；然后再规划事，形成较简洁适用的过程方法，</p>]]></description><link>http://aimingoo.github.io/1-190.html/</link><guid isPermaLink="false">17c57514-1b45-4aaa-a7aa-807f2df06e62</guid><category><![CDATA[软件工程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Jan 2013 15:00:00 GMT</pubDate><content:encoded><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题：小作坊如何实施所谓的软件工程？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“很大”，“很学术”，或者看起来谈种种“敏捷”，但实际去做的时候就成了条条框框。大家在第一认识上要知道，大多数实践中谈及的“工程”，都是工程方法而已。  </p>
-
-<p>既是方法，也就需要因事、因人而宜。无论某种工程方法打着怎样的旗号，说怎样漂亮的话，给你展示怎样的数据，落到你的“具体工程”的实处，都是要调适的。具体来说，要先看人，先培训整体一致的工程认识；然后再规划事，形成较简洁适用的过程方法，以及核查的机制。有了这两点作为底子，工程才可能从0到1，走过“没有工程”的阶段。  </p>
-
-<p>一个团队总是要从小到大的，如果在小规模的时候都没有工程素质，那到大规模的时候来补，也是很痛苦的。同样的，个体开发人员也是如此，不对自己加以职业化的要求，换公司换团队换做法的时候，也是很痛苦的。因此在这个问题上，我认为个人培养与团队培养一样重要，知道有些事在哪种情况下要做、该做，以及该做到何种程度，对一些问题有着基本的、工程化的认识，是每个程序员应有的素质。如果你的团队达不到这一点，那么，请培训他们。我建议培训要自己来做，既是让自己认识清楚，也是了解大家的一个过程。  </p>
-
-<p>最后再说到细节，即是“如何做”的问题。这方面我很久以前就有公开的资料了，请至如下地址：  </p>
-
-<p><a href="https://skydrive.live.com/?cid=F9303C43D5CEAFB3&amp;id=F9303C43D5CEAFB3%21805">https://skydrive.live.com/?cid=F9303C43D5CEAFB3&amp;id=F9303C43D5CEAFB3%21805</a>  </p>
-
-<p>下载Chapter2，有两个part。这个实战过程讲了一个两个人的团队，一个完整的项目过程，以及将它工程化的全程。我不是说这个示例就做得很好很完美，我只建议大家关注这件事的做法：我们应该这样来因事因人（亦即是因项目、因团队）地“定制”我们的工程方法。</p>]]></content:encoded></item><item><title><![CDATA[OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？]]></title><description><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<ol>
-<li><p>修炼自己，服人之口莫若服人之心，你得让自己可以服众。&nbsp;  </p></li>
-<li><p>管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。&nbsp;  </p></li>
-<li><p>人际关系很重要，但过于圆滑则不适合做技术团队的管理。&nbsp;  </p></li>
-<li><p>领导者的第一要素是看清方向，第二要素才是领导力的问题。所以若真能高瞻远瞩，众人莫不拜服之。&nbsp;  </p></li>
-<li><p>技法为下，心性为上。行正则言顺，讨巧之事偶可为之，不可作管理与领导术。&nbsp;  </p></li>
-</ol>
-
-<p>大约能想到这些吧，个人之见而已。&nbsp;  </p>
-
-<blockquote>
-  <p>又问：看清组织的内容是什么？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>你在哪里？是谁？</p>]]></description><link>http://aimingoo.github.io/1-189.html/</link><guid isPermaLink="false">7eba9f36-7e36-49d4-be44-b993a007417e</guid><category><![CDATA[软件工程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Jan 2013 14:57:00 GMT</pubDate><content:encoded><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<ol>
-<li><p>修炼自己，服人之口莫若服人之心，你得让自己可以服众。&nbsp;  </p></li>
-<li><p>管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。&nbsp;  </p></li>
-<li><p>人际关系很重要，但过于圆滑则不适合做技术团队的管理。&nbsp;  </p></li>
-<li><p>领导者的第一要素是看清方向，第二要素才是领导力的问题。所以若真能高瞻远瞩，众人莫不拜服之。&nbsp;  </p></li>
-<li><p>技法为下，心性为上。行正则言顺，讨巧之事偶可为之，不可作管理与领导术。&nbsp;  </p></li>
-</ol>
-
-<p>大约能想到这些吧，个人之见而已。&nbsp;  </p>
-
-<blockquote>
-  <p>又问：看清组织的内容是什么？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>你在哪里？是谁？在做什么？这些就是基本的组织问题。&nbsp;</p>]]></content:encoded></item><item><title><![CDATA[OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？]]></title><description><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<p>本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？  </p>
-
-<p>问：  </p>
-
-<blockquote>
-  <p>一、关于架构。    </p>
-  
-  <p>我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？    </p>
-  
-  <p>二、关于软件工程。    </p>
-  
-  <p>我一直的理解为　软件工程 = 工具 &#43;方法&#43;过程。    </p>
-  
-  <p>想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。</p></blockquote>]]></description><link>http://aimingoo.github.io/1-188.html/</link><guid isPermaLink="false">fe1bbf48-3db4-4fc2-913a-f2b43d9e458d</guid><category><![CDATA[软件工程]]></category><category><![CDATA[架构]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Jan 2013 14:48:00 GMT</pubDate><content:encoded><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<p>本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？  </p>
-
-<p>问：  </p>
-
-<blockquote>
-  <p>一、关于架构。    </p>
-  
-  <p>我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？    </p>
-  
-  <p>二、关于软件工程。    </p>
-  
-  <p>我一直的理解为　软件工程 = 工具 &#43;方法&#43;过程。    </p>
-  
-  <p>想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。  </p>
-</blockquote>
-
-<p>答：    </p>
-
-<p>学界的，尤其是国内学界的讨论中，历来有一个问题。就是讨论一个东西，总是在说“什么是这个东西”，而不是“这个东西是什么”。有些时候，行文上看起来还是前者，实底上却做成了后者。而jazz（提问者）的这个看法，也就存在这样的问题，即是说，您实质上是在说着“把复杂的问题变简单，就是做架构”。这个观点，本质上说是的“怎么做架构”的问题，而并不能解释“架构是什么”，以及“架构怎么做”的问题。  </p>
-
-<p>我常说的一个例子，我们去动物园，看到老虎说“这是动物”，又看到狮子也说“这是动物”，再看到鳄鱼还是说“这是动物”。于是我们就可以据此说“老虎&#43;狮子&#43;鳄鱼”就是动物吗？显然这是个笑话了。但我们往往讨论事情的时候就跳不开这个坑，比如说“解决复杂度的问题，就是架构”，并以此来认为这是架构的全部。  </p>
-
-<p>很好，我们回到往前一点。架构是什么呢？在我前面的贴子里是没有讲的，而只是讲到了“架构作为一个结果，它由两种东西组成”，以及“架构思维可以由对这两种东西的思考而来”。但这些，我坦承这并不是在解释“架构是什么”。但是，我也不能在这里直接地谈论并给出一个“架构是什么”的答案。正因为我能给出的答案看起来是那样的简单、直接和毫无意义，所以它会被任何人无情地忽略，认为那不过是一句废话。而我在《大道至易》中，对这个答案作出了结构性的分析与解释。我建议任何对这个问题有兴趣的人，去研读这本书的“第十二章 架构原则，技艺、艺术与美”。我在那一章的前言中写着：  </p>
-
-<blockquote>
-  <p>我对架构的认识与思想，只是架构可能的认识与思想中的一个方面，是其可能的解中的方式之一。我必须提及这一方面与方式的核心指导原则，这些原则的正确性必将表达为：它可以为其他的认识与思想提供依据，是其他有效的、可供讨论的认识与思想不可违逆的基本前设。本书对架构的谈论，只是这些原则下的一个运用示例；这些原则来源于这些示例的思考过程，并超越于这个过程的结果——本书所讨论的架构。​  </p>
-</blockquote>
-
-<p>所以，我希望更为严肃的方式来讨论这个学术性的话题，即是“架构是什么”。而不是“我认为这样做就是做架构”，或“我看到某个架构是这样做的”。我不认为那是答案，并且认为那个方向离答案越行越远。如我此前在“动物园”的比喻中所说的，我们管窥所得的斑斑点点，都不是那个问题的全集或全解；而“管窥”这样的方法，也不是求解的正确方法。  </p>
-
-<p>再回复一下您最后的这个问题。简单地说，我认为没有“比例”这样的东西。“软件工程”纯以工学的方式来讲，是有构成与组成的，因为这是它的“问题集”。但在工程实践中，是实践的背景决定了我们如何投入实施力量，而不是一个学术的指导或行事表&#26684;。我常说“真正的管理者，是不看管理的技术书的”，当我们把“软件工程”当成一种技术，试图从技术书中找到公式与规则的企图，都死死地陷入在技术思想中，陷入在“工欲善其事，必先利其器”的工匠思维中。  </p>
-
-<p>所以我常说“如果你认为这句话对，说明你是‘工’”，因为这原本就是你的工作方法、状态以及你构建知识、能力的基本模式。——引自​《大道至易》</p>]]></content:encoded></item><item><title><![CDATA[OSCHINA答读者问之二：什么是架构？以及什么是架构师？]]></title><description><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题是：什么是架构？以及什么是架构师？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过，而在另一本《大道至易——实践者的思想》才有所讨论。不过这里我还是乐于解释一下一些基本的问题，或谈谈我的一些基本的观点。  </p>
-
-<p>仅以架构而言，要讨论的问题总的来说就两个方面，一是“范围”，就是项目与项目目标要做多大、多久，做到怎样效果的问题，并且围绕这个“范围”来给出一些合理的方案给开发实施的团队。二是“联接件”，就是如果上述的范围要由多个阶段或多个构件来构成，那么这些范围或构件之间如何关联的，以及如何确保这些关联是长期有效的。​  </p>
-
-<p>为了简单的说清这个架构的概念，以一个插件的架构来说，就是确定“</p>]]></description><link>http://aimingoo.github.io/1-187.html/</link><guid isPermaLink="false">2ab7aded-1ed3-4a9d-a1fd-4c1c95bc887a</guid><category><![CDATA[软件工程]]></category><category><![CDATA[架构]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Jan 2013 14:43:00 GMT</pubDate><content:encoded><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题是：什么是架构？以及什么是架构师？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过，而在另一本《大道至易——实践者的思想》才有所讨论。不过这里我还是乐于解释一下一些基本的问题，或谈谈我的一些基本的观点。  </p>
-
-<p>仅以架构而言，要讨论的问题总的来说就两个方面，一是“范围”，就是项目与项目目标要做多大、多久，做到怎样效果的问题，并且围绕这个“范围”来给出一些合理的方案给开发实施的团队。二是“联接件”，就是如果上述的范围要由多个阶段或多个构件来构成，那么这些范围或构件之间如何关联的，以及如何确保这些关联是长期有效的。​  </p>
-
-<p>为了简单的说清这个架构的概念，以一个插件的架构来说，就是确定“插件用于补充主体软件的某个功能”，并确定“插件与主体软件之间如何衔接通讯”。那么有了这两点，插件的架构，也就设计完了。把这个模式扩大到一个平台，或一个大型的系统，或者细化到它们的各个局部中去，就是“平台架构”或“系统架构”了。当然，这仅在简单地、形式化地在讨论“架构”这个东西，因为“架构”与规模问题尽管有关系，但并非是一一对应的。不能说“大系统就要架构，小东西就不需要”，这样的认识是不正确的。  </p>
-
-<p>架构在根底上来说，是一种系统化的视角。如果你将一个对象理解为“系统”，或“有系统性的”，那么它就必然存在内部的关系与外部的边界——否则，必是离散的，或混沌不清的。而架构的“范围”与“联接件”，谈的就是这个对象的内部关系与外部边界。如果你具有架构思维，那么在你的视角下，凡事、凡物、凡内外，无不如此。  </p>
-
-<p>而架构师，要么离散上述关系、肢解上述结构，要么通过明确的方式来固化上述的关系与结构。如是，是做架构。</p>]]></content:encoded></item><item><title><![CDATA[OSCHINA答读者问之一：“软件工程”的学法与用法]]></title><description><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题是：软件工程要怎么学，学了有什么用、怎么用？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>首先，软件工程是学不得的。是所谓“学之不得”，通过死学，是得不到什么有价&#20540;的东西的。我们必须自己提一些问题，然后来求解，通过这个求解的过程，来学习与领会它。我想第一个要问的问题，就是“什么是工程”。我们学工科、理科、文科之类，为什么要这么分呢？工程为什么是“工科”的一部分呢？更有趣的问题是，为什么没有所谓的“文学工程”呢？  </p>
-
-<p>工程就本意，指向的就是“</p>]]></description><link>http://aimingoo.github.io/1-186.html/</link><guid isPermaLink="false">a19d588b-ad06-4207-b5b3-8b9cc44dda3d</guid><category><![CDATA[软件工程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Jan 2013 12:46:00 GMT</pubDate><content:encoded><![CDATA[<p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。  </p>
-
-<p>原贴在这里：<a href="http://www.oschina.net/question/12_78459">http://www.oschina.net/question/12_78459</a>  </p>
-
-<blockquote>
-  <p>本篇的问题是：软件工程要怎么学，学了有什么用、怎么用？  </p>
-</blockquote>
-
-<p>答：  </p>
-
-<p>首先，软件工程是学不得的。是所谓“学之不得”，通过死学，是得不到什么有价&#20540;的东西的。我们必须自己提一些问题，然后来求解，通过这个求解的过程，来学习与领会它。我想第一个要问的问题，就是“什么是工程”。我们学工科、理科、文科之类，为什么要这么分呢？工程为什么是“工科”的一部分呢？更有趣的问题是，为什么没有所谓的“文学工程”呢？  </p>
-
-<p>工程就本意，指向的就是“产出一个东西”。工科，也偏向于“实做一个东西”。你不能去找理论数学或理论物理的人，去做一个实际的产出来。工科，以及这里谈的工程，就是要“做出一个东西”。而软件工程，无非就是要讨论“做一个软件”这件事的做法，而已。  </p>
-
-<p>但是我们要看到，“做一件事”，要确定做法，所以说要谈到“软件的开发”，于是有了写软件的代码工人，写软件的技术与方法等等。但这个问题不是软件工程本身讨论的，它被归在了“工具”这个范畴内。同样，“做一件事”，还涉及到“人”，但也不归在软件工程本身讨论，而归在了管理中。等等类&#20284;这些的东西，都因为有各自的学科，而被划分出去了，“软件工程”这门功课的本身，就只剩下了一个“纯学术”的东西，它只讨论“软件该怎么做”的问题，而放弃了具体做法中的具体的人、具体的技术和具体的研发对象。这个“软件怎么做”的问题，被学“工科”的思想用了一个简单的模型来讲，就是：软件工程＝（做一个面向软件开发的工程的）过程&#43;方法&#43;工具。  </p>
-
-<p>但是有趣的事情是，凡工科，凡“做一个东西”，要把这个事情工程化，好象它的结论都会“用一个过程，找一些方法，拿一些工具，来做”。所以，将软件工程化，与将任何事情工程化，并没有本质的区别。从工业革命开始到现在，前辈们都是这样做的。纯理论的来说，做的模式都是如此。换而言之，上面那个公式/模型，也可以简而言之为“软件工程＝用工程化的方法，来做软件”。  </p>
-
-<p>你再看那本叫《软件工程》的书，写的就是没用嘛。因为这纯粹不需要讲，懂了“将一件事工程化，都不过是如上的方法”，那么整本书也就成了个备查手册——查查别人都用了什么过程、方法与工具，以及有什么效果。  </p>
-
-<p>学“软件工程”，学得懂了上面的这点东西，就够了。在工科来说，剩下的就是“练习”了。如同操刀杀牛，同一个过程，练3、5遍不行，练3~50遍总是行的。学“软件工程”也不过如此，一套过程、方法与工具用熟了，不过是把工夫做足了，做纯熟了而已。  </p>
-
-<p>而对于一个具体的工程（例如一个具体的项目）来说，上面的东西几乎完全无用。为什么呢？因为我们前面说过，《软件工程》这样的一门学科把“什么东西”、“什么人”、“做的技术”这些东西清理了出去，变成了一门纯粹的“工学”。而事实上，一个具体的工程项目，却正好是包含在这些东西、人、技术上面的。所以做具体工程的，碰到人的问题，就要谈管理，而“我学了软件工程”并不表明我会管理；碰到东西的问题，就要谈产品，而“我学了软件工程”并不表明我会产品设计；等等如此。我们的一个具体的工程，并不一定具有一个“面面俱到”的团队，所以实作工程的时候，总是这方面不足哪方面不够，碰到的问题总不在书里。  </p>
-
-<p>但，你再看看，你面临的这件事、这个项目，这个具体的工程，就解决问题的法子来说，也不过是“找到一个过程，用一些方法，拿一些工具”来做，而已。所以，真懂软件工程的人，知道这个原理——这个在《软件工程》这本书中讲的核心原理，就够了。其它的，神见杀神，佛见杀佛，自个去做便是了。哪有在一个具体的工程里谈什么RUP的，谈XP的？就好象说，你明明已经在千军万马里了，还从太极的起手式耍起！开玩笑嘛！见一个砍翻一个，砍错了该Y的倒霉，就是如此嘛。  </p>
-
-<p>套路有没有呢？原则有没有呢？还是有的，《大道至简》里说过，千军万马里面用剑，不要去砍，剑身是用来挡的，剑尖是用来刺的，刺死砍伤，用最有效的法子，就好。这就是些基本原则了。到一个具体的工程里了，对A员工到软声细语，对B员工要敲敲打打，对C员工的测试一定要复测……等等这些，你在工程中去总结就好。因人、因事、因环境、因目标对象一一应对，然后你就成功了，就牛人了，就项目精英了，就50多岁了。  </p>
-
-<p>练就。不练，怎么有成就呢？《软件工程》只讲一个核心原理，真到做了，还是一个项目、一群人、一个产品目标。三个方面的东西，一个不可少地去照顾到了，去找到他们的方法、过程与工具了，去磨过去拼过，才有结果的。  </p>
-
-<p>我从来不相信学完《软件工程》就去做工程的那个人。  </p>]]></content:encoded></item></channel></rss>
+</ol>]]></content:encoded></item></channel></rss>

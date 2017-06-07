@@ -1,41 +1,42 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomo 2.0 beta1 发布说明及新功能</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=42df3ecac3" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=42df3ecac3" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=42df3ecac3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomo 2.0 beta1 发布说明及新功能">
-    <meta property="og:description" content="Qomolangma OpenProject v2.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../contributor.txt     *注：有关本次发布的一些重要信息请参见：  *http://blog.csdn.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-78.html">
-    <meta property="article:published_time" content="2007-07-25T07:42:00.000Z">
-    <meta property="article:modified_time" content="2007-07-25T07:42:00.000Z">
-    <meta property="article:tag" content="工具">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomo 2.0 beta1 发布说明及新功能" />
+    <meta property="og:description" content="Qomolangma OpenProject v2.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../contributor.txt     *注：有关本次发布的一些重要信息请参见：  *http://blog.csdn." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-78.html" />
+    <meta property="article:published_time" content="2007-07-25T07:42:00.000Z" />
+    <meta property="article:modified_time" content="2007-07-25T07:42:00.000Z" />
+    <meta property="article:tag" content="工具" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomo 2.0 beta1 发布说明及新功能">
-    <meta name="twitter:description" content="Qomolangma OpenProject v2.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../contributor.txt     *注：有关本次发布的一些重要信息请参见：  *http://blog.csdn.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-78.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="工具">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomo 2.0 beta1 发布说明及新功能" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v2.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../contributor.txt     *注：有关本次发布的一些重要信息请参见：  *http://blog.csdn." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-78.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="工具" />
     
     <script type="application/ld+json">
 {
@@ -81,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-gong-ju nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -110,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -126,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/gong-ju/">工具</a>
+                        <a href="tag/gong-ju/index.html">工具</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,515 +145,515 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v2.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
 项目团队：../../contributor.txt    </p>
 
-<hr>
+<hr />
 
-<p><em>*<font color="#ff0000">注：有关本次发布的一些重要信息请参见：</font> <br>
+<p><em>*<font color="#ff0000">注：有关本次发布的一些重要信息请参见：</font> <br />
 *</em><a href="http://blog.csdn.net/aimingoo/archive/2007/12/31/2005755.aspx">http://blog.csdn.net/aimingoo/archive/2007/12/31/2005755.aspx</a>  </p>
 
 <p>一、Qomolangma 2.0 Beta1    </p>
 
-<hr>
+<hr />
 
-<p>Qomo的上次发布是在5个月前，此次的beta1主要包含对框架、兼容层和Builder系统的更新。有关界 <br>
+<p>Qomo的上次发布是在5个月前，此次的beta1主要包含对框架、兼容层和Builder系统的更新。有关界 <br />
 面组件库、图形库的发布，大约要到beta2或beta3才会提供。  </p>
 
-<p>Beta1主要的更新包括： <br>
- - 修改了大量代码和builder工具，实现对IE5.0的完整兼容，兼容safari v2，部分兼容opera <br>
- - 对兼容层代码做了大量修改, 并调整了兼容层在system.js中的装载顺序 <br>
- - 新增载入第三方代码的$import2()函数 <br>
- - 实现接口委托 <br>
- - 实现类声明中的通用的特性get/setter <br>
- - 更好的列举对象Enum()的实现，示例参考TestCase/T<em>Enum.html <br>
- - 分析JavaScript源代码语法的工具ParseLite, 修改自Brendan Eich的Narcissus，性能极大优化 <br>
- - 一些小的实用工具函数：IsClass(), IsObject(), IsInterface(),HasInterface()等等 <br>
- - 高性能的模式替换对象Pattern()，示例参考TestCase/T</em>StringReplacePattern.html <br>
- - 提供了一个正则表达式的性能分析工具：/Debug/TestCase/RegExpPerformanceTool.html <br>
- - 其它的一些小的修正，以及代码注释上的增改  </p>
+<p>Beta1主要的更新包括： <br />
+&nbsp;- 修改了大量代码和builder工具，实现对IE5.0的完整兼容，兼容safari v2，部分兼容opera <br />
+&nbsp;- 对兼容层代码做了大量修改, 并调整了兼容层在system.js中的装载顺序 <br />
+&nbsp;- 新增载入第三方代码的$import2()函数 <br />
+&nbsp;- 实现接口委托 <br />
+&nbsp;- 实现类声明中的通用的特性get/setter <br />
+&nbsp;- 更好的列举对象Enum()的实现，示例参考TestCase/T<em>Enum.html <br />
+&nbsp;- 分析JavaScript源代码语法的工具ParseLite, 修改自Brendan Eich的Narcissus，性能极大优化 <br />
+&nbsp;- 一些小的实用工具函数：IsClass(), IsObject(), IsInterface(),HasInterface()等等 <br />
+&nbsp;- 高性能的模式替换对象Pattern()，示例参考TestCase/T</em>StringReplacePattern.html <br />
+&nbsp;- 提供了一个正则表达式的性能分析工具：/Debug/TestCase/RegExpPerformanceTool.html <br />
+&nbsp;- 其它的一些小的修正，以及代码注释上的增改  </p>
 
 <p>下面对其中的一些较特别的更新做补充介绍。  </p>
 
 <p>二、函数$import2()    </p>
 
-<hr>
+<hr />
 
-<p>$import2()是一个特殊的$imoprt()实现，它只适用于装载第三方代码的情况。beta1中它只在ParseLite <br>
-的实现中被使用了，但以后的代码中将会有很多的地方用到它。它的函数描述为： <br>
-<font face="Courier New">  </font></p>
+<p>$import2()是一个特殊的$imoprt()实现，它只适用于装载第三方代码的情况。beta1中它只在ParseLite <br />
+的实现中被使用了，但以后的代码中将会有很多的地方用到它。它的函数描述为： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function $import2(src, prepare, patch, condition);  </p>
+<p>function $import2(src, prepare, patch, condition);</font>  </p>
 
-<p><font face="Courier New"> - src: 装入的.js的url地址 <br>
- - prepare: 在装入代码前面添加的代码，例如变量初始化等 <br>
- - patch: 在装入代码尾部添加的代码, 用于向外部（例如Qomo）传出数据 <br>
- - condition: 装入代码的条件, 不填写时为true <br>
+<p><font face="Courier New">&nbsp;- src: 装入的.js的url地址 <br />
+&nbsp;- prepare: 在装入代码前面添加的代码，例如变量初始化等 <br />
+&nbsp;- patch: 在装入代码尾部添加的代码, 用于向外部（例如Qomo）传出数据 <br />
+&nbsp;- condition: 装入代码的条件, 不填写时为true <br />
 ------------------</font>  </p>
 
-<p>其中src与condition参数与它们在$inline()和$import()中的用法是一致的。这里特别讲述一下prepare <br>
-与patch。其中，prepare是简单的脚本文本，我们一般用它来初始化一些变量，以避免第三方代码包中 <br>
-的变量泄露出来，与Qomo的全局变量冲突。例如： <br>
-<font face="Courier New">  </font></p>
+<p>其中src与condition参数与它们在$inline()和$import()中的用法是一致的。这里特别讲述一下prepare <br />
+与patch。其中，prepare是简单的脚本文本，我们一般用它来初始化一些变量，以避免第三方代码包中 <br />
+的变量泄露出来，与Qomo的全局变量冲突。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 第三方代码文本(文件名: test.js) <br>
-value1 = 100; <br>
-name = 'mySystem'; <br>
------------------- <br>
-如果我们直接执行它，那么Qomo的全局变量中就会多出value1和name两个变量名。如果我们用下面的方 <br>
-法来装载： <br>
-<font face="Courier New">  </font></p>
+<p>// 第三方代码文本(文件名: test.js) <br />
+value1 = 100; <br />
+name = 'mySystem'; <br />
+------------------</font> <br />
+如果我们直接执行它，那么Qomo的全局变量中就会多出value1和name两个变量名。如果我们用下面的方 <br />
+法来装载： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>$import2('test.js', 'var value1,name;', ''); <br>
------------------- <br>
+<p>$import2('test.js', 'var value1,name;', ''); <br />
+------------------</font> <br />
 那么就不会有问题了。  </p>
 
-<p>但接下来，我们装载的test.js又能如何使用呢？比如这个test.js有一个类，或者对象，我们该如何来 <br>
-使用它呢？这就需要用到patch这个参数了。不过在讲述它之前，先说明$import2()中对this引用的特 <br>
+<p>但接下来，我们装载的test.js又能如何使用呢？比如这个test.js有一个类，或者对象，我们该如何来 <br />
+使用它呢？这就需要用到patch这个参数了。不过在讲述它之前，先说明$import2()中对this引用的特 <br />
 殊理解。  </p>
 
-<p>$import2()总是返回一个对象obj，如果this没有指向window，则使用this值作为obj；否则为obj新 <br>
-建一个对象实例。因此，如果你试图传入一个对象并用它传出值，那么可以这样写： <br>
-<font face="Courier New">  </font></p>
+<p>$import2()总是返回一个对象obj，如果this没有指向window，则使用this值作为obj；否则为obj新 <br />
+建一个对象实例。因此，如果你试图传入一个对象并用它传出值，那么可以这样写： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var obj = {}; <br>
-$import2.call(obj, 'test.js', ... <br>
-------------------  </p>
+<p>var obj = {}; <br />
+$import2.call(obj, 'test.js', ... <br />
+------------------</font>  </p>
 
-<p>这样的技巧可以用来修改对象的原型，例如： <br>
-<font face="Courier New">  </font></p>
+<p>这样的技巧可以用来修改对象的原型，例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>$import2.call(MyObject.prototype, 'test.js', ... <br>
-------------------  </p>
+<p>$import2.call(MyObject.prototype, 'test.js', ... <br />
+------------------</font>  </p>
 
-<p>当然你也可以直接使用传出对象，而无需事先声明它。例如： <br>
-<font face="Courier New">  </font></p>
+<p>当然你也可以直接使用传出对象，而无需事先声明它。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var obj = $import2('test.js', ... <br>
-------------------  </p>
+<p>var obj = $import2('test.js', ... <br />
+------------------</font>  </p>
 
-<p>然而这个对象（或this引用)传入之后该如何使用呢？一方面你可以为patch参数传入一个字符串做代 <br>
-码块，这个代码块中可以直接使用this。另一方面，你也可以为patch参数传入一个函数，该函数在执 <br>
-行时的第一个参数就是这个this引用。例如： <br>
-<font face="Courier New">  </font></p>
+<p>然而这个对象（或this引用)传入之后该如何使用呢？一方面你可以为patch参数传入一个字符串做代 <br />
+码块，这个代码块中可以直接使用this。另一方面，你也可以为patch参数传入一个函数，该函数在执 <br />
+行时的第一个参数就是这个this引用。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var obj = $import2('test.js', 'var value1,name;', function(_this) { <br>
-  _this.value = value1; <br>
-  _this.name = name; <br>
-}); <br>
-------------------  </p>
+<p>var obj = $import2('test.js', 'var value1,name;', function(_this) { <br />
+&nbsp; _this.value = value1; <br />
+&nbsp; _this.name = name; <br />
+}); <br />
+------------------</font>  </p>
 
-<p>这样一来，我们就可以在外部系统中得到这个对象obj，它的value、name则来自于第三方代码。当然， <br>
+<p>这样一来，我们就可以在外部系统中得到这个对象obj，它的value、name则来自于第三方代码。当然， <br />
 其它的对象方法或类都可以用这种技术来从第三方代码中获取。  </p>
 
-<p>$import2()的一个实现实例，是Common/ParseLite.js。它从3rd/jsparse.js中获取了parse()和tokens() <br>
-两个方法。而这两个方法被用作ParserLite.prototype原型方法。这样一来，ParserLite()就既具有Qomo <br>
+<p>$import2()的一个实现实例，是Common/ParseLite.js。它从3rd/jsparse.js中获取了parse()和tokens() <br />
+两个方法。而这两个方法被用作ParserLite.prototype原型方法。这样一来，ParserLite()就既具有Qomo <br />
 的类的特性，又在对Qomo完全无扰的情况下，使用了第三方代码。  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p>三、通用的特性get/setter    </p>
 
-<hr>
+<hr />
 
-<p>通用get/setter其实是Qomo V1中就已经具备的一个特性，只是未被公开。这个特性适用于这样的情况： <br>
-某个类的许多特性的方法都基本一致，或者适合放在同一个函数中来实现，例如： <br>
-<font face="Courier New">  </font></p>
+<p>通用get/setter其实是Qomo V1中就已经具备的一个特性，只是未被公开。这个特性适用于这样的情况： <br />
+某个类的许多特性的方法都基本一致，或者适合放在同一个函数中来实现，例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() {  </p>
+<p>function MyObject() {</font>  </p>
 
-<p><font face="Courier New">  this.setName = function(v) { <br>
-    if (!v) v = 'normal'; <br>
-    this.set(v); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; this.setName = function(v) { <br />
+&nbsp;&nbsp;&nbsp; if (!v) v = 'normal'; <br />
+&nbsp;&nbsp;&nbsp; this.set(v); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  this.setValue = function(v) { <br>
-    if (!v) v = 'normal'; <br>
-    this.set(v); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; this.setValue = function(v) { <br />
+&nbsp;&nbsp;&nbsp; if (!v) v = 'normal'; <br />
+&nbsp;&nbsp;&nbsp; this.set(v); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // ... <br>
-} <br>
+<p><font face="Courier New">&nbsp; // ... <br />
+} <br />
 ------------------</font>  </p>
 
-<p>那么你可以用下面的代码来完成相同的功能： <br>
-<font face="Courier New">  </font></p>
+<p>那么你可以用下面的代码来完成相同的功能： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() {  </p>
+<p>function MyObject() {</font>  </p>
 
-<p><font face="Courier New">  this.setValue = <br>
-  this.setName = function(v) { <br>
-    if (!v) v = 'normal'; <br>
-    this.set(v); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; this.setValue = <br />
+&nbsp; this.setName = function(v) { <br />
+&nbsp;&nbsp;&nbsp; if (!v) v = 'normal'; <br />
+&nbsp;&nbsp;&nbsp; this.set(v); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // ... <br>
-} <br>
-------------------</font> <br>
+<p><font face="Courier New">&nbsp; // ... <br />
+} <br />
+------------------</font> <br />
 也就是让setValue()与setName()使用同一个特性存取函数。  </p>
 
-<p>为了让你在代码中能够区分调用来自于哪一个方法，Qomo在调用这个特性存取函数时，会多传入一个 <br>
-参数，因此你可以写出如下的代码： <br>
-<font face="Courier New">  </font></p>
+<p>为了让你在代码中能够区分调用来自于哪一个方法，Qomo在调用这个特性存取函数时，会多传入一个 <br />
+参数，因此你可以写出如下的代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() {  </p>
+<p>function MyObject() {</font>  </p>
 
-<p><font face="Courier New">  this.setValue = <br>
-  this.setName = function(v, n) { <br>
-    if (!v) v = 'normal'; <br>
-    this.set(v);</font>  </p>
+<p><font face="Courier New">&nbsp; this.setValue = <br />
+&nbsp; this.setName = function(v, n) { <br />
+&nbsp;&nbsp;&nbsp; if (!v) v = 'normal'; <br />
+&nbsp;&nbsp;&nbsp; this.set(v);</font>  </p>
 
-<p><font face="Courier New">    ExtObject<a href="1-78.html">'OnChange' + n</a>; <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; ExtObject<a href="1-78.html">'OnChange' + n</a>; <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // ... <br>
-} <br>
-------------------</font> <br>
-这个例子中ExtObject是一个假设的外部对象。而在上面的特性存取函数被调用时，例如： <br>
-<font face="Courier New">  </font></p>
+<p><font face="Courier New">&nbsp; // ... <br />
+} <br />
+------------------</font> <br />
+这个例子中ExtObject是一个假设的外部对象。而在上面的特性存取函数被调用时，例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>obj.set('Name', ' - MyName'); <br>
-obj.set('Value', ' - MyValue'); <br>
------------------- <br>
-则下面的外部对象方法也将被调用： <br>
-<font face="Courier New">  </font></p>
+<p>obj.set('Name', ' - MyName'); <br />
+obj.set('Value', ' - MyValue'); <br />
+------------------</font> <br />
+则下面的外部对象方法也将被调用： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>ExtObject.OnChangeName(); <br>
-ExtObject.OnChangeValue(); <br>
------------------- <br>
+<p>ExtObject.OnChangeName(); <br />
+ExtObject.OnChangeValue(); <br />
+------------------</font> <br />
 当然，你也可以在这里传入参数v，或者用switch()语句来识别变量n并加以处理.  </p>
 
-<p>最后，请注意一个细节，对于通常的set/getter来说，其声明方法是： <br>
-<font face="Courier New">  </font></p>
+<p>最后，请注意一个细节，对于通常的set/getter来说，其声明方法是： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>this.getName = function() { ... <br>
-this.setName = function(v) { ... <br>
------------------- <br>
-而对通用的特性get/setter来说，传入的特性名是追加在其后的： <br>
-<font face="Courier New">  </font></p>
+<p>this.getName = function() { ... <br />
+this.setName = function(v) { ... <br />
+------------------</font> <br />
+而对通用的特性get/setter来说，传入的特性名是追加在其后的： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>this.getName = function(n) { ... <br>
-this.setName = function(v,n) { ... <br>
------------------- <br>
-不过两种方法实现的读取器的使用方法完全一致： <br>
-<font face="Courier New">  </font></p>
+<p>this.getName = function(n) { ... <br />
+this.setName = function(v,n) { ... <br />
+------------------</font> <br />
+不过两种方法实现的读取器的使用方法完全一致： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>obj.get(n); <br>
-obj.set(n,v); <br>
-------------------  </p>
+<p>obj.get(n); <br />
+obj.set(n,v); <br />
+------------------</font>  </p>
 
 <p>四、接口委托(Delegate)    </p>
 
-<hr>
+<hr />
 
-<p>接口委托可能是本次(Qomo V2 Beta1)发布中最复杂的一项改动。在以前的文档中提及过它只是 <br>
+<p>接口委托可能是本次(Qomo V2 Beta1)发布中最复杂的一项改动。在以前的文档中提及过它只是 <br />
 暂时未被实现，也指出了未被实现的原因：没有应用。  </p>
 
-<p>在Qomo V2开发中，因为$import2的出现，我们遇到了一个问题：如果一个对象是由$import2() <br>
-装载的代码来实现的，而该对象又声明了接口，则该接口也必须要委托给第三方代码实现。例如 <br>
-下面的代码中： <br>
-<font face="Courier New">  </font></p>
+<p>在Qomo V2开发中，因为$import2的出现，我们遇到了一个问题：如果一个对象是由$import2() <br />
+装载的代码来实现的，而该对象又声明了接口，则该接口也必须要委托给第三方代码实现。例如 <br />
+下面的代码中： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 接口声明 <br>
-IMyIntf = function() { <br>
-  this.doAction1 = <br>
-  this.doAction2 = Abstract; <br>
-}  </p>
-
-<p><font face="Courier New">// 类声明 <br>
-function MyObject() { <br>
-  Attribute(this, '3RdObject'); <br>
-  <br>
-  this.doAction1 = function() { <br>
-    this.get('3RdObject').doAction1.apply(this, arguments); <br>
-  }</font>  </p>
-
-<p><font face="Courier New">  this.doAction2 = function() { <br>
-    this.get('3RdObject').doAction2.apply(this, arguments); <br>
-  }</font>  </p>
-
-<p><font face="Courier New">  this.Create = function() { <br>
-    // 1. 导入第三方代码 <br>
-    // 2. 用第三方代码创建对象并置'3RdObject'特性 <br>
-    this.set('3RdObject', aObject); <br>
-  } <br>
+<p>// 接口声明 <br />
+IMyIntf = function() { <br />
+&nbsp; this.doAction1 = <br />
+&nbsp; this.doAction2 = Abstract; <br />
 }</font>  </p>
 
-<p><font face="Courier New">// 类注册，并声明该类实现IMyIntf接口 <br>
-TMyObject = Class(TObject, 'MyObject', IMyIntf); <br>
+<p><font face="Courier New">// 类声明 <br />
+function MyObject() { <br />
+&nbsp; Attribute(this, '3RdObject'); <br />
+&nbsp; <br />
+&nbsp; this.doAction1 = function() { <br />
+&nbsp;&nbsp;&nbsp; this.get('3RdObject').doAction1.apply(this, arguments); <br />
+&nbsp; }</font>  </p>
+
+<p><font face="Courier New">&nbsp; this.doAction2 = function() { <br />
+&nbsp;&nbsp;&nbsp; this.get('3RdObject').doAction2.apply(this, arguments); <br />
+&nbsp; }</font>  </p>
+
+<p><font face="Courier New">&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; // 1. 导入第三方代码 <br />
+&nbsp;&nbsp;&nbsp; // 2. 用第三方代码创建对象并置'3RdObject'特性 <br />
+&nbsp;&nbsp;&nbsp; this.set('3RdObject', aObject); <br />
+&nbsp; } <br />
+}</font>  </p>
+
+<p><font face="Courier New">// 类注册，并声明该类实现IMyIntf接口 <br />
+TMyObject = Class(TObject, 'MyObject', IMyIntf); <br />
 ------------------</font>  </p>
 
-<p>在这个例子中，除了基本的框架之外，MyObject必须用重复的代码来实现doAction1, doAction2, ... <br>
+<p>在这个例子中，除了基本的框架之外，MyObject必须用重复的代码来实现doAction1, doAction2, ... <br />
 等等类似的方法。事实上这些重复的代码并没多少特别的意义。所以我们将该接口的实现委托出去呢？  </p>
 
-<p>在新的Qomo版本中，使用下面的类声明过程可以做到了： <br>
-<font face="Courier New">  </font></p>
+<p>在新的Qomo版本中，使用下面的类声明过程可以做到了： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 类声明 <br>
-function MyObject() { <br>
-  Attribute(this, '3RdObject'); <br>
-  <br>
-  this.Create = function() { <br>
-    // 1. 导入第三方代码 <br>
-    // 2. 用第三方代码创建对象并置'3RdObject'特性 <br>
-    this.set('3RdObject', aObject); <br>
-  }  </p>
+<p>// 类声明 <br />
+function MyObject() { <br />
+&nbsp; Attribute(this, '3RdObject'); <br />
+&nbsp; <br />
+&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; // 1. 导入第三方代码 <br />
+&nbsp;&nbsp;&nbsp; // 2. 用第三方代码创建对象并置'3RdObject'特性 <br />
+&nbsp;&nbsp;&nbsp; this.set('3RdObject', aObject); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  function proxy(_this) { <br>
-    return _this.get('3RdObject'); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; function proxy(_this) { <br />
+&nbsp;&nbsp;&nbsp; return _this.get('3RdObject'); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  Delegate(_cls().Create, [ <br>
-   [proxy, ['IMyIntf']] <br>
-  ]); <br>
-}    </font></p>
+<p><font face="Courier New">&nbsp; Delegate(_cls().Create, [ <br />
+&nbsp;&nbsp; [proxy, ['IMyIntf']] <br />
+&nbsp; ]); <br />
+}    </p>
 
-<hr>
+<hr />
 
-<p>Delegate()工具函数实现在Interface.js中，用于委托一个对象／类的接口，交由第三方实现。在这个 <br>
-例子中，它被交由一个返回第三方对象的代理函数(proxy)——当然也可以在Delegate()中声明并使用 <br>
+<p></font>Delegate()工具函数实现在Interface.js中，用于委托一个对象／类的接口，交由第三方实现。在这个 <br />
+例子中，它被交由一个返回第三方对象的代理函数(proxy)&mdash;&mdash;当然也可以在Delegate()中声明并使用 <br />
 函数直接量。  </p>
 
-<p>除了使用代理函数之外，也可以简单的使用一个对象(或对象直接量)。例如： <br>
-<font face="Courier New">  </font></p>
+<p>除了使用代理函数之外，也可以简单的使用一个对象(或对象直接量)。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  var obj = { <br>
-    doAction1 : function() { ... }, <br>
-    doAction2 : function() { ... } <br>
-  }  </p>
+<p>&nbsp; var obj = { <br />
+&nbsp;&nbsp;&nbsp; doAction1 : function() { ... }, <br />
+&nbsp;&nbsp;&nbsp; doAction2 : function() { ... } <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  Delegate(_cls().Create, [ <br>
-   [obj, ['IMyIntf']] <br>
-  ]); <br>
+<p><font face="Courier New">&nbsp; Delegate(_cls().Create, [ <br />
+&nbsp;&nbsp; [obj, ['IMyIntf']] <br />
+&nbsp; ]); <br />
 ------------------</font>  </p>
 
-<p>Delegate函数声明为： <br>
-<font face="Courier New">  </font></p>
+<p>Delegate函数声明为： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>Delegate(consigner, confer); <br>
------------------- <br>
-其中consigner是委托者，在本例中是<em>cls().Create，由于</em>cls()是一个在类构造周期中使用的特殊函 <br>
-数，用于返回类的一个引用(本例中是TMyObject)，所以事实上委托者就是TMyObject.Create。而该函数 <br>
-事实上直接指向构造器MyObject，而当一个接口被注册到构造器时，其子类和实例都将继承该接口。这 <br>
+<p>Delegate(consigner, confer); <br />
+------------------</font> <br />
+其中consigner是委托者，在本例中是<em>cls().Create，由于</em>cls()是一个在类构造周期中使用的特殊函 <br />
+数，用于返回类的一个引用(本例中是TMyObject)，所以事实上委托者就是TMyObject.Create。而该函数 <br />
+事实上直接指向构造器MyObject，而当一个接口被注册到构造器时，其子类和实例都将继承该接口。这 <br />
 就与在Class()中声明该类实现IMyIntf接口的语义是一致的了。  </p>
 
-<p>上面函数声明中的confer是一个份委托协议。该协议总是一个数组，结构如下： <br>
-<font face="Courier New">  </font></p>
+<p>上面函数声明中的confer是一个份委托协议。该协议总是一个数组，结构如下： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>[ <br>
- [proxy, [confer<em>item, ...]], <br>
- [proxy, [confer</em>item, ...]], <br>
- ... <br>
-]; <br>
------------------- <br>
-如前所述，其中proxy可以是代理对象或代理对象。而confer_item总是一个字符串，呈如下格式： <br>
-<font face="Courier New">  </font></p>
+<p>[ <br />
+&nbsp;[proxy, [confer<em>item, ...]], <br />
+&nbsp;[proxy, [confer</em>item, ...]], <br />
+&nbsp;... <br />
+]; <br />
+------------------</font> <br />
+如前所述，其中proxy可以是代理对象或代理对象。而confer_item总是一个字符串，呈如下格式： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>[&lt;*|+|-&gt;]InterfaceName[.MethodName[:AliasName]] <br>
-------------------  </p>
-
-<p>字符串开始应当是一个修饰字符，如果缺省，则修饰字符为"+"。修饰字符的含义如下： <br>
-<font face="Courier New">  * 实现指定接口，或所有接口的所有方法 <br>
-  + 实现指定接口／接口的指定方法 <br>
-  - 不实现指定接口／接口的指定方法</font> <br>
-也就是一个包含和排除的规则集。这个修饰字符有两条优先规则： <br>
-<font face="Courier New">  1. 排除匹配(-)优先于包含匹配(+/*) <br>
-  2. 指定匹配（接口.名称)优先于通用匹配( * )</font> <br>
-这样，就包含了所有的委托关系。不在委托关系中的接口和方法，则默认由consigner自己来实现。  </p>
-
-<p>这个字符串其它的三个部分用于指定接口。包括： <br>
-<font face="Courier New">  InterfaceName : 接口名. 例如IInterface <br>
-  MethodName : 方法名. 例如IInterface.QueryInterface <br>
-  AliasName : 别名, 这是指实现者(proxy)中用来实现MethodName的名字.</font> <br>
-如果MethodName缺省，则表明实现整个接口（的全部方法）；如果AliasName缺省，则表明代理与 <br>
-委托者使用相同的方法名。  </p>
-
-<p>对于类和构造器来说，委托关系与接口注册一样，也是可以被继承的。也就是说，一旦接口被声明 <br>
-委托，则子类和对象实例都使用该委托关系来实现接口。另外，委托关系也是可以被覆盖的，这种 <br>
-覆盖是confer_item的，也就是说可以可选地覆盖先前协议中的某些部分。下面的例子说明这种继 <br>
-承与覆盖的关系。 <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>function MyObject() { <br>
-  Delegate(_cls().Create, [ <br>
-   [{ <br>
-     doAction1: function() { alert('doAction1') }, <br>
-     doAction2: function() { alert('doAction2') } <br>
-    }, ['IMyIntf']] <br>
-  ]); <br>
-}  </p>
-
-<p><font face="Courier New">function MyObjectEx(){ <br>
-  Delegate(_cls().Create, [ <br>
-   [{ <br>
-     doAction2: function() { alert('doAction2 - MyObjectEx') } <br>
-    }, ['IMyIntf.doAction2']] <br>
-  ]); <br>
-}</font>  </p>
-
-<p><font face="Courier New">TMyObject = Class(TObject, 'MyObject', IMyIntf); <br>
-TMyObjectEx = Class(TMyObject, 'MyObjectEx');</font>  </p>
-
-<p><font face="Courier New">// 测试代码 <br>
-obj1 = new MyObject(); <br>
-obj2 = new MyObjectEx();</font>  </p>
-
-<p><font face="Courier New">intf1 = QueryInterface(obj1, IMyIntf); <br>
-intf2 = QueryInterface(obj2, IMyIntf);</font>  </p>
-
-<p><font face="Courier New">intf1.doAction2(); <br>
-intf2.doAction2(); <br>
+<p>[&lt;*|+|-&gt;]InterfaceName[.MethodName[:AliasName]] <br />
 ------------------</font>  </p>
 
-<p>需要注意的是，接口被委托实现并不表明对象也具有该方法。以上例来讲，intf1.doAction2()调用 <br>
+<p>字符串开始应当是一个修饰字符，如果缺省，则修饰字符为&quot;+&quot;。修饰字符的含义如下： <br />
+<font face="Courier New">&nbsp; * 实现指定接口，或所有接口的所有方法 <br />
+&nbsp; + 实现指定接口／接口的指定方法 <br />
+&nbsp; - 不实现指定接口／接口的指定方法</font> <br />
+也就是一个包含和排除的规则集。这个修饰字符有两条优先规则： <br />
+<font face="Courier New">&nbsp; 1. 排除匹配(-)优先于包含匹配(+/*) <br />
+&nbsp; 2. 指定匹配（接口.名称)优先于通用匹配( * )</font> <br />
+这样，就包含了所有的委托关系。不在委托关系中的接口和方法，则默认由consigner自己来实现。  </p>
+
+<p>这个字符串其它的三个部分用于指定接口。包括： <br />
+<font face="Courier New">&nbsp; InterfaceName : 接口名. 例如IInterface <br />
+&nbsp; MethodName : 方法名. 例如IInterface.QueryInterface <br />
+&nbsp; AliasName : 别名, 这是指实现者(proxy)中用来实现MethodName的名字.</font> <br />
+如果MethodName缺省，则表明实现整个接口（的全部方法）；如果AliasName缺省，则表明代理与 <br />
+委托者使用相同的方法名。  </p>
+
+<p>对于类和构造器来说，委托关系与接口注册一样，也是可以被继承的。也就是说，一旦接口被声明 <br />
+委托，则子类和对象实例都使用该委托关系来实现接口。另外，委托关系也是可以被覆盖的，这种 <br />
+覆盖是confer_item的，也就是说可以可选地覆盖先前协议中的某些部分。下面的例子说明这种继 <br />
+承与覆盖的关系。 <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>function MyObject() { <br />
+&nbsp; Delegate(_cls().Create, [ <br />
+&nbsp;&nbsp; [{ <br />
+&nbsp;&nbsp;&nbsp;&nbsp; doAction1: function() { alert('doAction1') }, <br />
+&nbsp;&nbsp;&nbsp;&nbsp; doAction2: function() { alert('doAction2') } <br />
+&nbsp;&nbsp;&nbsp; }, ['IMyIntf']] <br />
+&nbsp; ]); <br />
+}</font>  </p>
+
+<p><font face="Courier New">function MyObjectEx(){ <br />
+&nbsp; Delegate(_cls().Create, [ <br />
+&nbsp;&nbsp; [{ <br />
+&nbsp;&nbsp;&nbsp;&nbsp; doAction2: function() { alert('doAction2 - MyObjectEx') } <br />
+&nbsp;&nbsp;&nbsp; }, ['IMyIntf.doAction2']] <br />
+&nbsp; ]); <br />
+}</font>  </p>
+
+<p><font face="Courier New">TMyObject = Class(TObject, 'MyObject', IMyIntf); <br />
+TMyObjectEx = Class(TMyObject, 'MyObjectEx');</font>  </p>
+
+<p><font face="Courier New">// 测试代码 <br />
+obj1 = new MyObject(); <br />
+obj2 = new MyObjectEx();</font>  </p>
+
+<p><font face="Courier New">intf1 = QueryInterface(obj1, IMyIntf); <br />
+intf2 = QueryInterface(obj2, IMyIntf);</font>  </p>
+
+<p><font face="Courier New">intf1.doAction2(); <br />
+intf2.doAction2(); <br />
+------------------</font>  </p>
+
+<p>需要注意的是，接口被委托实现并不表明对象也具有该方法。以上例来讲，intf1.doAction2()调用 <br />
 成功，并不表明obj1.doAction2()也能调用成功。Qomo没有自动实现该对象方法的能力。  </p>
 
 <p>五、接口内部聚合(Aggregate)    </p>
 
-<hr>
+<hr />
 
-<p>Aggregate在Qomo V2中有一种新的实现方案。Aggregate(聚合)的概念，是将多个接口实现在同一个 <br>
-目标中。它在Qomo的早期版本中被用于构造器或函数的内部，用于表明该构造器或函数内部实现了 <br>
-某个接口，而在它的外（方法）中不被表现出来。它的用法如下： <br>
-<font face="Courier New">  </font></p>
+<p>Aggregate在Qomo V2中有一种新的实现方案。Aggregate(聚合)的概念，是将多个接口实现在同一个 <br />
+目标中。它在Qomo的早期版本中被用于构造器或函数的内部，用于表明该构造器或函数内部实现了 <br />
+某个接口，而在它的外（方法）中不被表现出来。它的用法如下： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { <br>
-  // 声明聚合 <br>
-  var intfs = Aggregate(cls().Create, IMyIntf, IObject, ...);  </p>
+<p>function MyObject() { <br />
+&nbsp; // 声明聚合 <br />
+&nbsp; var intfs = Aggregate(cls().Create, IMyIntf, IObject, ...);</font>  </p>
 
-<p><font face="Courier New">  // 实现被聚合的各个接口 <br>
-  var intf1 = intfs.GetInterface(IMyIntf); <br>
-  intf1.doAction1 = ... <br>
-  intf1.doAction2 = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 实现被聚合的各个接口 <br />
+&nbsp; var intf1 = intfs.GetInterface(IMyIntf); <br />
+&nbsp; intf1.doAction1 = ... <br />
+&nbsp; intf1.doAction2 = ...</font>  </p>
 
-<p><font face="Courier New">  var intf2 = intfs.GetInterface(IObject); <br>
-  intf1.hasEvent = ... <br>
-  intf1.hasProperty = ... <br>
-  ... <br>
+<p><font face="Courier New">&nbsp; var intf2 = intfs.GetInterface(IObject); <br />
+&nbsp; intf1.hasEvent = ... <br />
+&nbsp; intf1.hasProperty = ... <br />
+&nbsp; ... <br />
 }</font>  </p>
 
-<p><font face="Courier New">// 声明MyObject()注册了某些接口 <br>
-Interface.RegisterInterface(MyObject, IMyIntf, IObject, ...); <br>
+<p><font face="Courier New">// 声明MyObject()注册了某些接口 <br />
+Interface.RegisterInterface(MyObject, IMyIntf, IObject, ...); <br />
 ------------------</font>  </p>
 
-<p>在Qomo V2中，在我们实现了Delegate之后，我们发现聚合在实质上也可以理解为一种委托。对于上例 <br>
-来讲，我们可以用同样的委托代码来实现： <br>
-<font face="Courier New">  </font></p>
+<p>在Qomo V2中，在我们实现了Delegate之后，我们发现聚合在实质上也可以理解为一种委托。对于上例 <br />
+来讲，我们可以用同样的委托代码来实现： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { <br>
-  Delegate(_cls().Create, [ <br>
-   [{doAction1: ..., <br>
-     doAction2: ... }, ['IMyIntf']], <br>
-   [{hasEvent: ..., <br>
-     hasProperty: ...}, ['IObject']], <br>
-   ... <br>
-  ]); <br>
-} <br>
------------------- <br>
-因此，我们重新实现了Aggregate()这个工具函数，在它的内部存在一个名为Interfaces()的构造器。 <br>
-我们将Aggregate()的关系委托给该构造器的实例，并注册到接口系统中。这种新的实现方案比早期 <br>
-的版本更加简单，但使用的方法仍然是一致——不必再重写以前的代码。  </p>
+<p>function MyObject() { <br />
+&nbsp; Delegate(_cls().Create, [ <br />
+&nbsp;&nbsp; [{doAction1: ..., <br />
+&nbsp;&nbsp;&nbsp;&nbsp; doAction2: ... }, ['IMyIntf']], <br />
+&nbsp;&nbsp; [{hasEvent: ..., <br />
+&nbsp;&nbsp;&nbsp;&nbsp; hasProperty: ...}, ['IObject']], <br />
+&nbsp;&nbsp; ... <br />
+&nbsp; ]); <br />
+} <br />
+------------------</font> <br />
+因此，我们重新实现了Aggregate()这个工具函数，在它的内部存在一个名为Interfaces()的构造器。 <br />
+我们将Aggregate()的关系委托给该构造器的实例，并注册到接口系统中。这种新的实现方案比早期 <br />
+的版本更加简单，但使用的方法仍然是一致&mdash;&mdash;不必再重写以前的代码。  </p>
 
-<p>新的Aggregate()的实现方案演示了Delegate()的灵活应用：我们对Aggregate参数构造了一个代理对 <br>
-象，并与该代理对象（自动地）创建了一份协议。不过，为此我们也稍稍地扩展了一下Delegate()， <br>
-使得confer_item中直接InterfaceHandle，也就是接口的内部句柄。因此，在不知道InterfaceName <br>
-的情况下，在Delegate()中也可以将InterfaceName填为一个整数值（InterfaceHandle）。不过目前 <br>
+<p>新的Aggregate()的实现方案演示了Delegate()的灵活应用：我们对Aggregate参数构造了一个代理对 <br />
+象，并与该代理对象（自动地）创建了一份协议。不过，为此我们也稍稍地扩展了一下Delegate()， <br />
+使得confer_item中直接InterfaceHandle，也就是接口的内部句柄。因此，在不知道InterfaceName <br />
+的情况下，在Delegate()中也可以将InterfaceName填为一个整数值（InterfaceHandle）。不过目前 <br />
 这只被用在Inerface.js内部，用于Aggregate的实现。  </p>
 
 <p>六、其它    </p>
 
-<hr>
+<hr />
 
 <ol>
 <li>关于IE5、safari和Opera的兼容  </li>
 </ol>
 
-<hr>
+<hr />
 
-<p>在Qomo V2中将全面兼容IE5.0，不过你必须使用Builer生成一个兼容它的版本，而不能直接在IE5.0中 <br>
+<p>在Qomo V2中将全面兼容IE5.0，不过你必须使用Builer生成一个兼容它的版本，而不能直接在IE5.0中 <br />
 直接装载（未经编译的版本）和调试。  </p>
 
-<p>在Qomo V2中也完全兼容safari v2，需要留意的是，对于safari的早期版本并不兼容。这是因为safari <br>
+<p>在Qomo V2中也完全兼容safari v2，需要留意的是，对于safari的早期版本并不兼容。这是因为safari <br />
 从v2才开始支持Function.caller。  </p>
 
-<p>是同样的原因，却导致我们不能完全兼容Opera：它不支持Function.caller。而我们经过讨论，也无法 <br>
-在Opera上模拟出该效果，所以我们完成了除该项特性之外的全部兼容代码。然后，开始期待Opera的新 <br>
-版本……  </p>
+<p>是同样的原因，却导致我们不能完全兼容Opera：它不支持Function.caller。而我们经过讨论，也无法 <br />
+在Opera上模拟出该效果，所以我们完成了除该项特性之外的全部兼容代码。然后，开始期待Opera的新 <br />
+版本&hellip;&hellip;  </p>
 
 <ol>
 <li>关于parse分析的问题与应用  </li>
 </ol>
 
-<hr>
+<hr />
 
-<p>Qomo V2的Common目录中新增了一个ParseLite.js，我们通过装载第三方项目Narcissus的代码，并为它 <br>
+<p>Qomo V2的Common目录中新增了一个ParseLite.js，我们通过装载第三方项目Narcissus的代码，并为它 <br />
 简单地注册了一个Qomo类，从而实现了这个工具。  </p>
 
-<p>不过，有两点要加以说明。其一，这是一个优化过的Narcissus项目，原来的Narcissus在处理稍大的代 <br>
-码块时效率就迅速地级数下降，通过灵活地使用RegExp，Qomo避免了这些问题。以对150K源代码进行分 <br>
+<p>不过，有两点要加以说明。其一，这是一个优化过的Narcissus项目，原来的Narcissus在处理稍大的代 <br />
+码块时效率就迅速地级数下降，通过灵活地使用RegExp，Qomo避免了这些问题。以对150K源代码进行分 <br />
 析为例，Narcissus需要450秒，而Qomo的ParseLite只需要～～EN~~不到8秒。  </p>
 
-<p>其二，ParseLite使用一个被裁剪过的Narcissus代码。没有execute部分，也去掉了一些扩展语法和异 <br>
-常处理——ParseLite希望被分析的代码是没有语法错误。  </p>
+<p>其二，ParseLite使用一个被裁剪过的Narcissus代码。没有execute部分，也去掉了一些扩展语法和异 <br />
+常处理&mdash;&mdash;ParseLite希望被分析的代码是没有语法错误。  </p>
 
-<p>所以ParseLite适合于一些特殊的语法分析，例如分析一个代码块中有多少个函数，或者一个特定片断 <br>
-中的某个符号是何种语义。尽管它最终也返回一个语法树，但这个语法树不能直接用于Execute——它 <br>
+<p>所以ParseLite适合于一些特殊的语法分析，例如分析一个代码块中有多少个函数，或者一个特定片断 <br />
+中的某个符号是何种语义。尽管它最终也返回一个语法树，但这个语法树不能直接用于Execute&mdash;&mdash;它 <br />
 少了一些东西。  </p>
 
 <p>关于ParseLite的使用，请参考Framework/TestCase/T_ParserLite.html  </p>
@@ -661,73 +662,73 @@ Interface.RegisterInterface(MyObject, IMyIntf, IObject, ...); <br>
 <li>接口对特性提供直接支持  </li>
 </ol>
 
-<hr>
+<hr />
 
-<p>这是一个非常好的特性。在以前我们曾经声明过这样的接口： <br>
-<font face="Courier New">  </font></p>
+<p>这是一个非常好的特性。在以前我们曾经声明过这样的接口： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>INamedEnumer = function() { <br>
-  this.getLength = <br>
-  this.items = <br>
-  this.names = Abstract; <br>
-} <br>
------------------- <br>
-但它的实现却相当麻烦，因为Qomo对名为"getXXXXXXXXX"的方法有限制，因此你必须这样写代码： <br>
-<font face="Courier New">  </font></p>
+<p>INamedEnumer = function() { <br />
+&nbsp; this.getLength = <br />
+&nbsp; this.items = <br />
+&nbsp; this.names = Abstract; <br />
+} <br />
+------------------</font> <br />
+但它的实现却相当麻烦，因为Qomo对名为&quot;getXXXXXXXXX&quot;的方法有限制，因此你必须这样写代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { <br>
-  this.getLength = function() { <br>
-    // 这里的代码是为Attribute写的 <br>
-  }  </p>
+<p>function MyObject() { <br />
+&nbsp; this.getLength = function() { <br />
+&nbsp;&nbsp;&nbsp; // 这里的代码是为Attribute写的 <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  this.Create = function() { <br>
-    // 这里的代码才提供给接口, 并通过访问Attribute才得到值 <br>
-    this.getLength = function() { <br>
-      return this.get('Length'); <br>
-    } <br>
-  } <br>
-} <br>
+<p><font face="Courier New">&nbsp; this.Create = function() { <br />
+&nbsp;&nbsp;&nbsp; // 这里的代码才提供给接口, 并通过访问Attribute才得到值 <br />
+&nbsp;&nbsp;&nbsp; this.getLength = function() { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.get('Length'); <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp; } <br />
+} <br />
 ------------------</font>  </p>
 
-<p>在Qomo V2中，这个过程变得非常简单。对于接口来说，在QueryInterface()时，名字以"get/set"开 <br>
-始方法名，将会被映射到"对象.get()"或"对象.set()"。除非对象自己实现了getLength，或者根本没 <br>
-有get/set方法（例如不是Qomo对象）。因此，用户不需要为此多写任意一行代码。如下例： <br>
-<font face="Courier New">  </font></p>
+<p>在Qomo V2中，这个过程变得非常简单。对于接口来说，在QueryInterface()时，名字以&quot;get/set&quot;开 <br />
+始方法名，将会被映射到&quot;对象.get()&quot;或&quot;对象.set()&quot;。除非对象自己实现了getLength，或者根本没 <br />
+有get/set方法（例如不是Qomo对象）。因此，用户不需要为此多写任意一行代码。如下例： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>IUserInfo = function() { <br>
-  this.getName = Abstract; <br>
-  this.getAge = Abstract; <br>
-}  </p>
+<p>IUserInfo = function() { <br />
+&nbsp; this.getName = Abstract; <br />
+&nbsp; this.getAge = Abstract; <br />
+}</font>  </p>
 
-<p><font face="Courier New">function MyObject() { <br>
-  Attribute(this, 'Name', 'MyName'); <br>
-  Attribute(this, 'Age', 30); <br>
-} <br>
+<p><font face="Courier New">function MyObject() { <br />
+&nbsp; Attribute(this, 'Name', 'MyName'); <br />
+&nbsp; Attribute(this, 'Age', 30); <br />
+} <br />
 TMyObject = Class(TObject, 'MyObject', IUserInfo);</font>  </p>
 
-<p><font face="Courier New">var obj = new MyObjet(); <br>
+<p><font face="Courier New">var obj = new MyObjet(); <br />
 var intf = QueryInterface(obj, IUserInfo);</font>  </p>
 
-<p><font face="Courier New">alert(intf.getName()); <br>
-alert(intf.getAge()); <br>
------------------- </font>  </p>
+<p><font face="Courier New">alert(intf.getName()); <br />
+alert(intf.getAge()); <br />
+------------------&nbsp;</font>  </p>
 
 <p><font face="Courier New"></font>  </p>
 
-<p><font face="Courier New">**<font color="#ff0000">Qomo V2.0 Beta 1下载  </font></font></p>
+<p><font face="Courier New">**<font color="#ff0000">Qomo V2.0 Beta 1下载  </p>
 
-<hr>
+<hr />
 
-<p><a href="http://groups.google.com/group/qomo/web/Qomo.V2.b1.zip">http://groups.google.com/group/qomo/web/Qomo.V2.b1.zip</a>**  </p>
+<p><a href="http://groups.google.com/group/qomo/web/Qomo.V2.b1.zip">http://groups.google.com/group/qomo/web/Qomo.V2.b1.zip</a></font>**</font>  </p>
 
-<p><font face="Courier New"><strong><font color="#ff0000">或从如下地址签出SVN： <br>
-----------</font></strong> <br>
+<p><font face="Courier New"><strong><font color="#ff0000">或从如下地址签出SVN： <br />
+----------</font></strong> <br />
 <a href="https://qomo.svn.sourceforge.net/svnroot/qomo/trunk">https://qomo.svn.sourceforge.net/svnroot/qomo/trunk</a></font></p>
             </section>
 <!-- removed by aimingoo
@@ -745,7 +746,7 @@ alert(intf.getAge()); <br>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-230.html">
                     理发
                 </a>
@@ -756,7 +757,7 @@ alert(intf.getAge()); <br>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3">
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=42df3ecac3" />
 <script src="assets/js/gitment.browser.js?v=42df3ecac3"></script>
 
 <script type="text/javascript">
@@ -776,14 +777,14 @@ alert(intf.getAge()); <br>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -799,7 +800,7 @@ alert(intf.getAge()); <br>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -813,7 +814,7 @@ alert(intf.getAge()); <br>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -842,3 +843,4 @@ alert(intf.getAge()); <br>
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=42df3ecac3"></script>
 </body>
 
+</html>
