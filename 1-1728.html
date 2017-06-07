@@ -26,7 +26,7 @@
     <meta property="og:description" content="在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，" />
     <meta property="og:url" content="http://aimingoo.github.io/1-1728.html" />
     <meta property="article:published_time" content="2017-06-07T19:02:44.000Z" />
-    <meta property="article:modified_time" content="2017-06-07T19:03:42.000Z" />
+    <meta property="article:modified_time" content="2017-06-07T19:17:12.000Z" />
     <meta property="article:tag" content="电子书" />
     <meta property="article:tag" content="OpenSource Project" />
     <meta property="article:tag" content="svg" />
@@ -69,7 +69,7 @@
     "headline": "在电子书中使用SVG",
     "url": "http://aimingoo.github.io/1-1728.html",
     "datePublished": "2017-06-07T19:02:44.000Z",
-    "dateModified": "2017-06-07T19:03:42.000Z",
+    "dateModified": "2017-06-07T19:17:12.000Z",
     "keywords": "电子书, OpenSource Project, svg, ImageMagick, Kindle",
     "description": "在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，",
     "mainEntityOfPage": {
@@ -135,7 +135,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-06-08">a minute ago</time>
+                        <time class="post-date" datetime="2017-06-08">15 minutes ago</time>
                         <time class="post-date" datetime="2017-06-08">(2017-06-08)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
@@ -388,7 +388,7 @@ preserveAspectRatio: none
 <ul><li>在不支持MSVG的ImageMagick的低版本中，建议用svginfo取值并转换单位</li></ul></li>
 </ul>
 
-<p>相关操作如下（下载<a href="content/images/attachments/standard_image_templet_520.pdf">standard<em>image</em>templet_520.pdf</a>）：</p>
+<p>相关操作如下（下载<a href="content/images/attachments/standard_image_templet_520.pdf">standard_image_templet_520.pdf</a>）：</p>
 
 <pre><code class="language-bash"># 步骤1：使用hires参数和高的resolution值可以使crop操作更精确
 #    - 输出的.pdf的精度与该参数值是无关的
@@ -469,7 +469,7 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
 
 <ul>
 <li>字体已经被转换成矢量信息，因此.svg中不包含字体及字体大小信息；</li>
-<li>只有\<svg …\>元素包含了页面宽高信息，其它元素是基于该信息的矢量。</li>
+<li>只有<code>&lt;svg …\&gt;</code>元素包含了页面宽高信息，其它元素是基于该信息的矢量。</li>
 </ul>
 
 <p>所以我们可以安全地将pt值直接替换成px。而这个方法，对于Inkscape生成的.svg就不适用，对比一下上面的两个特性你就明白了。反过来说，正是由于Cario引擎（pdf2svg使用的svg引擎）并不完整支持以px为单位的svg，所以使用该引擎——以及使用该引擎实现的工具来转换上述（修改后的）.svg到.png或其它格式的时候也是会出问题；而相对应的，Inkscape却能正确处理——它的引擎支持以px为单位的.svg。</p>

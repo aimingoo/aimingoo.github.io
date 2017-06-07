@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 07 Jun 2017 19:04:10 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[在电子书中使用SVG]]></title><description><![CDATA[<blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 07 Jun 2017 19:17:16 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[在电子书中使用SVG]]></title><description><![CDATA[<blockquote>
   <p>在之前的文章中，我们讨论了《<a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="http://aimingoo.github.io/1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
 </blockquote>
 
@@ -258,7 +258,7 @@ preserveAspectRatio: none
 <ul><li>在不支持MSVG的ImageMagick的低版本中，建议用svginfo取值并转换单位</li></ul></li>
 </ul>
 
-<p>相关操作如下（下载<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.pdf">standard<em>image</em>templet_520.pdf</a>）：</p>
+<p>相关操作如下（下载<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.pdf">standard_image_templet_520.pdf</a>）：</p>
 
 <pre><code class="language-bash"># 步骤1：使用hires参数和高的resolution值可以使crop操作更精确
 #    - 输出的.pdf的精度与该参数值是无关的
@@ -339,7 +339,7 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
 
 <ul>
 <li>字体已经被转换成矢量信息，因此.svg中不包含字体及字体大小信息；</li>
-<li>只有\<svg …\="">元素包含了页面宽高信息，其它元素是基于该信息的矢量。</svg></li>
+<li>只有<code>&lt;svg …\&gt;</code>元素包含了页面宽高信息，其它元素是基于该信息的矢量。</li>
 </ul>
 
 <p>所以我们可以安全地将pt值直接替换成px。而这个方法，对于Inkscape生成的.svg就不适用，对比一下上面的两个特性你就明白了。反过来说，正是由于Cario引擎（pdf2svg使用的svg引擎）并不完整支持以px为单位的svg，所以使用该引擎——以及使用该引擎实现的工具来转换上述（修改后的）.svg到.png或其它格式的时候也是会出问题；而相对应的，Inkscape却能正确处理——它的引擎支持以px为单位的.svg。</p>
