@@ -3,6 +3,6 @@ document.writeln(function authorProfileContext() {/*
             <span class="author-location"><i class="fa fa-map-marker"></i> 上海</span>
             <span class="author-link"><i class="fa fa-link"></i> <a href="http://blog.csdn.net/aimingoo">Blog @CSDN</a></span>
 
-            <span class="author-stats"><i class="fa fa-file-text-o"></i> 共计发表 272 篇文章，继续努力。</span>
+            <span class="author-stats"><i class="fa fa-file-text-o"></i> 共计发表 274 篇文章，继续努力。</span>
         </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));

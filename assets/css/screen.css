@@ -2276,7 +2276,7 @@ body.nav-opened .site-wrapper {
 }
 @media (min-width:992px) {
     .container {
-        width: 820px !important
+        width: 992px !important
     }
 }
 @media (min-width:1200px) {
