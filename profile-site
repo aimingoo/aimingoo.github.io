@@ -11,7 +11,7 @@ document.writeln(function siteProfileHtmlContext() {/*
 <script>
 document.writeln('<strong>', '\
             \
-                2\
+                3\
             \
 '.replace(/^\s*|\s*$/g, '') || 0, '<' + '/strong>');
 </script>
@@ -21,7 +21,7 @@ document.writeln('<strong>', '\
 <!--
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>48</strong>
+                <strong>54</strong>
         </span>
         <span class="site-stat-item-name">标签</span>
     </div>
