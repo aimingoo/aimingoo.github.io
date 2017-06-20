@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>为脚本语言平反-JavaScript篇（2）</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="为脚本语言平反-JavaScript篇（2）" />
-    <meta property="og:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx  （书接上回，开讲！）   &amp;nbsp;   一、QoBean的元编程框架   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   现在开讲&amp;ldquo;DSL in JavaScript，with QoBean&amp;rsquo;s meta programming framework&amp;rdquo;。先说说QoBean的元编程框架。这是一个仅仅100来行的小小框架，里面有几个关键函数是我们在讲DSL时要用到的：   &amp;nbsp;   Weave(where, code)：表示对于一个函数f，在指定where的位置，替换成代码code。如果where是正则表达式，则code中可以使用获取匹配；如果where是字符串，则表明将第一个查找到的该字符串替换成code。   Block(func, tag)：对函数func（或直接是它的代码文本）进行结构分析。tag标志为[" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-147.html" />
-    <meta property="article:published_time" content="2009-09-08T08:55:00.000Z" />
-    <meta property="article:modified_time" content="2009-09-08T08:55:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="语言" />
-    <meta property="article:tag" content="正则表达式" />
-    <meta property="article:tag" content="编程" />
-    <meta property="article:tag" content="脚本" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="为脚本语言平反-JavaScript篇（2）">
+    <meta property="og:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx  （书接上回，开讲！）   &amp;nbsp;   一、QoBean的元编程框架   ===========   现在开讲&amp;ldquo;DSL in JavaScript，with QoBean&amp;rsquo;s meta programming framework&amp;rdquo;。先说说QoBean的元编程框架。这是一个仅仅100来行的小小框架，里面有几个关键函数是我们在讲DSL时要用到的：   &amp;nbsp;   Weave(where, code)：表示对于一个函数f，在指定where的位置，替换成代码code。如果where是正则表达式，则code中可以使用获取匹配；如果where是字符串，则表明将第一个查找到的该字符串替换成code。   Block(func, tag)：对函数func（或直接是它的代码文本）进行结构分析。tag标志为[">
+    <meta property="og:url" content="http://aimingoo.github.io/1-147.html">
+    <meta property="article:published_time" content="2009-09-08T08:55:00.000Z">
+    <meta property="article:modified_time" content="2009-09-08T08:55:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="语言">
+    <meta property="article:tag" content="正则表达式">
+    <meta property="article:tag" content="编程">
+    <meta property="article:tag" content="脚本">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="为脚本语言平反-JavaScript篇（2）" />
-    <meta name="twitter:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx  （书接上回，开讲！）   &amp;nbsp;   一、QoBean的元编程框架   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   现在开讲&amp;ldquo;DSL in JavaScript，with QoBean&amp;rsquo;s meta programming framework&amp;rdquo;。先说说QoBean的元编程框架。这是一个仅仅100来行的小小框架，里面有几个关键函数是我们在讲DSL时要用到的：   &amp;nbsp;   Weave(where, code)：表示对于一个函数f，在指定where的位置，替换成代码code。如果where是正则表达式，则code中可以使用获取匹配；如果where是字符串，则表明将第一个查找到的该字符串替换成code。   Block(func, tag)：对函数func（或直接是它的代码文本）进行结构分析。tag标志为[" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-147.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 语言, 正则表达式, 编程, 脚本" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="为脚本语言平反-JavaScript篇（2）">
+    <meta name="twitter:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx  （书接上回，开讲！）   &amp;nbsp;   一、QoBean的元编程框架   ===========   现在开讲&amp;ldquo;DSL in JavaScript，with QoBean&amp;rsquo;s meta programming framework&amp;rdquo;。先说说QoBean的元编程框架。这是一个仅仅100来行的小小框架，里面有几个关键函数是我们在讲DSL时要用到的：   &amp;nbsp;   Weave(where, code)：表示对于一个函数f，在指定where的位置，替换成代码code。如果where是正则表达式，则code中可以使用获取匹配；如果where是字符串，则表明将第一个查找到的该字符串替换成code。   Block(func, tag)：对函数func（或直接是它的代码文本）进行结构分析。tag标志为[">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-147.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 语言, 正则表达式, 编程, 脚本">
     
     <script type="application/ld+json">
 {
@@ -86,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-zheng-ze-biao-da-shi tag-bian-cheng tag-jiao-ben nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -115,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -131,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -140,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/zheng-ze-biao-da-shi/index.html">正则表达式</a>, <a href="tag/bian-cheng/index.html">编程</a>, <a href="tag/jiao-ben/index.html">脚本</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>, <a href="tag/bian-cheng/">编程</a>, <a href="tag/jiao-ben/">脚本</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -149,32 +148,32 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p><span style="font-size: small;"><a href="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx">http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx</a> <br />
+                <p><span style="font-size: small;"><a href="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx">http://blog.csdn.net/aimingoo/archive/2009/09/08/4532394.aspx</a> <br>
 （书接上回，开讲！）</span>  </p>
 
-<p><span style="font-size: small;">&nbsp;</span>  </p>
+<p><span style="font-size: small;"> </span>  </p>
 
 <p><span style="font-size: large;">一、QoBean的元编程框架</span>  </p>
 
 <p><span style="font-size: large;">===========</span>  </p>
 
-<p><span style="font-size: small;">现在开讲&ldquo;DSL in JavaScript，with QoBean&rsquo;s meta programming framework&rdquo;。先说说QoBean的元编程框架。这是一个仅仅100来行的小小框架，里面有几个关键函数是我们在讲DSL时要用到的：</span>  </p>
+<p><span style="font-size: small;">现在开讲“DSL in JavaScript，with QoBean’s meta programming framework”。先说说QoBean的元编程框架。这是一个仅仅100来行的小小框架，里面有几个关键函数是我们在讲DSL时要用到的：</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li><span style="font-size: small;">Weave(where, code)：表示对于一个函数f，在指定where的位置，替换成代码code。如果where是正则表达式，则code中可以使用获取匹配；如果where是字符串，则表明将第一个查找到的该字符串替换成code。</span>  </li>
-<li><span style="font-size: small;">Block(func, tag)：对函数func（或直接是它的代码文本）进行结构分析。tag标志为['body', 'param', 'name']之一时，返回该函数源代码相应位置的一个字符串；tag标志为&rsquo;scope&rsquo;时，返回一个字符串str，用eval(str)可以在当前位置生成一个新的、具有该代码上下文位置上的闭包的函数；tag标志为&rsquo;anonymous&rsquo;时，直接返回一个函数，但该函数是全局函数。对于tag是['scope','anonymous']之一的情况，所得到的新函数是传入参数func的一个完全相同的副本，只是新函数所在的闭包位置不同。</span>  </li>
+<li><span style="font-size: small;">Block(func, tag)：对函数func（或直接是它的代码文本）进行结构分析。tag标志为['body', 'param', 'name']之一时，返回该函数源代码相应位置的一个字符串；tag标志为’scope’时，返回一个字符串str，用eval(str)可以在当前位置生成一个新的、具有该代码上下文位置上的闭包的函数；tag标志为’anonymous’时，直接返回一个函数，但该函数是全局函数。对于tag是['scope','anonymous']之一的情况，所得到的新函数是传入参数func的一个完全相同的副本，只是新函数所在的闭包位置不同。</span>  </li>
 <li><span style="font-size: small;">Unique(obj)：生成obj对象的一个唯一化的实例。新实例obj2具有原obj对象的全部属性，但修改新对象obj2的成员时，不会影响到原obj对象。这个过程，与Block(func, tag)调用时，tag为['scope','anonymous']之一的情况有类似之处：都是生成一个新的复制，不同的是Block针对函数，Unique针对对象。</span>  </li>
 <li><span style="font-size: small;">Scope(obj, func)：使函数func（或直接是它的代码文本）执行在obj的对象闭包中。当func执行在obj的闭包中之后，func所访问到的变量名，即是obj的属性；func访问到的函数名，即是obj的方法。</span>  </li>
-<li><span style="font-size: small;">Owner(obj, func)：使函数func（或直接是它的代码文本）执行在以obj为this对象的环境中。在JS中，当一个函数执行时，this关键字要么指向全局的window对象（func是普通函数）；要么指向方法所属的对象实例（func是对象方法）。Owner()函数用于改变这种关系，使得函数func在执行时，this关键字总是指向obj。&mdash;&mdash;一般来说，这个功能在其它的JS框架中被实现为Function.prototype.bind()。</span>  </li>
+<li><span style="font-size: small;">Owner(obj, func)：使函数func（或直接是它的代码文本）执行在以obj为this对象的环境中。在JS中，当一个函数执行时，this关键字要么指向全局的window对象（func是普通函数）；要么指向方法所属的对象实例（func是对象方法）。Owner()函数用于改变这种关系，使得函数func在执行时，this关键字总是指向obj。——一般来说，这个功能在其它的JS框架中被实现为Function.prototype.bind()。</span>  </li>
 </ol>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">QoBean的元编程系统中还有一些其它的函数，但对于我们讲DSL不关键，所以先不讨论。除了上述讨论的函数之外，我们在DSL部分不会用到其它的任何函数，也不会用到某种JavaScript引擎的独特功能&mdash;&mdash;甚至不会用到arguments.caller。所以，我们在这里实现的DSL，可以跑在ECMS Script标准中的任何一个JavaScript引擎之中。</span>  </p>
+<p><span style="font-size: small;">QoBean的元编程系统中还有一些其它的函数，但对于我们讲DSL不关键，所以先不讨论。除了上述讨论的函数之外，我们在DSL部分不会用到其它的任何函数，也不会用到某种JavaScript引擎的独特功能——甚至不会用到arguments.caller。所以，我们在这里实现的DSL，可以跑在ECMS Script标准中的任何一个JavaScript引擎之中。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <p><span style="font-size: small;">最后综述一下上面的五个函数。他们其实对于Meta Programming有着特殊的含义。</span>  </p>
 
@@ -184,49 +183,49 @@ ghost.init({
 <li><span style="font-size: small;">Scope()与Owner()也是功能近似的函数，前者用于改变代码的上下文，相当于书写代码时移动一段代码（例如把局部函数变成全局公共的），有点类似于ctrl+V操作；后者用于改变代码（作为对象方法时）的属主，相当于基类中的方法，或重构，或范型等等。</span>  </li>
 </ol>
 
-<p><span style="font-size: small;">我们注意到，上面几个函数，事实上模拟了我们书写代码时的很多行为。在前面讲到过的文章中，我说到过&ldquo;那么QoBean如何定义&lsquo;元语言&rsquo;呢？QoBean对此有两项解释&rdquo;： <br />
-&nbsp; &ndash; 元语言定义程序(program)的基础元素：算法与数据结构 <br />
-&nbsp; &ndash; 元语言说明编程(programming)的基本方法：代码的组织形式</span>  </p>
+<p><span style="font-size: small;">我们注意到，上面几个函数，事实上模拟了我们书写代码时的很多行为。在前面讲到过的文章中，我说到过“那么QoBean如何定义‘元语言’呢？QoBean对此有两项解释”： <br>
+  – 元语言定义程序(program)的基础元素：算法与数据结构 <br>
+  – 元语言说明编程(programming)的基本方法：代码的组织形式</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">这里的五个函数，就是第二项解释中的&ldquo;编程（书写程序）的基本方法&rdquo;的抽象、实现。</span>  </p>
+<p><span style="font-size: small;">这里的五个函数，就是第二项解释中的“编程（书写程序）的基本方法”的抽象、实现。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">&nbsp;</span>  </p>
+<p><span style="font-size: small;"> </span>  </p>
 
 <p><span style="font-size: large;">二、DSL的基本设计</span>  </p>
 
 <p><span style="font-size: small;"><span style="font-size: large;">===========</span></span>  </p>
 
-<p><span style="font-size: small;">现在我们来考虑一个&ldquo;通用DSL&rdquo;应该是什么样子，也就是如何设计它的问题。首先，它是一种语言&mdash;&mdash;这很废话对吧？哈哈。其实不是，这是一个语言，表明它应该有语法、语义、语用的问题。语法就意味着需要一个解析器（parser）；语义就意味着对于语言中的关键字要有功能实现，即要有执行器（evaluator）；语用，就意味着说相同的话&mdash;&mdash;相同的代码文本，在不同的环境下效果未必一致，所以也就意味着要有环境（environment）设定，亦即是&ldquo;上下文相关文法&rdquo;或&ldquo;上下文无关文法&rdquo;的问题。</span>  </p>
+<p><span style="font-size: small;">现在我们来考虑一个“通用DSL”应该是什么样子，也就是如何设计它的问题。首先，它是一种语言——这很废话对吧？哈哈。其实不是，这是一个语言，表明它应该有语法、语义、语用的问题。语法就意味着需要一个解析器（parser）；语义就意味着对于语言中的关键字要有功能实现，即要有执行器（evaluator）；语用，就意味着说相同的话——相同的代码文本，在不同的环境下效果未必一致，所以也就意味着要有环境（environment）设定，亦即是“上下文相关文法”或“上下文无关文法”的问题。</span>  </p>
 
-<p><span style="font-size: small;">这三个方面的问题有点令人挠头，但用个类比，就挺简单的。例如说&ldquo;吃饭了吗&rdquo;这句话，首先就包括汉语语法的问题，例如省略主语、疑问句和主谓结构等等。所以，我们可以改变一种新语法来陈述它，例如&ldquo;饭，吃了吗&rdquo;，或&ldquo;吃了吗，饭&rdquo;。这些，只是语法上的变化。说话的、写程序的人，先约定一种规则，然后按这个规则来理解它，就行了。</span>  </p>
+<p><span style="font-size: small;">这三个方面的问题有点令人挠头，但用个类比，就挺简单的。例如说“吃饭了吗”这句话，首先就包括汉语语法的问题，例如省略主语、疑问句和主谓结构等等。所以，我们可以改变一种新语法来陈述它，例如“饭，吃了吗”，或“吃了吗，饭”。这些，只是语法上的变化。说话的、写程序的人，先约定一种规则，然后按这个规则来理解它，就行了。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">那么语用呢？或者说所谓的&ldquo;上下文相关/无关&rdquo;是什么意思呢？同样的，上面这句话，如果是早晨我跟你碰面在公司楼下，我问这句话的意义，跟说&ldquo;Hello&rdquo;，或者&ldquo;今天天气不错&rdquo;其实差不多，只是个问候语。但如果是朱镕基同学在汶川问某个老乡，那可就真是问&ldquo;有饭吃没&rdquo;。话是一样的话，语法是一样的语法，放在不同的环境中，语义上是有差别的。这个，就是语用学讨论的问题。我们用的计算机很笨，没有人那么复杂的思维能力，所以一般来说，要求我们设计的语言是&ldquo;上下文无关的&rdquo;，以便于将来开发出来一个机器人，你问&ldquo;吃饭没&rdquo;，他真的能回答你&ldquo;电能充足&rdquo;，而不是做泪流满面状。</span>  </p>
+<p><span style="font-size: small;">那么语用呢？或者说所谓的“上下文相关/无关”是什么意思呢？同样的，上面这句话，如果是早晨我跟你碰面在公司楼下，我问这句话的意义，跟说“Hello”，或者“今天天气不错”其实差不多，只是个问候语。但如果是朱镕基同学在汶川问某个老乡，那可就真是问“有饭吃没”。话是一样的话，语法是一样的语法，放在不同的环境中，语义上是有差别的。这个，就是语用学讨论的问题。我们用的计算机很笨，没有人那么复杂的思维能力，所以一般来说，要求我们设计的语言是“上下文无关的”，以便于将来开发出来一个机器人，你问“吃饭没”，他真的能回答你“电能充足”，而不是做泪流满面状。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">所以，回到DSL的设计上来。所谓一个语言，也就是&ldquo;通过某种规则来解析(parser)一段文本，将它执行(evaluator)在某个上下文环境（environment）&rdquo;中。这个体系中，有一个东西是不变的，也就parser/evaluator/environment的关系。所以，一个新的dsl语言的产生过程，可以描述成这样的一个模式：</span>  </p>
+<p><span style="font-size: small;">所以，回到DSL的设计上来。所谓一个语言，也就是“通过某种规则来解析(parser)一段文本，将它执行(evaluator)在某个上下文环境（environment）”中。这个体系中，有一个东西是不变的，也就parser/evaluator/environment的关系。所以，一个新的dsl语言的产生过程，可以描述成这样的一个模式：</span>  </p>
 
 <p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript:nogutter:nocontrols">dsl = DSL(environment, evaluator, parser)</textarea> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">而这个语言执行&mdash;&mdash;或说是讲述、表达、运行、生效&mdash;&mdash;起来，则可以描述成下面这样一个模式：</span>  </p>
+<p><span style="font-size: small;">而这个语言执行——或说是讲述、表达、运行、生效——起来，则可以描述成下面这样一个模式：</span>  </p>
 
-<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript:nogutter:nocontrols">information = dsl(&hellip;)</textarea> </span>  </p>
+<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript:nogutter:nocontrols">information = dsl(…)</textarea> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">至于这个语言的规则部分，是parser负责的；表述效果部分，是evaluator负责的。而要让JavaScript DSL对这个新的dsl起来&ldquo;维护&rdquo;作用的，应该是对语境的（语用的）设定&mdash;&mdash;简单的说，我们要帮助新的语言管理上下文环境，其它的则由&ldquo;创建语言&rdquo;的人来做。</span>  </p>
+<p><span style="font-size: small;">至于这个语言的规则部分，是parser负责的；表述效果部分，是evaluator负责的。而要让JavaScript DSL对这个新的dsl起来“维护”作用的，应该是对语境的（语用的）设定——简单的说，我们要帮助新的语言管理上下文环境，其它的则由“创建语言”的人来做。</span>  </p>
 
-<p><span style="font-size: small;">&nbsp;</span>  </p>
+<p><span style="font-size: small;"> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <p><span style="font-size: large;">三、DSL的基本实现</span>  </p>
 
@@ -236,9 +235,9 @@ ghost.init({
 
 <p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript:nogutter:nocontrols">dsl = DSL(environment, evaluator, parser)</textarea> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">中，dsl最终是需要有调用能力的（表达成&rdquo;dls(&hellip;)&rdquo;的形式。所以</span>  </p>
+<p><span style="font-size: small;">中，dsl最终是需要有调用能力的（表达成”dls(…)”的形式。所以</span>  </p>
 
 <ol>
 <li><span style="font-size: small;">DSL函数应该返回一个函数，并且它被执行在environment环境中；</span>  </li>
@@ -247,28 +246,28 @@ ghost.init({
 
 <p><span style="font-size: small;">而上述两件事情，在QoBean meta programming中用两个函数来实现，即：</span>  </p>
 
-<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br />
-  var dsl = Scope(environment,  &hellip;); <br />
-  return Owner(environment, dsl); <br />
+<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br>
+  var dsl = Scope(environment,  …); <br>
+  return Owner(environment, dsl); <br>
 }</textarea> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">OK. 这个结构基本就完成了。但是还有个问题，就是上面Scope()调用中的&ldquo;&hellip;&rdquo;，他表明我们要在environment中执行代码的内容和方法。如何执行呢？简单的说，就是&ldquo;先分析输入的代码，然后调用执行器执行它&rdquo;。要实现这两个步骤，我们可以：</span>  </p>
+<p><span style="font-size: small;">OK. 这个结构基本就完成了。但是还有个问题，就是上面Scope()调用中的“…”，他表明我们要在environment中执行代码的内容和方法。如何执行呢？简单的说，就是“先分析输入的代码，然后调用执行器执行它”。要实现这两个步骤，我们可以：</span>  </p>
 
 <ol>
 <li><span style="font-size: small;">把它连在一起，</span>  </li>
 <li><span style="font-size: small;">放在environment中去run一下。</span>  </li>
 </ol>
 
-<p><span style="font-size: small;">就好了。这个&ldquo;连在一起&rdquo;的事情，就是Weave()函数能做的。所以完整的DSL()函数的代码是下面这样：</span>  </p>
+<p><span style="font-size: small;">就好了。这个“连在一起”的事情，就是Weave()函数能做的。所以完整的DSL()函数的代码是下面这样：</span>  </p>
 
-<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br />
-  var dsl = Scope(environment, Weave.call(evaluator, /^/, Block(parser, &lsquo;body&rsquo;)+&rsquo;/n/n&rsquo;)); <br />
-   return Owner(environment, dsl); <br />
+<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br>
+  var dsl = Scope(environment, Weave.call(evaluator, /^/, Block(parser, ‘body’)+’/n/n’)); <br>
+   return Owner(environment, dsl); <br>
 }</textarea> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <p><span style="font-size: small;">其中的Weave()调用表明：</span>  </p>
 
@@ -277,11 +276,11 @@ ghost.init({
 <li><span style="font-size: small;">将上述的结果（代码文本），放在environment的scope闭包中执行。</span>  </li>
 </ol>
 
-<p><span style="font-size: small;">OK。我们的&ldquo;通用DSL语言生成器&rdquo;就做完了。它只有两行代码。</span>  </p>
+<p><span style="font-size: small;">OK。我们的“通用DSL语言生成器”就做完了。它只有两行代码。</span>  </p>
 
-<p><span style="font-size: small;">&nbsp;</span>  </p>
+<p><span style="font-size: small;"> </span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <p><span style="font-size: large;">四、示例</span>  </p>
 
@@ -295,60 +294,60 @@ ghost.init({
 <li><span style="font-size: small;">（为了方便），我们假定它跟JavaScript的基本语法是一样的。</span>  </li>
 </ol>
 
-<p><span style="font-size: small;">我们简单的用DSL来实现一下它，以便对这个QoBean&rsquo;s DSL framework有个概要认识。它还相当不完善，下一段落里，我们再来补全这个DSL系统。</span>  </p>
+<p><span style="font-size: small;">我们简单的用DSL来实现一下它，以便对这个QoBean’s DSL framework有个概要认识。它还相当不完善，下一段落里，我们再来补全这个DSL系统。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <p><span style="font-size: small;">实现上面的这个小小的语言的方案是：</span>  </p>
 
-<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">// 1. 声明一个环境对象 <br />
-Env = { <br />
-  language: &lsquo;langg&rsquo;, <br />
-  max: 100, <br />
-  min: -3, <br />
-  calc: function(adj) { <br />
-    return adj * 2 <br />
-  }, <br />
-  show: function(msg) { <br />
-    alert(msg) <br />
-  } <br />
+<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">// 1. 声明一个环境对象 <br>
+Env = { <br>
+  language: ‘langg’, <br>
+  max: 100, <br>
+  min: -3, <br>
+  calc: function(adj) { <br>
+    return adj * 2 <br>
+  }, <br>
+  show: function(msg) { <br>
+    alert(msg) <br>
+  } <br>
+}  </textarea></span></p>
+
+<p>// 2. 基本的执行器 <br>
+function myeval(source) { <br>
+  return eval(source); <br>
 }  </p>
 
-<p>// 2. 基本的执行器 <br />
-function myeval(source) { <br />
-  return eval(source); <br />
+<p>// 3. 基本的解析器 <br>
+function myparser(source){ <br>
+    source = Block(source); <br>
 }  </p>
 
-<p>// 3. 基本的解析器 <br />
-function myparser(source){ <br />
-    source = Block(source); <br />
-}  </p>
-
-<p>// 4. 构建一个新的dsl <br />
-myenv = Unique(Env); <br />
+<p>// 4. 构建一个新的dsl <br>
+myenv = Unique(Env); <br>
 dsl = DSL(myenv, myeval, myparser);  </p>
 
-<p>// 5. 执行一下下？ <br />
-dsl(function() { <br />
-  show(min+max); <br />
-  show(calc(min+max)); <br />
+<p>// 5. 执行一下下？ <br>
+dsl(function() { <br>
+  show(min+max); <br>
+  show(calc(min+max)); <br>
 });  </p>
 
-<p></textarea> </span>  </p>
+<p>   </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">OK。结果出来了，显示97、194两个值。对于dsl()后面执行的代码来说，环境environment为他们准备了min/max/show/calc这四个标识符；myeval()提供了执行能力；myparser()则用于将dsl()调用传入的函数中的代码块取出来&mdash;&mdash;之所以传入一个函数，是这样一来，就可以省了一个&ldquo;语法分析器&rdquo;（能当函数传入，当然是能通过JavaScript的语法分析过程的）。</span>  </p>
+<p><span style="font-size: small;">OK。结果出来了，显示97、194两个值。对于dsl()后面执行的代码来说，环境environment为他们准备了min/max/show/calc这四个标识符；myeval()提供了执行能力；myparser()则用于将dsl()调用传入的函数中的代码块取出来——之所以传入一个函数，是这样一来，就可以省了一个“语法分析器”（能当函数传入，当然是能通过JavaScript的语法分析过程的）。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size: small;">先到这里，吃饭去也。下午来继续扩充这个过程，然后我们就知道一个完整的&hellip;&hellip;相当完整的DSL()实现&hellip;&hellip;其实也并不复杂了。</span>  </p>
+<p><span style="font-size: small;">先到这里，吃饭去也。下午来继续扩充这个过程，然后我们就知道一个完整的……相当完整的DSL()实现……其实也并不复杂了。</span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <p><span style="font-size: small;">下一篇：</span>  </p>
 
@@ -369,7 +368,7 @@ dsl(function() { <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-148.html">
                     为脚本语言平反-JavaScript篇（3）
                 </a>
@@ -380,7 +379,7 @@ dsl(function() { <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
 <script src="assets/js/gitment.browser.js?v=54146fd226"></script>
 
 <script type="text/javascript">
@@ -400,14 +399,14 @@ dsl(function() { <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -423,7 +422,7 @@ dsl(function() { <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -437,7 +436,7 @@ dsl(function() { <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -466,4 +465,3 @@ dsl(function() { <br />
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>

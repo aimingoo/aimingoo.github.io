@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>再谈borland与MS对BUG的不同态度~</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="再谈borland与MS对BUG的不同态度~" />
-    <meta property="og:description" content="在讨论Delphi 6 SP1对BUG的修补问题时(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;648516)，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：   y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。&amp;mdash;&amp;mdash;什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。   hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想&amp;hellip;&amp;hellip;   我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-10.html" />
-    <meta property="article:published_time" content="2005-12-04T11:39:00.000Z" />
-    <meta property="article:modified_time" content="2005-12-04T11:39:00.000Z" />
-    <meta property="article:tag" content="delphi" />
-    <meta property="article:tag" content="产品" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="再谈borland与MS对BUG的不同态度~">
+    <meta property="og:description" content="在讨论Delphi 6 SP1对BUG的修补问题时(http://www.delphibbs.com/delphibbs/dispq.asp?lid=648516)，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：   y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。&amp;mdash;&amp;mdash;什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。   hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想&amp;hellip;&amp;hellip;   我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。">
+    <meta property="og:url" content="http://aimingoo.github.io/1-10.html">
+    <meta property="article:published_time" content="2005-12-04T11:39:00.000Z">
+    <meta property="article:modified_time" content="2005-12-04T11:39:00.000Z">
+    <meta property="article:tag" content="delphi">
+    <meta property="article:tag" content="产品">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="再谈borland与MS对BUG的不同态度~" />
-    <meta name="twitter:description" content="在讨论Delphi 6 SP1对BUG的修补问题时(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;648516)，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：   y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。&amp;mdash;&amp;mdash;什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。   hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想&amp;hellip;&amp;hellip;   我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-10.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="delphi, 产品" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="再谈borland与MS对BUG的不同态度~">
+    <meta name="twitter:description" content="在讨论Delphi 6 SP1对BUG的修补问题时(http://www.delphibbs.com/delphibbs/dispq.asp?lid=648516)，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：   y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。&amp;mdash;&amp;mdash;什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。   hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想&amp;hellip;&amp;hellip;   我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-10.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="delphi, 产品">
     
     <script type="application/ld+json">
 {
@@ -83,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-delphi tag-chan-pin nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/delphi/index.html">delphi</a>, <a href="tag/chan-pin/index.html">产品</a>
+                        <a href="tag/delphi/">delphi</a>, <a href="tag/chan-pin/">产品</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,28 +145,28 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>在讨论Delphi 6 SP1对BUG的修补问题时(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=648516">http://www.delphibbs.com/delphibbs/dispq.asp?lid=648516</a>)，我提及&ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：  </p>
+                <p>在讨论Delphi 6 SP1对BUG的修补问题时(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=648516">http://www.delphibbs.com/delphibbs/dispq.asp?lid=648516</a>)，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：  </p>
 
-<hr />
+<hr>
 
-<p>y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。&mdash;&mdash;什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。  </p>
+<p>y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。  </p>
 
-<p>hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想&hellip;&hellip;  </p>
+<p>hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想……  </p>
 
 <p>我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。  </p>
 
 <p>这就是不同。  </p>
 
-<p>MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待&hellip;&hellip;  </p>
+<p>MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待……  </p>
 
-<p>越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，并将这个补丁的方法公之于众，让更多的人去这样做。而根本不用担心Borland什么时候出下一个补丁。&mdash;&mdash;天啊，仔细想想，这与Linux的做法多么接近啊！但有没有人想过，Linux并不是一个商业产品，而Borland Delphi是！Delphi要面对高手，也得面对普通用户啊！  </p>
+<p>越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，并将这个补丁的方法公之于众，让更多的人去这样做。而根本不用担心Borland什么时候出下一个补丁。——天啊，仔细想想，这与Linux的做法多么接近啊！但有没有人想过，Linux并不是一个商业产品，而Borland Delphi是！Delphi要面对高手，也得面对普通用户啊！  </p>
 
-<p>我在用Delphi的最初近一年的时间里，根本就不敢去改写那些源代码。直到我多次地解读它之后，我才敢这样做。&mdash;&mdash;毕竟，这些代码是N个比我高N倍的高高高高手写出来的。我至今修改它们时还心怀忐忑！  </p>
+<p>我在用Delphi的最初近一年的时间里，根本就不敢去改写那些源代码。直到我多次地解读它之后，我才敢这样做。——毕竟，这些代码是N个比我高N倍的高高高高手写出来的。我至今修改它们时还心怀忐忑！  </p>
 
-<p>只要Delphi的新版被发布，它就不可能存在&ldquo;致命的BUG&rdquo;。&ldquo;因为现在的bug都不是致命的&rdquo;这样的说法，其实就是托词和籍口。&mdash;&mdash;要知道，BUG没有致命的，但每一点滴商业形象的损失，都是致命的！  </p>
+<p>只要Delphi的新版被发布，它就不可能存在“致命的BUG”。“因为现在的bug都不是致命的”这样的说法，其实就是托词和籍口。——要知道，BUG没有致命的，但每一点滴商业形象的损失，都是致命的！  </p>
 
-<p>我做一个更贴切的比喻是这样的： <br />
-MS是Studio，是一个工厂。你可以瞧不起工人，但你不可能不用工厂出来的东西。 <br />
+<p>我做一个更贴切的比喻是这样的： <br>
+MS是Studio，是一个工厂。你可以瞧不起工人，但你不可能不用工厂出来的东西。 <br>
 Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有加，但你永远走不进神庙。</p>
             </section>
 <!-- removed by aimingoo
@@ -185,7 +184,7 @@ Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有�
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-11.html">
                     伴随开发人员成长的问题：工程重要，还是算法重要？细节重要，还是架构重要？
                 </a>
@@ -196,7 +195,7 @@ Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
 <script src="assets/js/gitment.browser.js?v=54146fd226"></script>
 
 <script type="text/javascript">
@@ -216,14 +215,14 @@ Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有�
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -239,7 +238,7 @@ Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有�
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -253,7 +252,7 @@ Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有�
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -282,4 +281,3 @@ Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有�
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>

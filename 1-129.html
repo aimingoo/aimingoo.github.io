@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>VCL已死，RAD已死(4)</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="VCL已死，RAD已死(4)" />
-    <meta property="og:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节(插播)**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3467787.aspx)   四、后RAD时代：界面可视，到界面可描述     －－－－－     RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通     过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。     RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方     面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。     我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。     也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-129.html" />
-    <meta property="article:published_time" content="2008-12-17T07:19:00.000Z" />
-    <meta property="article:modified_time" content="2008-12-17T07:19:00.000Z" />
-    <meta property="article:tag" content="前端开发" />
-    <meta property="article:tag" content="delphi" />
-    <meta property="article:tag" content="产品" />
-    <meta property="article:tag" content="工具" />
-    <meta property="article:tag" content="编程" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VCL已死，RAD已死(4)">
+    <meta property="og:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节(插播)**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3467787.aspx)   四、后RAD时代：界面可视，到界面可描述     －－－－－     RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通     过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。     RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方     面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。     我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。     也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。">
+    <meta property="og:url" content="http://aimingoo.github.io/1-129.html">
+    <meta property="article:published_time" content="2008-12-17T07:19:00.000Z">
+    <meta property="article:modified_time" content="2008-12-17T07:19:00.000Z">
+    <meta property="article:tag" content="前端开发">
+    <meta property="article:tag" content="delphi">
+    <meta property="article:tag" content="产品">
+    <meta property="article:tag" content="工具">
+    <meta property="article:tag" content="编程">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="VCL已死，RAD已死(4)" />
-    <meta name="twitter:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节(插播)**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3467787.aspx)   四、后RAD时代：界面可视，到界面可描述     －－－－－     RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通     过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。     RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方     面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。     我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。     也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-129.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="前端开发, delphi, 产品, 工具, 编程" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VCL已死，RAD已死(4)">
+    <meta name="twitter:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节(插播)**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3467787.aspx)   四、后RAD时代：界面可视，到界面可描述     －－－－－     RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通     过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。     RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方     面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。     我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。     也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-129.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="前端开发, delphi, 产品, 工具, 编程">
     
     <script type="application/ld+json">
 {
@@ -86,8 +85,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-qian-duan-kai-fa tag-delphi tag-chan-pin tag-gong-ju tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -115,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -131,16 +130,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2008-12-17">8 years ago</time>
+                        <time class="post-date" datetime="2008-12-17">9 years ago</time>
                         <time class="post-date" datetime="2008-12-17">(2008-12-17)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/qian-duan-kai-fa/index.html">前端开发</a>, <a href="tag/delphi/index.html">delphi</a>, <a href="tag/chan-pin/index.html">产品</a>, <a href="tag/gong-ju/index.html">工具</a>, <a href="tag/bian-cheng/index.html">编程</a>
+                        <a href="tag/qian-duan-kai-fa/">前端开发</a>, <a href="tag/delphi/">delphi</a>, <a href="tag/chan-pin/">产品</a>, <a href="tag/gong-ju/">工具</a>, <a href="tag/bian-cheng/">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -151,7 +150,7 @@ ghost.init({
             <section class="post-content">
                 <p><span style="font-family:Arial"></span>VCL已死，RAD已死    </p>
 
-<p>&nbsp; &nbsp; &nbsp; &nbsp; ——SD2C中未能尽言的话题&nbsp;  </p>
+<p>        ——SD2C中未能尽言的话题   </p>
 
 <pre style="background-color:rgb(255,255,255); font-size:12px">[<span style="font-family:Arial">**&lt;&lt;&lt;-- 上一节(插播)**</span>](http://blog.csdn.net/aimingoo/archive/2008/12/07/3467787.aspx)</pre>  
 
@@ -173,7 +172,7 @@ ghost.init({
 
 <p>面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即    </p>
 
-<p>界面的表现形式和技术的变化。例如初始设计是类&#20284;组件化的、Windows桌面标准的，而后来又很    </p>
+<p>界面的表现形式和技术的变化。例如初始设计是类似组件化的、Windows桌面标准的，而后来又很    </p>
 
 <p>快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。    </p>
 
@@ -183,7 +182,7 @@ ghost.init({
 
 <p>的变革，是放弃界面可视，而采用界面可描述的方法。更进一步的，是界面可编程模型。    </p>
 
-<p>界面可描述与可编程的特性，在WEB上体现得尤为明显。我们其实是通过HTML&#43;CSS来描述一个WEB    </p>
+<p>界面可描述与可编程的特性，在WEB上体现得尤为明显。我们其实是通过HTML+CSS来描述一个WEB    </p>
 
 <p>的页面，另一方面，则基于DHTML或标准DOM这样的模型来做界面编程——这也产生了一个新的领    </p>
 
@@ -191,13 +190,13 @@ ghost.init({
 
 <p>我在D2(Designer &amp; Developer Frontend Technology Forum)大会上提到过，当界面分离出来的    </p>
 
-<p>时候，自然产生了E2&#43;C2的问题。E2是指效果（Effect）和体验（Experience），其中效果是美术    </p>
+<p>时候，自然产生了E2+C2的问题。E2是指效果（Effect）和体验（Experience），其中效果是美术    </p>
 
 <p>设计来保证的，而体验则由前端开发来保证。因此体验又可以被分为C2，即控制（Control）与内    </p>
 
 <p>容（Context）。这个C2在WEB中的具体表现就是JS和DOM，或在Flash中的AS与objects。而C2作为    </p>
 
-<p>程序设计系统的理论依据在于：“控制&#43;内容”正好对应了“算法&#43;数据结构”。    </p>
+<p>程序设计系统的理论依据在于：“控制+内容”正好对应了“算法+数据结构”。    </p>
 
 <p>我们说“组件化界面”演进到现在，变成了“界面可描述”，又说它产生了一个新的领域，有什么    </p>
 
@@ -227,7 +226,7 @@ ghost.init({
 
 <p>现的。    </p>
 
-<p>那么回顾这整个过程，我们强调了UI独立的重要性，强调了HTML&#43;CSS带来的界面可描述，与VCL的界    </p>
+<p>那么回顾这整个过程，我们强调了UI独立的重要性，强调了HTML+CSS带来的界面可描述，与VCL的界    </p>
 
 <p>面可视的不同，这能表明RAD已死么？不完全是，最多能说明“基于界面可视的RAD产品化技术已死”。    </p>
 
@@ -271,7 +270,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-130.html">
                     关于“VCL已死、RAD已死”答读者问
                 </a>
@@ -282,7 +281,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
 <script src="assets/js/gitment.browser.js?v=54146fd226"></script>
 
 <script type="text/javascript">
@@ -302,14 +301,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -325,7 +324,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -339,7 +338,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -368,4 +367,3 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>

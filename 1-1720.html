@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>手记2：从本地博客到Github Pages的最佳指南及工具</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="手记2：从本地博客到Github Pages的最佳指南及工具" />
-    <meta property="og:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-1720.html" />
-    <meta property="article:published_time" content="2017-05-26T18:02:33.000Z" />
-    <meta property="article:modified_time" content="2017-05-30T07:54:17.000Z" />
-    <meta property="article:tag" content="博客" />
-    <meta property="article:tag" content="Ghost" />
-    <meta property="article:tag" content="Github" />
-    <meta property="article:tag" content="OpenSource Project" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="手记2：从本地博客到Github Pages的最佳指南及工具">
+    <meta property="og:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing">
+    <meta property="og:url" content="http://aimingoo.github.io/1-1720.html">
+    <meta property="article:published_time" content="2017-05-26T18:02:33.000Z">
+    <meta property="article:modified_time" content="2017-05-30T07:54:17.000Z">
+    <meta property="article:tag" content="博客">
+    <meta property="article:tag" content="Ghost">
+    <meta property="article:tag" content="Github">
+    <meta property="article:tag" content="OpenSource Project">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="手记2：从本地博客到Github Pages的最佳指南及工具" />
-    <meta name="twitter:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-1720.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="博客, Ghost, Github, OpenSource Project" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="手记2：从本地博客到Github Pages的最佳指南及工具">
+    <meta name="twitter:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1720.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="博客, Ghost, Github, OpenSource Project">
     
     <script type="application/ld+json">
 {
@@ -85,8 +84,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-bo-ke tag-ghost-tag tag-github tag-opensource-project nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -114,7 +113,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -130,16 +129,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-05-27">20 days ago</time>
+                        <time class="post-date" datetime="2017-05-27">24 days ago</time>
                         <time class="post-date" datetime="2017-05-27">(2017-05-27)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/bo-ke/index.html">博客</a>, <a href="tag/ghost-tag/index.html">Ghost</a>, <a href="tag/github/index.html">Github</a>, <a href="tag/opensource-project/index.html">OpenSource Project</a>
+                        <a href="tag/bo-ke/">博客</a>, <a href="tag/ghost-tag/">Ghost</a>, <a href="tag/github/">Github</a>, <a href="tag/opensource-project/">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -367,7 +366,7 @@ buster ...
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-1721.html">
                     手记3：实例教学之Ghost模板定制
                 </a>
@@ -378,7 +377,7 @@ buster ...
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
 <script src="assets/js/gitment.browser.js?v=54146fd226"></script>
 
 <script type="text/javascript">
@@ -398,14 +397,14 @@ buster ...
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -421,7 +420,7 @@ buster ...
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -435,7 +434,7 @@ buster ...
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -464,4 +463,3 @@ buster ...
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>

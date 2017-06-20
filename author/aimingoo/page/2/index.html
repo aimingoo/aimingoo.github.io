@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>aimingoo - Page 2 - Aimingoo&#x27;s Blog</title>
-    <meta name="description" content="" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>aimingoo - Page 2 - Aimingoo's Blog</title>
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="../../../../favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
-    <link rel="prev" href="../../index.html" />
-    <link rel="next" href="../3/index.html" />
+    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="../../../../assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="prev" href="../../">
+    <link rel="next" href="../3/">
     <script type="text/javascript" src="../../../../shared/ghost-url.js?v=54146fd226"></script>
 <script type="text/javascript">
 ghost.init({
@@ -28,8 +27,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="../../../../rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="../../../../rss/index.rss">
 </head>
 
 <body class="author-template author-aimingoo paged archive-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -55,8 +54,8 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="../../../../index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="../../../../archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="../../../../">首页</a></li>
+            <li class="nav-" role="presentation"><a href="../../../../archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="../../../../about.html">关于</a></li>
     </ul>
 </div>
@@ -69,7 +68,34 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
-            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+            <article class="post tag-bo-ke tag-javascript tag-github tag-gitment tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header">
+            <h1 class="post-title"><a href="../../../../1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/github/">Github</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="../../">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-05-29">22 days ago</time>
+                <time class="post-date" datetime="2017-05-29">(2017-05-29)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="../../../../tag/bo-ke/">博客</a>, <a href="../../../../tag/javascript/">Javascript</a>, <a href="../../../../tag/github/">Github</a>, <a href="../../../../tag/gitment/">Gitment</a>, <a href="../../../../tag/opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="../../../../1-1722.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="../../../../1-1721.html">手记3：实例教学之Ghost模板定制</a></h1>
         </header>
@@ -81,16 +107,16 @@ ghost.init({
             <!--  on <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-05-28">19 days ago</time>
+                <time class="post-date" datetime="2017-05-28">23 days ago</time>
                 <time class="post-date" datetime="2017-05-28">(2017-05-28)</time>
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/ghost-tag/index.html">Ghost</a>, <a href="../../../../tag/bo-ke/index.html">博客</a>, <a href="../../../../tag/javascript/index.html">Javascript</a>
+                <a href="../../../../tag/ghost-tag/">Ghost</a>, <a href="../../../../tag/bo-ke/">博客</a>, <a href="../../../../tag/javascript/">Javascript</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-1721.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -108,16 +134,16 @@ ghost.init({
             <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/github/">Github</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-05-27">20 days ago</time>
+                <time class="post-date" datetime="2017-05-27">24 days ago</time>
                 <time class="post-date" datetime="2017-05-27">(2017-05-27)</time>
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/bo-ke/index.html">博客</a>, <a href="../../../../tag/ghost-tag/index.html">Ghost</a>, <a href="../../../../tag/github/index.html">Github</a>, <a href="../../../../tag/opensource-project/index.html">OpenSource Project</a>
+                <a href="../../../../tag/bo-ke/">博客</a>, <a href="../../../../tag/ghost-tag/">Ghost</a>, <a href="../../../../tag/github/">Github</a>, <a href="../../../../tag/opensource-project/">OpenSource Project</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-1720.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -135,16 +161,16 @@ ghost.init({
             <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/ghost-tag/">Ghost</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-05-23">24 days ago</time>
+                <time class="post-date" datetime="2017-05-23">a month ago</time>
                 <time class="post-date" datetime="2017-05-23">(2017-05-23)</time>
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/bo-ke/index.html">博客</a>, <a href="../../../../tag/javascript/index.html">Javascript</a>, <a href="../../../../tag/ghost-tag/index.html">Ghost</a>
+                <a href="../../../../tag/bo-ke/">博客</a>, <a href="../../../../tag/javascript/">Javascript</a>, <a href="../../../../tag/ghost-tag/">Ghost</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-1719.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -152,7 +178,7 @@ ghost.init({
         </footer>
     </article>            <article class="post tag-javascript tag-promise tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
-            <h1 class="post-title"><a href="../../../../1-196.html">确定的世界 - The Promise&#x27;s World</a></h1>
+            <h1 class="post-title"><a href="../../../../1-196.html">确定的世界 - The Promise's World</a></h1>
         </header>
         <section class="post-excerpt">
             <p>确定的世界 - The Promise’s World —— Promise的逻辑以及在Lua中的实现     本文基于如下项目(ES6 Promise in lua v1.0.1)：             https://github.com/aimingoo/Promise      有这样一个世界 有这样的一个世界在持续地向前推进着，这个世界充满着无穷多个选择，也就是说有无穷多的可能；但对每一个选择来说，存在决定/ ... </p>
@@ -162,7 +188,7 @@ ghost.init({
             <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/promise/">Promise</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
@@ -171,7 +197,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/javascript/index.html">Javascript</a>, <a href="../../../../tag/promise/index.html">Promise</a>, <a href="../../../../tag/opensource-project/index.html">OpenSource Project</a>
+                <a href="../../../../tag/javascript/">Javascript</a>, <a href="../../../../tag/promise/">Promise</a>, <a href="../../../../tag/opensource-project/">OpenSource Project</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-196.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -189,7 +215,7 @@ ghost.init({
             <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/promise/">Promise</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
@@ -198,7 +224,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/javascript/index.html">Javascript</a>, <a href="../../../../tag/promise/index.html">Promise</a>
+                <a href="../../../../tag/javascript/">Javascript</a>, <a href="../../../../tag/promise/">Promise</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-195.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -216,7 +242,7 @@ ghost.init({
             <!--  on <a href="/tag/jia-gou/">架构</a>, <a href="/tag/shu-xu-shu-ping/">书序书评</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
@@ -225,7 +251,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/jia-gou/index.html">架构</a>, <a href="../../../../tag/shu-xu-shu-ping/index.html">书序书评</a>
+                <a href="../../../../tag/jia-gou/">架构</a>, <a href="../../../../tag/shu-xu-shu-ping/">书序书评</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-263.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -243,7 +269,7 @@ ghost.init({
             <!--  on <a href="/tag/jia-gou/">架构</a>, <a href="/tag/fen-xiang-xia-zai/">分享下载</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
@@ -252,7 +278,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/jia-gou/index.html">架构</a>, <a href="../../../../tag/fen-xiang-xia-zai/index.html">分享下载</a>
+                <a href="../../../../tag/jia-gou/">架构</a>, <a href="../../../../tag/fen-xiang-xia-zai/">分享下载</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-194.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -270,7 +296,7 @@ ghost.init({
             <!--  on <a href="/tag/za-tan/">杂谈</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
+                <a href="../../">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
@@ -279,44 +305,17 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="../../../../tag/za-tan/index.html">杂谈</a>
+                <a href="../../../../tag/za-tan/">杂谈</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="../../../../1-262.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-fen-xiang-xia-zai tag-jia-gou" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header">
-            <h1 class="post-title"><a href="../../../../1-193.html">CSDN的SDCC大会(2013)中使用的PPT分享</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>SDCC大会今天开完个。呵呵~   PPT下载链接在最后面，对内幕不感兴趣的可以直接无视下面的种种啰嗦直接“嗖”到最后。   这里说说这个大会中我的Topic。   此前CSDN向我约了一个主题，我回复说，     我可以分享一个架构相关的话题。我比较倾向于“架构的意图”这个主题。   一头大雾的编辑（鸫翔）同学给我发来邮件说：不行啊不行啊，我看不懂你要讲什么……然后给了我这个大会在架构场的要旨：     这次大会的“架构实践”论坛主要是以网站架构为主（稍详细一些的介绍请见 http://sdcc.csdn. ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/fen-xiang-xia-zai/">分享下载</a>, <a href="/tag/jia-gou/">架构</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="../../index.html">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2013-08-31">4 years ago</time>
-                <time class="post-date" datetime="2013-08-31">(2013-08-31)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="../../../../tag/fen-xiang-xia-zai/index.html">分享下载</a>, <a href="../../../../tag/jia-gou/index.html">架构</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="../../../../1-193.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
     </article>
     <nav class="pagination" role="navigation">
-        <a rel="next" class="newer-posts" href="../../index.html"><i class="fa fa-chevron-left"></i>&nbsp;上一页</a>
+        <a rel="next" class="newer-posts" href="../../"><i class="fa fa-chevron-left"></i> 上一页</a>
     <span class="page-number">Page 2 of 28</span>
-        <a rel="prev" class="older-posts" href="../3/index.html">下一页&nbsp;<i class="fa fa-chevron-right"></i></a>
+        <a rel="prev" class="older-posts" href="../3/">下一页 <i class="fa fa-chevron-right"></i></a>
 </nav>
 
 </div>
@@ -325,14 +324,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="../../index.html">
-                <img src="../../../../content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="../../">
+                <img src="../../../../content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -352,7 +351,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="../../../../index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="../../../../">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -381,4 +380,3 @@ ghost.init({
     <script type="text/javascript" src="../../../../assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>

@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？" />
-    <meta property="og:description" content="我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。   原贴在这里：http://www.oschina.net/question/12_78459   本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？   问：     一、关于架构。          我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？          二、关于软件工程。          我一直的理解为　软件工程 &#x3D; 工具 &amp;#43;方法&amp;#43;过程。          想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-188.html" />
-    <meta property="article:published_time" content="2013-01-02T14:48:00.000Z" />
-    <meta property="article:modified_time" content="2013-01-02T14:48:00.000Z" />
-    <meta property="article:tag" content="软件工程" />
-    <meta property="article:tag" content="架构" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？">
+    <meta property="og:description" content="我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。   原贴在这里：http://www.oschina.net/question/12_78459   本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？   问：     一、关于架构。          我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？          二、关于软件工程。          我一直的理解为　软件工程 = 工具 &amp;#43;方法&amp;#43;过程。          想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。">
+    <meta property="og:url" content="http://aimingoo.github.io/1-188.html">
+    <meta property="article:published_time" content="2013-01-02T14:48:00.000Z">
+    <meta property="article:modified_time" content="2013-01-02T14:48:00.000Z">
+    <meta property="article:tag" content="软件工程">
+    <meta property="article:tag" content="架构">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？" />
-    <meta name="twitter:description" content="我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。   原贴在这里：http://www.oschina.net/question/12_78459   本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？   问：     一、关于架构。          我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？          二、关于软件工程。          我一直的理解为　软件工程 &#x3D; 工具 &amp;#43;方法&amp;#43;过程。          想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-188.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="软件工程, 架构" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？">
+    <meta name="twitter:description" content="我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。   原贴在这里：http://www.oschina.net/question/12_78459   本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？   问：     一、关于架构。          我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是，把复杂的变得简单,而不是把简单问题或者比较复杂的问题变得更加复杂。这里的简单包括理解起来简单，扩展起来简单，和团队沟通起来简单等。而把复杂问题变得简单的这个能力就是所谓的“架构师的素质、思维”，这里自然就有个级别的问题在里面，对问题域能驾驭的复杂度越高，“架构的能力”就越强，觉得这样理解对不对？或者你有更好的补充？          二、关于软件工程。          我一直的理解为　软件工程 = 工具 &amp;#43;方法&amp;#43;过程。          想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-188.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="软件工程, 架构">
     
     <script type="application/ld+json">
 {
@@ -83,8 +82,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-ruan-jian-gong-cheng tag-jia-gou nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/ruan-jian-gong-cheng/index.html">软件工程</a>, <a href="tag/jia-gou/index.html">架构</a>
+                        <a href="tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="tag/jia-gou/">架构</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -161,7 +160,7 @@ ghost.init({
   
   <p>二、关于软件工程。    </p>
   
-  <p>我一直的理解为　软件工程 = 工具 &#43;方法&#43;过程。    </p>
+  <p>我一直的理解为　软件工程 = 工具 +方法+过程。    </p>
   
   <p>想问一下这三者在软件工程实践中的比例大概有个什么比例或者规律什么的。  </p>
 </blockquote>
@@ -170,7 +169,7 @@ ghost.init({
 
 <p>学界的，尤其是国内学界的讨论中，历来有一个问题。就是讨论一个东西，总是在说“什么是这个东西”，而不是“这个东西是什么”。有些时候，行文上看起来还是前者，实底上却做成了后者。而jazz（提问者）的这个看法，也就存在这样的问题，即是说，您实质上是在说着“把复杂的问题变简单，就是做架构”。这个观点，本质上说是的“怎么做架构”的问题，而并不能解释“架构是什么”，以及“架构怎么做”的问题。  </p>
 
-<p>我常说的一个例子，我们去动物园，看到老虎说“这是动物”，又看到狮子也说“这是动物”，再看到鳄鱼还是说“这是动物”。于是我们就可以据此说“老虎&#43;狮子&#43;鳄鱼”就是动物吗？显然这是个笑话了。但我们往往讨论事情的时候就跳不开这个坑，比如说“解决复杂度的问题，就是架构”，并以此来认为这是架构的全部。  </p>
+<p>我常说的一个例子，我们去动物园，看到老虎说“这是动物”，又看到狮子也说“这是动物”，再看到鳄鱼还是说“这是动物”。于是我们就可以据此说“老虎+狮子+鳄鱼”就是动物吗？显然这是个笑话了。但我们往往讨论事情的时候就跳不开这个坑，比如说“解决复杂度的问题，就是架构”，并以此来认为这是架构的全部。  </p>
 
 <p>很好，我们回到往前一点。架构是什么呢？在我前面的贴子里是没有讲的，而只是讲到了“架构作为一个结果，它由两种东西组成”，以及“架构思维可以由对这两种东西的思考而来”。但这些，我坦承这并不是在解释“架构是什么”。但是，我也不能在这里直接地谈论并给出一个“架构是什么”的答案。正因为我能给出的答案看起来是那样的简单、直接和毫无意义，所以它会被任何人无情地忽略，认为那不过是一句废话。而我在《大道至易》中，对这个答案作出了结构性的分析与解释。我建议任何对这个问题有兴趣的人，去研读这本书的“第十二章 架构原则，技艺、艺术与美”。我在那一章的前言中写着：  </p>
 
@@ -180,7 +179,7 @@ ghost.init({
 
 <p>所以，我希望更为严肃的方式来讨论这个学术性的话题，即是“架构是什么”。而不是“我认为这样做就是做架构”，或“我看到某个架构是这样做的”。我不认为那是答案，并且认为那个方向离答案越行越远。如我此前在“动物园”的比喻中所说的，我们管窥所得的斑斑点点，都不是那个问题的全集或全解；而“管窥”这样的方法，也不是求解的正确方法。  </p>
 
-<p>再回复一下您最后的这个问题。简单地说，我认为没有“比例”这样的东西。“软件工程”纯以工学的方式来讲，是有构成与组成的，因为这是它的“问题集”。但在工程实践中，是实践的背景决定了我们如何投入实施力量，而不是一个学术的指导或行事表&#26684;。我常说“真正的管理者，是不看管理的技术书的”，当我们把“软件工程”当成一种技术，试图从技术书中找到公式与规则的企图，都死死地陷入在技术思想中，陷入在“工欲善其事，必先利其器”的工匠思维中。  </p>
+<p>再回复一下您最后的这个问题。简单地说，我认为没有“比例”这样的东西。“软件工程”纯以工学的方式来讲，是有构成与组成的，因为这是它的“问题集”。但在工程实践中，是实践的背景决定了我们如何投入实施力量，而不是一个学术的指导或行事表格。我常说“真正的管理者，是不看管理的技术书的”，当我们把“软件工程”当成一种技术，试图从技术书中找到公式与规则的企图，都死死地陷入在技术思想中，陷入在“工欲善其事，必先利其器”的工匠思维中。  </p>
 
 <p>所以我常说“如果你认为这句话对，说明你是‘工’”，因为这原本就是你的工作方法、状态以及你构建知识、能力的基本模式。——引自​《大道至易》</p>
             </section>
@@ -199,7 +198,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-189.html">
                     OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？
                 </a>
@@ -210,7 +209,7 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
 <script src="assets/js/gitment.browser.js?v=54146fd226"></script>
 
 <script type="text/javascript">
@@ -230,14 +229,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -253,7 +252,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -267,7 +266,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -296,4 +295,3 @@ ghost.init({
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>

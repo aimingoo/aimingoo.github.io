@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>前端要给力之：原子，与原子联结的友类、友函数</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="前端要给力之：原子，与原子联结的友类、友函数" />
-    <meta property="og:description" content="JavaScript中的原子(Atom)是QoBean中提出的一个重要概念，借鉴自erlang，但具有与后者不同的含义。在QoBean里，Meta（元）与Atom（原子）是一对概念，前者表明执行系统中的最小单位，后者表明数据系统中的最小单位。QoBean约定这两个东西为一切元编程的初始，即最小化的执行系统与数据系统模型。 有什么意义呢？没什么意义。这只具备理论上的完整性。为了描述这种完整性，QoBean写了两个相当无厘头的函数：   // Atom system   //  -  atom object for data   function Atom(atom) {     return atom || {};   }   // Meta system   //  -  meta functional for code   function Meta(func, baseMeta) {     func.meta &#x3D; baseMeta || arguments.callee;     return func;" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-163.html" />
-    <meta property="article:published_time" content="2010-12-24T21:37:00.000Z" />
-    <meta property="article:modified_time" content="2017-05-20T12:39:54.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="erlang" />
-    <meta property="article:tag" content="语言" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="前端要给力之：原子，与原子联结的友类、友函数">
+    <meta property="og:description" content="JavaScript中的原子(Atom)是QoBean中提出的一个重要概念，借鉴自erlang，但具有与后者不同的含义。在QoBean里，Meta（元）与Atom（原子）是一对概念，前者表明执行系统中的最小单位，后者表明数据系统中的最小单位。QoBean约定这两个东西为一切元编程的初始，即最小化的执行系统与数据系统模型。 有什么意义呢？没什么意义。这只具备理论上的完整性。为了描述这种完整性，QoBean写了两个相当无厘头的函数：   // Atom system   //  -  atom object for data   function Atom(atom) {     return atom || {};   }   // Meta system   //  -  meta functional for code   function Meta(func, baseMeta) {     func.meta = baseMeta || arguments.callee;     return func;">
+    <meta property="og:url" content="http://aimingoo.github.io/1-163.html">
+    <meta property="article:published_time" content="2010-12-24T21:37:00.000Z">
+    <meta property="article:modified_time" content="2017-05-20T12:39:54.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="erlang">
+    <meta property="article:tag" content="语言">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="前端要给力之：原子，与原子联结的友类、友函数" />
-    <meta name="twitter:description" content="JavaScript中的原子(Atom)是QoBean中提出的一个重要概念，借鉴自erlang，但具有与后者不同的含义。在QoBean里，Meta（元）与Atom（原子）是一对概念，前者表明执行系统中的最小单位，后者表明数据系统中的最小单位。QoBean约定这两个东西为一切元编程的初始，即最小化的执行系统与数据系统模型。 有什么意义呢？没什么意义。这只具备理论上的完整性。为了描述这种完整性，QoBean写了两个相当无厘头的函数：   // Atom system   //  -  atom object for data   function Atom(atom) {     return atom || {};   }   // Meta system   //  -  meta functional for code   function Meta(func, baseMeta) {     func.meta &#x3D; baseMeta || arguments.callee;     return func;" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-163.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, erlang, 语言" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="前端要给力之：原子，与原子联结的友类、友函数">
+    <meta name="twitter:description" content="JavaScript中的原子(Atom)是QoBean中提出的一个重要概念，借鉴自erlang，但具有与后者不同的含义。在QoBean里，Meta（元）与Atom（原子）是一对概念，前者表明执行系统中的最小单位，后者表明数据系统中的最小单位。QoBean约定这两个东西为一切元编程的初始，即最小化的执行系统与数据系统模型。 有什么意义呢？没什么意义。这只具备理论上的完整性。为了描述这种完整性，QoBean写了两个相当无厘头的函数：   // Atom system   //  -  atom object for data   function Atom(atom) {     return atom || {};   }   // Meta system   //  -  meta functional for code   function Meta(func, baseMeta) {     func.meta = baseMeta || arguments.callee;     return func;">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-163.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, erlang, 语言">
     
     <script type="application/ld+json">
 {
@@ -84,8 +83,8 @@ ghost.init({
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-erlang tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -113,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/erlang/index.html">erlang</a>, <a href="tag/yu-yan/index.html">语言</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/erlang/">erlang</a>, <a href="tag/yu-yan/">语言</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -178,7 +177,7 @@ Meta(Meta);
 
 <p>atom是传入的参数。如果有该参数，则Atom()认为它是一个原子，返回之；如果没有，则创建一个空白对象作为原子，返回。</p>
 
-<p>Atom()并没有检查atom参数的有效性，但在这里QoBean强制约定&ldquo;atom参数必须是一个对象实例&rdquo;。之所以使用强制约定，而不是参数类型检查，这与QoBean在元语言上的基本思想有关：仅从元语言角度，QoBean认为JavaScript只有对象和函数两种类型，且函数也是一种对象。所以，对于Atom()来说，以下三种情况是合法的：  </p>
+<p>Atom()并没有检查atom参数的有效性，但在这里QoBean强制约定“atom参数必须是一个对象实例”。之所以使用强制约定，而不是参数类型检查，这与QoBean在元语言上的基本思想有关：仅从元语言角度，QoBean认为JavaScript只有对象和函数两种类型，且函数也是一种对象。所以，对于Atom()来说，以下三种情况是合法的：  </p>
 
 <pre><code class="language-javascript">// 函数（包括构造器）可以作为atom  
 a1 = Atom(function() {});  
@@ -188,7 +187,7 @@ a2 = Atom(new Object());
 a3 = Atom();  
 </code></pre>
 
-<p>当然有人会问：凭什么说一个函数从作为atom参数传入Atom()，再原封不动的传出来，就成了一个&ldquo;原子&rdquo;了呢？答案是：JavaScript固有的特性，任何两个对象既不相等（<code>==</code>），也不全等（<code>===</code>）。</p>
+<p>当然有人会问：凭什么说一个函数从作为atom参数传入Atom()，再原封不动的传出来，就成了一个“原子”了呢？答案是：JavaScript固有的特性，任何两个对象既不相等（<code>==</code>），也不全等（<code>===</code>）。</p>
 
 <p>也就是说，以JavaScript的固有性质来说，任何一个对象实例其实就是一个原子。即使任意两个空白的对象直接量，也是互不相等的。即：</p>
 
@@ -206,7 +205,7 @@ alert((function(){}) == (function(){}));
 
 <h2 id="1">二、原子的应用(1)：识别器</h2>
 
-<p>在《JavaScript语言精髓与编程实践》中，谈到过对象的原子性的一种作用，亦即是作为&ldquo;识别器&rdquo;。例如说，我们知道硬币有正反两面，所以我们可以写这样的一个对象：</p>
+<p>在《JavaScript语言精髓与编程实践》中，谈到过对象的原子性的一种作用，亦即是作为“识别器”。例如说，我们知道硬币有正反两面，所以我们可以写这样的一个对象：</p>
 
 <pre><code class="language-javascript">x = {  
   front: true,    
@@ -216,7 +215,7 @@ alert((function(){}) == (function(){}));
 
 <p>显然我们可以用('front' in x)或者(x['front'])来识别它。但是这就存在了一个问题，因为x对象本来就有toString这样的属性，所以是不是说('toString' in x)为true，因此就表明x有一个名为'toString'的面了呢？同理，如果有人为x添加了一'middle'属性，那么将无法检查是x原本就有middle这个面呢，还是被某些代码污染了？</p>
 
-<p>显然，按照对象设计的原理来说，将&rdquo;属性&rdquo;暴露出来，并可以任意读写，是导致这一切的根源。解决它的法子也很简单：用特定的方法来读取之。例如我们要查询"有没有某个面"：  </p>
+<p>显然，按照对象设计的原理来说，将”属性”暴露出来，并可以任意读写，是导致这一切的根源。解决它的法子也很简单：用特定的方法来读取之。例如我们要查询"有没有某个面"：  </p>
 
 <pre><code class="language-javascript">x = {  
   front: true,  
@@ -227,7 +226,7 @@ alert((function(){}) == (function(){}));
 
 <p>我们跨出了正确的一步。但是，与此前完全相同的原因，我们调用x.query('toString')时仍然返回true。这显然不是我们想要的，因为硬币显然没有'toString'这样的'面'。</p>
 
-<p>好吧，我们再向前行一步。我们知道任何一个对象都具有原子性，也就是说唯一。我们只要创建一个对象，让他成为query所需要的一个&ldquo;钥匙&rdquo;；然后把这个钥匙藏起来，这样谁也找不到它，于是谁也不能干扰这个对象所约束的那些性质了。</p>
+<p>好吧，我们再向前行一步。我们知道任何一个对象都具有原子性，也就是说唯一。我们只要创建一个对象，让他成为query所需要的一个“钥匙”；然后把这个钥匙藏起来，这样谁也找不到它，于是谁也不能干扰这个对象所约束的那些性质了。</p>
 
 <p>实现起来也很简单：  </p>
 
@@ -255,7 +254,7 @@ alert((function(){}) == (function(){}));
 
 <p>三、原子的应用(2)：友类与友函数</p>
 
-<p>JavaScript没有明确的&ldquo;类&rdquo;的概念，所以这里讨论的友类与友函数其实是同一回事，只是Atom()作用于构造器还是普通函数的区别罢了。此外再强调一点，这里我们讨论的&ldquo;友元&rdquo;与&ldquo;友函数&rdquo;在名称上的确借鉴自C++，但概念上却有相当的差异。唯一与之相同的约定是，如果A是B的友函数，则A就能访问B的内部结构（例如私有成员）。</p>
+<p>JavaScript没有明确的“类”的概念，所以这里讨论的友类与友函数其实是同一回事，只是Atom()作用于构造器还是普通函数的区别罢了。此外再强调一点，这里我们讨论的“友元”与“友函数”在名称上的确借鉴自C++，但概念上却有相当的差异。唯一与之相同的约定是，如果A是B的友函数，则A就能访问B的内部结构（例如私有成员）。</p>
 
 <p>要实现这一点，我们得用Atom()把这两个函数联接起来。</p>
 
@@ -284,7 +283,7 @@ function B() {
 }
 </code></pre>
 
-<p>这样可以通过构建一个对象并用obj.set()来修改。或者我们将A整个的放在一个闭包里，再返回一个函数来做"修改state"的事情。但无论如何，我们只能做到&ldquo;修改state"，而无法做到&ldquo;只有B能修改，其它位置都无法调用修改state的代码&rdquo;。</p>
+<p>这样可以通过构建一个对象并用obj.set()来修改。或者我们将A整个的放在一个闭包里，再返回一个函数来做"修改state"的事情。但无论如何，我们只能做到“修改state"，而无法做到“只有B能修改，其它位置都无法调用修改state的代码”。</p>
 
 <p>好吧。传统观念上的、终极的方法， 是我们将state从A()里面移出来。然后将A()与B()放在同一个闭包里面：  </p>
 
@@ -297,7 +296,7 @@ function B() {
 }
 </code></pre>
 
-<p>问题是，在组织大型的代码、类库或类继承树时，我们可能无法保证A与B处于同一个函数，或者他们根本就不是一个人写的，或者B会是将来的开发人员追加编写的&hellip;&hellip;等等如此，反正A不见得总能与B在一个函数上下文里。</p>
+<p>问题是，在组织大型的代码、类库或类继承树时，我们可能无法保证A与B处于同一个函数，或者他们根本就不是一个人写的，或者B会是将来的开发人员追加编写的……等等如此，反正A不见得总能与B在一个函数上下文里。</p>
 
 <p>解决这个问题的方法呢？使用Atom()来为A()与B()建立一个友元关系，使它们成为友函数（如果在对象继承中，则可以实现为友类）。如下：  </p>
 
@@ -317,9 +316,9 @@ B = function(atom) {
 }(B);
 </code></pre>
 
-<p>现在，在最初的时候，A和B都指向一个原子。在得到&ldquo;真实的A()、B()"的同时，函数A()、B()各持有了atom的一个引用。此后，系统中就再也找不到atom了&mdash;&mdash;没有任何方法可以A、B之外再他们所使用的atom。</p>
+<p>现在，在最初的时候，A和B都指向一个原子。在得到“真实的A()、B()"的同时，函数A()、B()各持有了atom的一个引用。此后，系统中就再也找不到atom了——没有任何方法可以A、B之外再他们所使用的atom。</p>
 
-<p>由于A()与B()各持有了一个atom，于是，当B()函数调用A(atom)时，A函数就绝对可以信任这是来自于B的调用，因此将state返回即可&mdash;&mdash;当然也可以返回存取函数，或者别的什么东西。对于B()的调用A(atom)，以及A()对arguments[0]进行的识别，一切都是安全的、不可能受外界其它任何因素影响的。</p>
+<p>由于A()与B()各持有了一个atom，于是，当B()函数调用A(atom)时，A函数就绝对可以信任这是来自于B的调用，因此将state返回即可——当然也可以返回存取函数，或者别的什么东西。对于B()的调用A(atom)，以及A()对arguments[0]进行的识别，一切都是安全的、不可能受外界其它任何因素影响的。</p>
 
 <p>四、其它</p>
 
@@ -344,7 +343,7 @@ B = function(atom) {
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-164.html">
                     前端要给力之：分解对象构造过程new()
                 </a>
@@ -355,7 +354,7 @@ B = function(atom) {
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226" />
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
 <script src="assets/js/gitment.browser.js?v=54146fd226"></script>
 
 <script type="text/javascript">
@@ -375,14 +374,14 @@ B = function(atom) {
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -398,7 +397,7 @@ B = function(atom) {
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -412,7 +411,7 @@ B = function(atom) {
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -441,4 +440,3 @@ B = function(atom) {
     <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
 </body>
 
-</html>
