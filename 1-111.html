@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>QoBean的元语言系统（二）</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="QoBean的元语言系统（二）">
-    <meta property="og:description" content="第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     ======   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   ======      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：">
-    <meta property="og:url" content="http://aimingoo.github.io/1-111.html">
-    <meta property="article:published_time" content="2008-07-25T05:56:00.000Z">
-    <meta property="article:modified_time" content="2008-07-25T05:56:00.000Z">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="正则表达式">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="QoBean的元语言系统（二）" />
+    <meta property="og:description" content="第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-111.html" />
+    <meta property="article:published_time" content="2008-07-25T05:56:00.000Z" />
+    <meta property="article:modified_time" content="2008-07-25T05:56:00.000Z" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="正则表达式" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="QoBean的元语言系统（二）">
-    <meta name="twitter:description" content="第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     ======   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   ======      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-111.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="语言, 正则表达式">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="QoBean的元语言系统（二）" />
+    <meta name="twitter:description" content="第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-111.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="语言, 正则表达式" />
     
     <script type="application/ld+json">
 {
@@ -75,15 +76,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-yu-yan tag-zheng-ze-biao-da-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -111,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/yu-yan/">语言</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>
+                        <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/zheng-ze-biao-da-shi/index.html">正则表达式</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,22 +146,22 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>第二部分：元语言下的编程基本方法    </p>
 
-<hr>
+<hr />
 
-<p> 三、代码组织形式    </p>
+<p>&nbsp;三、代码组织形式    </p>
 
-<hr>
+<hr />
 
-<p>  1. 物理代码块(代码文本、代码行) <br>
-    </p>
+<p>&nbsp; 1. 物理代码块(代码文本、代码行) <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的 <br>
+<p>代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的 <br />
 形式回溯到很“远古”的时代，例如：    </p>
 
 <pre class="JScript" name="code">======  
@@ -183,9 +184,9 @@ main();
 又是如何“组织成代码块”的呢？    
 
 这个过程被分解为三个部分，也就是：    
-  - body : 函数的代码体    
-  - name : 函数名    
-  - param : 函数参数表    
+&nbsp; - body : 函数的代码体    
+&nbsp; - name : 函数名    
+&nbsp; - param : 函数参数表    
 其基本规则为：    
 <pre class="JScript" name="code">======  
 function [name]([param]) {  
@@ -211,8 +212,8 @@ alert( Block(foo, 'param') ); // 返回一个数组，可以直接用作字符�
 
 Block的上述三种参数，用于获取一个函数（的文本格式）中三个部分的物理代码块。    
 
-  2. 逻辑代码块(闭包、全局闭包)    
-    
+&nbsp; 2. 逻辑代码块(闭包、全局闭包)    
+&nbsp;   
 * * *  
 一个函数如果不是局部的，就是全局的。局部的，就是指被物理上包含在其它函数内部的函数。    
 基于这样的规则，显然一个(全局的)语句中包括的函数会是全局的（而非局部的）。例如：    
@@ -267,14 +268,14 @@ myFunc();
 
 <pre></pre>    
 
-  3. Scoped()，绑定到指定的作用域（全局或指定对象的闭包)    
-    
+&nbsp; 3. Scoped()，绑定到指定的作用域（全局或指定对象的闭包)    
+&nbsp;   
 * * *  
 原则上，Scope()的处理对象是函数，其结果或者是一个代码文本，或者是一个函数闭包。但如果    
 你试图将一个函数绑定到一个对象的闭包中，那么你需要用Scoped()这个函数，其含义是“作用    
 域化”。返回一个函数，该函数位于指定的对象或全局的闭包中。Scope()与Scoped()的区别在于：    
 　- Scope()用于根据函数func，返回新函数(或用于eval()的函数文本)；    
-   - Scoped()用于将函数绑定到目标对象obj，返回绑定后的函数；    
+&nbsp;&nbsp; - Scoped()用于将函数绑定到目标对象obj，返回绑定后的函数；    
 
 绑定到指定作用域是一个有趣的功能，例如：    
 <pre class="JScript" name="code">======  
@@ -297,8 +298,8 @@ myFunc2(); // show:  'object data';
 
 四、重写的基础技术与思想    
 * * *  
-  1. 重写    
-    
+&nbsp; 1. 重写    
+&nbsp;   
 * * *  
 QoBean认为一个项目中的代码，是通过开发人员不断地在一个基础代码上繁殖衍生而得到的。这个所  
 谓的基础代码的最原始的、基底性的版本，就是下面这样一个函数：    
@@ -343,8 +344,8 @@ void x();
 
 <pre></pre>    
 
-  2. JS中的重写方法    
-    
+&nbsp; 2. JS中的重写方法    
+&nbsp;   
 * * *  
 JS中本身就具有多种重写的方法，例如编译期重写与执行期重写（注意，编译期的重写是由编译器根  
 据代码上下文中的标识符，及其出现的次序来决定的。它的效果不能由用户代码来改变)：    
@@ -363,8 +364,8 @@ func = function() {
 </pre>
 
 <pre></pre>  
-  3. 保留旧有代码的两种基本方法    
-    
+&nbsp; 3. 保留旧有代码的两种基本方法    
+&nbsp;   
 * * *  
 在执行期的重写中，可以保留旧有的代码。例如：    
 <pre class="JScript" name="code">======  
@@ -408,8 +409,8 @@ hi = attach_code(hi, "alert('hi');");
 
 <pre></pre>    
 
-  4. 通过链接代码来组织更大的代码块(或函数)    
-    
+&nbsp; 4. 通过链接代码来组织更大的代码块(或函数)    
+&nbsp;   
 * * *  
 源于函数可以被序列化的特性。attach_code()第二个参数的代码文本，也可以视为第一个函数的body    
 区。也就是说：    
@@ -471,8 +472,8 @@ alert(func);
 
 五、QoBean中的重写技术    
 * * *  
-  1. QoBean所面临的更复杂的问题    
-    
+&nbsp; 1. QoBean所面临的更复杂的问题    
+&nbsp;   
 * * *  
 QoBean提供了Block()函数来取得一个function中的各个部分，同时也提供了Scoped()函数来产生指定  
 闭包环境下的函数。这也就意味着，我们可以在任意位置，通过上述的方法来“重写出”一个新的函    
@@ -503,12 +504,12 @@ alert(func);
 <pre></pre>    
 
 同时，QoBean对这个过程进行了扩展，使得它可以支持：    
-  - 在Weave()处理的函数中，支持函数形式参数；    
-  - 在代码中可以使用'$&amp;'等正则表达式中允许的替换匹配。    
+&nbsp; - 在Weave()处理的函数中，支持函数形式参数；    
+&nbsp; - 在代码中可以使用'$&amp;'等正则表达式中允许的替换匹配。    
 这个过程，通过Weave()函数自身的一些编织过程来实现——也就是Weave()自身其实被重写过一次。    
 
-  2. 两种重写方法的选择    
-    
+&nbsp; 2. 两种重写方法的选择    
+&nbsp;   
 * * *  
 “Weave重写”与“Hook重写”各有应用的场合。一般来说，Hook重写更简洁也更容易让人接受，因    
 为它毕竟是JS自身支持的一种重写方法。但是它存在一个致命的问题——改变了调用栈：    
@@ -544,8 +545,8 @@ func();
 
 <pre></pre>  
 
-<p>“Weave重写”的确没有这个问题，但它要求重写时对被重写代码有充分的了解——Hook重写则没 <br>
-有这个要求。Weave重写至少需要了解被重写代码所在闭包的位置——全局的或局部的。这是因为 <br>
+<p>“Weave重写”的确没有这个问题，但它要求重写时对被重写代码有充分的了解——Hook重写则没 <br />
+有这个要求。Weave重写至少需要了解被重写代码所在闭包的位置——全局的或局部的。这是因为 <br />
 Weave重写后将产生一个函数，而这个函数（默认）是全局的，例如：  </p>
 
 <pre class="JScript" name="code">======  
@@ -574,16 +575,16 @@ X();
 
 <pre></pre>    
 
-<p>由于对闭包位置有显性的要求，因此Weave()重写事实上并不太适合于函数内的重写——当然如 <br>
-果你总是确知这些信息的话，又另当别论了。所以，Weave()重写通常只用在全局的(匿名或具名 <br>
+<p>由于对闭包位置有显性的要求，因此Weave()重写事实上并不太适合于函数内的重写——当然如 <br />
+果你总是确知这些信息的话，又另当别论了。所以，Weave()重写通常只用在全局的(匿名或具名 <br />
 的)函数中——能较为方便地控制闭包的位置。    </p>
 
-<p>  3. 模拟形式参数表(arugments)的问题 <br>
-    </p>
+<p>&nbsp; 3. 模拟形式参数表(arugments)的问题 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>当然，我们可以随时通过apply/call方法来传递一个参数表。——尽管我们看起来也可以通过对 <br>
+<p>当然，我们可以随时通过apply/call方法来传递一个参数表。——尽管我们看起来也可以通过对 <br />
 象闭包来模拟参数表中的形式参数，例如：    </p>
 
 <pre class="JScript" name="code">======  
@@ -599,18 +600,18 @@ func();
 
 <pre></pre>    
 
-<p>但其中的一个严重的问题是，在通过Block()构造的这个函数f()内部，使用arguments时并不能访 <br>
-问到对象o中的成员——而在正常情况下，arugments与形式参数是存在对应关系的。所以事实上在 <br>
+<p>但其中的一个严重的问题是，在通过Block()构造的这个函数f()内部，使用arguments时并不能访 <br />
+问到对象o中的成员——而在正常情况下，arugments与形式参数是存在对应关系的。所以事实上在 <br />
 使用Scope()方法时，我们无法通过对象闭包来模拟参数表。    </p>
 
 <p>六、基本的元类声明，与元类系统的实现    </p>
 
-<hr>
+<hr />
 
-<p>  1、Meta.js中的元类系统声明 <br>
-    </p>
+<p>&nbsp; 1、Meta.js中的元类系统声明 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
 <p>QoBean声明了基本的元类系统，它的声明非常简单：  </p>
 
@@ -624,50 +625,50 @@ MetaClass = Function;
 
 <pre></pre>    
 
-<p>也就是说，对于QoBean来说，元类和元对象都是函数——按照前面所讲述的，也就是说是“执行 <br>
+<p>也就是说，对于QoBean来说，元类和元对象都是函数——按照前面所讲述的，也就是说是“执行 <br />
 体”。QoBean规定了这些执行体的返回结果，也就是：    </p>
 
-<hr>
+<hr />
 
-<p>MetaClass()将返回一个类类型（函数），它声明了一个“基于类的对象系统”的组织形式； <br>
+<p>MetaClass()将返回一个类类型（函数），它声明了一个“基于类的对象系统”的组织形式； <br />
 MetaObject()将返回一个构造器函数，它可以放在TMyObject.Create成员中，用于构建一个对象实例。  </p>
 
-<hr>
+<hr />
 
-<p>Meta.js中，上述两个声明只是抽象声明，并没有实现，也没有描述任务逻辑细节。这也是元语言系 <br>
+<p>Meta.js中，上述两个声明只是抽象声明，并没有实现，也没有描述任务逻辑细节。这也是元语言系 <br />
 统的一个特点：元语言是最基底的声明、描述或实现。它约定了范围与边界，但不一定去直接实现它。    </p>
 
 <p>这有点像架构师的工作。呵呵。    </p>
 
-<p>  2、Class.js中的实现 <br>
-    </p>
+<p>&nbsp; 2、Class.js中的实现 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>Class.js中实现了一个类注册函数，用于将一个普通的函数注册为一个“类类型”，或者说它是通过 <br>
+<p>Class.js中实现了一个类注册函数，用于将一个普通的函数注册为一个“类类型”，或者说它是通过 <br />
 类注册的方式，构建了基于类的对象系统。    </p>
 
 <p>类注册函数为Class()，它描述了类注册以及从类构建一个对象实例的基本方法。包括四个主干步骤：    </p>
 
-<hr>
+<hr />
 
-<p>1、通过MetaClass()取得一个新的类，即cls = MetaClass(AConstructor); <br>
-2、设定原构造器的原型继承关系，即AConstructor.prototype = Parent.Create.prototype; <br>
-3、初始化类，即Initializtion(cls); <br>
+<p>1、通过MetaClass()取得一个新的类，即cls = MetaClass(AConstructor); <br />
+2、设定原构造器的原型继承关系，即AConstructor.prototype = Parent.Create.prototype; <br />
+3、初始化类，即Initializtion(cls); <br />
 4、重写原来的构造器，即AConstructor = cls.Create  </p>
 
-<hr>
+<hr />
 
 <p>在第3步的初始化类过程中，存在四个小的分支步骤：    </p>
 
-<hr>
+<hr />
 
-<p>1、填写用于类系统识别的类信息； <br>
-2、从MetaObject()中取得一个元对象构造器到cls.Create，以支持“对象创建”的行为； <br>
-3、重写上述构造器cls.Create的prototype属性，以支持“对象继承”的能力； <br>
+<p>1、填写用于类系统识别的类信息； <br />
+2、从MetaObject()中取得一个元对象构造器到cls.Create，以支持“对象创建”的行为； <br />
+3、重写上述构造器cls.Create的prototype属性，以支持“对象继承”的能力； <br />
 4、重写上述prototype的constructor属性，以支持对象的“构造器(外部)链回溯”。  </p>
 
-<hr>
+<hr />
 
 <p>QoBean中的Class.js代码也很简单，就如下几行：  </p>
 
@@ -695,21 +696,21 @@ function Class(Parent, Name) {
 
 <pre></pre>    
 
-<p>类注册过程的更多说明可以参见QoBean项目发起时的一篇文章： <br>
+<p>类注册过程的更多说明可以参见QoBean项目发起时的一篇文章： <br />
 <a href="http://blog.csdn.net/aimingoo/archive/2007/12/31/2006534.aspx">http://blog.csdn.net/aimingoo/archive/2007/12/31/2006534.aspx</a>    </p>
 
-<p>  3、Object.js中的实现 <br>
-    </p>
+<p>&nbsp; 3、Object.js中的实现 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>我们看到，Meta.js定义了元语言级别的“类、对象”的抽象，而Class.js中则描述了类和对象的 <br>
-逻辑关系。然而MetaClass()和MetaObject()并没有具体的实现——也就是说，到现在为止我们得 <br>
-到的仍然只是“具有逻辑关系的抽象系统”。我们必须要说明“实体系统是怎样的”，也就是要 <br>
+<p>我们看到，Meta.js定义了元语言级别的“类、对象”的抽象，而Class.js中则描述了类和对象的 <br />
+逻辑关系。然而MetaClass()和MetaObject()并没有具体的实现——也就是说，到现在为止我们得 <br />
+到的仍然只是“具有逻辑关系的抽象系统”。我们必须要说明“实体系统是怎样的”，也就是要 <br />
 说明“元类如何创建类、元对象如何创建对象（构造器）”。    </p>
 
-<p>而这部分就是在Object.js中实现的。其结果则是完成了全部的类系统，在装载完Object.js之后， <br>
-QoBean的类、类类型系统也就构建完成了，这个类类型的基本使用与Qomo历来的版本是完全一致 <br>
+<p>而这部分就是在Object.js中实现的。其结果则是完成了全部的类系统，在装载完Object.js之后， <br />
+QoBean的类、类类型系统也就构建完成了，这个类类型的基本使用与Qomo历来的版本是完全一致 <br />
 的。也就是下面的基本模式：    </p>
 
 <pre class="JScript" name="code">======  
@@ -749,50 +750,50 @@ MetaObject = Meta(function(fromSource) {
 
 <p>七、QoBean中，从元系统开始的系统结构栈    </p>
 
-<hr>
+<hr />
 
 <p>QoBean的元系统只有Meta.js一个文件，约70行代码。    </p>
 
-<p>QoBean的基本对象系统需要载入（参考QoBean代码包中的t_Object.html）： <br>
-<font face="Times New Roman" color="#800000">  Meta.js <br>
-  Class.js <br>
-  Object.js</font> <br>
+<p>QoBean的基本对象系统需要载入（参考QoBean代码包中的t_Object.html）： <br />
+<font face="Times New Roman" color="#800000">&nbsp; Meta.js <br />
+&nbsp; Class.js <br />
+&nbsp; Object.js</font> <br />
 后两个文件不超过30行代码。整个的基本语言系统在100行JS代码以内。    </p>
 
-<p>如果更加增强的、完整的QoBean类类型系统，需要按如下栈载入JS文件： <br>
-<font face="">  Meta.js <br>
-  Class.js <br>
-  Namespace.js <br>
-  ObjectEx.js <br>
-  TObject.js</font> <br>
-通过这个代码栈，可以支持Qomo 2.0版本中的全部对象特性。包括get/setter， <br>
-以及Inherted继承，以及匿名类类型等。此外，通过TObject.js，支持了Txxxx <br>
-风格的类类型继承描述。这些内容，可以参考QoBean代码包中的： <br>
-  t<em>ObjectEx.html <br>
-  t</em>ObjectEx2.html    </p>
+<p>如果更加增强的、完整的QoBean类类型系统，需要按如下栈载入JS文件： <br />
+<font face="">&nbsp; Meta.js <br />
+&nbsp; Class.js <br />
+&nbsp; Namespace.js <br />
+&nbsp; ObjectEx.js <br />
+&nbsp; TObject.js</font> <br />
+通过这个代码栈，可以支持Qomo 2.0版本中的全部对象特性。包括get/setter， <br />
+以及Inherted继承，以及匿名类类型等。此外，通过TObject.js，支持了Txxxx <br />
+风格的类类型继承描述。这些内容，可以参考QoBean代码包中的： <br />
+&nbsp; t<em>ObjectEx.html <br />
+&nbsp; t</em>ObjectEx2.html    </p>
 
-<p>QoBean当前版本已经支持了Qomo 2.0底层中的全部语言特性，包括接口、切面等等。 <br>
-这些完整的特性可以通过如下栈来装载： <br>
-<font face="">&lt;!-- Qomo V2版本的JS增强和（切面的）切点 <br>
-  ../trunk/Framework/RTL/JSEnhance.js <br>
-  ../trunk/Framework/RTL/JoPoints.js <br>
---&gt; <br>
-  Intfs/QomoIntfs.js <br>
-  Intfs/Interface.js <br>
-  Meta.js <br>
-  Class.js <br>
-  Namespace.js <br>
-  ObjectEx.js <br>
-  Intfs/ClassIntf.js <br>
-  TObject.js <br>
-&lt;!-- Qomo V2版本中的切面 <br>
-  ../trunk/Framework/RTL/Aspect.js <br>
---&gt;</font> <br>
-这个示例可以参考QoBean代码包中的： <br>
-  t_ObjectEx3.html    </p>
+<p>QoBean当前版本已经支持了Qomo 2.0底层中的全部语言特性，包括接口、切面等等。 <br />
+这些完整的特性可以通过如下栈来装载： <br />
+<font face="">&lt;!-- Qomo V2版本的JS增强和（切面的）切点 <br />
+&nbsp; ../trunk/Framework/RTL/JSEnhance.js <br />
+&nbsp; ../trunk/Framework/RTL/JoPoints.js <br />
+--&gt; <br />
+&nbsp; Intfs/QomoIntfs.js <br />
+&nbsp; Intfs/Interface.js <br />
+&nbsp; Meta.js <br />
+&nbsp; Class.js <br />
+&nbsp; Namespace.js <br />
+&nbsp; ObjectEx.js <br />
+&nbsp; Intfs/ClassIntf.js <br />
+&nbsp; TObject.js <br />
+&lt;!-- Qomo V2版本中的切面 <br />
+&nbsp; ../trunk/Framework/RTL/Aspect.js <br />
+--&gt;</font> <br />
+这个示例可以参考QoBean代码包中的： <br />
+&nbsp; t_ObjectEx3.html    </p>
 
-<p>QoBean内部版本已经可以完全使用QoBean来替代Qomo V2的语言内核了。通过实测， <br>
-上述的新的内核，比Qomo V2旧的版本减少了1/3的代码，且同时提高了1/3的执行 <br>
+<p>QoBean内部版本已经可以完全使用QoBean来替代Qomo V2的语言内核了。通过实测， <br />
+上述的新的内核，比Qomo V2旧的版本减少了1/3的代码，且同时提高了1/3的执行 <br />
 性能。所以，我们在这个节点上发布了QoBean Beta 1.0。    </p>
             </section>
 <!-- removed by aimingoo
@@ -810,7 +811,7 @@ MetaObject = Meta(function(fromSource) {
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-112.html">
                     元语言基础技术之：在JS中如何自由地创建函数
                 </a>
@@ -821,8 +822,8 @@ MetaObject = Meta(function(fromSource) {
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -841,14 +842,14 @@ MetaObject = Meta(function(fromSource) {
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -864,7 +865,7 @@ MetaObject = Meta(function(fromSource) {
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -878,7 +879,7 @@ MetaObject = Meta(function(fromSource) {
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -891,19 +892,20 @@ MetaObject = Meta(function(fromSource) {
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

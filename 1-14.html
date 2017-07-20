@@ -1,44 +1,45 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>启动一个Rich Web Client的项目：Qomo OpenProject</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="启动一个Rich Web Client的项目：Qomo OpenProject">
-    <meta property="og:description" content="Qomolangma ProjectOpenProject v0.9     类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http://aimingoo.github.io/1-14.html">
-    <meta property="article:published_time" content="2005-12-28T18:31:00.000Z">
-    <meta property="article:modified_time" content="2005-12-28T18:31:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="delphi">
-    <meta property="article:tag" content="oop">
-    <meta property="article:tag" content="浏览器">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="启动一个Rich Web Client的项目：Qomo OpenProject" />
+    <meta property="og:description" content="Qomolangma ProjectOpenProject v0.9     类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-14.html" />
+    <meta property="article:published_time" content="2005-12-28T18:31:00.000Z" />
+    <meta property="article:modified_time" content="2005-12-28T18:31:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="delphi" />
+    <meta property="article:tag" content="oop" />
+    <meta property="article:tag" content="浏览器" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="启动一个Rich Web Client的项目：Qomo OpenProject">
-    <meta name="twitter:description" content="Qomolangma ProjectOpenProject v0.9     类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-14.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, delphi, oop, 浏览器">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="启动一个Rich Web Client的项目：Qomo OpenProject" />
+    <meta name="twitter:description" content="Qomolangma ProjectOpenProject v0.9     类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-14.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, delphi, oop, 浏览器" />
     
     <script type="application/ld+json">
 {
@@ -77,15 +78,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-delphi tag-oop tag-liu-lan-qi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,7 +97,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,16 +130,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2005-12-29">11 years ago</time>
+                        <time class="post-date" datetime="2005-12-29">12 years ago</time>
                         <time class="post-date" datetime="2005-12-29">(2005-12-29)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/delphi/">delphi</a>, <a href="tag/oop/">oop</a>, <a href="tag/liu-lan-qi/">浏览器</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/delphi/index.html">delphi</a>, <a href="tag/oop/index.html">oop</a>, <a href="tag/liu-lan-qi/index.html">浏览器</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,147 +148,147 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma ProjectOpenProject v0.9    </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>一、Qomo OpenProject项目的由来 <br>
-~~~~~~~~~~~~~~~~<del>  </del></p>
+<p>一、Qomo OpenProject项目的由来 <br />
+~~~~~~~~~~~~~~~~<del>  </p>
 
-<p>Qomo OpenProject是一个在Rich Web Client方向上发展的开源项目。它的前身是我在前公司的一个 <br>
+<p>Qomo OpenProject是一个在Rich Web Client方向上发展的开源项目。它的前身是我在前公司的一个 <br />
 内部项目WEUI(Web Enterprise User Interface)。  </p>
 
-<p>用Qomo作为项目名，是因为我不久前刚才珠峰回来。Qomolangma因此成为我能够想到的最美丽的 <br>
-词汇之一。如同珠峰带给我的印象一样，Qomolangma是完美、神秘、遥远和不可企及的代名词。直 <br>
-译藏语的Qomolangma，就是“女神朗玛”的意思。当然，它现在通常是指珠峰。  </p>
+<p>用Qomo作为项目名，是因为我不久前刚才珠峰回来。Qomolangma因此成为我能够想到的最美丽的 <br />
+词汇之一。如同珠峰带给我的印象一样，Qomolangma是完美、神秘、遥远和不可企及的代名词。直 <br />
+译藏语的Qomolangma，就是&ldquo;女神朗玛&rdquo;的意思。当然，它现在通常是指珠峰。  </p>
 
 <p>WEUI这个项目是由三个开发人员完成的，这里我需要先介绍一下他们：  </p>
 
-<p>  - 周劲羽(JingYu) <br>
-  中国最优秀的Delphi开源项目CnWizard&amp;CnPack的发起人和领导者。在2004年4月到8月 <br>
-间，我们能有幸同事四个月。在此期间，我们一起完成了WEUI的内核设计工作。他独立 <br>
+<p>&nbsp; - 周劲羽(JingYu) <br />
+&nbsp; 中国最优秀的Delphi开源项目CnWizard&amp;CnPack的发起人和领导者。在2004年4月到8月 <br />
+间，我们能有幸同事四个月。在此期间，我们一起完成了WEUI的内核设计工作。他独立 <br />
 完成了WEUI项目中的LocalDB库这个部分。  </p>
 
-<p>  - 周鹏飞(leon) <br>
-  leon是非常优秀的技术人员和项目经理，目前他是微软的软件工程师。在2004年4月到 <br>
-2005年6月间，我们一起共事。此前，他在思维加速(justep)公司担任内核设计和开发的 <br>
-工作。leon也是WEUI内核设计的参与者之一。他还为WEUI完成一个专用的自动文档生成系 <br>
+<p>&nbsp; - 周鹏飞(leon) <br />
+&nbsp; leon是非常优秀的技术人员和项目经理，目前他是微软的软件工程师。在2004年4月到 <br />
+2005年6月间，我们一起共事。此前，他在思维加速(justep)公司担任内核设计和开发的 <br />
+工作。leon也是WEUI内核设计的参与者之一。他还为WEUI完成一个专用的自动文档生成系 <br />
 统。在WEUI项目中有一个基于VML的Graphics库是由他独立完成的。  </p>
 
-<p>  - 周爱民(aimingoo) <br>
-  我。目前在盛大网络任软件架构师。在2004年4月到2005年8月期间，我在前公司组织 <br>
-并完成了WEUI这个项目，并在WEUI的基础上实现了一个Rich Web Client的DCN(Data Comm- <br>
+<p>&nbsp; - 周爱民(aimingoo) <br />
+&nbsp; 我。目前在盛大网络任软件架构师。在2004年4月到2005年8月期间，我在前公司组织 <br />
+并完成了WEUI这个项目，并在WEUI的基础上实现了一个Rich Web Client的DCN(Data Comm- <br />
 unications Network Managment)系统。  </p>
 
-<p>WEUI这个项目是一个企业级的产品/技术。Qomo OpenProject主要是将其中可以公开的部分技 <br>
-术和技巧剥离出来，试图在此基础上形成一个公共的、可重用的 Rich Web Client开发 <br>
+<p>WEUI这个项目是一个企业级的产品/技术。Qomo OpenProject主要是将其中可以公开的部分技 <br />
+术和技巧剥离出来，试图在此基础上形成一个公共的、可重用的 Rich Web Client开发 <br />
 框架和界面组件库。  </p>
 
-<p>二、Qomo OpenProject的组成 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>二、Qomo OpenProject的组成 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>因此Qomo OpenProject将会由两个部分构成： <br>
-  - QomoJS : 在JavaScript的基础上进行扩展，使其支持完整的OOP特性，部分支持 <br>
-    一些其它高级语言的语法特性。它本身又由两个部分构成： <br>
-       QomoJS OOP Core : OOP特性的实现内核 <br>
-       QomoJS Framework : 语言特性的框架层和基础类库  </p>
+<p>因此Qomo OpenProject将会由两个部分构成： <br />
+&nbsp; - QomoJS : 在JavaScript的基础上进行扩展，使其支持完整的OOP特性，部分支持 <br />
+&nbsp;&nbsp;&nbsp; 一些其它高级语言的语法特性。它本身又由两个部分构成： <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QomoJS OOP Core : OOP特性的实现内核 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QomoJS Framework : 语言特性的框架层和基础类库  </p>
 
-<p>  - QomoUI : 一套界面组件库。  </p>
+<p>&nbsp; - QomoUI : 一套界面组件库。  </p>
 
-<p>三、Qomo OpenProject的运行环境 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>三、Qomo OpenProject的运行环境 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>WEUI本身在以企业用户为对象的，在B/S架构下进行开发的一套B端实现技术。因为他有 <br>
-特定的用户对象，因此WEUI从一开始起就没有充分考虑浏览器兼容问题。——你应该知 <br>
+<p>WEUI本身在以企业用户为对象的，在B/S架构下进行开发的一套B端实现技术。因为他有 <br />
+特定的用户对象，因此WEUI从一开始起就没有充分考虑浏览器兼容问题。&mdash;&mdash;你应该知 <br />
 道，企业用户是不大可能让员工在工作机上尝试Firefox/Mozilla或者Opera的。  </p>
 
-<p>但Qomo与此不同。Qomo中讨论浏览器兼容问题，但并不要求在Qomo OpenProject中必 <br>
-须去实现它。这个说法的含义是，Qomo OpenProject中将尽可能使代码被运行在不同的浏 <br>
+<p>但Qomo与此不同。Qomo中讨论浏览器兼容问题，但并不要求在Qomo OpenProject中必 <br />
+须去实现它。这个说法的含义是，Qomo OpenProject中将尽可能使代码被运行在不同的浏 <br />
 览器上，但在绝大多数情况下，Qomo将优先考虑对Internet Explorer的实现，而不是兼容。  </p>
 
-<p>作为一项约定：Qomo OpenProject公开的代码必须进行(主流)浏览器的兼容性测试，并将 <br>
-测试的结果标注在一个表格中，放在项目的Document目录中。因此如果你打算支持Qomo， <br>
-你可以选择： <br>
-   - 去完善它的兼容性，或者 <br>
-   - 仅仅是在指定浏览器上去进一步实现它。  </p>
+<p>作为一项约定：Qomo OpenProject公开的代码必须进行(主流)浏览器的兼容性测试，并将 <br />
+测试的结果标注在一个表格中，放在项目的Document目录中。因此如果你打算支持Qomo， <br />
+你可以选择： <br />
+&nbsp;&nbsp; - 去完善它的兼容性，或者 <br />
+&nbsp;&nbsp; - 仅仅是在指定浏览器上去进一步实现它。  </p>
 
-<p>Qomo OpenProject的推荐运行环境是： <br>
-   - Windows 98以上的操作系统 <br>
-   - Internet Explorer 5.5以上的浏览器  </p>
+<p>Qomo OpenProject的推荐运行环境是： <br />
+&nbsp;&nbsp; - Windows 98以上的操作系统 <br />
+&nbsp;&nbsp; - Internet Explorer 5.5以上的浏览器  </p>
 
 <p>Qomo OpenProject的每一个发布版本将保证测试并运行的浏览器是：  </p>
 
 <p>`     </p>
 
-<hr>
+<hr />
 
-<p>   名称                                   版本号 <br>
+<p>   名称                                   版本号 <br />
      </p>
 
-<hr>
+<hr />
 
-<p>   - Internet Explorer 5.5 正式发行版本   5.50.4134.0600 <br>
-   - Internet Explorer 5.5 sp1            5.50.4522.1800 <br>
-   - Internet Explorer 5.5 sp2            5.51.4807.2300 <br>
-   - Internet Explorer 6.0                6.0.3790.0 <br>
+<p>   - Internet Explorer 5.5 正式发行版本   5.50.4134.0600 <br />
+   - Internet Explorer 5.5 sp1            5.50.4522.1800 <br />
+   - Internet Explorer 5.5 sp2            5.51.4807.2300 <br />
+   - Internet Explorer 6.0                6.0.3790.0 <br />
    - Internet Explorer 6.0 sp1            6.0.3790.1830`  </p>
 
-<p>`   - Internet Explorer 5.01 sp2           5.0.3314.2100 (仅提供兼容性测试和报告) <br>
+<p>`   - Internet Explorer 5.01 sp2           5.0.3314.2100 (仅提供兼容性测试和报告) <br />
      </p>
 
-<hr>
+<hr />
 
 <p>`  </p>
 
-<p>四、Qomo OpenProject的特点 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>四、Qomo OpenProject的特点 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>Qomo不排斥任何与指定浏览器直接相关的技术的使用，也不排斥在Qomo OpenProjec <br>
+<p>Qomo不排斥任何与指定浏览器直接相关的技术的使用，也不排斥在Qomo OpenProjec <br />
 t约定运行环境中进行的任何技术、技巧的尝试。  </p>
 
-<p>Qomo提供一个完整的OOP Core，使得开发人员可以在此基础上进行大型的类／类库封 <br>
-装。Qomo OpenProjectt也提供完整的Visual Compoent构建方案和底层类库，并包含一 <br>
+<p>Qomo提供一个完整的OOP Core，使得开发人员可以在此基础上进行大型的类／类库封 <br />
+装。Qomo OpenProjectt也提供完整的Visual Compoent构建方案和底层类库，并包含一 <br />
 些示例代码。  </p>
 
-<p>Qomo试图对浏览器兼容性进行探索和尝试。公开有关兼容性的资料和技术实现，但 <br>
+<p>Qomo试图对浏览器兼容性进行探索和尝试。公开有关兼容性的资料和技术实现，但 <br />
 并不保证在未约定的浏览器上的运行。  </p>
 
-<p>Qomo是企业级而非门户级的架构。它能适应企业级B/S架构中的B端开发的需求，但 <br>
-不适宜作为“公开的”、“门户级的”网站的B端架构。——除非您不考虑IE之外的浏 <br>
+<p>Qomo是企业级而非门户级的架构。它能适应企业级B/S架构中的B端开发的需求，但 <br />
+不适宜作为&ldquo;公开的&rdquo;、&ldquo;门户级的&rdquo;网站的B端架构。&mdash;&mdash;除非您不考虑IE之外的浏 <br />
 览器用户的体验。  </p>
 
-<p>Qomo是以技术探索为主要方向的。可能他不会按照你所期望的、商业化的发展速度 <br>
-进行升级和更新。但Qomo项目组将保证每一项应用在Qomo OpenProject中的技术的 <br>
+<p>Qomo是以技术探索为主要方向的。可能他不会按照你所期望的、商业化的发展速度 <br />
+进行升级和更新。但Qomo项目组将保证每一项应用在Qomo OpenProject中的技术的 <br />
 高度公开与透明，并保证应用或者实现这种技术的合理性。  </p>
 
-<p>此外，由于Qomo实现了完整的OOP特性，所以他具备对一些新的架构技术的描述能力。 <br>
-因此我将会推动以“以Qomo OpenProject为基础的B端架构设计技术”为主题的发展方向。  </p>
+<p>此外，由于Qomo实现了完整的OOP特性，所以他具备对一些新的架构技术的描述能力。 <br />
+因此我将会推动以&ldquo;以Qomo OpenProject为基础的B端架构设计技术&rdquo;为主题的发展方向。  </p>
 
-<p>五、参与Qomo OpenProject项目 <br>
-~~~~~~~~~~~~~~~~  </p>
+<p>五、参与Qomo OpenProject项目 <br />
+</del>~~~~~~~~~~~~~~~~  </p>
 
 <p>欢迎你积极参与Qomo OpenProject项目。  </p>
 
-<p>如果你希望使用Qomo OpenProject的成果，那么你可以随时从网站上得到他的新版本，并无 <br>
+<p>如果你希望使用Qomo OpenProject的成果，那么你可以随时从网站上得到他的新版本，并无 <br />
 须任何授权地在商业／非商业的环境中使用它。  </p>
 
-<p>如果你希望为Qomo OpenProject贡献代码或者你的新思，那么你可以通过邮件与我联系： <br>
+<p>如果你希望为Qomo OpenProject贡献代码或者你的新思，那么你可以通过邮件与我联系： <br />
 <a href="mailto:aim@263.net">aim@263.net</a>。  </p>
 
-<p>如果你想进行有关该项目的讨论，那么可以在我的blog上留言。如果你的话题可以被 <br>
+<p>如果你想进行有关该项目的讨论，那么可以在我的blog上留言。如果你的话题可以被 <br />
 展开讨论，我会为你开一个主题。  </p>
 
-<p>(* 注：我可能会为Qomo OpenProject项目建立一个开源项目或者维护一个独立的网站。但目前， <br>
+<p>(* 注：我可能会为Qomo OpenProject项目建立一个开源项目或者维护一个独立的网站。但目前， <br />
 我还没有时间来做这件事。*)</p>
             </section>
 <!-- removed by aimingoo
@@ -305,7 +306,7 @@ t约定运行环境中进行的任何技术、技巧的尝试。  </p>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-15.html">
                     从基础开始：Qomo OpenProject中的一些关键词
                 </a>
@@ -316,8 +317,8 @@ t约定运行环境中进行的任何技术、技巧的尝试。  </p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -336,14 +337,14 @@ t约定运行环境中进行的任何技术、技巧的尝试。  </p>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -359,7 +360,7 @@ t约定运行环境中进行的任何技术、技巧的尝试。  </p>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -373,7 +374,7 @@ t约定运行环境中进行的任何技术、技巧的尝试。  </p>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -386,19 +387,20 @@ t约定运行环境中进行的任何技术、技巧的尝试。  </p>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

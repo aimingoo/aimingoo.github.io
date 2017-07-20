@@ -1,41 +1,42 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomo之快速上手</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomo之快速上手">
-    <meta property="og:description" content="Qomo之快速上手     －－－－－     我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是     如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、     充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未     能挽救它们的失败。     于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理     解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。     而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门     语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。     于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。     **一、装载Qomo     －－－－－**     我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo     的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样：        &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;">
-    <meta property="og:url" content="http://aimingoo.github.io/1-122.html">
-    <meta property="article:published_time" content="2008-10-14T04:31:00.000Z">
-    <meta property="article:modified_time" content="2008-10-14T04:31:00.000Z">
-    <meta property="article:tag" content="Javascript">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomo之快速上手" />
+    <meta property="og:description" content="Qomo之快速上手     －－－－－     我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是     如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、     充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未     能挽救它们的失败。     于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理     解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。     而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门     语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。     于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。     **一、装载Qomo     －－－－－**     我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo     的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样：        &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-122.html" />
+    <meta property="article:published_time" content="2008-10-14T04:31:00.000Z" />
+    <meta property="article:modified_time" content="2008-10-14T04:31:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomo之快速上手">
-    <meta name="twitter:description" content="Qomo之快速上手     －－－－－     我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是     如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、     充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未     能挽救它们的失败。     于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理     解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。     而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门     语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。     于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。     **一、装载Qomo     －－－－－**     我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo     的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样：        &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-122.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomo之快速上手" />
+    <meta name="twitter:description" content="Qomo之快速上手     －－－－－     我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是     如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、     充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未     能挽救它们的失败。     于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理     解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。     而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门     语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。     于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。     **一、装载Qomo     －－－－－**     我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo     的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样：        &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-122.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
     
     <script type="application/ld+json">
 {
@@ -74,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -93,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -110,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -126,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>
+                        <a href="tag/javascript/index.html">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,7 +145,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p><span style="font-size:14px; line-height:1.3em">    </span></p>
+                <p><span style="font-size:14px; line-height:1.3em">    </p>
 
 <p><big></big><big>Qomo之快速上手</big>    </p>
 
@@ -176,10 +177,10 @@ ghost.init({
 
 <p>的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样：    </p>
 
-<p>  </p>
+<p></span>  </p>
 
 <div class="highlighter"><span class="comments"></span><pre name="code" class="html">&lt;!-- in test.html --&gt;  
-&lt;script src="js/Qomo.js"&gt;&lt;/script&gt;</pre>    
+&lt;script src=&quot;js/Qomo.js&quot;&gt;&lt;/script&gt;</pre>    
 
 </div>  
 
@@ -199,7 +200,7 @@ ghost.init({
 
 </div>  
 
-<p>或者你也可以使用一个编码（压缩+混淆）过的版本，这会是一个独立的文件。    </p>
+<p>或者你也可以使用一个编码（压缩&#43;混淆）过的版本，这会是一个独立的文件。    </p>
 
 <p>**二、创建一个类，及其实例    </p>
 
@@ -264,10 +265,10 @@ alert(obj2.get('Size'));  // 100</pre></div>
 <p>的对象。在Qomo中，这比较方便。  </p>
 
 <pre name="code" class="html">&lt;!-- demo.html --&gt;  
-&lt;script src="js/Qomo.js"&gt;&lt;/script&gt;  
+&lt;script src=&quot;js/Qomo.js&quot;&gt;&lt;/script&gt;  
 
 &lt;body&gt;  
-  &lt;input id="pwd" value="my password in here"&gt;  
+  &lt;input id=&quot;pwd&quot; value=&quot;my password in here&quot;&gt;  
 &lt;/body&gt;  
 
 &lt;script&gt;  
@@ -284,7 +285,7 @@ alert(el.get('value'));
 
 <p>何情况下，你可以自行发布一个Qomo的集成(build)版本。这需要你用Qomo包中的：    </p>
 
-<p>    Build/TestCase/T_CustomBuilder.html    </p>
+<p>&nbsp;&nbsp;&nbsp; Build/TestCase/T_CustomBuilder.html    </p>
 
 <p>来产生一个自己需要的Qomo代码包。记得选中“载入扩展界面控件”就好了。    </p>
 
@@ -304,11 +305,11 @@ alert(el.get('value'));
 
 <p>以将一个div与一个edit放在一起，使它变成一个TLabledEdit。这是个不错的主意：    </p>
 
-<div class="highlighter"><span class="tag"></span><pre name="code" class="html">&lt;script src="js/Qomo.js"&gt;&lt;/script&gt;  
+<div class="highlighter"><span class="tag"></span><pre name="code" class="html">&lt;script src=&quot;js/Qomo.js&quot;&gt;&lt;/script&gt;  
 
 &lt;body&gt;  
-  &lt;div id="edLabled"&gt;&lt;span&gt;hello, TLabledEdit.&lt;/span&gt;&lt;br&gt;  
-    &lt;input name="edit" value="..."&gt;  
+  &lt;div id=&quot;edLabled&quot;&gt;&lt;span&gt;hello, TLabledEdit.&lt;/span&gt;&lt;br&gt;  
+    &lt;input name=&quot;edit&quot; value=&quot;...&quot;&gt;  
   &lt;/div&gt;  
 &lt;/body&gt;  
 
@@ -369,18 +370,18 @@ alert( ed.get('LableText') );
 ed.set('LableText', 'my lable:');  
 ed.set('Value', 'hello, world.');</pre></div>  
 
-<p><strong>六、如此麻烦地做一个组件有什么价值？</strong>    </p>
+<p><strong>六、如此麻烦地做一个组件有什么价&#20540;？</strong>    </p>
 
 <p>－－－－－    </p>
 
-<p>有什么价值呢？如果我们的确需要控制这么一个“看起来象组件的HTML代码块”，那么    </p>
+<p>有什么价&#20540;呢？如果我们的确需要控制这么一个“看起来象组件的HTML代码块”，那么    </p>
 
 <p>我们直接用几行脚本就可以办到。例如：    </p>
 
 <pre name="code" class="javascript">document.getElementById('edLabled').children(2).value = 'hello, world.';  
 // ...</pre>  
 
-<p>然而，组件系统的真正价值在于复用，类继承的价值亦复如此。如果偏离了复用来讨论    </p>
+<p>然而，组件系统的真正价&#20540;在于复用，类继承的价&#20540;亦复如此。如果偏离了复用来讨论    </p>
 
 <p>上述的一切，那无异于隔靴搔痒。我们来想象一下，如果我们需要一个使用FieldSet来    </p>
 
@@ -389,9 +390,9 @@ ed.set('Value', 'hello, world.');</pre></div>
 <p>好，我们在Qomo中基于上面的TLabledEdit代码来做一个。    </p>
 
 <div class="highlighter"><span></span><pre name="code" class="html">&lt;body&gt;  
-  &lt;fieldset id="edLabled2"&gt;  
+  &lt;fieldset id=&quot;edLabled2&quot;&gt;  
     &lt;legend&gt;请输入：&lt;/legend&gt;  
-    &lt;input name="edit" value="..."&gt;  
+    &lt;input name=&quot;edit&quot; value=&quot;...&quot;&gt;  
   &lt;/fieldset&gt;  
 &lt;/body&gt;  
 
@@ -426,42 +427,42 @@ ed.set('Value', 'hello, world.');
 <p>我们要装入一个YahooUI，然后初始化它。最后，再装入我们的代码。OK，就象这样：    </p>
 
 <div class="highlighter"><span></span><pre name="code" class="html">&lt;!-- load yui --&gt;  
-&lt;link rel="stylesheet" type="text/css" href="yui/build/fonts/fonts-min.css" /&gt;  
-&lt;link rel="stylesheet" type="text/css" href="yui/build/autocomplete/assets/skins/sam/autocomplete.css" /&gt;  
-&lt;script type="text/javascript" src="yui/build/yahoo-dom-event/yahoo-dom-event.js"&gt;&lt;/script&gt;  
-&lt;script type="text/javascript" src="yui/build/animation/animation-min.js"&gt;&lt;/script&gt;  
-&lt;script type="text/javascript" src="yui/build/datasource/datasource-min.js"&gt;&lt;/script&gt;  
-&lt;script type="text/javascript" src="yui/build/autocomplete/autocomplete-min.js"&gt;&lt;/script&gt;  
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;yui/build/fonts/fonts-min.css&quot; /&gt;  
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;yui/build/autocomplete/assets/skins/sam/autocomplete.css&quot; /&gt;  
+&lt;script type=&quot;text/javascript&quot; src=&quot;yui/build/yahoo-dom-event/yahoo-dom-event.js&quot;&gt;&lt;/script&gt;  
+&lt;script type=&quot;text/javascript&quot; src=&quot;yui/build/animation/animation-min.js&quot;&gt;&lt;/script&gt;  
+&lt;script type=&quot;text/javascript&quot; src=&quot;yui/build/datasource/datasource-min.js&quot;&gt;&lt;/script&gt;  
+&lt;script type=&quot;text/javascript&quot; src=&quot;yui/build/autocomplete/autocomplete-min.js&quot;&gt;&lt;/script&gt;  
 
 &lt;!-- yui component, code copy from yui examples --&gt;  
-&lt;body class="yui-skin-sam"&gt;  
+&lt;body class=&quot;yui-skin-sam&quot;&gt;  
   &lt;h3&gt;Enter a state:&lt;/h3&gt;  
-  &lt;div id="myAutoComplete"&gt;  
-    &lt;input id="myInput" type="text"&gt;  
-    &lt;div id="myContainer"&gt;&lt;/div&gt;  
+  &lt;div id=&quot;myAutoComplete&quot;&gt;  
+    &lt;input id=&quot;myInput&quot; type=&quot;text&quot;&gt;  
+    &lt;div id=&quot;myContainer&quot;&gt;&lt;/div&gt;  
   &lt;/div&gt;  
 
-&lt;script type="text/javascript"&gt;  
+&lt;script type=&quot;text/javascript&quot;&gt;  
 YAHOO.example.Data = {  
 arrayStates: [  
-    "Alabama",  
-    "Alaska",  
-    "Arizona",  
-    "Arkansas",  
-    "California",  
-    "Colorado",  
-    "Connecticut"]  
+    &quot;Alabama&quot;,  
+    &quot;Alaska&quot;,  
+    &quot;Arizona&quot;,  
+    &quot;Arkansas&quot;,  
+    &quot;California&quot;,  
+    &quot;Colorado&quot;,  
+    &quot;Connecticut&quot;]  
 };  
 
 YAHOO.example.BasicLocal = function() {  
     // Use a LocalDataSource  
     var oDS = new YAHOO.util.LocalDataSource(YAHOO.example.Data.arrayStates);  
     // Optional to define fields for single-dimensional array  
-    oDS.responseSchema = {fields : ["state"]};  
+    oDS.responseSchema = {fields : [&quot;state&quot;]};  
 
     // Instantiate the AutoComplete  
-    var oAC = new YAHOO.widget.AutoComplete("myInput", "myContainer", oDS);  
-    oAC.prehighlightClassName = "yui-ac-prehighlight";  
+    var oAC = new YAHOO.widget.AutoComplete(&quot;myInput&quot;, &quot;myContainer&quot;, oDS);  
+    oAC.prehighlightClassName = &quot;yui-ac-prehighlight&quot;;  
     oAC.useShadow = true;  
 
     return {  
@@ -480,7 +481,7 @@ YAHOO.example.BasicLocal = function() {
 <div class="highlighter"><span></span><pre name="code" class="html">&lt;!-- 续上例 --&gt;  
 
 &lt;!-- load qomo --&gt;  
-&lt;script src="js/Qomo.js"&gt;&lt;/script&gt;  
+&lt;script src=&quot;js/Qomo.js&quot;&gt;&lt;/script&gt;  
 
 &lt;!-- ours component and demo --&gt;  
 &lt;script&gt;  
@@ -567,7 +568,7 @@ pw.aMethod();</pre>
 
 <div class="highlighter"><span></span><pre name="code" class="javascript">ajx = new Ajax();  
 
-ajx.open("GET", '<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>', false);  
+ajx.open(&quot;GET&quot;, '<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>', false);  
 ajx.send(null);  
 
 text = ajx.responseText;  
@@ -608,7 +609,7 @@ ajx.OnStateChange('resume');</pre>
 
 <div class="highlighter"><span></span><pre name="code" class="html">&lt;!-- 在网页中，用于显示输出 --&gt;  
 &lt;body&gt;  
-&lt;textarea id="txt" style="width:800px; height:600px"&gt;&lt;/textarea&gt;  
+&lt;textarea id=&quot;txt&quot; style=&quot;width:800px; height:600px&quot;&gt;&lt;/textarea&gt;  
 &lt;/body&gt;  
 
 &lt;script&gt;  
@@ -694,15 +695,15 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
 
 <p><a href="http://download.csdn.net/source/689579">http://download.csdn.net/source/689579</a>  </p>
 
-<p><span style="color:#800000">Qomo最新的代码：    </span></p>
+<p><span style="color:#800000">Qomo最新的代码：    </p>
 
-<p><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/trunk</a>    </p>
+<p></span><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/trunk</a>    </p>
 
 <p><span style="color:#800000">QoBean最新的代码：</span>    </p>
 
 <p><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a>    </p>
 
-<p> </p>
+<p>&nbsp;</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -719,7 +720,7 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-235.html">
                     学习从小抄开始
                 </a>
@@ -730,8 +731,8 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -750,14 +751,14 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -773,7 +774,7 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -787,7 +788,7 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -800,19 +801,20 @@ pool.push( { src: '<a href="http://www.google.com/">http://www.google.com/</a>' 
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）">
-    <meta property="og:description" content="本文分三篇。本篇重在介绍“全屏来电大头贴”的问题，想直接切入技术细节的请径直前往篇二：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 1、Android手机中的来电大头贴 来电大头贴其实包括来电去电两种状态，只是通常都称作“来电大头贴”。这个功能有三种实现方法，包括：     &amp;nbsp;- A：使用第三方的软件，在来去电时显示出大头贴遮盖在原生的拔号面板上面；     &amp;nbsp;- B：少数开发商提供的ROM中，集成了带大头贴功能的拔号面板软件；     &amp;nbsp;- C：在现有的ROM的拔号面板中，原生支持大头贴功能。     首先谈谈为什么大头贴支持起来这么难。这是因为在Android原生系统中，联系人头像大小的标准是96x96，强制是正方形的。这个标准的一部分原因是：Android的手机联系人与Google联系人支持同步，而Google的在线联系人就是这个标准。     一些情况下，可以在手机的联系人中存储高画质的联系的，但是一旦该帐户与Google帐户同步，则联系人的头像品质立即就下降了。这一问题是Google整体的机制导致的，我们这里不谈。所以，也必须先强调，本文中讨论的“高画质来电大头贴”可能会受到Android手机上的Google帐户同步的影响，建议关掉同步功能。     因为这一标准的缘故，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-178.html">
-    <meta property="article:published_time" content="2012-09-03T10:01:00.000Z">
-    <meta property="article:modified_time" content="2017-05-20T10:37:48.000Z">
-    <meta property="article:tag" content="android">
-    <meta property="article:tag" content="汇编">
-    <meta property="article:tag" content="代码分析">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）" />
+    <meta property="og:description" content="本文分三篇。本篇重在介绍“全屏来电大头贴”的问题，想直接切入技术细节的请径直前往篇二：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 1、Android手机中的来电大头贴 来电大头贴其实包括来电去电两种状态，只是通常都称作“来电大头贴”。这个功能有三种实现方法，包括：     &amp;nbsp;- A：使用第三方的软件，在来去电时显示出大头贴遮盖在原生的拔号面板上面；     &amp;nbsp;- B：少数开发商提供的ROM中，集成了带大头贴功能的拔号面板软件；     &amp;nbsp;- C：在现有的ROM的拔号面板中，原生支持大头贴功能。     首先谈谈为什么大头贴支持起来这么难。这是因为在Android原生系统中，联系人头像大小的标准是96x96，强制是正方形的。这个标准的一部分原因是：Android的手机联系人与Google联系人支持同步，而Google的在线联系人就是这个标准。     一些情况下，可以在手机的联系人中存储高画质的联系的，但是一旦该帐户与Google帐户同步，则联系人的头像品质立即就下降了。这一问题是Google整体的机制导致的，我们这里不谈。所以，也必须先强调，本文中讨论的“高画质来电大头贴”可能会受到Android手机上的Google帐户同步的影响，建议关掉同步功能。     因为这一标准的缘故，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-178.html" />
+    <meta property="article:published_time" content="2012-09-03T10:01:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-20T10:37:48.000Z" />
+    <meta property="article:tag" content="android" />
+    <meta property="article:tag" content="汇编" />
+    <meta property="article:tag" content="代码分析" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）">
-    <meta name="twitter:description" content="本文分三篇。本篇重在介绍“全屏来电大头贴”的问题，想直接切入技术细节的请径直前往篇二：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 1、Android手机中的来电大头贴 来电大头贴其实包括来电去电两种状态，只是通常都称作“来电大头贴”。这个功能有三种实现方法，包括：     &amp;nbsp;- A：使用第三方的软件，在来去电时显示出大头贴遮盖在原生的拔号面板上面；     &amp;nbsp;- B：少数开发商提供的ROM中，集成了带大头贴功能的拔号面板软件；     &amp;nbsp;- C：在现有的ROM的拔号面板中，原生支持大头贴功能。     首先谈谈为什么大头贴支持起来这么难。这是因为在Android原生系统中，联系人头像大小的标准是96x96，强制是正方形的。这个标准的一部分原因是：Android的手机联系人与Google联系人支持同步，而Google的在线联系人就是这个标准。     一些情况下，可以在手机的联系人中存储高画质的联系的，但是一旦该帐户与Google帐户同步，则联系人的头像品质立即就下降了。这一问题是Google整体的机制导致的，我们这里不谈。所以，也必须先强调，本文中讨论的“高画质来电大头贴”可能会受到Android手机上的Google帐户同步的影响，建议关掉同步功能。     因为这一标准的缘故，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-178.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="android, 汇编, 代码分析">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）" />
+    <meta name="twitter:description" content="本文分三篇。本篇重在介绍“全屏来电大头贴”的问题，想直接切入技术细节的请径直前往篇二：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二） 1、Android手机中的来电大头贴 来电大头贴其实包括来电去电两种状态，只是通常都称作“来电大头贴”。这个功能有三种实现方法，包括：     &amp;nbsp;- A：使用第三方的软件，在来去电时显示出大头贴遮盖在原生的拔号面板上面；     &amp;nbsp;- B：少数开发商提供的ROM中，集成了带大头贴功能的拔号面板软件；     &amp;nbsp;- C：在现有的ROM的拔号面板中，原生支持大头贴功能。     首先谈谈为什么大头贴支持起来这么难。这是因为在Android原生系统中，联系人头像大小的标准是96x96，强制是正方形的。这个标准的一部分原因是：Android的手机联系人与Google联系人支持同步，而Google的在线联系人就是这个标准。     一些情况下，可以在手机的联系人中存储高画质的联系的，但是一旦该帐户与Google帐户同步，则联系人的头像品质立即就下降了。这一问题是Google整体的机制导致的，我们这里不谈。所以，也必须先强调，本文中讨论的“高画质来电大头贴”可能会受到Android手机上的Google帐户同步的影响，建议关掉同步功能。     因为这一标准的缘故，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-178.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="android, 汇编, 代码分析" />
     
     <script type="application/ld+json">
 {
@@ -76,15 +77,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-android tag-hui-bian tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +96,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +113,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/android/">android</a>, <a href="tag/hui-bian/">汇编</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>
+                        <a href="tag/android/index.html">android</a>, <a href="tag/hui-bian/index.html">汇编</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/index.html">代码分析</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -154,11 +155,11 @@ ghost.init({
 
 <p>来电大头贴其实包括来电去电两种状态，只是通常都称作“来电大头贴”。这个功能有三种实现方法，包括：    </p>
 
-<p> - A：使用第三方的软件，在来去电时显示出大头贴遮盖在原生的拔号面板上面；    </p>
+<p>&nbsp;- A：使用第三方的软件，在来去电时显示出大头贴遮盖在原生的拔号面板上面；    </p>
 
-<p> - B：少数开发商提供的ROM中，集成了带大头贴功能的拔号面板软件；    </p>
+<p>&nbsp;- B：少数开发商提供的ROM中，集成了带大头贴功能的拔号面板软件；    </p>
 
-<p> - C：在现有的ROM的拔号面板中，原生支持大头贴功能。    </p>
+<p>&nbsp;- C：在现有的ROM的拔号面板中，原生支持大头贴功能。    </p>
 
 <p>首先谈谈为什么大头贴支持起来这么难。这是因为在Android原生系统中，联系人头像大小的标准是96x96，强制是正方形的。这个标准的一部分原因是：Android的手机联系人与Google联系人支持同步，而Google的在线联系人就是这个标准。    </p>
 
@@ -174,15 +175,15 @@ ghost.init({
 
 <p>首先，A方案是最常见的。在谷歌市场中就能搜索出一大堆。例如：    </p>
 
-<p>  - 来电全屏大头贴:Full Screen Caller ID    </p>
+<p>&nbsp; - 来电全屏大头贴:Full Screen Caller ID    </p>
 
-<p>  - HD Caller ID Pro高清来电    </p>
+<p>&nbsp; - HD Caller ID Pro高清来电    </p>
 
-<p>  - BIG! caller ID来电大头贴    </p>
+<p>&nbsp; - BIG! caller ID来电大头贴    </p>
 
-<p>  - 视频来电大头贴:Video Caller Id    </p>
+<p>&nbsp; - 视频来电大头贴:Video Caller Id    </p>
 
-<p>  - Ultimate<em>Call</em>Screen_HD    </p>
+<p>&nbsp; - Ultimate<em>Call</em>Screen_HD    </p>
 
 <p>等等。如前所述的，这类软件自带一个联系人管理的功能，用于设定“哪些人需要显示大头贴”。一般来说，考虑到一致性的体验，对于“未设置大头贴”人则显示默认的大头贴。    </p>
 
@@ -192,15 +193,15 @@ ghost.init({
 
 <p>然而B方案呢？却实在不常见，因为只有少数ROM生产商有能力提供在Phone.apk上面的开发。我目前注意到的有：    </p>
 
-<p>  - Lewa OS采用了将联系人、短信和通话管理功能集成在一个PIM.apk中的方案，并基于此而实现了大头贴功能；    </p>
+<p>&nbsp; - Lewa OS采用了将联系人、短信和通话管理功能集成在一个PIM.apk中的方案，并基于此而实现了大头贴功能；    </p>
 
-<p>  - Miui手机在联系人管理中集成了大头贴管理，并在拔号面板上实现了大头贴显示。    </p>
+<p>&nbsp; - Miui手机在联系人管理中集成了大头贴管理，并在拔号面板上实现了大头贴显示。    </p>
 
 <p>总的来说，要在拔号面板上动手脚风险还是挺大的，并且如果要动这个手脚，还得提供一整套的通话功能。综合上面观察，B方案通常都被实现为一个折衷方案：    </p>
 
-<p>  - B1：在Contacts.apk中集成一个联系人功能，方便用户为联系人设定（或不设定）大头贴；    </p>
+<p>&nbsp; - B1：在Contacts.apk中集成一个联系人功能，方便用户为联系人设定（或不设定）大头贴；    </p>
 
-<p>  - B2：当Phone.apk检测到呼入时，如果在B1功能中设定了大头贴，则在通话界面背景中显示大头贴。    </p>
+<p>&nbsp; - B2：当Phone.apk检测到呼入时，如果在B1功能中设定了大头贴，则在通话界面背景中显示大头贴。    </p>
 
 <p>显然这涉及到Android手机功能的两个重要功能的改动，这也是“只有少数ROM生产商”在做的原因。    </p>
 
@@ -214,9 +215,9 @@ ghost.init({
 
 <p>好的，有了这两个前提，我们就来找找能“给联系人添加高清头像”功能的软件。电子市场中其实确实有两款这样的好货，而且名字还很相近：    </p>
 
-<p>  - HD Contacts    </p>
+<p>&nbsp; - HD Contacts    </p>
 
-<p>  - HD Contact Photos（或Contact<em>Photos</em>Updater)    </p>
+<p>&nbsp; - HD Contact Photos（或Contact<em>Photos</em>Updater)    </p>
 
 <p>后者有两个名字，Contact<em>Photos</em>Updater这个名字是在xda论坛中使用的，作者也主要是在xda中发布和更新这个软件。    </p>
 
@@ -224,13 +225,13 @@ ghost.init({
 
 <p>有了HD Contact Photos这个软件，“向系统库中写大头贴”就算（暂时地）解决了，我们后面主要讨论“如何在通话面板中显示大头贴”的问题。而在此之前，我先对这两款“写大头贴”的软件作些备注：    </p>
 
-<p>  - 两款软件功能和界面都比较接近，但后者（HD Contact Photos）完整得多。    </p>
+<p>&nbsp; - 两款软件功能和界面都比较接近，但后者（HD Contact Photos）完整得多。    </p>
 
-<p>  - 前者（HD Contacts）不能用于ICS，并且它有个BUG：联系人必须先设置一个头像，才能“修改成”大头像。    </p>
+<p>&nbsp; - 前者（HD Contacts）不能用于ICS，并且它有个BUG：联系人必须先设置一个头像，才能“修改成”大头像。    </p>
 
-<p>  - 两个软件都只能将头像设置成正方形，前者（HD Contacts）要修正起来很麻烦，后者比较容易。    </p>
+<p>&nbsp; - 两个软件都只能将头像设置成正方形，前者（HD Contacts）要修正起来很麻烦，后者比较容易。    </p>
 
-<p>  - 后者（HD Contact Photos)其实有限制图片大小，但修正起来比较容易。    </p>
+<p>&nbsp; - 后者（HD Contact Photos)其实有限制图片大小，但修正起来比较容易。    </p>
 
 <p>所以事实上本文中也会提供一个后者（HD Contact Photos)的修改版本，否则仍然达不到我们的目的。  </p>
 
@@ -240,11 +241,11 @@ ghost.init({
 
 <p>【点心vv-ice定制版本】  </p>
 
-<p><img src="content/images/bkImages/other_site/img_my_1346666570_5057-9.png" alt="" title="">  </p>
+<p><img src="content/images/bkImages/other_site/img_my_1346666570_5057-9.png" alt="" title="" />  </p>
 
 <p>【Lezo定制版本】    </p>
 
-<p><img src="content/images/bkImages/other_site/img_my_1346666605_3341-9.png" alt="" title="">    </p>
+<p><img src="content/images/bkImages/other_site/img_my_1346666605_3341-9.png" alt="" title="" />    </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -261,7 +262,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-179.html">
                     Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）
                 </a>
@@ -272,8 +273,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -292,14 +293,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -315,7 +316,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -329,7 +330,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -342,19 +343,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

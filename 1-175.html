@@ -1,44 +1,45 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>迟来的真相：关于JavaScript的历史</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="迟来的真相：关于JavaScript的历史">
-    <meta property="og:description" content="今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-175.html">
-    <meta property="article:published_time" content="2012-03-22T07:13:00.000Z">
-    <meta property="article:modified_time" content="2012-03-22T07:13:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="浏览器">
-    <meta property="article:tag" content="脚本">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="迟来的真相：关于JavaScript的历史" />
+    <meta property="og:description" content="今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-175.html" />
+    <meta property="article:published_time" content="2012-03-22T07:13:00.000Z" />
+    <meta property="article:modified_time" content="2012-03-22T07:13:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="浏览器" />
+    <meta property="article:tag" content="脚本" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="迟来的真相：关于JavaScript的历史">
-    <meta name="twitter:description" content="今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-175.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, 浏览器, 脚本">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="迟来的真相：关于JavaScript的历史" />
+    <meta name="twitter:description" content="今天看到李松峰老师（@李松峰）发布了新版的《JavaScript高级程序设计》（第三版）的预售消息，于是跑去当当（在这里）仔细地读了一下新版有关“JavaScript起源”的段落。读罢，心中的种种不安一扫而空：在这本书的第三版，总算还原了JavaScript起源的真相。   话说有一本《JavaScript权威指南》，以及这本《JavaScript高级程序设计》，算这些年对前端界/JavaScript圈子影响最大的、JavaScript经典译著。然而前者历来对JavaScript的起源语焉不详，后者则正好相反，从第一版起便“详细（而又错误地）”地指出了“JavaScript的起源”：     大概在1992年，一家称作Nombas的公司开始开发一种叫做C减减（C-minus-minus，简称Cmm）的嵌入式脚本语言。这个脚本语言捆绑在一个叫做CEnvi的共享软件产品中，当Netscape Navigator崭露头角时，Nombas开发了一个可以嵌入网页中的CEnvi的版本。这些早期的试验称为Espresso Page（浓咖啡般的页面），它们代表了第一个在万维网上使用的客户端脚本语言。而Nombas丝毫没有料到它的理念将会成为因特网的一块重要基石。        当网上冲浪越来越流行时，对于开发客户端脚本的需求也逐渐增大。当时工作于Netscape的Brendan Eich，开始着手为即将在1995年发行的Netscape Navigator 2." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-175.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 浏览器, 脚本" />
     
     <script type="application/ld+json">
 {
@@ -77,15 +78,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-liu-lan-qi tag-jiao-ben nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,7 +97,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,7 +114,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +130,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/liu-lan-qi/">浏览器</a>, <a href="tag/jiao-ben/">脚本</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/liu-lan-qi/index.html">浏览器</a>, <a href="tag/jiao-ben/index.html">脚本</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -160,7 +161,7 @@ ghost.init({
 <p>然而正是这误指的源起，（至少在国内）造成了相当多的误解。我后来在写《JavaScript语言精髓与编程实践》过程中，为此甚是苦恼：不说吧，不对；写吧，罗嗦嗦地讲进书里，也是不好。后来才写了：  </p>
 
 <blockquote>
-  <p>《还原JavaScript的真实历史》   </p>
+  <p>《还原JavaScript的真实历史》&nbsp;  </p>
   
   <p><a href="http://blog.csdn.net/aimingoo/article/details/1932315">http://blog.csdn.net/aimingoo/article/details/1932315</a>  </p>
 </blockquote>
@@ -190,12 +191,12 @@ ghost.init({
   
   <p>当时就职于Netscape公司的布兰登?艾奇（Brendan Eich），开始着手为计划于1995年2月发布的Netscape Navigator 2开发一种名为LiveScript的脚本语言——该语言将同时在浏览器和服务器中使用（它在服务器上的名字叫LiveWire）。为了赶在发布日期前完成LiveScript的开发，Netscape与Sun公司建立了一个开发联盟。在Netscape Navigator 2正式发布前夕，Netscape为了搭上媒体热炒Java的顺风车，临时把LiveScript改名为JavaScript。  </p>
   
-  <p>由于JavaScript 1.0获得了巨大成功，Netscape随即在Netscape Navigator 3中又发布了JavaScript 1.1。Web虽然羽翼未丰，但用户关注度却屡创新高。在这样的背景下，Netscape把自己定位为市场领袖型公司。与此同时，微软决定向与Navigator竞争的自家产品Internet Explorer浏览器投入更多资源。Netscape Navigator 3发布后不久，微软就在其Internet Explorer 3中加入了名为JScript的JavaScript实现（命名为JScript是为了避开与Netscape有关的授权问题）。以现在的眼光来看，微软1996年8月为进入Web浏览器领域而实施的这个重大举措，是导致Netscape日后蒙羞的一个标志性事件。然而，这个重大举措同时也标志着JavaScript作为一门语言，其开发向前迈进了一大步。  </p>
+  <p>由于JavaScript 1.0获得了巨大成功，Netscape随即在Netscape Navigator 3中又发布了JavaScript 1.1。Web虽然羽翼未丰，但用户关注度却屡创新高。在这样的背景下，Netscape把自己定位为市场领袖型公司。与此同时，微软决定向与Navigator竞争的自家产品Internet Explorer浏览器投入更多资源。Netscape Navigator 3发布后不久，微软就在其Internet Explorer 3中加入了名为JScript的JavaScript实现（命名为JScript是为了避开与Netscape有关的授权问题）。以现在的&#30524;光来看，微软1996年8月为进入Web浏览器领域而实施的这个重大举措，是导致Netscape日后蒙羞的一个标志性事件。然而，这个重大举措同时也标志着JavaScript作为一门语言，其开发向前迈进了一大步。  </p>
   
   <p>微软推出其JavaScript实现意味着有了3个不同的JavaScript版本：Netscape Navigator中的JavaScript、Internet Explorer中的Jscript和ScriptEase中的CEnvi。与C及其他编程语言不同，当时还没有标准规定JavaScript的语法和特性，3个不同版本并存的局面已经完全暴露了这个问题。随着业界担心的日益加剧，JavaScript的标准化问题被提上了议事日程。  </p>
 </blockquote>
 
-<p>在“CEnvi是JavaScript的一个实现（而并非起源）”这一点上，Nicholas终于做出了正确的描述。虽然，大概在细节的时间上还略值得探究，但已经是无伤大局的了。  </p>
+<p>在“CEnvi是JavaScript的一个实现（而并非起源）”这一点上，Nicholas终于做出了正确的描述。虽然，大概在细节的时间上还略&#20540;得探究，但已经是无伤大局的了。  </p>
 
 <p>是为纪念，即便来之迟迟，也是真相的成功罢！    </p>
 
@@ -216,7 +217,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-176.html">
                     全文指引：《大道至易》中附录摘引的全文目录
                 </a>
@@ -227,8 +228,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -247,14 +248,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -270,7 +271,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -284,7 +285,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -297,19 +298,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

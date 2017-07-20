@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>为脚本语言平反-JavaScript篇（3）</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="为脚本语言平反-JavaScript篇（3）">
-    <meta property="og:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532496.aspx   （书接上回，继续！）   &amp;nbsp;   &amp;nbsp;   五、这个DSL框架有什么问题？   ===========   有什么问题吗？有一点，并不严重。比如说，我们在Env中声明了一些属性和方法。对于Env这个对象  Env = {    max: 100,    min: -3,    calc: function(adj) {      &amp;hellip;    }  }    &amp;nbsp;   我们要在calc()方法中访问max/min属性，应该写成&amp;ldquo;this.max/this.min&amp;rdquo;，这一则是不方便，另外，在用户的dsl代码中还不得不考虑&amp;ldquo;当前this是谁&amp;rdquo;的问题。">
-    <meta property="og:url" content="http://aimingoo.github.io/1-148.html">
-    <meta property="article:published_time" content="2009-09-08T09:09:00.000Z">
-    <meta property="article:modified_time" content="2009-09-08T09:09:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="脚本">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="为脚本语言平反-JavaScript篇（3）" />
+    <meta property="og:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532496.aspx   （书接上回，继续！）   &amp;nbsp;   &amp;nbsp;   五、这个DSL框架有什么问题？   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   有什么问题吗？有一点，并不严重。比如说，我们在Env中声明了一些属性和方法。对于Env这个对象  Env &#x3D; {    max: 100,    min: -3,    calc: function(adj) {      &amp;hellip;    }  }    &amp;nbsp;   我们要在calc()方法中访问max/min属性，应该写成&amp;ldquo;this.max/this.min&amp;rdquo;，这一则是不方便，另外，在用户的dsl代码中还不得不考虑&amp;ldquo;当前this是谁&amp;rdquo;的问题。" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-148.html" />
+    <meta property="article:published_time" content="2009-09-08T09:09:00.000Z" />
+    <meta property="article:modified_time" content="2009-09-08T09:09:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="脚本" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="为脚本语言平反-JavaScript篇（3）">
-    <meta name="twitter:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532496.aspx   （书接上回，继续！）   &amp;nbsp;   &amp;nbsp;   五、这个DSL框架有什么问题？   ===========   有什么问题吗？有一点，并不严重。比如说，我们在Env中声明了一些属性和方法。对于Env这个对象  Env = {    max: 100,    min: -3,    calc: function(adj) {      &amp;hellip;    }  }    &amp;nbsp;   我们要在calc()方法中访问max/min属性，应该写成&amp;ldquo;this.max/this.min&amp;rdquo;，这一则是不方便，另外，在用户的dsl代码中还不得不考虑&amp;ldquo;当前this是谁&amp;rdquo;的问题。">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-148.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, 脚本">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="为脚本语言平反-JavaScript篇（3）" />
+    <meta name="twitter:description" content="http://blog.csdn.net/aimingoo/archive/2009/09/08/4532496.aspx   （书接上回，继续！）   &amp;nbsp;   &amp;nbsp;   五、这个DSL框架有什么问题？   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   有什么问题吗？有一点，并不严重。比如说，我们在Env中声明了一些属性和方法。对于Env这个对象  Env &#x3D; {    max: 100,    min: -3,    calc: function(adj) {      &amp;hellip;    }  }    &amp;nbsp;   我们要在calc()方法中访问max/min属性，应该写成&amp;ldquo;this.max/this.min&amp;rdquo;，这一则是不方便，另外，在用户的dsl代码中还不得不考虑&amp;ldquo;当前this是谁&amp;rdquo;的问题。" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-148.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 脚本" />
     
     <script type="application/ld+json">
 {
@@ -76,15 +77,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-jiao-ben nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +96,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +113,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/yu-yan/">语言</a>, <a href="tag/jiao-ben/">脚本</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/jiao-ben/index.html">脚本</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -150,241 +151,241 @@ ghost.init({
 
 <p>（书接上回，继续！）  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: large;">五、这个DSL框架有什么问题？</span>  </p>
 
-<p><span style="font-size: large;">==========<mark>=</mark></span>  </p>
+<p><span style="font-size: large;">==========<mark>=</span>  </p>
 
-<p><span style="font-size: small;">有什么问题吗？有一点，并不严重。比如说，我们在Env中声明了一些属性和方法。对于Env这个对象 <br>
-<textarea cols="50" rows="15" name="code" class="javascript">Env = { <br>
-  max: 100, <br>
-  min: -3, <br>
-  calc: function(adj) { <br>
-    … <br>
-  } <br>
+<p><span style="font-size: small;">有什么问题吗？有一点，并不严重。比如说，我们在Env中声明了一些属性和方法。对于Env这个对象 <br />
+<textarea cols="50" rows="15" name="code" class="javascript">Env = { <br />
+  max: 100, <br />
+  min: -3, <br />
+  calc: function(adj) { <br />
+    &hellip; <br />
+  } <br />
 }</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">我们要在calc()方法中访问max/min属性，应该写成“this.max/this.min”，这一则是不方便，另外，在用户的dsl代码中还不得不考虑“当前this是谁”的问题。这是问题之一。</span>  </p>
+<p><span style="font-size: small;">我们要在calc()方法中访问max/min属性，应该写成&ldquo;this.max/this.min&rdquo;，这一则是不方便，另外，在用户的dsl代码中还不得不考虑&ldquo;当前this是谁&rdquo;的问题。这是问题之一。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">第二个，我们传入了一个evaluator(),相当于脚本执行器，那么我们能不能在dsl()代码中也使用这个执行器呢？也就是说，我们的dsl不单是“domain-specific language”，也可以是一个“domain-script language”的。</span>  </p>
+<p><span style="font-size: small;">第二个，我们传入了一个evaluator(),相当于脚本执行器，那么我们能不能在dsl()代码中也使用这个执行器呢？也就是说，我们的dsl不单是&ldquo;domain-specific language&rdquo;，也可以是一个&ldquo;domain-script language&rdquo;的。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: small;">第三个问题，我们是不是需要一个类似在JavaScript中的window对象的东西，以便能引用到执行环境的全局。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">这三个问题都应该是在DSL()层面解决的。简单说来，第二、三个问题，实质是在初始化环境environment，使之具有某些在dsl代码中能访问到的性质。所以很容易处理： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br>
-  var dsl = Scope(environment, Weave.call(evaluator, /^/, Block(parser, ‘body’)+’/n/n’)); <br>
-  environment.system = environment; <br>
-  environment[Block(evaluator, 'Name')] = dsl; <br>
-  return Owner(environment, dsl); <br>
+<p><span style="font-size: small;">这三个问题都应该是在DSL()层面解决的。简单说来，第二、三个问题，实质是在初始化环境environment，使之具有某些在dsl代码中能访问到的性质。所以很容易处理： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br />
+  var dsl = Scope(environment, Weave.call(evaluator, /^/, Block(parser, &lsquo;body&rsquo;)+&rsquo;/n/n&rsquo;)); <br />
+  environment.system = environment; <br />
+  environment[Block(evaluator, 'Name')] = dsl; <br />
+  return Owner(environment, dsl); <br />
 }</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">同理的，用户可以在上面这里对environment加入更多性质，这些都是可以在用户的dsl(…)中访问到的。以上面为例，当用户传入的执行器evaluator是一个具名函数的时候，则该函数名会成为dsl(…)环境中的可用的执行函数（类似于exec, execScript或eval等)。例如： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">function myeval() { … } <br>
-dsl = DSL(aEnv, myeval, aParser); <br>
-dsl(function(){ <br>
-  myeval(…); <br>
-});</textarea> <br>
+<p><span style="font-size: small;">同理的，用户可以在上面这里对environment加入更多性质，这些都是可以在用户的dsl(&hellip;)中访问到的。以上面为例，当用户传入的执行器evaluator是一个具名函数的时候，则该函数名会成为dsl(&hellip;)环境中的可用的执行函数（类似于exec, execScript或eval等)。例如： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">function myeval() { &hellip; } <br />
+dsl = DSL(aEnv, myeval, aParser); <br />
+dsl(function(){ <br />
+  myeval(&hellip;); <br />
+});</textarea> <br />
 </span>  </p>
 
 <p><span style="font-size: small;">注意在dsl()访问到的myeval()方法，其实不是用户原始的myeval()，而是上述dsl变量的一个引用。这个，从DSL()函数的实现中可以看到。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">接下来，就是上面三个问题中的第一个，亦即是在calc()方法从必须使用this.max/this.min的问题。事实上，这是因为声明calc方法的时候，该函数位于Env变量所在的全局闭包里面。这样，它就默认只能访问到全局的变量、标识符。所以，解决这个问题的方法，仍然和前面一样：改变它的闭包位置——使用Scope()函数。如下： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br>
-  var dsl = Scope(environment, Weave.call(evaluator, /^/, Block(parser, ‘body’)+’/n/n’)); <br>
-  for (var n in environment) { <br>
-    if (environment[n] instanceof Function) environment[n] = Scope(environment, environment[n]); <br>
-  } <br>
-  … <br>
+<p><span style="font-size: small;">接下来，就是上面三个问题中的第一个，亦即是在calc()方法从必须使用this.max/this.min的问题。事实上，这是因为声明calc方法的时候，该函数位于Env变量所在的全局闭包里面。这样，它就默认只能访问到全局的变量、标识符。所以，解决这个问题的方法，仍然和前面一样：改变它的闭包位置&mdash;&mdash;使用Scope()函数。如下： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">function DSL(environment, evaluator, parser) { <br />
+  var dsl = Scope(environment, Weave.call(evaluator, /^/, Block(parser, &lsquo;body&rsquo;)+&rsquo;/n/n&rsquo;)); <br />
+  for (var n in environment) { <br />
+    if (environment[n] instanceof Function) environment[n] = Scope(environment, environment[n]); <br />
+  } <br />
+  &hellip; <br />
 }</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">现在有了一个新的、完善的DSL()。使用方法与前面是一致的。比如： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">Env = { <br>
-  max: 100, <br>
-  calc: function(adj) { return max + adj },   //可以直接访问max了 <br>
-  show: function(msg) { alert(msg) } <br>
-};  </textarea></span></p>
+<p><span style="font-size: small;">现在有了一个新的、完善的DSL()。使用方法与前面是一致的。比如： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">Env = { <br />
+  max: 100, <br />
+  calc: function(adj) { return max + adj },   //可以直接访问max了 <br />
+  show: function(msg) { alert(msg) } <br />
+};  </p>
 
-<p>dsl = DSL(Env, myeval, myparser); <br>
-dsl(function() { <br>
-  show(calc(30));   //显示130 <br>
-});   </p>
+<p>dsl = DSL(Env, myeval, myparser); <br />
+dsl(function() { <br />
+  show(calc(30));   //显示130 <br />
+});</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">最后，留意一下当调用DSL()的时候，我们标出了”Env”这个全局变量。注意的是，我们直接使用了这个对象。那么它与使用Unique(Env)有什么不同呢？答案是，直接使用Env时，在dsl(…)中的代码可以直接修改到Env中的成员，而如果使用Unique(Env)，则dsl(…)中的代码只会修改到Env的一个副本。这样一来，我们就有机会为不同的dsl语言提供各各独立的环境了——这有点象沙箱。</span>  </p>
+<p><span style="font-size: small;">最后，留意一下当调用DSL()的时候，我们标出了&rdquo;Env&rdquo;这个全局变量。注意的是，我们直接使用了这个对象。那么它与使用Unique(Env)有什么不同呢？答案是，直接使用Env时，在dsl(&hellip;)中的代码可以直接修改到Env中的成员，而如果使用Unique(Env)，则dsl(&hellip;)中的代码只会修改到Env的一个副本。这样一来，我们就有机会为不同的dsl语言提供各各独立的环境了&mdash;&mdash;这有点象沙箱。</span>  </p>
 
-<p><span style="font-size: small;"> </span>  </p>
+<p><span style="font-size: small;">&nbsp;</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: large;">六、变量泄漏？</span>  </p>
 
-<p><span style="font-size: large;">======</span>  </p>
+<p><span style="font-size: large;"></mark>======</span>  </p>
 
-<p><span style="font-size: small;">在JavaScript语言中有一个“根深蒂固”的问题，就是“当在函数内访问一个不存在的变量时，引擎会试图在全局变量环境中打找该变量”。这通常是很多很多烂系统的根源。对于我们上面的dsl语言来说，系统其实只给出了五个标识符：max/calc/show/system/myeval。其中的后面两个，是DSL()函数在“语言引擎层面”提供的，其它的则是Env环境变量提供的。“变量泄漏”带来的直接问题是，对于上面的这个例子，dsl(…)中除了能访问这五个标识符之外，还能访问全局的window/String/Number/Math/RegExp/NaN等等预定义对象和属性。而这，可能根本就不是我们的dsl语言需要的。</span>  </p>
+<p><span style="font-size: small;">在JavaScript语言中有一个&ldquo;根深蒂固&rdquo;的问题，就是&ldquo;当在函数内访问一个不存在的变量时，引擎会试图在全局变量环境中打找该变量&rdquo;。这通常是很多很多烂系统的根源。对于我们上面的dsl语言来说，系统其实只给出了五个标识符：max/calc/show/system/myeval。其中的后面两个，是DSL()函数在&ldquo;语言引擎层面&rdquo;提供的，其它的则是Env环境变量提供的。&ldquo;变量泄漏&rdquo;带来的直接问题是，对于上面的这个例子，dsl(&hellip;)中除了能访问这五个标识符之外，还能访问全局的window/String/Number/Math/RegExp/NaN等等预定义对象和属性。而这，可能根本就不是我们的dsl语言需要的。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: small;">这怎么办呢？</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">由于Unique()得到了Env环境对象的一个副本，而且在dsl(…)中无法通过这个副本来修改原始的Env的成员，也不能delete它。所以如果我们在Env的属性中加入这些“受保护的标识符”，那么dsl(…)就只能访问到Env的这些属性，而不会访问到全局里面的了。下面的代码简单地实现这一效果：</span>  </p>
+<p><span style="font-size: small;">由于Unique()得到了Env环境对象的一个副本，而且在dsl(&hellip;)中无法通过这个副本来修改原始的Env的成员，也不能delete它。所以如果我们在Env的属性中加入这些&ldquo;受保护的标识符&rdquo;，那么dsl(&hellip;)就只能访问到Env的这些属性，而不会访问到全局里面的了。下面的代码简单地实现这一效果：</span>  </p>
 
-<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">Env = { … }; <br>
-protoected = ['window', 'setTimeout', 'setInterval',  //window和Global的成员... <br>
- 'Array', 'Object', 'Function',  // 全局的对象构造器... <br>
- 'null', 'undefined',   //引擎定义的，类似系统关键的... <br>
- 'Env', 'tinyParser', 'dsl', 'myeval' //用户代码环境中的... <br>
-]; <br>
-protoected.forEach(function(item) { this[item] = undefined}, Env);  </textarea></span></p>
+<p><span style="font-size: small;"><textarea cols="50" rows="15" name="code" class="javascript">Env = { &hellip; }; <br />
+protoected = ['window', 'setTimeout', 'setInterval',  //window和Global的成员... <br />
+ 'Array', 'Object', 'Function',  // 全局的对象构造器... <br />
+ 'null', 'undefined',   //引擎定义的，类似系统关键的... <br />
+ 'Env', 'tinyParser', 'dsl', 'myeval' //用户代码环境中的... <br />
+]; <br />
+protoected.forEach(function(item) { this[item] = undefined}, Env);  </p>
 
-<p>dsl = DSL(Unique(Env), myeval, myparser); <br>
-dsl(function() { <br>
-  show(Array); // 显示undefined <br>
-  Array = ‘local defined’; <br>
-  show(Array); // 显示local defined <br>
-});   </p>
+<p>dsl = DSL(Unique(Env), myeval, myparser); <br />
+dsl(function() { <br />
+  show(Array); // 显示undefined <br />
+  Array = &lsquo;local defined&rsquo;; <br />
+  show(Array); // 显示local defined <br />
+});</textarea> </span>  </p>
 
-<p><span style="font-size: small;"> </span>  </p>
+<p><span style="font-size: small;">&nbsp;</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: large;">七、evaluator/parser是不是太简单了？</span>  </p>
 
-<p><span style="font-size: large;">===============<mark></mark></span>  </p>
+<p><span style="font-size: large;">===============<mark></span>  </p>
 
-<p><span style="font-size: small;">当然。我们在evaluator, parser中基本什么也没有做，当然是相当简单的。如果你要做一个完整的DSL，那么你得花一些工夫来做语法解析，并实现在语法树的基础上的代码执行、运行环境的维护等等。我QoBean的DSL()中，主要是提供了一个运行你的代码的基础语言环境，有点象是——嗯——沙箱。</span>  </p>
+<p><span style="font-size: small;">当然。我们在evaluator, parser中基本什么也没有做，当然是相当简单的。如果你要做一个完整的DSL，那么你得花一些工夫来做语法解析，并实现在语法树的基础上的代码执行、运行环境的维护等等。我QoBean的DSL()中，主要是提供了一个运行你的代码的基础语言环境，有点象是&mdash;&mdash;嗯&mdash;&mdash;沙箱。</span>  </p>
 
 <p><span style="font-size: small;">当然，除了沙箱的基本功能之外。DSL()通过environment来维护给用户代码的一组基本标识符（或称为保留字），并保证用户在不同的environment之间不会相互影响。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">除了上述的基本描述之外，我们最后再关注一下evaluator和parser的实现。对于下面的代码： <br>
-<textarea cols="50" rows="15" name="code" class="c-sharp">function myeval(source) { <br>
-  return eval(source); <br>
-}  </textarea></span></p>
-
-<p>function myparser(source){ <br>
-  source = Block(source); <br>
+<p><span style="font-size: small;">除了上述的基本描述之外，我们最后再关注一下evaluator和parser的实现。对于下面的代码： <br />
+<textarea cols="50" rows="15" name="code" class="c-sharp">function myeval(source) { <br />
+  return eval(source); <br />
 }  </p>
 
-<p>dsl(function() { <br>
-  show(min+max); <br>
-  show(calc(min+max)); <br>
-}); <span style="font-size: small;"> <br>
+<p>function myparser(source){ <br />
+  source = Block(source); <br />
+}  </p>
+
+<p>dsl(function() { <br />
+  show(min+max); <br />
+  show(calc(min+max)); <br />
+});</textarea> </span><span style="font-size: small;"> <br />
 </span>  </p>
 
-<p><span style="font-size: small;">实际上的效果是dsl()将红色显示部分的函数作为一个一个参数source，传入myparser()和myeval()。parser通过Block()取出这个函数代码的body部分，然后交给myeval()中的eval()函数执行。也就是说，我们在DSL()中调用Weave()的效果就是，将myparser()和myeval()并在一起，变成了： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">function(source) { <br>
-  source = Block(source); <br>
-  return eval(source); <br>
+<p><span style="font-size: small;">实际上的效果是dsl()将红色显示部分的函数作为一个一个参数source，传入myparser()和myeval()。parser通过Block()取出这个函数代码的body部分，然后交给myeval()中的eval()函数执行。也就是说，我们在DSL()中调用Weave()的效果就是，将myparser()和myeval()并在一起，变成了： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">function(source) { <br />
+  source = Block(source); <br />
+  return eval(source); <br />
 }</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">而dsl()最终执行的就是上面这个匿名函数。更进一步，在environment上也会有一个名为’myeval’的方法，指向这个匿名函数。</span>  </p>
+<p><span style="font-size: small;">而dsl()最终执行的就是上面这个匿名函数。更进一步，在environment上也会有一个名为&rsquo;myeval&rsquo;的方法，指向这个匿名函数。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">但是，首先这里就有一个不小的问题：’source’在这里也是一个标识符。在eval(…)中执行时，代码是可以感知到这个标识符的——而对于dsl(…)中的用户代码，source可能是另外需要的一个标识符，所以这里我们要想办法屏蔽掉对这个变量名的依赖。这其实处理起来很简单： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">function myeval(source) { <br>
-  return eval(arguments[0]); <br>
-}  </textarea></span></p>
+<p><span style="font-size: small;">但是，首先这里就有一个不小的问题：&rsquo;source&rsquo;在这里也是一个标识符。在eval(&hellip;)中执行时，代码是可以感知到这个标识符的&mdash;&mdash;而对于dsl(&hellip;)中的用户代码，source可能是另外需要的一个标识符，所以这里我们要想办法屏蔽掉对这个变量名的依赖。这其实处理起来很简单： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">function myeval(source) { <br />
+  return eval(arguments[0]); <br />
+}  </p>
 
-<p>function myparser(source){ <br>
-  arguments[0] = Block(arguments[0]); <br>
-}   </p>
+<p>function myparser(source){ <br />
+  arguments[0] = Block(arguments[0]); <br />
+}</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: small;">你应该注意到，我们用arguments[0]就可以简单地绕过一个入口参数名的使用了。这个，很简单，也很实用。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">接下来，我们总不能要求用户每次执行dsl(…)时都要传入一个函数吧？我们最终声明的用户的DSL可能是相当怪异的、完全不符合JS的语法的，根本就不能写到一个函数中去，又该怎么办呢？这个问题，显然的——首先的——他该是parser的问题。因此我们也就简单地讲一下扩充myparser()的方法。比如说，我们想实现下面的效果：</span>  </p>
+<p><span style="font-size: small;">接下来，我们总不能要求用户每次执行dsl(&hellip;)时都要传入一个函数吧？我们最终声明的用户的DSL可能是相当怪异的、完全不符合JS的语法的，根本就不能写到一个函数中去，又该怎么办呢？这个问题，显然的&mdash;&mdash;首先的&mdash;&mdash;他该是parser的问题。因此我们也就简单地讲一下扩充myparser()的方法。比如说，我们想实现下面的效果：</span>  </p>
 
 <ol>
-<li><span style="font-size: small;">当dsl(…)传入一个字符串时，让myeval()直接执行该字符串；</span>  </li>
-<li><span style="font-size: small;">当dsl(…)传入一个函数，但函数体内是完整的整块注释时，让myeval()执行这个注释块。</span>  </li>
+<li><span style="font-size: small;">当dsl(&hellip;)传入一个字符串时，让myeval()直接执行该字符串；</span>  </li>
+<li><span style="font-size: small;">当dsl(&hellip;)传入一个函数，但函数体内是完整的整块注释时，让myeval()执行这个注释块。</span>  </li>
 </ol>
 
-<p><span style="font-size: small;">例如如下的调用：  </span></p>
+<p><span style="font-size: small;">例如如下的调用：  </p>
 
-<hr>
+<hr />
 
-<p><textarea cols="50" rows="15" name="code" class="javascript">// 示例1 <br>
-dsl(”/ <br>
-  apple.more-&gt;hi(form) % / <br>
-  tree.clear+&gt;do(function() .. ). / <br>
-“);  </textarea></p>
+<p><textarea cols="50" rows="15" name="code" class="javascript">// 示例1 <br />
+dsl(&rdquo;/ <br />
+  apple.more-&gt;hi(form) % / <br />
+  tree.clear+&gt;do(function() .. ). / <br />
+&ldquo;);  </p>
 
-<p>//示例2 <br>
-dsl(function(){/* <br>
-  apple.more-&gt;hi(form) % <br>
-  tree.clear+&gt;do(function() .. ). <br>
-*/});   </p>
+<p>//示例2 <br />
+dsl(function(){/* <br />
+  apple.more-&gt;hi(form) % <br />
+  tree.clear+&gt;do(function() .. ). <br />
+*/});</textarea> </span>  </p>
 
 <p><span style="font-size: small;"></span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">现在我们需要进一步完善我们的myparser()，提供一个基本的模式来支持这种设计。简单的方法如下： <br>
-<textarea cols="50" rows="15" name="code" class="javascript">function tinyParser(){ <br>
-  switch (typeof arguments[0]) { <br>
-  case ‘function’: <br>
-    arguments[0] = Block(arguments[0]); <br>
-    arguments[0] = arguments[0].replace(/^/s<em>///</em>([/d/D]<em>)/</em>///s<em>$/, ‘$1′); <br>
-    break; <br>
-  } <br>
- /</em> 现在你需要 <br>
-    1、对字符串arguments[0]进行语法分析，形成语法树或符号某种规则的代码块, <br>
-    2、将结果传回arguments[0]。 <br>
-*/ <br>
+<p><span style="font-size: small;">现在我们需要进一步完善我们的myparser()，提供一个基本的模式来支持这种设计。简单的方法如下： <br />
+<textarea cols="50" rows="15" name="code" class="javascript">function tinyParser(){ <br />
+  switch (typeof arguments[0]) { <br />
+  case &lsquo;function&rsquo;: <br />
+    arguments[0] = Block(arguments[0]); <br />
+    arguments[0] = arguments[0].replace(/^/s<em>///</em>([/d/D]<em>)/</em>///s<em>$/, &lsquo;$1&prime;); <br />
+    break; <br />
+  } <br />
+ /</em> 现在你需要 <br />
+    1、对字符串arguments[0]进行语法分析，形成语法树或符号某种规则的代码块, <br />
+    2、将结果传回arguments[0]。 <br />
+*/ <br />
 }</textarea> </span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: small;">当然，由于代码的语法规则改变了，所以myeval()的设计也应该发生相应的变化了。而这些，就应该是DSL语言设计者的工作，而不是QoBean在DSL()框架上要考虑的事情了。</span>  </p>
 
-<p><span style="font-size: small;"> </span>  </p>
+<p><span style="font-size: small;">&nbsp;</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <p><span style="font-size: large;">八、终结：DSL，关键不在用什么语言实现，而在于为什么Domain设计什么样的语言</span>  </p>
 
-<p><span style="font-size: large;">===========</span>  </p>
+<p><span style="font-size: large;"></mark>===========</span>  </p>
 
-<p><span style="font-size: small;">我们用Javascript，只写了不到了10行代码，就实现了一个DSL()的通用框架，但是，我们却没有做出对任何一个真实的Domain有意义的DSL。对于Ruby、Python、Erlang还是Scala，或者更原始的LISP或更新的F#这些基础语言，对他们的选择更多的只是喜好或者出于某些局部的优异与方便的考虑，与我们“设计一个DSL”是没有多大的关系的。一个DSL的设计，在于对领域的、领域相关业务的分析与抽象。在这些分析、抽象的基础上，进行语法设计、语义定义，最终才表现为“怎样的一个语言”。当我们看到这个“表现”的时候，整个DSL的设计都已经结束了——我们接下来只需要构建基本运行库（runtime library），以及其上的应用逻辑就好了。所以，大多数看到某个DSL的人，只是它的实现者和使用者，而不是它的设计者。多数人只是埋头于使用，或者激情于评说，而忘了看看“一个具体DSL的背景”。</span>  </p>
+<p><span style="font-size: small;">我们用Javascript，只写了不到了10行代码，就实现了一个DSL()的通用框架，但是，我们却没有做出对任何一个真实的Domain有意义的DSL。对于Ruby、Python、Erlang还是Scala，或者更原始的LISP或更新的F#这些基础语言，对他们的选择更多的只是喜好或者出于某些局部的优异与方便的考虑，与我们&ldquo;设计一个DSL&rdquo;是没有多大的关系的。一个DSL的设计，在于对领域的、领域相关业务的分析与抽象。在这些分析、抽象的基础上，进行语法设计、语义定义，最终才表现为&ldquo;怎样的一个语言&rdquo;。当我们看到这个&ldquo;表现&rdquo;的时候，整个DSL的设计都已经结束了&mdash;&mdash;我们接下来只需要构建基本运行库（runtime library），以及其上的应用逻辑就好了。所以，大多数看到某个DSL的人，只是它的实现者和使用者，而不是它的设计者。多数人只是埋头于使用，或者激情于评说，而忘了看看&ldquo;一个具体DSL的背景&rdquo;。</span>  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
-<p><span style="font-size: small;">例如，难道DOS批处理不是一个DSL吗？10行的JavaScript难道不就是一个完整的DSL framework吗？如果是，那么我们还有必要讨论“什么是DSL”，以及“怎样的DSL开发环境更好”的问题吗？我们是不是看看“我们在什么Domain”，以及“这个Domain如何描述、如何结构化和如何逻辑驱动之”，这些问题是不是才是更关键的？</span>  </p>
+<p><span style="font-size: small;">例如，难道DOS批处理不是一个DSL吗？10行的JavaScript难道不就是一个完整的DSL framework吗？如果是，那么我们还有必要讨论&ldquo;什么是DSL&rdquo;，以及&ldquo;怎样的DSL开发环境更好&rdquo;的问题吗？我们是不是看看&ldquo;我们在什么Domain&rdquo;，以及&ldquo;这个Domain如何描述、如何结构化和如何逻辑驱动之&rdquo;，这些问题是不是才是更关键的？</span>  </p>
 
-<p><span style="font-size: small;"> </span>  </p>
+<p><span style="font-size: small;">&nbsp;</span>  </p>
 
-<p>上面两个示例中都有一个相同的dsl代码片断——这是一种假想的、完全不符合javascript的规范的新语言。示例1是通过一个字符串传给dsl()的，示例2仍然是通过一个函数，但函数体内是从/<em>..</em>/的一个注释块。  </p>
+<p>上面两个示例中都有一个相同的dsl代码片断&mdash;&mdash;这是一种假想的、完全不符合javascript的规范的新语言。示例1是通过一个字符串传给dsl()的，示例2仍然是通过一个函数，但函数体内是从/<em>..</em>/的一个注释块。  </p>
 
-<p> </p>
+<p>&nbsp;</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -401,7 +402,7 @@ dsl(function(){/* <br>
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-247.html">
                     从“装B被雷劈”讲起
                 </a>
@@ -412,8 +413,8 @@ dsl(function(){/* <br>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -432,14 +433,14 @@ dsl(function(){/* <br>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -455,7 +456,7 @@ dsl(function(){/* <br>
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -469,7 +470,7 @@ dsl(function(){/* <br>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -482,19 +483,20 @@ dsl(function(){/* <br>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

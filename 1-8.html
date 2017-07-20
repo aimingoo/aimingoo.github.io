@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>关于测试与测试工具～</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="关于测试与测试工具～">
-    <meta property="og:description" content="在delphibbs里发布《测试、调试软件软件使用评测计划&amp;middot;评测报告》时(http://www.delphibbs.com/delphibbs/dispq.asp?lid=872413)，讨论到各个(被评测的)工具的优劣，andrewbar希望我能够给他一些测试上的建议。因而我有回复下面的一段文字：   但你要注意的是，用DUnit可能需要花费较长的时间来建立测试应用和测试数据。项目测试不是一两天的活儿。如果你们的头儿没有这样的观念，那就只能将一个半成品投给客户。&amp;mdash;&amp;mdash;这样的项目是很常见的。   AQTest是一个模拟客户行为来综合地进行黑盒测试的好工具。学习使用它，没有半个月是很难的。很多时候，测试的强度取决于客户的需求和项目的进度，而不是象工程中说的那件。   如果项目一开始就没有建立测试机制和计划。以及没有在设计和开发过程中准备测试数据，那么，到测试的时候，问题就出来了。项目也会延期。所以，如果你现在是来补做这件事，那么，已经晚了。如果不赶工期的话，或者你还有时间做一个相对有效的测试。否则，测试报告也只能是应付项目经理和客户的东东了。   测试是一种与开发相等重要的技术，并不是一两个软件就能解决问题的。">
-    <meta property="og:url" content="http://aimingoo.github.io/1-8.html">
-    <meta property="article:published_time" content="2005-12-04T06:42:00.000Z">
-    <meta property="article:modified_time" content="2005-12-04T06:42:00.000Z">
-    <meta property="article:tag" content="工具">
-    <meta property="article:tag" content="测试">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="关于测试与测试工具～" />
+    <meta property="og:description" content="在delphibbs里发布《测试、调试软件软件使用评测计划&amp;middot;评测报告》时(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;872413)，讨论到各个(被评测的)工具的优劣，andrewbar希望我能够给他一些测试上的建议。因而我有回复下面的一段文字：   但你要注意的是，用DUnit可能需要花费较长的时间来建立测试应用和测试数据。项目测试不是一两天的活儿。如果你们的头儿没有这样的观念，那就只能将一个半成品投给客户。&amp;mdash;&amp;mdash;这样的项目是很常见的。   AQTest是一个模拟客户行为来综合地进行黑盒测试的好工具。学习使用它，没有半个月是很难的。很多时候，测试的强度取决于客户的需求和项目的进度，而不是象工程中说的那件。   如果项目一开始就没有建立测试机制和计划。以及没有在设计和开发过程中准备测试数据，那么，到测试的时候，问题就出来了。项目也会延期。所以，如果你现在是来补做这件事，那么，已经晚了。如果不赶工期的话，或者你还有时间做一个相对有效的测试。否则，测试报告也只能是应付项目经理和客户的东东了。   测试是一种与开发相等重要的技术，并不是一两个软件就能解决问题的。" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-8.html" />
+    <meta property="article:published_time" content="2005-12-04T06:42:00.000Z" />
+    <meta property="article:modified_time" content="2005-12-04T06:42:00.000Z" />
+    <meta property="article:tag" content="工具" />
+    <meta property="article:tag" content="测试" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="关于测试与测试工具～">
-    <meta name="twitter:description" content="在delphibbs里发布《测试、调试软件软件使用评测计划&amp;middot;评测报告》时(http://www.delphibbs.com/delphibbs/dispq.asp?lid=872413)，讨论到各个(被评测的)工具的优劣，andrewbar希望我能够给他一些测试上的建议。因而我有回复下面的一段文字：   但你要注意的是，用DUnit可能需要花费较长的时间来建立测试应用和测试数据。项目测试不是一两天的活儿。如果你们的头儿没有这样的观念，那就只能将一个半成品投给客户。&amp;mdash;&amp;mdash;这样的项目是很常见的。   AQTest是一个模拟客户行为来综合地进行黑盒测试的好工具。学习使用它，没有半个月是很难的。很多时候，测试的强度取决于客户的需求和项目的进度，而不是象工程中说的那件。   如果项目一开始就没有建立测试机制和计划。以及没有在设计和开发过程中准备测试数据，那么，到测试的时候，问题就出来了。项目也会延期。所以，如果你现在是来补做这件事，那么，已经晚了。如果不赶工期的话，或者你还有时间做一个相对有效的测试。否则，测试报告也只能是应付项目经理和客户的东东了。   测试是一种与开发相等重要的技术，并不是一两个软件就能解决问题的。">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-8.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="工具, 测试">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="关于测试与测试工具～" />
+    <meta name="twitter:description" content="在delphibbs里发布《测试、调试软件软件使用评测计划&amp;middot;评测报告》时(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;872413)，讨论到各个(被评测的)工具的优劣，andrewbar希望我能够给他一些测试上的建议。因而我有回复下面的一段文字：   但你要注意的是，用DUnit可能需要花费较长的时间来建立测试应用和测试数据。项目测试不是一两天的活儿。如果你们的头儿没有这样的观念，那就只能将一个半成品投给客户。&amp;mdash;&amp;mdash;这样的项目是很常见的。   AQTest是一个模拟客户行为来综合地进行黑盒测试的好工具。学习使用它，没有半个月是很难的。很多时候，测试的强度取决于客户的需求和项目的进度，而不是象工程中说的那件。   如果项目一开始就没有建立测试机制和计划。以及没有在设计和开发过程中准备测试数据，那么，到测试的时候，问题就出来了。项目也会延期。所以，如果你现在是来补做这件事，那么，已经晚了。如果不赶工期的话，或者你还有时间做一个相对有效的测试。否则，测试报告也只能是应付项目经理和客户的东东了。   测试是一种与开发相等重要的技术，并不是一两个软件就能解决问题的。" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-8.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="工具, 测试" />
     
     <script type="application/ld+json">
 {
@@ -75,15 +76,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-gong-ju tag-ce-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -111,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/gong-ju/">工具</a>, <a href="tag/ce-shi/">测试</a>
+                        <a href="tag/gong-ju/index.html">工具</a>, <a href="tag/ce-shi/index.html">测试</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,17 +146,17 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>在delphibbs里发布《测试、调试软件软件使用评测计划·评测报告》时(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=872413">http://www.delphibbs.com/delphibbs/dispq.asp?lid=<strong><font color="#000000">872413</font></strong></a>)，讨论到各个(被评测的)工具的优劣，andrewbar希望我能够给他一些测试上的建议。因而我有回复下面的一段文字：  </p>
+                <p>在delphibbs里发布《测试、调试软件软件使用评测计划&middot;评测报告》时(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=872413">http://www.delphibbs.com/delphibbs/dispq.asp?lid=<strong><font color="#000000">872413</font></strong></a>)，讨论到各个(被评测的)工具的优劣，andrewbar希望我能够给他一些测试上的建议。因而我有回复下面的一段文字：  </p>
 
-<hr>
+<hr />
 
-<p>但你要注意的是，用DUnit可能需要花费较长的时间来建立测试应用和测试数据。项目测试不是一两天的活儿。如果你们的头儿没有这样的观念，那就只能将一个半成品投给客户。——这样的项目是很常见的。  </p>
+<p>但你要注意的是，用DUnit可能需要花费较长的时间来建立测试应用和测试数据。项目测试不是一两天的活儿。如果你们的头儿没有这样的观念，那就只能将一个半成品投给客户。&mdash;&mdash;这样的项目是很常见的。  </p>
 
 <p>AQTest是一个模拟客户行为来综合地进行黑盒测试的好工具。学习使用它，没有半个月是很难的。很多时候，测试的强度取决于客户的需求和项目的进度，而不是象工程中说的那件。  </p>
 
 <p>如果项目一开始就没有建立测试机制和计划。以及没有在设计和开发过程中准备测试数据，那么，到测试的时候，问题就出来了。项目也会延期。所以，如果你现在是来补做这件事，那么，已经晚了。如果不赶工期的话，或者你还有时间做一个相对有效的测试。否则，测试报告也只能是应付项目经理和客户的东东了。  </p>
 
-<p>测试是一种与开发相等重要的技术，并不是一两个软件就能解决问题的。其中的理论和经验都很重要。我实在没有更多的资料能给你，就目前的情况，我的建议还是：按照工程的方法，做一个测试计划，进行一个测试，完成一个报告，交给经理。——全当是学习吧。至于工具，上面的，备选了。</p>
+<p>测试是一种与开发相等重要的技术，并不是一两个软件就能解决问题的。其中的理论和经验都很重要。我实在没有更多的资料能给你，就目前的情况，我的建议还是：按照工程的方法，做一个测试计划，进行一个测试，完成一个报告，交给经理。&mdash;&mdash;全当是学习吧。至于工具，上面的，备选了。</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -172,7 +173,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-9.html">
                     代码规范性与品质问题～
                 </a>
@@ -183,8 +184,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -203,14 +204,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -226,7 +227,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -240,7 +241,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -253,19 +254,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

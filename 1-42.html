@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(七)：Qomo的接口机制</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomolangma实现篇(七)：Qomo的接口机制">
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-42.html">
-    <meta property="article:published_time" content="2006-04-16T20:19:00.000Z">
-    <meta property="article:modified_time" content="2006-04-16T20:19:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="delphi">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomolangma实现篇(七)：Qomo的接口机制" />
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-42.html" />
+    <meta property="article:published_time" content="2006-04-16T20:19:00.000Z" />
+    <meta property="article:modified_time" content="2006-04-16T20:19:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="delphi" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomolangma实现篇(七)：Qomo的接口机制">
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-42.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, delphi">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomolangma实现篇(七)：Qomo的接口机制" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-42.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, delphi" />
     
     <script type="application/ld+json">
 {
@@ -75,15 +76,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-delphi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -111,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/delphi/">delphi</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/delphi/index.html">delphi</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,615 +146,615 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：../../Qomo_team.txt <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：../../Qomo_team.txt <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>一、Qomolangma中的接口(Interface.js) <br>
-~~~~~~~~~~~~~~~~<del>  </del></p>
+<p>一、Qomolangma中的接口(Interface.js) <br />
+~~~~~~~~~~~~~~~~<del>  </p>
 
-<p>在做AOP(面向切面编程)系统之前，我一直在想：有什么必要在JavaScript中做“接口(Interface)”的 <br>
-机制。——当然，这也说明，你可能需要通过阅读迟些提供的、关于AOP框架的文档，才能理解如何使用 <br>
+<p>在做AOP(面向切面编程)系统之前，我一直在想：有什么必要在JavaScript中做&ldquo;接口(Interface)&rdquo;的 <br />
+机制。&mdash;&mdash;当然，这也说明，你可能需要通过阅读迟些提供的、关于AOP框架的文档，才能理解如何使用 <br />
 Qomo中强大的接口机制。^.^  </p>
 
-<p>接口是现代软件工程中的一种常用工具，它的出现使设计人员更多的关注于功能的“对外表现”，而非 <br>
-“内部实现”。在软件模型设计中，类图通常用于描述设计的细部，而接口则更常用于描述模块、层次 <br>
+<p>接口是现代软件工程中的一种常用工具，它的出现使设计人员更多的关注于功能的&ldquo;对外表现&rdquo;，而非 <br />
+&ldquo;内部实现&rdquo;。在软件模型设计中，类图通常用于描述设计的细部，而接口则更常用于描述模块、层次 <br />
 间的交互关系。  </p>
 
-<p>然而这仍然停留在“设计”层面。在C++中，你会看到“接口是抽象类”这样的描述。换个说法，C++认 <br>
-为接口只是“没有实现的类”。如果这样来描述的话，JavaScript中就没有必要实现一个“接口机制”。  </p>
+<p>然而这仍然停留在&ldquo;设计&rdquo;层面。在C++中，你会看到&ldquo;接口是抽象类&rdquo;这样的描述。换个说法，C++认 <br />
+为接口只是&ldquo;没有实现的类&rdquo;。如果这样来描述的话，JavaScript中就没有必要实现一个&ldquo;接口机制&rdquo;。  </p>
 
-<p>所以，我们看到altas中，接口的实现就简单得多。例如： <br>
-<font face="Courier New">  </font></p>
+<p>所以，我们看到altas中，接口的实现就简单得多。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>// 1. 声明接口 <br>
-Web.IArray = function() { <br>
-  this.get_length = Function.abstractMethod; <br>
-  this.getItem = Function.abstractMethod; <br>
-}  </p>
+<p>// 1. 声明接口 <br />
+Web.IArray = function() { <br />
+&nbsp; this.get_length = Function.abstractMethod; <br />
+&nbsp; this.getItem = Function.abstractMethod; <br />
+}</font>  </p>
 
-<p><font face="Courier New">// 2. 注册接口，以及为类注册接口 <br>
-Type.registerInterface("Web.IArray"); <br>
+<p><font face="Courier New">// 2. 注册接口，以及为类注册接口 <br />
+Type.registerInterface(&quot;Web.IArray&quot;); <br />
 Type.registerClass('Web.UI.Data.DataControl', Web.UI.Control, Web.IArray);</font>  </p>
 
-<p><font face="Courier New">// 3. 接口操作(方法) <br>
-Function.prototype.implementsInterface = function(interfaceType) { ... } <br>
-Function.prototype.isImplementedBy = function(instance) { ... } <br>
+<p><font face="Courier New">// 3. 接口操作(方法) <br />
+Function.prototype.implementsInterface = function(interfaceType) { ... } <br />
+Function.prototype.isImplementedBy = function(instance) { ... } <br />
 ---------------</font>  </p>
 
-<p>同样的原因，altas中的接口也仅在极少数的地方得以应用。例如在属性检测(类似反射)时，有这样的 <br>
-代码： <br>
-<font face="Courier New">  </font></p>
+<p>同样的原因，altas中的接口也仅在极少数的地方得以应用。例如在属性检测(类似反射)时，有这样的 <br />
+代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>Web.TypeDescriptor.getProperty = function(instance, propertyName, key) { <br>
-    if (Web.ICustomTypeDescriptor.isImplementedBy(instance)) { <br>
-        return instance.getProperty(propertyName, key); <br>
-    } <br>
-    // ... <br>
-} <br>
----------------  </p>
+<p>Web.TypeDescriptor.getProperty = function(instance, propertyName, key) { <br />
+&nbsp;&nbsp;&nbsp; if (Web.ICustomTypeDescriptor.isImplementedBy(instance)) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return instance.getProperty(propertyName, key); <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp;&nbsp;&nbsp; // ... <br />
+} <br />
+---------------</font>  </p>
 
-<p>我们看到atlas中的接口主要用于“检测一个类(或对象实例)”是否实现过某接口。这用于保障后续代 <br>
-码能安全的执行。本质上，altas是用registerInterface()的机制，来使开发人员不必使用'in'运算来 <br>
-检测属性。因而上面的代码事实上写成这样也没有关系： <br>
-<font face="Courier New">  </font></p>
+<p>我们看到atlas中的接口主要用于&ldquo;检测一个类(或对象实例)&rdquo;是否实现过某接口。这用于保障后续代 <br />
+码能安全的执行。本质上，altas是用registerInterface()的机制，来使开发人员不必使用'in'运算来 <br />
+检测属性。因而上面的代码事实上写成这样也没有关系： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>Web.TypeDescriptor.getProperty = function(instance, propertyName, key) { <br>
-    if ('getProperty' in instance) { <br>
-        return instance.getProperty(propertyName, key); <br>
-    } <br>
-    // ... <br>
-} <br>
----------------  </p>
+<p>Web.TypeDescriptor.getProperty = function(instance, propertyName, key) { <br />
+&nbsp;&nbsp;&nbsp; if ('getProperty' in instance) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return instance.getProperty(propertyName, key); <br />
+&nbsp;&nbsp;&nbsp; } <br />
+&nbsp;&nbsp;&nbsp; // ... <br />
+} <br />
+---------------</font>  </p>
 
-<p>——然而，这仅仅只是“接口机制”应用的一个方面而已。  </p>
+<p>&mdash;&mdash;然而，这仅仅只是&ldquo;接口机制&rdquo;应用的一个方面而已。  </p>
 
-<p>在Qomo中，接口不单单是描述，也是实现。实现的接口(的方法)可以被调用，这与Win32中的COM机制 <br>
+<p>在Qomo中，接口不单单是描述，也是实现。实现的接口(的方法)可以被调用，这与Win32中的COM机制 <br />
 是类同的。Qomo在实现了更加完整的接口特性，并在这样的基础之上，完整地实现了AOP的种种特性。  </p>
 
 <p>与JSEnhance.js一样，Qomo中的Interface.js可以脱离Qomo项目运行。  </p>
 
-<p>二、概念：接口是描述，也是实现 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>二、概念：接口是描述，也是实现 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>接口最基础的定义就是“描述对象的行为”。所以根本上来讲，下面的声明： <br>
-<font face="Courier New">  </font></p>
+<p>接口最基础的定义就是&ldquo;描述对象的行为&rdquo;。所以根本上来讲，下面的声明： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>Web.IArray = function() { <br>
-  this.get<em>length = Function.abstractMethod; <br>
-  this.getItem = Function.abstractMethod; <br>
-} <br>
-Type.registerClass('Web.UI.Data.DataControl', Web.IArray); <br>
---------------- <br>
-将表明下列的含义： <br>
-<font face="Courier New">  - 类Web.UI.Data.DataControl实现了Web.IArray接口 <br>
-  - 类Web.UI.Data.DataControl的实例(instance)将必然具有如下方法：get</font></em>length()和getItem()  </p>
+<p>Web.IArray = function() { <br />
+&nbsp; this.get<em>length = Function.abstractMethod; <br />
+&nbsp; this.getItem = Function.abstractMethod; <br />
+} <br />
+Type.registerClass('Web.UI.Data.DataControl', Web.IArray); <br />
+---------------</font> <br />
+将表明下列的含义： <br />
+<font face="Courier New">&nbsp; - 类Web.UI.Data.DataControl实现了Web.IArray接口 <br />
+&nbsp; - 类Web.UI.Data.DataControl的实例(instance)将必然具有如下方法：get</em>length()和getItem()</font>  </p>
 
-<p>接口描述了对象实例的行为能力，只是接口机制的一个方面。在COM框架、以及一些其它高级语言的接 <br>
-口语义中，接口也表明了一种实现。这种“实现”体现在三个方面： <br>
-  - 用户可以通过接口，来持有一组对象方法的引用 <br>
-  - 用户可以通过聚合、包含和委托等技术，来使对象包含多个接口 <br>
-  - 用户代码可以通过一个接口，来查询“实现接口的对象”的更多接口(以及行为能力)  </p>
+<p>接口描述了对象实例的行为能力，只是接口机制的一个方面。在COM框架、以及一些其它高级语言的接 <br />
+口语义中，接口也表明了一种实现。这种&ldquo;实现&rdquo;体现在三个方面： <br />
+&nbsp; - 用户可以通过接口，来持有一组对象方法的引用 <br />
+&nbsp; - 用户可以通过聚合、包含和委托等技术，来使对象包含多个接口 <br />
+&nbsp; - 用户代码可以通过一个接口，来查询&ldquo;实现接口的对象&rdquo;的更多接口(以及行为能力)  </p>
 
-<p><font face="Courier New">例如(delphi source)：  </font></p>
+<p><font face="Courier New">例如(delphi source)：  </p>
 
-<hr>
+<hr />
 
-<p>type <br>
-  IMyObject = interface <br>
-    // [a guid for COM framework] <br>
-    function run(): boolean; <br>
-  end;  </p>
+<p>type <br />
+&nbsp; IMyObject = interface <br />
+&nbsp;&nbsp;&nbsp; // [a guid for COM framework] <br />
+&nbsp;&nbsp;&nbsp; function run(): boolean; <br />
+&nbsp; end;</font>  </p>
 
-<p><font face="Courier New">  TMyObject = Class(TObject, IMyObject) <br>
-    //... <br>
-  end;</font>  </p>
+<p><font face="Courier New">&nbsp; TMyObject = Class(TObject, IMyObject) <br />
+&nbsp;&nbsp;&nbsp; //... <br />
+&nbsp; end;</font>  </p>
 
-<p><font face="Courier New">var <br>
-  obj : TMyObject; <br>
-  intf : IMyObject;</font>  </p>
+<p><font face="Courier New">var <br />
+&nbsp; obj : TMyObject; <br />
+&nbsp; intf : IMyObject;</font>  </p>
 
-<p><font face="Courier New">// ... <br>
-obj := TMyObject.Create; <br>
-if obj.GetInterface(IMyObject, intf) then <br>
-  intf.run(); <br>
+<p><font face="Courier New">// ... <br />
+obj := TMyObject.Create; <br />
+if obj.GetInterface(IMyObject, intf) then <br />
+&nbsp; intf.run(); <br />
 ---------------</font>  </p>
 
-<p>在这个例子中，接口IMyObject可以用于变量的类型声明。而将intf声明为IMyObject类型，也表明 <br>
-intf接口指针“从对象实例中取得有效的接口实现”。GetInterface()是COM中的QueryInterface() <br>
+<p>在这个例子中，接口IMyObject可以用于变量的类型声明。而将intf声明为IMyObject类型，也表明 <br />
+intf接口指针&ldquo;从对象实例中取得有效的接口实现&rdquo;。GetInterface()是COM中的QueryInterface() <br />
 的另一个实现，用于从obj中取接口引用。  </p>
 
-<p>一旦intf变量成功的获取一个“已实现的接口(一组对象方法指针的引用)”，那么接下来就可以调 <br>
+<p>一旦intf变量成功的获取一个&ldquo;已实现的接口(一组对象方法指针的引用)&rdquo;，那么接下来就可以调 <br />
 用这些接口方法了，例如执行：intf.run()。  </p>
 
-<p>三、Qomo中的接口之一：接口的基本语法及实现 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>三、Qomo中的接口之一：接口的基本语法及实现 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>  1. 接口声明 <br>
-    </p>
+<p>&nbsp; 1. 接口声明 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中的接口声明比较简单，采用与altas(以及其它OOP框架)兼容的代码： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; Qomo中的接口声明比较简单，采用与altas(以及其它OOP框架)兼容的代码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>IMyObject = function() { <br>
-  this.method = Abstract; <br>
-}  </p>
+<p>IMyObject = function() { <br />
+&nbsp; this.method = Abstract; <br />
+}</font>  </p>
 
-<p><font face="Courier New">IMyObject2 = function() { <br>
-  this.method = Abstract; <br>
-  this.method2 = Abstract; <br>
-} <br>
+<p><font face="Courier New">IMyObject2 = function() { <br />
+&nbsp; this.method = Abstract; <br />
+&nbsp; this.method2 = Abstract; <br />
+} <br />
 ---------------</font>  </p>
 
-<p>Abstract是一个在Qomo中全局提供的、类似关键字的函数。这在讲述OOP框架时已经提及过。不过它 <br>
-现在被从Object.js中移到了Interface.js中。Abstract()调用的结果是触发一个异常，这也意味着 <br>
+<p>Abstract是一个在Qomo中全局提供的、类似关键字的函数。这在讲述OOP框架时已经提及过。不过它 <br />
+现在被从Object.js中移到了Interface.js中。Abstract()调用的结果是触发一个异常，这也意味着 <br />
 使用new()创建出的任何一个接口实例，其方法调用都将失败。  </p>
 
-<p>Qomo中允许使用类似继承的方式来声明接口。但Qomo不推荐接口继承，因此如果你希望接口“继承 <br>
-自”其它接口，那么建议用下面的代码来声明： <br>
-<font face="Courier New">  </font></p>
+<p>Qomo中允许使用类似继承的方式来声明接口。但Qomo不推荐接口继承，因此如果你希望接口&ldquo;继承 <br />
+自&rdquo;其它接口，那么建议用下面的代码来声明： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>IMyObjectEx = function() { <br>
-  IMyObject.call(this);  </p>
+<p>IMyObjectEx = function() { <br />
+&nbsp; IMyObject.call(this);</font>  </p>
 
-<p><font face="Courier New">  this.method_ex = Abstract; <br>
-} <br>
----------------</font> <br>
-使用显式的IMyObject.call()的原因，是使得开发人员在阅读代码时能清晰地了解这里有一个继 <br>
-承关系。——换而言之，父级接口的修改将影响到子级接口的声明。  </p>
+<p><font face="Courier New">&nbsp; this.method_ex = Abstract; <br />
+} <br />
+---------------</font> <br />
+使用显式的IMyObject.call()的原因，是使得开发人员在阅读代码时能清晰地了解这里有一个继 <br />
+承关系。&mdash;&mdash;换而言之，父级接口的修改将影响到子级接口的声明。  </p>
 
-<p>当然，这种方式也给一些接口声明带来了方便，例如在Interface.js中声明的： <br>
-<font face="Courier New">  </font></p>
+<p>当然，这种方式也给一些接口声明带来了方便，例如在Interface.js中声明的： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>IAspectedClass = function() { <br>
-  IClass.call(this); <br>
-  IJoPoints.call(this); <br>
-} <br>
----------------  </p>
+<p>IAspectedClass = function() { <br />
+&nbsp; IClass.call(this); <br />
+&nbsp; IJoPoints.call(this); <br />
+} <br />
+---------------</font>  </p>
 
-<p>最后补充一点：不要在接口声明中对构造器加入口参数。因为接口不需要、也不应当通过可变参 <br>
-数来“创建”。  </p>
+<p>最后补充一点：不要在接口声明中对构造器加入口参数。因为接口不需要、也不应当通过可变参 <br />
+数来&ldquo;创建&rdquo;。  </p>
 
-<p>  2. 接口注册 <br>
-    </p>
+<p>&nbsp; 2. 接口注册 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中接口注册有两种形式： <br>
-<font face="Courier New">    - Interface.RegisterInterface(obj, intf1 [, intf2 ... intfn]); <br>
-    - Class(&lt;BaseClass&gt;, &lt;ConstructorName&gt; [, intf1 .. intfn]);</font>  </p>
+<p>&nbsp; Qomo中接口注册有两种形式： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; - Interface.RegisterInterface(obj, intf1 [, intf2 ... intfn]); <br />
+&nbsp;&nbsp;&nbsp; - Class(&lt;BaseClass&gt;, &lt;ConstructorName&gt; [, intf1 .. intfn]);</font>  </p>
 
-<p>第一种形式可以为任何的JavaScript对象，包括原生的对象、函数等注册接口。这种形式存在一 <br>
-个完全等义的全局函数RegisterInterface()。——事实上这指向同一个函数——在Qomo的内部代 <br>
+<p>第一种形式可以为任何的JavaScript对象，包括原生的对象、函数等注册接口。这种形式存在一 <br />
+个完全等义的全局函数RegisterInterface()。&mdash;&mdash;事实上这指向同一个函数&mdash;&mdash;在Qomo的内部代 <br />
 码中，只使用Interface.RegisterInterface()这种完整形式。  </p>
 
-<p>第二种形式在Object.js中实现。Interface.js中用了少量的代码来使得“类的所有实例、和子类 <br>
-拥有相同的接口”。如果你使用Qomo的OOP系统，那么只需要在调用Class()进行类注册的时候加 <br>
+<p>第二种形式在Object.js中实现。Interface.js中用了少量的代码来使得&ldquo;类的所有实例、和子类 <br />
+拥有相同的接口&rdquo;。如果你使用Qomo的OOP系统，那么只需要在调用Class()进行类注册的时候加 <br />
 上一个实现的接口表即可。  </p>
 
-<p>可以通过Aggregate()来注册“聚合的”接口，这一部分放在后面单独讲述。  </p>
+<p>可以通过Aggregate()来注册&ldquo;聚合的&rdquo;接口，这一部分放在后面单独讲述。  </p>
 
 <p>作为特例：对undefined和null对象注册接口返回一个-1值。  </p>
 
-<p>  3. 接口查询 <br>
-    </p>
+<p>&nbsp; 3. 接口查询 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo中可用下面的形式来获取对象(含Qomo和原生的JavaScript对象)的注册接口： <br>
-<font face="Courier New">    - Interface.QueryInterface(obj, aInterface);</font>  </p>
+<p>&nbsp; Qomo中可用下面的形式来获取对象(含Qomo和原生的JavaScript对象)的注册接口： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; - Interface.QueryInterface(obj, aInterface);</font>  </p>
 
-<p>与注册过程相同，接口查询也有一个完全等义的全局函数QueryInterface()，并且Qomo内部只使 <br>
+<p>与注册过程相同，接口查询也有一个完全等义的全局函数QueryInterface()，并且Qomo内部只使 <br />
 用完整形式的调用。  </p>
 
-<p>QueryInterface()将返回一个接口的实现，也就是一个可以调用的接口(对象/指针)。例： <br>
-<font face="Courier New">  </font></p>
+<p>QueryInterface()将返回一个接口的实现，也就是一个可以调用的接口(对象/指针)。例： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyObject() { } <br>
-TMyObject = Class(TObject, 'MyObject');  </p>
+<p>function MyObject() { } <br />
+TMyObject = Class(TObject, 'MyObject');</font>  </p>
 
-<p><font face="Courier New">var obj = new MyObject(); <br>
+<p><font face="Courier New">var obj = new MyObject(); <br />
 var intf = QueryInterface(obj, IObject);</font>  </p>
 
-<p><font face="Courier New">document.writeln(intf.hasAttribute('Name')); <br>
-// output: false <br>
+<p><font face="Courier New">document.writeln(intf.hasAttribute('Name')); <br />
+// output: false <br />
 ---------------</font>  </p>
 
-<p>如果查询null或undefined的接口，或者传入了无效的、未注册的接口同，QueryInterface()将 <br>
-抛出异常。如果返回undefined，则表明不包含该接口。——此时在用户代码中，该接口引用应 <br>
+<p>如果查询null或undefined的接口，或者传入了无效的、未注册的接口同，QueryInterface()将 <br />
+抛出异常。如果返回undefined，则表明不包含该接口。&mdash;&mdash;此时在用户代码中，该接口引用应 <br />
 该不被继续处理，而不是盲处理。  </p>
 
-<p>QueryInterface()能够查询通过Aggregate()来注册“聚合的”接口。  </p>
+<p>QueryInterface()能够查询通过Aggregate()来注册&ldquo;聚合的&rdquo;接口。  </p>
 
-<p>  4. 其它 <br>
-    </p>
+<p>&nbsp; 4. 其它 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  接口系统提供一个函数来检测一个“声明”是否是接口。如果要在QueryInterface()之前检测一 <br>
-个接口是否被注册过，可以使用如下函数(返回true/false)： <br>
-<font face="Courier New">  - Interface.IsInterface(intf);</font>  </p>
+<p>&nbsp; 接口系统提供一个函数来检测一个&ldquo;声明&rdquo;是否是接口。如果要在QueryInterface()之前检测一 <br />
+个接口是否被注册过，可以使用如下函数(返回true/false)： <br />
+<font face="Courier New">&nbsp; - Interface.IsInterface(intf);</font>  </p>
 
-<p>如果一段声明代码没有(隐式地)被注册到Qomo系统中，那么使用该声明来QueryInterface()会导致 <br>
-一个异常。——将“接口声明”注册到Qomo的行为隐式地包含在RegisterInterface()和Class()等 <br>
+<p>如果一段声明代码没有(隐式地)被注册到Qomo系统中，那么使用该声明来QueryInterface()会导致 <br />
+一个异常。&mdash;&mdash;将&ldquo;接口声明&rdquo;注册到Qomo的行为隐式地包含在RegisterInterface()和Class()等 <br />
 调用的过程中。  </p>
 
-<p>如果你真的需要在一个接口被实现之前就注册它，那么你可以将它注册给IInterface。尽管这看起 <br>
-来不怎么合理，但在Qomo中，这是唯一能被理解的方式： <br>
-<font face="Courier New">  </font></p>
+<p>如果你真的需要在一个接口被实现之前就注册它，那么你可以将它注册给IInterface。尽管这看起 <br />
+来不怎么合理，但在Qomo中，这是唯一能被理解的方式： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>IMyCustomIntf = function() { ... }; <br>
-Interface.RegisterInterface(IInterface, IMyCustomIntf); <br>
----------------  </p>
+<p>IMyCustomIntf = function() { ... }; <br />
+Interface.RegisterInterface(IInterface, IMyCustomIntf); <br />
+---------------</font>  </p>
 
-<p>在Qomo内核中是具有“将声明直接注册(封装)成接口”的能力的，这就是Interface.js中实现过的 <br>
-warpInterface()函数。但它不提供给用户代码使用。系统中通过这种方法注册的接口包括： <br>
-<font face="Courier New">  - IInterface <br>
-  - IJoPoint <br>
-  - IMuEvent <br>
-  - IJoPoints</font> <br>
-如果需要，你可以将自己需要(预先)注册的接口加入到Interface.js的代码中。当然，这并不是一 <br>
+<p>在Qomo内核中是具有&ldquo;将声明直接注册(封装)成接口&rdquo;的能力的，这就是Interface.js中实现过的 <br />
+warpInterface()函数。但它不提供给用户代码使用。系统中通过这种方法注册的接口包括： <br />
+<font face="Courier New">&nbsp; - IInterface <br />
+&nbsp; - IJoPoint <br />
+&nbsp; - IMuEvent <br />
+&nbsp; - IJoPoints</font> <br />
+如果需要，你可以将自己需要(预先)注册的接口加入到Interface.js的代码中。当然，这并不是一 <br />
 种推荐的形式。  </p>
 
-<p>Qomo提供一些对接口的演示和示例。在Qomo代码包中： <br>
-<font face="Courier New">  /Framework/DOCUMENTs/T<em>InterfaceQuery.html     : 演示接口机制的基本原理 <br>
-  /Framework/DOCUMENTs/T</em>InterfaceAggregate.html : 演示脱离Qomo使用接口、聚合的基本使用 <br>
-  /Framework/DOCUMENTs/BaseObjectDemo4.html      : Qomo中的接口系统的使用示例和基本特性</font>  </p>
+<p>Qomo提供一些对接口的演示和示例。在Qomo代码包中： <br />
+<font face="Courier New">&nbsp; /Framework/DOCUMENTs/T<em>InterfaceQuery.html&nbsp;&nbsp;&nbsp;&nbsp; : 演示接口机制的基本原理 <br />
+&nbsp; /Framework/DOCUMENTs/T</em>InterfaceAggregate.html : 演示脱离Qomo使用接口、聚合的基本使用 <br />
+&nbsp; /Framework/DOCUMENTs/BaseObjectDemo4.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Qomo中的接口系统的使用示例和基本特性</font>  </p>
 
-<p>四、Qomo中的接口之二：(内部)聚合接口的语法 <br>
-~~~~~~~~~~~~~~<del>  </del></p>
+<p>四、Qomo中的接口之二：(内部)聚合接口的语法 <br />
+</del>~~~~~~~~~~~~~~<del>  </p>
 
-<p>在COM中，分离接口的方法包括“聚合”和“包含”；在Delphi中，在编译器级别提出了“委托”来 <br>
+<p>在COM中，分离接口的方法包括&ldquo;聚合&rdquo;和&ldquo;包含&rdquo;；在Delphi中，在编译器级别提出了&ldquo;委托&rdquo;来 <br />
 实现接口分离的技术。三者之间只是实现技术和时间上的差异，其效果是基本一致的。  </p>
 
-<p>基本上来说，接口隔离原则(Interface Segregation Principle)基于“使用多个专门的接口比使用 <br>
-单一的总接口总要好”。因此，这事实上是使一个对象同时具有多个接口的技术。在Qomo中，下面两 <br>
-种语法都可以实现这个目标： <br>
-<font face="Courier New">    - Interface.RegisterInterface(obj, intf1 [, intf2 ... intfn]); <br>
-    - Class(&lt;BaseClass&gt;, &lt;ConstructorName&gt; [, intf1 .. intfn]);</font>  </p>
+<p>基本上来说，接口隔离原则(Interface Segregation Principle)基于&ldquo;使用多个专门的接口比使用 <br />
+单一的总接口总要好&rdquo;。因此，这事实上是使一个对象同时具有多个接口的技术。在Qomo中，下面两 <br />
+种语法都可以实现这个目标： <br />
+<font face="Courier New">&nbsp;&nbsp;&nbsp; - Interface.RegisterInterface(obj, intf1 [, intf2 ... intfn]); <br />
+&nbsp;&nbsp;&nbsp; - Class(&lt;BaseClass&gt;, &lt;ConstructorName&gt; [, intf1 .. intfn]);</font>  </p>
 
-<p>然而，这两种接口注册的方式要求对象／类显示的具有接口指定的方法。也就是说：如果对象obj注册 <br>
+<p>然而，这两种接口注册的方式要求对象／类显示的具有接口指定的方法。也就是说：如果对象obj注册 <br />
 了接口intf，则 intf.XXXXX 方法将直接指向obj.XXXXX方法。  </p>
 
-<p>然而，我们举个例子来说: TMyObject作为类，总是有对象构造过程的，这表明TMyObject应该具备这 <br>
-样接口： <br>
-<font face="Courier New">  </font></p>
+<p>然而，我们举个例子来说: TMyObject作为类，总是有对象构造过程的，这表明TMyObject应该具备这 <br />
+样接口： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>IObjectConstructor = function() { <br>
-  this.OnNewInstance = Abstract; <br>
-} <br>
----------------  </p>
+<p>IObjectConstructor = function() { <br />
+&nbsp; this.OnNewInstance = Abstract; <br />
+} <br />
+---------------</font>  </p>
 
-<p>但我们也知道，我们不能把一个OnNewInstnace事件放在TMyObject类上，或者放在obj实例上。——因 <br>
-为它并不是实例的使用者所关注的。而且，更重要的是，“对象构造过程”在Qomo中被隐含在Class() <br>
-的实现代码内部，我们需要一种机制将它的这个能力public出来，这样才能做到“接口是实现”。  </p>
+<p>但我们也知道，我们不能把一个OnNewInstnace事件放在TMyObject类上，或者放在obj实例上。&mdash;&mdash;因 <br />
+为它并不是实例的使用者所关注的。而且，更重要的是，&ldquo;对象构造过程&rdquo;在Qomo中被隐含在Class() <br />
+的实现代码内部，我们需要一种机制将它的这个能力public出来，这样才能做到&ldquo;接口是实现&rdquo;。  </p>
 
-<p>在Delphi中，接口的声明方法可以“在对象的私有域中实现”。这时可以通过接口“在对象／单元外” <br>
-访问该方法。这体现了“接口表现对象的能力，而不关注具体实现(是私有、公有或者委托)”这一接口 <br>
+<p>在Delphi中，接口的声明方法可以&ldquo;在对象的私有域中实现&rdquo;。这时可以通过接口&ldquo;在对象／单元外&rdquo; <br />
+访问该方法。这体现了&ldquo;接口表现对象的能力，而不关注具体实现(是私有、公有或者委托)&rdquo;这一接口 <br />
 的基本原则。  </p>
 
-<p>在Qomo中，综合上述的这些问题及其解决方案，实现了“(内部的)聚合接口”这一特殊的机制。  </p>
+<p>在Qomo中，综合上述的这些问题及其解决方案，实现了&ldquo;(内部的)聚合接口&rdquo;这一特殊的机制。  </p>
 
-<p>  1. 声明聚合(在函数内部) <br>
-    </p>
+<p>&nbsp; 1. 声明聚合(在函数内部) <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  Qomo的聚合首先是“为了表现目标的内部具备的行为能力”而提供的。而JavaScript中，提供行为能 <br>
-力的，只有对象(构造器)和函数。因此，“声明聚合”的行为通常应当发生在一个函数的内部。例如： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp; Qomo的聚合首先是&ldquo;为了表现目标的内部具备的行为能力&rdquo;而提供的。而JavaScript中，提供行为能 <br />
+力的，只有对象(构造器)和函数。因此，&ldquo;声明聚合&rdquo;的行为通常应当发生在一个函数的内部。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyFunc() { <br>
-  // Aggregate()与RegisterInterface()有相同的入口参数 <br>
-  var intfs = Aggregate(MyFunc, intf1 [, intf2 .. intfn]); <br>
-} <br>
----------------  </p>
-
-<p>由于这会导致每次执行MyFunc都会调用Aggregate()，因此Qomo推荐如下的语法来声明一个带有聚合接口 <br>
-的函数： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>MyFunc = function () { <br>
-  function _MyFunc() { <br>
-    // (函数自身的实现代码...) <br>
-  }  </p>
-
-<p><font face="Courier New">  var intfs = Aggregate(_MyFunc, intf1 [, intf2 .. intfn]); <br>
-  // (实现接口 ...)</font>  </p>
-
-<p><font face="Courier New">  return _MyFunc; <br>
-}(); <br>
+<p>function MyFunc() { <br />
+&nbsp; // Aggregate()与RegisterInterface()有相同的入口参数 <br />
+&nbsp; var intfs = Aggregate(MyFunc, intf1 [, intf2 .. intfn]); <br />
+} <br />
 ---------------</font>  </p>
 
-<p>由于这样做仅是为了避免重复地调用Aggregate()，因此事实上用户也可以这样来声明(尽管同样麻烦)： <br>
-<font face="Courier New">  </font></p>
+<p>由于这会导致每次执行MyFunc都会调用Aggregate()，因此Qomo推荐如下的语法来声明一个带有聚合接口 <br />
+的函数： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>function MyFunc () { <br>
-  if (a<em>aggregated</em>tag <mark> false) { <br>
-    var intfs = Aggregate(<em>MyFunc, intf1 [, intf2 .. intfn]); <br>
-    // (实现接口 ...) <br>
-    a</em>aggregated_tag = true; <br>
-  }  </mark></p>
+<p>MyFunc = function () { <br />
+&nbsp; function _MyFunc() { <br />
+&nbsp;&nbsp;&nbsp; // (函数自身的实现代码...) <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  // (函数自身的实现代码...) <br>
-} <br>
+<p><font face="Courier New">&nbsp; var intfs = Aggregate(_MyFunc, intf1 [, intf2 .. intfn]); <br />
+&nbsp; // (实现接口 ...)</font>  </p>
+
+<p><font face="Courier New">&nbsp; return _MyFunc; <br />
+}(); <br />
 ---------------</font>  </p>
 
-<p>  2. 实现接口 <br>
-    </p>
+<p>由于这样做仅是为了避免重复地调用Aggregate()，因此事实上用户也可以这样来声明(尽管同样麻烦)： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  Aggregate()只是建立对象与接口之间的关系并返回一个“Interfaces对象”，这个接口集合中所有的 <br>
-接口都是未被实现过的。这仍然需要由用户代码来完成，例如： <br>
-<font face="Courier New">  </font></p>
+<p>function MyFunc () { <br />
+&nbsp; if (a<em>aggregated</em>tag <mark> false) { <br />
+&nbsp;&nbsp;&nbsp; var intfs = Aggregate(<em>MyFunc, intf1 [, intf2 .. intfn]); <br />
+&nbsp;&nbsp;&nbsp; // (实现接口 ...) <br />
+&nbsp;&nbsp;&nbsp; a</em>aggregated_tag = true; <br />
+&nbsp; }</font>  </p>
 
-<hr>
-
-<p>IMyFunc = function() { <br>
-  this.getLength = Abstract; <br>
-}  </p>
-
-<p><font face="Courier New">MyFunc = function () { <br>
-  var arr = new Array(5);</font>  </p>
-
-<p><font face="Courier New">  function _MyFunc() { <br>
-    // (函数自身的实现代码...) <br>
-  }</font>  </p>
-
-<p><font face="Courier New">  // 0). 声明聚合 <br>
-  var intfs = Aggregate(_MyFunc, IMyFunc); <br>
-  // 1). 取指定接口的一个引用 <br>
-  var intf = intfs.GetInterface(IMyFunc); <br>
-  // 2). 实现接口方法 <br>
-  intf.getLength = function() { <br>
-    return arr.length; <br>
-  }</font>  </p>
-
-<p><font face="Courier New">  return _MyFunc; <br>
-}(); <br>
+<p><font face="Courier New">&nbsp; // (函数自身的实现代码...) <br />
+} <br />
 ---------------</font>  </p>
 
-<p>上面的代码中，“Interfaces对象”intfs的GetInterface()方法用于得到一个接口的引用，而接下来的 <br>
-代码则描述该接口如何被实现。——在这里，可以使用“聚合”、“包含”或者“委托”这些技术之一。 <br>
-(目前，)Qomo没有直接提供这三种技术的实现方案，只是“老老实实地”逐一实现了该接口的各个方法。  </p>
+<p>&nbsp; 2. 实现接口 <br />
+&nbsp;   </p>
 
-<p>  3. 使用接口 <br>
-    </p>
+<hr />
 
-<hr>
+<p>&nbsp; Aggregate()只是建立对象与接口之间的关系并返回一个&ldquo;Interfaces对象&rdquo;，这个接口集合中所有的 <br />
+接口都是未被实现过的。这仍然需要由用户代码来完成，例如： <br />
+<font face="Courier New">  </p>
 
-<p>  前面已经提到过，Aggregate()内部聚合的接口的使用，与普通注册的接口是一样的。如上例： <br>
-<font face="Courier New">  </font></p>
+<hr />
 
-<hr>
-
-<p>var intf = Interface.QueryInterface(MyFunc, IMyFunc); <br>
-document.writeln('the length is: ', intf.getLength()); <br>
----------------  </p>
-
-<p>五、Qomo中的接口之三：接口的实现 <br>
-~~~~~~~~~~~~~~~~  </p>
-
-<p>  接口的使用示例请参见/Framework/DOCUMENTs/BaseObjectDemo4.html。内部聚合技术的使用示例可 <br>
-参见/Framework/DOCUMENTs/T_InterfaceAggregate.html。下面讲述Qomo中实现这些技术的一些细节。  </p>
-
-<p>  1. 基本接口功能的实现 <br>
-    </p>
-
-<hr>
-
-<p>Qomo中的接口采用这样的结构来实现Interface关键字及相关的语法： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>Interface = function() { <br>
-  //...  </p>
-
-<p><font face="Courier New">  function <em>Interface(obj) { /* Intf1 .. Intfn */ <br>
-    //... <br>
-  } <br>
-  _Interface.QueryInterface = function(obj, intf) { ... } <br>
-  _Interface.RegisterInterface =</em>Interface; <br>
-  _Interface.IsInterface = isInterface;</font>  </p>
-
-<p><font face="Courier New">  return _Interface; <br>
-}(); <br>
----------------</font>  </p>
-
-<p>其中<em>Interface()用于实现RegisterInterface()与Interface()，它们是等义的。</em>Interface()首先 <br>
-调用warpInterface()将除第一个参数之外的其它参数转变成接口，这其实是在该接口声明(函数)上附 <br>
-加一个'<em>INTFHANDLE</em>'属性。——这是目前为止Qomo中唯一尝试改变对象对外的属性的地方。  </p>
-
-<p>由于接口本身只是“声明”而不能直接引用，因此加上该属性并不会导致什么麻烦。在warpInterface() <br>
-对该属性做了检测，以避免用户通过修改这个值来伪造、套取接口。——尽管这对用户来说也没有什么 <br>
-意义。^.^  </p>
-
-<p>warpInterface()是真正实现RegisterInterface()的关键代码。_Interface()中的另一部分代码用于处 <br>
-理与"聚合接口(Aggregate)"相关的一些逻辑。——这在后面进一步叙述。  </p>
-
-<p>接口中另一个重要的函数是_Interface.QueryInterface。它的实现相对要复杂些，因为它要处理： <br>
-<font face="Courier New">  - 对象的接口可以在类注册中通过Class()注册到指定的类，而不必为每一个对象实例注册； <br>
-  - Qomo对象或者其它JavaScript原生对象都可以具有自己的接口注册； <br>
-  - 函数可以注册内部的聚合接口。 <br>
-QueryInterface()必要有能力从所有这些可能注册过接口的“对象”中查询到接口。而且还要返回该 <br>
-接口的一个“有效的、能调用接口方法的”实现。</font>  </p>
-
-<p>“实现接口”的基本原理可以参见/Framework/DOCUMENTs/T<em>InterfaceQuery.html。其基本步骤是： <br>
-<font face="Courier New">  - 创建指定接口的实例：intf = new IYour</font></em>Intf(); <br>
-  - 为接口的每一个“虚方法”重新封装一个调用方法，该方法将实现该接口的对象的同名方法； <br>
-  - 特殊处理：任何对象都可以有IInterface接口，将持有QueryInterface()的一个引用。  </p>
-
-<p>  2. 聚合接口功能的实现 <br>
-    </p>
-
-<hr>
-
-<p>在对_Interface()的实现过程中特殊处理了Aggregate()： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>    // register aggregated interfacds. is special! <br>
-    if ((typeof obj  'function') || (obj instanceof Function)) { <br>
-      if (<em>Interface.caller<mark>=Aggregate &amp;&amp; this!</mark>Aggregate) { <br>
-        // ... <br>
-      } <br>
-    } <br>
---------------- <br>
-也就是说如果： <br>
-<font face="Courier New">  - "obj"是一个函数对象，且 <br>
-  - 通过调用Aggregate()函数来注册它的接口，且 <br>
-  - this对象不是Aggregate()自身</font> <br>
-则</em>Interface()将尝试把目标对象"obj"与一个"Interfaces"对象(this)分别添加到两个数组： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>   $Aggrs.push(obj);   // 拥有接口的对象(总是一个函数) <br>
-   $Aggri.push(this);  // 所拥有的接口集合对象 <br>
----------------  </p>
-
-<p>而在Aggregate()工具函数中，将两次调用Interface.RegisterInterface()，也就是前面提到的 <br>
-_Interface()函数。这两次调用的作用并不一样：  </p>
-
-<p>第一次采用标准格式调用RegisterInterface()，这时传入的this将是_Aggregate()函数的引用： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>      Interface.RegisterInterface.apply(_Aggregate, arguments); <br>
---------------- <br>
-代码中，由于Aggregate()与RegisterInterface()的入口参数声明是一样的，因此apply()的第 <br>
-二个参数直接使用了arguments。这样就首先将接口注册到了指定的对象上。  </p>
-
-<p>第二次采用特殊格式调用RegisterInterface()，这时传入的this将是“接口集合”Interfaces <br>
-的一个实例，而唯一的一个入口参数foo，将指向被注册接口的函数对象引用： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>      return Interface.RegisterInterface.call(new Interfaces(arguments), foo); <br>
---------------- <br>
-这次调用，RegisterInterface()将返回传入的this，也就是“接口集合”对象。这样做只是为了 <br>
-省掉在_Aggregate()中一个临时变量。  </p>
-
-<p>上面的代码流程表明，一个“(内部的)聚合接口”至少具有拥有如下信息： <br>
-<font face="Courier New">  - 一个Interfaces对象。用于存放所有实现过的接口列表； <br>
-  - 在_Interface()中的Interfaces与foo的对照表“$Aggrs与$Aggri”中存放一对信息。用于实 <br>
-    现getAggrInterfaces()函数，并用于支持QueryInterface()对该函数foo的查询； <br>
-  - 在实现接口的函数内部，持有Interfaces对象的一个引用。它用于各接口的实现。</font>  </p>
-
-<p>五、其它 <br>
-~~~~~~~~~~~~~~~~~~  </p>
-
-<p>  1. 缺省注册的接口 <br>
-    </p>
-
-<hr>
-
-<p>Qomo为的一些全局对象、函数和基类注册了缺省的接口。这些接口定义在Interface.js中。缺 <br>
-省注册的对象包括： <br>
-<font face="Courier New">  注册到        接口             说明 <br>
-    </font></p>
-
-<hr>
-
-<p>  *             IInterface       包括undefined、null在内的所有JS原生对象和Qomo对象等 <br>
-  $import()     IImport          (beta版暂未实现) <br>
-  MuEvent()     IMuEvent         所有多投事件句柄: 由MuEvent()构造的实例(beta版暂未实现) <br>
-  JoPoint()     IJoPoint         所有的联接点: 由JoPoint()构造的实例 <br>
-  TObject()     IObject          Qomo OOP系统的基类 <br>
-  TClass        IClass           所有通过Class()注册的类 <br>
-  Class()       IClassRegister   类注册函数 <br>
-  Class()等     IJoPoints        Qomo内部为一些能提供AOP能力的函数注册了IJoPoints接口 <br>
-  Aspect()      IAspect          Qomo AOP系统的切面基类  </p>
-
-<p>  2. 如何为特定的对象(如JavaScript原生对象)注册接口 <br>
-    </p>
-
-<hr>
-
-<p>  在Qomo的(目前的)发布版本中，对一些JavaScript原生对象未提供接口支持。例如对Array()对象。 <br>
-这只是因为Qomo没有觉察到这样做的必要，因而没有加入相关的代码。这在技术实现上其实非常简 <br>
-单。下面参考对MuEvent()的实现，介绍一下Array()的接口实现方法： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>// 以下代码填写在interface.js中  </p>
-
-<p><font face="Courier New">// 1. 接口声明 <br>
-IArray = function() { <br>
-  this.push = Abstract; <br>
-  this.pop = Abstract; <br>
-  // ... <br>
+<p>IMyFunc = function() { <br />
+&nbsp; this.getLength = Abstract; <br />
 }</font>  </p>
 
-<p><font face="Courier New">// 2. Interface()的实现代码中，warpInterface()函数声明之后加入代码 <br>
+<p><font face="Courier New">MyFunc = function () { <br />
+&nbsp; var arr = new Array(5);</font>  </p>
+
+<p><font face="Courier New">&nbsp; function _MyFunc() { <br />
+&nbsp;&nbsp;&nbsp; // (函数自身的实现代码...) <br />
+&nbsp; }</font>  </p>
+
+<p><font face="Courier New">&nbsp; // 0). 声明聚合 <br />
+&nbsp; var intfs = Aggregate(_MyFunc, IMyFunc); <br />
+&nbsp; // 1). 取指定接口的一个引用 <br />
+&nbsp; var intf = intfs.GetInterface(IMyFunc); <br />
+&nbsp; // 2). 实现接口方法 <br />
+&nbsp; intf.getLength = function() { <br />
+&nbsp;&nbsp;&nbsp; return arr.length; <br />
+&nbsp; }</font>  </p>
+
+<p><font face="Courier New">&nbsp; return _MyFunc; <br />
+}(); <br />
+---------------</font>  </p>
+
+<p>上面的代码中，&ldquo;Interfaces对象&rdquo;intfs的GetInterface()方法用于得到一个接口的引用，而接下来的 <br />
+代码则描述该接口如何被实现。&mdash;&mdash;在这里，可以使用&ldquo;聚合&rdquo;、&ldquo;包含&rdquo;或者&ldquo;委托&rdquo;这些技术之一。 <br />
+(目前，)Qomo没有直接提供这三种技术的实现方案，只是&ldquo;老老实实地&rdquo;逐一实现了该接口的各个方法。  </p>
+
+<p>&nbsp; 3. 使用接口 <br />
+&nbsp;   </p>
+
+<hr />
+
+<p>&nbsp; 前面已经提到过，Aggregate()内部聚合的接口的使用，与普通注册的接口是一样的。如上例： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>var intf = Interface.QueryInterface(MyFunc, IMyFunc); <br />
+document.writeln('the length is: ', intf.getLength()); <br />
+---------------</font>  </p>
+
+<p>五、Qomo中的接口之三：接口的实现 <br />
+</del>~~~~~~~~~~~~~~~~  </p>
+
+<p>&nbsp; 接口的使用示例请参见/Framework/DOCUMENTs/BaseObjectDemo4.html。内部聚合技术的使用示例可 <br />
+参见/Framework/DOCUMENTs/T_InterfaceAggregate.html。下面讲述Qomo中实现这些技术的一些细节。  </p>
+
+<p>&nbsp; 1. 基本接口功能的实现 <br />
+&nbsp;   </p>
+
+<hr />
+
+<p>Qomo中的接口采用这样的结构来实现Interface关键字及相关的语法： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>Interface = function() { <br />
+&nbsp; //...</font>  </p>
+
+<p><font face="Courier New">&nbsp; function <em>Interface(obj) { /* Intf1 .. Intfn */ <br />
+&nbsp;&nbsp;&nbsp; //... <br />
+&nbsp; } <br />
+&nbsp; _Interface.QueryInterface = function(obj, intf) { ... } <br />
+&nbsp; _Interface.RegisterInterface =</em>Interface; <br />
+&nbsp; _Interface.IsInterface = isInterface;</font>  </p>
+
+<p><font face="Courier New">&nbsp; return _Interface; <br />
+}(); <br />
+---------------</font>  </p>
+
+<p>其中<em>Interface()用于实现RegisterInterface()与Interface()，它们是等义的。</em>Interface()首先 <br />
+调用warpInterface()将除第一个参数之外的其它参数转变成接口，这其实是在该接口声明(函数)上附 <br />
+加一个'<em>INTFHANDLE</em>'属性。&mdash;&mdash;这是目前为止Qomo中唯一尝试改变对象对外的属性的地方。  </p>
+
+<p>由于接口本身只是&ldquo;声明&rdquo;而不能直接引用，因此加上该属性并不会导致什么麻烦。在warpInterface() <br />
+对该属性做了检测，以避免用户通过修改这个值来伪造、套取接口。&mdash;&mdash;尽管这对用户来说也没有什么 <br />
+意义。^.^  </p>
+
+<p>warpInterface()是真正实现RegisterInterface()的关键代码。_Interface()中的另一部分代码用于处 <br />
+理与&quot;聚合接口(Aggregate)&quot;相关的一些逻辑。&mdash;&mdash;这在后面进一步叙述。  </p>
+
+<p>接口中另一个重要的函数是_Interface.QueryInterface。它的实现相对要复杂些，因为它要处理： <br />
+<font face="Courier New">&nbsp; - 对象的接口可以在类注册中通过Class()注册到指定的类，而不必为每一个对象实例注册； <br />
+&nbsp; - Qomo对象或者其它JavaScript原生对象都可以具有自己的接口注册； <br />
+&nbsp; - 函数可以注册内部的聚合接口。 <br />
+QueryInterface()必要有能力从所有这些可能注册过接口的&ldquo;对象&rdquo;中查询到接口。而且还要返回该 <br />
+接口的一个&ldquo;有效的、能调用接口方法的&rdquo;实现。</font>  </p>
+
+<p>&ldquo;实现接口&rdquo;的基本原理可以参见/Framework/DOCUMENTs/T<em>InterfaceQuery.html。其基本步骤是： <br />
+<font face="Courier New">&nbsp; - 创建指定接口的实例：intf = new IYour</em>Intf(); <br />
+&nbsp; - 为接口的每一个&ldquo;虚方法&rdquo;重新封装一个调用方法，该方法将实现该接口的对象的同名方法； <br />
+&nbsp; - 特殊处理：任何对象都可以有IInterface接口，将持有QueryInterface()的一个引用。</font>  </p>
+
+<p>&nbsp; 2. 聚合接口功能的实现 <br />
+&nbsp;   </p>
+
+<hr />
+
+<p>在对_Interface()的实现过程中特殊处理了Aggregate()： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>&nbsp;&nbsp;&nbsp; // register aggregated interfacds. is special! <br />
+&nbsp;&nbsp;&nbsp; if ((typeof obj </mark> 'function') || (obj instanceof Function)) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (<em>Interface.caller<mark>=Aggregate &amp;&amp; this!</mark>Aggregate) { <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br />
+&nbsp;&nbsp;&nbsp; } <br />
+---------------</font> <br />
+也就是说如果： <br />
+<font face="Courier New">&nbsp; - &quot;obj&quot;是一个函数对象，且 <br />
+&nbsp; - 通过调用Aggregate()函数来注册它的接口，且 <br />
+&nbsp; - this对象不是Aggregate()自身</font> <br />
+则</em>Interface()将尝试把目标对象&quot;obj&quot;与一个&quot;Interfaces&quot;对象(this)分别添加到两个数组： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>&nbsp;&nbsp; $Aggrs.push(obj);&nbsp;&nbsp; // 拥有接口的对象(总是一个函数) <br />
+&nbsp;&nbsp; $Aggri.push(this);&nbsp; // 所拥有的接口集合对象 <br />
+---------------</font>  </p>
+
+<p>而在Aggregate()工具函数中，将两次调用Interface.RegisterInterface()，也就是前面提到的 <br />
+_Interface()函数。这两次调用的作用并不一样：  </p>
+
+<p>第一次采用标准格式调用RegisterInterface()，这时传入的this将是_Aggregate()函数的引用： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Interface.RegisterInterface.apply(_Aggregate, arguments); <br />
+---------------</font> <br />
+代码中，由于Aggregate()与RegisterInterface()的入口参数声明是一样的，因此apply()的第 <br />
+二个参数直接使用了arguments。这样就首先将接口注册到了指定的对象上。  </p>
+
+<p>第二次采用特殊格式调用RegisterInterface()，这时传入的this将是&ldquo;接口集合&rdquo;Interfaces <br />
+的一个实例，而唯一的一个入口参数foo，将指向被注册接口的函数对象引用： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Interface.RegisterInterface.call(new Interfaces(arguments), foo); <br />
+---------------</font> <br />
+这次调用，RegisterInterface()将返回传入的this，也就是&ldquo;接口集合&rdquo;对象。这样做只是为了 <br />
+省掉在_Aggregate()中一个临时变量。  </p>
+
+<p>上面的代码流程表明，一个&ldquo;(内部的)聚合接口&rdquo;至少具有拥有如下信息： <br />
+<font face="Courier New">&nbsp; - 一个Interfaces对象。用于存放所有实现过的接口列表； <br />
+&nbsp; - 在_Interface()中的Interfaces与foo的对照表&ldquo;$Aggrs与$Aggri&rdquo;中存放一对信息。用于实 <br />
+&nbsp;&nbsp;&nbsp; 现getAggrInterfaces()函数，并用于支持QueryInterface()对该函数foo的查询； <br />
+&nbsp; - 在实现接口的函数内部，持有Interfaces对象的一个引用。它用于各接口的实现。</font>  </p>
+
+<p>五、其它 <br />
+~~~~~~~~~~~~~~~~~~  </p>
+
+<p>&nbsp; 1. 缺省注册的接口 <br />
+&nbsp;   </p>
+
+<hr />
+
+<p>Qomo为的一些全局对象、函数和基类注册了缺省的接口。这些接口定义在Interface.js中。缺 <br />
+省注册的对象包括： <br />
+<font face="Courier New">&nbsp; 注册到&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 说明 <br />
+&nbsp;   </p>
+
+<hr />
+
+<p>&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IInterface&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 包括undefined、null在内的所有JS原生对象和Qomo对象等 <br />
+&nbsp; $import()&nbsp;&nbsp;&nbsp;&nbsp; IImport&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (beta版暂未实现) <br />
+&nbsp; MuEvent()&nbsp;&nbsp;&nbsp;&nbsp; IMuEvent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所有多投事件句柄: 由MuEvent()构造的实例(beta版暂未实现) <br />
+&nbsp; JoPoint()&nbsp;&nbsp;&nbsp;&nbsp; IJoPoint&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所有的联接点: 由JoPoint()构造的实例 <br />
+&nbsp; TObject()&nbsp;&nbsp;&nbsp;&nbsp; IObject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qomo OOP系统的基类 <br />
+&nbsp; TClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所有通过Class()注册的类 <br />
+&nbsp; Class()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IClassRegister&nbsp;&nbsp; 类注册函数 <br />
+&nbsp; Class()等&nbsp;&nbsp;&nbsp;&nbsp; IJoPoints&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qomo内部为一些能提供AOP能力的函数注册了IJoPoints接口 <br />
+&nbsp; Aspect()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IAspect&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qomo AOP系统的切面基类</font>  </p>
+
+<p>&nbsp; 2. 如何为特定的对象(如JavaScript原生对象)注册接口 <br />
+&nbsp;   </p>
+
+<hr />
+
+<p>&nbsp; 在Qomo的(目前的)发布版本中，对一些JavaScript原生对象未提供接口支持。例如对Array()对象。 <br />
+这只是因为Qomo没有觉察到这样做的必要，因而没有加入相关的代码。这在技术实现上其实非常简 <br />
+单。下面参考对MuEvent()的实现，介绍一下Array()的接口实现方法： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>// 以下代码填写在interface.js中</font>  </p>
+
+<p><font face="Courier New">// 1. 接口声明 <br />
+IArray = function() { <br />
+&nbsp; this.push = Abstract; <br />
+&nbsp; this.pop = Abstract; <br />
+&nbsp; // ... <br />
+}</font>  </p>
+
+<p><font face="Courier New">// 2. Interface()的实现代码中，warpInterface()函数声明之后加入代码 <br />
 warpInterface(IArray);</font>  </p>
 
-<p><font face="Courier New">// 3. 在isImplemented()的实现代码中，修改(添加)如下代码 <br>
-switch (intf) { <br>
-  // ... <br>
-  case IArray:   return this instanceof Array; <br>
-} <br>
----------------</font> <br>
+<p><font face="Courier New">// 3. 在isImplemented()的实现代码中，修改(添加)如下代码 <br />
+switch (intf) { <br />
+&nbsp; // ... <br />
+&nbsp; case IArray:&nbsp;&nbsp; return this instanceof Array; <br />
+} <br />
+---------------</font> <br />
 这样就完成了。  </p>
 
-<p>  3. 将来的版本 <br>
-    </p>
+<p>&nbsp; 3. 将来的版本 <br />
+&nbsp;   </p>
 
-<hr>
+<hr />
 
-<p>  可能在更晚些的版本中，Qomo会提供“聚合”、“包含”和“委托”这些技术的完整、具体的实 <br>
-现(例如提供工具函数)。但目前的版本中，只提供了对“(内部的)聚合接口”这种需求的解决方法。  </p>
+<p>&nbsp; 可能在更晚些的版本中，Qomo会提供&ldquo;聚合&rdquo;、&ldquo;包含&rdquo;和&ldquo;委托&rdquo;这些技术的完整、具体的实 <br />
+现(例如提供工具函数)。但目前的版本中，只提供了对&ldquo;(内部的)聚合接口&rdquo;这种需求的解决方法。  </p>
 
-<p>在Qomo V1正式发布的版本中，将包含对接口中的get/setter的实现。目前用户仍然只能使用类似于 <br>
-intf.getLength()这样的方法去访问特性(attribute)。除此之外，接口中的“索引指示器”仍在考 <br>
+<p>在Qomo V1正式发布的版本中，将包含对接口中的get/setter的实现。目前用户仍然只能使用类似于 <br />
+intf.getLength()这样的方法去访问特性(attribute)。除此之外，接口中的&ldquo;索引指示器&rdquo;仍在考 <br />
 虑之中。  </p>
 
-<p>与C#等高级语言一样，Qomo的接口对“方法、属性、索引指示器和事件”做出了思考或者实现，但 <br>
-不支持对“常量、域、操作符、构造函数或析构函数”这些进行接口声明。这是“接口”本身的语 <br>
+<p>与C#等高级语言一样，Qomo的接口对&ldquo;方法、属性、索引指示器和事件&rdquo;做出了思考或者实现，但 <br />
+不支持对&ldquo;常量、域、操作符、构造函数或析构函数&rdquo;这些进行接口声明。这是&ldquo;接口&rdquo;本身的语 <br />
 义所决定的。</p>
             </section>
 <!-- removed by aimingoo
@@ -771,7 +772,7 @@ intf.getLength()这样的方法去访问特性(attribute)。除此之外，接�
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-43.html">
                     Qomolangma实现篇(八)：Qomo中的AOP框架
                 </a>
@@ -782,8 +783,8 @@ intf.getLength()这样的方法去访问特性(attribute)。除此之外，接�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -802,14 +803,14 @@ intf.getLength()这样的方法去访问特性(attribute)。除此之外，接�
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -825,7 +826,7 @@ intf.getLength()这样的方法去访问特性(attribute)。除此之外，接�
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -839,7 +840,7 @@ intf.getLength()这样的方法去访问特性(attribute)。除此之外，接�
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -852,19 +853,20 @@ intf.getLength()这样的方法去访问特性(attribute)。除此之外，接�
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>

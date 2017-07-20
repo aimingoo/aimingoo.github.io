@@ -1,42 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>绿皮书再版！ECMAScript 5th有讲呵！</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=54146fd226">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=54146fd226">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=54146fd226">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="绿皮书再版！ECMAScript 5th有讲呵！">
-    <meta property="og:description" content="终于可以发博来讲这本书了。哈哈哈，终于印出来了哇！从去年9月一直等到现在，同志们啊，我被催得好那个悲   【3月19日补充】   各大网上书店开始有售：   京东：http://book.360buy.com/10950776.html   当当：http://product.dangdang.com/product.aspx?product_id=22628482   china-pub：http://product.china-pub.com/199103   亚马路(^^.)：http://www.amazon.cn/mn/detailApp/ref=ascdfB007IVAG8K393581/?asin=B007IVAG8K   希望书店：http://www.hopebook.net/computer/product/373532.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-173.html">
-    <meta property="article:published_time" content="2012-03-16T12:59:00.000Z">
-    <meta property="article:modified_time" content="2017-05-20T11:43:24.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="出版">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="绿皮书再版！ECMAScript 5th有讲呵！" />
+    <meta property="og:description" content="终于可以发博来讲这本书了。哈哈哈，终于印出来了哇！从去年9月一直等到现在，同志们啊，我被催得好那个悲   【3月19日补充】   各大网上书店开始有售：   京东：http://book.360buy.com/10950776.html   当当：http://product.dangdang.com/product.aspx?product_id&#x3D;22628482   china-pub：http://product.china-pub.com/199103   亚马路(^^.)：http://www.amazon.cn/mn/detailApp/ref&#x3D;ascdfB007IVAG8K393581/?asin&#x3D;B007IVAG8K   希望书店：http://www.hopebook.net/computer/product/373532." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-173.html" />
+    <meta property="article:published_time" content="2012-03-16T12:59:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-20T11:43:24.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="出版" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="绿皮书再版！ECMAScript 5th有讲呵！">
-    <meta name="twitter:description" content="终于可以发博来讲这本书了。哈哈哈，终于印出来了哇！从去年9月一直等到现在，同志们啊，我被催得好那个悲   【3月19日补充】   各大网上书店开始有售：   京东：http://book.360buy.com/10950776.html   当当：http://product.dangdang.com/product.aspx?product_id=22628482   china-pub：http://product.china-pub.com/199103   亚马路(^^.)：http://www.amazon.cn/mn/detailApp/ref=ascdfB007IVAG8K393581/?asin=B007IVAG8K   希望书店：http://www.hopebook.net/computer/product/373532.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-173.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 出版">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="绿皮书再版！ECMAScript 5th有讲呵！" />
+    <meta name="twitter:description" content="终于可以发博来讲这本书了。哈哈哈，终于印出来了哇！从去年9月一直等到现在，同志们啊，我被催得好那个悲   【3月19日补充】   各大网上书店开始有售：   京东：http://book.360buy.com/10950776.html   当当：http://product.dangdang.com/product.aspx?product_id&#x3D;22628482   china-pub：http://product.china-pub.com/199103   亚马路(^^.)：http://www.amazon.cn/mn/detailApp/ref&#x3D;ascdfB007IVAG8K393581/?asin&#x3D;B007IVAG8K   希望书店：http://www.hopebook.net/computer/product/373532." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-173.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 出版" />
     
     <script type="application/ld+json">
 {
@@ -75,15 +76,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=54146fd226"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
 <body class="post-template tag-javascript tag-chu-ban nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=54146fd226"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -111,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/chu-ban/">出版</a>
+                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/chu-ban/index.html">出版</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,7 +146,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>终于可以发博来讲这本书了。哈哈哈，终于印出来了哇！从去年9月一直等到现在，同志们啊，我被催得好那个悲<img src="content/images/bkImages/other_site/static_blog_crazy-9.gif" alt="抓狂" title="">  </p>
+                <p>终于可以发博来讲这本书了。哈哈哈，终于印出来了哇！从去年9月一直等到现在，同志们啊，我被催得好那个悲<img src="content/images/bkImages/other_site/static_blog_crazy-9.gif" alt="抓狂" title="" />  </p>
 
 <p>【3月19日补充】  </p>
 
@@ -175,43 +176,43 @@ ghost.init({
 
 <p>由于第6章讲Qomo的内容全部换下了，所以新书比第一版要薄一些。不过呢，换上了QoBean来讲，也是很令人头大抓狂无体投地的哦。哈哈。新书456页（原第一版510页），感觉纸张用得比原来好，所以放在一起看的时候，厚度差不多哦！  </p>
 
-<p><img src="content/images/bkImages/0_1331901075gjE3-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331901075gjE3-9.gif" alt="" title="" />    </p>
 
 <p>新版的目录比原来更详细了，这是我特地要求的，这样查阅起来比较方便。但是考虑到目录不应该占太多页数，所以分成两列了。仔细看仔细看，有讲ECMAScript 5哦！呵呵：  </p>
 
-<p><img src="content/images/bkImages/0_1331901371mQ08-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331901371mQ08-9.gif" alt="" title="" />    </p>
 
 <p>新书印刷的质量比第一版要好呵。不但没有“丢失破折号”这样的问题了，重要的代码行号比原来清晰。注意那条竖向的分隔线出来乐出来乐（旧版印刷的时候丢掉了）：  </p>
 
-<p><img src="content/images/bkImages/0_1331901562ddsQ-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331901562ddsQ-9.gif" alt="" title="" />    </p>
 
 <p>好吧好吧。还是直接看封面吧！重要的是，它还是绿皮的！绿皮的哟！哈哈。感谢某位前端的同学说这本书被“同行们亲切地称为‘绿皮书’”，所以我断然地否决了出版社的另一个设计——他们居然要把封面设计成金黄色的！！这是JavaScript好吧，又不是Python、Ruby、大阿哥之类！干嘛非得是金黄的！所以，我们是绿的好不！  </p>
 
 <p>不多说了！观图观图（注意我真不是为SAMSUNG做广告来着）：  </p>
 
-<p><img src="content/images/bkImages/0_1331901961pP7z-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331901961pP7z-9.gif" alt="" title="" />    </p>
 
 <p>最后再晒几张图吧。不讲了不讲了。多谢大家关心！这本书出滴那个慢啊，用了半年多，我都等到心灵受伤了！！！  </p>
 
 <p>【插图1，关于QoBean中的语言特性的设计层次（新内容呵）】  </p>
 
-<p><img src="content/images/bkImages/0_1331902561PzeP-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331902561PzeP-9.gif" alt="" title="" />    </p>
 
 <p>【插图2：关于JavaScript中的原子特性（新内容呵）】  </p>
 
-<p><img src="content/images/bkImages/0_1331902637VFVG-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331902637VFVG-9.gif" alt="" title="" />    </p>
 
 <p>【我比较喜欢这个扉页的设计，简洁】  </p>
 
-<p><img src="content/images/bkImages/0_1331902681wWVH-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331902681wWVH-9.gif" alt="" title="" />    </p>
 
 <p>【新旧两版对比下下，大家不要买错呵！】  </p>
 
-<p><img src="content/images/bkImages/0_1331902744Gx6i-9.gif" alt="" title="">    </p>
+<p><img src="content/images/bkImages/0_1331902744Gx6i-9.gif" alt="" title="" />    </p>
 
 <p>【最后一张图了。据售货员说，这样排有利于刺激消费冲动！哈哈】  </p>
 
-<p><img src="content/images/bkImages/0_1331902801DDwn-9.gif" alt="" title="">  </p>
+<p><img src="content/images/bkImages/0_1331902801DDwn-9.gif" alt="" title="" />  </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -228,7 +229,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next">
+            <span class="post-nav-next" >
                 <a href="1-174.html">
                     《JavaScript语言精髓与编程实践》（第二版）相关资源汇总
                 </a>
@@ -239,8 +240,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=54146fd226">
-<script src="assets/js/gitment.browser.js?v=54146fd226"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
+<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -259,14 +260,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -282,7 +283,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -296,7 +297,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -309,19 +310,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=54146fd226"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=54146fd226"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
 </body>
 
+</html>
