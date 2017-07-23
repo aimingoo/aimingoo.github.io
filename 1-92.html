@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>QoBean技术文档(1)：QoBean的基础技术</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="QoBean技术文档(1)：QoBean的基础技术" />
-    <meta property="og:description" content="//   // QoBean - Qomo&#x27;s beans  //  // documents group(chs) - Aimingoo, Zhe  //------------------------------------------------------------------------   一、QoBean的发起     我对Qomo的不满由来以久，最根深蒂固的便是它的命名空间的实现方式：隐式地维护路径与  命名空间系统。所以有一段时间，我几乎不敢看Qomo的Framework/Names/下的代码。   我对Qomo不满之处很多，但归结起来只有一条：太大太复杂。但它比那些&amp;ldquo;看起来不怎么复  杂&amp;rdquo;的项目有太多特性要实现，因此复杂是必然的。我只是一直以来无法跳开一个圈子：为  什么复杂的，一定不能简洁？   QoBean的触动来自于一篇文档（忘掉了出处），说在JavaScript中实现类继承只需要几行代  码而已。我当时想：是啊，只需要几行代码就行了，为什么Qomo的Object.js写了20k代码，  以及包括8个子文件呢？   我决定扔掉所有在Qomo Object Framework中的所有其它的（并不见得是多余的）特性，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-92.html" />
-    <meta property="article:published_time" content="2007-12-31T08:12:00.000Z" />
-    <meta property="article:modified_time" content="2007-12-31T08:12:00.000Z" />
-    <meta property="article:tag" content="delphi" />
-    <meta property="article:tag" content="文档" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="QoBean技术文档(1)：QoBean的基础技术">
+    <meta property="og:description" content="//   // QoBean - Qomo's beans  //  // documents group(chs) - Aimingoo, Zhe  //------------------------------------------------------------------------   一、QoBean的发起     我对Qomo的不满由来以久，最根深蒂固的便是它的命名空间的实现方式：隐式地维护路径与  命名空间系统。所以有一段时间，我几乎不敢看Qomo的Framework/Names/下的代码。   我对Qomo不满之处很多，但归结起来只有一条：太大太复杂。但它比那些&amp;ldquo;看起来不怎么复  杂&amp;rdquo;的项目有太多特性要实现，因此复杂是必然的。我只是一直以来无法跳开一个圈子：为  什么复杂的，一定不能简洁？   QoBean的触动来自于一篇文档（忘掉了出处），说在JavaScript中实现类继承只需要几行代  码而已。我当时想：是啊，只需要几行代码就行了，为什么Qomo的Object.js写了20k代码，  以及包括8个子文件呢？   我决定扔掉所有在Qomo Object Framework中的所有其它的（并不见得是多余的）特性，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-92.html">
+    <meta property="article:published_time" content="2007-12-31T08:12:00.000Z">
+    <meta property="article:modified_time" content="2007-12-31T08:12:00.000Z">
+    <meta property="article:tag" content="delphi">
+    <meta property="article:tag" content="文档">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="QoBean技术文档(1)：QoBean的基础技术" />
-    <meta name="twitter:description" content="//   // QoBean - Qomo&#x27;s beans  //  // documents group(chs) - Aimingoo, Zhe  //------------------------------------------------------------------------   一、QoBean的发起     我对Qomo的不满由来以久，最根深蒂固的便是它的命名空间的实现方式：隐式地维护路径与  命名空间系统。所以有一段时间，我几乎不敢看Qomo的Framework/Names/下的代码。   我对Qomo不满之处很多，但归结起来只有一条：太大太复杂。但它比那些&amp;ldquo;看起来不怎么复  杂&amp;rdquo;的项目有太多特性要实现，因此复杂是必然的。我只是一直以来无法跳开一个圈子：为  什么复杂的，一定不能简洁？   QoBean的触动来自于一篇文档（忘掉了出处），说在JavaScript中实现类继承只需要几行代  码而已。我当时想：是啊，只需要几行代码就行了，为什么Qomo的Object.js写了20k代码，  以及包括8个子文件呢？   我决定扔掉所有在Qomo Object Framework中的所有其它的（并不见得是多余的）特性，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-92.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="delphi, 文档" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="QoBean技术文档(1)：QoBean的基础技术">
+    <meta name="twitter:description" content="//   // QoBean - Qomo's beans  //  // documents group(chs) - Aimingoo, Zhe  //------------------------------------------------------------------------   一、QoBean的发起     我对Qomo的不满由来以久，最根深蒂固的便是它的命名空间的实现方式：隐式地维护路径与  命名空间系统。所以有一段时间，我几乎不敢看Qomo的Framework/Names/下的代码。   我对Qomo不满之处很多，但归结起来只有一条：太大太复杂。但它比那些&amp;ldquo;看起来不怎么复  杂&amp;rdquo;的项目有太多特性要实现，因此复杂是必然的。我只是一直以来无法跳开一个圈子：为  什么复杂的，一定不能简洁？   QoBean的触动来自于一篇文档（忘掉了出处），说在JavaScript中实现类继承只需要几行代  码而已。我当时想：是啊，只需要几行代码就行了，为什么Qomo的Object.js写了20k代码，  以及包括8个子文件呢？   我决定扔掉所有在Qomo Object Framework中的所有其它的（并不见得是多余的）特性，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-92.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="delphi, 文档">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-delphi tag-wen-dang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/delphi/index.html">delphi</a>, <a href="tag/wen-dang/index.html">文档</a>
+                        <a href="tag/delphi/">delphi</a>, <a href="tag/wen-dang/">文档</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,257 +145,257 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p><font face="Courier New">//  </p>
+                <p><font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// QoBean - Qomo's beans <br />
-// <br />
-// documents group(chs) - Aimingoo, Zhe <br />
-//------------------------------------------------------------------------</font>  </p>
+<p>// QoBean - Qomo's beans <br>
+// <br>
+// documents group(chs) - Aimingoo, Zhe <br>
+//------------------------------------------------------------------------  </p>
 
 <p>一、QoBean的发起    </p>
 
-<hr />
+<hr>
 
-<p>我对Qomo的不满由来以久，最根深蒂固的便是它的命名空间的实现方式：隐式地维护路径与 <br />
+<p>我对Qomo的不满由来以久，最根深蒂固的便是它的命名空间的实现方式：隐式地维护路径与 <br>
 命名空间系统。所以有一段时间，我几乎不敢看Qomo的Framework/Names/下的代码。  </p>
 
-<p>我对Qomo不满之处很多，但归结起来只有一条：太大太复杂。但它比那些&ldquo;看起来不怎么复 <br />
-杂&rdquo;的项目有太多特性要实现，因此复杂是必然的。我只是一直以来无法跳开一个圈子：为 <br />
+<p>我对Qomo不满之处很多，但归结起来只有一条：太大太复杂。但它比那些“看起来不怎么复 <br>
+杂”的项目有太多特性要实现，因此复杂是必然的。我只是一直以来无法跳开一个圈子：为 <br>
 什么复杂的，一定不能简洁？  </p>
 
-<p>QoBean的触动来自于一篇文档（忘掉了出处），说在JavaScript中实现类继承只需要几行代 <br />
-码而已。我当时想：是啊，只需要几行代码就行了，为什么Qomo的Object.js写了20k代码， <br />
+<p>QoBean的触动来自于一篇文档（忘掉了出处），说在JavaScript中实现类继承只需要几行代 <br>
+码而已。我当时想：是啊，只需要几行代码就行了，为什么Qomo的Object.js写了20k代码， <br>
 以及包括8个子文件呢？  </p>
 
-<p>我决定扔掉所有在Qomo Object Framework中的所有其它的（并不见得是多余的）特性，我想 <br />
-知道，在Qomo的设计思想中，一个最小化的&ldquo;类继承&rdquo;到底需要多少代码？  </p>
+<p>我决定扔掉所有在Qomo Object Framework中的所有其它的（并不见得是多余的）特性，我想 <br>
+知道，在Qomo的设计思想中，一个最小化的“类继承”到底需要多少代码？  </p>
 
-<p>于是我建立了一个目录QomoMini，现在它被签入到了Qomo的项目中，改名作QoBean。QoBean <br />
+<p>于是我建立了一个目录QomoMini，现在它被签入到了Qomo的项目中，改名作QoBean。QoBean <br>
 是这个子项目的代码名。  </p>
 
 <p>二、最初的QoBean    </p>
 
-<hr />
+<hr>
 
-<p>当然，首先是从Qomo中的Object.js下手，最初的代码被精减成这样： <br />
-<font face="Courier New" color="#339966">**  </p>
+<p>当然，首先是从Qomo中的Object.js下手，最初的代码被精减成这样： <br>
+<font face="Courier New" color="#339966">**  </font></p>
 
-<hr />
+<hr>
 
-<p>function Class(Parent, Name) { <br />
-&nbsp; function _Create() { <br />
-&nbsp;&nbsp;&nbsp; if (this.Create) this.Create.apply(this, arguments); <br />
-&nbsp; }**</font>  </p>
+<p>function Class(Parent, Name) { <br>
+  function _Create() { <br>
+    if (this.Create) this.Create.apply(this, arguments); <br>
+  }**  </p>
 
-<p><font face="Courier New" color="#339966"><strong>&nbsp; var Constructor = (Name instanceof Function) ? Name : eval(Name); <br />
-&nbsp; var cls = new Function(); <br />
-&nbsp; if (Parent) Constructor.prototype = Parent.Create.prototype;</strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>  var Constructor = (Name instanceof Function) ? Name : eval(Name); <br>
+  var cls = new Function(); <br>
+  if (Parent) Constructor.prototype = Parent.Create.prototype;</strong></font>  </p>
 
-<p><font face="Courier New" color="#339966"><strong>&nbsp; _Create.prototype = new Constructor(); <br />
-&nbsp; _Create.prototype.constructor = _Create;</strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>  _Create.prototype = new Constructor(); <br>
+  _Create.prototype.constructor = _Create;</strong></font>  </p>
 
-<p><font face="Courier New" color="#339966"><strong>&nbsp; (Name instanceof Function) || eval(Name + '= _Create'); <br />
-&nbsp; return cls; <br />
+<p><font face="Courier New" color="#339966"><strong>  (Name instanceof Function) || eval(Name + '= _Create'); <br>
+  return cls; <br>
 }</strong></font>  </p>
 
-<p><font face="Courier New" color="#339966"><strong>TObject = Class(null, Object); <br />
-=====<mark></strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>TObject = Class(null, Object); <br>
+=====<mark></mark></strong></font>  </p>
 
-<p>这个代码实现了几项关键功能，包括： <br />
-&nbsp;- 支持类声明与类注册 <br />
-&nbsp;- 支持匿名类  </p>
+<p>这个代码实现了几项关键功能，包括： <br>
+ - 支持类声明与类注册 <br>
+ - 支持匿名类  </p>
 
-<p>使用示例1, 例如： <br />
-<font face="Courier New" color="#339966">**  </p>
+<p>使用示例1, 例如： <br>
+<font face="Courier New" color="#339966">**  </font></p>
 
-<hr />
+<hr>
 
-<p>// 1. 类声明 <br />
-function MyObject() { <br />
-&nbsp; // 类构造周期 <br />
-&nbsp; // ... <br />
-&nbsp; <br />
-&nbsp; this.Create = function() { <br />
-&nbsp;&nbsp;&nbsp; // 实例构造周期 <br />
-&nbsp; } <br />
-}**</font>  </p>
+<p>// 1. 类声明 <br>
+function MyObject() { <br>
+  // 类构造周期 <br>
+  // ... <br>
+  <br>
+  this.Create = function() { <br>
+    // 实例构造周期 <br>
+  } <br>
+}**  </p>
 
-<p><font face="Courier New" color="#339966"><strong>// 2. 类注册 <br />
+<p><font face="Courier New" color="#339966"><strong>// 2. 类注册 <br>
 TMyObject = Class(TObject, 'MyObject');</strong></font>  </p>
 
-<p><font face="Courier New" color="#339966"><strong>// 3. 创建对象 <br />
-obj = new MyObject(); <br />
-</mark>=====</strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>// 3. 创建对象 <br>
+obj = new MyObject(); <br>
+=====</strong></font>  </p>
 
 <p>可见，该例仍然保持了Qomo的一般性语法。  </p>
 
-<p>使用示例2, 例如： <br />
-<font face="Courier New" color="#339966">**  </p>
+<p>使用示例2, 例如： <br>
+<font face="Courier New" color="#339966">**  </font></p>
 
-<hr />
+<hr>
 
-<p>arr = []; <br />
-arr.push(Class(TObject, function() {&nbsp;&nbsp; //&lt;--注册一个匿名函数为匿名类 <br />
-&nbsp; // 类声明... <br />
-}));**</font>  </p>
+<p>arr = []; <br>
+arr.push(Class(TObject, function() {   //&lt;--注册一个匿名函数为匿名类 <br>
+  // 类声明... <br>
+}));**  </p>
 
-<p><font face="Courier New" color="#339966"><strong>// 创建对象 <br />
-obj = new arr[0]; <br />
-=====<mark></strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>// 创建对象 <br>
+obj = new arr[0]; <br>
+=====<mark></mark></strong></font>  </p>
 
 <p>该例简单的注册了一个匿名类。匿名类是类厂等设计模式中的基础技术。  </p>
 
 <p>三、QoBean alpha 1    </p>
 
-<hr />
+<hr>
 
-<p>上述的Class()丢掉了几项Qomo的特性，例如&ldquo;obj = aClass.Create()&rdquo;语法，以及没有显 <br />
-式维护的类继承关系等等。但由于代码基本都是从Qomo的Object.js中截取出来的，因此保留 <br />
+<p>上述的Class()丢掉了几项Qomo的特性，例如“obj = aClass.Create()”语法，以及没有显 <br>
+式维护的类继承关系等等。但由于代码基本都是从Qomo的Object.js中截取出来的，因此保留 <br>
 了Qomo的原始状态。  </p>
 
 <p>接下来我们讨论如何在上述基础上实现更多的QoBean特性。  </p>
 
-<p>&nbsp; 1. _Create()不需要实现为嵌套函数 <br />
-&nbsp;   </p>
+<p>  1. _Create()不需要实现为嵌套函数 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 上面代码中的<em>Create()被实现为Class()的内嵌函数，因此在执行中它处于一个闭包链的末 <br />
-端，这会使它的效率稍为低一点。但显然，由于</em>Create()没有什么地方要引用Class()内的变 <br />
-量，所以它可以实现在全局&mdash;&mdash;但是如果直接实现在全局又会占用一个标识符。 <br />
-&nbsp; 处理的办法是使用new Function()。  </p>
+<p>  上面代码中的<em>Create()被实现为Class()的内嵌函数，因此在执行中它处于一个闭包链的末 <br>
+端，这会使它的效率稍为低一点。但显然，由于</em>Create()没有什么地方要引用Class()内的变 <br>
+量，所以它可以实现在全局——但是如果直接实现在全局又会占用一个标识符。 <br>
+  处理的办法是使用new Function()。  </p>
 
-<p>&nbsp; 2. eval(Name)的特性 <br />
-&nbsp;   </p>
+<p>  2. eval(Name)的特性 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 上面代码中试图识别参数Name是否是一个函数，如果是函数则认为是注册匿名类&mdash;&mdash;不需要 <br />
-重写原标识符，也不需要类名；而eval(Name)用于得到Name所指定的构造器。这一行代码写作： <br />
-<font face="Courier New" color="#339966">**  </p>
+<p>  上面代码中试图识别参数Name是否是一个函数，如果是函数则认为是注册匿名类——不需要 <br>
+重写原标识符，也不需要类名；而eval(Name)用于得到Name所指定的构造器。这一行代码写作： <br>
+<font face="Courier New" color="#339966">**  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; var Constructor = (Name instanceof Function) ? Name : eval(Name); <br />
-</mark>=====<strong></font> <br />
-&nbsp; 然而事实上不需要这么麻烦，eval()函数执行时如果参数不是字符串就会返回该参数本身， <br />
-所以更加简洁的代码是： <br />
-<font face="Courier New" color="#339966"></strong>  </p>
+<p>  var Constructor = (Name instanceof Function) ? Name : eval(Name); <br>
+=====<strong> <br>
+  然而事实上不需要这么麻烦，eval()函数执行时如果参数不是字符串就会返回该参数本身， <br>
+所以更加简洁的代码是： <br>
+<font face="Courier New" color="#339966"></font></strong>  </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; var Constructor = eval(Name); <br />
-=====<mark>**</font>  </p>
+<p>  var Constructor = eval(Name); <br>
+=====<mark>**  </mark></p>
 
-<p>&nbsp; 3. constructor赋值操作过于啰嗦 <br />
-&nbsp;   </p>
+<p>  3. constructor赋值操作过于啰嗦 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 无论如何，用两行代码来完成原型重写和constructor赋值是过于啰嗦的，我们有更好的方法。  </p>
+<p>  无论如何，用两行代码来完成原型重写和constructor赋值是过于啰嗦的，我们有更好的方法。  </p>
 
-<p>&nbsp; 4. 包括上述特性与修改的新版本 <br />
-&nbsp;   </p>
+<p>  4. 包括上述特性与修改的新版本 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 通过下面的修改，可以有更为精简的代码、更高的效率，以及一个外部维护的类名。 <br />
-<font face="Courier New" color="#339966">**  </p>
+<p>  通过下面的修改，可以有更为精简的代码、更高的效率，以及一个外部维护的类名。 <br>
+<font face="Courier New" color="#339966">**  </font></p>
 
-<hr />
+<hr>
 
-<p>// class register util <br />
-function Class(Parent, Name) { <br />
-&nbsp;&nbsp;&nbsp; var Constructor = eval(Name); <br />
-&nbsp;&nbsp;&nbsp; var cls = new Function('Base', 'return new Base'); <br />
-&nbsp;&nbsp;&nbsp; var _Create = new Funcction('if (this.Create) this.Create.apply(this, arguments)');**</font>  </p>
+<p>// class register util <br>
+function Class(Parent, Name) { <br>
+    var Constructor = eval(Name); <br>
+    var cls = new Function('Base', 'return new Base'); <br>
+    var _Create = new Funcction('if (this.Create) this.Create.apply(this, arguments)');**  </p>
 
-<p><font face="Courier New" color="#339966"><strong>&nbsp;&nbsp;&nbsp; Parent &amp;&amp; (Constructor.prototype = Parent.Create.prototype); <br />
-&nbsp;&nbsp;&nbsp; cls.Create = (_Create.prototype = cls(Constructor)).constructor = _Create;</strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>    Parent &amp;&amp; (Constructor.prototype = Parent.Create.prototype); <br>
+    cls.Create = (_Create.prototype = cls(Constructor)).constructor = _Create;</strong></font>  </p>
 
-<p><font face="Courier New" color="#339966"><strong>&nbsp;&nbsp;&nbsp; (Name instanceof Function ? Name = 'Anonymous' : eval(Name + '= cls.Create'), <br />
-&nbsp;&nbsp;&nbsp;&nbsp; cls.ClassName = 'T' + Name); <br />
-&nbsp;&nbsp;&nbsp; return cls; <br />
-&nbsp; } <br />
+<p><font face="Courier New" color="#339966"><strong>    (Name instanceof Function ? Name = 'Anonymous' : eval(Name + '= cls.Create'), <br>
+     cls.ClassName = 'T' + Name); <br>
+    return cls; <br>
+  } <br>
 };</strong></font>  </p>
 
-<p><font face="Courier New" color="#339966"><strong>TObject = Class(null, Object); <br />
-</mark>=====</strong></font>  </p>
+<p><font face="Courier New" color="#339966"><strong>TObject = Class(null, Object); <br>
+=====</strong></font>  </p>
 
 <p>四、发布QoBean alpha 1的最后修改    </p>
 
-<hr />
+<hr>
 
-<p>正式发布的QoBean alpha 1比上面的代码要复杂一些。但复杂的这一部分，就是&ldquo;框架&rdquo;与一 <br />
+<p>正式发布的QoBean alpha 1比上面的代码要复杂一些。但复杂的这一部分，就是“框架”与一 <br>
 个普通的工具函数之间的不同。  </p>
 
-<p>我们既然希望QoBean是将来的Qomo V3的基础，那么必然的，我们需要解释将来的Qomo V3是怎 <br />
-样的一种结构&mdash;&mdash;我们需得先画好蓝图，然后再行建设。  </p>
+<p>我们既然希望QoBean是将来的Qomo V3的基础，那么必然的，我们需要解释将来的Qomo V3是怎 <br>
+样的一种结构——我们需得先画好蓝图，然后再行建设。  </p>
 
-<p>QoBean试图在Qomo V3中添加&ldquo;元系统&rdquo;，用于添加新的语言特性/特性集，或者构建新的语言。  </p>
+<p>QoBean试图在Qomo V3中添加“元系统”，用于添加新的语言特性/特性集，或者构建新的语言。  </p>
 
-<p>通过元系统在QoBean中创建Qomo对象模型的基本框架为： <br />
-<font face="Courier New" color="#339966">**  </p>
+<p>通过元系统在QoBean中创建Qomo对象模型的基本框架为： <br>
+<font face="Courier New" color="#339966">**  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp;aClass = new MetaClass(); <br />
-&nbsp;aClass.Create = new MetaObject(); <br />
-&nbsp;aObject = new aConstructor_RegedByClass;&nbsp; // or <br />
-&nbsp;aObject = aClass.Create(); <br />
-=====<mark><em>*</font> <br />
-而在Object.js中，MetaClass与MetaObject的实现非常简单： <br />
-*</em><font face="Courier New" color="#339966">  </p>
+<p> aClass = new MetaClass(); <br>
+ aClass.Create = new MetaObject(); <br>
+ aObject = new aConstructor_RegedByClass;  // or <br>
+ aObject = aClass.Create(); <br>
+=====<mark><em>* <br>
+而在Object.js中，MetaClass与MetaObject的实现非常简单： <br>
+*</em><font face="Courier New" color="#339966">  </font></mark></p>
 
-<hr />
+<hr>
 
-<p>MetaClass = Function; <br />
-MetaObject = Function; <br />
-</mark>=====</font>**  </p>
+<p>MetaClass = Function; <br>
+MetaObject = Function; <br>
+=====**  </p>
 
-<p>到了更将来的版本（事实上这个版本已经在开发中），我们会重写这两个&ldquo;元（数据类型）&rdquo;， <br />
+<p>到了更将来的版本（事实上这个版本已经在开发中），我们会重写这两个“元（数据类型）”， <br>
 并由此构建更为复杂的语言逻辑。  </p>
 
-<p>此外，为了实现Qomo中的&ldquo;aClass.Create()&rdquo;语法，QoBean添加了一些代码，并加入了一个 <br />
-可选开关，大概的框架代码如下： <br />
-**<font face="Courier New" color="#339966">  </p>
+<p>此外，为了实现Qomo中的“aClass.Create()”语法，QoBean添加了一些代码，并加入了一个 <br>
+可选开关，大概的框架代码如下： <br>
+**<font face="Courier New" color="#339966">  </font></p>
 
-<hr />
+<hr>
 
-<p>Class = function(ext) { <br />
-&nbsp; var idx = 0; <br />
-&nbsp; var code = ext ? '/ <br />
-&nbsp;&nbsp;&nbsp; if (this instanceof Function) {/ <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var i, v=arguments, n=v.length, s=&quot;new this.Create(&quot;;/ <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (n&gt;0) for (i=1,s+=&quot;v[0]&quot;; i&lt;n; i++) s += &quot;, v[&quot; + i +&quot;]&quot;;/ <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return eval(s+&quot;);&quot;);/ <br />
-&nbsp;&nbsp;&nbsp; }' : ''; <br />
-&nbsp; code += 'if (this.Create) this.Create.apply(this, arguments)';</font>**  </p>
+<p>Class = function(ext) { <br>
+  var idx = 0; <br>
+  var code = ext ? '/ <br>
+    if (this instanceof Function) {/ <br>
+      var i, v=arguments, n=v.length, s="new this.Create(";/ <br>
+      if (n&gt;0) for (i=1,s+="v[0]"; i&lt;n; i++) s += ", v[" + i +"]";/ <br>
+      return eval(s+");");/ <br>
+    }' : ''; <br>
+  code += 'if (this.Create) this.Create.apply(this, arguments)';**  </p>
 
-<p><strong><font face="Courier New" color="#339966">&nbsp; return function(Parent, Name) { <br />
-&nbsp;&nbsp;&nbsp; var Constructor = eval(Name); <br />
-&nbsp;&nbsp;&nbsp; var cls = new MetaClass('Base', 'return new Base'); <br />
-&nbsp;&nbsp;&nbsp; var _Create = new MetaObject(code); <br />
-&nbsp;&nbsp;&nbsp; ... <br />
-&nbsp; } <br />
-}(true);&nbsp; // is delphi extand syntax. <br />
-=======</font></strong> <br />
-注意上述代码中，变量code的字符串使用了特殊的语法来声明直接量：行末使用&ldquo;/&rdquo;，表 <br />
+<p><strong><font face="Courier New" color="#339966">  return function(Parent, Name) { <br>
+    var Constructor = eval(Name); <br>
+    var cls = new MetaClass('Base', 'return new Base'); <br>
+    var _Create = new MetaObject(code); <br>
+    ... <br>
+  } <br>
+}(true);  // is delphi extand syntax. <br>
+=======</font></strong> <br>
+注意上述代码中，变量code的字符串使用了特殊的语法来声明直接量：行末使用“/”，表 <br>
 明字符串是连续的。  </p>
 
-<p>其它代码请参见QoBean的下载包或SVN： <br />
+<p>其它代码请参见QoBean的下载包或SVN： <br>
 <a href="http://blog.csdn.net/aimingoo/archive/2007/12/31/2006369.aspx">http://blog.csdn.net/aimingoo/archive/2007/12/31/2006369.aspx</a>  </p>
 
 <p>五、其它    </p>
 
-<hr />
+<hr>
 
 <ol>
 <li>QoBean的Namespace.js中添加了命名空间的支持并重写了Class()以支持它；  </li>
 <li>QoBean的代码包包含更多的示例。  </li>
-<li>所谓&ldquo;类继承系统&rdquo;是指继承关系的维护，不包括Qomo中的get/set，以及inherited等特性。&nbsp;</li>
+<li>所谓“类继承系统”是指继承关系的维护，不包括Qomo中的get/set，以及inherited等特性。 </li>
 </ol>
             </section>
 <!-- removed by aimingoo
@@ -414,7 +413,7 @@ MetaObject = Function; <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-93.html">
                     《JAVASCRIPT语言精髓与编程实践》预读样章公开~
                 </a>
@@ -425,8 +424,8 @@ MetaObject = Function; <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -445,14 +444,14 @@ MetaObject = Function; <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -468,7 +467,7 @@ MetaObject = Function; <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -482,7 +481,7 @@ MetaObject = Function; <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -495,20 +494,19 @@ MetaObject = Function; <br />
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

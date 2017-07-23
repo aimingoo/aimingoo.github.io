@@ -1,4 +1,246 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 20 Jun 2017 03:57:30 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>三本免费电子书齐齐完工了</title><description>&lt;p&gt;首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 23 Jul 2017 14:00:54 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>电子书《我的架构思想》小述</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：&lt;a href="http://aimingoo.github.io/1-1734"&gt;https://aimingoo.github.io/1-1734.html&lt;/a&gt;。&lt;/p&gt;
+  
+  &lt;p&gt;本电子书可自由下载和传播。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;这些年来我所谈的“架构思想”&lt;/h2&gt;
+
+&lt;p&gt;在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（&lt;a href="http://blog.csdn.net/aimingoo/article/details/75948724"&gt;在这里&lt;/a&gt;）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。&lt;/p&gt;
+
+&lt;p&gt;在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;画家的笔最终描绘的是他自己心里的映像。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。&lt;/p&gt;
+
+&lt;p&gt;是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1735/</link><guid isPermaLink="false">622c6cb8-8677-4aac-94ea-d304eb64e7ac</guid><category>电子书</category><category>书序书评</category><category>架构</category><dc:creator>aimingoo</dc:creator><pubDate>Sun, 23 Jul 2017 13:58:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：&lt;a href="http://aimingoo.github.io/1-1734"&gt;https://aimingoo.github.io/1-1734.html&lt;/a&gt;。&lt;/p&gt;
+  
+  &lt;p&gt;本电子书可自由下载和传播。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;这些年来我所谈的“架构思想”&lt;/h2&gt;
+
+&lt;p&gt;在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（&lt;a href="http://blog.csdn.net/aimingoo/article/details/75948724"&gt;在这里&lt;/a&gt;）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。&lt;/p&gt;
+
+&lt;p&gt;在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;画家的笔最终描绘的是他自己心里的映像。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。&lt;/p&gt;
+
+&lt;p&gt;是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/粉笔，与纸张/文字并没有质的区别。也如同这些工具一般，如果我们脑中空无一物，那么模型、模具、白板……等等也百无一用。&lt;/p&gt;
+
+&lt;p&gt;真正决定你的架构水平的东西，仍然是你认识这个世界的方法与能力。&lt;/p&gt;
+
+&lt;h2 id=""&gt;怎么来讲“思想”&lt;/h2&gt;
+
+&lt;p&gt;孟岩先生在序中将本书称为“一本架构思维的认知升级之作”。首先谢谢孟岩对此书的厚赞，另一方面，他也确实戳到了本书对“如何讲思想”的问题。&lt;/p&gt;
+
+&lt;p&gt;但凡要读到本书，大抵都是有一些架构经验或经历的读者了。即使不济，也多少看过、用过一些经典的架构。既如此，读者心中已然有一个自己的“思维模型”，有自己对事物的认知方法与逻辑，否则他也原本就不会做、不会看、不会用那些架构了。所以，《我的架构思想》的读者并不是白板一块，可以任由我将我的思想抹涂在上面。&lt;/p&gt;
+
+&lt;p&gt;那么“认知升级”又是什么意思呢？是不是托大地说，“周爱民的架构思想”就是更高级的，所以读者需要通过这本书来统统地完成一次升级呢？不。我没有这个意思，也不做这种企图。这也是这本书名字强调是“我的”的原因：我的是我的，你的是你的；最终之于你有价值的仍然是你的，而非我的。&lt;/p&gt;
+
+&lt;p&gt;好吧，说得简单直白一些：我期望读者通过这本书，能提炼与升级自己在架构过程中的思想，得到更新的、更高层次的、更有实战与更富效力的“你的架构思想”。&lt;/p&gt;
+
+&lt;p&gt;所以我并不是在讲我的思想，或教述我如何想，而是谈论思想何以得来的方法论，“我的架构思想”本不过是个印证与参考罢了。&lt;/p&gt;
+
+&lt;p&gt;在这一点上，孟岩先生看得很真切。&lt;/p&gt;
+
+&lt;h2 id=""&gt;“方法论”的结构化&lt;/h2&gt;
+
+&lt;p&gt;我的方法论最终总要呈现出来，才是可以作为你我所讨论的对象的。这一点我一开始就很清楚：我必须清楚地描述它。&lt;/p&gt;
+
+&lt;p&gt;我其实一早就把这个结果给了读者，但我想你未见得能看到它。这段文字就在引言里面：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;任何一个优秀的架构师都有自己独特的思考方式，这决定了他如何抽象系统，以及如何“创造性地”设计与构画这个系统。……在这个过程中，我们需要三种能力：概念抽象能力、概念表达能力和基于概念的逻辑表达能力。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这三种能力在后文的架构师能力模型中被概括为“领悟”。&lt;/p&gt;
+
+&lt;p&gt;整本书都是在一次又一次应用这三种能力，教读者如何跟随这个过程去得到最终的架构对象。这些架构对象包括：“引言：架构师的思维”的“修养和思维”，正文中之“知识”、“认识”、“系统”与“架构”等等，以及附录中的“VEO模型”等等。我不过是在运用上述能力去得到并解释它们，而读者则可以作为一个观察者来观见、见证这一过程。&lt;/p&gt;
+
+&lt;p&gt;在这些“过程与方法”之外的，是方法论和它之上的认识论。读者可以更深层次地将自己的方法论与认识论与书中对接印证。能行进到这一步，就真的是大有斩获了。&lt;/p&gt;
+
+&lt;p&gt;书之用在读。你是读者，我是写者，我是那个于"读得"之事无能为力的人。&lt;/p&gt;
+
+&lt;h2 id=""&gt;基本模型、理论与原则&lt;/h2&gt;
+
+&lt;p&gt;严格地来说，《我的架构思想》只提出了一个基本模型，亦即是架构师的能力模型。并且，也只对这个模型中的“领悟”做了进一步细化的讨论，提出了它由“概念抽象、概念表达和基于概念的逻辑表达”三个部分构成。&lt;/p&gt;
+
+&lt;p&gt;而其中最核心的，又是指“概念抽象”。“架构意图”这一关键的要素，就是从对这个能力的辨识而得出来的。从认识论的角度上，这就是所谓的“见所欲见”——你看见的，是你所想看见的。你的意图决定了你的认识，进而决定了你的架构，这是一个“从认识到表达”的基本逻辑。&lt;/p&gt;
+
+&lt;p&gt;“架构意图”在这本书中有着不容争辩、毋庸置疑的重要位置。所以我说“架构意图是架构的灵魂”，并认为几乎所有的架构活动，以及有关架构的争议都可以围绕对它的识别和理解来进行。因此我后来在一些大会中讲述我的架构思想时，会概括为“架构意图驱动的过程模型”——这一过程包括架构发起、架构构建和架构交付三个部分。&lt;/p&gt;
+
+&lt;p&gt;而本书中所谓的“架构原则”，不过是在上述过程的生命周期中的一些关键判断。&lt;/p&gt;
+
+&lt;h2 id=""&gt;下载&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 高质量的PDF版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture.zip"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐在桌面系统、PAD或大屏幕移动设备上阅读。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 适用于Kindle的版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture.azw3"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;下载后用USB上传到Kindle即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。&lt;/p&gt;
+  
+  &lt;p&gt;上述的修改不影响阅读效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 使用了SVG图的.epub版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture.epub"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. 一般质量图片的.epub版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture-i.epub"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;一般的掌上阅读软件都可以支持。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 低版本Kindle使用的阅读格式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;即低版本.mobi文件，阅读体验较差。请移驾我的Github（&lt;a href="https://github.com/aimingoo/my-ebooks"&gt;在这里&lt;/a&gt;）获取下载。&lt;/p&gt;
+
+&lt;h2 id=""&gt;其它下载点(不定期更新)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CSDN下载页：&lt;a href="http://download.csdn.net/user/aimingoo/uploads"&gt;http://download.csdn.net/user/aimingoo/uploads&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;图灵出版社区：&lt;a href="http://www.ituring.com.cn/book/2430"&gt;http://www.ituring.com.cn/book/2430&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的Github：&lt;a href="http://github.com/aimingoo/my-ebooks"&gt;http://github.com/aimingoo/my-ebooks&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>电子书《程序原本》小述</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;《程序原本》作为电子书首发已经一个月了（下载附后），它到底是一本怎么样的书呢？我想站在我自己的角度对它做一些阐述，或是有利于对它的理解与传播的。&lt;/p&gt;
+  
+  &lt;p&gt;本电子书可自由下载和传播。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;什么是“原本”&lt;/h2&gt;
+
+&lt;p&gt;书名取自于《几何原本（Euclid's Elements）》，因此这个“原本”，其实原意应从Elements来找，一般来说理解成“不可或缺的、核心的要素，或元素”就好了。&lt;/p&gt;
+
+&lt;p&gt;《程序原本》确实就是想从这个角度来阐述“程序”这个主题。这本书从数、算以及抽象的源起谈起，从它们之间的关系，以及计算范式的定义谈起，把“计算机程序（或程序计算）”整件事的骨架抽离出来。然后再谈到在这个骨架之外来描述它的语言——计算机程序设计语言的方方面面。&lt;/p&gt;
+
+&lt;p&gt;这是这本书的前面部分。坦率地说，这部分并没有什么“新”东西。因为这些认识其实一早都有了，先哲大贤们已经论述得很清楚了，而我只是做了个引线人，把这些东西串起来并摆成了一个角度以便于大家观察罢了。&lt;/p&gt;
+
+&lt;p&gt;我在这个观察之外提出的问题是：“程序”是如何演进的？如今你所见的种种语言，以及由这些种种语言所得的种种“程序”&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1734/</link><guid isPermaLink="false">60b41365-0ee9-4c3e-89a7-5385eb91b13d</guid><category>电子书</category><category>出版</category><category>大道至易</category><category>书序书评</category><category>程序原本</category><dc:creator>aimingoo</dc:creator><pubDate>Thu, 20 Jul 2017 05:18:54 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;《程序原本》作为电子书首发已经一个月了（下载附后），它到底是一本怎么样的书呢？我想站在我自己的角度对它做一些阐述，或是有利于对它的理解与传播的。&lt;/p&gt;
+  
+  &lt;p&gt;本电子书可自由下载和传播。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;什么是“原本”&lt;/h2&gt;
+
+&lt;p&gt;书名取自于《几何原本（Euclid's Elements）》，因此这个“原本”，其实原意应从Elements来找，一般来说理解成“不可或缺的、核心的要素，或元素”就好了。&lt;/p&gt;
+
+&lt;p&gt;《程序原本》确实就是想从这个角度来阐述“程序”这个主题。这本书从数、算以及抽象的源起谈起，从它们之间的关系，以及计算范式的定义谈起，把“计算机程序（或程序计算）”整件事的骨架抽离出来。然后再谈到在这个骨架之外来描述它的语言——计算机程序设计语言的方方面面。&lt;/p&gt;
+
+&lt;p&gt;这是这本书的前面部分。坦率地说，这部分并没有什么“新”东西。因为这些认识其实一早都有了，先哲大贤们已经论述得很清楚了，而我只是做了个引线人，把这些东西串起来并摆成了一个角度以便于大家观察罢了。&lt;/p&gt;
+
+&lt;p&gt;我在这个观察之外提出的问题是：“程序”是如何演进的？如今你所见的种种语言，以及由这些种种语言所得的种种“程序”之间的关系是如何的？&lt;/p&gt;
+
+&lt;h2 id=""&gt;怎么来讲述这些“原本”&lt;/h2&gt;
+
+&lt;p&gt;在书中，我总是试图用非常严谨地推论来提出或论证观点。我已然尽极大可能地来做这件事，并尝试让读者还能“不太费力”地理解它。&lt;/p&gt;
+
+&lt;p&gt;《结构程序设计》这本书在“论证”这件事上做得远比我要好得多，然而却更多的使用了数理逻辑。我可能采用的逻辑会略有些不同。比如下面这段：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/07/-----2017-07-20-11.05.55.png" alt="屏幕快照 2017-07-20 11.05.55"&gt;&lt;/p&gt;
+
+&lt;p&gt;这段文字在讲述一个“获取/捕获/剥离”抽象的过程，它最终只是想说明“对于计算来说，&lt;code&gt;equ0()&lt;/code&gt;与&lt;code&gt;值0&lt;/code&gt;是同义的”。这句话看起来没有什么特别需要强调的——也许你早就明白了，或者它已经显白得不需要论述。但是，有了这个观点，接下来的论述就完全成立了：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;现在，我们提出最后一个推论。&lt;/p&gt;
+  
+  &lt;ul&gt;
+  &lt;li&gt;既然&lt;code&gt;equ0&lt;/code&gt;可以指代任意有限的计算步骤，那么它必等价于图灵机的“顺序逻辑”中所有步骤；&lt;/li&gt;
+  &lt;li&gt;既然&lt;code&gt;equ0&lt;/code&gt;可以指代图灵机所有的顺序步骤，则必然能指代顺序步骤的两种特例：分支与循环；&lt;/li&gt;
+  &lt;li&gt;既然&lt;code&gt;equ0&lt;/code&gt;既可以指代计算的要素“数”，又可以指代计算的要素“算”，还可以指代描述正确计算所必须的逻辑，那么&lt;code&gt;equ0&lt;/code&gt;本身——在概念抽象上——必然等同于一个完整的计算系统。&lt;/li&gt;
+  &lt;/ul&gt;
+  
+  &lt;p&gt;这就是“函数式”计算范式的基本抽象。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这直接地解释了“函数式”是什么的问题，解释了“函数式”的核心的“值无关”和“值等义于函数（以及其确定性）”的问题，解释了函数式计算完备的问题……&lt;/p&gt;
+
+&lt;p&gt;非但对“语言范式”的解释如此，整本书对它所讨论的几乎所有主题，都是采用这种方式来叙述与论证的。一旦你理解了一个观点、概念与逻辑，那么更多的内容就如同覆盆之珠，琳琅满目了。&lt;/p&gt;
+
+&lt;h2 id=""&gt;什么是“不变的”&lt;/h2&gt;
+
+&lt;p&gt;我们总试图在纷繁的表相之中找到其内在“不变的”那些规律，有人谓之为“道”。我也是这样，我试图去追寻这些不变的东西，所以也有朋友说我是“求道者”。这其实太过抬举——我并不求道，我追求的只是知道而已。&lt;/p&gt;
+
+&lt;p&gt;这也许谈得远了，然而更近一些的问题是：我为什么要去寻找“程序原本”中那些不变的东西呢？&lt;/p&gt;
+
+&lt;p&gt;这十余年来，我的架构经历告诉我：所谓问题，要么是系统与其要素之间的矛盾，要么是观察与其预期之间的矛盾。撷其一而论，若是“系统与其要素”之间的矛盾，那么认清“这些要素是什么”就是极重要的问题了。&lt;/p&gt;
+
+&lt;p&gt;所以我会去找寻一个“计算系统”内部的种种要素，从最核心的，到某种特定系统的，无一遗漏。正是在这个过程中，我得到了《程序原本》一书的全部框架。也正是因此，这本书就是在描述这一切要素以及它们之间的冲突与矛盾。&lt;/p&gt;
+
+&lt;p&gt;更重要的是，我看到了这么多年以来（我的意思是自有“计算机程序”至今），我们从末改变过的解题思路：结构化。要知道，时至今日，我们居然只知道、只尝试过、只成功过这样一种方法。&lt;/p&gt;
+
+&lt;p&gt;这难道不是一件可怕的事吗？&lt;/p&gt;
+
+&lt;h2 id=""&gt;为什么是“架构师的入门之径”&lt;/h2&gt;
+
+&lt;p&gt;在《程序原本》这本书的简介中称，这本书“是架构师的入门之径”。你也许会奇怪我为什么会这样来介绍它。&lt;/p&gt;
+
+&lt;p&gt;其实这套电子书的第一版（《大道至易》）中，我的确就是先从《程序原本》写起的，之后再写到《我的架构思想》。因此从思维的路径来说，我也是将这“程序原本”作为了我讨论架构话题的入门之径的。所以，这简介也并非妄言。&lt;/p&gt;
+
+&lt;p&gt;如果你仔细地读这本《程序原本》，你会发现它已经讨论到了“系统”、“子系统”、“模块”、“分布”、“依赖”等等这些系统架构的“元素”，在它的后半部分更像是涉足到架构领域的书了。然而，它仍然是在“程序”这个体系下进行深入的讨论，而对“架构”只字不提。&lt;/p&gt;
+
+&lt;p&gt;这就是所谓“入门之径”的另一层真义了。&lt;/p&gt;
+
+&lt;p&gt;我们真的太容易在种种大会以及种种文章中听到或看到上面这些词汇（以及要素）了，并且由它们所组成的方案更是多如牛毛。然而，这些听来的看来的，最多让你知之皮表而已，你真的了解“架构为何物”，以及“如何得到架构”吗？&lt;/p&gt;
+
+&lt;p&gt;不，《程序原本》原本就只是打算让你清晰、明了、一览无遗地看到这些皮表，而已。更多的，我们要到《我的架构思想》中去谈。&lt;/p&gt;
+
+&lt;h2 id=""&gt;下载&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 高质量的PDF版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Programming.zip"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐在桌面系统、PAD或大屏幕移动设备上阅读。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 适用于Kindle的版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Programming.azw3"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;下载后用USB上传到Kindle即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。&lt;/p&gt;
+  
+  &lt;p&gt;上述的修改不影响阅读效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 使用了SVG图的.epub版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Programming.epub"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. 一般质量图片的.epub版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Programming-i.epub"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;一般的掌上阅读软件都可以支持。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 低版本Kindle使用的阅读格式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;即低版本.mobi文件，阅读体验较差。请移驾我的Github（&lt;a href="https://github.com/aimingoo/my-ebooks"&gt;在这里&lt;/a&gt;）获取下载。&lt;/p&gt;
+
+&lt;h2 id=""&gt;其它下载点(不定期更新)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CSDN下载页：&lt;a href="http://download.csdn.net/user/aimingoo/uploads"&gt;http://download.csdn.net/user/aimingoo/uploads&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;图灵出版社区：&lt;a href="http://www.ituring.com.cn/book/2429"&gt;http://www.ituring.com.cn/book/2429&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的Github：&lt;a href="http://github.com/aimingoo/my-ebooks"&gt;http://github.com/aimingoo/my-ebooks&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>三本免费电子书齐齐完工了</title><description>&lt;p&gt;首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""&gt;&lt;/p&gt;
 
@@ -2432,290 +2674,4 @@ buster ...
 
 &lt;p&gt;尤其是……程序员总想干点什么黑活之类的啦。&lt;/p&gt;
 
-&lt;p&gt;你懂的。&lt;/p&gt;</content:encoded></item><item><title>手记1：迁移博客之全程工具</title><description>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
-
-&lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
-
-&lt;p&gt;确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。&lt;/p&gt;
-
-&lt;p&gt;然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。&lt;/p&gt;
-
-&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通过BlogToWordpress来将旧博客转到Wordpress导出文件
-&lt;ul&gt;&lt;li&gt;它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。&lt;/li&gt;
-&lt;li&gt;它会抓取图片等文件作为附件保存到指定目录。&lt;/li&gt;
-&lt;li&gt;cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用&lt;a href="https://github.com/yanyingwang/cnblog2jekyll"&gt;cnblog2jekyll&lt;/a&gt;中的generate&lt;em&gt;markdown&lt;/em&gt;all。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
-&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1719/</link><guid isPermaLink="false">b3d847c3-85a6-489c-bfee-e8096c3c884c</guid><category>博客</category><category>Javascript</category><category>Ghost</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 23 May 2017 05:38:05 GMT</pubDate><content:encoded>&lt;p&gt;在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。&lt;/p&gt;
-
-&lt;h2 id="1blogtowordpress"&gt;1. 如何迁移你的博客 - 推荐BlogToWordpress&lt;/h2&gt;
-
-&lt;p&gt;确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。&lt;/p&gt;
-
-&lt;p&gt;然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。&lt;/p&gt;
-
-&lt;p&gt;在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;通过BlogToWordpress来将旧博客转到Wordpress导出文件
-&lt;ul&gt;&lt;li&gt;它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。&lt;/li&gt;
-&lt;li&gt;它会抓取图片等文件作为附件保存到指定目录。&lt;/li&gt;
-&lt;li&gt;cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用&lt;a href="https://github.com/yanyingwang/cnblog2jekyll"&gt;cnblog2jekyll&lt;/a&gt;中的generate&lt;em&gt;markdown&lt;/em&gt;all。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
-&lt;ul&gt;&lt;li&gt;我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json&lt;/li&gt;
-&lt;li&gt;Ghost也支持单篇或多篇.md格式文章的导入，后面会讲到使用.md的方法&lt;/li&gt;
-&lt;li&gt;你不必非得使用Ghost博客系统，多数新的博客系统都支持Wordpress的.xml导出文件或者独立的.md文件。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;BlogToWordpress的支持站点在这里：&lt;a href="http://www.crifan.com/crifan_released_all/website/python/blogstowordpress/"&gt;Crifan的BlogsToWordPress&lt;/a&gt; ，但是下载是放在SourceForge上的：&lt;a href="https://sourceforge.net/projects/blogstowordpress"&gt;https://sourceforge.net/projects/blogstowordpress&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;BlogToWordpress需要Python 2.7.2或2.x，并且需要以下依赖包/库：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Python Imaging Library (PIL) &lt;/li&gt;
-&lt;li&gt;crifanLib&lt;/li&gt;
-&lt;li&gt;chardet，推荐chardet 1.0.1&lt;/li&gt;
-&lt;li&gt;BeautifulSoup，推荐BeautifulSoup-3.0.6.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;除了PIL之外其它三个包/库已经包含在BlogsToWordpress的发布包(v18.3)里了，而PIL是可选安装的（只是在极少数情况下才会用到）。所以，总的来说BlogsToWordpress也是即解压即用的。&lt;/p&gt;
-
-&lt;p&gt;我在mac上使用的命令如下（SourceForge上也有windows .exe版本，可以尝试）：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 1. 下载BlogsToWordPress
-&amp;gt; curl -L 'https://sourceforge.net/projects/blogstowordpress/files/v18.3/BlogsToWordpress_v18.3_2014-05-23.7z/download' -o BlogsToWordpress_v18.3_2014-05-23.7z
-&amp;gt; 7z x BlogsToWordpress_v18.3_2014-05-23.7z
-
-# 2. 生成调用Stub shell script
-&amp;gt; echo 'python BlogsToWordpress.py --maxXmlSize 0 --googleTrans no --wpPicPath "/bkImages" -s "$1"' &amp;gt; runner.sh
-
-# 3. 运行脚本
-&amp;gt; bash runner.sh "http://blog.sina.com.cn/aimingoo" | tee BlogsToWordpress.log
-
-# 4. 归并文件到目录中
-#    - BlogsToWordPress根据url中的UserName部分来生成下载文件的目录，本例中是aimingoo
-#    - 脚本中指定的wpPicPath参数会使.xml中的图片url修正，但下载文件仍然是在aimingoo/pic目录中，所以需要更名
-&amp;gt; mv WXR_*.xml aimingoo/
-&amp;gt; mv BlogsToWordpress.log aimingoo/
-&amp;gt; mv aimingoo/pic aimingoo/bkImages
-&amp;gt; mv aimingoo blog.sina.com.cn-aimingoo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果你需要处理更多的博客网站，那么只需要重复第3~4步即可。&lt;/p&gt;
-
-&lt;h2 id="2ghost"&gt;2. 用本地博客导入 - 例如Ghost&lt;/h2&gt;
-
-&lt;p&gt;如果你得到的是一批Markdown格式（.markdown或.md）的文件，以及用相对目录来保存的图片等附件——注意Ghost使用导入时也支持绝对路径，那么你可以直接将它们导入到支持该格式的本地博客中，例如Ghost。&lt;/p&gt;
-
-&lt;h3 id="21"&gt;2.1 搭建本地博客&lt;/h3&gt;
-
-&lt;p&gt;所谓本地博客，就是一个你在的电脑上运行的，在浏览器中可以使用&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;http://localhost/ ...&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;来浏览的博客系统。我们下面就用Ghost来搭一个。&lt;/p&gt;
-
-&lt;p&gt;我在mac上使用的命令如下（应该可以在Windows上安装nodejs并搭建Ghost，但我没有试过）：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 获取和解压Ghost
-&amp;gt; curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
-&amp;gt; unzip -uo ghost.zip -d ghost
-&amp;gt; cd ghost
-
-# 使用npm来安装Ghost
-#    - 如果你没有安装brew，那么参考下面的地址安装一份先
-#    - https://brew.sh/index_zh-cn.html
-&amp;gt; brew install node
-&amp;gt; npm install --production
-
-# 将Ghost运行在开发者模式上
-&amp;gt; npm start
-Ghost is running in development...  
-Listening on 127.0.0.1:2368  
-Url configured as: http://aimingoo.github.io  
-Ctrl+C to shut down  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="22"&gt;2.2 准备导入文件&lt;/h3&gt;
-
-&lt;p&gt;我们之前已经得到了从旧博客网站中导出的两类文件：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Wordpress导出格式的*.xml，以及（有可能的）bkImages目录；或&lt;/li&gt;
-&lt;li&gt;一批Markdown格式的文件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;如果你直接使用Markdown文件，那么将它们打包在一个.zip文件中即可。如果你使用.xml，那么需要先用wp2ghost来做一下转换（你也可以考虑通过其它工具直接转换成.md）。&lt;/p&gt;
-
-&lt;p&gt;使用wp2ghost的好处是它生成的是.json文件，方便我们用其它工具或简单脚本来做进一步的检测、优化或其它处理。例如我写了一个脚本来做下面这些事：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;将url-encode的文本解码成可读格式：有些文章的标题或tags都使用了编码，直接导入Ghost是没法看的&lt;/li&gt;
-&lt;li&gt;移除多余的tags：有些博客的tags是parse文章得到的，茫茫多&lt;/li&gt;
-&lt;li&gt;修正author id：博客中的作者与Ghost中作者是没有对应关系的，需要修正&lt;/li&gt;
-&lt;li&gt;……&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;等等。&lt;/p&gt;
-
-&lt;p&gt;下面的示例说明对.xml文件的处理：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 1. 安装wp2ghost
-#    - 也可以直接使用git clone ...
-&amp;gt; svn export https://github.com/jonhoo/wp2ghost/trunk wp2ghost
-&amp;gt; cd wp2ghost
-&amp;gt; npm install
-
-# 2. 从Wordpress转换到json文件
-#    - 设文件位于~/blog.sina.com.cn-aimingoo中
-#    - 注意wp2ghost.js一次只能转换一个文件，下面用*.xml是省掉写文件名
-&amp;gt; node bin/wp2ghost.js ~/blog.sina.com.cn-aimingoo/*.xml &amp;gt; ghost-tmp.json
-
-# 3. 切换工作目录
-&amp;gt; mv ghost-tmp.json ~/blog.sina.com.cn-aimingoo/
-&amp;gt; cd ~/blog.sina.com.cn-aimingoo/
-
-# 4. 获取putrefy.js脚本
-#    - 请直接修改putrefy.js源代码，注意它并不是通过命令行参数来配置的
-&amp;gt; curl -L https://github.com/aimingoo/ghost-utils/raw/master/putrefy.js -o putrefy.js
-&amp;gt; node putrefy.js ghost-tmp.json &amp;gt; ghost.json
-&amp;gt; zip -r ghost_archive.zip ghost.json bkImages
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;建议你根据你的博客的需求来修改putrefy.js中的参数配置，某些情况下（例如你要合并多个博客），那么在转换中所需要的putrefy.js脚本会各个不同，因此需要为它们配置各自适用的putrefy.js脚本。&lt;/p&gt;
-
-&lt;p&gt;现在你所得到的&lt;code&gt;ghost_archive.zip&lt;/code&gt;就是Ghost可用的导入文件了。&lt;/p&gt;
-
-&lt;h3 id="23"&gt;2.3 导入到本地博客&lt;/h3&gt;
-
-&lt;p&gt;我们刚刚启动了本地Ghost博客：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 在你的Ghost安装目录中（例如~/ghost）执行如下命令
-&amp;gt; npm start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;缺省情况下，在你用&lt;code&gt;http://aimingoo.github.io/&lt;/code&gt;访问它时会看到了一个初始状态的博客。你需要为自己建立一个博客账号，登录并管理它。这时，你应该访问&lt;code&gt;http://aimingoo.github.io/ghost/&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;建立博客账号的过程中，在第二步（输入你的名字、邮箱和初始密码）时会要求你设置博客的标题，忘掉了也没关系，你可以随时在管理界面的&lt;code&gt;Settings -&amp;gt; General&lt;/code&gt;中去修改它。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/ghost_startup_step-1.png" alt="ghost_startup_step-1"&gt;&lt;/p&gt;
-
-&lt;p&gt;另外，在第三步时会提示你邀请你的博客团队成员（Ghost是一个多人博客平台），请直接跳过忽略。有关这个功能我们将来再讨论——你随时可以在管理界面的&lt;code&gt;Team&lt;/code&gt;功能中发起邀请。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/ghost_startup_step-2.png" alt="ghost_startup_step-2"&gt;&lt;/p&gt;
-
-&lt;p&gt;初始化错了也没关系，来到你的Ghost安装目录，删除数据库文件，然后重启Ghost就可以了。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;# 你可能需要先用Ctrl + C键退出正在运行的Ghost
-#    - 以开发版本模式运行的Ghost是没有驻留在后台的
-&amp;gt; rm content/data/ghost-dev.db
-&amp;gt; npm start
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然后我们来到&lt;code&gt;Settings -&amp;gt; Labs&lt;/code&gt;中，使用&lt;code&gt;import&lt;/code&gt;将我们此前准备好的.zip文件导入即可。如果一切顺利，你会在左下角看到导入成功的提示；如果失败，红色提示会出现在当前页面的顶端。&lt;/p&gt;
-
-&lt;p&gt;最后，建议你开启&lt;code&gt;Labs -&amp;gt; Enable Beta Features&lt;/code&gt;中的Public API选项，有许多第三方主题需要使用到这些博客功能。&lt;/p&gt;
-
-&lt;h2 id="3ghost"&gt;3. 迁移与Ghost使用小结&lt;/h2&gt;
-
-&lt;p&gt;其它的一些注意事项包括：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;你创建的第一个博客账号（也就是作为管理员的这个）是不需要验证mail地址的，但使用邀请功能加入的其它账号就需要验证。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;导入博客的过程中确实会出现一些意外，这是我写上面提到的&lt;code&gt;putrefy.js&lt;/code&gt;工具的原因。如果你在导入过程中遇到问题，建议你尝试改写这份代码，或者将出问题的导入文件发给我——我尽量替你的博客内容保密，尽管它作为博客原本是公开的。呵呵&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;确实有非常多的途径来完成本文中描述的过程，但坦率地说，我尝试过很多了，目前这种算是最……可行的。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;一旦你将.zip导入到Ghost，你就可以在Ghost管理和更新它们，发布或静态化等等。因此我在后续文章中提到的过程再与传统博客（例如下载、转换的那些文件）就没什么关系了。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;如果你备份content整个目录（例如Ghost导入的图片位于&lt;code&gt;./content/images&lt;/code&gt;目录中），那么你可以随时重装Ghost，或者更新至新的版本而不会丢失数据。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ghost导入的博客文章是可能存在格式问题的，也可能导致你正在使用的Ghost博客主题（缺省是Casper主题，在&lt;code&gt;Settings -&amp;gt; General&lt;/code&gt;中设置）格式混乱或无法使用，请自行编辑它们。我事实上将所有历年文章逐一更新过，并尽量使用了markdown格式——这样以后管理起来就方便了。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Ghost的数据库在&lt;code&gt;./content/data&lt;/code&gt;目录中，对应于开发版的是&lt;code&gt;content/data/ghost-dev.db&lt;/code&gt;文件。如果你安装过sqlite，那么可以直接用命令行来操作它——或者e用你喜欢的GUI工具也行。例如：&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;  &amp;gt; sqlite3 -header -column ghost-dev.db 'select id, name, email from users'
-  id          name        email           
-  ----------  ----------  ----------------
-  1           aimingoo    aiming@gmail.com
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;记住这个&lt;code&gt;id = 1&lt;/code&gt;，它是你的管理帐户id。在导入用的ghost.json文件中，它也被称为&lt;code&gt;author_id&lt;/code&gt;，在将来做多账户操作时你可能需要了解它。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;  &amp;gt; sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
-  1519|《大道至简》的幕后故事：终结篇、勘误和PDF下载
-  1595|近期的公开资源汇总(已完整)~
-  ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;如果你得到上述的&lt;code&gt;id&lt;/code&gt;值，那么可以直接在Ghost的管理界面中去编辑它——Ghost管理界面没有搜索功能。例如直接在浏览器上使用如下地址：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;http://aimingoo.github.io/ghost/editor/1519/&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title>再一次开始更新博客</title><description>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
-
-&lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
-
-&lt;p&gt;于是就有了这个在github上的新站。这里把以前在&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;新浪博客 - &lt;a href="http://blog.sina.com.cn/aimingoo"&gt;http://blog.sina.com.cn/aimingoo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;CSDN博客 - &lt;a href="http://blog.csdn.net/aimingoo"&gt;http://blog.csdn.net/aimingoo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上面分开写的内容全部放在了一起。并且接下来会把“麦秸的垛”也逐渐迁移过来。&lt;/p&gt;
-
-&lt;p&gt;新博客使用的是ghost博客系统，使用buster发布成静态网页，然后提交到github和ghpages来做托管。里面涉及到不少的技术细节，所以最近也会发一些文章来介绍这些。&lt;/p&gt;
-
-&lt;p&gt;在整个博客的内容开始稳定更新之前，近期会有一些小的更新会放在本篇文章最后。&lt;/p&gt;
-
-&lt;h3 id="20170520"&gt;2017.05.20&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;全站交付。&lt;/li&gt;
-&lt;li&gt;2009年之后的博客文章全部进行了修订。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id="20170613"&gt;2017.06.13&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;主要的架构工作和优化全部完成，大部分日常操作工具化。&lt;/li&gt;
-&lt;li&gt;准备正式停用在CSDN和SINA上的博客。&lt;/li&gt;
-&lt;li&gt;要去日本玩，因此部分工作先暂停。&lt;/li&gt;
-&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1718/</link><guid isPermaLink="false">30c15750-3f8f-423a-bf39-f305763c1425</guid><category>杂谈</category><category>博客</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 20 May 2017 16:00:48 GMT</pubDate><content:encoded>&lt;h2 id=""&gt;新博客的开张&lt;/h2&gt;
-
-&lt;p&gt;最近在家养病，开始闲出了些工夫，于是决定把之前散落的博客整合起来，以后也有时间做些更新，有个能认真写写文字的地方。&lt;/p&gt;
-
-&lt;p&gt;于是就有了这个在github上的新站。这里把以前在&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;新浪博客 - &lt;a href="http://blog.sina.com.cn/aimingoo"&gt;http://blog.sina.com.cn/aimingoo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;CSDN博客 - &lt;a href="http://blog.csdn.net/aimingoo"&gt;http://blog.csdn.net/aimingoo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;上面分开写的内容全部放在了一起。并且接下来会把“麦秸的垛”也逐渐迁移过来。&lt;/p&gt;
-
-&lt;p&gt;新博客使用的是ghost博客系统，使用buster发布成静态网页，然后提交到github和ghpages来做托管。里面涉及到不少的技术细节，所以最近也会发一些文章来介绍这些。&lt;/p&gt;
-
-&lt;p&gt;在整个博客的内容开始稳定更新之前，近期会有一些小的更新会放在本篇文章最后。&lt;/p&gt;
-
-&lt;h3 id="20170520"&gt;2017.05.20&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;全站交付。&lt;/li&gt;
-&lt;li&gt;2009年之后的博客文章全部进行了修订。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id="20170613"&gt;2017.06.13&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;主要的架构工作和优化全部完成，大部分日常操作工具化。&lt;/li&gt;
-&lt;li&gt;准备正式停用在CSDN和SINA上的博客。&lt;/li&gt;
-&lt;li&gt;要去日本玩，因此部分工作先暂停。&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;你懂的。&lt;/p&gt;</content:encoded></item></channel></rss>

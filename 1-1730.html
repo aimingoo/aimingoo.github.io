@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>如何将电子书发送到Kindle</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="如何将电子书发送到Kindle" />
-    <meta property="og:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-1730.html" />
-    <meta property="article:published_time" content="2017-06-12T18:55:24.000Z" />
-    <meta property="article:modified_time" content="2017-06-15T17:54:24.000Z" />
-    <meta property="article:tag" content="Kindle" />
-    <meta property="article:tag" content="电子书" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="如何将电子书发送到Kindle">
+    <meta property="og:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者">
+    <meta property="og:url" content="http://aimingoo.github.io/1-1730.html">
+    <meta property="article:published_time" content="2017-06-12T18:55:24.000Z">
+    <meta property="article:modified_time" content="2017-06-15T17:54:24.000Z">
+    <meta property="article:tag" content="Kindle">
+    <meta property="article:tag" content="电子书">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="如何将电子书发送到Kindle" />
-    <meta name="twitter:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-1730.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Kindle, 电子书" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="如何将电子书发送到Kindle">
+    <meta name="twitter:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1730.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Kindle, 电子书">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-kindle tag-dian-zi-shu nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/kindle/index.html">Kindle</a>, <a href="tag/dian-zi-shu/index.html">电子书</a>
+                        <a href="tag/kindle/">Kindle</a>, <a href="tag/dian-zi-shu/">电子书</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -181,7 +180,7 @@ ghost.init({
 
 <blockquote>
   <p>图：官方网站入口
-  <img src="content/images/2017/06/-----2017-06-12-23.56.59.png" alt="" /></p>
+  <img src="content/images/2017/06/-----2017-06-12-23.56.59.png" alt=""></p>
 </blockquote>
 
 <p>更快捷的方法是在上面的“<strong>Send to Kindle</strong>”软件中，在它的界面的最下边有“Manage your Kindle”，点击进入就可以了（这就是我建议你先尝试它的主要原因了）。</p>
@@ -252,7 +251,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-1729.html">
                     Kindle的四种封面
                 </a>
@@ -263,8 +262,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -283,14 +282,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -306,7 +305,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -320,7 +319,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -333,20 +332,19 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

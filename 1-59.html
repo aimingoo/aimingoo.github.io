@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomo项目中代码的一般性约定</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Qomo项目中代码的一般性约定" />
-    <meta property="og:description" content="&amp;nbsp;   Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     一、变量声明的一般性方法  ~~~~~~~~~~~~~~~~  Qomo约定在全局空间进行变量声明时，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-59.html" />
-    <meta property="article:published_time" content="2007-02-02T17:36:00.000Z" />
-    <meta property="article:modified_time" content="2007-02-02T17:36:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="正则表达式" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomo项目中代码的一般性约定">
+    <meta property="og:description" content="&amp;nbsp;   Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     一、变量声明的一般性方法  ~~~~~~~~~~~~~~~~  Qomo约定在全局空间进行变量声明时，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-59.html">
+    <meta property="article:published_time" content="2007-02-02T17:36:00.000Z">
+    <meta property="article:modified_time" content="2007-02-02T17:36:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="正则表达式">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Qomo项目中代码的一般性约定" />
-    <meta name="twitter:description" content="&amp;nbsp;   Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     一、变量声明的一般性方法  ~~~~~~~~~~~~~~~~  Qomo约定在全局空间进行变量声明时，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-59.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 正则表达式" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomo项目中代码的一般性约定">
+    <meta name="twitter:description" content="&amp;nbsp;   Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     一、变量声明的一般性方法  ~~~~~~~~~~~~~~~~  Qomo约定在全局空间进行变量声明时，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-59.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 正则表达式">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-zheng-ze-biao-da-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/index.html">正则表达式</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,466 +145,466 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>&nbsp;  </p>
+                <p>   </p>
 
-<hr />
+<hr>
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
 项目团队：../../Qomo_team.txt    </p>
 
-<hr />
+<hr>
 
-<p>一、变量声明的一般性方法 <br />
-~~~~~~~~~~~~~~~~<del> <br />
-Qomo约定在全局空间进行变量声明时，应用var关键字来声明，而不应当省略(尽管语法上讲能这样做)。 <br />
-声明时的代码格式尽可能使用如下形式： <br />
-<font face="Courier New">  </p>
+<p>一、变量声明的一般性方法 <br>
+~~~~~~~~~~~~~~~~<del> <br>
+Qomo约定在全局空间进行变量声明时，应用var关键字来声明，而不应当省略(尽管语法上讲能这样做)。 <br>
+声明时的代码格式尽可能使用如下形式： <br>
+<font face="Courier New">  </font></del></p>
 
-<hr />
+<hr>
 
-<p>var <br />
-&nbsp; v1 = 1234; <br />
-&nbsp; v2 = 'abcd'; <br />
-------------------</font> <br />
-或为每行声明都保留var关键字，例如： <br />
-<font face="Courier New">  </p>
+<p>var <br>
+  v1 = 1234; <br>
+  v2 = 'abcd'; <br>
+------------------ <br>
+或为每行声明都保留var关键字，例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var v1 = 1234; <br />
-var v2 = 'abcd'; <br />
-------------------</font>  </p>
+<p>var v1 = 1234; <br>
+var v2 = 'abcd'; <br>
+------------------  </p>
 
-<p>Qomo约定在函数内部声明局部变量进，使用var关键字时可以用如下省写形式： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定在函数内部声明局部变量进，使用var关键字时可以用如下省写形式： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var <br />
-&nbsp; v1 = 1234,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // &lt;-- 注意行未是逗号 <br />
-&nbsp; v2 = 'abcd'; <br />
-------------------</font> <br />
+<p>var <br>
+  v1 = 1234,      // &lt;-- 注意行未是逗号 <br>
+  v2 = 'abcd'; <br>
+------------------ <br>
 或为每行声明保留var关键字。  </p>
 
 <p>Qomo反对在函数内部声明全局变量。  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>二、Qomo中一些保留的命名 <br />
-</del>~~~~~~~~~~~~~~~~ <br />
-Qomo会将一些实现特殊的、具有&ldquo;关键字&rdquo;性质的功能声明为全局函数。它们通常具有特殊的名字，而且 <br />
-是以大写字符开始的(这看起来有点象构造器，但并不是)。这些函数名部分看起来象JavaScript的保留字， <br />
-但由于javascript的命名是大小写区分的，且保留字都使用小写字符，因此这并不冲突。这些全局函数有： <br />
-<font face="Courier New">  </p>
+<p>二、Qomo中一些保留的命名 <br>
+~~~~~~~~~~~~~~~~ <br>
+Qomo会将一些实现特殊的、具有“关键字”性质的功能声明为全局函数。它们通常具有特殊的名字，而且 <br>
+是以大写字符开始的(这看起来有点象构造器，但并不是)。这些函数名部分看起来象JavaScript的保留字， <br>
+但由于javascript的命名是大小写区分的，且保留字都使用小写字符，因此这并不冲突。这些全局函数有： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; Class()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 注册类 <br />
-&nbsp; Attribute()&nbsp;&nbsp;&nbsp; : 快速属性声明 <br />
-&nbsp; Interface()&nbsp;&nbsp;&nbsp; : 接口声明 <br />
-&nbsp; Aggregate()&nbsp;&nbsp;&nbsp; : 接口聚合 <br />
-&nbsp; Abstract()&nbsp;&nbsp;&nbsp;&nbsp; : 抽象方法 <br />
-&nbsp; NullFunction() : 空函数／空方法 <br />
-------------------</font>  </p>
+<p>  Class()        : 注册类 <br>
+  Attribute()    : 快速属性声明 <br>
+  Interface()    : 接口声明 <br>
+  Aggregate()    : 接口聚合 <br>
+  Abstract()     : 抽象方法 <br>
+  NullFunction() : 空函数／空方法 <br>
+------------------  </p>
 
-<p>Qomo为构建系统框架，使用标准的JS原型继承的方式在全局范围内声明了一些类(构造器)，用户代码应该 <br />
-避免覆盖这些名称。这些命名包括： <br />
-<font face="Courier New">  </p>
+<p>Qomo为构建系统框架，使用标准的JS原型继承的方式在全局范围内声明了一些类(构造器)，用户代码应该 <br>
+避免覆盖这些名称。这些命名包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; Url()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 分析一个Url地址 <br />
-&nbsp; Ajax()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Ajax异步方式 <br />
-&nbsp; MuEvent()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 多投事件 <br />
-&nbsp; CustomArguments() : 标识函数入口使用了定制参数 <br />
-&nbsp; BreakEventCast()&nbsp; : 标识事件投送列表被中止 <br />
-&nbsp; JoPoint()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 切面系统中的连接点 <br />
-&nbsp; JoPoints()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 切面系统中的连接点列表 <br />
-&nbsp; Profilers()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 创建系统分析对象 <br />
-------------------</font>  </p>
+<p>  Url()             : 分析一个Url地址 <br>
+  Ajax()            : Ajax异步方式 <br>
+  MuEvent()         : 多投事件 <br>
+  CustomArguments() : 标识函数入口使用了定制参数 <br>
+  BreakEventCast()  : 标识事件投送列表被中止 <br>
+  JoPoint()         : 切面系统中的连接点 <br>
+  JoPoints()        : 切面系统中的连接点列表 <br>
+  Profilers()       : 创建系统分析对象 <br>
+------------------  </p>
 
-<p>作为习惯，Qomo保留了一些(少量的)全局的工具函数，例如： <br />
-<font face="Courier New">  </p>
+<p>作为习惯，Qomo保留了一些(少量的)全局的工具函数，例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; format()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 指向String.format(); <br />
-&nbsp; RegisterInterface()&nbsp; : 指向Interface.RegisterInterface() <br />
-&nbsp; QueryInterface()&nbsp;&nbsp;&nbsp;&nbsp; : 指向Interface.QueryInterface()</font>  </p>
+<p>  format()             : 指向String.format(); <br>
+  RegisterInterface()  : 指向Interface.RegisterInterface() <br>
+  QueryInterface()     : 指向Interface.QueryInterface()  </p>
 
-<p><font face="Courier New">&nbsp; isAlias()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 检测一个命名空间是否是别名 <br />
-&nbsp; isNamespace()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 检测一个变量是否是命名空间声明</font>  </p>
+<p><font face="Courier New">  isAlias()            : 检测一个命名空间是否是别名 <br>
+  isNamespace()        : 检测一个变量是否是命名空间声明</font>  </p>
 
-<p><font face="Courier New">&nbsp; getAllFunctions()&nbsp;&nbsp;&nbsp; : (用于调试与性能分析,) 列出一个代码块中调用过的函数与方法 <br />
-&nbsp; showProfiler()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : (用于调试与性能分析,) 调用$debug来显示性能分析报告 <br />
+<p><font face="Courier New">  getAllFunctions()    : (用于调试与性能分析,) 列出一个代码块中调用过的函数与方法 <br>
+  showProfiler()       : (用于调试与性能分析,) 调用$debug来显示性能分析报告 <br>
 ------------------</font>  </p>
 
 <p>除了上述三种情况，Qomo中将尽可能少的占用全局的命名，例如函数或变量。  </p>
 
-<p>为此，Qomo为开发人员准备了一份资料文档，用于通告哪那些全局函数、类与命名空间被使用了，开发 <br />
+<p>为此，Qomo为开发人员准备了一份资料文档，用于通告哪那些全局函数、类与命名空间被使用了，开发 <br>
 人员应尽可能避免出现相冲突的命名。  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>三、Qomo中的一些命名约定 <br />
-~~~~~~~~~~~~~~~~~~ <br />
+<p>三、Qomo中的一些命名约定 <br>
+~~~~~~~~~~~~~~~~~~ <br>
 1. 系统的特殊声明  </p>
 
-<hr />
+<hr>
 
-<p>Qomo约定以$开始的变量为系统特殊的声明，它通常是关键的函数或可能在系统编译时被特殊处 <br />
-理的函数。这些函数主要包括： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定以$开始的变量为系统特殊的声明，它通常是关键的函数或可能在系统编译时被特殊处 <br>
+理的函数。这些函数主要包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $import() : 导入文件或包 <br />
-&nbsp; $inline() : 内联代码块 <br />
-&nbsp; $assert() : 断言 <br />
-&nbsp; $debug()&nbsp; : 调试输出</font>  </p>
+<p>  $import() : 导入文件或包 <br>
+  $inline() : 内联代码块 <br>
+  $assert() : 断言 <br>
+  $debug()  : 调试输出  </p>
 
-<p><font face="Courier New">&nbsp; $map()&nbsp;&nbsp;&nbsp; : 创建命名与路径的映射 <br />
-&nbsp; $mapx()&nbsp;&nbsp; : 展开命名空间 <br />
-&nbsp; $n2p()&nbsp;&nbsp;&nbsp; : 命名空间到路径的转换 <br />
-&nbsp; $p2n()&nbsp;&nbsp;&nbsp; : 路径到命名空间的转换</font>  </p>
+<p><font face="Courier New">  $map()    : 创建命名与路径的映射 <br>
+  $mapx()   : 展开命名空间 <br>
+  $n2p()    : 命名空间到路径的转换 <br>
+  $p2n()    : 路径到命名空间的转换</font>  </p>
 
-<p><font face="Courier New">&nbsp; $profilers : (对象)全局的性能分析器</font>  </p>
+<p><font face="Courier New">  $profilers : (对象)全局的性能分析器</font>  </p>
 
-<p><font face="Courier New">&nbsp; $Q() : 等同于$QomoConfig <br />
-&nbsp; $QomoConfig() : 查询Qomo装载时或编译时的配置信息 <br />
-&nbsp; $QomoCoreFunction : 简单地返回一个函数用来替换Function对象的toString()方法，以保护代码 <br />
-------------------</font> <br />
+<p><font face="Courier New">  $Q() : 等同于$QomoConfig <br>
+  $QomoConfig() : 查询Qomo装载时或编译时的配置信息 <br>
+  $QomoCoreFunction : 简单地返回一个函数用来替换Function对象的toString()方法，以保护代码 <br>
+------------------</font> <br>
 此外，一些函数内的局部变量也使用$来表明它的特殊性。  </p>
 
-<p>Qomo约定以&quot;_&quot;开始的函数具有使用的上下文环境限制。主要包括： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定以"_"开始的函数具有使用的上下文环境限制。主要包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 以下函数仅能在类声明中使用 <br />
-//&nbsp; - 注: Attribute()也仅能在类声明使用 <br />
-&nbsp; <em>cls : 取类引用 <br />
-&nbsp; _get : 类内部信息的getter <br />
-&nbsp; _set : 类内部信息的setter <br />
-------------------</font> <br />
+<p>// 以下函数仅能在类声明中使用 <br>
+//  - 注: Attribute()也仅能在类声明使用 <br>
+  <em>cls : 取类引用 <br>
+  _get : 类内部信息的getter <br>
+  _set : 类内部信息的setter <br>
+------------------ <br>
 此外，一些函数内的局部变量也使用</em>来表明它的特殊性，或与一个没有该前缀的同名函数存在关联。  </p>
 
-<p>Qomo约定全大写的变量是系统保留的，或有特殊的含义的变量，该规则并不限于在函数内／外使 <br />
-用。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定全大写的变量是系统保留的，或有特殊的含义的变量，该规则并不限于在函数内／外使 <br>
+用。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; _RTLOBJECT : 在Qomo替换之前的Object()构造器 <br />
-&nbsp; _RTLERROR&nbsp; : 在Qomo替换之前的Error()构造器 <br />
-------------------</font>  </p>
+<p>  _RTLOBJECT : 在Qomo替换之前的Object()构造器 <br>
+  _RTLERROR  : 在Qomo替换之前的Error()构造器 <br>
+------------------  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>异常  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo约定以字符&ldquo;E&rdquo;开始并紧邻一个大写字母表明一个异常。异常可以用数组形式来表示，例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定以字符“E”开始并紧邻一个大写字母表明一个异常。异常可以用数组形式来表示，例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; ECallClassBadArguments = [8101, 'Arguments error&nbsp; for Class().']; <br />
-&nbsp; ERegClassNoname = [8102, 'With call Class(), lost class name .']; <br />
-&nbsp; EAccessSafeArea = [8104, 'Try Access Safe area.']; <br />
-------------------</font>  </p>
+<p>  ECallClassBadArguments = [8101, 'Arguments error  for Class().']; <br>
+  ERegClassNoname = [8102, 'With call Class(), lost class name .']; <br>
+  EAccessSafeArea = [8104, 'Try Access Safe area.']; <br>
+------------------  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>类与类类型注册  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo约定以大写字母开始的函数通常是类构造器，而以小写字母开始的函数是普通函数或方法。这 <br />
-一点是JavaScript惯用的代码风格。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定以大写字母开始的函数通常是类构造器，而以小写字母开始的函数是普通函数或方法。这 <br>
+一点是JavaScript惯用的代码风格。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; // 类构造器 <br />
-&nbsp; function MyObject() { <br />
-&nbsp;&nbsp;&nbsp; // .. <br />
-&nbsp; }</font>  </p>
+<p>  // 类构造器 <br>
+  function MyObject() { <br>
+    // .. <br>
+  }  </p>
 
-<p><font face="Courier New">&nbsp; // 方法或函数 <br />
-&nbsp; function callSafeMethod() { <br />
-&nbsp;&nbsp;&nbsp; // .. <br />
-&nbsp; } <br />
+<p><font face="Courier New">  // 方法或函数 <br>
+  function callSafeMethod() { <br>
+    // .. <br>
+  } <br>
 ------------------</font>  </p>
 
-<p>Qomo约定应当以字符&ldquo;T&rdquo;开始，后面紧跟构造器函数名的格式对一个类进行类注册。Qomo的OOP系统和命 <br />
-名空间系统依赖于类注册。类注册使用Class()函数。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定应当以字符“T”开始，后面紧跟构造器函数名的格式对一个类进行类注册。Qomo的OOP系统和命 <br>
+名空间系统依赖于类注册。类注册使用Class()函数。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; // 类构造器声明 <br />
-&nbsp; function MyObject() { <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp; }</font>  </p>
+<p>  // 类构造器声明 <br>
+  function MyObject() { <br>
+    // ... <br>
+  }  </p>
 
-<p><font face="Courier New">&nbsp; // 类注册 <br />
-&nbsp; TMyObject = Class(Object, 'MyObject'); <br />
+<p><font face="Courier New">  // 类注册 <br>
+  TMyObject = Class(Object, 'MyObject'); <br>
 ------------------</font>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>事件、事件句柄与事件类型  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo约定以On开始的属性为事件，而以do开始的函数通常用作事件句柄。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定以On开始的属性为事件，而以do开始的函数通常用作事件句柄。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; function doCall() { <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp; }</font>  </p>
+<p>  function doCall() { <br>
+    // ... <br>
+  }  </p>
 
-<p><font face="Courier New">&nbsp; function MyObject() { <br />
-&nbsp;&nbsp;&nbsp; this.OnCall = NullFunction; <br />
-&nbsp; }</font>  </p>
+<p><font face="Courier New">  function MyObject() { <br>
+    this.OnCall = NullFunction; <br>
+  }</font>  </p>
 
-<p><font face="Courier New">&nbsp; var obj = new MyObject(); <br />
-&nbsp; obj.OnCall.add(doCall); <br />
+<p><font face="Courier New">  var obj = new MyObject(); <br>
+  obj.OnCall.add(doCall); <br>
 ------------------</font>  </p>
 
-<p>Qomo约定事件可以用一个函数声明来描述事件的接口，但这个声明除了便于开发人员使用之外，并没有 <br />
-任何价值。一般情况下，该声明应该以字符&ldquo;T&rdquo;起始，紧接事件名，最后可以用Event结束。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定事件可以用一个函数声明来描述事件的接口，但这个声明除了便于开发人员使用之外，并没有 <br>
+任何价值。一般情况下，该声明应该以字符“T”起始，紧接事件名，最后可以用Event结束。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; TOnCall = function(item, index) { } <br />
-&nbsp; TOnLoadEvent = function(filename, filenum) { }</font>  </p>
+<p>  TOnCall = function(item, index) { } <br>
+  TOnLoadEvent = function(filename, filenum) { }  </p>
 
-<p><font face="Courier New">&nbsp; function MyObject() { <br />
-&nbsp;&nbsp;&nbsp; this.OnCall = TOnCall; <br />
-&nbsp;&nbsp;&nbsp; this.OnLoad = TOnLoadEvent; <br />
-&nbsp; } <br />
-------------------</font> <br />
-对于上面的声明来说，OnCall与OnLoad后面是一个空函数(NullFunction)还是一个事件类型的声明并没有 <br />
+<p><font face="Courier New">  function MyObject() { <br>
+    this.OnCall = TOnCall; <br>
+    this.OnLoad = TOnLoadEvent; <br>
+  } <br>
+------------------</font> <br>
+对于上面的声明来说，OnCall与OnLoad后面是一个空函数(NullFunction)还是一个事件类型的声明并没有 <br>
 关系。上面这样做，只是便于开发人员理解：当事件发生时，事件句柄可以得到怎样的入口数据。  </p>
 
-<p>由于&ldquo;事件类型&rdquo;只有声明和描述的价值，它事实上从来不会被执行。因此，可以在不同的文件中，或者 <br />
-相同文件的不同类、不同位置重复的声明相同名字的&ldquo;事件类型&rdquo;。这对程序执行不会有负面的影响。  </p>
+<p>由于“事件类型”只有声明和描述的价值，它事实上从来不会被执行。因此，可以在不同的文件中，或者 <br>
+相同文件的不同类、不同位置重复的声明相同名字的“事件类型”。这对程序执行不会有负面的影响。  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>接口  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo约定接口是以&ldquo;I&rdquo;字符开始来声明一个函数。接口的方法应声明为Abstract。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定接口是以“I”字符开始来声明一个函数。接口的方法应声明为Abstract。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; IInterface = function() { <br />
-&nbsp;&nbsp;&nbsp; this.QueryInterface = Abstract; <br />
-&nbsp; } <br />
-------------------</font>  </p>
+<p>  IInterface = function() { <br>
+    this.QueryInterface = Abstract; <br>
+  } <br>
+------------------  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>切面  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo约定应尽量以asp或asp_为前缀来声明切面。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定应尽量以asp或asp_为前缀来声明切面。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; var asp<em>OnTimer = new ObjectAspect(T2, 'OnTimer', 'Event', x0); <br />
-&nbsp; var asp</em>getTopoString = new FunctionAspect(getTopoString, 'getTopoString', 'Function'); <br />
-------------------</font>  </p>
+<p>  var asp<em>OnTimer = new ObjectAspect(T2, 'OnTimer', 'Event', x0); <br>
+  var asp</em>getTopoString = new FunctionAspect(getTopoString, 'getTopoString', 'Function'); <br>
+------------------  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>内联代码  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>使用$inline()可以将一个代码片断内联到当前位置执行。Qomo约定被联接的代码块应该是一个独立的 <br />
-文件，文件中可以包括注释，其代码体应该被包含在一个标签声明当中。这个标签声明只用于表现该 <br />
+<p>使用$inline()可以将一个代码片断内联到当前位置执行。Qomo约定被联接的代码块应该是一个独立的 <br>
+文件，文件中可以包括注释，其代码体应该被包含在一个标签声明当中。这个标签声明只用于表现该 <br>
 代码块的特殊性，实际上没有执行价值。  </p>
 
-<p>该标签声明应当以&ldquo;<em>inline</em>&rdquo;为前缀。例如： <br />
-<font face="Courier New">  </p>
+<p>该标签声明应当以“<em>inline</em>”为前缀。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>/<em>* <br />
-&nbsp;</em> <br />
-&nbsp;* 内联代码可以按JS的语言规范任意包含注释 <br />
-&nbsp;* <br />
-&nbsp;*/ <br />
-_inline_object_regAllInterfaceForClass: {</font>  </p>
+<p>/<em>* <br>
+ </em> <br>
+ * 内联代码可以按JS的语言规范任意包含注释 <br>
+ * <br>
+ */ <br>
+_inline_object_regAllInterfaceForClass: {  </p>
 
-<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // register interfaces for Class's all instnaces <br />
-&nbsp;&nbsp;&nbsp; if (arguments.length &gt; 2) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Interface.RegisterInterface.apply(cls, [cls].concat( <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Array.prototype.slice.call(arguments, 2) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )) <br />
-&nbsp;&nbsp;&nbsp; }</font>  </p>
+<p><font face="Courier New">    // register interfaces for Class's all instnaces <br>
+    if (arguments.length &gt; 2) { <br>
+      Interface.RegisterInterface.apply(cls, [cls].concat( <br>
+        Array.prototype.slice.call(arguments, 2) <br>
+      )) <br>
+    }</font>  </p>
 
-<p><font face="Courier New">} <br />
+<p><font face="Courier New">} <br>
 ------------------</font>  </p>
 
 <ol>
 <li>字符串、数组、正则等使用中的一般性规则  </li>
 </ol>
 
-<hr />
+<hr>
 
 <p>Qomo约定尽可能以单引号来声明字符串，而将双引号留给HTML中的属性来使用。  </p>
 
-<p>Qomo约定以如果在全局使用正则表达式，应该以&ldquo;<em>r</em>&rdquo;为前缀声明，在函数局部使用正则表达式，应 <br />
-尽可能使用该规则。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo约定以如果在全局使用正则表达式，应该以“<em>r</em>”为前缀声明，在函数局部使用正则表达式，应 <br>
+尽可能使用该规则。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; <em>r</em>event = /^On.+/; <br />
-&nbsp; <em>r</em>attribute = /^([gs]et)(.+)/; <br />
-------------------</font>  </p>
+<p>  <em>r</em>event = /^On.+/; <br>
+  <em>r</em>attribute = /^([gs]et)(.+)/; <br>
+------------------  </p>
 
-<p>JavaScript中常用数组来表达一张表格，Qomo建议这种情况下的代码应该写成如下格式： <br />
-<font face="Courier New">  </p>
+<p>JavaScript中常用数组来表达一张表格，Qomo建议这种情况下的代码应该写成如下格式： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var aTable = [ <br />
-&nbsp;[v1, v2, v3,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v4], <br />
-&nbsp;[v1, v2, v3,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v4], <br />
-&nbsp;[v1, v2, this<em>is</em>long_variant, v4], <br />
-&nbsp;[v1, v2, v3,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; v4]&nbsp;&nbsp; // &lt;-- 注意最后一行没有&quot;,&quot;号 <br />
-]; <br />
-------------------</font> <br />
+<p>var aTable = [ <br>
+ [v1, v2, v3,                   v4], <br>
+ [v1, v2, v3,                   v4], <br>
+ [v1, v2, this<em>is</em>long_variant, v4], <br>
+ [v1, v2, v3,                   v4]   // &lt;-- 注意最后一行没有","号 <br>
+]; <br>
+------------------ <br>
 尽可能用对齐的方式来避免表格修改时导致的出错。  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>四、Qomo中的一些特殊使用法 <br />
-~~~~~~~~~~~~~~~~~~ <br />
+<p>四、Qomo中的一些特殊使用法 <br>
+~~~~~~~~~~~~~~~~~~ <br>
 1. 对象(Object)的特殊用法  </p>
 
-<hr />
+<hr>
 
-<p>Qomo直接替换了构造器Object()，因此使用new Object()的方式会构造出一个Qomo格式的对象实例。 <br />
-但用户代码中仍然可以通过直接量声明来得到一个&ldquo;原生的&rdquo;JavaScript对象。例如： <br />
-<font face="Courier New">  </p>
+<p>Qomo直接替换了构造器Object()，因此使用new Object()的方式会构造出一个Qomo格式的对象实例。 <br>
+但用户代码中仍然可以通过直接量声明来得到一个“原生的”JavaScript对象。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var <br />
-&nbsp; obj<em>1 = new Object();&nbsp;&nbsp; // Qomo对象 <br />
-&nbsp; obj</em>2 = { };&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // JavaScript原生的、直接量声明的对象 <br />
-------------------</font> <br />
-二者的区别在于，obj_1因为是Qomo对象，因此必然具有如下方法和属性： <br />
-<font face="Courier New">  </p>
+<p>var <br>
+  obj<em>1 = new Object();   // Qomo对象 <br>
+  obj</em>2 = { };            // JavaScript原生的、直接量声明的对象 <br>
+------------------ <br>
+二者的区别在于，obj_1因为是Qomo对象，因此必然具有如下方法和属性： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; obj<em>1.ClassInfo <br />
-&nbsp; obj</em>1.get() <br />
-&nbsp; obj<em>1.set() <br />
-&nbsp; obj</em>1.inherited() <br />
-------------------</font> <br />
-而obj_2由于是原生的JavaScript对象，因此使用for .. in来列举时，不会看到任何&ldquo;显式的&rdquo; <br />
+<p>  obj<em>1.ClassInfo <br>
+  obj</em>1.get() <br>
+  obj<em>1.set() <br>
+  obj</em>1.inherited() <br>
+------------------ <br>
+而obj_2由于是原生的JavaScript对象，因此使用for .. in来列举时，不会看到任何“显式的” <br>
 属性与方法。  </p>
 
-<p>Qomo约定用户代码不应当修改直接量形式所得到的Object的原型(prototype)。由于这种对象没有任 <br />
-何&ldquo;显式的&rdquo;属性与方法，因此它可以用来做for ..&nbsp; in做一些高速的列表处理。部分内核代码使用 <br />
+<p>Qomo约定用户代码不应当修改直接量形式所得到的Object的原型(prototype)。由于这种对象没有任 <br>
+何“显式的”属性与方法，因此它可以用来做for ..  in做一些高速的列表处理。部分内核代码使用 <br>
 了这种特性。  </p>
 
-<p>&mdash;&mdash;在firefox等mozilla引擎中，对替换后的Object()进行原型修改会污染(我并不确定这是否更加 <br />
-规范)原生的、直接量声明的对象。因此本项&ldquo;特殊用法&rdquo;应当谨慎使用。  </p>
+<p>——在firefox等mozilla引擎中，对替换后的Object()进行原型修改会污染(我并不确定这是否更加 <br>
+规范)原生的、直接量声明的对象。因此本项“特殊用法”应当谨慎使用。  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
 <ol>
 <li>匿名函数的特殊使用法  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>为了避免一段代码占用全局空间中的名称（命名污染），通常会使用匿名函数来执行一段代码。Qomo <br />
-建议这种情况下使用void来触发该匿名函数的执行。&mdash;&mdash;而不是使用一对括号来做相同的事。例如： <br />
-<font face="Courier New">  </p>
+<p>为了避免一段代码占用全局空间中的名称（命名污染），通常会使用匿名函数来执行一段代码。Qomo <br>
+建议这种情况下使用void来触发该匿名函数的执行。——而不是使用一对括号来做相同的事。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 推荐用法 <br />
-void function() { <br />
-&nbsp; // 你的代码... <br />
-}();</font>  </p>
+<p>// 推荐用法 <br>
+void function() { <br>
+  // 你的代码... <br>
+}();  </p>
 
-<p><font face="Courier New">// 不推荐用法 <br />
-(function() { <br />
-&nbsp; // 你的代码... <br />
-})(); <br />
+<p><font face="Courier New">// 不推荐用法 <br>
+(function() { <br>
+  // 你的代码... <br>
+})(); <br>
 ------------------</font>  </p>
 
-<p>如果执行的结果会返回值，例如声明一个变量。则建议使用如下的结构： <br />
-<font face="Courier New">  </p>
+<p>如果执行的结果会返回值，例如声明一个变量。则建议使用如下的结构： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var myFunc = function() { <br />
-&nbsp; // 一些私有变量的声明 <br />
-&nbsp; var ...</font>  </p>
+<p>var myFunc = function() { <br>
+  // 一些私有变量的声明 <br>
+  var ...  </p>
 
-<p><font face="Courier New">&nbsp; // 你的函数 <br />
-&nbsp; var _myFunc = function() { <br />
-&nbsp;&nbsp;&nbsp; //... <br />
-&nbsp; }</font>  </p>
+<p><font face="Courier New">  // 你的函数 <br>
+  var _myFunc = function() { <br>
+    //... <br>
+  }</font>  </p>
 
-<p><font face="Courier New">&nbsp; // 返回 <br />
-&nbsp; return _myFunc; <br />
-}(); <br />
+<p><font face="Courier New">  // 返回 <br>
+  return _myFunc; <br>
+}(); <br>
 ------------------</font>  </p>
 
-<p>如果不对上述的_myFunc做特殊处理(例如添加属性)，那么上述的代码可以简化至： <br />
-<font face="Courier New">  </p>
+<p>如果不对上述的_myFunc做特殊处理(例如添加属性)，那么上述的代码可以简化至： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var myFunc = function() { <br />
-&nbsp; // 一些私有变量的声明 <br />
-&nbsp; var ...</font>  </p>
+<p>var myFunc = function() { <br>
+  // 一些私有变量的声明 <br>
+  var ...  </p>
 
-<p><font face="Courier New">&nbsp; // 返回你的函数 <br />
-&nbsp; return function() { <br />
-&nbsp;&nbsp;&nbsp; //... <br />
-&nbsp; } <br />
-}(); <br />
+<p><font face="Courier New">  // 返回你的函数 <br>
+  return function() { <br>
+    //... <br>
+  } <br>
+}(); <br>
 ------------------</font></p>
             </section>
 <!-- removed by aimingoo
@@ -623,7 +622,7 @@ void function() { <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-60.html">
                     Qomolangma.V1.0的发布说明
                 </a>
@@ -634,8 +633,8 @@ void function() { <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -654,14 +653,14 @@ void function() { <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -677,7 +676,7 @@ void function() { <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -691,7 +690,7 @@ void function() { <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -704,20 +703,19 @@ void function() { <br />
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

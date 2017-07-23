@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>前端要给力之：红绿灯大战中的火星生命-Promise</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="前端要给力之：红绿灯大战中的火星生命-Promise" />
-    <meta property="og:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-195.html" />
-    <meta property="article:published_time" content="2015-04-12T13:35:00.000Z" />
-    <meta property="article:modified_time" content="2017-06-13T11:21:11.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="Promise" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="前端要给力之：红绿灯大战中的火星生命-Promise">
+    <meta property="og:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@">
+    <meta property="og:url" content="http://aimingoo.github.io/1-195.html">
+    <meta property="article:published_time" content="2015-04-12T13:35:00.000Z">
+    <meta property="article:modified_time" content="2017-06-13T11:21:11.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Promise">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="前端要给力之：红绿灯大战中的火星生命-Promise" />
-    <meta name="twitter:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-195.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, Promise" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="前端要给力之：红绿灯大战中的火星生命-Promise">
+    <meta name="twitter:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-195.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, Promise">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-promise nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/promise/index.html">Promise</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/promise/">Promise</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -360,7 +359,7 @@ void function (){
 
 <p>这三段代码的好坏，我们晚点在说。反正当时裕波同学是笑出了眼泪的，然后这个case就在前端圈子里面传开了，然后就出现了很多很多种“不同的样子”：  </p>
 
-<hr />
+<hr>
 
 <p>@winter寒冬 强调turn/wait要分离提出的#46：<a href="http://code.w3ctech.com/detail/46">在这里</a>，与<a href="http://code.w3ctech.com/detail/39">#39</a>有相似之处。  </p>
 
@@ -386,7 +385,7 @@ void function (){
 
 <p>还有一些我找不到出处的版本，比如#183 <a href="http://code.w3ctech.com/detail/183">在这里</a>，事实上这个写得我也看不懂了。  </p>
 
-<hr />
+<hr>
 
 <h2 id="">欢迎回到火星</h2>
 
@@ -846,8 +845,8 @@ var promisedData = [
 
 <h1 id="">其它</h1>
 
-<p>1. 我写的Promise in Lua项目在这里：<a href="http://github.com/aimingoo/Promise">http://github.com/aimingoo/Promise</a> <br />
-2. 所有代码在code.w3ctech上可以找到，我的在这里：<a href="http://code.w3ctech.com/4204">http://code.w3ctech.com/4204</a> <br />
+<p>1. 我写的Promise in Lua项目在这里：<a href="http://github.com/aimingoo/Promise">http://github.com/aimingoo/Promise</a> <br>
+2. 所有代码在code.w3ctech上可以找到，我的在这里：<a href="http://code.w3ctech.com/4204">http://code.w3ctech.com/4204</a> <br>
 3. “前端要给力”这个系列是很久以前就写的了：  </p>
 
 <blockquote>
@@ -859,7 +858,7 @@ var promisedData = [
   </ol>
 </blockquote>
 
-<p>4. 本文最后一个示例是说明在“全栈”的背景下，正确使用Promise可以得到很好的系统弹性。 <br />
+<p>4. 本文最后一个示例是说明在“全栈”的背景下，正确使用Promise可以得到很好的系统弹性。 <br>
 5. 在.then()界面上处理多个参数的方法，是使用Promise.all()来就绪一组数据并作为参数。我建议使用工具函数unpack来处理调用界面部分，例如（<a href="http://code.w3ctech.com/detail/185">#185</a>）：  </p>
 
 <pre><code class="language-javascript">function unpack(promised) {  
@@ -887,9 +886,9 @@ Promise.all([1,2,3])
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-196.html">
-                    确定的世界 - The Promise&#x27;s World
+                    确定的世界 - The Promise's World
                 </a>
                 下一篇
             </span>
@@ -898,8 +897,8 @@ Promise.all([1,2,3])
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -918,14 +917,14 @@ Promise.all([1,2,3])
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -941,7 +940,7 @@ Promise.all([1,2,3])
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -955,7 +954,7 @@ Promise.all([1,2,3])
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -968,20 +967,19 @@ Promise.all([1,2,3])
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

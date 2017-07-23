@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma框架库(一)：概述、工具、异常、调试与分析</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Qomolangma框架库(一)：概述、工具、异常、调试与分析" />
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
-    <meta property="og:url" content="http://aimingoo.github.io/1-49.html" />
-    <meta property="article:published_time" content="2006-09-23T15:54:00.000Z" />
-    <meta property="article:modified_time" content="2006-09-23T15:54:00.000Z" />
-    <meta property="article:tag" content="框架" />
-    <meta property="article:tag" content="工具" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomolangma框架库(一)：概述、工具、异常、调试与分析">
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
+    <meta property="og:url" content="http://aimingoo.github.io/1-49.html">
+    <meta property="article:published_time" content="2006-09-23T15:54:00.000Z">
+    <meta property="article:modified_time" content="2006-09-23T15:54:00.000Z">
+    <meta property="article:tag" content="框架">
+    <meta property="article:tag" content="工具">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Qomolangma框架库(一)：概述、工具、异常、调试与分析" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack." />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-49.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="框架, 工具" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomolangma框架库(一)：概述、工具、异常、调试与分析">
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-49.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="框架, 工具">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-kuang-jia tag-gong-ju nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/kuang-jia/index.html">框架</a>, <a href="tag/gong-ju/index.html">工具</a>
+                        <a href="tag/kuang-jia/">框架</a>, <a href="tag/gong-ju/">工具</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,732 +145,732 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <hr>
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：../../Qomo_team.txt <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+项目团队：../../Qomo_team.txt <br>
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr />
+<hr>
 
-<p>一、概述：Qomolangma中的框架库(v0.1) <br />
-~~~~~~~~~~~~~~~~<del>  </p>
+<p>一、概述：Qomolangma中的框架库(v0.1) <br>
+~~~~~~~~~~~~~~~~<del>  </del></p>
 
-<p>在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验 <br />
+<p>在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验 <br>
 工程，而不象是一个面向应用的项目。  </p>
 
-<p>其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此 <br />
-外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因 <br />
-此这直接导致了&ldquo;Qomo需要一个新的UI库&rdquo;的结果。  </p>
+<p>其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此 <br>
+外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因 <br>
+此这直接导致了“Qomo需要一个新的UI库”的结果。  </p>
 
-<p>Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。&mdash;&mdash;尽管 <br />
-这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。&mdash;&mdash;事实上Qomo也从 <br />
+<p>Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。——尽管 <br>
+这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。——事实上Qomo也从 <br>
 WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。  </p>
 
 <p>但这些都不是这一组文章要讨论的内容。  </p>
 
-<p>因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库) <br />
-的开发工作。这些工作包括： <br />
-<font face="Courier New">&nbsp; - 公共框架类库: Framework/Classes.js, Framework/Common/* <br />
-&nbsp; - 日志、调试、分析和单元测试框架：Framework/Debug/* <br />
-&nbsp; - DOM、CSS兼容层框架：Components/Compat/*</font>  </p>
+<p>因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库) <br>
+的开发工作。这些工作包括： <br>
+<font face="Courier New">  - 公共框架类库: Framework/Classes.js, Framework/Common/* <br>
+  - 日志、调试、分析和单元测试框架：Framework/Debug/* <br>
+  - DOM、CSS兼容层框架：Components/Compat/*</font>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>二、Qomo的基础库与基础类库 <br />
-</del>~~~~~~~~~~~~~~<del>  </p>
+<p>二、Qomo的基础库与基础类库 <br>
+~~~~~~~~~~~~~~<del>  </del></p>
 
-<p>Qomo的基础库是一些工具函数，或者原生(native)的JavaScript类。它的地位与RTL中的JSEnhance.js <br />
+<p>Qomo的基础库是一些工具函数，或者原生(native)的JavaScript类。它的地位与RTL中的JSEnhance.js <br>
 是相同的，但基础库并不只是针对JavaScript进行增强。  </p>
 
-<p>Qomo的基础类库建立自Qomo的OOP框架。也就是说，至少是继承自TObjecct的类。基础类库表现为一些工 <br />
+<p>Qomo的基础类库建立自Qomo的OOP框架。也就是说，至少是继承自TObjecct的类。基础类库表现为一些工 <br>
 具类、容器类、全局(单例)类和一些其它抽象层次较低的类。  </p>
 
-<p>Qomo的基础库与基础类库位于： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Framework/Common/* <br />
-它通过一个包文件载入： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Framework/Classes.js  </p>
+<p>Qomo的基础库与基础类库位于： <br>
+      Framework/Common/* <br>
+它通过一个包文件载入： <br>
+      Framework/Classes.js  </p>
 
-<p>三、基础库中的工具函数 <br />
-</del>~~~~~~~~~~~~~~<del>  </p>
+<p>三、基础库中的工具函数 <br>
+~~~~~~~~~~~~~~<del>  </del></p>
 
-<p>基础库中的工具函数(目前)包括在： <br />
-<font face="Courier New">&nbsp;&nbsp; - 系统实用工具： Framework/Common/SysUtils.js&nbsp;&nbsp; <br />
-&nbsp;&nbsp; - 对象实用工具： Framework/Common/ObjUtils.js <br />
-&nbsp;&nbsp; - 类型或数据结构定义及转换工具： Framework/Common/ConvUtils.js <br />
+<p>基础库中的工具函数(目前)包括在： <br>
+<font face="Courier New">   - 系统实用工具： Framework/Common/SysUtils.js   <br>
+   - 对象实用工具： Framework/Common/ObjUtils.js <br>
+   - 类型或数据结构定义及转换工具： Framework/Common/ConvUtils.js <br>
 </font>三个文件中。  </p>
 
-<p>其中，ObjUtils.js和ConvUtils.js虽然包括在Qomo Beta2中，但事实上没有正式发布。&mdash;&mdash;很多代码 <br />
+<p>其中，ObjUtils.js和ConvUtils.js虽然包括在Qomo Beta2中，但事实上没有正式发布。——很多代码 <br>
 已经移除；部分代码未经测试也没有相关的说明。因此本文先不讲述它们。  </p>
 
-<p>SysUtils.js中的目前只发布了4个工具函数。事实上他们在我以前的工程中大量使用过。下面做一些 <br />
+<p>SysUtils.js中的目前只发布了4个工具函数。事实上他们在我以前的工程中大量使用过。下面做一些 <br>
 简单地介绍。  </p>
 
-<p>&nbsp; 1. createUniqueID() <br />
-&nbsp;   </p>
+<p>  1. createUniqueID() <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 该函数产生一个唯一的标识符。一般来说，他在当前的Web页(包括多帧)中都是不重复的。它基于一 <br />
-个随机数产生的算法规则：即使是在同一时刻调用两次随机数，也会因种子的变化而产生不同的值。因 <br />
-此拼接随机数和日期值通常会得到一个唯一的标识。&mdash;&mdash;如果对随机数的算法的设定出了问题，则另论。  </p>
+<p>  该函数产生一个唯一的标识符。一般来说，他在当前的Web页(包括多帧)中都是不重复的。它基于一 <br>
+个随机数产生的算法规则：即使是在同一时刻调用两次随机数，也会因种子的变化而产生不同的值。因 <br>
+此拼接随机数和日期值通常会得到一个唯一的标识。——如果对随机数的算法的设定出了问题，则另论。  </p>
 
-<p>&nbsp; 2. createUniqueVar() <br />
-&nbsp;   </p>
+<p>  2. createUniqueVar() <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; UniqueID可以作为标识，但无法作为全局变量使用。而本函数则用声明一个全局变量，并且返回该变 <br />
-量名。这个声明可以被delete删除以回收内存。例如： <br />
-<font face="Courier New">  </p>
+<p>  UniqueID可以作为标识，但无法作为全局变量使用。而本函数则用声明一个全局变量，并且返回该变 <br>
+量名。这个声明可以被delete删除以回收内存。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>function myFunc() { <br />
-&nbsp; // 创建并得到变量名 <br />
-&nbsp; var name = createUniqueVar();</font>  </p>
+<p>function myFunc() { <br>
+  // 创建并得到变量名 <br>
+  var name = createUniqueVar();  </p>
 
-<p><font face="Courier New">&nbsp; // 使用该变量 <br />
-&nbsp; eval('name').value = 'abcdefgh'; <br />
-&nbsp; <br />
-&nbsp; // 删除该变量 <br />
-&nbsp; eval('delete ' + name); <br />
-} <br />
+<p><font face="Courier New">  // 使用该变量 <br>
+  eval('name').value = 'abcdefgh'; <br>
+  <br>
+  // 删除该变量 <br>
+  eval('delete ' + name); <br>
+} <br>
 ------</font>  </p>
 
-<p>&nbsp; 3. isVariant(varName) <br />
-&nbsp;   </p>
+<p>  3. isVariant(varName) <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 传入一个变量名，该函数会返回该变量名是否是一个变量。既可以是全局变量，也可以是局部变量。 <br />
-例如： <br />
-<font face="Courier New">  </p>
+<p>  传入一个变量名，该函数会返回该变量名是否是一个变量。既可以是全局变量，也可以是局部变量。 <br>
+例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>function myFunc() { <br />
-&nbsp; alert(isVariant('myFunc')); <br />
-} <br />
-------</font>  </p>
+<p>function myFunc() { <br>
+  alert(isVariant('myFunc')); <br>
+} <br>
+------  </p>
 
-<p>&nbsp; 4. defined(aVariant) <br />
-&nbsp;   </p>
+<p>  4. defined(aVariant) <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 查看一个变量或值是否被声明过。例如： <br />
-<font face="Courier New">  </p>
+<p>  查看一个变量或值是否被声明过。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var all = [1,,3,4]; <br />
-function myFunc() { <br />
-&nbsp; for (var i=0; i&lt;all.length; i++) { <br />
-&nbsp;&nbsp;&nbsp; if (defined(all[i])) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; alert(all[i]); <br />
-&nbsp;&nbsp;&nbsp; } <br />
-&nbsp; } <br />
-} <br />
-------</font>  </p>
+<p>var all = [1,,3,4]; <br>
+function myFunc() { <br>
+  for (var i=0; i&lt;all.length; i++) { <br>
+    if (defined(all[i])) { <br>
+      alert(all[i]); <br>
+    } <br>
+  } <br>
+} <br>
+------  </p>
 
-<p>四、基础库中的异常与断言 <br />
-</del>~~~~~~~~~~~~~~~~  </p>
+<p>四、基础库中的异常与断言 <br>
+~~~~~~~~~~~~~~~~  </p>
 
-<p>&nbsp; 1. JavaScript中的异常基础 <br />
-&nbsp;   </p>
+<p>  1. JavaScript中的异常基础 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 在JavaScript语言中，创建异常对象的方法是： <br />
-&nbsp;&nbsp;&nbsp; e = new Error([number[, description]]);  </p>
+<p>  在JavaScript语言中，创建异常对象的方法是： <br>
+    e = new Error([number[, description]]);  </p>
 
-<p>你可以在创建时或者创建后抛出异常： <br />
-<font face="Courier New">  </p>
+<p>你可以在创建时或者创建后抛出异常： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; // 创建时抛出 <br />
-&nbsp; throw new Error(100, 'this is exception - 100.'); <br />
-&nbsp; // 创建后抛出 <br />
-&nbsp; var e = new Error(101, 'this is exceptio - 101.'); <br />
-&nbsp; throw e; <br />
-------</font>  </p>
+<p>  // 创建时抛出 <br>
+  throw new Error(100, 'this is exception - 100.'); <br>
+  // 创建后抛出 <br>
+  var e = new Error(101, 'this is exceptio - 101.'); <br>
+  throw e; <br>
+------  </p>
 
-<p>按照JavaScript的语言规范，你可以在try中捕获到异常后再次抛出。例如： <br />
-<font face="Courier New">  </p>
+<p>按照JavaScript的语言规范，你可以在try中捕获到异常后再次抛出。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; try { <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp; } <br />
-&nbsp; catch (e) { <br />
-&nbsp;&nbsp;&nbsp; throw e;&nbsp;&nbsp;&nbsp; // 再次抛出 <br />
-&nbsp; } <br />
-------</font>  </p>
+<p>  try { <br>
+    // ... <br>
+  } <br>
+  catch (e) { <br>
+    throw e;    // 再次抛出 <br>
+  } <br>
+------  </p>
 
-<p>&nbsp; 2. Qomo基础库中的异常 <br />
-&nbsp;   </p>
+<p>  2. Qomo基础库中的异常 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 我们发现标准JS中的异常很难管理。例如异常的编号，或者显示信息时大多使用直接声明 <br />
-的字符串。因此，Qomo约定一个异常可以用两个成员的数组表示。例如： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EAccessInvaildClass = [8109, 'Class invaild: lost typeinfo!']; <br />
-在第二个成员(字符串)中允许使用%s通配符。例如： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EAttributeCantRead = [8112, 'The &quot;%s&quot; attribute can/'t read for %s.'];  </p>
+<p>  我们发现标准JS中的异常很难管理。例如异常的编号，或者显示信息时大多使用直接声明 <br>
+的字符串。因此，Qomo约定一个异常可以用两个成员的数组表示。例如： <br>
+      EAccessInvaildClass = [8109, 'Class invaild: lost typeinfo!']; <br>
+在第二个成员(字符串)中允许使用%s通配符。例如： <br>
+      EAttributeCantRead = [8112, 'The "%s" attribute can/'t read for %s.'];  </p>
 
-<p>Qomo认为这是一个标准的异常记录/对象的结构。这种定义是非常取巧的： <br />
-&nbsp; - 如果不使用Qomo的异常框架，那么标准JS中将会把数组转换成字符串，这时得到的信息 <br />
-&nbsp;&nbsp;&nbsp; 是可以阅读的。 <br />
-&nbsp; - 如果使用Qomo异常框架，那么由于Qomo替换了Error()类，因此将生成更友好的信息。 <br />
-&nbsp; - 在JSEnhance.js中，Qomo再次替换了Error()类，这使得%s可以被处理，从而使动态的 <br />
-&nbsp;&nbsp;&nbsp; 组织异常信息成为非常便利的事。  </p>
+<p>Qomo认为这是一个标准的异常记录/对象的结构。这种定义是非常取巧的： <br>
+  - 如果不使用Qomo的异常框架，那么标准JS中将会把数组转换成字符串，这时得到的信息 <br>
+    是可以阅读的。 <br>
+  - 如果使用Qomo异常框架，那么由于Qomo替换了Error()类，因此将生成更友好的信息。 <br>
+  - 在JSEnhance.js中，Qomo再次替换了Error()类，这使得%s可以被处理，从而使动态的 <br>
+    组织异常信息成为非常便利的事。  </p>
 
-<p>在RTL/Error.js中，Qomo重写了Error()类。这使得Error()有以下构造形式： <br />
-<font face="Courier New">&nbsp; e = new Error(); <br />
-&nbsp; e = new Error(number); <br />
-&nbsp; e = new Error(number, description); <br />
-&nbsp; e = new Error(number, description, instanceObj); <br />
-&nbsp; e = new Error(a<em>qomo</em>exp); <br />
-&nbsp; e = new Error(a<em>qomo</em>exp, instanceObj);</font>  </p>
+<p>在RTL/Error.js中，Qomo重写了Error()类。这使得Error()有以下构造形式： <br>
+<font face="Courier New">  e = new Error(); <br>
+  e = new Error(number); <br>
+  e = new Error(number, description); <br>
+  e = new Error(number, description, instanceObj); <br>
+  e = new Error(a<em>qomo</em>exp); <br>
+  e = new Error(a<em>qomo</em>exp, instanceObj);</font>  </p>
 
-<p>其中，instanceObj 表明一个关联到该异常的对象实例。但Qomo并不处理instanceObj, 只是 <br />
-通过异常对象来传递它。这样可以使try .. catch捕获到的异常对象有一个instanceObj属性， <br />
-指向触发异常时送过来的一个&ldquo;参考实例&rdquo;。  </p>
+<p>其中，instanceObj 表明一个关联到该异常的对象实例。但Qomo并不处理instanceObj, 只是 <br>
+通过异常对象来传递它。这样可以使try .. catch捕获到的异常对象有一个instanceObj属性， <br>
+指向触发异常时送过来的一个“参考实例”。  </p>
 
-<p>而a<em>qomo</em>exp表是一个按qomo的规则声明的异常数组(参阅前面的内容)。这样我们就可以用下 <br />
-面的代码来简单的触发一个异常： <br />
-&nbsp; throw new Error(EAccessInvaildClass);  </p>
+<p>而a<em>qomo</em>exp表是一个按qomo的规则声明的异常数组(参阅前面的内容)。这样我们就可以用下 <br>
+面的代码来简单的触发一个异常： <br>
+  throw new Error(EAccessInvaildClass);  </p>
 
-<p>如果系统未装载过Error.js，那么显示的信息将是： <br />
-<font face="Courier New">  </p>
+<p>如果系统未装载过Error.js，那么显示的信息将是： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>错误: 8109,Class invaild: lost typeinfo! <br />
----------------------------</font>  </p>
+<p>错误: 8109,Class invaild: lost typeinfo! <br>
+---------------------------  </p>
 
-<p>如果系统已经装载过Error.js，那么显示的信息将是： <br />
-<font face="Courier New">  </p>
+<p>如果系统已经装载过Error.js，那么显示的信息将是： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>错误: Class invaild: lost typeinfo! <br />
----------------------------</font>  </p>
+<p>错误: Class invaild: lost typeinfo! <br>
+---------------------------  </p>
 
-<p>或者我们也可以这样使用带通配符的异常： <br />
-&nbsp; throw new Error(EAttributeCantRead.concat('get', 'Enumerator'));  </p>
+<p>或者我们也可以这样使用带通配符的异常： <br>
+  throw new Error(EAttributeCantRead.concat('get', 'Enumerator'));  </p>
 
-<p>如果我们装载过JSEnhance.js，那么显示的信息将是： <br />
-<font face="Courier New">  </p>
+<p>如果我们装载过JSEnhance.js，那么显示的信息将是： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>错误: The &quot;get&quot; attribute can't read for Enumerator. <br />
----------------------------</font>  </p>
+<p>错误: The "get" attribute can't read for Enumerator. <br>
+---------------------------  </p>
 
-<p>这样，无论如何，我们都能给用户&ldquo;相对友好&rdquo;的错误信息。  </p>
+<p>这样，无论如何，我们都能给用户“相对友好”的错误信息。  </p>
 
-<p>&nbsp; 3. Qomo基础库中的断言 <br />
-&nbsp;   </p>
+<p>  3. Qomo基础库中的断言 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; Qomo中的断言实现得非常简单。它其实就是一个Qomo的异常。如下：    </p>
+<p>  Qomo中的断言实现得非常简单。它其实就是一个Qomo的异常。如下：    </p>
 
-<hr />
+<hr>
 
-<p>var <br />
-&nbsp; EAssertFail = [8001, 'assert is failed./n/n%s'];  </p>
+<p>var <br>
+  EAssertFail = [8001, 'assert is failed./n/n%s'];  </p>
 
-<p>$assert = function (isTrue, info) { <br />
-&nbsp; if (!isTrue) throw new Error(EAssertFail.concat([info])); <br />
+<p>$assert = function (isTrue, info) { <br>
+  if (!isTrue) throw new Error(EAssertFail.concat([info])); <br>
 }    </p>
 
-<hr />
+<hr>
 
 <p>由于Qomo有自己的异常实现，因此断言的显示将非常友好。  </p>
 
-<p>五、基础库中的性能分析工具(Profiler) <br />
+<p>五、基础库中的性能分析工具(Profiler) <br>
 ~~~~~~~~~~~~~~~~~~  </p>
 
-<p>Qomo在Debug.js单元中载入了一个Profiler工具，是分析代码性能的利器。它的一个 <br />
-使用示例是： <br />
-&nbsp; Framework/Debug/TestCase/T_profiler.html  </p>
+<p>Qomo在Debug.js单元中载入了一个Profiler工具，是分析代码性能的利器。它的一个 <br>
+使用示例是： <br>
+  Framework/Debug/TestCase/T_profiler.html  </p>
 
-<p>Qomo中的profiler使用起来非常方便，也可以使用多组的profiler。系统中单独初始 <br />
+<p>Qomo中的profiler使用起来非常方便，也可以使用多组的profiler。系统中单独初始 <br>
 化了一个全局的$profilers，以方便使用。  </p>
 
-<p>&nbsp; 1. 核心结构 <br />
-&nbsp;   </p>
+<p>  1. 核心结构 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 如果不考虑输出的效果，那么直接调用Qomo的profiler就可以得到它的核心结构和 <br />
-使用流程了： <br />
-<font face="Courier New">  </p>
+<p>  如果不考虑输出的效果，那么直接调用Qomo的profiler就可以得到它的核心结构和 <br>
+使用流程了： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&lt;!-- 载入Profiler类 --&gt; <br />
-&lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt;</font>  </p>
+<p>&lt;!-- 载入Profiler类 --&gt; <br>
+&lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt;  </p>
 
-<p><font face="Courier New">&lt;script&gt; <br />
-// 在用户代码中插入分析语句, 然后执行 <br />
-function myFunc() { <br />
-&nbsp; $profilers('myFunc').begin()</font>  </p>
+<p><font face="Courier New">&lt;script&gt; <br>
+// 在用户代码中插入分析语句, 然后执行 <br>
+function myFunc() { <br>
+  $profilers('myFunc').begin()</font>  </p>
 
-<p><font face="Courier New">&nbsp; // your code ...</font>  </p>
+<p><font face="Courier New">  // your code ...</font>  </p>
 
-<p><font face="Courier New">&nbsp; $profilers('myFunc').end() <br />
-} <br />
+<p><font face="Courier New">  $profilers('myFunc').end() <br>
+} <br>
 myFunc();</font>  </p>
 
-<p><font face="Courier New">// 输出分析结果 <br />
-document.writeln($profilers); <br />
-&lt;/script&gt; <br />
----------------------------</font> <br />
-但是这样输入的东西根本没有办法看。因此，Qomo提供一组工具来辅助使用profiler。 <br />
-当然，你也可以定制它。&mdash;&mdash;这个后面再讲。  </p>
+<p><font face="Courier New">// 输出分析结果 <br>
+document.writeln($profilers); <br>
+&lt;/script&gt; <br>
+---------------------------</font> <br>
+但是这样输入的东西根本没有办法看。因此，Qomo提供一组工具来辅助使用profiler。 <br>
+当然，你也可以定制它。——这个后面再讲。  </p>
 
-<p>&nbsp; <br />
-&nbsp; 2. 基础Dbg.Utils的简单使用 <br />
-&nbsp;   </p>
+<p>  <br>
+  2. 基础Dbg.Utils的简单使用 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 使用Dbg.Utils.js是非常便捷的做法： <br />
-<font face="Courier New">  </p>
+<p>  使用Dbg.Utils.js是非常便捷的做法： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&lt;!-- 载入Profiler类和调试用工具单元 --&gt; <br />
-&lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt; <br />
-&lt;script src='Framework/Debug/Dbg.Utils.js'&gt;&lt;/script&gt;</font>  </p>
+<p>&lt;!-- 载入Profiler类和调试用工具单元 --&gt; <br>
+&lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt; <br>
+&lt;script src='Framework/Debug/Dbg.Utils.js'&gt;&lt;/script&gt;  </p>
 
-<p><font face="Courier New">&lt;script&gt; <br />
-// 在用户代码中插入分析语句, 然后执行 <br />
+<p><font face="Courier New">&lt;script&gt; <br>
+// 在用户代码中插入分析语句, 然后执行 <br>
 // (同上, 略... )</font>  </p>
 
-<p><font face="Courier New">// 重写$debug()函数 <br />
-$debug.resetTo(function() { <br />
-&nbsp; arguments.join = Array.prototype.join; <br />
-&nbsp; document.writeln(arguments.join('')); <br />
+<p><font face="Courier New">// 重写$debug()函数 <br>
+$debug.resetTo(function() { <br>
+  arguments.join = Array.prototype.join; <br>
+  document.writeln(arguments.join('')); <br>
 });</font>  </p>
 
-<p><font face="Courier New">// 显示profiler信息 <br />
-showProfiler($profilers); <br />
-&lt;/script&gt; <br />
+<p><font face="Courier New">// 显示profiler信息 <br>
+showProfiler($profilers); <br>
+&lt;/script&gt; <br>
 ---------------------------</font>  </p>
 
-<p>注意这里有两处关键的细节。一是要求载入Dbg.Utils.js，至于它位于Profilers.js之前或者 <br />
+<p>注意这里有两处关键的细节。一是要求载入Dbg.Utils.js，至于它位于Profilers.js之前或者 <br>
 之后并没有关系。  </p>
 
-<p>&nbsp; 3. 为分析对象指定精确的标签 <br />
-&nbsp;   </p>
+<p>  3. 为分析对象指定精确的标签 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 在开始的示例里，我们用一对 <br />
-<font face="Courier New">  </p>
+<p>  在开始的示例里，我们用一对 <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $profilers('myFunc').begin() <br />
-&nbsp; $profilers('myFunc').end() <br />
----------------------------</font> <br />
-来开始和结束分析。这里的myFunc可以是任意字符，也可以是任意多的参数。这样，你可以 <br />
-指定： <br />
-<font face="Courier New">  </p>
+<p>  $profilers('myFunc').begin() <br>
+  $profilers('myFunc').end() <br>
+--------------------------- <br>
+来开始和结束分析。这里的myFunc可以是任意字符，也可以是任意多的参数。这样，你可以 <br>
+指定： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $profilers('myFunc', 'build').begin(); <br />
-&nbsp; $profilers('myFunc', 'build').end();</font>  </p>
+<p>  $profilers('myFunc', 'build').begin(); <br>
+  $profilers('myFunc', 'build').end();  </p>
 
-<p><font face="Courier New">&nbsp; $profilers('myFunc', 'execute').begin(); <br />
-&nbsp; $profilers('myFunc', 'execute').end(); <br />
----------------------------</font> <br />
-这样对一个函数的多组分析。也可以指定： <br />
-<font face="Courier New">  </p>
+<p><font face="Courier New">  $profilers('myFunc', 'execute').begin(); <br>
+  $profilers('myFunc', 'execute').end(); <br>
+---------------------------</font> <br>
+这样对一个函数的多组分析。也可以指定： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $profilers('myFunc', '1').begin(); <br />
-&nbsp; $profilers('myFunc', '1').end();</font>  </p>
+<p>  $profilers('myFunc', '1').begin(); <br>
+  $profilers('myFunc', '1').end();  </p>
 
-<p><font face="Courier New">&nbsp; $profilers('myFunc', '2').begin(); <br />
-&nbsp; $profilers('myFunc', '2').end(); <br />
----------------------------</font> <br />
+<p><font face="Courier New">  $profilers('myFunc', '2').begin(); <br>
+  $profilers('myFunc', '2').end(); <br>
+---------------------------</font> <br>
 这样来表明步骤。  </p>
 
-<p>&nbsp; 4. 处理递归 <br />
-&nbsp;   </p>
+<p>  4. 处理递归 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>接下来，对于递归的函数，你可以采取两种方法来处理它。其一是加标签，例如： <br />
-<font face="Courier New">  </p>
+<p>接下来，对于递归的函数，你可以采取两种方法来处理它。其一是加标签，例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>function calc(n) { <br />
-&nbsp; $profilers('calc', n).begin(); <br />
-&nbsp; <br />
-&nbsp; var v = n; <br />
-&nbsp; if (v &gt; 0) { <br />
-&nbsp;&nbsp;&nbsp; v = n + calc(n - 1); <br />
-&nbsp; }</font>  </p>
+<p>function calc(n) { <br>
+  $profilers('calc', n).begin(); <br>
+  <br>
+  var v = n; <br>
+  if (v &gt; 0) { <br>
+    v = n + calc(n - 1); <br>
+  }  </p>
 
-<p><font face="Courier New">&nbsp; $profilers('calc', n).end();</font>  </p>
+<p><font face="Courier New">  $profilers('calc', n).end();</font>  </p>
 
-<p><font face="Courier New">&nbsp; return v; <br />
+<p><font face="Courier New">  return v; <br>
 }</font>  </p>
 
-<p><font face="Courier New">calc(10); <br />
+<p><font face="Courier New">calc(10); <br>
 ---------------------------</font>  </p>
 
-<p>第二种方法，则是借用profiler返回标志，例如： <br />
-<font face="Courier New">  </p>
+<p>第二种方法，则是借用profiler返回标志，例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>function calc(n) { <br />
-&nbsp; var tag = $profilers('calc').begin();</font>  </p>
+<p>function calc(n) { <br>
+  var tag = $profilers('calc').begin();  </p>
 
-<p><font face="Courier New">&nbsp; var v = n; <br />
-&nbsp; if (v &gt; 0) { <br />
-&nbsp;&nbsp;&nbsp; v = n + calc(n - 1); <br />
-&nbsp; }</font>  </p>
+<p><font face="Courier New">  var v = n; <br>
+  if (v &gt; 0) { <br>
+    v = n + calc(n - 1); <br>
+  }</font>  </p>
 
-<p><font face="Courier New">&nbsp; $profilers('calc').end(tag);</font>  </p>
+<p><font face="Courier New">  $profilers('calc').end(tag);</font>  </p>
 
-<p><font face="Courier New">&nbsp; return v; <br />
+<p><font face="Courier New">  return v; <br>
 }</font>  </p>
 
-<p><font face="Courier New">calc(10); <br />
+<p><font face="Courier New">calc(10); <br>
 ---------------------------</font>  </p>
 
-<p>这两种方法中，第一种分另产生不同的profiler记录项，因此采用标准方法处理即可；第二种 <br />
-则产生同一记录项的多个记录值，对于这种情况，在Dbg.Utils.js中的showProfiler()展示了 <br />
+<p>这两种方法中，第一种分另产生不同的profiler记录项，因此采用标准方法处理即可；第二种 <br>
+则产生同一记录项的多个记录值，对于这种情况，在Dbg.Utils.js中的showProfiler()展示了 <br>
 如何处理。  </p>
 
-<p>&nbsp; 5. 显示结果: $debug()的重写 <br />
-&nbsp;   </p>
+<p>  5. 显示结果: $debug()的重写 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $debug()最初被声明在system.js中，用于直接向document输出调试信息。但是这样必然会 <br />
-破坏网页的显示效果。&mdash;&mdash;尤其profiler的信息量非常大。  </p>
+<p>  $debug()最初被声明在system.js中，用于直接向document输出调试信息。但是这样必然会 <br>
+破坏网页的显示效果。——尤其profiler的信息量非常大。  </p>
 
-<p>&nbsp; 因此，在Dbg.Utils.js中，我们重写了它。使它的输出被放到缓存中： <br />
-<font face="Courier New">  </p>
+<p>  因此，在Dbg.Utils.js中，我们重写了它。使它的输出被放到缓存中： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>$debug = function() { <br />
-&nbsp; // ...</font>  </p>
+<p>$debug = function() { <br>
+  // ...  </p>
 
-<p><font face="Courier New">&nbsp; arguments.callee['$cached$'] += arguments.join(''); <br />
-} <br />
----------------------------</font> <br />
-其中，arguments.callee直接向$debug()函数本身。使用callee而不是$debug自身，是避免 <br />
+<p><font face="Courier New">  arguments.callee['$cached$'] += arguments.join(''); <br>
+} <br>
+---------------------------</font> <br>
+其中，arguments.callee直接向$debug()函数本身。使用callee而不是$debug自身，是避免 <br>
 $debug()被再次重写。  </p>
 
-<p>我们还为$debug添加了一个方法resetTo()。这个方法传入一个函数，新函数要能够输出这些 <br />
-被缓存的信息。&mdash;&mdash;它在被resetTo()时将被自动调用一次。然后该新函数将替代原$debug() <br />
+<p>我们还为$debug添加了一个方法resetTo()。这个方法传入一个函数，新函数要能够输出这些 <br>
+被缓存的信息。——它在被resetTo()时将被自动调用一次。然后该新函数将替代原$debug() <br>
 在系统中的作用。  </p>
 
-<p>例如我们在面第二节中讲到的： <br />
-<font face="Courier New">  </p>
+<p>例如我们在面第二节中讲到的： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 重写$debug()函数 <br />
-$debug.resetTo(function() { <br />
-&nbsp; arguments.join = Array.prototype.join; <br />
-&nbsp; document.writeln(arguments.join('')); <br />
-});</font>  </p>
+<p>// 重写$debug()函数 <br>
+$debug.resetTo(function() { <br>
+  arguments.join = Array.prototype.join; <br>
+  document.writeln(arguments.join('')); <br>
+});  </p>
 
-<p><font face="Courier New">showProfiler($profilers); <br />
+<p><font face="Courier New">showProfiler($profilers); <br>
 ---------------------------</font>  </p>
 
-<p>这个重写就是用于向document输出，它也被用在下面这个示例里： <br />
-&nbsp; Framework/Debug/TestCase/T_profiler.html  </p>
+<p>这个重写就是用于向document输出，它也被用在下面这个示例里： <br>
+  Framework/Debug/TestCase/T_profiler.html  </p>
 
-<p>另外一处使用，则是在： <br />
-&nbsp; Components/QomoHierarchyPoster.html <br />
-它的写法是将信息显示到一个HTML元素中： <br />
-<font face="Courier New">  </p>
+<p>另外一处使用，则是在： <br>
+  Components/QomoHierarchyPoster.html <br>
+它的写法是将信息显示到一个HTML元素中： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>$debug.resetTo(function() { <br />
-&nbsp; arguments.join = Array.prototype.join; <br />
-&nbsp; document.getElementById('Qo_DBGINFO').insertAdjacentHTML( <br />
-&nbsp;&nbsp;&nbsp; 'beforeEnd', arguments.join('')); <br />
-}); <br />
----------------------------</font>  </p>
+<p>$debug.resetTo(function() { <br>
+  arguments.join = Array.prototype.join; <br>
+  document.getElementById('Qo_DBGINFO').insertAdjacentHTML( <br>
+    'beforeEnd', arguments.join('')); <br>
+}); <br>
+---------------------------  </p>
 
-<p>&nbsp; 6. 显示结果: showProfiler()及其定制 <br />
-&nbsp;   </p>
+<p>  6. 显示结果: showProfiler()及其定制 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 事实上，Dbg.Utils.js作为一个实用工具单元，可以完全不用载入到当前页面。这种情况下， <br />
-Profilers的功能依然是可用的。包括使用： <br />
-<font face="Courier New">  </p>
+<p>  事实上，Dbg.Utils.js作为一个实用工具单元，可以完全不用载入到当前页面。这种情况下， <br>
+Profilers的功能依然是可用的。包括使用： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $profilers('your<em>tag').begin(); <br />
-&nbsp; $profilers('your</em>tag').end(); <br />
----------------------------</font> <br />
+<p>  $profilers('your<em>tag').begin(); <br>
+  $profilers('your</em>tag').end(); <br>
+--------------------------- <br>
 这样的方法来记录profiler数据。因为$profilers这个全局对象是被创建在Profiles.js中的。  </p>
 
-<p>如果你不打算使用Dbg.Utils.js中的showProfiers()来显示结果。那么你可以自己写一个，例 <br />
-如打开一个新窗口来显示。这时你只需要参考一下showProfiers()的代码即可： <br />
-<font face="Courier New">  </p>
+<p>如果你不打算使用Dbg.Utils.js中的showProfiers()来显示结果。那么你可以自己写一个，例 <br>
+如打开一个新窗口来显示。这时你只需要参考一下showProfiers()的代码即可： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>function showProfiers(prof) { <br />
-&nbsp; var data = prof.toData();</font>  </p>
+<p>function showProfiers(prof) { <br>
+  var data = prof.toData();  </p>
 
-<p><font face="Courier New">&nbsp; // ... <br />
-} <br />
+<p><font face="Courier New">  // ... <br>
+} <br>
 ---------------------------</font>  </p>
 
-<p>这样从prof中得到的数据是如下的一种结构： <br />
-<font face="Courier New">---------------------------</font> <br />
-<font face="Courier New">a<em>data</em>instance = { <br />
-&nbsp; 'your<em>tag</em>1': [beginTime1, endTime1, beginTime2, endTime2, ...], <br />
-&nbsp; 'your<em>tag</em>2': [...], <br />
-&nbsp; 'your<em>tag</em>3': [...] <br />
-&nbsp; // ... <br />
-}    </p>
+<p>这样从prof中得到的数据是如下的一种结构： <br>
+<font face="Courier New">---------------------------</font> <br>
+<font face="Courier New">a<em>data</em>instance = { <br>
+  'your<em>tag</em>1': [beginTime1, endTime1, beginTime2, endTime2, ...], <br>
+  'your<em>tag</em>2': [...], <br>
+  'your<em>tag</em>3': [...] <br>
+  // ... <br>
+}    </font></p>
 
-<hr />
+<hr>
 
-<p></font>你只需要写代码去循环处理即可。&mdash;&mdash;注意beginTime/endTime的值是Number类型的。如果你 <br />
-要转换为Date()对象，那么可以&ldquo;new Date(beginTime)&rdquo;这样即可。  </p>
+<p>你只需要写代码去循环处理即可。——注意beginTime/endTime的值是Number类型的。如果你 <br>
+要转换为Date()对象，那么可以“new Date(beginTime)”这样即可。  </p>
 
-<p>&nbsp; 7. 在系统中处理多个Profilers()对象 <br />
-&nbsp;   </p>
+<p>  7. 在系统中处理多个Profilers()对象 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 只要你愿意，你可以创建多个Profilers()对象，他们之间是没有干扰的。&mdash;&mdash;当然，你也 <br />
+<p>  只要你愿意，你可以创建多个Profilers()对象，他们之间是没有干扰的。——当然，你也 <br>
 可以只创建一个，并用不同的标签来分组显示它们。这一切只取决于你的选择。  </p>
 
-<p>如果你打算创建多个Profilers，那么大概的代码如下： <br />
-<font face="Courier New">  </p>
+<p>如果你打算创建多个Profilers，那么大概的代码如下： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var prof1 = new Profilers(); <br />
-var prof2 = new Profilers();</font>  </p>
+<p>var prof1 = new Profilers(); <br>
+var prof2 = new Profilers();  </p>
 
-<p><font face="Courier New">// prof1('tag').begin() ... <br />
+<p><font face="Courier New">// prof1('tag').begin() ... <br>
 // ...</font>  </p>
 
-<p><font face="Courier New">showProfiler(prof1); <br />
-showProfiler(prof2); <br />
+<p><font face="Courier New">showProfiler(prof1); <br>
+showProfiler(prof2); <br>
 ---------------------------</font>  </p>
 
-<p>&nbsp; 8. 清理profilers数据 <br />
-&nbsp;   </p>
+<p>  8. 清理profilers数据 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 如果你要开始新一批的profilers分析。那么你应该清除一下原有的数据。但到目前为止， <br />
-Profilers()对象并没有提供clear()方法。&mdash;&mdash;我认为不必须。  </p>
+<p>  如果你要开始新一批的profilers分析。那么你应该清除一下原有的数据。但到目前为止， <br>
+Profilers()对象并没有提供clear()方法。——我认为不必须。  </p>
 
-<p>因此如果你需要清理数据，最好的方法就是重新创建一个。例如： <br />
-<font face="Courier New">  </p>
+<p>因此如果你需要清理数据，最好的方法就是重新创建一个。例如： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 重新创建全局的分析器 <br />
-$profilers = new Profilers(); <br />
----------------------------</font>  </p>
+<p>// 重新创建全局的分析器 <br>
+$profilers = new Profilers(); <br>
+---------------------------  </p>
 
-<p>六、Profilers与AOP的结合使用 <br />
-~~~~~~~~~~~~~~~~~~ <br />
-大概要为每一个函数去写.begin()和.end()会是一件让人痛苦的事，而且频繁地改动原先的 <br />
-函数，也不是是一件什么好事。因此事实上在Profilers的使用示例中，我采用的都是AOP来 <br />
-实现。在 <br />
-&nbsp; Components/QomoHierarchyPoster.html <br />
-&nbsp; Framework/Debug/TestCase/T_profiler.html <br />
+<p>六、Profilers与AOP的结合使用 <br>
+~~~~~~~~~~~~~~~~~~ <br>
+大概要为每一个函数去写.begin()和.end()会是一件让人痛苦的事，而且频繁地改动原先的 <br>
+函数，也不是是一件什么好事。因此事实上在Profilers的使用示例中，我采用的都是AOP来 <br>
+实现。在 <br>
+  Components/QomoHierarchyPoster.html <br>
+  Framework/Debug/TestCase/T_profiler.html <br>
 这两个文件中，都可以看到AOP的用法。  </p>
 
-<p>其中，T<em>profiler.html载入了一个AOP</em>MyProf.js文件，这里的示例最为简单： <br />
-<font face="Courier New">  </p>
+<p>其中，T<em>profiler.html载入了一个AOP</em>MyProf.js文件，这里的示例最为简单： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 加入profiler相关的代码($profilers是全局对象) <br />
-var asp_import = new FunctionAspect($import, '$import', 'Function');</font>  </p>
+<p>// 加入profiler相关的代码($profilers是全局对象) <br>
+var asp_import = new FunctionAspect($import, '$import', 'Function');  </p>
 
-<p><font face="Courier New">asp_import.OnBefore.add(function(o, n, p, a) { <br />
-&nbsp; with ($profilers(n, FN(a[0]))) { <br />
-&nbsp;&nbsp;&nbsp; set('url', a[0]); <br />
-&nbsp;&nbsp;&nbsp; a['$tag$'] = begin(); <br />
-&nbsp; } <br />
+<p><font face="Courier New">asp_import.OnBefore.add(function(o, n, p, a) { <br>
+  with ($profilers(n, FN(a[0]))) { <br>
+    set('url', a[0]); <br>
+    a['$tag$'] = begin(); <br>
+  } <br>
 });</font>  </p>
 
-<p><font face="Courier New">asp_import.OnAfter.add(function(o, n, p, a, v) { <br />
-&nbsp; $profilers(n, FN(a[0])).end(a['$tag$']); <br />
-}); <br />
+<p><font face="Courier New">asp_import.OnAfter.add(function(o, n, p, a, v) { <br>
+  $profilers(n, FN(a[0])).end(a['$tag$']); <br>
+}); <br>
 ---------------------------</font>  </p>
 
-<p>我们看到asp_import就是一个为&quot;$import()&quot;创建的一个切面，这个切面的名字，就是&quot;$import&quot;。 <br />
-所以我们在OnBefore和OnAfter中看到的参数n，值就是&quot;$import&quot;。  </p>
+<p>我们看到asp_import就是一个为"$import()"创建的一个切面，这个切面的名字，就是"$import"。 <br>
+所以我们在OnBefore和OnAfter中看到的参数n，值就是"$import"。  </p>
 
-<p>接下来，我们在OnBefore的事件处理函数中，添加了对每一次$import()调用的profiler分析。这 <br />
-里传入的参数a，就是调用$import()时的arguments。所以a[0]就是$import()的文件名。&mdash;&mdash;因为， <br />
-我们总是用&ldquo;$import('a<em>js</em>url')&rdquo;来导入文件的。  </p>
+<p>接下来，我们在OnBefore的事件处理函数中，添加了对每一次$import()调用的profiler分析。这 <br>
+里传入的参数a，就是调用$import()时的arguments。所以a[0]就是$import()的文件名。——因为， <br>
+我们总是用“$import('a<em>js</em>url')”来导入文件的。  </p>
 
-<p>调用$profilers()时传入了两个标签。其中n总是&quot;$import&quot;，而FN(a[0])则是取到URL未尾的文件名。 <br />
-因此，相当于创建了一个名为&quot;$import/a<em>js</em>filename&quot;形式的标识。这在后面用showProfilers() <br />
+<p>调用$profilers()时传入了两个标签。其中n总是"$import"，而FN(a[0])则是取到URL未尾的文件名。 <br>
+因此，相当于创建了一个名为"$import/a<em>js</em>filename"形式的标识。这在后面用showProfilers() <br>
 时就可以看到了。  </p>
 
-<p>接下来，由于我们还需要在showProfilers()时能显示一点数据，例如载入的实例的URL的完整径， <br />
-因此我们调用了set()方法。这段代码实际相当于： <br />
-<font face="Courier New">  </p>
+<p>接下来，由于我们还需要在showProfilers()时能显示一点数据，例如载入的实例的URL的完整径， <br>
+因此我们调用了set()方法。这段代码实际相当于： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>asp_import.OnBefore.add(function(o, n, p, a) { <br />
-&nbsp; var prof = $profilers(n, FN(a[0]));</font>  </p>
+<p>asp_import.OnBefore.add(function(o, n, p, a) { <br>
+  var prof = $profilers(n, FN(a[0]));  </p>
 
-<p><font face="Courier New">&nbsp; prof.set('url', a[0]); <br />
-&nbsp; a['$tag$'] = prof.begin(); <br />
-}); <br />
----------------------------</font> <br />
-prof.set('url', ...)这行代码可以为一个prof添加任意多的、任何名称的定制数据。这些数据 <br />
-可以提供给showProfiler()来使用。&mdash;&mdash;当然，你自己也可以写一个showProfiler()来处理这些 <br />
+<p><font face="Courier New">  prof.set('url', a[0]); <br>
+  a['$tag$'] = prof.begin(); <br>
+}); <br>
+---------------------------</font> <br>
+prof.set('url', ...)这行代码可以为一个prof添加任意多的、任何名称的定制数据。这些数据 <br>
+可以提供给showProfiler()来使用。——当然，你自己也可以写一个showProfiler()来处理这些 <br>
 数据。  </p>
 
-<p>最后一行是为了处理在Qomo中将同一个.js文件导入多次。&mdash;&mdash;&quot;$import/a<em>js</em>filename&quot;会重复， <br />
-从而看起来象是处理同一段代码(像对递归过程profiler)。&mdash;&mdash;因此这里把prof.begin()返回的 <br />
+<p>最后一行是为了处理在Qomo中将同一个.js文件导入多次。——"$import/a<em>js</em>filename"会重复， <br>
+从而看起来象是处理同一段代码(像对递归过程profiler)。——因此这里把prof.begin()返回的 <br>
 标识放在a['$tag$']里。  </p>
 
-<p>这里用了一个取巧的方法：AOP事件中的参数a是调用被关注点时的参数arguments，因此对同一个 <br />
-关注对象来说，OnBefore与OnAfter所使用的arguments也是同一个。所以当切面到达OnAfter时， <br />
-我们只需要处理成 <br />
-<font face="Courier New">  </p>
+<p>这里用了一个取巧的方法：AOP事件中的参数a是调用被关注点时的参数arguments，因此对同一个 <br>
+关注对象来说，OnBefore与OnAfter所使用的arguments也是同一个。所以当切面到达OnAfter时， <br>
+我们只需要处理成 <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $profilers(n, FN(a[0])).end(a['$tag$']); <br />
----------------------------</font> <br />
-就可以了。&mdash;&mdash;a['$tag']就是我们需要使用的begin()返回值。而且，我们也不需要去delete这 <br />
+<p>  $profilers(n, FN(a[0])).end(a['$tag$']); <br>
+--------------------------- <br>
+就可以了。——a['$tag']就是我们需要使用的begin()返回值。而且，我们也不需要去delete这 <br>
 个属性。因为当函数运行结束后，arguments将自动被javascript引擎销毁。  </p>
 
-<p>同样的技术也被用在 <br />
-&nbsp; Components/QomoHierarchyPoster.html <br />
-这个文件中。不过QomoHierarchyPoster.html在profilers中值得言讲的，却在于它对combine() <br />
+<p>同样的技术也被用在 <br>
+  Components/QomoHierarchyPoster.html <br>
+这个文件中。不过QomoHierarchyPoster.html在profilers中值得言讲的，却在于它对combine() <br>
 的活用。  </p>
 
-<p>在QomoHierarchyPoster.html中，我们处理了五个切面，并试图对它们做性能分析： <br />
-<font face="Courier New">  </p>
+<p>在QomoHierarchyPoster.html中，我们处理了五个切面，并试图对它们做性能分析： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>var asp_getTopoString = new FunctionAspect(getTopoString, 'getTopoString', 'Function');</font>  </p>
+<p>var asp_getTopoString = new FunctionAspect(getTopoString, 'getTopoString', 'Function');  </p>
 
-<p><font face="Courier New">var asp<em>LinesString = new FunctionAspect(getLinesString, 'getLinesString', 'Function'); <br />
-var asp</em>drawTopo = new FunctionAspect(drawTopo, 'drawTopo', 'Function'); <br />
-var asp<em>active = new FunctionAspect(activeTopoInCanvas, 'activeTopoInCanvas', 'Function'); <br />
-var asp</em>cache = new FunctionAspect(cacheTargetByNodes, 'cacheTargetByNodes', 'Function'); <br />
+<p><font face="Courier New">var asp<em>LinesString = new FunctionAspect(getLinesString, 'getLinesString', 'Function'); <br>
+var asp</em>drawTopo = new FunctionAspect(drawTopo, 'drawTopo', 'Function'); <br>
+var asp<em>active = new FunctionAspect(activeTopoInCanvas, 'activeTopoInCanvas', 'Function'); <br>
+var asp</em>cache = new FunctionAspect(cacheTargetByNodes, 'cacheTargetByNodes', 'Function'); <br>
 ---------------------------</font>  </p>
 
-<p>而这时，我们只为一个切面的OnBefore()和OnAfter()添加了事件处理句柄： <br />
-<font face="Courier New">  </p>
+<p>而这时，我们只为一个切面的OnBefore()和OnAfter()添加了事件处理句柄： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>asp_getTopoString.OnBefore.add(function(o, n, p, a) { <br />
-&nbsp; a[&quot;$tag$&quot;] = $profilers('$prof', p, n).begin(); <br />
-});</font>  </p>
+<p>asp_getTopoString.OnBefore.add(function(o, n, p, a) { <br>
+  a["$tag$"] = $profilers('$prof', p, n).begin(); <br>
+});  </p>
 
-<p><font face="Courier New">asp_getTopoString.OnAfter.add(function(o, n, p, a, v) { <br />
-&nbsp; $profilers('$prof', p, n).end(a[&quot;$tag$&quot;]); <br />
-}); <br />
+<p><font face="Courier New">asp_getTopoString.OnAfter.add(function(o, n, p, a, v) { <br>
+  $profilers('$prof', p, n).end(a["$tag$"]); <br>
+}); <br>
 ---------------------------</font>  </p>
 
-<p>为了让其它几个切面也得到相同的处理能力，我们使用了Qomo AOP中的&ldquo;联合(combine)&rdquo;，这 <br />
-非常简单，一行代码就可以了： <br />
-<font face="Courier New">  </p>
+<p>为了让其它几个切面也得到相同的处理能力，我们使用了Qomo AOP中的“联合(combine)”，这 <br>
+非常简单，一行代码就可以了： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>asp<em>getTopoString.combine(asp</em>LinesString, asp<em>drawTopo, asp</em>active, asp_cache); <br />
----------------------------</font>  </p>
+<p>asp<em>getTopoString.combine(asp</em>LinesString, asp<em>drawTopo, asp</em>active, asp_cache); <br>
+---------------------------  </p>
 
-<p>于是，上面的五个切面所处理的被观察者(函数)执行时，都会触发asp_getTopoString的OnBefore <br />
+<p>于是，上面的五个切面所处理的被观察者(函数)执行时，都会触发asp_getTopoString的OnBefore <br>
 和OnAfter事件了。  </p>
 
 <p>我相信Qomo AOP的价值远非如此。接下来的应用，看大家的吧。^.^  </p>
 
-<p>七、其它 <br />
+<p>七、其它 <br>
 ~~~~~~~~~~~~~~~~~~  </p>
 
-<p>&nbsp; 1. 可以独立于Qomo框架的内核模块 <br />
-&nbsp;   </p>
+<p>  1. 可以独立于Qomo框架的内核模块 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 在Qomo内核中，Profilers.js、Dbg.Utils.js与JSEnhance.js一样，都不需要加载Qomo的 <br />
-框架，因此可以直接在其它的、第三方的代码框架中使用。这样的内核模块还包括： <br />
-<font face="Courier New">  </p>
+<p>  在Qomo内核中，Profilers.js、Dbg.Utils.js与JSEnhance.js一样，都不需要加载Qomo的 <br>
+框架，因此可以直接在其它的、第三方的代码框架中使用。这样的内核模块还包括： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>// 包括Profilers, Dbg.Utils和RepImport等 <br />
-$import('Debug/Debug.js');</font>  </p>
+<p>// 包括Profilers, Dbg.Utils和RepImport等 <br>
+$import('Debug/Debug.js');  </p>
 
-<p><font face="Courier New">// 替换错误处理 <br />
+<p><font face="Courier New">// 替换错误处理 <br>
 $import('RTL/Error.js');</font>  </p>
 
-<p><font face="Courier New">// 接口 <br />
+<p><font face="Courier New">// 接口 <br>
 $import('RTL/Interface.js');</font>  </p>
 
-<p><font face="Courier New">// 协议(目前只包括URL分析) <br />
+<p><font face="Courier New">// 协议(目前只包括URL分析) <br>
 $import('RTL/Protocol.js');</font>  </p>
 
-<p><font face="Courier New">// 兼容层 <br />
+<p><font face="Courier New">// 兼容层 <br>
 $import('Compat/CompatLayer.js');</font>  </p>
 
-<p><font face="Courier New">// 命名空间(依赖于system.js与Protocol.js) <br />
+<p><font face="Courier New">// 命名空间(依赖于system.js与Protocol.js) <br>
 $import('Names/NamedSystem.js');</font>  </p>
 
-<p><font face="Courier New">// 脚本功能增强 <br />
-$import('RTL/JSEnhance.js'); <br />
+<p><font face="Courier New">// 脚本功能增强 <br>
+$import('RTL/JSEnhance.js'); <br>
 ------------</font>  </p>
 
-<p>由于Profilers被设计成可以针对整个Qomo做性能分析(包括最初的$import()，以及后续加载 <br />
-的各个组件与类)，因此它必须在最先载入。同样的原因，整个的Debug.js是第一个由system.js <br />
+<p>由于Profilers被设计成可以针对整个Qomo做性能分析(包括最初的$import()，以及后续加载 <br>
+的各个组件与类)，因此它必须在最先载入。同样的原因，整个的Debug.js是第一个由system.js <br>
 载入的单元。  </p>
 
-<p>&nbsp; 2. 框架库之其它内容 <br />
-&nbsp;   </p>
+<p>  2. 框架库之其它内容 <br>
+    </p>
 
-<hr />
+<hr>
 
-<p>&nbsp; 在Qomo beta2的基础库中，还包括三个重要的成员： <br />
-<font face="Courier New">&nbsp; - 队列/池，以及处理器类 <br />
-&nbsp; - 时间序列、时间线与数据发生器 <br />
-&nbsp; - ajax原型：HttpMachine()</font>  </p>
+<p>  在Qomo beta2的基础库中，还包括三个重要的成员： <br>
+<font face="Courier New">  - 队列/池，以及处理器类 <br>
+  - 时间序列、时间线与数据发生器 <br>
+  - ajax原型：HttpMachine()</font>  </p>
 
 <p>这些内容在随后我将专门撰文讲解。</p>
             </section>
@@ -890,7 +889,7 @@ $import('RTL/JSEnhance.js'); <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-50.html">
                     【原创】搞了个NetGear的路由器，为此写了个小程序来查Wan IP.
                 </a>
@@ -901,8 +900,8 @@ $import('RTL/JSEnhance.js'); <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -921,14 +920,14 @@ $import('RTL/JSEnhance.js'); <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -944,7 +943,7 @@ $import('RTL/JSEnhance.js'); <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -958,7 +957,7 @@ $import('RTL/JSEnhance.js'); <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -971,20 +970,19 @@ $import('RTL/JSEnhance.js'); <br />
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

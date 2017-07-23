@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>如何使用Qomo的Builder系统</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="如何使用Qomo的Builder系统" />
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     Qomo的Builder系统   Qomo在Beta2之后，主要解决的一个问题就是Builder系统。在设计上，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-58.html" />
-    <meta property="article:published_time" content="2007-02-02T14:36:00.000Z" />
-    <meta property="article:modified_time" content="2007-02-02T14:36:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="工具" />
-    <meta property="article:tag" content="浏览器" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="如何使用Qomo的Builder系统">
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     Qomo的Builder系统   Qomo在Beta2之后，主要解决的一个问题就是Builder系统。在设计上，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-58.html">
+    <meta property="article:published_time" content="2007-02-02T14:36:00.000Z">
+    <meta property="article:modified_time" content="2007-02-02T14:36:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="工具">
+    <meta property="article:tag" content="浏览器">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="如何使用Qomo的Builder系统" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     Qomo的Builder系统   Qomo在Beta2之后，主要解决的一个问题就是Builder系统。在设计上，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-58.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 工具, 浏览器" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="如何使用Qomo的Builder系统">
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt     Qomo的Builder系统   Qomo在Beta2之后，主要解决的一个问题就是Builder系统。在设计上，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-58.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 工具, 浏览器">
     
     <script type="application/ld+json">
 {
@@ -77,15 +76,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-gong-ju tag-liu-lan-qi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/gong-ju/index.html">工具</a>, <a href="tag/liu-lan-qi/index.html">浏览器</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/gong-ju/">工具</a>, <a href="tag/liu-lan-qi/">浏览器</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,263 +146,263 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <hr>
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
 项目团队：../../Qomo_team.txt    </p>
 
-<hr />
+<hr>
 
 <ol>
 <li>Qomo的Builder系统  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo在Beta2之后，主要解决的一个问题就是Builder系统。在设计上，Qomo对Builder系统提出 <br />
-了非常严格(甚至是苛刻)的要求，其中包括： <br />
-&nbsp; - 使用Qomo自身的框架来实现 <br />
-&nbsp; - 使用JavaScript来实现，而不要第三方的应用(例如.exe的压缩程序) <br />
-&nbsp; - 对既有的和将来的Qomo项目透明，无影响 <br />
-&nbsp; - 深入到Qomo内核的、分层的、可分解的模块定制 <br />
-&nbsp; - 编译的结果代码，与使用中的调试版本无差异  </p>
+<p>Qomo在Beta2之后，主要解决的一个问题就是Builder系统。在设计上，Qomo对Builder系统提出 <br>
+了非常严格(甚至是苛刻)的要求，其中包括： <br>
+  - 使用Qomo自身的框架来实现 <br>
+  - 使用JavaScript来实现，而不要第三方的应用(例如.exe的压缩程序) <br>
+  - 对既有的和将来的Qomo项目透明，无影响 <br>
+  - 深入到Qomo内核的、分层的、可分解的模块定制 <br>
+  - 编译的结果代码，与使用中的调试版本无差异  </p>
 
 <p>这些要求所主要表现的，就是Qomo的Builder可以定制，而且对使用者来说公开、透明。  </p>
 
-<p>由于JavaScript是解释执行的脚本，而并没有真正的&ldquo;编译&rdquo;能力，所以在Qomo中所谓的&ldquo;编 <br />
-译(Build)&rdquo;其实是指两个过程： <br />
-&nbsp; - Link:&nbsp;&nbsp;&nbsp;&nbsp; 连接。将各个代码块有序地组合成单一的.js文件 <br />
-&nbsp; - Compress: 压缩。清除代码中的空格等，使代码尽可能地变得短小以缩短载入时间  </p>
+<p>由于JavaScript是解释执行的脚本，而并没有真正的“编译”能力，所以在Qomo中所谓的“编 <br>
+译(Build)”其实是指两个过程： <br>
+  - Link:     连接。将各个代码块有序地组合成单一的.js文件 <br>
+  - Compress: 压缩。清除代码中的空格等，使代码尽可能地变得短小以缩短载入时间  </p>
 
-<p>使用Qomo的Builer所产生的结果，是生成一个单独的.js文件。&mdash;&mdash;由于网页中的JavaScript没 <br />
+<p>使用Qomo的Builer所产生的结果，是生成一个单独的.js文件。——由于网页中的JavaScript没 <br>
 有写文件的能力，所以事实上是生成了结果的代码块，用户可以手工复制到一个.js文件中去。  </p>
 
-<p>这个生成的单独的.js文件是可以任意命名的，为了方便，下面都称其为&ldquo;Qomo.js&rdquo;。&mdash;&mdash;不 <br />
+<p>这个生成的单独的.js文件是可以任意命名的，为了方便，下面都称其为“Qomo.js”。——不 <br>
 过，在mozilla里只能命名为Qomo.js(或自行修改代码中的一个正则表达式)。  </p>
 
 <ol>
 <li>Builder的体系结构  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Qomo的Builder系统被放在Qomo的根目录之下，位于&ldquo; Qomo/Build　&rdquo;目录中。下面是这个目 <br />
+<p>Qomo的Builder系统被放在Qomo的根目录之下，位于“ Qomo/Build　”目录中。下面是这个目 <br>
 录的说明：    </p>
 
-<hr />
+<hr>
 
-<p><font face="Courier New">Build目录包括的子目录有： <br />
-&nbsp;&nbsp; packer/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 一个可由用户使用的压缩器程序，但目前Qomo并没有使用到它。 <br />
-&nbsp;&nbsp; jsmin/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 一个开源的、JavaScript实现的压缩器。Qomo使用了它的js版本，而 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的jsmin.exe只是为了用来压缩jsminfull.js。 :) <br />
-&nbsp;&nbsp; TestCase/&nbsp;&nbsp;&nbsp; : 测试代码，包括一个示范性的Builder工具。 <br />
-&nbsp;&nbsp; sample_final/: 编译结果的测试示例，包括编译时使用的参数配置(PNG图片)</font>  </p>
+<p><font face="Courier New">Build目录包括的子目录有： <br>
+   packer/      : 一个可由用户使用的压缩器程序，但目前Qomo并没有使用到它。 <br>
+   jsmin/       : 一个开源的、JavaScript实现的压缩器。Qomo使用了它的js版本，而 <br>
+                  其中的jsmin.exe只是为了用来压缩jsminfull.js。 :) <br>
+   TestCase/    : 测试代码，包括一个示范性的Builder工具。 <br>
+   sample_final/: 编译结果的测试示例，包括编译时使用的参数配置(PNG图片)</font>  </p>
 
-<p><font face="Courier New">Build目录包括的代码有： <br />
-&nbsp;&nbsp; Default.Config.js&nbsp;&nbsp;&nbsp;&nbsp; : 编译的缺省配置 <br />
-&nbsp;&nbsp; Builder.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 编译器(对话框) <br />
-&nbsp;&nbsp; Building.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 提供给Qomo的用于编译(连接)的模块 <br />
-&nbsp;&nbsp;&nbsp;&nbsp; FinalBuilder.js&nbsp;&nbsp;&nbsp;&nbsp; : 在Building.js中使用的一个inline代码块</font>  </p>
+<p><font face="Courier New">Build目录包括的代码有： <br>
+   Default.Config.js     : 编译的缺省配置 <br>
+   Builder.html          : 编译器(对话框) <br>
+   Building.js           : 提供给Qomo的用于编译(连接)的模块 <br>
+     FinalBuilder.js     : 在Building.js中使用的一个inline代码块</font>  </p>
 
-<p><font face="Courier New">&nbsp;&nbsp; ProtectCodeContext.js : 压缩算法中用于快速清除注释的类 <br />
-&nbsp;&nbsp; Compressor.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 算法器类 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compressor(1).js&nbsp;&nbsp; : 一种压缩算法的inline代码块 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jsmin.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : jsmin压缩的js版本</font>  </p>
+<p><font face="Courier New">   ProtectCodeContext.js : 压缩算法中用于快速清除注释的类 <br>
+   Compressor.js         : 算法器类 <br>
+      Compressor(1).js   : 一种压缩算法的inline代码块 <br>
+      jsmin.js           : jsmin压缩的js版本</font>  </p>
 
-<p><font face="Courier New">Build/TestCase子目录包括的代码有： <br />
-&nbsp;&nbsp; T<em>RemoveImport.html&nbsp;&nbsp; : 测试程序 - 移除Qomo.js中特定代码块的 <br />
-&nbsp;&nbsp; T</em>TestFinal.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 测试程序 - 检查编译后的Qomo.js是否能有效装载</font>  </p>
+<p><font face="Courier New">Build/TestCase子目录包括的代码有： <br>
+   T<em>RemoveImport.html   : 测试程序 - 移除Qomo.js中特定代码块的 <br>
+   T</em>TestFinal.html      : 测试程序 - 检查编译后的Qomo.js是否能有效装载</font>  </p>
 
-<p><font face="Courier New">&nbsp;&nbsp; T<em>Builder.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 浏览器兼容的通用示例和工具 - 用于&ldquo;连接(link)&rdquo;代码 <br />
-&nbsp;&nbsp; T</em>Compress.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 浏览器兼容的通用示例和工具 - 用于&ldquo;压缩(compress)&rdquo;代码 <br />
-&nbsp;&nbsp; T_CustomBuilder.html&nbsp; : 能在IE上使用的示例和工具 - 完整的编译工具</font>    </p>
+<p><font face="Courier New">   T<em>Builder.html        : 浏览器兼容的通用示例和工具 - 用于“连接(link)”代码 <br>
+   T</em>Compress.html       : 浏览器兼容的通用示例和工具 - 用于“压缩(compress)”代码 <br>
+   T_CustomBuilder.html  : 能在IE上使用的示例和工具 - 完整的编译工具</font>    </p>
 
-<hr />
+<hr>
 
-<p>基本上来说，整个体系中的关键代码在于Build/Building.js。它使用了Qomo的特性以侵入 <br />
-Qomo代码的装载(import)过程，并收集过程中的信息。而Build/FinalBuiler.js则用于拼装 <br />
+<p>基本上来说，整个体系中的关键代码在于Build/Building.js。它使用了Qomo的特性以侵入 <br>
+Qomo代码的装载(import)过程，并收集过程中的信息。而Build/FinalBuiler.js则用于拼装 <br>
 这些收集来的信息，以及对代码做一些(可预测的)修改。  </p>
 
-<p>Building.js的侵入不修改Qomo的流程，也不影响这个流程；finalBuilder.js的拼装和修改 <br />
+<p>Building.js的侵入不修改Qomo的流程，也不影响这个流程；finalBuilder.js的拼装和修改 <br>
 以不影响Qomo中的代码块为基本前提。  </p>
 
 <ol>
 <li>Qomo中如何Builder代码 - for IE  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>在IE中，你可以直接打开T_CustomBuilder.html来编译代码。编译过程是可视的，你只需要 <br />
-将结果代码复制到一个.js文件中即可。&mdash;&mdash;你应该使用utf-8编码的、文本格式的.js文件。  </p>
+<p>在IE中，你可以直接打开T_CustomBuilder.html来编译代码。编译过程是可视的，你只需要 <br>
+将结果代码复制到一个.js文件中即可。——你应该使用utf-8编码的、文本格式的.js文件。  </p>
 
-<p>使用T_CustomBuilder.html编译时，界面上的各个配置项都可以任意组合。&mdash;&mdash;当然，&ldquo;任 <br />
-意&rdquo;并不一定有价值，在另一篇文档中，我会专门讲述Qomo的层次结构，你便于你更合理地 <br />
+<p>使用T_CustomBuilder.html编译时，界面上的各个配置项都可以任意组合。——当然，“任 <br>
+意”并不一定有价值，在另一篇文档中，我会专门讲述Qomo的层次结构，你便于你更合理地 <br>
 编译一个最终交付(或发布)的Qomo版本，以使用在你的项目中。  </p>
 
-<p>界面上的一些配置项是被禁用的，但当另一些配置项被选中／取消时，它们会被开启。这种 <br />
-关联关系，被配置在两个地方。其一是Default.Config.js中，用 js代码的方式来控制了模 <br />
-块的依赖性，以使编译出的代码可用。还有是在T<em>CustomBuilder.html中载入的uicontrol.js <br />
+<p>界面上的一些配置项是被禁用的，但当另一些配置项被选中／取消时，它们会被开启。这种 <br>
+关联关系，被配置在两个地方。其一是Default.Config.js中，用 js代码的方式来控制了模 <br>
+块的依赖性，以使编译出的代码可用。还有是在T<em>CustomBuilder.html中载入的uicontrol.js <br>
 文件里，它仅用于控制T</em>CustomBuilder.html里的界面表现。  </p>
 
-<p>有两个选项在T<em>CustomBuilder.html中总是无效的。即&ldquo;图形组件库&rdquo;和&ldquo;数据库组件库&rdquo;。 <br />
-这是因为在Qomo V1.0 Final中，这两个组件库并没有被正式发布。如果要把它们编译进去， <br />
+<p>有两个选项在T<em>CustomBuilder.html中总是无效的。即“图形组件库”和“数据库组件库”。 <br>
+这是因为在Qomo V1.0 Final中，这两个组件库并没有被正式发布。如果要把它们编译进去， <br>
 你需要将T</em>CustomBuilder.html中的DebugComponents变量置为true.  </p>
 
-<p>事实上&ldquo;扩展界面控件&rdquo;也没有被发布。但其中一些代码仍是可用的，所以被选项被置为开 <br />
+<p>事实上“扩展界面控件”也没有被发布。但其中一些代码仍是可用的，所以被选项被置为开 <br>
 启了。  </p>
 
-<p>要在最终代码中包含&ldquo;图形组件库&rdquo;、&ldquo;数据库组件库&rdquo;和&ldquo;扩展界面控件&rdquo;之任一，你都 <br />
-需要自己解压v1.0 final发布包中的(Trial)Components.zip，使得Comonents目录的位置与 <br />
+<p>要在最终代码中包含“图形组件库”、“数据库组件库”和“扩展界面控件”之任一，你都 <br>
+需要自己解压v1.0 final发布包中的(Trial)Components.zip，使得Comonents目录的位置与 <br>
 Framework目录的位置在同一级上。  </p>
 
-<p>使用T<em>CustomBuilder.html编译和发布代码的一些配置与生成代码的示例，放在sample</em>final <br />
+<p>使用T<em>CustomBuilder.html编译和发布代码的一些配置与生成代码的示例，放在sample</em>final <br>
 目录中。请参考配置即可。  </p>
 
 <ol>
 <li>Qomo中如何Builder代码 - for FF  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>在FireFox等mozilla兼容浏览器用使用Qomo的builder相对要麻烦一点。但这也使得过程更加 <br />
+<p>在FireFox等mozilla兼容浏览器用使用Qomo的builder相对要麻烦一点。但这也使得过程更加 <br>
 清晰。  </p>
 
-<p>&nbsp; - 首先用编辑器打开T_Builder.html，确定你需要装载哪些模块，并修改该网页中被注释 <br />
-&nbsp;&nbsp;&nbsp; 掉的一段脚本代码。&mdash;&mdash;将false改成true。  </p>
+<p>  - 首先用编辑器打开T_Builder.html，确定你需要装载哪些模块，并修改该网页中被注释 <br>
+    掉的一段脚本代码。——将false改成true。  </p>
 
-<p>&nbsp; - 然后在浏览器中打开这个网页，你会看到一个文本框中已经链接(link)好了全部的代码。  </p>
+<p>  - 然后在浏览器中打开这个网页，你会看到一个文本框中已经链接(link)好了全部的代码。  </p>
 
-<p>&nbsp; - 接下来，在浏览器中打开T<em>Compress.html，将前面链接好的代码复制到T</em>Compress.html <br />
-&nbsp;&nbsp;&nbsp; 的文本框中。然后按下&quot;compress it..&quot;按钮。 <br />
-&nbsp; <br />
-&nbsp; - 文本框中会出现压缩后的代码。ＯＫ，复制它并存入你的Qomo.js即可。  </p>
+<p>  - 接下来，在浏览器中打开T<em>Compress.html，将前面链接好的代码复制到T</em>Compress.html <br>
+    的文本框中。然后按下"compress it.."按钮。 <br>
+  <br>
+  - 文本框中会出现压缩后的代码。ＯＫ，复制它并存入你的Qomo.js即可。  </p>
 
 <ol>
 <li>Builder.html的使用  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Builder.html是浏览器兼容的，因此你也可以在fireFox里打开它。但事实上它不并不显示编 <br />
-译后的结果。&mdash;&mdash;它是一个对话框，并向打开它的主窗口返回结果代码。  </p>
+<p>Builder.html是浏览器兼容的，因此你也可以在fireFox里打开它。但事实上它不并不显示编 <br>
+译后的结果。——它是一个对话框，并向打开它的主窗口返回结果代码。  </p>
 
-<p>Builder.html包括了压缩与链接两个部分。你需要做的，只是写一个主页面，并写下类似如下 <br />
-的代码： <br />
-<font face="Courier New">  </p>
+<p>Builder.html包括了压缩与链接两个部分。你需要做的，只是写一个主页面，并写下类似如下 <br>
+的代码： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; data_compiled = showModalDialog('Builder.html', $QomoConfig, &quot;...&quot;); <br />
----------------</font>  </p>
+<p>  data_compiled = showModalDialog('Builder.html', $QomoConfig, "..."); <br>
+---------------  </p>
 
-<p>如果$QomoConfig参数为null，则Builder.html将使用默认配置(装入所有的代码)，否则将根 <br />
+<p>如果$QomoConfig参数为null，则Builder.html将使用默认配置(装入所有的代码)，否则将根 <br>
 据$QomoConfig的设置来完成编译。  </p>
 
-<p>你可以在代码中加入如下的HTML，以载入一个$QomoConfig变量的副本： <br />
-<font face="Courier New">  </p>
+<p>你可以在代码中加入如下的HTML，以载入一个$QomoConfig变量的副本： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&lt;script src='/Qomo/Qomo.Config.js'&gt;&lt;/script&gt; <br />
----------------</font> <br />
-Qomo.Config.js中是一个最小化声明的配置信息。因此，载入该脚本之后，你也可以在打开 <br />
-Builder.html之前修改$QomoConfig的值。示例如下： <br />
-<font face="Courier New">  </p>
+<p>&lt;script src='/Qomo/Qomo.Config.js'&gt;&lt;/script&gt; <br>
+--------------- <br>
+Qomo.Config.js中是一个最小化声明的配置信息。因此，载入该脚本之后，你也可以在打开 <br>
+Builder.html之前修改$QomoConfig的值。示例如下： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; $QomoConfig.set('Building', true); <br />
-&nbsp; $QomoConfig.set('Profiling', false); <br />
----------------</font> <br />
-此后，将变量$QomoConfig作为参数传给打开Builder.html的对话框即可。而该对话框在关闭 <br />
+<p>  $QomoConfig.set('Building', true); <br>
+  $QomoConfig.set('Profiling', false); <br>
+--------------- <br>
+此后，将变量$QomoConfig作为参数传给打开Builder.html的对话框即可。而该对话框在关闭 <br>
 时会返回一个编译完成的字符串。  </p>
 
-<p>关于该过程的细节，请参考T_CustomBuilder.html。与后者不同的是，Builder.html是浏览 <br />
-器兼容的。&mdash;&mdash;因此如果需要，你可以写自己的Custom Builder for Other Browser. :)  </p>
+<p>关于该过程的细节，请参考T_CustomBuilder.html。与后者不同的是，Builder.html是浏览 <br>
+器兼容的。——因此如果需要，你可以写自己的Custom Builder for Other Browser. :)  </p>
 
 <ol>
 <li>生成编译后代码(Qomo.js)的部署  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>在不使用命名空间时，生成的Qomo.js是一个与路径无关的单独文件，你可以在服务器的任意 <br />
+<p>在不使用命名空间时，生成的Qomo.js是一个与路径无关的单独文件，你可以在服务器的任意 <br>
 位置上部署该文件。也可以编写代码，使用Qomo.js中的任何类和函数。  </p>
 
-<p>在使用命名空间时，Qomo.js能够自动地找到当前路径并为你设定命名空间。按照约定，Qomo <br />
-总是依照目录结构来注册类的命名空间。在编译的 Qomo.js 中，保存了一套虚拟的路径映射， <br />
-以使得你可以在Qomo.js所在目录中创建如下两个子目录： <br />
-<font face="Courier New">  </p>
+<p>在使用命名空间时，Qomo.js能够自动地找到当前路径并为你设定命名空间。按照约定，Qomo <br>
+总是依照目录结构来注册类的命名空间。在编译的 Qomo.js 中，保存了一套虚拟的路径映射， <br>
+以使得你可以在Qomo.js所在目录中创建如下两个子目录： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; Framework/ <br />
-&nbsp; Components/ <br />
----------------</font> <br />
-并将代码放在这两个目录中。在使用Class()注册后，会自动地注册到Qomo的命名空间。你也 <br />
-可以使用$map()和$mapx()建立自己的命名空间与路径映射。关于这些，请参考有关路径与命 <br />
+<p>  Framework/ <br>
+  Components/ <br>
+--------------- <br>
+并将代码放在这两个目录中。在使用Class()注册后，会自动地注册到Qomo的命名空间。你也 <br>
+可以使用$map()和$mapx()建立自己的命名空间与路径映射。关于这些，请参考有关路径与命 <br>
 名空间的文档。  </p>
 
-<p>你可以把代码放在任何位置，而不仅限于上述的目录。但在你自己映射路径与命名空间之前， <br />
+<p>你可以把代码放在任何位置，而不仅限于上述的目录。但在你自己映射路径与命名空间之前， <br>
 它们都被注册到Qomo.Thirdparty路径下。  </p>
 
 <ol>
 <li>关于兼容层代码  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>Builder只将当前（编译环境）中的浏览器相关的代码编译到Qomo.js中，其它所有的兼容层 <br />
-代码都未被链入。因为并非所有的人都希望为兼容环境做B/S开发。&mdash;&mdash;当然，也还有其它的 <br />
+<p>Builder只将当前（编译环境）中的浏览器相关的代码编译到Qomo.js中，其它所有的兼容层 <br>
+代码都未被链入。因为并非所有的人都希望为兼容环境做B/S开发。——当然，也还有其它的 <br>
 一些原因，例如未来可能要支持非浏览器环境下的JavaScript Host。  </p>
 
-<p>如果你使用Qomo.js，又希望它支持兼容环境。那么你应该将Qomo目录下的Framework/Compat/ <br />
-目录中的文件复制到与Qomo.js相同的目录下。保持如下的路径关系： <br />
-<font face="Courier New">  </p>
+<p>如果你使用Qomo.js，又希望它支持兼容环境。那么你应该将Qomo目录下的Framework/Compat/ <br>
+目录中的文件复制到与Qomo.js相同的目录下。保持如下的路径关系： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp; .../Qomo.js <br />
-&nbsp; .../<em>.</em> <br />
----------------</font> <br />
-由于在使用兼容层时，$import模块总是被链入的。因此，Qomo在检测到与当前（编译环境） <br />
+<p>  .../Qomo.js <br>
+  .../<em>.</em> <br>
+--------------- <br>
+由于在使用兼容层时，$import模块总是被链入的。因此，Qomo在检测到与当前（编译环境） <br>
 不同的浏览器时，会自动地载入对应的兼容模块。  </p>
 
-<p>在将来的版本中，Qomo允许你指定这个兼容层代码所在的目录位置。&mdash;&mdash;如果你需要，也可 <br />
+<p>在将来的版本中，Qomo允许你指定这个兼容层代码所在的目录位置。——如果你需要，也可 <br>
 修改编译后的Qomo.js中的代码。  </p>
 
 <ol>
 <li>几个附助的选项  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>T_CustomBuilder.html中有几个辅助的选项，包括： <br />
-&nbsp;&nbsp; - 添加文件头 <br />
-&nbsp;&nbsp; - 清除注释 <br />
-&nbsp;&nbsp; - 不压缩 <br />
-&nbsp;&nbsp; - 移除配置信息  </p>
+<p>T_CustomBuilder.html中有几个辅助的选项，包括： <br>
+   - 添加文件头 <br>
+   - 清除注释 <br>
+   - 不压缩 <br>
+   - 移除配置信息  </p>
 
-<p>其中，&ldquo;添加文件头&rdquo;是不可选的，它的作用，就是在Qomo.js代码的最前面添加一个版权 <br />
-信息而已。仅从代码上说，你也可以移除它。但建议你保留这些信息。至少，其中的版本号 <br />
+<p>其中，“添加文件头”是不可选的，它的作用，就是在Qomo.js代码的最前面添加一个版权 <br>
+信息而已。仅从代码上说，你也可以移除它。但建议你保留这些信息。至少，其中的版本号 <br>
 与发布时间是有价值的。  </p>
 
-<p>&ldquo;移除配置信息&rdquo;用于清除了$QomoConfig这个全局函数。该函数用于查询编译期的配置。&mdash;&mdash; <br />
-你的确有可能代码要用到它。但如果不需要，你也可以移除。在编译后的Qomo.js中，是不 <br />
+<p>“移除配置信息”用于清除了$QomoConfig这个全局函数。该函数用于查询编译期的配置。—— <br>
+你的确有可能代码要用到它。但如果不需要，你也可以移除。在编译后的Qomo.js中，是不 <br>
 再需要调用这个函数的。  </p>
 
-<p>如果你选择&ldquo;不压缩&rdquo;，则Builder只是连接代码，而并不压缩它。这样它就可以很方便地 <br />
+<p>如果你选择“不压缩”，则Builder只是连接代码，而并不压缩它。这样它就可以很方便地 <br>
 调试和修改了。  </p>
 
-<p>当选择&ldquo;不压缩&rdquo;时，你也可以取消&ldquo;清除注释&rdquo;选项。这样的代码将只是简单的拼接。Qomo <br />
-使用了非常有效的&ldquo;清除清释&rdquo;的算法，使得清除后的代码可读性仍然很高。因此，大多数 <br />
-情况下，你不需要取消这个选项。&nbsp;</p>
+<p>当选择“不压缩”时，你也可以取消“清除注释”选项。这样的代码将只是简单的拼接。Qomo <br>
+使用了非常有效的“清除清释”的算法，使得清除后的代码可读性仍然很高。因此，大多数 <br>
+情况下，你不需要取消这个选项。 </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -420,7 +419,7 @@ Builder.html之前修改$QomoConfig的值。示例如下： <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-59.html">
                     Qomo项目中代码的一般性约定
                 </a>
@@ -431,8 +430,8 @@ Builder.html之前修改$QomoConfig的值。示例如下： <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -451,14 +450,14 @@ Builder.html之前修改$QomoConfig的值。示例如下： <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -474,7 +473,7 @@ Builder.html之前修改$QomoConfig的值。示例如下： <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -488,7 +487,7 @@ Builder.html之前修改$QomoConfig的值。示例如下： <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -501,20 +500,19 @@ Builder.html之前修改$QomoConfig的值。示例如下： <br />
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

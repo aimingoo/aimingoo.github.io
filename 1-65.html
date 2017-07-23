@@ -1,44 +1,43 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>杀不死的人狼——我读《人月神话》（三）</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="杀不死的人狼——我读《人月神话》（三）" />
-    <meta property="og:description" content="**[     &amp;lt;&amp;lt;上一节](http://blog.csdn.net/aimingoo/archive/2007/03/13/1527494.aspx)**   ＝＝＝＝＝&amp;nbsp;   **三、《人月神话》是预言了未来还是控制了未来？**   **＝＝＝＝＝**   事实是：我们现在的很多工程知识，——无论是从书上看到的，还是从实践中体验到的——大多未曾脱离《人月神话》之所言。   我在开篇中说《人月神话》“是一本可怕的书”。然而我认为真正的可怕之处在于：如今只要论及工程（且不要让人认为是离经叛道），那么所讲述的一定是Brooks的这样的经验以及由此推出的观点，或者在不违背这些经验和观点上的一些具体的实作方法！我们全然不顾书中所言是现象，还是本质的推论，或者只是现象归结的一个（未必正确的）答案。尽管这些答案大多数时候都如同预期地出现在你的现实工程中：               **原文**      **基本含义**      **现实**            规&amp;#26684;说明的风&amp;#26684;必须清晰、完整和准确。用户常常会单独提到某个定义，所以每条说明都必须重复所有的基本要素，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-65.html" />
-    <meta property="article:published_time" content="2007-03-13T17:43:00.000Z" />
-    <meta property="article:modified_time" content="2007-03-13T17:43:00.000Z" />
-    <meta property="article:tag" content="项目管理" />
-    <meta property="article:tag" content="文档" />
-    <meta property="article:tag" content="编程" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="杀不死的人狼——我读《人月神话》（三）">
+    <meta property="og:description" content="**[     &amp;lt;&amp;lt;上一节](http://blog.csdn.net/aimingoo/archive/2007/03/13/1527494.aspx)**   ＝＝＝＝＝&amp;nbsp;   **三、《人月神话》是预言了未来还是控制了未来？**   **＝＝＝＝＝**   事实是：我们现在的很多工程知识，——无论是从书上看到的，还是从实践中体验到的——大多未曾脱离《人月神话》之所言。   我在开篇中说《人月神话》“是一本可怕的书”。然而我认为真正的可怕之处在于：如今只要论及工程（且不要让人认为是离经叛道），那么所讲述的一定是Brooks的这样的经验以及由此推出的观点，或者在不违背这些经验和观点上的一些具体的实作方法！我们全然不顾书中所言是现象，还是本质的推论，或者只是现象归结的一个（未必正确的）答案。尽管这些答案大多数时候都如同预期地出现在你的现实工程中：               **原文**      **基本含义**      **现实**            规&amp;#26684;说明的风&amp;#26684;必须清晰、完整和准确。用户常常会单独提到某个定义，所以每条说明都必须重复所有的基本要素，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-65.html">
+    <meta property="article:published_time" content="2007-03-13T17:43:00.000Z">
+    <meta property="article:modified_time" content="2007-03-13T17:43:00.000Z">
+    <meta property="article:tag" content="项目管理">
+    <meta property="article:tag" content="文档">
+    <meta property="article:tag" content="编程">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="杀不死的人狼——我读《人月神话》（三）" />
-    <meta name="twitter:description" content="**[     &amp;lt;&amp;lt;上一节](http://blog.csdn.net/aimingoo/archive/2007/03/13/1527494.aspx)**   ＝＝＝＝＝&amp;nbsp;   **三、《人月神话》是预言了未来还是控制了未来？**   **＝＝＝＝＝**   事实是：我们现在的很多工程知识，——无论是从书上看到的，还是从实践中体验到的——大多未曾脱离《人月神话》之所言。   我在开篇中说《人月神话》“是一本可怕的书”。然而我认为真正的可怕之处在于：如今只要论及工程（且不要让人认为是离经叛道），那么所讲述的一定是Brooks的这样的经验以及由此推出的观点，或者在不违背这些经验和观点上的一些具体的实作方法！我们全然不顾书中所言是现象，还是本质的推论，或者只是现象归结的一个（未必正确的）答案。尽管这些答案大多数时候都如同预期地出现在你的现实工程中：               **原文**      **基本含义**      **现实**            规&amp;#26684;说明的风&amp;#26684;必须清晰、完整和准确。用户常常会单独提到某个定义，所以每条说明都必须重复所有的基本要素，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-65.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="项目管理, 文档, 编程" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="杀不死的人狼——我读《人月神话》（三）">
+    <meta name="twitter:description" content="**[     &amp;lt;&amp;lt;上一节](http://blog.csdn.net/aimingoo/archive/2007/03/13/1527494.aspx)**   ＝＝＝＝＝&amp;nbsp;   **三、《人月神话》是预言了未来还是控制了未来？**   **＝＝＝＝＝**   事实是：我们现在的很多工程知识，——无论是从书上看到的，还是从实践中体验到的——大多未曾脱离《人月神话》之所言。   我在开篇中说《人月神话》“是一本可怕的书”。然而我认为真正的可怕之处在于：如今只要论及工程（且不要让人认为是离经叛道），那么所讲述的一定是Brooks的这样的经验以及由此推出的观点，或者在不违背这些经验和观点上的一些具体的实作方法！我们全然不顾书中所言是现象，还是本质的推论，或者只是现象归结的一个（未必正确的）答案。尽管这些答案大多数时候都如同预期地出现在你的现实工程中：               **原文**      **基本含义**      **现实**            规&amp;#26684;说明的风&amp;#26684;必须清晰、完整和准确。用户常常会单独提到某个定义，所以每条说明都必须重复所有的基本要素，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-65.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="项目管理, 文档, 编程">
     
     <script type="application/ld+json">
 {
@@ -77,15 +76,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-xiang-mu-guan-li tag-wen-dang tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,7 +95,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,7 +112,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -129,7 +128,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/xiang-mu-guan-li/index.html">项目管理</a>, <a href="tag/wen-dang/index.html">文档</a>, <a href="tag/bian-cheng/index.html">编程</a>
+                        <a href="tag/xiang-mu-guan-li/">项目管理</a>, <a href="tag/wen-dang/">文档</a>, <a href="tag/bian-cheng/">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,11 +146,11 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>**<span style="font-size:12pt">[    </p>
+                <p>**<span style="font-size:12pt">[    </span></p>
 
-<p>&lt;&lt;<mark>上一节](http://blog.csdn.net/aimingoo/archive/2007/03/13/1527494.aspx)</span>**  </p>
+<p>&lt;&lt;<mark>上一节](http://blog.csdn.net/aimingoo/archive/2007/03/13/1527494.aspx)**  </mark></p>
 
-<p><strong><span style="font-size:12pt">＝＝＝＝＝</span>&nbsp;</strong>  </p>
+<p><strong><span style="font-size:12pt">＝＝＝＝＝</span> </strong>  </p>
 
 <div><span style="font-size:12pt">**三、《人月神话》是预言了未来还是控制了未来？**</span></div>  
 
@@ -173,7 +172,7 @@ ghost.init({
 </tr>  
 <tr>  
 <td width="403" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:302.4pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-<span style="font-size:9pt">规&#26684;说明的风&#26684;必须清晰、完整和准确。用户常常会单独提到某个定义，所以每条说明都必须重复所有的基本要素，所以所有文字都要相互一致。这往往使手册读起来枯燥乏味，但是精确比生动更加重要。</span><span style="font-size:9pt">(P46)</span></td>  
+<span style="font-size:9pt">规格说明的风格必须清晰、完整和准确。用户常常会单独提到某个定义，所以每条说明都必须重复所有的基本要素，所以所有文字都要相互一致。这往往使手册读起来枯燥乏味，但是精确比生动更加重要。</span><span style="font-size:9pt">(P46)</span></td>  
 <td width="144" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:108pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">重复所有基本要素，以便于单个的特性可能会被抽离出来进行讨论。</span></td>  
 <td width="120" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:90pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
@@ -181,7 +180,7 @@ ghost.init({
 </tr>  
 <tr>  
 <td width="403" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:302.4pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-<span style="font-size:9pt">将来的规&#26684;说明同时包括形式化和记叙性定义两种方式。</span><span style="font-size:9pt">(P46)</span></td>  
+<span style="font-size:9pt">将来的规格说明同时包括形式化和记叙性定义两种方式。</span><span style="font-size:9pt">(P46)</span></td>  
 <td width="144" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:108pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">用形式化来精确定义，用记叙性定义来补充说明。</span></td>  
 <td width="120" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:90pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
@@ -253,7 +252,7 @@ ghost.init({
 </tr>  
 <tr>  
 <td width="403" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:302.4pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-<span style="font-size:9pt">流程图是被吹捧得最过分的一种程序文档。事实上，很多程序甚至不需要流程图，很少有程序需要一页纸以上的流程图。</span><span style="font-size:9pt">&nbsp;(P107)</span></td>  
+<span style="font-size:9pt">流程图是被吹捧得最过分的一种程序文档。事实上，很多程序甚至不需要流程图，很少有程序需要一页纸以上的流程图。</span><span style="font-size:9pt"> (P107)</span></td>  
 <td width="144" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:108pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">编程的结果产生流程图（以供讨论和分析），而不是对照着流程图进行编程。</span></td>  
 <td width="120" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:90pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
@@ -271,14 +270,14 @@ ghost.init({
 <td width="403" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:302.4pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">没有银弹</span><span style="font-size:9pt">(P114)</span></td>  
 <td width="144" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:108pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-&nbsp;</td>  
+ </td>  
 <td width="120" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:90pt; padding-right:5.4pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">所有曾被认为是银弹的东西都被无情地否定了。</span></td>  
 </tr>  
 </tbody>  
 </table>  
 
-<div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">原文中还有许多类&#20284;的观点、现象和答案，都成为了现实工程中的既存现象。先民们所说的圣人以及通神者，皆因他们多数时候在正确地预言自己的现实。只有当这个“多数时候”变成少数的时候，先民们才会置疑圣人和通神者的能力。其实我们知道并没有预言未来的人，大多数时候是两种情形导致的假象：</span></div>  
+<div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">原文中还有许多类似的观点、现象和答案，都成为了现实工程中的既存现象。先民们所说的圣人以及通神者，皆因他们多数时候在正确地预言自己的现实。只有当这个“多数时候”变成少数的时候，先民们才会置疑圣人和通神者的能力。其实我们知道并没有预言未来的人，大多数时候是两种情形导致的假象：</span></div>  
 
 <ul>
 <li><div style="margin-left:77.15pt; text-indent:-21pt"><span style="font-size:12pt">他做出了正确的判断；</span></div>  </li>
@@ -287,7 +286,7 @@ ghost.init({
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">后者是危险的。大师们预言了未来也就改变了未来，即便未来未必“应当”如同他所预言的那样。</span></div>  
 
-<div style="margin-top:6pt; text-indent:24pt; line-height:14px">&nbsp;</div>  
+<div style="margin-top:6pt; text-indent:24pt; line-height:14px"> </div>  
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">但如果这种预言的前提不正确，那么未来必然脱离这种影响而回到它应该的状态上去。如同我们看到的另一些事实一样，有很多现象表明，我们正在回归工程本相的道路上摸索前进。我们也发现，在大多数情况下，先哲们的预言在实践中被印证着，只是偶尔“不太灵光”。下表则列出一些不同的例子：</span></div>  
 
@@ -341,7 +340,7 @@ ghost.init({
 <td width="273" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:204.4pt; padding-right:5.4pt; height:31.85pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">测试驱动从一开始就规定表现是什么，以及如何确认它。</span></td>  
 <td width="43" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:32.25pt; padding-right:5.4pt; height:31.85pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-&nbsp;</td>  
+ </td>  
 </tr>  
 <tr style="height:15.15pt">  
 <td width="353" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:264.65pt; padding-right:5.4pt; height:15.15pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
@@ -357,7 +356,7 @@ ghost.init({
 <td width="273" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:204.4pt; padding-right:5.4pt; height:15.15pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">缩短周期使得变化来不及发生。</span></td>  
 <td width="43" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:32.25pt; padding-right:5.4pt; height:15.15pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-&nbsp;</td>  
+ </td>  
 </tr>  
 <tr style="height:31.85pt">  
 <td width="353" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:264.65pt; padding-right:5.4pt; height:31.85pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
@@ -373,7 +372,7 @@ ghost.init({
 <td width="273" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:204.4pt; padding-right:5.4pt; height:15.15pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">通过工具来使代码与文档同步维护。</span></td>  
 <td width="43" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:32.25pt; padding-right:5.4pt; height:15.15pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-&nbsp;</td>  
+ </td>  
 </tr>  
 <tr style="height:15.9pt">  
 <td width="353" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-color:windowtext; border-left-width:1pt; border-left-style:solid; padding-bottom:0cm; padding-left:5.4pt; width:264.65pt; padding-right:5.4pt; height:15.9pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
@@ -381,7 +380,7 @@ ghost.init({
 <td width="273" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:204.4pt; padding-right:5.4pt; height:15.9pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
 <span style="font-size:9pt">我们还是有成功的工程实践的。</span></td>  
 <td width="43" valign="top" style="border-bottom-color:windowtext; border-bottom-width:1pt; border-bottom-style:solid; border-left-width:medium; border-left-style:none; border-left-color:initial; padding-bottom:0cm; padding-left:5.4pt; width:32.25pt; padding-right:5.4pt; height:15.9pt; border-top-width:medium; border-top-style:none; border-top-color:initial; border-right-color:windowtext; border-right-width:1pt; border-right-style:solid; padding-top:0cm">  
-&nbsp;</td>  
+ </td>  
 </tr>  
 </tbody>  
 </table>  
@@ -392,7 +391,7 @@ ghost.init({
 
 <div style="text-indent:18pt"><span style="font-size:9pt">注</span><span style="font-size:9pt">3</span><span style="font-size:9pt">：</span><span style="font-size:9pt">Brooks</span><span style="font-size:9pt">在这里没有犯错误，只是他所讨论的是狭义的流程图，而我们例举的时序图则更广义。</span></div>  
 
-<div style="margin-top:6pt; text-indent:24pt; line-height:14px">&nbsp;</div>  
+<div style="margin-top:6pt; text-indent:24pt; line-height:14px"> </div>  
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">我们回顾上一小节，在《人月神话》中的那“</span><span style="font-size:12pt; line-height:19px">31%</span><span style="font-size:12pt; line-height:19px">的答案”的前提——也就是那</span><span style="font-size:12pt; line-height:19px">7%</span><span style="font-size:12pt; line-height:19px">的本质中，如下两项是明显存疑的（也是主要置疑）：</span></div>  
 
@@ -408,13 +407,13 @@ ghost.init({
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">的答案对于同样的目标，以及在他所述的“本质”未能发生改变时，还是比较有效（或有实施的可能性）。因此上述一些例外，总是在上述的“</span><span style="font-size:12pt; line-height:19px">7%</span><span style="font-size:12pt; line-height:19px">的本质”被否定或被改变的情况下获得的。因而我们提出的问题将是：“如何否定或改变”这些难以撼动的本质。然而在我看来，</span><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">早已经在最佳位置上，给出了撬动它们的一个支点：</span></div>  
 
 <ul>
-<li><div style="margin-left:77.15pt; text-indent:-21pt"><span style="font-size:15pt"><span style="font-family:'Times New Roman'; font-size:7pt">&nbsp;</span></span><span style="font-size:12pt">Brooks</span><span style="font-size:12pt">认为构建“独立小型程序”与“编程系统产品”是不同的问题。</span></div>  </li>
+<li><div style="margin-left:77.15pt; text-indent:-21pt"><span style="font-size:15pt"><span style="font-family:'Times New Roman'; font-size:7pt"> </span></span><span style="font-size:12pt">Brooks</span><span style="font-size:12pt">认为构建“独立小型程序”与“编程系统产品”是不同的问题。</span></div>  </li>
 </ul>
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">讨论的编程系统产品的规模到底有多大呢？我想至少应该是以</span><span style="font-size:12pt; line-height:19px">IBM 360</span><span style="font-size:12pt; line-height:19px">为参考的。不过书中在引用</span><span style="font-size:12pt; line-height:19px">Joel  
  Aron</span><span style="font-size:12pt; line-height:19px">（</span><span style="font-size:12pt; line-height:19px">IBM</span><span style="font-size:12pt; line-height:19px">在马里兰州盖兹堡的系统技术主管）的例子时说，“大型意味着程序员的数目超过</span><span style="font-size:12pt; line-height:19px">25</span><span style="font-size:12pt; line-height:19px">人，将近</span><span style="font-size:12pt; line-height:19px">30,000</span><span style="font-size:12pt; line-height:19px">行的指令”。而按照《人月神话》的数据：人均效率</span><span style="font-size:12pt; line-height:19px">800</span><span style="font-size:12pt; line-height:19px">指令</span><span style="font-size:12pt; line-height:19px">/</span><span style="font-size:12pt; line-height:19px">人年，则这个“大型项目”应该需要</span><span style="font-size:12pt; line-height:19px">1.5</span><span style="font-size:12pt; line-height:19px">年才能完成。此外，还需要大约一倍的人工，来负责除开代码之外的测试、管理、文档和沟通等工作。</span></div>  
 
-<div style="margin-top:6pt; text-indent:24pt; line-height:14px">&nbsp;</div>  
+<div style="margin-top:6pt; text-indent:24pt; line-height:14px"> </div>  
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">好的，如果你有一个“(至少)</span><span style="font-size:12pt; line-height:19px">50</span><span style="font-size:12pt; line-height:19px">人，开发一年半”的项目，那么你可以先接受</span><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">的答案去实践一下：起码你可以有时间来讨论工程问题，也能够组建那样规模的团队。但是，难道只有这样的“大型工程”才算得工程，而“小那么一点点”的就不算吗？现实是，我们一方面在做着“小那么一点点的”工程项目，另一方面在听着整个业界喧嚣着“为更大规模的工程”而准备的工程理论。我们总在实践</span><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">的“答案”或者“预言”，而忘却这些答案的前提：</span></div>  
 
@@ -428,17 +427,17 @@ ghost.init({
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">促成这种现状的，并不仅仅是一本书的力量，还在于商业的力量。因为只有在这样铺展开来的行业环境中，才可能有商业机会。——即使那些工程顾问与实施专家从来没有实施过“</span><span style="font-size:12pt; line-height:19px">50</span><span style="font-size:12pt; line-height:19px">人，开发一年半”这样的项目，只要他们能报出</span><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">的名字，能谈及某些工具在应对“大型项目”中的成功经验，他们就已经成功了一半了。</span></div>  
 
-<div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">为什么“敏捷”之初颇受争议？为什么敏捷对一些中小型的团队显得有效和可实施？为什么当这些争议被摆在&#30524;前的成功平息之后，传统工程的理论家们却不忘恨恨地评上一句：那是一种不能（或难以）应用于大型工程的方法呢？！</span></div>  
+<div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">为什么“敏捷”之初颇受争议？为什么敏捷对一些中小型的团队显得有效和可实施？为什么当这些争议被摆在眼前的成功平息之后，传统工程的理论家们却不忘恨恨地评上一句：那是一种不能（或难以）应用于大型工程的方法呢？！</span></div>  
 
 <div style="margin-top:6pt; text-indent:24pt; line-height:14px"><span style="font-size:12pt; line-height:19px">因为如果大家都很“敏捷”，都只做比这些大型工程“小那么一点点”的工程，那么传统工程的专家们就失业了。反过来，只有把工程做大，大到“敏捷”失去了意义，而“庞大”变成了实质的时候，传统工程就可以为任何失败找到借口：看啊，</span><span style="font-size:12pt; line-height:19px">Brooks</span><span style="font-size:12pt; line-height:19px">就说过“没有银弹”嘛。</span></div>  
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p><span style="font-size:16px"><a href="http://blog.csdn.net/aimingoo/article/details/1529762">下一节</mark>&gt;&gt;</a></span>  </p>
+<p><span style="font-size:16px"><a href="http://blog.csdn.net/aimingoo/article/details/1529762">下一节&gt;&gt;</a></span>  </p>
 
-<p>&nbsp;  </p>
+<p>   </p>
 
-<p>&nbsp;</p>
+<p> </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -455,7 +454,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-66.html">
                     杀不死的人狼——我读《人月神话》（四）
                 </a>
@@ -466,8 +465,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -486,14 +485,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -509,7 +508,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -523,7 +522,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -536,20 +535,19 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

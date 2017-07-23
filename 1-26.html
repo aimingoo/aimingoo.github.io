@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>JavaScript面向对象的支持(6)</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="JavaScript面向对象的支持(6)" />
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-26.html" />
-    <meta property="article:published_time" content="2006-01-24T17:55:00.000Z" />
-    <meta property="article:modified_time" content="2006-01-24T17:55:00.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="测试" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript面向对象的支持(6)">
+    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta property="og:url" content="http://aimingoo.github.io/1-26.html">
+    <meta property="article:published_time" content="2006-01-24T17:55:00.000Z">
+    <meta property="article:modified_time" content="2006-01-24T17:55:00.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="测试">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="JavaScript面向对象的支持(6)" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-26.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 测试" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JavaScript面向对象的支持(6)">
+    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-26.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 测试">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-ce-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/ce-shi/index.html">测试</a>
+                        <a href="tag/javascript/">Javascript</a>, <a href="tag/ce-shi/">测试</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,388 +145,388 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <hr>
 
 <p>Qomolangma OpenProject v0.9  </p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别    ：Rich Web Client <br>
+关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
+          DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr />
+<hr>
 
-<p>八、JavaScript面向对象的支持 <br />
-~~~~~~~~~~~~~~~~~~ <br />
+<p>八、JavaScript面向对象的支持 <br>
+~~~~~~~~~~~~~~~~~~ <br>
 (续)  </p>
 
 <ol>
 <li>实例和实例引用  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>在.NET Framework对CTS(Common Type System)约定&ldquo;一切都是对象&rdquo;，并分为&ldquo;值 <br />
-类型&rdquo;和&ldquo;引用类型&rdquo;两种。其中&ldquo;值类型&rdquo;的对象在转换成&ldquo;引用类型&rdquo;数据的 <br />
-过程中，需要进行一个&ldquo;装箱&rdquo;和&ldquo;拆箱&rdquo;的过程。  </p>
+<p>在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值 <br>
+类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的 <br>
+过程中，需要进行一个“装箱”和“拆箱”的过程。  </p>
 
-<p>在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型： <br />
-&quot;number&quot;、&quot;string&quot;、&quot;boolean&quot;、&quot;object&quot;、&quot;function&quot; 和 &quot;undefined&quot;。  </p>
+<p>在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型： <br>
+"number"、"string"、"boolean"、"object"、"function" 和 "undefined"。  </p>
 
-<p>我们也发现JavaScript的对象系统中，有String、Number、Function、Boolean这四 <br />
-种对象构造器。那么，我们的问题是：如果有一个数字A，typeof(A)的结果，到底会 <br />
+<p>我们也发现JavaScript的对象系统中，有String、Number、Function、Boolean这四 <br>
+种对象构造器。那么，我们的问题是：如果有一个数字A，typeof(A)的结果，到底会 <br>
 是'number'呢，还是一个构造器指向function Number()的对象呢？  </p>
 
-<p><font face="Courier New">//  </p>
+<p><font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// 关于JavaScript的类型的测试代码 <br />
+<p>// 关于JavaScript的类型的测试代码 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>function getTypeInfo(V) { <br />
-&nbsp; return (typeof V <mark> 'object' ?&nbsp; 'Object, construct by '+V.constructor <br />
-&nbsp;&nbsp; : 'Value, type of '+typeof V); <br />
-}</font>  </p>
+<p>function getTypeInfo(V) { <br>
+  return (typeof V <mark> 'object' ?  'Object, construct by '+V.constructor <br>
+   : 'Value, type of '+typeof V); <br>
+}  </mark></p>
 
-<p><font face="Courier New">var A1 = 100; <br />
+<p><font face="Courier New">var A1 = 100; <br>
 var A2 = new Number(100);</font>  </p>
 
-<p><font face="Courier New">document.writeln('A1 is ', getTypeInfo(A1), '&lt;BR&gt;'); <br />
-document.writeln('A2 is ', getTypeInfo(A2), '&lt;BR&gt;'); <br />
-document.writeln([A1.constructor </mark>= A2.constructor, A2.constructor <mark>= Number]);</font>  </p>
+<p><font face="Courier New">document.writeln('A1 is ', getTypeInfo(A1), '&lt;BR&gt;'); <br>
+document.writeln('A2 is ', getTypeInfo(A2), '&lt;BR&gt;'); <br>
+document.writeln([A1.constructor = A2.constructor, A2.constructor <mark>= Number]);</mark></font>  </p>
 
-<p>测试代码的执行结果如下： <br />
-<font face="Courier New">  </p>
+<p>测试代码的执行结果如下： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp;A1 is Value, type of number <br />
-&nbsp;A2 is Object, construct by function Number() { [native code] } <br />
-&nbsp;true,true <br />
------------</font>  </p>
+<p> A1 is Value, type of number <br>
+ A2 is Object, construct by function Number() { [native code] } <br>
+ true,true <br>
+-----------  </p>
 
-<p>我们注意到，A1和A2的构造器都指向Number。这意味着通过constructor属性来识别 <br />
-对象，(有时)比typeof更加有效。因为&ldquo;值类型数据&rdquo;A1作为一个对象来看待时， <br />
+<p>我们注意到，A1和A2的构造器都指向Number。这意味着通过constructor属性来识别 <br>
+对象，(有时)比typeof更加有效。因为“值类型数据”A1作为一个对象来看待时， <br>
 与A2有完全相同的特性。  </p>
 
-<p>&mdash;&mdash;除了与实例引用有关的问题。  </p>
+<p>——除了与实例引用有关的问题。  </p>
 
-<p>参考JScript手册，我们对其它基础类型和构造器做相同考察，可以发现： <br />
-&nbsp; - 基础类型中的undefined、number、boolean和string，是&ldquo;值类型&rdquo;变量 <br />
-&nbsp; - 基础类型中的array、function和object，是&ldquo;引用类型&rdquo;变量 <br />
-&nbsp; - 使用new()方法构造出对象，是&ldquo;引用类型&rdquo;变量  </p>
+<p>参考JScript手册，我们对其它基础类型和构造器做相同考察，可以发现： <br>
+  - 基础类型中的undefined、number、boolean和string，是“值类型”变量 <br>
+  - 基础类型中的array、function和object，是“引用类型”变量 <br>
+  - 使用new()方法构造出对象，是“引用类型”变量  </p>
 
-<p>下面的代码说明&ldquo;值类型&rdquo;与&ldquo;引用类型&rdquo;之间的区别： <br />
-<font face="Courier New">//  </p>
+<p>下面的代码说明“值类型”与“引用类型”之间的区别： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// 关于JavaScript类型系统中的值/引用问题 <br />
+<p>// 关于JavaScript类型系统中的值/引用问题 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>var str1 = 'abcdefgh', str2 = 'abcdefgh'; <br />
-var obj1 = new String('abcdefgh'), obj2 = new String('abcdefgh');</font>  </p>
+<p>var str1 = 'abcdefgh', str2 = 'abcdefgh'; <br>
+var obj1 = new String('abcdefgh'), obj2 = new String('abcdefgh');  </p>
 
-<p><font face="Courier New">document.writeln([str1</mark>str2, str1<mark>=str2], '&lt;br&gt;'); <br />
-document.writeln([obj1</mark>obj2, obj1<mark>=obj2]);</font>  </p>
+<p><font face="Courier New">document.writeln([str1str2, str1<mark>=str2], '&lt;br&gt;'); <br>
+document.writeln([obj1</mark>obj2, obj1<mark>=obj2]);</mark></font>  </p>
 
-<p>测试代码的执行结果如下： <br />
-<font face="Courier New">  </p>
+<p>测试代码的执行结果如下： <br>
+<font face="Courier New">  </font></p>
 
-<hr />
+<hr>
 
-<p>&nbsp;true, true <br />
-&nbsp;false, false <br />
------------</font>  </p>
+<p> true, true <br>
+ false, false <br>
+-----------  </p>
 
-<p>我们看到，无论是等值运算(</mark>)，还是全等运算(<mark>=)，对&ldquo;对象&rdquo;和&ldquo;值&rdquo;的 <br />
-理解都是不一样的。  </p>
+<p>我们看到，无论是等值运算()，还是全等运算(<mark>=)，对“对象”和“值”的 <br>
+理解都是不一样的。  </mark></p>
 
-<p>更进一步的理解这种现象，我们知道： <br />
-&nbsp; - 运算结果为值类型，或变量为值类型时，等值(或全等)比较可以得到预想结果 <br />
-&nbsp; - (即使包含相同的数据，)不同的对象实例之间是不等值(或全等)的 <br />
-&nbsp; - 同一个对象的不同引用之间，是等值(</mark>)且全等(<mark>=)的  </p>
+<p>更进一步的理解这种现象，我们知道： <br>
+  - 运算结果为值类型，或变量为值类型时，等值(或全等)比较可以得到预想结果 <br>
+  - (即使包含相同的数据，)不同的对象实例之间是不等值(或全等)的 <br>
+  - 同一个对象的不同引用之间，是等值()且全等(<mark>=)的  </mark></p>
 
-<p>但对于String类型，有一点补充：根据JScript的描述，两个字符串比较时，只要有 <br />
-一个是值类型，则按值比较。这意味着在上面的例子中，代码&ldquo;str1</mark>obj1&rdquo;会得到 <br />
-结果true。而全等(<mark>=)运算需要检测变量类型的一致性，因此&ldquo;str1</mark>=obj1&rdquo;的结 <br />
+<p>但对于String类型，有一点补充：根据JScript的描述，两个字符串比较时，只要有 <br>
+一个是值类型，则按值比较。这意味着在上面的例子中，代码“str1obj1”会得到 <br>
+结果true。而全等(<mark>=)运算需要检测变量类型的一致性，因此“str1</mark>=obj1”的结 <br>
 果返回false。  </p>
 
-<p>JavaScript中的函数参数总是传入值参，引用类型(的实例)是作为指针值传入的。因此 <br />
-函数可以随意重写入口变量，而不用担心外部变量被修改。但是，需要留意传入的引用 <br />
-类型的变量，因为对它方法调用和属性读写可能会影响到实例本身。&mdash;&mdash;但，也可以通 <br />
+<p>JavaScript中的函数参数总是传入值参，引用类型(的实例)是作为指针值传入的。因此 <br>
+函数可以随意重写入口变量，而不用担心外部变量被修改。但是，需要留意传入的引用 <br>
+类型的变量，因为对它方法调用和属性读写可能会影响到实例本身。——但，也可以通 <br>
 过引用类型的参数来传出数据。  </p>
 
-<p>最后补充说明一下，值类型比较会逐字节检测对象实例中的数据，效率低但准确性高； <br />
-而引用类型只检测实例指针和数据类型，因此效率高而准确性低。如果你需要检测两个 <br />
-引用类型是否真的包含相同的数据，可能你需要尝试把它转换成&ldquo;字符串值&rdquo;再来比较。  </p>
+<p>最后补充说明一下，值类型比较会逐字节检测对象实例中的数据，效率低但准确性高； <br>
+而引用类型只检测实例指针和数据类型，因此效率高而准确性低。如果你需要检测两个 <br>
+引用类型是否真的包含相同的数据，可能你需要尝试把它转换成“字符串值”再来比较。  </p>
 
 <ol>
 <li>函数的上下文环境  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>只要写过代码，你应该知道变量是有&ldquo;全局变量&rdquo;和&ldquo;局部变量&rdquo;之分的。绝大多数的 <br />
-JavaScript程序员也知道下面这些概念： <br />
-<font face="Courier New">//  </p>
+<p>只要写过代码，你应该知道变量是有“全局变量”和“局部变量”之分的。绝大多数的 <br>
+JavaScript程序员也知道下面这些概念： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// JavaScript中的全局变量与局部变量 <br />
+<p>// JavaScript中的全局变量与局部变量 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>var v1 = '全局变量-1'; <br />
-v2 = '全局变量-2';</font>  </p>
+<p>var v1 = '全局变量-1'; <br>
+v2 = '全局变量-2';  </p>
 
-<p><font face="Courier New">function foo() { <br />
-&nbsp; v3 = '全局变量-3';</font>  </p>
+<p><font face="Courier New">function foo() { <br>
+  v3 = '全局变量-3';</font>  </p>
 
-<p><font face="Courier New">&nbsp; var v4 = '只有在函数内部并使用var定义的，才是局部变量'; <br />
+<p><font face="Courier New">  var v4 = '只有在函数内部并使用var定义的，才是局部变量'; <br>
 }</font>  </p>
 
-<p>按照通常对语言的理解来说，不同的代码调用函数，都会拥有一套独立的局部变量。 <br />
-因此下面这段代码很容易理解： <br />
-<font face="Courier New">//  </p>
+<p>按照通常对语言的理解来说，不同的代码调用函数，都会拥有一套独立的局部变量。 <br>
+因此下面这段代码很容易理解： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// JavaScript的局部变量 <br />
+<p>// JavaScript的局部变量 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>function MyObject() { <br />
-&nbsp; var o = new Object;</font>  </p>
+<p>function MyObject() { <br>
+  var o = new Object;  </p>
 
-<p><font face="Courier New">&nbsp; this.getValue = function() { <br />
-&nbsp;&nbsp;&nbsp; return o; <br />
-&nbsp; } <br />
+<p><font face="Courier New">  this.getValue = function() { <br>
+    return o; <br>
+  } <br>
 }</font>  </p>
 
-<p><font face="Courier New">var obj1 = new MyObject(); <br />
-var obj2 = new MyObject(); <br />
+<p><font face="Courier New">var obj1 = new MyObject(); <br>
+var obj2 = new MyObject(); <br>
 document.writeln(obj1.getValue() == obj2.getValue());</font>  </p>
 
-<p>结果显示false，表明不同(实例的方法)调用返回的局部变量&ldquo;obj1/obj2&rdquo;是不相同。  </p>
+<p>结果显示false，表明不同(实例的方法)调用返回的局部变量“obj1/obj2”是不相同。  </p>
 
-<p>变量的局部、全局特性与OOP的封装性中的&ldquo;私有(private)&rdquo;、&ldquo;公开(public)&rdquo;具 <br />
-有类同性。因此绝大多数资料总是以下面的方式来说明JavaScript的面向对象系统中 <br />
-的&ldquo;封装权限级别&rdquo;问题： <br />
-<font face="Courier New">//  </p>
+<p>变量的局部、全局特性与OOP的封装性中的“私有(private)”、“公开(public)”具 <br>
+有类同性。因此绝大多数资料总是以下面的方式来说明JavaScript的面向对象系统中 <br>
+的“封装权限级别”问题： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// JavaScript中OOP封装性 <br />
+<p>// JavaScript中OOP封装性 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>function MyObject() { <br />
-&nbsp; // 1. 私有成员和方法 <br />
-&nbsp; var private<em>prop = 0; <br />
-&nbsp; var private</em>method<em>1 = function() { <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp;&nbsp;&nbsp; return 1 <br />
-&nbsp; } <br />
-&nbsp; function private</em>method_2() { <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp;&nbsp;&nbsp; return 1 <br />
-&nbsp; }</font>  </p>
+<p>function MyObject() { <br>
+  // 1. 私有成员和方法 <br>
+  var private<em>prop = 0; <br>
+  var private</em>method<em>1 = function() { <br>
+    // ... <br>
+    return 1 <br>
+  } <br>
+  function private</em>method_2() { <br>
+    // ... <br>
+    return 1 <br>
+  }  </p>
 
-<p><font face="Courier New">&nbsp; // 2. 特权方法 <br />
-&nbsp; this.privileged<em>method = function () { <br />
-&nbsp;&nbsp;&nbsp; private</em>prop++; <br />
-&nbsp;&nbsp;&nbsp; return private<em>prop + private</em>method<em>1() + private</em>method_2(); <br />
-&nbsp; }</font>  </p>
+<p><font face="Courier New">  // 2. 特权方法 <br>
+  this.privileged<em>method = function () { <br>
+    private</em>prop++; <br>
+    return private<em>prop + private</em>method<em>1() + private</em>method_2(); <br>
+  }</font>  </p>
 
-<p><font face="Courier New">&nbsp; // 3. 公开成员和方法 <br />
-&nbsp; this.public<em>prop</em>1 = ''; <br />
-&nbsp; this.public<em>method</em>1 = function () { <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp; } <br />
+<p><font face="Courier New">  // 3. 公开成员和方法 <br>
+  this.public<em>prop</em>1 = ''; <br>
+  this.public<em>method</em>1 = function () { <br>
+    // ... <br>
+  } <br>
 }</font>  </p>
 
-<p><font face="Courier New">// 4. 公开成员和方法(2) <br />
-MyObject.prototype.public<em>prop</em>1 = ''; <br />
-MyObject.prototype.public<em>method</em>1 = function () { <br />
-&nbsp; // ... <br />
+<p><font face="Courier New">// 4. 公开成员和方法(2) <br>
+MyObject.prototype.public<em>prop</em>1 = ''; <br>
+MyObject.prototype.public<em>method</em>1 = function () { <br>
+  // ... <br>
 }</font>  </p>
 
-<p><font face="Courier New">var obj1 = new MyObject(); <br />
+<p><font face="Courier New">var obj1 = new MyObject(); <br>
 var obj2 = new MyObject();</font>  </p>
 
-<p><font face="Courier New">document.writeln(obj1.privileged<em>method(), '&lt;br&gt;'); <br />
+<p><font face="Courier New">document.writeln(obj1.privileged<em>method(), '&lt;br&gt;'); <br>
 document.writeln(obj2.privileged</em>method());</font>  </p>
 
-<p>在这里，&ldquo;私有(private)&rdquo;表明只有在(构造)函数内部可访问，而&ldquo;特权(privileged)&rdquo; <br />
-是特指一种存取&ldquo;私有域&rdquo;的&ldquo;公开(public)&rdquo;方法。&ldquo;公开(public)&rdquo;表明在(构造)函 <br />
+<p>在这里，“私有(private)”表明只有在(构造)函数内部可访问，而“特权(privileged)” <br>
+是特指一种存取“私有域”的“公开(public)”方法。“公开(public)”表明在(构造)函 <br>
 数外可以调用和存取。  </p>
 
-<p>除了上述的封装权限之外，一些文档还介绍了其它两种相关的概念： <br />
-&nbsp; - 原型属性：Classname.prototype.propertyName = someValue <br />
-&nbsp; - (类)静态属性：Classname.propertyName = someValue   </p>
+<p>除了上述的封装权限之外，一些文档还介绍了其它两种相关的概念： <br>
+  - 原型属性：Classname.prototype.propertyName = someValue <br>
+  - (类)静态属性：Classname.propertyName = someValue   </p>
 
-<p>然而，从面向对象的角度上来讲，上面这些概念都很难自圆其说：JavaScript究竟是为何、 <br />
+<p>然而，从面向对象的角度上来讲，上面这些概念都很难自圆其说：JavaScript究竟是为何、 <br>
 以及如何划分出这些封装权限和概念来的呢？  </p>
 
-<p>&mdash;&mdash;因为我们必须注意到下面这个例子所带来的问题： <br />
-<font face="Courier New">//  </p>
+<p>——因为我们必须注意到下面这个例子所带来的问题： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// JavaScript中的局部变量 <br />
+<p>// JavaScript中的局部变量 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>function MyFoo() { <br />
-&nbsp; var i;</font>  </p>
+<p>function MyFoo() { <br>
+  var i;  </p>
 
-<p><font face="Courier New">&nbsp; MyFoo.setValue = function (v) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp; i = v; <br />
-&nbsp; } <br />
-&nbsp; MyFoo.getValue = function () { <br />
-&nbsp;&nbsp;&nbsp;&nbsp; return i; <br />
-&nbsp; } <br />
-} <br />
+<p><font face="Courier New">  MyFoo.setValue = function (v) { <br>
+     i = v; <br>
+  } <br>
+  MyFoo.getValue = function () { <br>
+     return i; <br>
+  } <br>
+} <br>
 MyFoo();</font>  </p>
 
-<p><font face="Courier New">var obj1 = new Object(); <br />
+<p><font face="Courier New">var obj1 = new Object(); <br>
 var obj2 = new Object();</font>  </p>
 
-<p><font face="Courier New">// 测试一 <br />
-MyFoo.setValue.call(obj1, 'obj1'); <br />
+<p><font face="Courier New">// 测试一 <br>
+MyFoo.setValue.call(obj1, 'obj1'); <br>
 document.writeln(MyFoo.getValue.call(obj1), '&lt;BR&gt;');</font>  </p>
 
-<p><font face="Courier New">// 测试二 <br />
-MyFoo.setValue.call(obj2, 'obj2'); <br />
-document.writeln(MyFoo.getValue.call(obj2)); <br />
-document.writeln(MyFoo.getValue.call(obj1)); <br />
+<p><font face="Courier New">// 测试二 <br>
+MyFoo.setValue.call(obj2, 'obj2'); <br>
+document.writeln(MyFoo.getValue.call(obj2)); <br>
+document.writeln(MyFoo.getValue.call(obj1)); <br>
 document.writeln(MyFoo.getValue());</font>  </p>
 
-<p>在这个测试代码中，obj1/obj2都是Object()实例。我们使用function.call()的方式 <br />
+<p>在这个测试代码中，obj1/obj2都是Object()实例。我们使用function.call()的方式 <br>
 来调用setValue/getValue，使得在MyFoo()调用的过程中替换this为obj1/obj2实例。  </p>
 
-<p>然而我们发现&ldquo;测试二&rdquo;完成之后，obj2、obj1以及function MyFoo()所持有的局部 <br />
-变量都返回了&ldquo;obj2&rdquo;。&mdash;&mdash;这表明三个函数使用了同一个局部变量。  </p>
+<p>然而我们发现“测试二”完成之后，obj2、obj1以及function MyFoo()所持有的局部 <br>
+变量都返回了“obj2”。——这表明三个函数使用了同一个局部变量。  </p>
 
-<p>由此可见，JavaScript在处理局部变量时，对&ldquo;普通函数&rdquo;与&ldquo;构造器&rdquo;是分别对待 <br />
-的。这种处理策略在一些JavaScript相关的资料中被解释作&ldquo;面向对象中的私有域&rdquo; <br />
-问题。而事实上，我更愿意从源代码一级来告诉你真相：这是对象的上下文环境的问 <br />
-题。&mdash;&mdash;只不过从表面看去，&ldquo;上下文环境&rdquo;的问题被转嫁到对象的封装性问题上了。  </p>
+<p>由此可见，JavaScript在处理局部变量时，对“普通函数”与“构造器”是分别对待 <br>
+的。这种处理策略在一些JavaScript相关的资料中被解释作“面向对象中的私有域” <br>
+问题。而事实上，我更愿意从源代码一级来告诉你真相：这是对象的上下文环境的问 <br>
+题。——只不过从表面看去，“上下文环境”的问题被转嫁到对象的封装性问题上了。  </p>
 
-<p>(在阅读下面的文字之前，)先做一个概念性的说明： <br />
-&nbsp; - 在普通函数中，上下文环境被window对象所持有 <br />
-　- 在&ldquo;构造器和对象方法&rdquo;中，上下文环境被对象实例所持有  </p>
+<p>(在阅读下面的文字之前，)先做一个概念性的说明： <br>
+  - 在普通函数中，上下文环境被window对象所持有 <br>
+　- 在“构造器和对象方法”中，上下文环境被对象实例所持有  </p>
 
-<p>在JavaScript的实现代码中，每次创建一个对象，解释器将为对象创建一个上下文环境 <br />
-链，用于存放对象在进入&ldquo;构造器和对象方法&rdquo;时对function()内部数据的一个备份。 <br />
-JavaScript保证这个对象在以后再进入&ldquo;构造器和对象方法&rdquo;内部时，总是持有该上下 <br />
-文环境，和一个与之相关的this对象。由于对象可能有多个方法，且每个方法可能又存 <br />
-在多层嵌套函数，因此这事实上构成了一个上下文环境的树型链表结构。而在构造器和 <br />
+<p>在JavaScript的实现代码中，每次创建一个对象，解释器将为对象创建一个上下文环境 <br>
+链，用于存放对象在进入“构造器和对象方法”时对function()内部数据的一个备份。 <br>
+JavaScript保证这个对象在以后再进入“构造器和对象方法”内部时，总是持有该上下 <br>
+文环境，和一个与之相关的this对象。由于对象可能有多个方法，且每个方法可能又存 <br>
+在多层嵌套函数，因此这事实上构成了一个上下文环境的树型链表结构。而在构造器和 <br>
 对象方法之外，JavaScript不提供任何访问(该构造器和对象方法的)上下文环境的方法。  </p>
 
-<p>简而言之： <br />
-&nbsp; - 上下文环境与对象实例调用&ldquo;构造器和对象方法&rdquo;时相关，而与(普通)函数无关 <br />
-&nbsp; - 上下文环境记录一个对象在&ldquo;构造函数和对象方法&rdquo;内部的私有数据 <br />
-&nbsp; - 上下文环境采用链式结构，以记录多层的嵌套函数中的上下文  </p>
+<p>简而言之： <br>
+  - 上下文环境与对象实例调用“构造器和对象方法”时相关，而与(普通)函数无关 <br>
+  - 上下文环境记录一个对象在“构造函数和对象方法”内部的私有数据 <br>
+  - 上下文环境采用链式结构，以记录多层的嵌套函数中的上下文  </p>
 
-<p>由于上下文环境只与构造函数及其内部的嵌套函数有关，重新阅读前面的代码： <br />
-<font face="Courier New">//  </p>
+<p>由于上下文环境只与构造函数及其内部的嵌套函数有关，重新阅读前面的代码： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// JavaScript中的局部变量 <br />
+<p>// JavaScript中的局部变量 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>function MyFoo() { <br />
-&nbsp; var i;</font>  </p>
+<p>function MyFoo() { <br>
+  var i;  </p>
 
-<p><font face="Courier New">&nbsp; MyFoo.setValue = function (v) { <br />
-&nbsp;&nbsp;&nbsp;&nbsp; i = v; <br />
-&nbsp; } <br />
-&nbsp; MyFoo.getValue = function () { <br />
-&nbsp;&nbsp;&nbsp;&nbsp; return i; <br />
-&nbsp; } <br />
-} <br />
+<p><font face="Courier New">  MyFoo.setValue = function (v) { <br>
+     i = v; <br>
+  } <br>
+  MyFoo.getValue = function () { <br>
+     return i; <br>
+  } <br>
+} <br>
 MyFoo();</font>  </p>
 
-<p><font face="Courier New">var obj1 = new Object(); <br />
+<p><font face="Courier New">var obj1 = new Object(); <br>
 MyFoo.setValue.call(obj1, 'obj1');</font>  </p>
 
-<p>我们发现setValue()的确可以访问到位于MyFoo()函数内部的&ldquo;局部变量i&rdquo;，但是由于 <br />
-setValue()方法的执有者是MyFoo对象(记住函数也是对象)，因此MyFoo对象拥有MyFoo() <br />
-函数的唯一一份&ldquo;上下文环境&rdquo;。  </p>
+<p>我们发现setValue()的确可以访问到位于MyFoo()函数内部的“局部变量i”，但是由于 <br>
+setValue()方法的执有者是MyFoo对象(记住函数也是对象)，因此MyFoo对象拥有MyFoo() <br>
+函数的唯一一份“上下文环境”。  </p>
 
-<p>接下来MyFoo.setValue.call()调用虽然为setValue()传入了新的this对象，但实际上 <br />
-拥有&ldquo;上下文环境&rdquo;的仍旧是MyFoo对象。因此我们看到无论创建多少个obj1/obj2，最 <br />
+<p>接下来MyFoo.setValue.call()调用虽然为setValue()传入了新的this对象，但实际上 <br>
+拥有“上下文环境”的仍旧是MyFoo对象。因此我们看到无论创建多少个obj1/obj2，最 <br>
 终操作的都是同一个私有变量i。  </p>
 
-<p>全局函数/变量的&ldquo;上下文环境&rdquo;持有者为window，因此下面的代码说明了&ldquo;为什么全 <br />
-局变量能被任意的对象和函数访问&rdquo;： <br />
-<font face="Courier New">//  </p>
+<p>全局函数/变量的“上下文环境”持有者为window，因此下面的代码说明了“为什么全 <br>
+局变量能被任意的对象和函数访问”： <br>
+<font face="Courier New">//  </font></p>
 
-<hr />
+<hr>
 
-<p>// 全局函数的上下文 <br />
+<p>// 全局函数的上下文 <br>
 //  </p>
 
-<hr />
+<hr>
 
-<p>/* <br />
-function Window() { <br />
-*/ <br />
-&nbsp; var global<em>i = 0; <br />
-&nbsp; var global</em>j = 1;</font>  </p>
+<p>/* <br>
+function Window() { <br>
+*/ <br>
+  var global<em>i = 0; <br>
+  var global</em>j = 1;  </p>
 
-<p><font face="Courier New">&nbsp; function foo_0() { <br />
-&nbsp; }</font>  </p>
+<p><font face="Courier New">  function foo_0() { <br>
+  }</font>  </p>
 
-<p><font face="Courier New">&nbsp; function foo_1() { <br />
-&nbsp; } <br />
-/* <br />
+<p><font face="Courier New">  function foo_1() { <br>
+  } <br>
+/* <br>
 }</font>  </p>
 
-<p><font face="Courier New">window = new Window(); <br />
+<p><font face="Courier New">window = new Window(); <br>
 */</font>  </p>
 
-<p>因此我们可以看到foo<em>0()与foo</em>1()能同时访问global<em>i和global</em>j。接下来的推论是， <br />
-上下文环境决定了变量的&ldquo;全局&rdquo;与&ldquo;私有&rdquo;。而不是反过来通过变量的私有与全局来 <br />
+<p>因此我们可以看到foo<em>0()与foo</em>1()能同时访问global<em>i和global</em>j。接下来的推论是， <br>
+上下文环境决定了变量的“全局”与“私有”。而不是反过来通过变量的私有与全局来 <br>
 讨论上下文环境问题。  </p>
 
-<p>更进一步的推论是：JavaScript中的全局变量与函数，本质上是window对象的私有变量 <br />
-与方法。而这个上下文环境块，位于所有(window对象内部的)对象实例的上下文环境链 <br />
+<p>更进一步的推论是：JavaScript中的全局变量与函数，本质上是window对象的私有变量 <br>
+与方法。而这个上下文环境块，位于所有(window对象内部的)对象实例的上下文环境链 <br>
 表的顶端，因此都可能访问到。  </p>
 
-<p>用&ldquo;上下文环境&rdquo;的理论，你可以顺利地解释在本小节中，有关变量的&ldquo;全局／局部&rdquo; <br />
-作用域的问题，以及有关对象方法的封装权限问题。事实上，在实现JavaScript的C源 <br />
-代码中，这个&ldquo;上下文环境&rdquo;被叫做&ldquo;JSContext&rdquo;，并作为函数／方法的第一个参数 <br />
-传入。&mdash;&mdash;如果你有兴趣，你可以从源代码中证实本小节所述的理论。  </p>
+<p>用“上下文环境”的理论，你可以顺利地解释在本小节中，有关变量的“全局／局部” <br>
+作用域的问题，以及有关对象方法的封装权限问题。事实上，在实现JavaScript的C源 <br>
+代码中，这个“上下文环境”被叫做“JSContext”，并作为函数／方法的第一个参数 <br>
+传入。——如果你有兴趣，你可以从源代码中证实本小节所述的理论。  </p>
 
-<p>另外，《JavaScript权威指南》这本书中第4.7节也讲述了这个问题，但被叫做&ldquo;变量 <br />
-的作用域&rdquo;。然而重要的是，这本书把问题讲反了。&mdash;&mdash;作者试图用&ldquo;全局、局部的作 <br />
-用域&rdquo;，来解释产生这种现象的&ldquo;上下文环境&rdquo;的问题。因此这个小节显得凌乱而且难 <br />
+<p>另外，《JavaScript权威指南》这本书中第4.7节也讲述了这个问题，但被叫做“变量 <br>
+的作用域”。然而重要的是，这本书把问题讲反了。——作者试图用“全局、局部的作 <br>
+用域”，来解释产生这种现象的“上下文环境”的问题。因此这个小节显得凌乱而且难 <br>
 以自圆其说。  </p>
 
-<p>不过在4.6.3小节，作者也提到了执行环境(execution context)的问题，这就与我们这 <br />
-里说的&ldquo;上下文环境&rdquo;是一致的了。然而更麻烦的是，作者又将读者引错了方法，试图 <br />
+<p>不过在4.6.3小节，作者也提到了执行环境(execution context)的问题，这就与我们这 <br>
+里说的“上下文环境”是一致的了。然而更麻烦的是，作者又将读者引错了方法，试图 <br>
 用函数的上下文环境去解释DOM和ScriptEngine中的问题。  </p>
 
-<p>但这本书在&ldquo;上下文环境链表&rdquo;的查询方式上的讲述，是正确的而合理的。只是把这个 <br />
-叫成&ldquo;作用域&rdquo;有点不对，或者不妥。</p>
+<p>但这本书在“上下文环境链表”的查询方式上的讲述，是正确的而合理的。只是把这个 <br>
+叫成“作用域”有点不对，或者不妥。</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -544,7 +543,7 @@ function Window() { <br />
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-27.html">
                     JavaScript面向对象的支持(7)
                 </a>
@@ -555,8 +554,8 @@ function Window() { <br />
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -575,14 +574,14 @@ function Window() { <br />
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -598,7 +597,7 @@ function Window() { <br />
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -612,7 +611,7 @@ function Window() { <br />
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -625,20 +624,19 @@ function Window() { <br />
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

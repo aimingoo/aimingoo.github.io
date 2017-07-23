@@ -1,43 +1,42 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>编程的另一面：从生死到变化～</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="编程的另一面：从生死到变化～" />
-    <meta property="og:description" content="今天突然跑到孟岩的BLOG里头([这里](http://blog.csdn.net/myan))，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)&amp;hellip;&amp;hellip;直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。   &amp;nbsp;   老实说，这篇《Rails中探索资源的世界(7月9日David Heinemeier Hansson演讲的翻译稿）》是个好东西。尽管孟岩老兄还没有译完，尽管我也既不了解JAVA，也不了解Rails，但我却已经看到了很多有趣的思想。其中，我最感兴趣的就是David Heinemeier Hansson认为CRUD概括了Rails世界中对对象的理解，认为所有的对象行为都可以被抽象到这四个行为，随后例举到数据库中的四种基本行为CRUD(" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-52.html" />
-    <meta property="article:published_time" content="2006-11-27T06:56:00.000Z" />
-    <meta property="article:modified_time" content="2006-11-27T06:56:00.000Z" />
-    <meta property="article:tag" content="数据库" />
-    <meta property="article:tag" content="编程" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="编程的另一面：从生死到变化～">
+    <meta property="og:description" content="今天突然跑到孟岩的BLOG里头([这里](http://blog.csdn.net/myan))，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)&amp;hellip;&amp;hellip;直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。   &amp;nbsp;   老实说，这篇《Rails中探索资源的世界(7月9日David Heinemeier Hansson演讲的翻译稿）》是个好东西。尽管孟岩老兄还没有译完，尽管我也既不了解JAVA，也不了解Rails，但我却已经看到了很多有趣的思想。其中，我最感兴趣的就是David Heinemeier Hansson认为CRUD概括了Rails世界中对对象的理解，认为所有的对象行为都可以被抽象到这四个行为，随后例举到数据库中的四种基本行为CRUD(">
+    <meta property="og:url" content="http://aimingoo.github.io/1-52.html">
+    <meta property="article:published_time" content="2006-11-27T06:56:00.000Z">
+    <meta property="article:modified_time" content="2006-11-27T06:56:00.000Z">
+    <meta property="article:tag" content="数据库">
+    <meta property="article:tag" content="编程">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="编程的另一面：从生死到变化～" />
-    <meta name="twitter:description" content="今天突然跑到孟岩的BLOG里头([这里](http://blog.csdn.net/myan))，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)&amp;hellip;&amp;hellip;直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。   &amp;nbsp;   老实说，这篇《Rails中探索资源的世界(7月9日David Heinemeier Hansson演讲的翻译稿）》是个好东西。尽管孟岩老兄还没有译完，尽管我也既不了解JAVA，也不了解Rails，但我却已经看到了很多有趣的思想。其中，我最感兴趣的就是David Heinemeier Hansson认为CRUD概括了Rails世界中对对象的理解，认为所有的对象行为都可以被抽象到这四个行为，随后例举到数据库中的四种基本行为CRUD(" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-52.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="数据库, 编程" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="编程的另一面：从生死到变化～">
+    <meta name="twitter:description" content="今天突然跑到孟岩的BLOG里头([这里](http://blog.csdn.net/myan))，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)&amp;hellip;&amp;hellip;直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。   &amp;nbsp;   老实说，这篇《Rails中探索资源的世界(7月9日David Heinemeier Hansson演讲的翻译稿）》是个好东西。尽管孟岩老兄还没有译完，尽管我也既不了解JAVA，也不了解Rails，但我却已经看到了很多有趣的思想。其中，我最感兴趣的就是David Heinemeier Hansson认为CRUD概括了Rails世界中对对象的理解，认为所有的对象行为都可以被抽象到这四个行为，随后例举到数据库中的四种基本行为CRUD(">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-52.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="数据库, 编程">
     
     <script type="application/ld+json">
 {
@@ -76,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-shu-ju-ku tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +94,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,7 +111,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -128,7 +127,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/shu-ju-ku/index.html">数据库</a>, <a href="tag/bian-cheng/index.html">编程</a>
+                        <a href="tag/shu-ju-ku/">数据库</a>, <a href="tag/bian-cheng/">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,21 +145,21 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <div>今天突然跑到孟岩的BLOG里头([<font color="#252525">这里</font>](http://blog.csdn.net/myan))，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)&hellip;&hellip;直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。</div>  
+                <div>今天突然跑到孟岩的BLOG里头([<font color="#252525">这里</font>](http://blog.csdn.net/myan))，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)……直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>老实说，这篇《Rails中探索资源的世界(7月9日David Heinemeier Hansson演讲的翻译稿）》是个好东西。尽管孟岩老兄还没有译完，尽管我也既不了解JAVA，也不了解Rails，但我却已经看到了很多有趣的思想。其中，我最感兴趣的就是David Heinemeier Hansson认为CRUD概括了Rails世界中对对象的理解，认为所有的对象行为都可以被抽象到这四个行为，随后例举到数据库中的四种基本行为CRUD(Create, Read, Update, Delete)等等。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>其实回归到&ldquo;对对象的行为抽象&rdquo;这个事件的本质，我们会发现：如果对象是一个&ldquo;物&rdquo;，那么它必然有&ldquo;创生&rdquo;和&ldquo;死亡&rdquo;，即所谓&ldquo;生死&rdquo;；如果要有存在的意义，则必然历经变化，一生一灭是变化，一有一无亦是变化。</div>  
+<div>其实回归到“对对象的行为抽象”这个事件的本质，我们会发现：如果对象是一个“物”，那么它必然有“创生”和“死亡”，即所谓“生死”；如果要有存在的意义，则必然历经变化，一生一灭是变化，一有一无亦是变化。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>所以，一个&ldquo;有用的事物&rdquo;必然要经历&ldquo;生死&rdquo;，也必然要存在变化。如果变化不需要为人所知，那么有没有&ldquo;表现&rdquo;当然无所谓（例如自生而自灭）；但如果这是一个需要与外界交流的对象，那么必然要有交流的界面。&mdash;&mdash;哪怕是一块静态的石头，也固有形有象，其&ldquo;形象&rdquo;也是可交流的。我们把这种交流，称为&ldquo;表现&rdquo;，从&ldquo;我&rdquo;到&ldquo;他&rdquo;的这个中界，称为&ldquo;界面&rdquo;。</div>  
+<div>所以，一个“有用的事物”必然要经历“生死”，也必然要存在变化。如果变化不需要为人所知，那么有没有“表现”当然无所谓（例如自生而自灭）；但如果这是一个需要与外界交流的对象，那么必然要有交流的界面。——哪怕是一块静态的石头，也固有形有象，其“形象”也是可交流的。我们把这种交流，称为“表现”，从“我”到“他”的这个中界，称为“界面”。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>那么怎么理解上面这些奇特的四字真言呢？</div>  
 
@@ -172,99 +171,99 @@ ghost.init({
 
 <div>(说明：GPPD略显牵强，但主要是因为人家对Get/Pos的不清晰的、不负责任的乱用，而非源于HTTP协议本身)</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>我们先不讨论&ldquo;生死&rdquo;问题，先说变化。</div>  
+<div>我们先不讨论“生死”问题，先说变化。</div>  
 
-<div>我们知道，一个事物若自生自灭，周行不始，那么它只需要有状态，而不需要表现。那么，它大概不需要界面。无界面的事物，对于外在来说，混沌若无。缘于这个事物无法为人知，所以即不知它何时而生，亦不知它何时而灭。如此来，一个事物之初，既无所谓生死，亦无所谓变化。&mdash;&mdash;因为它无法为人所知，亦无法了解。</div>  
+<div>我们知道，一个事物若自生自灭，周行不始，那么它只需要有状态，而不需要表现。那么，它大概不需要界面。无界面的事物，对于外在来说，混沌若无。缘于这个事物无法为人知，所以即不知它何时而生，亦不知它何时而灭。如此来，一个事物之初，既无所谓生死，亦无所谓变化。——因为它无法为人所知，亦无法了解。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>老子说：&ldquo;有物混成，先天地生。寂兮寥兮，独立不改，周行不殆，可以为天地母。&rdquo;</div>  
+<div>老子说：“有物混成，先天地生。寂兮寥兮，独立不改，周行不殆，可以为天地母。”</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>所谓&ldquo;寂兮&rdquo;，是没有声音；&ldquo;寥兮&rdquo;，是没有形象。这句的含义是指你观察不到。&ldquo;独立不改&rdquo;是指在固在、有固有、是就是，衡而有之；&ldquo;周行不殆&rdquo;是无时、无处不在。</div>  
+<div>所谓“寂兮”，是没有声音；“寥兮”，是没有形象。这句的含义是指你观察不到。“独立不改”是指在固在、有固有、是就是，衡而有之；“周行不殆”是无时、无处不在。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>在老子的这个认识论中，是没有时间、空间的概念的，也没有事物之内、外的分别。所以我就正如我们上面说的，如果&ldquo;它不需要表现，或者没有表现&rdquo;，那么就混混沌沌。只知其有，不知其无，因为在思想境界里，既无时间空间，何来生死有无？</div>  
+<div>在老子的这个认识论中，是没有时间、空间的概念的，也没有事物之内、外的分别。所以我就正如我们上面说的，如果“它不需要表现，或者没有表现”，那么就混混沌沌。只知其有，不知其无，因为在思想境界里，既无时间空间，何来生死有无？</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>那么最前面这句&ldquo;有物混成&rdquo;又怎么讲呢？这个就讲得远了，要讲到&ldquo;混沌&rdquo;这个东西的来由。但是，我们这里不讲它，我们只是说，在对这个事物有所认知之前，混而不解，沌而不知。</div>  
+<div>那么最前面这句“有物混成”又怎么讲呢？这个就讲得远了，要讲到“混沌”这个东西的来由。但是，我们这里不讲它，我们只是说，在对这个事物有所认知之前，混而不解，沌而不知。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>有所认知之后呢？老子就&ldquo;<font size="2">吾不知其名，字之曰道；强为之名曰大&rdquo;。</font></div>  
+<div>有所认知之后呢？老子就“<font size="2">吾不知其名，字之曰道；强为之名曰大”。</font></div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>这就有了个名字，叫&ldquo;大道&rdquo;（姓？、名大、字道，哈哈）。</div>  
+<div>这就有了个名字，叫“大道”（姓？、名大、字道，哈哈）。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>接下来的事情，就奇怪了。原来没名字，为了认识它，我们给了一个名字。从没有到有，就是创生的问题。有就是存在，就是&ldquo;一&rdquo;。既辨出了有、无，便有两种状态，于是就有了&ldquo;二&rdquo;。</div>  
+<div>接下来的事情，就奇怪了。原来没名字，为了认识它，我们给了一个名字。从没有到有，就是创生的问题。有就是存在，就是“一”。既辨出了有、无，便有两种状态，于是就有了“二”。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>所以，从哲学上来说，对事物的认识，就是从生死、有无中理解的变化。如果追其本源，一个事物，既存生死、有无之正反面，便有认识生死、有无的&ldquo;界面&rdquo;。如果没有认识界面，它就回归了本源：混混若无。</div>  
+<div>所以，从哲学上来说，对事物的认识，就是从生死、有无中理解的变化。如果追其本源，一个事物，既存生死、有无之正反面，便有认识生死、有无的“界面”。如果没有认识界面，它就回归了本源：混混若无。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>变化又有自变、它变之分。自变教人认识，它变则为外在所改变。所以，如果一个事物不需要它变，当然不需要向外在&ldquo;表现&rdquo;这种&ldquo;变化&rdquo;的&ldquo;界面&rdquo;。</div>  
+<div>变化又有自变、它变之分。自变教人认识，它变则为外在所改变。所以，如果一个事物不需要它变，当然不需要向外在“表现”这种“变化”的“界面”。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>我们已经看到了&ldquo;四字真言(们)&rdquo;的来由了。它们反映的是：</div>  
+<div>我们已经看到了“四字真言(们)”的来由了。它们反映的是：</div>  
 
-<div>事物的存在与否：生死。例如Create/Free(或delete...)，Constructor/Destroy，Put/Delete&hellip;&hellip;</div>  
+<div>事物的存在与否：生死。例如Create/Free(或delete...)，Constructor/Destroy，Put/Delete……</div>  
 
-<div>事物的表现价值：表现。例如Select，Get，Read&hellip;&hellip;</div>  
+<div>事物的表现价值：表现。例如Select，Get，Read……</div>  
 
-<div>事物的它变价值：变化。例如Update&hellip;&hellip;</div>  
+<div>事物的它变价值：变化。例如Update……</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>所以，我们知道，在基于这种思想的面向对象设计(OOD)中：</div>  
 
-<div>&nbsp; － 如果这个对象不需要被外界改变(它变)，那么不需要有update的界面；</div>  
+<div>  － 如果这个对象不需要被外界改变(它变)，那么不需要有update的界面；</div>  
 
-<div>所以这时可以由&ldquo;四字真言&rdquo;变成&ldquo;三字经&rdquo;。</div>  
+<div>所以这时可以由“四字真言”变成“三字经”。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
-<div>而接下来，如果它不需要向外在表现，那么它根本就不需要界面。因此这时固然不必要有Select之类的表现方法，也不需要向外public构造和析构的界面。如此一来，便&ldquo;四字真言&rdquo;变成了&ldquo;无字天书&rdquo;，不为人知，也不需要为人知，成为一个封闭系统了。</div>  
+<div>而接下来，如果它不需要向外在表现，那么它根本就不需要界面。因此这时固然不必要有Select之类的表现方法，也不需要向外public构造和析构的界面。如此一来，便“四字真言”变成了“无字天书”，不为人知，也不需要为人知，成为一个封闭系统了。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>David Heinemeier Hansson在《Rails中探索资源的世界(7月9日演讲的翻译稿）》中并没有讲述什么深奥的东西，Rails的思想也不是什么诡异之学。事实上，我们的软件开发界正在一步步地逼向哲学探索的空间。不记得谁说过：计算机科学中最重要的思想方法是抽象。关于这一点，王选院士也持相同的观点。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>而抽象本身就是对事物本质的提炼与汲取，也就是认识论与认知论的问题。如果到这个层面，那么大家都去研究哲学好了。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>所以，Rails的探索固然是个好东东，却有理论之嫌。然而一旦不理论、不抽象，事物又要变化，进而复杂无序。在我看来，大多数人用Rails，不过是用用罢了，解决一时一事的问题，至于它是不是源于道生一、一生二这样的理论，不是要关注的。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>工程原本就有两种，一种理论工程，一种实践工程。言之工程则混沌，分而治之则澄明。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>编程也有两种，一种便如Rails这般去探求生死变化之道，另一种便求应付当前的变化与状态的方法。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>所谓理论与方法，原本就不是针对共同的受众群，也不必求大同。</div>  
 
-<div>&nbsp;</div>  
+<div> </div>  
 
 <div>我是不是在从一面走到另一面的过程之中呢？</div>  
 
-<p>&nbsp;   </p>
+<p>    </p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -281,7 +280,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-53.html">
                     推个荐：十年学会编程
                 </a>
@@ -292,8 +291,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -312,14 +311,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -335,7 +334,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -349,7 +348,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -362,20 +361,19 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

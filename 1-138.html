@@ -1,42 +1,41 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>本来面目——大教堂、集市，与作坊</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="本来面目——大教堂、集市，与作坊" />
-    <meta property="og:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第三期上。讨论了三种不同背景下的软件工程方法。本文恢复了发表时（因为篇幅）删除掉的一些文字内容。**      本来面目     　　——大教堂、集市，与作坊     一、两本书     ＝＝＝＝＝     　　1997年，论文《大教堂与集市（The Cathedral and the Bazaar）》成为一篇挑战教义神     权的战斗檄文。从那之后，开源与闭源的战火就从未熄灭过。那些日子里，一些教堂里的     圣人也偶尔地裹了头帕，装成市贩的样子到集市中去探探行情；一些小贩们也变成了信众，     走进教堂在胸口画下十字。     　　战场之外的少数鼓号者们，利用茶前饭后的一些时间争论着开源与闭源的精神、理想     与抱负，或者在官方的或私底的文章中打打嘴仗。在这些争论之中，卡普尔决心用开源来     实现自己数年前的梦想；微软则组织了更多更多的人工，开始打造下一代的帝国神器     “Longhorn”。     　　总有理论家，也总有实干者；一些人在呐喊，一些人在流汗。Rosenberg开始忆述这些     征战的背景，同时记录着这段推进的历史；" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-138.html" />
-    <meta property="article:published_time" content="2009-04-23T13:18:00.000Z" />
-    <meta property="article:modified_time" content="2009-04-23T13:18:00.000Z" />
-    <meta property="article:tag" content="delphi" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="本来面目——大教堂、集市，与作坊">
+    <meta property="og:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第三期上。讨论了三种不同背景下的软件工程方法。本文恢复了发表时（因为篇幅）删除掉的一些文字内容。**      本来面目     　　——大教堂、集市，与作坊     一、两本书     ＝＝＝＝＝     　　1997年，论文《大教堂与集市（The Cathedral and the Bazaar）》成为一篇挑战教义神     权的战斗檄文。从那之后，开源与闭源的战火就从未熄灭过。那些日子里，一些教堂里的     圣人也偶尔地裹了头帕，装成市贩的样子到集市中去探探行情；一些小贩们也变成了信众，     走进教堂在胸口画下十字。     　　战场之外的少数鼓号者们，利用茶前饭后的一些时间争论着开源与闭源的精神、理想     与抱负，或者在官方的或私底的文章中打打嘴仗。在这些争论之中，卡普尔决心用开源来     实现自己数年前的梦想；微软则组织了更多更多的人工，开始打造下一代的帝国神器     “Longhorn”。     　　总有理论家，也总有实干者；一些人在呐喊，一些人在流汗。Rosenberg开始忆述这些     征战的背景，同时记录着这段推进的历史；">
+    <meta property="og:url" content="http://aimingoo.github.io/1-138.html">
+    <meta property="article:published_time" content="2009-04-23T13:18:00.000Z">
+    <meta property="article:modified_time" content="2009-04-23T13:18:00.000Z">
+    <meta property="article:tag" content="delphi">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="本来面目——大教堂、集市，与作坊" />
-    <meta name="twitter:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第三期上。讨论了三种不同背景下的软件工程方法。本文恢复了发表时（因为篇幅）删除掉的一些文字内容。**      本来面目     　　——大教堂、集市，与作坊     一、两本书     ＝＝＝＝＝     　　1997年，论文《大教堂与集市（The Cathedral and the Bazaar）》成为一篇挑战教义神     权的战斗檄文。从那之后，开源与闭源的战火就从未熄灭过。那些日子里，一些教堂里的     圣人也偶尔地裹了头帕，装成市贩的样子到集市中去探探行情；一些小贩们也变成了信众，     走进教堂在胸口画下十字。     　　战场之外的少数鼓号者们，利用茶前饭后的一些时间争论着开源与闭源的精神、理想     与抱负，或者在官方的或私底的文章中打打嘴仗。在这些争论之中，卡普尔决心用开源来     实现自己数年前的梦想；微软则组织了更多更多的人工，开始打造下一代的帝国神器     “Longhorn”。     　　总有理论家，也总有实干者；一些人在呐喊，一些人在流汗。Rosenberg开始忆述这些     征战的背景，同时记录着这段推进的历史；" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-138.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="delphi" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="本来面目——大教堂、集市，与作坊">
+    <meta name="twitter:description" content="&amp;nbsp;      **本文刊发在《程序员》杂志09年第三期上。讨论了三种不同背景下的软件工程方法。本文恢复了发表时（因为篇幅）删除掉的一些文字内容。**      本来面目     　　——大教堂、集市，与作坊     一、两本书     ＝＝＝＝＝     　　1997年，论文《大教堂与集市（The Cathedral and the Bazaar）》成为一篇挑战教义神     权的战斗檄文。从那之后，开源与闭源的战火就从未熄灭过。那些日子里，一些教堂里的     圣人也偶尔地裹了头帕，装成市贩的样子到集市中去探探行情；一些小贩们也变成了信众，     走进教堂在胸口画下十字。     　　战场之外的少数鼓号者们，利用茶前饭后的一些时间争论着开源与闭源的精神、理想     与抱负，或者在官方的或私底的文章中打打嘴仗。在这些争论之中，卡普尔决心用开源来     实现自己数年前的梦想；微软则组织了更多更多的人工，开始打造下一代的帝国神器     “Longhorn”。     　　总有理论家，也总有实干者；一些人在呐喊，一些人在流汗。Rosenberg开始忆述这些     征战的背景，同时记录着这段推进的历史；">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-138.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="delphi">
     
     <script type="application/ld+json">
 {
@@ -75,15 +74,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-delphi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,7 +93,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -111,7 +110,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -127,7 +126,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +135,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/delphi/index.html">delphi</a>
+                        <a href="tag/delphi/">delphi</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,7 +144,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>&nbsp;  </p>
+                <p>   </p>
 
 <div style="border:1px dashed green; font-size:16px">  
 
@@ -209,7 +208,7 @@ ghost.init({
 
 <p>经历，他反思：三五个人十来条枪，如何成为开发正规军？    </p>
 
-<p>　　作坊如何做成？又如何《走出软件作坊》？我看到&#30524;前这本书，背负历史之重、正视    </p>
+<p>　　作坊如何做成？又如何《走出软件作坊》？我看到眼前这本书，背负历史之重、正视    </p>
 
 <p>现下之实。阿朱用他一贯快打快跑的作风，六个月就完稿、出版了这本书。    </p>
 
@@ -305,7 +304,7 @@ ghost.init({
 
 <p>　　《梦断代码》中的团队有一个绝对集市的名字：OSAF，也有绝对集市的原则：开源且    </p>
 
-<p>接受大众的&#30524;球（&#30524;睛足够多，缺陷无处躲）。但是从直到这个项目开始之后的一年，这个    </p>
+<p>接受大众的眼球（眼睛足够多，缺陷无处躲）。但是从直到这个项目开始之后的一年，这个    </p>
 
 <p>团队还没有一个真正意义上的领导者：他们（包括那些从来不出现在团队中的志愿者们）    </p>
 
@@ -315,9 +314,9 @@ ghost.init({
 
 <p>PIM软件的PIM软件。简单的说，直到这个软件只剩下以自己为对手的话，这就是目标。    </p>
 
-<p>类&#20284;的目标也出现过、成功过，例如Internet Explorer。所以，看起来卡普尔是要在开源界    </p>
+<p>类似的目标也出现过、成功过，例如Internet Explorer。所以，看起来卡普尔是要在开源界    </p>
 
-<p>面打造一个类&#20284;的神器，所以在这样的精神感召下，一批热血之士“混成（混然天成的混    </p>
+<p>面打造一个类似的神器，所以在这样的精神感召下，一批热血之士“混成（混然天成的混    </p>
 
 <p>成）”了这个团队。    </p>
 
@@ -393,9 +392,9 @@ ghost.init({
 
 <p>是这么做了，有效果，就用；没效果，他就老老实实地讲出来。    </p>
 
-<p>　　他的朋友笑了：“你的&#39740;招儿还不少啊。”(P218)    </p>
+<p>　　他的朋友笑了：“你的鬼招儿还不少啊。”(P218)    </p>
 
-<p>　　读书的我也笑过。阿朱的“&#39740;招儿”的确不少，但有无招法套路可循呢？练武术的人，    </p>
+<p>　　读书的我也笑过。阿朱的“鬼招儿”的确不少，但有无招法套路可循呢？练武术的人，    </p>
 
 <p>总有一种思路，看过了人家的“招儿”，就不怕下场跟人家“过过趟儿”。招式有了形迹，    </p>
 
@@ -425,7 +424,7 @@ ghost.init({
 
 <p>　　所以，深有同感，深有痛感。读《走出软件作坊》的，常常有感，道理就在这里。    </p>
 
-<p>　　感是有感了，但是阿朱是怎么有“&#39740;招儿”的呢？阿朱讲了没？讲了。你自己去读。    </p>
+<p>　　感是有感了，但是阿朱是怎么有“鬼招儿”的呢？阿朱讲了没？讲了。你自己去读。    </p>
 
 <p>读不出来，那是看《梦断代码》这样的史书太多，或读《大教堂与集市》这样的宣言太多，    </p>
 
@@ -441,7 +440,7 @@ ghost.init({
 
 <p>　　《走出软件作坊》作为具体工程的成功案例，我只看到阿朱剑之所指，始终如一。没    </p>
 
-<p>有他那种&#30524;光，《葵花宝典》给了你，自宫了你也练不成。    </p>
+<p>有他那种眼光，《葵花宝典》给了你，自宫了你也练不成。    </p>
 
 <p>　　阿朱没自宫。    </p>
 
@@ -455,7 +454,7 @@ ghost.init({
 
 <p>的呢，还是他想在这个过程中锻炼一支懂RUP的队伍。再如业界在嚷嚷AP/XP，你的团队    </p>
 
-<p>的小伙子们一个个急&#21564;&#21564;地也要上，你也得先看看他们是不是有那种交流沟通的能力，以    </p>
+<p>的小伙子们一个个急吼吼地也要上，你也得先看看他们是不是有那种交流沟通的能力，以    </p>
 
 <p>及相互协作的态度。    </p>
 
@@ -473,7 +472,7 @@ ghost.init({
 
 <p>什么都看不到，什么都不了解，什么都不学习，只以技术论英雄，只以王道服天下，都不    </p>
 
-<p>成。权术可以弄，道理也要能讲。你既然管着项目，&#30524;里就得有人、有事、有冲突，看不    </p>
+<p>成。权术可以弄，道理也要能讲。你既然管着项目，眼里就得有人、有事、有冲突，看不    </p>
 
 <p>到活儿的，连小工都不如。    </p>
 
@@ -493,9 +492,9 @@ ghost.init({
 
 <p>工程跟广义工程的首要目标与次要目标正好相反：狭义工程以实现工程目标(*5)为这个工    </p>
 
-<p>程存在的根本价&#20540;，如果这项目标不能被达成，那么这个狭义的工程既不可能实施，也不    </p>
+<p>程存在的根本价值，如果这项目标不能被达成，那么这个狭义的工程既不可能实施，也不    </p>
 
-<p>可能为所谓广义工程产生任何价&#20540;。而广义工程以“软件活动的根本任务(*6)”为首要目    </p>
+<p>可能为所谓广义工程产生任何价值。而广义工程以“软件活动的根本任务(*6)”为首要目    </p>
 
 <p>标，至于一个公司的死活、一个产品的成败，却只是次要目标。    </p>
 
@@ -563,7 +562,7 @@ ghost.init({
 
 <p>偏离他的脚下，也未曾偏离他视野所及的方向。因为他一直知道自已在做什么，为谁做，    </p>
 
-<p>为什么做；他一直知道自己的、团队的，以及那个具体工程的本来面目。这，就是他的&#30524;    </p>
+<p>为什么做；他一直知道自己的、团队的，以及那个具体工程的本来面目。这，就是他的眼    </p>
 
 <p>光。    </p>
 
@@ -610,7 +609,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-139.html">
                     尊重反动派(上)
                 </a>
@@ -621,8 +620,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -641,14 +640,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -664,7 +663,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -678,7 +677,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -691,20 +690,19 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>代码规范性与品质问题～</title>
-    <meta name="description" content="" />
+    <meta name="description" content="">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=4076e7a6ab" />
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=b27b25e320">
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=4076e7a6ab" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=4076e7a6ab" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=b27b25e320">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=b27b25e320">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="代码规范性与品质问题～" />
-    <meta property="og:description" content="２００１年在delphibbs做&amp;ldquo;首届Delphi编程竞赛&amp;rdquo;活动(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;650664)的时候，曾就代码的规范性与品质问题与大家进行过讨论，摘录一些言论如下：   我们公司有个程序员，现在是项目经理。他原本是做图形程序开发的，我看过它的一个工具的代码，OHHHH，我当时差点没有昏倒。&amp;mdash;&amp;mdash;它的代码做得就象方块，每一行几乎都一个样子，似乎都在不断重复。但是，这些代码的运行效率居然比我见到的所有图形开发包都快！   所以，我绝对同意&amp;ldquo;一个真正优秀的方案可能代码很多，很精巧，也很复杂，但绝对在效率、速度上非普通方案可比&amp;rdquo;、&amp;ldquo;大道深处又至简，一个非常出色的方案往往可以化复杂为简单，化腐朽为神奇，达到代码即方案，代码即解释，恍恍乎游刃有余&amp;rdquo;和&amp;ldquo;最出色的代码不是代码本身，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-9.html" />
-    <meta property="article:published_time" content="2005-12-04T07:12:00.000Z" />
-    <meta property="article:modified_time" content="2005-12-04T07:12:00.000Z" />
-    <meta property="article:tag" content="项目管理" />
-    <meta property="article:tag" content="delphi" />
-    <meta property="article:tag" content="工具" />
-    <meta property="article:tag" content="编程" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="代码规范性与品质问题～">
+    <meta property="og:description" content="２００１年在delphibbs做&amp;ldquo;首届Delphi编程竞赛&amp;rdquo;活动(http://www.delphibbs.com/delphibbs/dispq.asp?lid=650664)的时候，曾就代码的规范性与品质问题与大家进行过讨论，摘录一些言论如下：   我们公司有个程序员，现在是项目经理。他原本是做图形程序开发的，我看过它的一个工具的代码，OHHHH，我当时差点没有昏倒。&amp;mdash;&amp;mdash;它的代码做得就象方块，每一行几乎都一个样子，似乎都在不断重复。但是，这些代码的运行效率居然比我见到的所有图形开发包都快！   所以，我绝对同意&amp;ldquo;一个真正优秀的方案可能代码很多，很精巧，也很复杂，但绝对在效率、速度上非普通方案可比&amp;rdquo;、&amp;ldquo;大道深处又至简，一个非常出色的方案往往可以化复杂为简单，化腐朽为神奇，达到代码即方案，代码即解释，恍恍乎游刃有余&amp;rdquo;和&amp;ldquo;最出色的代码不是代码本身，">
+    <meta property="og:url" content="http://aimingoo.github.io/1-9.html">
+    <meta property="article:published_time" content="2005-12-04T07:12:00.000Z">
+    <meta property="article:modified_time" content="2005-12-04T07:12:00.000Z">
+    <meta property="article:tag" content="项目管理">
+    <meta property="article:tag" content="delphi">
+    <meta property="article:tag" content="工具">
+    <meta property="article:tag" content="编程">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="代码规范性与品质问题～" />
-    <meta name="twitter:description" content="２００１年在delphibbs做&amp;ldquo;首届Delphi编程竞赛&amp;rdquo;活动(http://www.delphibbs.com/delphibbs/dispq.asp?lid&#x3D;650664)的时候，曾就代码的规范性与品质问题与大家进行过讨论，摘录一些言论如下：   我们公司有个程序员，现在是项目经理。他原本是做图形程序开发的，我看过它的一个工具的代码，OHHHH，我当时差点没有昏倒。&amp;mdash;&amp;mdash;它的代码做得就象方块，每一行几乎都一个样子，似乎都在不断重复。但是，这些代码的运行效率居然比我见到的所有图形开发包都快！   所以，我绝对同意&amp;ldquo;一个真正优秀的方案可能代码很多，很精巧，也很复杂，但绝对在效率、速度上非普通方案可比&amp;rdquo;、&amp;ldquo;大道深处又至简，一个非常出色的方案往往可以化复杂为简单，化腐朽为神奇，达到代码即方案，代码即解释，恍恍乎游刃有余&amp;rdquo;和&amp;ldquo;最出色的代码不是代码本身，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-9.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="项目管理, delphi, 工具, 编程" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="代码规范性与品质问题～">
+    <meta name="twitter:description" content="２００１年在delphibbs做&amp;ldquo;首届Delphi编程竞赛&amp;rdquo;活动(http://www.delphibbs.com/delphibbs/dispq.asp?lid=650664)的时候，曾就代码的规范性与品质问题与大家进行过讨论，摘录一些言论如下：   我们公司有个程序员，现在是项目经理。他原本是做图形程序开发的，我看过它的一个工具的代码，OHHHH，我当时差点没有昏倒。&amp;mdash;&amp;mdash;它的代码做得就象方块，每一行几乎都一个样子，似乎都在不断重复。但是，这些代码的运行效率居然比我见到的所有图形开发包都快！   所以，我绝对同意&amp;ldquo;一个真正优秀的方案可能代码很多，很精巧，也很复杂，但绝对在效率、速度上非普通方案可比&amp;rdquo;、&amp;ldquo;大道深处又至简，一个非常出色的方案往往可以化复杂为简单，化腐朽为神奇，达到代码即方案，代码即解释，恍恍乎游刃有余&amp;rdquo;和&amp;ldquo;最出色的代码不是代码本身，">
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-9.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="项目管理, delphi, 工具, 编程">
     
     <script type="application/ld+json">
 {
@@ -78,15 +77,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=b27b25e320"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-xiang-mu-guan-li tag-delphi tag-gong-ju tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -97,7 +96,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=4076e7a6ab"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=b27b25e320"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -114,7 +113,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
     </ul>
 </div>
@@ -130,7 +129,7 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/xiang-mu-guan-li/index.html">项目管理</a>, <a href="tag/delphi/index.html">delphi</a>, <a href="tag/gong-ju/index.html">工具</a>, <a href="tag/bian-cheng/index.html">编程</a>
+                        <a href="tag/xiang-mu-guan-li/">项目管理</a>, <a href="tag/delphi/">delphi</a>, <a href="tag/gong-ju/">工具</a>, <a href="tag/bian-cheng/">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,33 +147,33 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>２００１年在delphibbs做&ldquo;首届Delphi编程竞赛&rdquo;活动(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=650664">http://www.delphibbs.com/delphibbs/dispq.asp?lid=650664</a>)的时候，曾就代码的规范性与品质问题与大家进行过讨论，摘录一些言论如下：  </p>
+                <p>２００１年在delphibbs做“首届Delphi编程竞赛”活动(<a href="http://www.delphibbs.com/delphibbs/dispq.asp?lid=650664">http://www.delphibbs.com/delphibbs/dispq.asp?lid=650664</a>)的时候，曾就代码的规范性与品质问题与大家进行过讨论，摘录一些言论如下：  </p>
 
-<hr />
-
-<ol>
-<li>我们公司有个程序员，现在是项目经理。他原本是做图形程序开发的，我看过它的一个工具的代码，OHHHH，我当时差点没有昏倒。&mdash;&mdash;它的代码做得就象方块，每一行几乎都一个样子，似乎都在不断重复。但是，这些代码的运行效率居然比我见到的所有图形开发包都快！  </li>
-</ol>
-
-<p>所以，我绝对同意&ldquo;一个真正优秀的方案可能代码很多，很精巧，也很复杂，但绝对在效率、速度上非普通方案可比&rdquo;、&ldquo;大道深处又至简，一个非常出色的方案往往可以化复杂为简单，化腐朽为神奇，达到代码即方案，代码即解释，恍恍乎游刃有余&rdquo;和&ldquo;最出色的代码不是代码本身，而是代码体现出来的出神入化的思维和境界。到达这个境界，代码多少已经不再重要了&rdquo;这样的观点。  </p>
+<hr>
 
 <ol>
-<li>代码的规范性我深有体会。我们公司现在正在展开的也是一个叫&ldquo;代码格式化规范&rdquo;的动作。  </li>
+<li>我们公司有个程序员，现在是项目经理。他原本是做图形程序开发的，我看过它的一个工具的代码，OHHHH，我当时差点没有昏倒。——它的代码做得就象方块，每一行几乎都一个样子，似乎都在不断重复。但是，这些代码的运行效率居然比我见到的所有图形开发包都快！  </li>
 </ol>
 
-<p>但我要说的是一个小故事，我的一个组员总是在说我的代码他看不懂，这看不懂那也看不懂；而另一个组员呢，将我一个写了两年的项目那个去看了一个多月，说懂了。前一个组员总是说我的代码不&ldquo;规范&rdquo;，不&ldquo;格式化&rdquo;，用了太多的技巧，不用标准的写法；而后一个组员却什么也不说。两个组员最大的不同是：前一个组员只有两年的编程经验，而后一个，有十年的编程经验。  </p>
-
-<p>如果，如果你用Delphi来写一个&ldquo;操作系统级程序&rdquo;，那么，你能用到的&ldquo;标准的写法&rdquo;可能没几个，你可能必须用各种各样的技巧，各种各样离奇的思想。这不是一般人能够想到的做到的。有兴趣的人可以去看看QString这个字符串处理单元，那绝对是不好读的代码，也绝对精炼，效率也绝对高。但可能绝对&ldquo;不标准&rdquo;、&ldquo;不规范&rdquo;。  </p>
-
-<p>我并不是反对&ldquo;代码格式化&rdquo;，我只是说，我们在这里开展一个竞赛，重点并不是要去格式化代码，我们的主旨是&ldquo;写出好的思想&rdquo;和&ldquo;好的代码&rdquo;。那些格式化中存在的各种各样的注释和格式化用的空格，自然有工具去过滤掉它，你不必关心它们影响你的代码字节数。  </p>
+<p>所以，我绝对同意“一个真正优秀的方案可能代码很多，很精巧，也很复杂，但绝对在效率、速度上非普通方案可比”、“大道深处又至简，一个非常出色的方案往往可以化复杂为简单，化腐朽为神奇，达到代码即方案，代码即解释，恍恍乎游刃有余”和“最出色的代码不是代码本身，而是代码体现出来的出神入化的思维和境界。到达这个境界，代码多少已经不再重要了”这样的观点。  </p>
 
 <ol>
-<li>这个竞赛的确是在&ldquo;鼓励提高个人能力&rdquo;，但绝对没有&ldquo;忽视团队精神&rdquo;的意思。哈哈。  </li>
+<li>代码的规范性我深有体会。我们公司现在正在展开的也是一个叫“代码格式化规范”的动作。  </li>
 </ol>
 
-<p>我们一直忽略了这点，没有提出来说，算是我的工作失误。其实中国现在的&ldquo;程序高手&rdquo;很多，但真正懂得&ldquo;软件工作&rdquo;和组织&ldquo;团队开发&rdquo;的人才之又少。事实上我现在也正在学这个，正在带开发组，正在从最小的&ldquo;团队&rdquo;做起。&mdash;&mdash;我自认还做得非常非常差。印度培养出来的程序员象一个个标准大小的方块，任意多块放在任意位置都是有用的，但缺乏灵魂；中国培养出来的程序员象一个个钉子，放哪里打都好用，灵气十足，能力十足，但一大堆钉子放在一起，你的手碰都不敢碰一下。  </p>
+<p>但我要说的是一个小故事，我的一个组员总是在说我的代码他看不懂，这看不懂那也看不懂；而另一个组员呢，将我一个写了两年的项目那个去看了一个多月，说懂了。前一个组员总是说我的代码不“规范”，不“格式化”，用了太多的技巧，不用标准的写法；而后一个组员却什么也不说。两个组员最大的不同是：前一个组员只有两年的编程经验，而后一个，有十年的编程经验。  </p>
 
-<p>但中国的程序员在国外却是极好的。因为人家懂得如何组织钉子开发，而不是只懂得如何将方块&ldquo;积木&rdquo;在一起。  </p>
+<p>如果，如果你用Delphi来写一个“操作系统级程序”，那么，你能用到的“标准的写法”可能没几个，你可能必须用各种各样的技巧，各种各样离奇的思想。这不是一般人能够想到的做到的。有兴趣的人可以去看看QString这个字符串处理单元，那绝对是不好读的代码，也绝对精炼，效率也绝对高。但可能绝对“不标准”、“不规范”。  </p>
+
+<p>我并不是反对“代码格式化”，我只是说，我们在这里开展一个竞赛，重点并不是要去格式化代码，我们的主旨是“写出好的思想”和“好的代码”。那些格式化中存在的各种各样的注释和格式化用的空格，自然有工具去过滤掉它，你不必关心它们影响你的代码字节数。  </p>
+
+<ol>
+<li>这个竞赛的确是在“鼓励提高个人能力”，但绝对没有“忽视团队精神”的意思。哈哈。  </li>
+</ol>
+
+<p>我们一直忽略了这点，没有提出来说，算是我的工作失误。其实中国现在的“程序高手”很多，但真正懂得“软件工作”和组织“团队开发”的人才之又少。事实上我现在也正在学这个，正在带开发组，正在从最小的“团队”做起。——我自认还做得非常非常差。印度培养出来的程序员象一个个标准大小的方块，任意多块放在任意位置都是有用的，但缺乏灵魂；中国培养出来的程序员象一个个钉子，放哪里打都好用，灵气十足，能力十足，但一大堆钉子放在一起，你的手碰都不敢碰一下。  </p>
+
+<p>但中国的程序员在国外却是极好的。因为人家懂得如何组织钉子开发，而不是只懂得如何将方块“积木”在一起。  </p>
 
 <p>不要因为中国没有好的项目管理人员，就要求所有的程序员全变成方块，这是舍本而逐末的事。  </p>
 
@@ -182,11 +181,11 @@ ghost.init({
 <li>好的雕刻师必须先是好的木匠，艺人必须先是匠人。  </li>
 </ol>
 
-<hr />
+<hr>
 
-<p>最后这句&ldquo;艺人必须先是匠人&rdquo;，我后来还在《Delphi实现可执行文件之源码详解》中引用过：  </p>
+<p>最后这句“艺人必须先是匠人”，我后来还在《Delphi实现可执行文件之源码详解》中引用过：  </p>
 
-<hr />
+<hr>
 
 <p>必先是匠人，之后才会是艺人，再之后才会是艺术家。程序员就是程序员，如果不静下心来做代码，好高骛远则终将一无所成。    </p>
 
@@ -207,7 +206,7 @@ ghost.init({
                 </a>
             </span>
 
-            <span class="post-nav-next" >
+            <span class="post-nav-next">
                 <a href="1-10.html">
                     再谈borland与MS对BUG的不同态度~
                 </a>
@@ -218,8 +217,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=4076e7a6ab" />
-<script src="assets/js/gitment.browser.js?v=4076e7a6ab"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=b27b25e320">
+<script src="assets/js/gitment.browser.js?v=b27b25e320"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -238,14 +237,14 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -261,7 +260,7 @@ ghost.init({
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -275,7 +274,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -288,20 +287,19 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=b27b25e320"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=4076e7a6ab"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=4076e7a6ab"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=b27b25e320"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=b27b25e320"></script>
 </body>
 
-</html>

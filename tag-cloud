@@ -45,17 +45,17 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/gong-ju" class="tag-item">工具 (21)</a>
 				<a href="http://aimingoo.github.io/tag/wen-dang" class="tag-item">文档 (18)</a>
 				<a href="http://aimingoo.github.io/tag/chan-pin" class="tag-item">产品 (18)</a>
+				<a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (14)</a>
 				<a href="http://aimingoo.github.io/tag/du-shu" class="tag-item">读书 (14)</a>
 				<a href="http://aimingoo.github.io/tag/da-dao-zhi-jian" class="tag-item">大道至简 (14)</a>
-				<a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (13)</a>
-				<a href="http://aimingoo.github.io/tag/shu-xu-shu-ping" class="tag-item">书序书评 (12)</a>
+				<a href="http://aimingoo.github.io/tag/shu-xu-shu-ping" class="tag-item">书序书评 (13)</a>
 				<a href="http://aimingoo.github.io/tag/delphiyuan-dai-ma-fen-xi" class="tag-item">代码分析 (11)</a>
 				<a href="http://aimingoo.github.io/tag/liu-lan-qi" class="tag-item">浏览器 (10)</a>
 				<a href="http://aimingoo.github.io/tag/jiao-ben" class="tag-item">脚本 (10)</a>
+				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (10)</a>
 				<a href="http://aimingoo.github.io/tag/erlang" class="tag-item">erlang (9)</a>
 				<a href="http://aimingoo.github.io/tag/oop" class="tag-item">oop (9)</a>
 				<a href="http://aimingoo.github.io/tag/ce-shi" class="tag-item">测试 (9)</a>
-				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (9)</a>
 				<a href="http://aimingoo.github.io/tag/shu-ju-jie-gou" class="tag-item">数据结构 (8)</a>
 				<a href="http://aimingoo.github.io/tag/suan-fa" class="tag-item">算法 (8)</a>
 				<a href="http://aimingoo.github.io/tag/bo-ke" class="tag-item">博客 (8)</a>
