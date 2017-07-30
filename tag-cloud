@@ -38,21 +38,21 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/za-tan" class="tag-item">杂谈 (58)</a>
 				<a href="http://aimingoo.github.io/tag/yu-yan" class="tag-item">语言 (51)</a>
 				<a href="http://aimingoo.github.io/tag/delphi" class="tag-item">delphi (38)</a>
-				<a href="http://aimingoo.github.io/tag/chu-ban" class="tag-item">出版 (33)</a>
+				<a href="http://aimingoo.github.io/tag/chu-ban" class="tag-item">出版 (34)</a>
 				<a href="http://aimingoo.github.io/tag/bian-cheng" class="tag-item">编程 (27)</a>
-				<a href="http://aimingoo.github.io/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (21)</a>
+				<a href="http://aimingoo.github.io/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (22)</a>
 				<a href="http://aimingoo.github.io/tag/kuang-jia" class="tag-item">框架 (21)</a>
 				<a href="http://aimingoo.github.io/tag/gong-ju" class="tag-item">工具 (21)</a>
 				<a href="http://aimingoo.github.io/tag/wen-dang" class="tag-item">文档 (18)</a>
 				<a href="http://aimingoo.github.io/tag/chan-pin" class="tag-item">产品 (18)</a>
 				<a href="http://aimingoo.github.io/tag/jia-gou" class="tag-item">架构 (14)</a>
 				<a href="http://aimingoo.github.io/tag/du-shu" class="tag-item">读书 (14)</a>
+				<a href="http://aimingoo.github.io/tag/shu-xu-shu-ping" class="tag-item">书序书评 (14)</a>
 				<a href="http://aimingoo.github.io/tag/da-dao-zhi-jian" class="tag-item">大道至简 (14)</a>
-				<a href="http://aimingoo.github.io/tag/shu-xu-shu-ping" class="tag-item">书序书评 (13)</a>
 				<a href="http://aimingoo.github.io/tag/delphiyuan-dai-ma-fen-xi" class="tag-item">代码分析 (11)</a>
+				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (11)</a>
 				<a href="http://aimingoo.github.io/tag/liu-lan-qi" class="tag-item">浏览器 (10)</a>
 				<a href="http://aimingoo.github.io/tag/jiao-ben" class="tag-item">脚本 (10)</a>
-				<a href="http://aimingoo.github.io/tag/dian-zi-shu" class="tag-item">电子书 (10)</a>
 				<a href="http://aimingoo.github.io/tag/erlang" class="tag-item">erlang (9)</a>
 				<a href="http://aimingoo.github.io/tag/oop" class="tag-item">oop (9)</a>
 				<a href="http://aimingoo.github.io/tag/ce-shi" class="tag-item">测试 (9)</a>
@@ -67,8 +67,8 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="http://aimingoo.github.io/tag/xiang-mu-guan-li" class="tag-item">项目管理 (6)</a>
 				<a href="http://aimingoo.github.io/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (6)</a>
 				<a href="http://aimingoo.github.io/tag/shu-ju-ku" class="tag-item">数据库 (6)</a>
+				<a href="http://aimingoo.github.io/tag/da-dao-zhi-yi" class="tag-item">大道至易 (6)</a>
 				<a href="http://aimingoo.github.io/tag/bian-yi-qi" class="tag-item">编译器 (5)</a>
-				<a href="http://aimingoo.github.io/tag/da-dao-zhi-yi" class="tag-item">大道至易 (5)</a>
 				<a href="http://aimingoo.github.io/tag/pascal" class="tag-item">pascal (4)</a>
 				<a href="http://aimingoo.github.io/tag/uml" class="tag-item">uml (4)</a>
 				<a href="http://aimingoo.github.io/tag/lisp" class="tag-item">lisp (4)</a>

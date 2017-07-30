@@ -1,4 +1,150 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 23 Jul 2017 14:00:54 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>电子书《我的架构思想》小述</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 30 Jul 2017 03:39:16 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>小述系列最终篇：说说《大道至易：实践者的思想》</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……&lt;/p&gt;
+  
+  &lt;p&gt;所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。&lt;/p&gt;
+  
+  &lt;p&gt;本电子书可自由下载和传播。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;霍泰稳先生的序&lt;/h2&gt;
+
+&lt;p&gt;认识泰稳兄已经很多年，第一次请他写序。之所以邀他来写，是因为他是少见的、有着对技术深刻理解的管理者。这十多年来，国内IT技术的、尤其是工程与管理相关的每一次动荡变化，他都是参与者与亲历者。&lt;/p&gt;
+
+&lt;p&gt;而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1736/</link><guid isPermaLink="false">47888d52-efb0-4fb6-a589-590dacc7c381</guid><category>电子书</category><category>出版</category><category>软件工程</category><category>大道至易</category><category>书序书评</category><dc:creator>aimingoo</dc:creator><pubDate>Sun, 30 Jul 2017 03:35:54 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……&lt;/p&gt;
+  
+  &lt;p&gt;所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。&lt;/p&gt;
+  
+  &lt;p&gt;本电子书可自由下载和传播。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;霍泰稳先生的序&lt;/h2&gt;
+
+&lt;p&gt;认识泰稳兄已经很多年，第一次请他写序。之所以邀他来写，是因为他是少见的、有着对技术深刻理解的管理者。这十多年来，国内IT技术的、尤其是工程与管理相关的每一次动荡变化，他都是参与者与亲历者。&lt;/p&gt;
+
+&lt;p&gt;而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“具体工程”。而我所谈诸多，也莫过于“落地”二字之要：这二字的前面，是我所经历与感悟的种种工程与思想；其后面，于读者而言的，不过是“具体到项目该怎么做”这样的一句发问。&lt;/p&gt;
+
+&lt;p&gt;我写《大道至易》的本意，就是不想教读者怎么“去做”。然而清谈无用，还要先有行，才有思的。所以我是期望读者在做的过程中，哪怕有一霎时的反思能触到书中的所言，便是我做到了。&lt;/p&gt;
+
+&lt;p&gt;只是一如书中所言：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“拉屎就算是一项工程，具体来说，也得自己拉”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;——行是你的事。&lt;/p&gt;
+
+&lt;h2 id=""&gt;这本书是最难写的&lt;/h2&gt;
+
+&lt;p&gt;这本书原是其第一版中的一编，它是成书最晚的部分。我是先回顾了自己对技术的认识，这大概只写了半年（即《程序原本》）；再用半年就写完了对自己架构观点的总结（即《我的架构思想》）。然而在写本编时，却用了接近一年的时间；我不是一个情绪化的人，其间却好几次写到情绪失控，几乎无法完成本编。&lt;/p&gt;
+
+&lt;p&gt;而书中却看不到“我的情绪”——这就是《大道至易》最难写的地方。&lt;/p&gt;
+
+&lt;p&gt;有所谓“大义微言”，这是指《春秋》一书以记事为条贯，而微言大义与其中。我虽然没有什么“大义”要讲，却不慎地采用了“微言”这一写法。所以令读者可读可受而不自知，原本就是目的与方法所在。这是难写处之一。&lt;/p&gt;
+
+&lt;p&gt;难处之二在于要谈什么。&lt;/p&gt;
+
+&lt;p&gt;《大道至易》根底里还是要谈软件工程的，毕竟它是承续《大道至简》而来。但我越来越发现，《大道至简》所讲的其实只是工程的要略，而不是工程之实作。工程要实际做起来的时候，人、事和物是一个也分不开的。也就是说，真正的在做工程的时候，你面临的并不是敏捷不敏捷、方法不方法，而是各种扯皮、各种纷乱，以及具体到的那个产品做不出来。&lt;/p&gt;
+
+&lt;p&gt;——没有那么多理论让你可用，也没有一个具体可行的、不会出错的“最佳实践”让你去试。&lt;/p&gt;
+
+&lt;p&gt;如《大道至易》书中所言，连佛祖都在教你拉屎，但你具体要拉的时候佛祖也是无能为力的。所以我也就不愿做那书写定规的佛祖，而只好写些让你“思而不解”的文字。&lt;/p&gt;
+
+&lt;p&gt;要点是你要去思，才会有你的解。我不会比佛祖更强，他都教不了你拉屎，况乎我哉！&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;注：别说我亵渎佛祖，的确有本《毗尼母经》写了佛祖教僧众拉屎的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;所以……&lt;/h2&gt;
+
+&lt;p&gt;要解决“人的问题”，核心是解决“权的问题”，更核心是解决“利的问题”。所谓“势者，利之所趋”，作为管理者，你懂得了所有人的“利的诉求”，你就看到了形势；你顺应了形势，也就事半功倍了。&lt;/p&gt;
+
+&lt;p&gt;这是最最核心的那点观察。然而如果你从这本书中看到的就是权术，读到的就是势利，那就又错读了书。因为我并没有谈这些，我谈的仍然是工程中的种种，从学术的到民间的，从组织的到个人的，从团队到产品……总之，我要谈的仍然是你想做的那些具体的事。如同泰稳兄一开始所言：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“大道至易，落地为要”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我不能帮你走，所以我只能让你读到这些观察。这是我能告诉你的、或指示你去看到的、在这个地表上的真相。就如同书中一再用的那四个字：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“这是现实”。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id="66"&gt;什么是“66%的从众者”&lt;/h2&gt;
+
+&lt;p&gt;起初，这一系列（三本）电子书的封面是一直悬而未决的。我为此找过图灵的编辑，找过我曾经的同事……然而出于我对这本书前作封面的喜好，我否定了许多精彩而用心的设计（不好意思，此处确有私念）。直到我最终决定封面的风格时，便是先定下了这本《大道至易（第二版）》——也就是这黑黑的封面，而封皮上只有两个人，和一句话：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“你是66%的从众者吗？”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;从《大道至简》的三人论道，变成如今的两人问诘。书的封面的变化，反映了我思想与陈述方法的变化 。如今，我不已不甚在意于“论”，而在意于“问”。&lt;/p&gt;
+
+&lt;p&gt;正确的问题，本身就是答案。“你是66%的从众者吗？”如果不是，那么你是谁？你面对的是谁？他面对的是你吗？你何以知道他是从众者，而你不是？若他追随你，又何以证明不是在从众？若不追随你，那又何谓从众？从众的本质属性是什么？是管理与控制？是精神教化？是同理心？若这些是本质属性，那么为什么不是你的属性？你何以觉出“这些”是或不是你的属性？&lt;/p&gt;
+
+&lt;p&gt;若三人为众，那么这三个人，又有哪一个不是从众者呢？&lt;/p&gt;
+
+&lt;h2 id=""&gt;要懂得人&lt;/h2&gt;
+
+&lt;p&gt;现在你大概已经知道了，这本书之最难处，在于我谈的是人性，而不是工程的方法。&lt;/p&gt;
+
+&lt;p&gt;懂得人心，才是具体工程的要义。&lt;/p&gt;
+
+&lt;p&gt;心变，则万物为之变；这才是“易”理。&lt;/p&gt;
+
+&lt;h2 id=""&gt;要容人&lt;/h2&gt;
+
+&lt;p&gt;所以，“易”是最难管的。你的团队的每个人都活在自己的心上，而你连我心都安不下来，谈何去管别人的。收束人心，大概是为人父母者最悲剧的事情了；如你所知的，连天下父母也无法收束的心，又如何能让管理者去收束。&lt;/p&gt;
+
+&lt;p&gt;哪有这样的道理啊。&lt;/p&gt;
+
+&lt;p&gt;所以莫老想着要管这管那，莫老想着要管人管事。所谓“管”，就是官头上的帽子，你越努力去管，就越是官相毕现，而被管者就越是奴相毕现。所以我说“要做事，不要管理”，容得大家一门心思地去把事情做好，那么管不管，有什么要紧？&lt;/p&gt;
+
+&lt;p&gt;所以要“容得下易”。容得下易，也就是容得下可变之心；心可变了，才有万物之可变，才有生活之气象。所以总有团队会死气沉沉，总有产品会胎死腹中，总有工程会不知其所终……&lt;/p&gt;
+
+&lt;p&gt;容不下变化，那么就死路一条了。&lt;/p&gt;
+
+&lt;h2 id=""&gt;下载&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. 高质量的PDF版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.zip"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐在桌面系统、PAD或大屏幕移动设备上阅读。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. 适用于Kindle的版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.azw3"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;下载后用USB上传到Kindle即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。&lt;/p&gt;
+  
+  &lt;p&gt;上述的修改不影响阅读效果。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;3. 使用了SVG图的.epub版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.epub"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. 一般质量图片的.epub版本 &lt;a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.epub"&gt;【下载】&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;一般的掌上阅读软件都可以支持。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. 低版本Kindle使用的阅读格式&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;即低版本.mobi文件，阅读体验较差。请移驾我的Github（&lt;a href="https://github.com/aimingoo/my-ebooks"&gt;在这里&lt;/a&gt;）获取下载。&lt;/p&gt;
+
+&lt;h2 id=""&gt;其它下载点(不定期更新)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;CSDN下载页：&lt;a href="http://download.csdn.net/user/aimingoo/uploads"&gt;http://download.csdn.net/user/aimingoo/uploads&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;图灵出版社区：&lt;a href="http://www.ituring.com.cn/book/2428"&gt;http://www.ituring.com.cn/book/2428&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;我的Github：&lt;a href="http://github.com/aimingoo/my-ebooks"&gt;http://github.com/aimingoo/my-ebooks&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>电子书《我的架构思想》小述</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：&lt;a href="http://aimingoo.github.io/1-1734"&gt;https://aimingoo.github.io/1-1734.html&lt;/a&gt;。&lt;/p&gt;
@@ -112,7 +258,7 @@
 
 &lt;p&gt;即低版本.mobi文件，阅读体验较差。请移驾我的Github（&lt;a href="https://github.com/aimingoo/my-ebooks"&gt;在这里&lt;/a&gt;）获取下载。&lt;/p&gt;
 
-&lt;h2 id=""&gt;其它下载点(不定期更新)&lt;/h2&gt;
+&lt;h2 id=""&gt;其它下载点（不定期更新）&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;CSDN下载页：&lt;a href="http://download.csdn.net/user/aimingoo/uploads"&gt;http://download.csdn.net/user/aimingoo/uploads&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -234,7 +380,7 @@
 
 &lt;p&gt;即低版本.mobi文件，阅读体验较差。请移驾我的Github（&lt;a href="https://github.com/aimingoo/my-ebooks"&gt;在这里&lt;/a&gt;）获取下载。&lt;/p&gt;
 
-&lt;h2 id=""&gt;其它下载点(不定期更新)&lt;/h2&gt;
+&lt;h2 id=""&gt;其它下载点（不定期更新）&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;CSDN下载页：&lt;a href="http://download.csdn.net/user/aimingoo/uploads"&gt;http://download.csdn.net/user/aimingoo/uploads&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -2463,215 +2609,4 @@ document.writeln(function cloudTagHtmlContext() {/*
 
 &lt;p&gt;事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的有关『静态化』的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。&lt;/p&gt;
 
-&lt;p&gt;不同的主题的修改会略有区别，本文只供参考。&lt;/p&gt;</content:encoded></item><item><title>手记2：从本地博客到Github Pages的最佳指南及工具</title><description>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
-
-&lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
-
-&lt;h2 id="4github"&gt;4. Github开工&lt;/h2&gt;
-
-&lt;p&gt;你得先有Github账号。然后，创建一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到&lt;code&gt;GitHub Pages&lt;/code&gt;，检查一下，他可能已经缺省写着：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;Your site is published at https://xxxxxx.&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-1720/</link><guid isPermaLink="false">16433c0c-40f9-4978-9fe3-f56cb56b2102</guid><category>博客</category><category>Ghost</category><category>Github</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Fri, 26 May 2017 18:02:33 GMT</pubDate><content:encoded>&lt;p&gt;现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。&lt;/p&gt;
-
-&lt;p&gt;如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。&lt;/p&gt;
-
-&lt;h2 id="4github"&gt;4. Github开工&lt;/h2&gt;
-
-&lt;p&gt;你得先有Github账号。然后，创建一个名为&lt;code&gt;xxxxxx.github.io&lt;/code&gt;的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到&lt;code&gt;GitHub Pages&lt;/code&gt;，检查一下，他可能已经缺省写着：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;Your site is published at https://xxxxxx.github.io/&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;OK。建议你将Features中的&lt;code&gt;Wikis&lt;/code&gt;与&lt;code&gt;Restrict editing to collaborators only&lt;/code&gt;设为关闭，而&lt;code&gt;Issues&lt;/code&gt;建议开启——我相信你用得到它。&lt;/p&gt;
-
-&lt;p&gt;最后，你还可以在&lt;code&gt;Theme chooser&lt;/code&gt;中选一个Theme。不过对我来说没什么意义，因为我将使用Ghost中的Theme。不过，如果你使用了Github的Theme，那么你的主页根目录——也就是&lt;code&gt;xxxxxx.github.io&lt;/code&gt;这个仓库的根目录下就会多一个&lt;code&gt;_config.yml&lt;/code&gt;文件。&lt;/p&gt;
-
-&lt;p&gt;此外，还总是会有一个&lt;code&gt;README.md&lt;/code&gt;文件，知道Github的人都知道这个文件用来做什么，建议你留着——尽管删除掉也没什么影响。&lt;/p&gt;
-
-&lt;p&gt;除了上述两个文件，Github什么都没给你，一切都得自己来干。&lt;/p&gt;
-
-&lt;p&gt;当然，只要你创建了这个仓库，那么&lt;code&gt;https://xxxxxx.github.io&lt;/code&gt;就已经可以访问了；如果你更新这个仓库，那么网站也就自动更新了。&lt;/p&gt;
-
-&lt;p&gt;很酷。&lt;/p&gt;
-
-&lt;h2 id="5githubpages"&gt;5. 从本地博客到Github Pages&lt;/h2&gt;
-
-&lt;p&gt;尽管几乎所有的Ghost用户都被推荐使用Buster来生成静态页（generate static pages），但这个工具确实相当不好用，按某博主所说『&lt;strong&gt;是个大坑&lt;/strong&gt;』，不过我也建议你看看他的博客文章（&lt;a href="https://mrcotter.github.io/ghost-to-github-pages/"&gt;在这里&lt;/a&gt;），写得很细致了。不过如果你不怎么用Python的话，我建议你不要安装pyenv和多版本的python，直接用MacOSX原装的就好——或者只用Brew安装Python 2.x。&lt;/p&gt;
-
-&lt;p&gt;参考上面这位博主（&lt;a href="https://mrcotter.github.io/author/kris/"&gt;Kris Cotter&lt;/a&gt;）的文章，我写了一个名为&lt;code&gt;makesite.sh&lt;/code&gt;的脚本，它配合Buster使用，并主要用来填Buster的一些坑。下面说说这个工具。&lt;/p&gt;
-
-&lt;h3 id="51makesitesh"&gt;5.1 使用makesite.sh的标准过程&lt;/h3&gt;
-
-&lt;p&gt;参考下面的控制台命令：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;## 取一份你的Github Pages仓库，例如(YOURNAME/YOURNAME.github.io)
-&amp;gt; git clone https://github.com/YOURNAME/YOURNAME.github.io
-&amp;gt; cd ./YOURNAME.github.io
-
-## 定制一下git exclude files
-&amp;gt; echo -e '\nstatic/\nmakesite.sh\npatchme.sh\nbuster.log’ &amp;gt;&amp;gt; .git/info/exclude
-
-## 下载makesite.sh文件到本地仓库
-&amp;gt; wget -nv 'https://github.com/aimingoo/ghost-utils/raw/master/makesite.sh'
-
-## 使用帮助
-&amp;gt; bash makesite.sh --help
-###########################################################################
- Usage:
-  &amp;gt; bash makesite.sh --generate --reset-domain --short-path --deploy-now
- ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;上面列举了makesite.sh对&lt;code&gt;Ghost -&amp;gt; Github Pages&lt;/code&gt;的一个标准过程的理解，亦即是分成四步：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;generate: 调用Buster生成静态页&lt;/li&gt;
-&lt;li&gt;reset-domain: 重置本地博客的domain到远端（YOURNAME.github.io）&lt;/li&gt;
-&lt;li&gt;short-path: 生成简短的网页路径&lt;/li&gt;
-&lt;li&gt;deploy-now: 部署到Github仓库&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;你可以使用参数来开启或关闭任何一个步骤，或者从任何一个步骤开始（而无视于其它步骤）。缺省情况下所有的步骤都是关闭的，只检查一下当前目录下是否存在&lt;code&gt;./static&lt;/code&gt;子目录。——注意这个目录是被保留，不被提交到Github仓库中去的（所以前面的脚本中我将它添加到了&lt;code&gt;.git/info/exclude&lt;/code&gt;文件中）。&lt;/p&gt;
-
-&lt;p&gt;整个过程需要依赖&lt;code&gt;git&lt;/code&gt;和&lt;code&gt;buster&lt;/code&gt;两个工具，另外需要&lt;code&gt;wget&lt;/code&gt;、&lt;code&gt;grep&lt;/code&gt;和MacOSX版本的&lt;code&gt;sed&lt;/code&gt;。如果你是在别的系统上运行这个脚本，你"可能"需要改一下sed的命令行参数。&lt;/p&gt;
-
-&lt;p&gt;如果你只是生成静态页而不部署它，那么你不需要使用&lt;code&gt;--deploy-now&lt;/code&gt;参数，这种情况下没有安装git也是可以的。但我总是建议你先安装buster：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;## 使用Python的PIP安装buster
-&amp;gt; pip install buster
-
-## 如果你没有wget或git
-&amp;gt; brew install wget git
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="52makesitesh"&gt;5.2 makesite.sh的配置与参数&lt;/h3&gt;
-
-&lt;p&gt;如果你读makesite.sh的源代码，你会发现它处理参数的代码非常漂亮（嘿~嘿~）。&lt;/p&gt;
-
-&lt;p&gt;这些参数可以有两种格式：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;--reset-domain=false&lt;/code&gt;：指定reset-domain参数值为false。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;--reset-domain&lt;/code&gt;：这种省略掉值的情况，等效于&lt;code&gt;--reset-domain=true&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;也可以指定字符串值，例如设置你的domain（缺省值是我的"aimingoo.github.io"）：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code&gt;--domain='YOURNAME.github.io'&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;所有通过命令行参数传入的参数配置，都有相对应的bash变量（全大写字符），所以你也可以直接修改.sh脚本中的变量缺省值，以避免每次都要通过命令行指定（例如，尤其是&lt;code&gt;--domain&lt;/code&gt;和&lt;code&gt;--generate-info&lt;/code&gt;这样的参数）。&lt;/p&gt;
-
-&lt;p&gt;由于通常你都需要配置自己的domain参数，所以我没有将makesite.sh写成通用脚本，而是建议你每个Github本地仓库下载一份独立的，并修改其中DOMAIN变量的缺省值。&lt;/p&gt;
-
-&lt;p&gt;也正是因此，它也被加入了git的排除文件列表。&lt;/p&gt;
-
-&lt;h2 id="6"&gt;6. 填了哪些坑？&lt;/h2&gt;
-
-&lt;p&gt;前面说过makesite.sh用来填Buster的一些坑的。但填了哪些坑呢？下面讲讲技术问题。&lt;/p&gt;
-
-&lt;h3 id="61busterwget"&gt;6.1 Buster调用wget时的参数问题&lt;/h3&gt;
-
-&lt;h4 id="611buster5pages"&gt;6.1.1 Buster其实只帮你抓5页Pages&lt;/h4&gt;
-
-&lt;p&gt;如果你的博客很多，有很多的分页（比如我的就有五十多页），那么你很容易就发现其实Buster只帮你抓了其中的5页——很郁闷吧。&lt;/p&gt;
-
-&lt;p&gt;这是因为Buster调用wget来抓取页面，而它在递归下载时默认搜索的递归尝试就是5层，这个需要修改&lt;code&gt;--level&lt;/code&gt;参数。&lt;/p&gt;
-
-&lt;h4 id="612"&gt;6.1.2 你可能需要忽略掉一些抓取页面&lt;/h4&gt;
-
-&lt;p&gt;Ghost默认会帮你生成很多东西，有SEO用的amp文件、sitemap文件或rss文件，又例如最新的ld+json数据。然而你不见得都需要用到，其中最严重的就是amp，因为这相当于你生成了两份博客，所以我们需要用&lt;code&gt;--reject-regex&lt;/code&gt;来忽略掉它。&lt;/p&gt;
-
-&lt;p&gt;还有一种情况非常特殊。在Ghost博客里，tag页可能有两种url（事实上所有的页面都会有这两种页）：&lt;code&gt;/tags/XXX&lt;/code&gt;和&lt;code&gt;tags/XXX/&lt;/code&gt;。别小看多出来的这个斜杠&lt;code&gt;/&lt;/code&gt;：当wget访问&lt;code&gt;/XXX&lt;/code&gt;页时，它是将url理解为文件的，因此将要写入的是文件XXX（如果加上&lt;code&gt;--adjust-extension&lt;/code&gt;参数那么就写入XXX.html）；而访问&lt;code&gt;/XXX/&lt;/code&gt;时，wget认为它访问的是目录，所以也就会尝试创建XXX这个目录并写入&lt;code&gt;./XXX/index.html&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;然而我们设想一个问题：如果一个网站中既有&lt;code&gt;/tags/XXX&lt;/code&gt;又有&lt;code&gt;tags/XXX/&lt;/code&gt;，那么当wget先找到前者的时候，就会在当前目录下写一个XXX文件，而下一次它找到后一种的时候，会发生什么呢？&lt;/p&gt;
-
-&lt;p&gt;这有三种可能性：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;如果有XXX目录，而又要创建XXX文件的话，wget会创建一个名为XXX.1的文件；&lt;/li&gt;
-&lt;li&gt;如果反过来是有XXX文件的情况下，
-&lt;ul&gt;&lt;li&gt;需要再创建./XXX/目录，那么wget直接覆盖XXX文件，于是旧的XXX文件丢失，多出来一个新的XXX目录；&lt;/li&gt;
-&lt;li&gt;需要创建&lt;code&gt;./XXX/yyy/index.html&lt;/code&gt;这样的子级目录中的文件的话，那么很不幸，wget抛出一个异常&lt;code&gt;./XXX/yyy : Not a directory&lt;/code&gt;，写文件不成功。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;所以，我们需要忽略掉一些抓取页面，因为他们可能先于一个目录创建之前要写入，又或者与已写入的文件冲突，再或者根本就是多余的、重复的页。&lt;/p&gt;
-
-&lt;h4 id="613busterpy"&gt;6.1.3 不修改buster.py的做法&lt;/h4&gt;
-
-&lt;p&gt;为了不修改Buster的源代码，我在makesite.sh中定义了一个名为wget的函数，并且在当前进程中导出它。这样一来，由于Buster是由makesite.sh这个shell脚本launch起来的，那么当它调用wget下载的时候，就调用了我们在程序中修改过的版本。&lt;/p&gt;
-
-&lt;p&gt;——这是一种在当前脚本中打patch的方法（可以不修改buster.py的源代码）。基本的代码如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;##
-## 参见makesite.sh源代码
-##
-
-## 声明函数并追加参数
-function wget { $RAW_WGET --level=0 inf --reject-regex=... }
-
-## 取原始的wget的路径并导出到当前环境中
-export RAW_WGET=`which wget`
-
-## 将wget函数导出到当前环境中
-export -f wget
-
-## 调用buster，这时buster将使用我们在代码中声明的wget函数来下载
-buster ...  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="62"&gt;6.2 移除版本号&lt;/h3&gt;
-
-&lt;p&gt;在新近一些的前端技巧中，为JavaScript和CSS文件加上版本号已经是很流行的做法了。然而这意味着Buster抓取的文件会存成类似&lt;code&gt;shared/ghost-url.js?v=3edb33f1b1&lt;/code&gt;这样的名字。&lt;/p&gt;
-
-&lt;p&gt;所以在makesite.sh中有两行代码来对&lt;code&gt;assets&lt;/code&gt;和&lt;code&gt;shared&lt;/code&gt;目录中的资源做更名，以移除这种版本号：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;## 移除assets目录中的资源版本号
-&amp;gt; find static/assets -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
-
-## 移除shared目录中的资源版本号(通常只有/ghost-url.js这个文件)
-&amp;gt; find static/shared -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id="63resetdomainshortpath"&gt;6.3 从reset-domain到short-path&lt;/h3&gt;
-
-&lt;p&gt;reset-domain是&lt;a href="https://mrcotter.github.io/author/kris/"&gt;Kris Cotter&lt;/a&gt;最早版本代码中的功能，简单地说就是将Buster下载的网页文件中残留的&lt;code&gt;localhost:2368&lt;/code&gt;再做一次替换，所以我将这个过程叫做reset-domain。&lt;/p&gt;
-
-&lt;p&gt;事实上wget的&lt;code&gt;--convert-links&lt;/code&gt;参数做过一次高性能的链接转换，但这远远不够——这些转换基于wget的html parser中对"链接"的定义（可以参见tag&lt;em&gt;attr html&lt;/em&gt;allow这个数据结构，位于wget源码html.c中）。而reset-domain针对的是可能存在的文本替换——而无论对象是否是.html，或者是否是真实的url链接。&lt;/p&gt;
-
-&lt;p&gt;经过这两轮的处理（generate和reset-domain）之后，事实上整个&lt;code&gt;./static&lt;/code&gt;目录下的文件已经可以作为静态页发布了。确切地说，你已经可以使用下面的命令来部署本地git仓库，将它推到你的主页&lt;code&gt;YOURNAME.github.io&lt;/code&gt;中去了：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; bash makesite.sh --deploy-now
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然而makesite.sh脚本还在这个操作之前插入了一个&lt;code&gt;--short-path&lt;/code&gt;——我想你已经注意到这一点了。&lt;/p&gt;
-
-&lt;p&gt;这个short-path的目的是将Ghost生成的类似于&lt;code&gt;/your--post-full-title----as-slug/index.html&lt;/code&gt;这样长的“目录名+文件名”变得短一些。它基本的想法就是让主页根目录下不要太多的目录，因此将这些目录中的index.html上移到它们的父目录中——对于所有的posts来说，其实也就是根目录下。&lt;/p&gt;
-
-&lt;p&gt;这个过程其实有一个更好的解决方案，就是将所有这些文件移入到&lt;code&gt;/posts/your--post-full-title----as-slug.html&lt;/code&gt;，这样一来主页根目录下就只有一个posts目录了。我尝试过，但之后放弃了，因为我写不出一个有效的正则表达式来替换所有“其它”页面中的url——到该页面的新位置。&lt;/p&gt;
-
-&lt;p&gt;好吧，总而言之，我们做了一点工作（尽管实际上这是效率最低的一个步骤）。所以你还是可以在部署之前尝试一下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; bash makesite.sh --short-path
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id="631url"&gt;6.3.1 更短的url&lt;/h4&gt;
-
-&lt;p&gt;我的主页&lt;code&gt;aimingoo.github.io&lt;/code&gt;中其实使用的是更短的url地址，而并不是Ghost中缺省地按照文章标题通过拼音转换而来——后面这种文件名生成得太长太难看了。这种『更短的url』其实是通过为每个post设置它独自的slug属性而得到的，这需要为每篇文章在Ghost后台管理界面去编辑Post的属性。&lt;/p&gt;
-
-&lt;p&gt;这也是上一篇博客中提到的&lt;code&gt;putrefy.js&lt;/code&gt;这个工具（&lt;a href="https://github.com/aimingoo/ghost-utils"&gt;在这里&lt;/a&gt;）中会有一个&lt;code&gt;SLUG_FROMID&lt;/code&gt;参数的原因。当配置这个参数为true时，你从旧博客中导入的文章就将自动地以&lt;code&gt;author_id&lt;/code&gt;作为前缀，并加上post_id作为slug了——我的博客就是用这种方法来导入的。当然，你也可以将&lt;code&gt;SLUG_FROMID&lt;/code&gt;配置为别的什么字符串来作为前缀。&lt;/p&gt;
-
-&lt;p&gt;但是，你在Ghost后台新添加的文章，就需要你手工地改slug了。这个今后我会发布个小工具来自动化的，这里暂且不提。&lt;/p&gt;
-
-&lt;h3 id="64patchmesh"&gt;6.4 关于patchme.sh&lt;/h3&gt;
-
-&lt;p&gt;这是在makesite.sh中留下的一小处补丁程序。你可以编写一段shell代码（放在makesite.sh同目录中就可以了），让makesite.sh在正式地deploy-now操作之前，由你自己来对&lt;code&gt;./static&lt;/code&gt;目录中的页面做些修补。这偶尔也是必要的，例如我现在这篇文章是在介绍Ghost，那就不可避免地会用到&lt;code&gt;localhost:2368&lt;/code&gt;这样的url地址，而按照Buster和makesite.sh的规则，它们就可能被替换成线上Github仓库中的地址了——所以需要one by one地patch。&lt;/p&gt;
-
-&lt;p&gt;当然，你也可以写点别的什么代码。&lt;/p&gt;
-
-&lt;p&gt;尤其是……程序员总想干点什么黑活之类的啦。&lt;/p&gt;
-
-&lt;p&gt;你懂的。&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;不同的主题的修改会略有区别，本文只供参考。&lt;/p&gt;</content:encoded></item></channel></rss>
