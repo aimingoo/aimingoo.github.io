@@ -1,7 +1,0 @@
-document.writeln(function authorProfileContext() {/*
-        <div class="author-meta">
-            
-            
-
-        </div>
-*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
