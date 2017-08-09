@@ -1,4 +1,131 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 04 Aug 2017 05:28:20 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[小述系列最终篇：说说《大道至易：实践者的思想》]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 09 Aug 2017 06:28:20 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
+
+<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
+
+<h2 id="loop">找到loop</h2>
+
+<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/tree/master/affinity">参见这里</a>）：</p>
+
+<pre><code class="language-html">&lt;div class="content-cards"&gt;  
+  {{#foreach posts}}
+...
+  {{/foreach}}
+&lt;/div&gt;
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}
+</code></pre>
+
+<p>我们将这一对<code>{{#foreach}</code></p>]]></description><link>http://aimingoo.github.io/1-1739.html/</link><guid isPermaLink="false">8d2d0859-a75f-4b1d-97e3-0ef92e4b556f</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 09 Aug 2017 06:22:59 GMT</pubDate><content:encoded><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
+
+<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
+
+<h2 id="loop">找到loop</h2>
+
+<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/tree/master/affinity">参见这里</a>）：</p>
+
+<pre><code class="language-html">&lt;div class="content-cards"&gt;  
+  {{#foreach posts}}
+...
+  {{/foreach}}
+&lt;/div&gt;
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}
+</code></pre>
+
+<p>我们将这一对<code>{{#foreach}}</code>标签中（含标签本身）的全部内容剪切出来，并放到一个新的的<code>partials/content_post.hbs</code>文件去。然后，将<code>content_post.hbs</code>复制一份，命名为<code>content_featured.hbs</code>。这样，在<code>partials</code>目录中就有了下面三个文件：</p>
+
+<pre><code>partials/loop.hbs  
+partials/content_post.hbs  
+partials/content_featured.hbs  
+</code></pre>
+
+<h2 id="loop">在loop中标记置顶贴</h2>
+
+<p>现在在<code>loop.hbs</code>中还有一对<code>div</code>标签：：</p>
+
+<pre><code class="language-html">&lt;div class="content-cards"&gt;  
+&lt;/div&gt;  
+</code></pre>
+
+<p>我们只需要把下面的代码直接复制到这一对标签之中，就好了：</p>
+
+<pre><code class="language-html">&lt;!-- 置顶风格 --&gt;  
+{{^is "paged"}}
+  {{! list all feated posts on top }}
+  {{#is "index"}}
+  {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
+  {{#foreach featured}}
+      {{&gt; content_featured}}
+  {{/foreach}}
+  {{/get}}
+  {{/is}}
+
+  {{#is "author"}}
+  {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
+  {{#foreach featured}}
+      {{&gt; content_featured}}
+  {{/foreach}}
+  {{/get}}
+  {{/is}}
+{{/is}}
+
+&lt;!-- 普通风格 --&gt;  
+  {{#foreach posts}}
+    {{#is "tag"}}
+        {{&gt; content_post}}
+    {{else}}
+        {{#unless featured}}
+        {{&gt; content_post}}
+        {{/unless}}
+    {{/is}}
+  {{/foreach}}
+</code></pre>
+
+<h2 id="">设定置顶贴的效果</h2>
+
+<p>现在你只需要修改<code>partials/content_featured.hbs</code>中的样式，就可以定制你需要的置顶贴的效果了。以affinity为例，我在<code>content_featured.hbs</code>中的下面代码位置添加了一个<code>featured</code>类名：</p>
+
+<pre><code>      ...
+      &lt;header class="card-header featured"&gt;
+        &lt;div class="card-title"&gt;
+</code></pre>
+
+<p>然后，找到<code>assets/css/screen.css</code>文件，添加这个类的CSS样式：</p>
+
+<pre><code class="language-css">.content-cards .featured {
+  border: 1px solid red;
+}
+</code></pre>
+
+<p>Ok. 你刷新一下博客效果，每个置顶贴的标题就加了个红框框啦。</p>
+
+<blockquote>
+  <p>更多的效果请自己搞哇。</p>
+</blockquote>
+
+<h2 id="">确认置顶效果会影响的内容</h2>
+
+<p>你可以简单地通过下面的方法确认它会影响到的页面：</p>
+
+<pre><code class="language-bash">&gt; cd affinity
+&gt; grep -H 'loop' *.hbs
+index.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
+index.hbs:{{&gt; "loop"}}  
+tag.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
+tag.hbs:{{&gt; "loop"}}  
+</code></pre>
+
+<p>这说明tag和index页会受到loop的影响——不过在前面文章里我已经说过，置顶效果是无法影响到tag页的。所以……另外，事实上这里可以列出有index.hbs、author.hbs和tag.hbs三种页面的，只是affinity这个theme没有author.hbs页罢了。</p>
+
+<h2 id="loophbs">如果没有loop.hbs</h2>
+
+<p>如上所提示到的，如果<code>loop.hbs</code>没有单独地放在<code>partials</code>目录中，那么它可能直接用一对标签<code>{{#foreach posts}}</code>放在index、author或tag三个页面中了。找一找？</p>
+
+<p>你可以直接参考本文来处理这个<code>foreach</code>。或者，我建议把这部分内容/代码取出来放在<code>loop.hbs</code>中，然后再照本文所述处理就好啦。</p>
+
+<p>当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：<a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs">https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs</a></p>]]></content:encoded></item><item><title><![CDATA[小述系列最终篇：说说《大道至易：实践者的思想》]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
 
 <blockquote>
   <p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
@@ -407,9 +534,8 @@
 <p>目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：</p>
 
 <ul>
-<li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a>首页查看；</li>
-<li>或直接<a href="http://www.ituring.com.cn/book/2429">《程序原本》</a>、<a href="http://www.ituring.com.cn/book/2428">《大道至易：实践者的思想》</a>，以及<a href="http://www.ituring.com.cn/book/2430">《我的架构思想》</a>。</li>
-</ul>]]></description><link>http://aimingoo.github.io/1-1732.html/</link><guid isPermaLink="false">528fdfaa-f05a-492d-a914-b8296a57e7bd</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[架构]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 20 Jun 2017 03:54:33 GMT</pubDate><content:encoded><![CDATA[<p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
+<li>下载在这里：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a>, 相关信息在这里：<a href="http://aimingoo.github.io/1-1736.html">大道至易</a>、<a href="http://aimingoo.github.io/1-1735.html">我的架构思想</a>和<a href="http://aimingoo.github.io/1-1734.html">程序原本</a>；或，</li>
+<li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a></li></ul>]]></description><link>http://aimingoo.github.io/1-1732.html/</link><guid isPermaLink="false">528fdfaa-f05a-492d-a914-b8296a57e7bd</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[架构]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 20 Jun 2017 03:54:33 GMT</pubDate><content:encoded><![CDATA[<p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
 
 <p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
 
@@ -430,6 +556,7 @@
 <p>目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：</p>
 
 <ul>
+<li>下载在这里：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a>, 相关信息在这里：<a href="http://aimingoo.github.io/1-1736.html">大道至易</a>、<a href="http://aimingoo.github.io/1-1735.html">我的架构思想</a>和<a href="http://aimingoo.github.io/1-1734.html">程序原本</a>；或，</li>
 <li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a>首页查看；</li>
 <li>或直接<a href="http://www.ituring.com.cn/book/2429">《程序原本》</a>、<a href="http://www.ituring.com.cn/book/2428">《大道至易：实践者的思想》</a>，以及<a href="http://www.ituring.com.cn/book/2430">《我的架构思想》</a>。</li>
 </ul>]]></content:encoded></item><item><title><![CDATA[发布《大道至简》电子版（第三版）]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
@@ -2369,244 +2496,4 @@ https://github.com/login/oauth/access_token
 
 <p>当然，Gitment还需要稍稍的改点代码。</p>
 
-<p>这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。</p>]]></content:encoded></item><item><title><![CDATA[手记3：实例教学之Ghost模板定制]]></title><description><![CDATA[<p>接下来我们聊一下如何定制这个博客的风格。</p>
-
-<h2 id="7themes">7. 定制Themes</h2>
-
-<p>Ghost缺省使用的主题叫casper theme，你可以在博客管理界面<code>Settings -&gt; General -&gt; Themes</code>中找到你当前安装过的全部Themes，并任意激活/删除它们。</p>
-
-<p>有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的<code>content/themes/</code>目录下。</p>
-
-<p>我选择的是使用小蘿蔔丁(<a href="http://xlbd.me/">在这里</a>)发布的<code>kaldorei - 0.8.0</code>，你可以下载或阅读这个Theme相关的说明（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei">这里</a>）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。</p>
-
-<p>但我还是做了一些修改（关于Themes的基础使用与修改改可以参考<a href="http://docs.ghost.org/zh/themes/">这里</a>）。</p>
-
-<h3 id="71">7.1 一些基本和简单的使用</h3>
-
-<p>Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）</p>]]></description><link>http://aimingoo.github.io/1-1721.html/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded><![CDATA[<p>接下来我们聊一下如何定制这个博客的风格。</p>
-
-<h2 id="7themes">7. 定制Themes</h2>
-
-<p>Ghost缺省使用的主题叫casper theme，你可以在博客管理界面<code>Settings -&gt; General -&gt; Themes</code>中找到你当前安装过的全部Themes，并任意激活/删除它们。</p>
-
-<p>有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的<code>content/themes/</code>目录下。</p>
-
-<p>我选择的是使用小蘿蔔丁(<a href="http://xlbd.me/">在这里</a>)发布的<code>kaldorei - 0.8.0</code>，你可以下载或阅读这个Theme相关的说明（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei">这里</a>）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。</p>
-
-<p>但我还是做了一些修改（关于Themes的基础使用与修改改可以参考<a href="http://docs.ghost.org/zh/themes/">这里</a>）。</p>
-
-<h3 id="71">7.1 一些基本和简单的使用</h3>
-
-<p>Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。</p>
-
-<p>kaldorei主题是使用这个方式来实现『历史归档』的功能（<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能">参考这里</a>），这也相当于介绍了『定制静态页』功能的用法——所以我的博客的『关于』页面就是这样做的。</p>
-
-<h4 id="711">7.1.1 处理背景色与背景图片</h4>
-
-<p>需要两个操作。其一：</p>
-
-<pre><code class="language-css">/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
-body {  
-    margin: 0;
-    background: #000;
-}
-</code></pre>
-
-<p>其二，在default.hbs模板的body标签之后添加如下风格样式：</p>
-
-<pre><code class="language-html">&lt;style&gt;  
-body {  
-    background-image: url(/assets/img/background.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-attachment: fixed;
-    background-size: auto;
-}
-
-.site-wrapper {
-    background: none;
-}
-
-.main-header {
-    background: none;
-    border-bottom: none;
-}
-
-.main-nav a {
-    color: #FFF;
-}
-&lt;/style&gt;  
-</code></pre>
-
-<p>注意这个风格中的背景图片是放在Ghost安装目录下的<code>content/themes/ghost-theme-kaldorei/assets/img</code>目录中的。makesite.sh脚本（或Buster工具）会搜索到这个文件，并下载这个文件到你的static目录中。</p>
-
-<h4 id="712">7.1.2 为每篇博客添加『编辑』按钮</h4>
-
-<p>当添加了这个按钮之后，我在本地博客中读博文的时就可以随时编辑它，而不必总是回到管理后台去找到这篇文章——Ghost后台没有搜索功能。</p>
-
-<p>因为添加的这个按钮对线上的用户没有意义，所以在我的<code>makesite.sh</code>脚本中有一处代码会将它从<code>./static</code>中的静态页面中清理掉。</p>
-
-<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/post.hbs --&gt;  
-&lt;span class="post-meta-item pull-right"&gt;  
-  &lt;!-- 在这个位置插入如下行 --&gt;
-  &lt;a href="/ghost/editor/{{id}}/" target="_blank"&gt;编辑&lt;/a&gt;
-&lt;/span&gt;  
-</code></pre>
-
-<h4 id="713">7.1.3 移除所有页脚</h4>
-
-<p>纯粹只是个人不喜欢而已，因此除了保留版权说明之外，其它页脚本全部合并/删除掉了。基本上你在.hbs文件中搜索<code>-footer</code>然后自己斟情清理就行了。</p>
-
-<pre><code class="language- bash">&gt; grep 'footer' *.hbs partials/*
-</code></pre>
-
-<h4 id="714">7.1.4 定制个人信息</h4>
-
-<p>相关的信息页面在如下模板中，斟情修改（许多信息可以在博客后台的个人配置与网页配置中定制）：</p>
-
-<pre><code>## 清理掉部分社交信息
-ghost-theme-kaldorei/partials/social.hbs  
-ghost-theme-kaldorei/partials/post_author.hbs  
-## 我移除掉了标签数量的统计
-ghost-theme-kaldorei/partials/site_stat.hbs  
-</code></pre>
-
-<h4 id="715">7.1.5 在博客文章中显示作者信息</h4>
-
-<p>kaldorei主题并没有特别强调多作者博客的功能，所以它的文章（post）中只显示标签云，而不显示该文章的作者信息。因此我添加了这一功能，但需要做的修改极少：</p>
-
-<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&gt;  
-&lt;!-- 注意在下面位置的is标签后面，多添加一个post参数，就可以了 --&gt;  
-    {{! 作者：显示作者信息 }}
-    {{#is "author, post"}}
-</code></pre>
-
-<p>关于多作者博客的支持，我打算另开一篇博文来讲。</p>
-
-<p>^^.</p>
-
-<h4 id="716">7.1.6 修改语法高亮</h4>
-
-<p>在default.hbs中载入新的highlight style即可：</p>
-
-<pre><code class="language-html">&lt;!-- kaldorei的缺省风格是monokai-sublime.css, 在styles目录下找个新的换上就Ok --&gt;  
-&lt;!-- 可以先查看https://highlightjs.org/static/demo/来选择风格 --&gt;  
-&lt;link rel="stylesheet" type="text/css" href="{{asset "plugins/highlight-9.1.0/styles/xcode.css"}}" /&gt;  
-</code></pre>
-
-<p>此外，你可能需要调整高亮代码左侧的行号背景（或其它），那么应修改如下样式表：</p>
-
-<pre><code class="language-css">/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
-.pre-numbering {
-    position: absolute;
-    ...
-}
-
-.pre-numbering li {
-    ...
-}
-</code></pre>
-
-<h4 id="717">7.1.7 指定文章置顶</h4>
-
-<p>置顶文章是常见的博客操作，你可以将一篇文章设置为<code>featured</code>，并且通过修改模板来使它们置顶。这会涉及到不少的修改。</p>
-
-<p>好在所谓『置顶』操作其实只会发生在带有<code>（列表）list</code>性质的页面中，这类页面在Ghost中称为<code>paged</code>，它只出现在以下三类页面上：index, tag and author（<a href="https://themes.ghost.org/docs/paged-context#section-description">参见这里</a>）。在这三类页面中，可以用loop模板去列举所有页，但它们的<code>第1页</code>是paged为false的，而之后的<code>第2..n页</code>则是paged为true的。可以通过这种区别来将你需要的内容置顶，并在其它页面中筛除它们。</p>
-
-<p>在具体实现中，由于<code>{{get}}</code>标记在<code>filter</code>设置时不能使用包含或查找操作（它能使用的运算支持<a href="https://api.ghost.org/docs/filter">在这里</a>），所以tag页不能用index/author页相同的方法来实现置顶。然而此外唯一可能做这个运算的<code>{{has}}</code>标记却不支持参数传入——所以，你已经知道结果了：在tag页中不支持（按标签分类过的）置顶。</p>
-
-<pre><code class="language-html">&lt;!-- 在loop.hbs中用以下代码分别载入置顶风格的posts --&gt;  
-{{^is "paged"}}
-    {{! list all feated posts on top }}
-    {{#is "index"}}
-    {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
-    {{#foreach featured}}
-        {{&gt; content_featured}}
-    {{/foreach}}
-    {{/get}}
-    {{/is}}
-
-    {{#is "author"}}
-    {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
-    {{#foreach featured}}
-        {{&gt; content_featured}}
-    {{/foreach}}
-    {{/get}}
-    {{/is}}
-{{/is}}
-
-&lt;!-- 紧接着载入普通风格的posts --&gt;  
-    {{#foreach posts}}
-    {{#is "tag"}}
-        {{&gt; content_post}}
-    {{else}}
-        {{#unless featured}}
-        {{&gt; content_post}}
-        {{/unless}}
-    {{/is}}
-    {{/foreach}}
-</code></pre>
-
-<p>然后在<code>partials/content_featured.hbs</code>和<code>partials/content_post.hbs</code>中分别设置两种样式即可。——可以将原来在loop.hbs中<code>foreach posts</code>的代码块直接接到<code>partials/content_post.hbs</code>中。</p>
-
-<p>最后，一些细节可以参考这里：<a href="https://www.ghostforbeginners.com/move-featured-posts-to-the-top-of-your-blog/">Move Featured Posts to the Top of your Blog</a>。</p>
-
-<h3 id="72">7.2 将站点信息与云标签静态化</h3>
-
-<p>Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site_stat)』或『标签云(tag_cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。</p>
-
-<p>原因是这样，比如说你的site_stat里有一个『站点发表了多少篇文章』的计数，那么，显然你添加/删除一篇博客，就得让所有静态面这个位置的计数变一下；又例如标签名，你添加一个标签那么全站所有页的标签云都要动态生成一下。</p>
-
-<p>而事实上——99%的博客文章或静态页面在内容上都没有什么变化 。所以，能不能将这些动态变化的信息静态化掉，不至于每次都要重新生成？</p>
-
-<p>是能的。我采用的策略是：用js装载这些静态化的信息。</p>
-
-<h4 id="721">7.2.1 为标签云添加一个静态页</h4>
-
-<p>在博客后台添加一篇新的博客，将它的页面url设置成tag_cloud，并配配置它为静态页面（参见『历史归档』的做法，<a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能">在这里</a>）。这一篇博客的内容可以为空。</p>
-
-<p>然后在<code>content/themes/ghost-theme-kaldorei/</code>目录下新添加一个名为<code>page-tag-cloud.hbs</code>的模板——它将是上面这篇文章的专用模板，Ghost是通过文件名来识别的。内容如下：</p>
-
-<pre><code class="language-javascript">document.writeln(function cloudTagHtmlContext() {/*  
-  {{&gt; "tag_cloud"}}
-*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
-</code></pre>
-
-<p>注意，这是一段标准的JavaScript代码，并且事实上只有一行：</p>
-
-<pre><code class="language-javascript">document.writeln(...);  
-</code></pre>
-
-<p>当Ghost将在后台把<code>page-tag-cloud.hbs</code>当成标准的模板文件来处理，所以它会填充其中的Ghost标志，并装载子模板页。而生成出来的静态页实际上是一个.js的文本文件，并且放在（我们在对应博客文章后台配置的）<code>/tag_cloud</code>这个位置上——不过没有扩展名而已。</p>
-
-<p>这段脚本的作用仅仅是将cloudTagHtmlContext()这个函数（也可以是匿名函数）中的内容取出来，然后写在网页上。</p>
-
-<p>这段代码总是通用的，可以用来将任意模板/网页转换成这样一个脚本文件，以便于动态装载。</p>
-
-<h4 id="722">7.2.2 修改其它模板以装入上述脚本</h4>
-
-<p>这很简单，在sitebar.hbs这个文件中找到<code>{{&gt; "tag_cloud"}}</code>，然后替换成下面的即可：</p>
-
-<pre><code class="language-html">&lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&gt;  
-&lt;!-- 找到{{&gt; "tag_cloud"}}然后替换成下面的脚本 --&gt;  
-&lt;script type="text/javascript" src="/tag-cloud"&gt;&lt;/script&gt;  
-</code></pre>
-
-<h4 id="723site_stat">7.2.3 关于site_stat</h4>
-
-<p>与tag_cloud的处理类似，我添加了<code>/profile_site</code>静态页，并且添加模板如下：</p>
-
-<pre><code class="language-javascript">// file at ghost-theme-kaldorei/page-profile-site.hbs
-document.writeln(function cloudTagHtmlContext() {/*  
-    &lt;hr&gt; {{&gt; "site_stat"}}
-    &lt;hr&gt; {{&gt; "social"}}
-*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
-</code></pre>
-
-<p>同样，最后你需要改一下<code>partials/profile.hbs</code>相应位置来装载<code>/profile_site</code>这个脚本文件。</p>
-
-<h3 id="73">7.3 其它</h3>
-
-<p>事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的有关『静态化』的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。</p>
-
-<p>不同的主题的修改会略有区别，本文只供参考。</p>]]></content:encoded></item></channel></rss>
+<p>这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。</p>]]></content:encoded></item></channel></rss>

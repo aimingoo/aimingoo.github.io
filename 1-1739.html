@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>三本免费电子书齐齐完工了</title>
+    <title>简单实现Ghost Theme的置顶效果</title>
     <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -22,26 +22,22 @@
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="三本免费电子书齐齐完工了" />
-    <meta property="og:description" content="首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。 大道至易：实践者的思想 我的架构思想：基础模型、理论与原则 程序原本 这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页”版式并设置“首页不同”（在Macbook的预览中是默认的）。   本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。 下载： 目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）： 下载在这里：http://github.com/aimingoo/my-ebooks, 相关信息在这里：大道至易、我的架构思想和程序原本；或， 图灵电子书首页查看； 或直接《程序原本》" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-1732.html" />
-    <meta property="article:published_time" content="2017-06-20T03:54:33.000Z" />
-    <meta property="article:modified_time" content="2017-08-09T06:22:09.000Z" />
-    <meta property="article:tag" content="电子书" />
-    <meta property="article:tag" content="出版" />
-    <meta property="article:tag" content="软件工程" />
-    <meta property="article:tag" content="大道至易" />
-    <meta property="article:tag" content="架构" />
-    <meta property="article:tag" content="语言" />
+    <meta property="og:title" content="简单实现Ghost Theme的置顶效果" />
+    <meta property="og:description" content="在《手记3：实例教学之Ghost模板定制》里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。 下面的内容以affinity为例，这个Theme在这里：https://github.com/Showfom/Affinity 找到loop 在affinity/partials目录中的loop.hbs是一个关键文件，它通常如下结构（参见这里）： &amp;lt;div class&#x3D;&quot;content-cards&quot;&amp;gt;     {{#foreach posts}} ...   {{/foreach}} &amp;lt;/div&amp;gt; {{!-- Previous/next page links - displayed on every page --}} {{pagination}} 我们将这一对{{#foreach}}标签中（含标签本身）的全部内容剪切出来，并放到一个新的的partials/" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1739.html" />
+    <meta property="article:published_time" content="2017-08-09T06:22:59.000Z" />
+    <meta property="article:modified_time" content="2017-08-09T06:25:13.000Z" />
+    <meta property="article:tag" content="Ghost" />
+    <meta property="article:tag" content="博客" />
     
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="三本免费电子书齐齐完工了" />
-    <meta name="twitter:description" content="首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。 大道至易：实践者的思想 我的架构思想：基础模型、理论与原则 程序原本 这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页”版式并设置“首页不同”（在Macbook的预览中是默认的）。   本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。 下载： 目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）： 下载在这里：http://github.com/aimingoo/my-ebooks, 相关信息在这里：大道至易、我的架构思想和程序原本；或， 图灵电子书首页查看； 或直接《程序原本》" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-1732.html" />
+    <meta name="twitter:title" content="简单实现Ghost Theme的置顶效果" />
+    <meta name="twitter:description" content="在《手记3：实例教学之Ghost模板定制》里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。 下面的内容以affinity为例，这个Theme在这里：https://github.com/Showfom/Affinity 找到loop 在affinity/partials目录中的loop.hbs是一个关键文件，它通常如下结构（参见这里）： &amp;lt;div class&#x3D;&quot;content-cards&quot;&amp;gt;     {{#foreach posts}} ...   {{/foreach}} &amp;lt;/div&amp;gt; {{!-- Previous/next page links - displayed on every page --}} {{pagination}} 我们将这一对{{#foreach}}标签中（含标签本身）的全部内容剪切出来，并放到一个新的的partials/" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1739.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="电子书, 出版, 软件工程, 大道至易, 架构, 语言" />
+    <meta name="twitter:data2" content="Ghost, 博客" />
     
     <script type="application/ld+json">
 {
@@ -67,12 +63,12 @@
         ],
         "description": "I&#x27;m here."
     },
-    "headline": "三本免费电子书齐齐完工了",
-    "url": "http://aimingoo.github.io/1-1732.html",
-    "datePublished": "2017-06-20T03:54:33.000Z",
-    "dateModified": "2017-08-09T06:22:09.000Z",
-    "keywords": "电子书, 出版, 软件工程, 大道至易, 架构, 语言",
-    "description": "首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。 大道至易：实践者的思想 我的架构思想：基础模型、理论与原则 程序原本 这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页”版式并设置“首页不同”（在Macbook的预览中是默认的）。   本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。 下载： 目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）： 下载在这里：http://github.com/aimingoo/my-ebooks, 相关信息在这里：大道至易、我的架构思想和程序原本；或， 图灵电子书首页查看； 或直接《程序原本》",
+    "headline": "简单实现Ghost Theme的置顶效果",
+    "url": "http://aimingoo.github.io/1-1739.html",
+    "datePublished": "2017-08-09T06:22:59.000Z",
+    "dateModified": "2017-08-09T06:25:13.000Z",
+    "keywords": "Ghost, 博客",
+    "description": "在《手记3：实例教学之Ghost模板定制》里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。 下面的内容以affinity为例，这个Theme在这里：https://github.com/Showfom/Affinity 找到loop 在affinity/partials目录中的loop.hbs是一个关键文件，它通常如下结构（参见这里）： &amp;lt;div class&#x3D;&quot;content-cards&quot;&amp;gt;     {{#foreach posts}} ...   {{/foreach}} &amp;lt;/div&amp;gt; {{!-- Previous/next page links - displayed on every page --}} {{pagination}} 我们将这一对{{#foreach}}标签中（含标签本身）的全部内容剪切出来，并放到一个新的的partials/",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -91,7 +87,7 @@ ghost.init({
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-dian-zi-shu tag-chu-ban tag-ruan-jian-gong-cheng tag-da-dao-zhi-yi tag-jia-gou tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-ghost-tag tag-bo-ke nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -126,9 +122,9 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-dian-zi-shu tag-chu-ban tag-ruan-jian-gong-cheng tag-da-dao-zhi-yi tag-jia-gou tag-yu-yan featured">
+        <article class="post tag-ghost-tag tag-bo-ke featured">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-1732.html">三本免费电子书齐齐完工了</a></h1>
+                <h1 class="post-title"><a href="/1-1739.html">简单实现Ghost Theme的置顶效果</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -136,12 +132,12 @@ ghost.init({
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-06-20">2 months ago</time>
-                        <time class="post-date" datetime="2017-06-20">(2017-06-20)</time>
+                        <time class="post-date" datetime="2017-08-09">24 minutes ago</time>
+                        <time class="post-date" datetime="2017-08-09">(2017-08-09)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/chu-ban/">出版</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/da-dao-zhi-yi/">大道至易</a>, <a href="/tag/jia-gou/">架构</a>, <a href="/tag/yu-yan/">语言</a>
+                        <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -150,31 +146,116 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
+                <p>在<a href="/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
 
-<p><img src="/content/images/2017/06/poster-1.jpg" alt="" /></p>
+<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
 
-<ul>
-<li>大道至易：实践者的思想</li>
-<li>我的架构思想：基础模型、理论与原则</li>
-<li>程序原本</li>
-</ul>
+<h2 id="loop">找到loop</h2>
 
-<p>这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页”版式并设置“首页不同”（在Macbook的预览中是默认的）。</p>
+<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/tree/master/affinity">参见这里</a>）：</p>
+
+<pre><code class="language-html">&lt;div class="content-cards"&gt;  
+  {{#foreach posts}}
+...
+  {{/foreach}}
+&lt;/div&gt;
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}
+</code></pre>
+
+<p>我们将这一对<code>{{#foreach}}</code>标签中（含标签本身）的全部内容剪切出来，并放到一个新的的<code>partials/content_post.hbs</code>文件去。然后，将<code>content_post.hbs</code>复制一份，命名为<code>content_featured.hbs</code>。这样，在<code>partials</code>目录中就有了下面三个文件：</p>
+
+<pre><code>partials/loop.hbs  
+partials/content_post.hbs  
+partials/content_featured.hbs  
+</code></pre>
+
+<h2 id="loop">在loop中标记置顶贴</h2>
+
+<p>现在在<code>loop.hbs</code>中还有一对<code>div</code>标签：：</p>
+
+<pre><code class="language-html">&lt;div class="content-cards"&gt;  
+&lt;/div&gt;  
+</code></pre>
+
+<p>我们只需要把下面的代码直接复制到这一对标签之中，就好了：</p>
+
+<pre><code class="language-html">&lt;!-- 置顶风格 --&gt;  
+{{^is "paged"}}
+  {{! list all feated posts on top }}
+  {{#is "index"}}
+  {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
+  {{#foreach featured}}
+      {{&gt; content_featured}}
+  {{/foreach}}
+  {{/get}}
+  {{/is}}
+
+  {{#is "author"}}
+  {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
+  {{#foreach featured}}
+      {{&gt; content_featured}}
+  {{/foreach}}
+  {{/get}}
+  {{/is}}
+{{/is}}
+
+&lt;!-- 普通风格 --&gt;  
+  {{#foreach posts}}
+    {{#is "tag"}}
+        {{&gt; content_post}}
+    {{else}}
+        {{#unless featured}}
+        {{&gt; content_post}}
+        {{/unless}}
+    {{/is}}
+  {{/foreach}}
+</code></pre>
+
+<h2 id="">设定置顶贴的效果</h2>
+
+<p>现在你只需要修改<code>partials/content_featured.hbs</code>中的样式，就可以定制你需要的置顶贴的效果了。以affinity为例，我在<code>content_featured.hbs</code>中的下面代码位置添加了一个<code>featured</code>类名：</p>
+
+<pre><code>      ...
+      &lt;header class="card-header featured"&gt;
+        &lt;div class="card-title"&gt;
+</code></pre>
+
+<p>然后，找到<code>assets/css/screen.css</code>文件，添加这个类的CSS样式：</p>
+
+<pre><code class="language-css">.content-cards .featured {
+  border: 1px solid red;
+}
+</code></pre>
+
+<p>Ok. 你刷新一下博客效果，每个置顶贴的标题就加了个红框框啦。</p>
 
 <blockquote>
-  <p>本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。</p>
+  <p>更多的效果请自己搞哇。</p>
 </blockquote>
 
-<p><strong>下载：</strong></p>
+<h2 id="">确认置顶效果会影响的内容</h2>
 
-<p>目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：</p>
+<p>你可以简单地通过下面的方法确认它会影响到的页面：</p>
 
-<ul>
-<li>下载在这里：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a>, 相关信息在这里：<a href="/1-1736.html">大道至易</a>、<a href="/1-1735.html">我的架构思想</a>和<a href="/1-1734.html">程序原本</a>；或，</li>
-<li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a>首页查看；</li>
-<li>或直接<a href="http://www.ituring.com.cn/book/2429">《程序原本》</a>、<a href="http://www.ituring.com.cn/book/2428">《大道至易：实践者的思想》</a>，以及<a href="http://www.ituring.com.cn/book/2430">《我的架构思想》</a>。</li>
-</ul>
+<pre><code class="language-bash">&gt; cd affinity
+&gt; grep -H 'loop' *.hbs
+index.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
+index.hbs:{{&gt; "loop"}}  
+tag.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
+tag.hbs:{{&gt; "loop"}}  
+</code></pre>
+
+<p>这说明tag和index页会受到loop的影响——不过在前面文章里我已经说过，置顶效果是无法影响到tag页的。所以……另外，事实上这里可以列出有index.hbs、author.hbs和tag.hbs三种页面的，只是affinity这个theme没有author.hbs页罢了。</p>
+
+<h2 id="loophbs">如果没有loop.hbs</h2>
+
+<p>如上所提示到的，如果<code>loop.hbs</code>没有单独地放在<code>partials</code>目录中，那么它可能直接用一对标签<code>{{#foreach posts}}</code>放在index、author或tag三个页面中了。找一找？</p>
+
+<p>你可以直接参考本文来处理这个<code>foreach</code>。或者，我建议把这部分内容/代码取出来放在<code>loop.hbs</code>中，然后再照本文所述处理就好啦。</p>
+
+<p>当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：<a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs">https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs</a></p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -186,17 +267,11 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-1731.html">
-                    发布《大道至简》电子版（第三版）
+                <a href="/1-1736.html">
+                    小述系列最终篇：说说《大道至易：实践者的思想》
                 </a>
             </span>
 
-            <span class="post-nav-next" >
-                <a href="/1-1734.html">
-                    电子书《程序原本》小述
-                </a>
-                下一篇
-            </span>
         </aside>
 
         <section class="post comments">

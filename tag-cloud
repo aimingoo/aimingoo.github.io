@@ -56,9 +56,9 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/erlang" class="tag-item">erlang (9)</a>
 				<a href="/tag/oop" class="tag-item">oop (9)</a>
 				<a href="/tag/ce-shi" class="tag-item">测试 (9)</a>
+				<a href="/tag/bo-ke" class="tag-item">博客 (9)</a>
 				<a href="/tag/shu-ju-jie-gou" class="tag-item">数据结构 (8)</a>
 				<a href="/tag/suan-fa" class="tag-item">算法 (8)</a>
-				<a href="/tag/bo-ke" class="tag-item">博客 (8)</a>
 				<a href="/tag/fen-xiang-xia-zai" class="tag-item">分享下载 (8)</a>
 				<a href="/tag/jia-gou-she-ji" class="tag-item">架构设计 (7)</a>
 				<a href="/tag/qian-duan-kai-fa" class="tag-item">前端开发 (7)</a>
@@ -74,9 +74,9 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/lisp" class="tag-item">lisp (4)</a>
 				<a href="/tag/hui-bian" class="tag-item">汇编 (4)</a>
 				<a href="/tag/yin-qing" class="tag-item">引擎 (4)</a>
+				<a href="/tag/ghost-tag" class="tag-item">Ghost (4)</a>
 				<a href="/tag/kindle" class="tag-item">Kindle (4)</a>
 				<a href="/tag/android" class="tag-item">android (3)</a>
-				<a href="/tag/ghost-tag" class="tag-item">Ghost (3)</a>
 				<a href="/tag/github" class="tag-item">Github (3)</a>
 				<a href="/tag/gitment" class="tag-item">Gitment (3)</a>
 				<a href="/tag/promise" class="tag-item">Promise (2)</a>
