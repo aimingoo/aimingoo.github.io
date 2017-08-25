@@ -74,3 +74,11 @@
         };
     }
 })();
+
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?af5c6adc8f4de1d056b846b985af6cc0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
