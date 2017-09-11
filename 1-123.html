@@ -1,41 +1,43 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>VCL已死，RAD已死(1)</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="VCL已死，RAD已死(1)">
-    <meta property="og:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与     此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两     个断言：“VCL已死，RAD已死”。     所以今次开贴重讲！     一、从UI的变革到系统的复杂性     －－－－－     UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,     Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌     握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI     应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还     是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。     同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。">
-    <meta property="og:url" content="http://aimingoo.github.io/1-123.html">
-    <meta property="article:published_time" content="2008-12-06T19:15:00.000Z">
-    <meta property="article:modified_time" content="2008-12-06T19:15:00.000Z">
-    <meta property="article:tag" content="delphi">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="VCL已死，RAD已死(1)" />
+    <meta property="og:description" content="《VCL已死，RAD已死》      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题      今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两个断言：“VCL已死，RAD已死”。      所以今次开贴重讲！ 一、从UI的变革到系统的复杂性 UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。 同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。于是，在Java之上有了Swing或jFace等等，应用提供商也基于这样的平台来做开发，出来的界面仍然是在同一个风&amp;#26684;" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-123.html" />
+    <meta property="article:published_time" content="2008-12-06T19:15:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-09T08:00:34.000Z" />
+    <meta property="article:tag" content="软件工程" />
+    <meta property="article:tag" content="架构设计" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="VCL已死，RAD已死(1)">
-    <meta name="twitter:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与     此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两     个断言：“VCL已死，RAD已死”。     所以今次开贴重讲！     一、从UI的变革到系统的复杂性     －－－－－     UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,     Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌     握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI     应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还     是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。     同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-123.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="delphi">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="VCL已死，RAD已死(1)" />
+    <meta name="twitter:description" content="《VCL已死，RAD已死》      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题      今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两个断言：“VCL已死，RAD已死”。      所以今次开贴重讲！ 一、从UI的变革到系统的复杂性 UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。 同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。于是，在Java之上有了Swing或jFace等等，应用提供商也基于这样的平台来做开发，出来的界面仍然是在同一个风&amp;#26684;" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-123.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="软件工程, 架构设计" />
     
     <script type="application/ld+json">
 {
@@ -64,9 +66,9 @@
     "headline": "VCL已死，RAD已死(1)",
     "url": "http://aimingoo.github.io/1-123.html",
     "datePublished": "2008-12-06T19:15:00.000Z",
-    "dateModified": "2008-12-06T19:15:00.000Z",
-    "keywords": "delphi",
-    "description": "VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题     今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与     此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两     个断言：“VCL已死，RAD已死”。     所以今次开贴重讲！     一、从UI的变革到系统的复杂性     －－－－－     UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,     Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌     握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI     应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还     是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。     同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。",
+    "dateModified": "2017-09-09T08:00:34.000Z",
+    "keywords": "软件工程, 架构设计",
+    "description": "《VCL已死，RAD已死》      &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题      今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两个断言：“VCL已死，RAD已死”。      所以今次开贴重讲！ 一、从UI的变革到系统的复杂性 UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。 同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。于是，在Java之上有了Swing或jFace等等，应用提供商也基于这样的平台来做开发，出来的界面仍然是在同一个风&amp;#26684;",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -74,18 +76,18 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-delphi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-ruan-jian-gong-cheng tag-jia-gou-she-ji nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -93,13 +95,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -109,9 +111,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -120,13 +122,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-delphi">
+        <article class="post tag-ruan-jian-gong-cheng tag-jia-gou-she-ji">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-123.html">VCL已死，RAD已死(1)</a></h1>
+                <h1 class="post-title"><a href="/1-123.html">VCL已死，RAD已死(1)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/delphi/">delphi</a>
+                        <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou-she-ji/">架构设计</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,109 +146,47 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>VCL已死，RAD已死    </p>
+                <blockquote>
+  <p>《VCL已死，RAD已死》</p>
+  
+  <p>&nbsp; &nbsp; &nbsp; &nbsp; ——SD2C中未能尽言的话题</p>
+  
+  <p>今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两个断言：“VCL已死，RAD已死”。</p>
+  
+  <p>所以今次开贴重讲！</p>
+</blockquote>
 
-<p>        ——SD2C中未能尽言的话题    </p>
+<h2 id="ui">一、从UI的变革到系统的复杂性</h2>
 
-<p>今年的SD2C，我匆匆去又匆匆还，因为有急事要处理，所以第三天的课程都没来得及参加。与    </p>
+<p>UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。</p>
 
-<p>此相同的是，我的那场话题，也讲得匆匆忙忙，有许多不清楚透彻的地方。其中之一便是这两    </p>
+<p>同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。于是，在Java之上有了Swing或jFace等等，应用提供商也基于这样的平台来做开发，出来的界面仍然是在同一个风&#26684;体系之下的。</p>
 
-<p>个断言：“VCL已死，RAD已死”。    </p>
+<p>我们现在来看一个软件产品，它是Delphi写的，还是VC写的，或者是Java写的，也或者是在Linux上基于某个GUI包做的，在很多时候从界面上一&#30524;就看得出来——因为他们其实是不同平台上对WIMP的实现。然而，我们来看WEB，便没有这种同质化的倾向，WEB精彩纷呈，不同的网站有各自不同的特性。没有了所谓“软件产品”的基本面貌，&#20284;乎没有人愿意承认“WEB网站”是一个“软件产品”。</p>
 
-<p>所以今次开贴重讲！    </p>
+<p>但是，仔细分析WEB UI，你会发现它的本质结构是“块&#43;层&#43;链接”。“块&#43;层”是表现上的本质，这与Photoshop等作图工具是完全一样的。所以，只要能用Photoshop画出来，就能用HTML做出来，这二者之间基本是可以等量转换的——因为这二者本质相同。同样的，“链接”是用户UI交互的本质，也是WWW的本质。Mac系统可以让鼠标只有一个键，本质上也是这个道理。用户行为，只需要点击一个位置来触发，而不需要位置上的二义性。如果需要另一个含义的行为，那就换一个位置（例如按钮），这个，是“简化UI”或“人性化UI”的本义。</p>
 
-<p>一、从UI的变革到系统的复杂性    </p>
+<p>所以，事实上WEB的成功，与WEB UI比传统的WIMP UI更加人性，以及更加面向设计师（例如PS高手）有直接的关系。而另一个方面，RAD的出现，与WIMP则有密不可分的关系——WIMP抽象了界面的“可组件化的基本要素”。</p>
 
-<p>－－－－－    </p>
+<p>UI的变革带来了最直接的问题：使用WIMP的思想，开发不出WEB UI。最明显的例子就是Delphi的没落。事实上，这中间也包括Virsul C/C&#43;&#43;的没落。二者相同的在于，原本“可视化编程”优势变成了劣势。</p>
 
-<p>UI怎么构成？在Windows及同期的Linux、Mac平台上，对UI的解构是WIMP（Windows,Icons,Menu,    </p>
+<p>这是为什么？</p>
 
-<p>Point）。这个抽象具有相当的合理性，并一度带来了GUI的繁荣。然而，界面技术本质上是掌    </p>
+<p>什么叫“可视化编程”？Delphi/VC/PB/VF...这一类的开发工具中，你可以把一个组件拖到窗体上，然后配置属性、添加行为、处理逻辑代码，然后“RUN”。一切就OK。这就是“可视化的”、“快速的（RAD）”编程。然而注意一个事实，这个过程要求一个“程序员”的全程参与：界面设计工具与代码开发工具在同一个环境中，不可分离。</p>
 
-<p>握在平台技术厂商的手上，例如Windows提供MFC，大家便只能在这个MFC的基础之上来构建GUI    </p>
+<p>所以，在RAD的时代，我们的UI设计师是要迁就软件开发人员的。UI设计师设计了界面，然后开发人员说：荒唐！这样的界面用Delphi根本做不出来！然后一切就推掉重来。客户端软件产品的开发，就是在设计与开发人员的战斗中一路走过来的，而且，通常是开发人员取得胜利。</p>
 
-<p>应用。所以Delphi早期的成功，就是把MFC变成了更便捷的编程形式来替代，尽管其本质上还    </p>
+<p>开发人员不会做界面。真正会做界面，需要有相当高的图形程序开发功底，于是，那些有这样功底的人开始做组件，例如很漂亮的换肤控件。这——看起来漂亮了，但是仍然不是界面设计师理解中的UI。</p>
 
-<p>是MFC框架下的UI，但就是比后者方便，从而有了RAD（快速应用开发）一说。    </p>
+<p>从中暴露出来的表面问题就是：开发人员最好是superman。RAD开发中的程序员，最好就是精擅各门的大家。无论是网络、数据库、图形、操作系统还是所有的一切，你最好都懂，都专长。</p>
 
-<p>同样的道理，Java做了自己的平台，将虚拟平台与操作系统平台隔离开。于是，在Java之上有    </p>
+<p>这样，一个模块给你，你完全搞定，大家都放心。因为RAD嘛，你搞不定，是不够快速，是工具不够好，或者你不够super。</p>
 
-<p>了Swing或jFace等等，应用提供商也基于这样的平台来做开发，出来的界面仍然是在同一个风    </p>
+<p>然而，我们的系统已经越来越复杂，已经越来越不是“一个人”能干的活儿了。</p>
 
-<p>格体系之下的。    </p>
-
-<p>我们现在来看一个软件产品，它是Delphi写的，还是VC写的，或者是Java写的，也或者是在Linux    </p>
-
-<p>上基于某个GUI包做的，在很多时候从界面上一眼就看得出来——因为他们其实是不同平台上对    </p>
-
-<p>WIMP的实现。然而，我们来看WEB，便没有这种同质化的倾向，WEB精彩纷呈，不同的网站有各    </p>
-
-<p>自不同的特性。没有了所谓“软件产品”的基本面貌，似乎没有人愿意承认“WEB网站”是一个    </p>
-
-<p>“软件产品”。    </p>
-
-<p>但是，仔细分析WEB UI，你会发现它的本质结构是“块+层+链接”。“块+层”是表现上的本    </p>
-
-<p>质，这与Photoshop等作图工具是完全一样的。所以，只要能用Photoshop画出来，就能用HTML    </p>
-
-<p>做出来，这二者之间基本是可以等量转换的——因为这二者本质相同。同样的，“链接”是用    </p>
-
-<p>户UI交互的本质，也是WWW的本质。Mac系统可以让鼠标只有一个键，本质上也是这个道理。用    </p>
-
-<p>户行为，只需要点击一个位置来触发，而不需要位置上的二义性。如果需要另一个含义的行为，    </p>
-
-<p>那就换一个位置（例如按钮），这个，是“简化UI”或“人性化UI”的本义。    </p>
-
-<p>所以，事实上WEB的成功，与WEB UI比传统的WIMP UI更加人性，以及更加面向设计师（例如PS    </p>
-
-<p>高手）有直接的关系。而另一个方面，RAD的出现，与WIMP则有密不可分的关系——WIMP抽象了    </p>
-
-<p>界面的“可组件化的基本要素”。    </p>
-
-<p>UI的变革带来了最直接的问题：使用WIMP的思想，开发不出WEB UI。最明显的例子就是Delphi    </p>
-
-<p>的没落。事实上，这中间也包括Virsul C/C++的没落。二者相同的在于，原本“可视化编程”    </p>
-
-<p>优势变成了劣势。    </p>
-
-<p>这是为什么？    </p>
-
-<p>什么叫“可视化编程”？Delphi/VC/PB/VF...这一类的开发工具中，你可以把一个组件拖到窗    </p>
-
-<p>体上，然后配置属性、添加行为、处理逻辑代码，然后“RUN”。一切就OK。这就是“可视化    </p>
-
-<p>的”、“快速的（RAD）”编程。然而注意一个事实，这个过程要求一个“程序员”的全程参    </p>
-
-<p>与：界面设计工具与代码开发工具在同一个环境中，不可分离。    </p>
-
-<p>所以，在RAD的时代，我们的UI设计师是要迁就软件开发人员的。UI设计师设计了界面，然后    </p>
-
-<p>开发人员说：荒唐！这样的界面用Delphi根本做不出来！然后一切就推掉重来。客户端软件    </p>
-
-<p>产品的开发，就是在设计与开发人员的战斗中一路走过来的，而且，通常是开发人员取得胜利。    </p>
-
-<p>开发人员不会做界面。真正会做界面，需要有相当高的图形程序开发功底，于是，那些有这样    </p>
-
-<p>功底的人开始做组件，例如很漂亮的换肤控件。这——看起来漂亮了，但是仍然不是界面设计    </p>
-
-<p>师理解中的UI。    </p>
-
-<p>从中暴露出来的表面问题就是：开发人员最好是superman。RAD开发中的程序员，最好就是精擅    </p>
-
-<p>各门的大家。无论是网络、数据库、图形、操作系统还是所有的一切，你最好都懂，都专长。    </p>
-
-<p>这样，一个模块给你，你完全搞定，大家都放心。因为RAD嘛，你搞不定，是不够快速，是工具    </p>
-
-<p>不够好，或者你不够super。    </p>
-
-<p>然而，我们的系统已经越来越复杂，已经越来越不是“一个人”能干的活儿了。  </p>
-
-<pre style="background-color:rgb(255,255,255); font-size:12px">**[下一节 --&gt;&gt;&gt;](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)**</pre>  
-
-<pre>　  
-
-　</pre>
+<blockquote>
+  <p><a href="/1-124.html">第二节：分层，真的改变了你的思想了吗？ >></a></p>
+</blockquote>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -258,13 +198,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-236.html">
+                <a href="/1-236.html">
                     骂作！
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-124.html">
+            <span class="post-nav-next" >
+                <a href="/1-124.html">
                     VCL已死，RAD已死(2)
                 </a>
                 下一篇
@@ -274,8 +214,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
+<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -294,30 +234,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -331,7 +271,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -344,19 +284,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
 </body>
 
+</html>

@@ -1,43 +1,44 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>VCL已死，RAD已死(3)</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="VCL已死，RAD已死(3)">
-    <meta property="og:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-125.html">
-    <meta property="article:published_time" content="2008-12-06T20:54:00.000Z">
-    <meta property="article:modified_time" content="2008-12-06T20:54:00.000Z">
-    <meta property="article:tag" content="产品">
-    <meta property="article:tag" content="工具">
-    <meta property="article:tag" content="数据库">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="VCL已死，RAD已死(3)" />
+    <meta property="og:description" content="&amp;lt;&amp;lt; 第二节：分层，真的改变了你的思想了吗？ 三、RAD之死与系统的复杂性 RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性： 对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。   对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。 对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，RAD对个体特性的要求过高，不利于团队的成长。大公司的高人们，难道真的没有看到这一点么？ 不是，他们看到了。VS.NET开始把产品做成产品线，发布开发产品的不同版本：设计师的、架构师的、测试工程师的……等等这些。与此相同的，各家都开始这样切分产品。但是相同的产品线名称迷茫了开发人员：大多数时候，我们要么选用不分这种版本的早期产品，要么选用这种产品的最完整版本。而后者，正是大公司的销售经理最喜闻乐见的，他们会相互吹嘘自己买出去多少个Site Suite版本，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-125.html" />
+    <meta property="article:published_time" content="2008-12-06T20:54:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-09T07:53:30.000Z" />
+    <meta property="article:tag" content="项目管理" />
+    <meta property="article:tag" content="软件工程" />
+    <meta property="article:tag" content="架构设计" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="VCL已死，RAD已死(3)">
-    <meta name="twitter:description" content="VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-125.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="产品, 工具, 数据库">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="VCL已死，RAD已死(3)" />
+    <meta name="twitter:description" content="&amp;lt;&amp;lt; 第二节：分层，真的改变了你的思想了吗？ 三、RAD之死与系统的复杂性 RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性： 对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。   对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。 对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，RAD对个体特性的要求过高，不利于团队的成长。大公司的高人们，难道真的没有看到这一点么？ 不是，他们看到了。VS.NET开始把产品做成产品线，发布开发产品的不同版本：设计师的、架构师的、测试工程师的……等等这些。与此相同的，各家都开始这样切分产品。但是相同的产品线名称迷茫了开发人员：大多数时候，我们要么选用不分这种版本的早期产品，要么选用这种产品的最完整版本。而后者，正是大公司的销售经理最喜闻乐见的，他们会相互吹嘘自己买出去多少个Site Suite版本，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-125.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="项目管理, 软件工程, 架构设计" />
     
     <script type="application/ld+json">
 {
@@ -66,9 +67,9 @@
     "headline": "VCL已死，RAD已死(3)",
     "url": "http://aimingoo.github.io/1-125.html",
     "datePublished": "2008-12-06T20:54:00.000Z",
-    "dateModified": "2008-12-06T20:54:00.000Z",
-    "keywords": "产品, 工具, 数据库",
-    "description": "VCL已死，RAD已死     &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; ——SD2C中未能尽言的话题&amp;nbsp;   [**&amp;lt;&amp;lt;&amp;lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)   三、RAD之死与系统的复杂性     －－－－－     RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：     1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的     需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。     2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性     时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。     对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，",
+    "dateModified": "2017-09-09T07:53:30.000Z",
+    "keywords": "项目管理, 软件工程, 架构设计",
+    "description": "&amp;lt;&amp;lt; 第二节：分层，真的改变了你的思想了吗？ 三、RAD之死与系统的复杂性 RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性： 对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。   对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。 对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，RAD对个体特性的要求过高，不利于团队的成长。大公司的高人们，难道真的没有看到这一点么？ 不是，他们看到了。VS.NET开始把产品做成产品线，发布开发产品的不同版本：设计师的、架构师的、测试工程师的……等等这些。与此相同的，各家都开始这样切分产品。但是相同的产品线名称迷茫了开发人员：大多数时候，我们要么选用不分这种版本的早期产品，要么选用这种产品的最完整版本。而后者，正是大公司的销售经理最喜闻乐见的，他们会相互吹嘘自己买出去多少个Site Suite版本，",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -76,18 +77,18 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-chan-pin tag-gong-ju tag-shu-ju-ku nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-xiang-mu-guan-li tag-ruan-jian-gong-cheng tag-jia-gou-she-ji nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -95,13 +96,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,9 +112,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -122,13 +123,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-chan-pin tag-gong-ju tag-shu-ju-ku">
+        <article class="post tag-xiang-mu-guan-li tag-ruan-jian-gong-cheng tag-jia-gou-she-ji">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-125.html">VCL已死，RAD已死(3)</a></h1>
+                <h1 class="post-title"><a href="/1-125.html">VCL已死，RAD已死(3)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/chan-pin/">产品</a>, <a href="tag/gong-ju/">工具</a>, <a href="tag/shu-ju-ku/">数据库</a>
+                        <a href="/tag/xiang-mu-guan-li/">项目管理</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou-she-ji/">架构设计</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,111 +147,42 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>VCL已死，RAD已死    </p>
+                <blockquote>
+  <p><a href="/1-124.html">&lt;&lt; 第二节：分层，真的改变了你的思想了吗？</a></p>
+</blockquote>
 
-<p><span style="font-size:13pt">        ——SD2C中未能尽言的话题</span><span style="font-size:13pt"> </span>  </p>
+<h2 id="rad">三、RAD之死与系统的复杂性</h2>
 
-<pre style="background-color:rgb(255,255,255); font-size:12px">[**&lt;&lt;&lt;-- 上一节**](http://blog.csdn.net/aimingoo/archive/2008/12/07/3462926.aspx)</pre>  
+<p>RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：</p>
 
-三、RAD之死与系统的复杂性    
+<ol>
+<li>对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。  </li>
+<li>对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。</li>
+</ol>
 
-－－－－－    
+<p>对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，RAD对个体特性的要求过高，不利于团队的成长。大公司的高人们，难道真的没有看到这一点么？</p>
 
-RAD在较小规模应用的开发上，具有相当的优势。同时，它具有两方面特性：    
+<p>不是，他们看到了。VS.NET开始把产品做成产品线，发布开发产品的不同版本：设计师的、架构师的、测试工程师的……等等这些。与此相同的，各家都开始这样切分产品。但是相同的产品线名称迷茫了开发人员：大多数时候，我们要么选用不分这种版本的早期产品，要么选用这种产品的最完整版本。而后者，正是大公司的销售经理最喜闻乐见的，他们会相互吹嘘自己买出去多少个Site Suite版本，并同时拿Web Devleper版本的业绩来开涮。同时，大产商也不会无视市场的价&#26684;而鼓吹单一版本，因为那样的结果是：“网页制作应该用macromedia的”、“图形设计应该用adobe的”、“数据库得选Oracle的”、“服务器最好用Linux便宜”……</p>
 
-1、对于应付在各个模向分层上需求相对均势，并且在开发工具商提供的方案可应付的区间内的    
+<p>拆开来买的“大”产品，虽然不至于一文不&#20540;，但至少没大产品&#20540;价。这个与传统产品不同，其根源在于开发工具的“大”产品没几家做得出来，而“精”却很多人能做得到。大公司可不会为了理论上的正确性而无视于市场盈利。</p>
 
-需求中，RAD以及使用RAD开发的团队具有极大的能量。例如早期的C/S模式下的数据库应用。    
+<p>所以大厂商对RAD工具的细分其实只是假象，用来说明他们的工具足够牛足够大和足够好的一个旁证。这些“细分”的背后是极强的相互依赖性，结果是：整个解决方案还是一家独大。</p>
 
-2、对于系统可以纵向切分（为多个子项目或独立模块），而且各个部分满足上述第一项的特性    
+<p>我认为，系统的复杂性需要横向的切分来分解。因为横向的切分产生的是领域，与之对应的，就是不同领域、产业的力量，而非某个个人或团队或公司的力量。不同领域、产业带来的，是整体性的推动，而不是某个个体的畸形发展。同样的，他也带来了个体品质的提升，例如有了最好的砖瓦匠和水电工，也带来了在更高分层上独立思考的可能性，例如建筑师与城市规划设计师。</p>
 
-时，RAD在应付这类系统的规模增长上也具有极大的能量。例如群件、或中间件等。    
+<p>当然，我相信很多人认为自己拎上一把锤头就可以做水电工——我前两天在CSDN论坛里就看到了这样的观点，我也相信很多人认为建筑师与城市规划设计师都是饭桶，他们存在的目的仅仅是就业安置或者消耗粮食。我完全相信这种观点的存在，但不同意它。我曾经做过电工，我知道用一把锤头敲击就听出设备的好坏是需要10年以上的功夫的；我也知道如果没有规划师，城市会比现在更乱而不是更好。</p>
 
-对于上述两个特性之外的系统，RAD的团队难于组织、管理，也难于复制。显然，RAD对个体特性    
+<p>你可以批评别人做得不够好，但把你放在相同的位置上，你未必做得更好。这与横向分层理论带来的效果是一样的，你可以认为自己能做好所有层次上的工作，但你真要去做的时候，却未必做得到。以及，由于你——这个个体不能被拆分，所以你的工作是串行的、效率是有限的，结论正是：在这样的思想下，大的系统会越做越糟糕。</p>
 
-的要求过高，不利于团队的成长。大公司的高人们，难道真的没有看到这一点么？    
+<p>横向分层带来的结果要变成良性的，就必然是相信每个层面上有相“匹配”的人员。你要信任它，并主动合作，你要相信团队是一个多层结构，相信团队中的其它人会给你帮助，以及需要你的帮助。你做不到一切，你依赖于别人而达到你的成功。</p>
 
-不是，他们看到了。VS.NET开始把产品做成产品线，发布开发产品的不同版本：设计师的、架构    
+<p>同样的，你也必须认识到：没有任何一个团队一开始就是这样的。团队需要清理，需要沉淀。需要花费一些成本来建立沟通，并逐渐形成合作的模式、默契。当然，另一种更加不错的方式是：整个教育和培训行业相信这一点，在程序员走向商业产品开发之前就培养他们的团队组织与协作能力，从习惯于服从和配合，到学会观察与学习，以及在团队中如何自我提升。等等这些，才是我们传统行业——例如我们常常提及到的建筑行业中的职业进化模式。</p>
 
-师的、测试工程师的……等等这些。与此相同的，各家都开始这样切分产品。但是相同的产品线    
+<p>产业的、领域的推动才会解决系统复杂性的问题，而不是某一个或几个大公司在他们各自有限的领域中折腾。他们折腾的目的、根本只是为了商业利益，而不是为了解决问题。</p>
 
-名称迷茫了开发人员：大多数时候，我们要么选用不分这种版本的早期产品，要么选用这种产品    
-
-的最完整版本。而后者，正是大公司的销售经理最喜闻乐见的，他们会相互吹嘘自己买出去多少    
-
-个Site Suite版本，并同时拿Web Devleper版本的业绩来开涮。同时，大产商也不会无视市场的    
-
-价格而鼓吹单一版本，因为那样的结果是：“网页制作应该用macromedia的”、“图形设计应该    
-
-用adobe的”、“数据库得选Oracle的”、“服务器最好用Linux便宜”……    
-
-拆开来买的“大”产品，虽然不至于一文不值，但至少没大产品值价。这个与传统产品不同，其    
-
-根源在于开发工具的“大”产品没几家做得出来，而“精”却很多人能做得到。大公司可不会为    
-
-了理论上的正确性而无视于市场盈利。    
-
-所以大厂商对RAD工具的细分其实只是假象，用来说明他们的工具足够牛足够大和足够好的一个    
-
-旁证。这些“细分”的背后是极强的相互依赖性，结果是：整个解决方案还是一家独大。    
-
-我认为，系统的复杂性需要横向的切分来分解。因为横向的切分产生的是领域，与之对应的，就    
-
-是不同领域、产业的力量，而非某个个人或团队或公司的力量。不同领域、产业带来的，是整体    
-
-性的推动，而不是某个个体的畸形发展。同样的，他也带来了个体品质的提升，例如有了最好的    
-
-砖瓦匠和水电工，也带来了在更高分层上独立思考的可能性，例如建筑师与城市规划设计师。    
-
-当然，我相信很多人认为自己拎上一把锤头就可以做水电工——我前两天在CSDN论坛里就看到了    
-
-这样的观点，我也相信很多人认为建筑师与城市规划设计师都是饭桶，他们存在的目的仅仅是就    
-
-业安置或者消耗粮食。我完全相信这种观点的存在，但不同意它。我曾经做过电工，我知道用一    
-
-把锤头敲击就听出设备的好坏是需要10年以上的功夫的；我也知道如果没有规划师，城市会比现    
-
-在更乱而不是更好。    
-
-你可以批评别人做得不够好，但把你放在相同的位置上，你未必做得更好。这与横向分层理论带    
-
-来的效果是一样的，你可以认为自己能做好所有层次上的工作，但你真要去做的时候，却未必做    
-
-得到。以及，由于你——这个个体不能被拆分，所以你的工作是串行的、效率是有限的，结论正    
-
-是：在这样的思想下，大的系统会越做越糟糕。    
-
-横向分层带来的结果要变成良性的，就必然是相信每个层面上有相“匹配”的人员。你要信任它，    
-
-并主动合作，你要相信团队是一个多层结构，相信团队中的其它人会给你帮助，以及需要你的帮    
-
-助。你做不到一切，你依赖于别人而达到你的成功。    
-
-同样的，你也必须认识到：没有任何一个团队一开始就是这样的。团队需要清理，需要沉淀。需    
-
-要花费一些成本来建立沟通，并逐渐形成合作的模式、默契。当然，另一种更加不错的方式是：    
-
-整个教育和培训行业相信这一点，在程序员走向商业产品开发之前就培养他们的团队组织与协作    
-
-能力，从习惯于服从和配合，到学会观察与学习，以及在团队中如何自我提升。等等这些，才是    
-
-我们传统行业——例如我们常常提及到的建筑行业中的职业进化模式。    
-
-产业的、领域的推动才会解决系统复杂性的问题，而不是某一个或几个大公司在他们各自有限的    
-
-领域中折腾。他们折腾的目的、根本只是为了商业利益，而不是为了解决问题。    
-
-<pre style="background-color:rgb(255,255,255); font-size:12px"><span style="color:rgb(153,51,0)">[**第四节 后RAD时代：界面可视，到界面可描述  --&gt;&gt;&gt;**](http://blog.csdn.net/aimingoo/archive/2008/12/17/3540112.aspx)</span></pre>  
-
-
-
-<pre>　  
-
-</pre>
-
-<pre>　  
-
-</pre>  
+<blockquote>
+  <p><a href="/1-129.html">第四节：后RAD时代：界面可视，到界面可描述 >></a> </p>
+</blockquote>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -262,13 +194,13 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-124.html">
+                <a href="/1-124.html">
                     VCL已死，RAD已死(2)
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-126.html">
+            <span class="post-nav-next" >
+                <a href="/1-126.html">
                     VCL已死，RAD已死(插播)
                 </a>
                 下一篇
@@ -278,8 +210,8 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
+<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -298,30 +230,30 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -335,7 +267,7 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -348,19 +280,20 @@ RAD在较小规模应用的开发上，具有相当的优势。同时，它具�
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
 </body>
 
+</html>

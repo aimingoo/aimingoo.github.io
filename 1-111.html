@@ -1,42 +1,45 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>QoBean的元语言系统（二）</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="QoBean的元语言系统（二）">
-    <meta property="og:description" content="第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     ======   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   ======      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：">
-    <meta property="og:url" content="http://aimingoo.github.io/1-111.html">
-    <meta property="article:published_time" content="2008-07-25T05:56:00.000Z">
-    <meta property="article:modified_time" content="2008-07-25T05:56:00.000Z">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="正则表达式">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="QoBean的元语言系统（二）" />
+    <meta property="og:description" content="上一篇：&amp;lt;&amp;lt; 第一部分：元语言系统基础，以及程序的基础元素 第二部分：元语言下的编程基本方法 三、代码组织形式 1. 物理代码块(代码文本、代码行) 代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的形式回溯到很“远古”的时代，例如： function func1() {   } function func2() {   } function main() {     func1();   func2(); } main();   简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数又是如何“组织成代码块”的呢？ 这个过程被分解为三个部分，也就是： body : 函数的代码体 name : 函数名 param : 函数参数表 其基本规则为： function [name]([param]) { } QoBean中的Block()这个函数，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-111.html" />
+    <meta property="article:published_time" content="2008-07-25T05:56:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-11T03:18:05.000Z" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="Qomo" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="OpenSource Project" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="QoBean的元语言系统（二）">
-    <meta name="twitter:description" content="第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     ======   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   ======      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-111.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="语言, 正则表达式">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="QoBean的元语言系统（二）" />
+    <meta name="twitter:description" content="上一篇：&amp;lt;&amp;lt; 第一部分：元语言系统基础，以及程序的基础元素 第二部分：元语言下的编程基本方法 三、代码组织形式 1. 物理代码块(代码文本、代码行) 代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的形式回溯到很“远古”的时代，例如： function func1() {   } function func2() {   } function main() {     func1();   func2(); } main();   简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数又是如何“组织成代码块”的呢？ 这个过程被分解为三个部分，也就是： body : 函数的代码体 name : 函数名 param : 函数参数表 其基本规则为： function [name]([param]) { } QoBean中的Block()这个函数，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-111.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="语言, Qomo, Javascript, OpenSource Project" />
     
     <script type="application/ld+json">
 {
@@ -65,9 +68,9 @@
     "headline": "QoBean的元语言系统（二）",
     "url": "http://aimingoo.github.io/1-111.html",
     "datePublished": "2008-07-25T05:56:00.000Z",
-    "dateModified": "2008-07-25T05:56:00.000Z",
-    "keywords": "语言, 正则表达式",
-    "description": "第二部分：元语言下的编程基本方法     &amp;nbsp;三、代码组织形式     &amp;nbsp; 1. 物理代码块(代码文本、代码行)  &amp;nbsp;    代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的  形式回溯到很“远古”的时代，例如：     &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;   function func1() {   }   function func2() {   }   function main() {     func1();     func2();   }   main();   &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;      简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数     又是如何“组织成代码块”的呢？     这个过程被分解为三个部分，也就是：     &amp;nbsp; - body : 函数的代码体     &amp;nbsp; - name : 函数名     &amp;nbsp; - param : 函数参数表     其基本规则为：",
+    "dateModified": "2017-09-11T03:18:05.000Z",
+    "keywords": "语言, Qomo, Javascript, OpenSource Project",
+    "description": "上一篇：&amp;lt;&amp;lt; 第一部分：元语言系统基础，以及程序的基础元素 第二部分：元语言下的编程基本方法 三、代码组织形式 1. 物理代码块(代码文本、代码行) 代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的形式回溯到很“远古”的时代，例如： function func1() {   } function func2() {   } function main() {     func1();   func2(); } main();   简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数又是如何“组织成代码块”的呢？ 这个过程被分解为三个部分，也就是： body : 函数的代码体 name : 函数名 param : 函数参数表 其基本规则为： function [name]([param]) { } QoBean中的Block()这个函数，",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -75,18 +78,18 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-yu-yan tag-zheng-ze-biao-da-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-yu-yan tag-qomo tag-javascript tag-opensource-project nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -94,13 +97,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -110,9 +113,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -121,13 +124,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-yu-yan tag-zheng-ze-biao-da-shi">
+        <article class="post tag-yu-yan tag-qomo tag-javascript tag-opensource-project">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-111.html">QoBean的元语言系统（二）</a></h1>
+                <h1 class="post-title"><a href="/1-111.html">QoBean的元语言系统（二）</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/yu-yan/">语言</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>
+                        <a href="/tag/yu-yan/">语言</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,655 +148,562 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <blockquote>
+  <p>上一篇：<a href="/1-110.html">&lt;&lt; 第一部分：元语言系统基础，以及程序的基础元素</a></p>
+</blockquote>
 
-<p>第二部分：元语言下的编程基本方法    </p>
+<h1 id="">第二部分：元语言下的编程基本方法</h1>
 
-<hr>
+<h2 id="">三、代码组织形式</h2>
 
-<p> 三、代码组织形式    </p>
+<h3 id="1">1. 物理代码块(代码文本、代码行)</h3>
 
-<hr>
+<p>代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的形式回溯到很“远古”的时代，例如：</p>
 
-<p>  1. 物理代码块(代码文本、代码行) <br>
-    </p>
-
-<hr>
-
-<p>代码到底应该如何组织？如果我们认为代码是由序列调用的例程构成的，那么我们可以把代码的 <br>
-形式回溯到很“远古”的时代，例如：    </p>
-
-<pre class="JScript" name="code">======  
-function func1() {  
-}  
+<pre><code class="language-javascript">function func1() {  
+}
 
 function func2() {  
-}  
+}
 
 function main() {  
-  func1();  
-  func2();  
-}  
+  func1();
+  func2();
+}
 
 main();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
-简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数    
-又是如何“组织成代码块”的呢？    
+<p>简单地说，就是我们可以通过函数来组织代码块，并通过函数的连续调用完成运算。那么，函数又是如何“组织成代码块”的呢？</p>
 
-这个过程被分解为三个部分，也就是：    
-  - body : 函数的代码体    
-  - name : 函数名    
-  - param : 函数参数表    
-其基本规则为：    
-<pre class="JScript" name="code">======  
-function [name]([param]) {  
+<p>这个过程被分解为三个部分，也就是：</p>
 
-}  
-======</pre>
+<ul>
+<li>body : 函数的代码体</li>
+<li>name : 函数名</li>
+<li>param : 函数参数表</li>
+</ul>
 
-<pre></pre>    
+<p>其基本规则为：</p>
 
-QoBean中的Block()这个函数，用于从代码文本中分离上述三个部分。Block()可以处理任何一个  
-符合JavaScript语法的函数(的文本)。例如(param返回数组, 其它两种情况返回文本字符串)：    
-<pre class="JScript" name="code">======  
-function foo(a,b,c) {  
-  // ..  
-}  
+<pre><code class="language-javascript">function [name]([param]) {
+
+}
+</code></pre>
+
+<p>QoBean中的Block()这个函数，用于从代码文本中分离上述三个部分。Block()可以处理任何一个符合JavaScript语法的函数(的文本)。例如(param返回数组, 其它两种情况返回文本字符串)：  </p>
+
+<pre><code class="language-javascript">function foo(a,b,c) {  
+  // ..
+}
 
 alert( Block(foo, 'body') );  
 alert( Block(foo, 'name') );  
 alert( Block(foo, 'param') ); // 返回一个数组，可以直接用作字符串连接  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>Block的上述三种参数，用于获取一个函数（的文本格式）中三个部分的物理代码块。</p>
 
-Block的上述三种参数，用于获取一个函数（的文本格式）中三个部分的物理代码块。    
+<h3 id="2">2. 逻辑代码块(闭包、全局闭包)</h3>
 
-  2. 逻辑代码块(闭包、全局闭包)    
-    
-* * *  
-一个函数如果不是局部的，就是全局的。局部的，就是指被物理上包含在其它函数内部的函数。    
-基于这样的规则，显然一个(全局的)语句中包括的函数会是全局的（而非局部的）。例如：    
-<pre class="JScript" name="code">======  
-if (true) {  
- // 下面的函数是全局的(或属于外一层函数闭包)  
- function() {  
-   // ...  
- }  
-}  
-======</pre>
+<p>一个函数如果不是局部的，就是全局的。局部的，就是指被物理上包含在其它函数内部的函数。</p>
 
-<pre></pre>    
-由于逻辑代码块事实上就两种，因此Block()提供了两种方式来实现它：    
-<pre class="JScript" name="code">======  
-// 得到一个匿名的全局函数  
-f1 = Scope(func, 'anonymous');  
+<p>基于这样的规则，显然一个(全局的)语句中包括的函数会是全局的（而非局部的）。例如：</p>
 
-// 得到一个匿名的局部函数(在当前闭包内)  
+<pre><code class="language-javascript">if (true) {  
+ // 下面的函数是全局的(或属于外一层函数闭包)
+ function() {
+   // ...
+ }
+}
+</code></pre>
+
+<p>由于逻辑代码块事实上就两种，因此Block()提供了两种方式来实现它：</p>
+
+<pre><code class="language-javascript">// 得到一个匿名的全局函数
+f1 = Scope(func, 'anonymous');
+
+// 得到一个匿名的局部函数(在当前闭包内)
 f2 = eval( Scope(func, 'scope') );  
-======</pre>
+</code></pre>
 
-<pre></pre>    
-这两种方式得到的新函数都以是func为参考的，也就是说复制了一个一模一样的函数——但改    
-变了它们的闭包作用域。如下例：    
-<pre class="JScript" name="code">======  
-var msg = 'in global.';  
+<p>这两种方式得到的新函数都以是func为参考的，也就是说复制了一个一模一样的函数——但改变了它们的闭包作用域。如下例：</p>
+
+<pre><code class="language-javascript">var msg = 'in global.';
 
 var ff = function() {  
-  var msg = 'in ff.';  
-  return function() {  
-    alert(msg);  
-  }  
-}()  
-// show 'in ff.'  
-ff();  
+  var msg = 'in ff.';
+  return function() {
+    alert(msg);
+  }
+}()
+// show 'in ff.'
+ff();
 
 function myFunc() {  
-  var msg = 'in myFunc.';  
+  var msg = 'in myFunc.';
 
-  // show 'in myFunc';  
-  var f = eval( Scope(ff, 'scope') );  
-  f();  
+  // show 'in myFunc';
+  var f = eval( Scope(ff, 'scope') );
+  f();
 
-  // show 'in global.'  
-  var f = Scope(ff, 'anonymous');  
-  f();  
-}  
-// test  
+  // show 'in global.'
+  var f = Scope(ff, 'anonymous');
+  f();
+}
+// test
 myFunc();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<h3 id="3scoped">3. Scoped()，绑定到指定的作用域（全局或指定对象的闭包)</h3>
 
-  3. Scoped()，绑定到指定的作用域（全局或指定对象的闭包)    
-    
-* * *  
-原则上，Scope()的处理对象是函数，其结果或者是一个代码文本，或者是一个函数闭包。但如果    
-你试图将一个函数绑定到一个对象的闭包中，那么你需要用Scoped()这个函数，其含义是“作用    
-域化”。返回一个函数，该函数位于指定的对象或全局的闭包中。Scope()与Scoped()的区别在于：    
-　- Scope()用于根据函数func，返回新函数(或用于eval()的函数文本)；    
-   - Scoped()用于将函数绑定到目标对象obj，返回绑定后的函数；    
+<p>原则上，Scope()的处理对象是函数，其结果或者是一个代码文本，或者是一个函数闭包。但如果你试图将一个函数绑定到一个对象的闭包中，那么你需要用Scoped()这个函数，其含义是“作用域化”。返回一个函数，该函数位于指定的对象或全局的闭包中。Scope()与Scoped()的区别在于：</p>
 
-绑定到指定作用域是一个有趣的功能，例如：    
-<pre class="JScript" name="code">======  
-var aData = 'global data';  
+<ul>
+<li>Scope()用于根据函数func，返回新函数(或用于eval()的函数文本)；</li>
+<li>Scoped()用于将函数绑定到目标对象obj，返回绑定后的函数；</li>
+</ul>
+
+<p>绑定到指定作用域是一个有趣的功能，例如：</p>
+
+<pre><code class="language-javascript">var aData = 'global data';  
 var obj = {  
-  aData: 'object data'  
-}  
+  aData: 'object data'
+}
 
 myFunc = function() {  
-  alert(aData);  
-}  
+  alert(aData);
+}
 
-myFunc2 = Scoped(obj, myFunc);  
+myFunc2 = Scoped(obj, myFunc);
 
 myFunc();  // show:  'global data';  
 myFunc2(); // show:  'object data';  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<h2 id="">四、重写的基础技术与思想</h2>
 
-四、重写的基础技术与思想    
-* * *  
-  1. 重写    
-    
-* * *  
-QoBean认为一个项目中的代码，是通过开发人员不断地在一个基础代码上繁殖衍生而得到的。这个所  
-谓的基础代码的最原始的、基底性的版本，就是下面这样一个函数：    
-<pre class="JScript" name="code">======  
-function() {  
-}  
-======</pre>
+<h3 id="1">1. 重写</h3>
 
-<pre></pre>    
-其最终执行的方法为：    
-<pre class="JScript" name="code">======  
-void function() {  
-}();  
-======</pre>
+<p>QoBean认为一个项目中的代码，是通过开发人员不断地在一个基础代码上繁殖衍生而得到的。这个所谓的基础代码的最原始的、基底性的版本，就是下面这样一个函数：  </p>
 
-<pre></pre>    
-其繁殖衍生的过程就称为“重写”。例如：    
-<pre class="JScript" name="code">======  
-// 原始版本  
+<pre><code class="language-javascript">function() {  
+}
+</code></pre>
+
+<p>其最终执行的方法为：</p>
+
+<pre><code class="language-javascript">void function() {  
+}();
+</code></pre>
+
+<p>其繁殖衍生的过程就称为“重写”。例如：</p>
+
+<pre><code class="language-javascript">// 原始版本
 x = function() {  
-}  
+}
 
-// 重写1  
+// 重写1
 old_x = x;  
 x = function() {  
-  old_x();  
-  ...  
-}  
+  old_x();
+  ...
+}
 
-// 重写2  
+// 重写2
 old_x = x;  
 x = function() {  
-  ...  
-  old_x();  
-}  
+  ...
+  old_x();
+}
 
-...  
+...
 
-// 执行  
+// 执行
 void x();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<h3 id="2js">2. JS中的重写方法</h3>
 
-  2. JS中的重写方法    
-    
-* * *  
-JS中本身就具有多种重写的方法，例如编译期重写与执行期重写（注意，编译期的重写是由编译器根  
-据代码上下文中的标识符，及其出现的次序来决定的。它的效果不能由用户代码来改变)：    
-<pre class="JScript" name="code">======  
+<p>JS中本身就具有多种重写的方法，例如编译期重写与执行期重写（注意，编译期的重写是由编译器根据代码上下文中的标识符，及其出现的次序来决定的。它的效果不能由用户代码来改变)：  </p>
+
+<pre><code class="language-javascript">function func() {  
+}
+
+// 下面的重新声明，其“重写”效果是在编译期发生的
 function func() {  
-}  
+}
 
-// 下面的重新声明，其“重写”效果是在编译期发生的  
-function func() {  
-}  
-
-// 下面的赋值操作，是一种在执行期发生的“重写”效果  
+// 下面的赋值操作，是一种在执行期发生的“重写”效果
 func = function() {  
-}  
-======  
-</pre>
+}
+</code></pre>
 
-<pre></pre>  
-  3. 保留旧有代码的两种基本方法    
-    
-* * *  
-在执行期的重写中，可以保留旧有的代码。例如：    
-<pre class="JScript" name="code">======  
-func = function(foo) {  //&lt;-- 2. 使用形式参数foo来持有旧的函数  
-  return function() {   //&lt;-- 3. 返回的匿名函数将重写func()，且仍可以通过foo来访问旧函数  
-     // ...  
-  }  
-}(func);  //&lt;-- 1. 传入旧的func函数引用  
-======</pre>
+<h3 id="3">3. 保留旧有代码的两种基本方法</h3>
 
-<pre></pre>    
-这种技术非常类似于桌面软件开发中的HOOK(钩子)技术，因此在这里我们将它使为“Hook重写”。    
+<p>在执行期的重写中，可以保留旧有的代码。例如：</p>
 
-还有一种重写技术，也可以做到上述的“保留旧有代码”的效果。他利用了JS代码可以序列化的特性：    
-<pre class="JScript" name="code">======  
-function attach_code(func, code) {  
-  var _r_codebody = /[^{]*/{([/d/D]*)/}$/;  
-  func = func.toString().replace(_r_codebody, '$1')  
-  return new Function(func + code);  
-}  
+<pre><code class="language-javascript">func = function(foo) {  // &lt;-- 2. 使用形式参数foo来持有旧的函数  
+  return function() {   // &lt;-- 3. 返回的匿名函数将重写func()，且仍可以通过foo来访问旧函数
+     // ...
+  }
+}(func);  // &lt;-- 1. 传入旧的func函数引用
+</code></pre>
+
+<p>这种技术非常类似于桌面软件开发中的HOOK(钩子)技术，因此在这里我们将它使为“Hook重写”。</p>
+
+<p>还有一种重写技术，也可以做到上述的“保留旧有代码”的效果。他利用了JS代码可以序列化的特性：</p>
+
+<pre><code class="language-javascript">function attach_code(func, code) {  
+  var _r_codebody = /[^{]*/{([/d/D]*)/}$/;
+  func = func.toString().replace(_r_codebody, '$1')
+  return new Function(func + code);
+}
 
 func = attach_code(func, '...');  
-======</pre>
+</code></pre>
 
-<pre></pre>    
-上述代码的基本思想在于通过"new Function()"来得到新的函数，而旧的函数被序列化为一个字符串，    
-作为新的代码的一部分。这个过程中，_r_codebody的作用是获取一个函数的body区——函数代码块。    
-从这个视角来看，下面的函数：    
-<pre class="JScript" name="code">======  
-function hi() {  
-  alert('hi');  
-}  
-======</pre>
+<p>上述代码的基本思想在于通过"new Function()"来得到新的函数，而旧的函数被序列化为一个字符串，作为新的代码的一部分。这个过程中，<em>r</em>codebody的作用是获取一个函数的body区——函数代码块。</p>
 
-<pre></pre>    
-其实相当于如下代码重写过程（给一个空函数内部attach一行代码)：    
-<pre class="JScript" name="code">======  
-hi = new Function;  
+<p>从这个视角来看，下面的函数：</p>
+
+<pre><code class="language-javascript">function hi() {  
+  alert('hi');
+}
+</code></pre>
+
+<p>其实相当于如下代码重写过程（给一个空函数内部attach一行代码)：</p>
+
+<pre><code class="language-javascript">hi = new Function;  
 hi = attach_code(hi, "alert('hi');");  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<h3 id="4">4. 通过链接代码来组织更大的代码块(或函数)</h3>
 
-  4. 通过链接代码来组织更大的代码块(或函数)    
-    
-* * *  
-源于函数可以被序列化的特性。attach_code()第二个参数的代码文本，也可以视为第一个函数的body    
-区。也就是说：    
-<pre class="JScript" name="code">======  
-a_func = function() {  
-  //...  
-};  
+<p>源于函数可以被序列化的特性。attach_code()第二个参数的代码文本，也可以视为第一个函数的body区。也就是说：</p>
+
+<pre><code class="language-javascript">a_func = function() {  
+  //...
+};
 
 hi = attach_code(hi, _get_code_body(a_func));  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>而从这里，我们也得到一个启发，如下代码：</p>
 
-而从这里，我们也得到一个启发，如下代码：    
-<pre class="JScript" name="code">======  
-function func1() {  
-  // func1 ...  
-}  
+<pre><code class="language-javascript">function func1() {  
+  // func1 ...
+}
 
 function func2() {  
-  // func2 ...  
-}  
+  // func2 ...
+}
 
 func1();  
 func2();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
-其实执行效果相当于把func1()与func2()合并起来，而合并的效果也就是：    
-<pre class="JScript" name="code">======  
-func = func1 + func2; // &lt;-- attach_func(func1, func2);  
+<p>其实执行效果相当于把func1()与func2()合并起来，而合并的效果也就是：</p>
+
+<pre><code class="language-javascript">func = func1 + func2; // &lt;-- attach_func(func1, func2);  
 func();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
-如果attach_func()函数可以联合足够多的函数，我们也就可以拼合足够多的代码块——并让他足够复杂。    
+<p>如果attach_func()函数可以联合足够多的函数，我们也就可以拼合足够多的代码块——并让他足够复杂。</p>
 
-attach_func()的实现思想与上述过程是直接相关的：  
-<pre class="JScript" name="code">======  
-function getCodeBody(func) {  
-  var _r_codebody = /[^{]*/{([/d/D]*)/}$/;  
-  return func.toString().replace(_r_codebody, '$1')  
-}  
+<p>attach_func()的实现思想与上述过程是直接相关的：  </p>
+
+<pre><code class="language-javascript">function getCodeBody(func) {  
+  var _r_codebody = /[^{]*/{([/d/D]*)/}$/;
+  return func.toString().replace(_r_codebody, '$1')
+}
 
 function attach_code(f1, f2) {  
-  return getCodeBody(f1) + (f2 ? attach_code.apply(null, [].slice.call(arguments, 1)) : '');  
-}  
+  return getCodeBody(f1) + (f2 ? attach_code.apply(null, [].slice.call(arguments, 1)) : '');
+}
 
 function attach_func() {  
-  return new Function(attach_code.apply(null, arguments));  
-}  
+  return new Function(attach_code.apply(null, arguments));
+}
 
-// sample  
+// sample
 func = attach_func(func1, func2);  
 alert(func);  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<h2 id="qobean">五、QoBean中的重写技术</h2>
 
-五、QoBean中的重写技术    
-* * *  
-  1. QoBean所面临的更复杂的问题    
-    
-* * *  
-QoBean提供了Block()函数来取得一个function中的各个部分，同时也提供了Scoped()函数来产生指定  
-闭包环境下的函数。这也就意味着，我们可以在任意位置，通过上述的方法来“重写出”一个新的函    
-数——这个函数是象打补丁的过程一样，一次次增量叠加起来的。    
+<h3 id="1qobean">1. QoBean所面临的更复杂的问题</h3>
 
-有趣的是，如同上面所分析的，QoBean认为开发人员在书写原始代码的过程中的行为，的确就是这样    
-一个过程：不断地改写一个函数代码块的内部，或创建新的函数代码块——然后连接它们。所以，我    
-们可以写出任意大的程序来，本质上也就是我们在不停地用Block、Scope、Scope、Block……    
+<p>QoBean提供了Block()函数来取得一个function中的各个部分，同时也提供了Scoped()函数来产生指定闭包环境下的函数。这也就意味着，我们可以在任意位置，通过上述的方法来“重写出”一个新的函数——这个函数是象打补丁的过程一样，一次次增量叠加起来的。</p>
 
-这个过程在QoBean来说，叫做“编织(weave)”。Weave()这个函数用于简化“不停地Block、Scope”    
-这一过程。该过程首先包括了一个简单的逻辑：    
-<pre class="JScript" name="code">======  
-function Weave(where, code) {  
-  var source = Block(this);  
-  code = source.replace(where, code);  
-  return Function.apply(null, Block(this, 'param').concat(code));  
-}  
-======</pre>
+<p>有趣的是，如同上面所分析的，QoBean认为开发人员在书写原始代码的过程中的行为，的确就是这样一个过程：不断地改写一个函数代码块的内部，或创建新的函数代码块——然后连接它们。所以，我们可以写出任意大的程序来，本质上也就是我们在不停地用Block、Scope、Scope、Block……</p>
 
-<pre></pre>    
-也就是说，你可以为任何一个函数使用Weave()功能，以使得它可以在指定位置“where”增加一段代    
-码。这个指定位置可以是一个正则表达式、或者一个字符串。所以上一小节中的例子可以这样实现：    
-<pre class="JScript" name="code">======  
-func = Weave.call(func1, /$/, Block(func2, 'body'));  
+<p>这个过程在QoBean来说，叫做“编织(weave)”。Weave()这个函数用于简化“不停地Block、Scope”这一过程。该过程首先包括了一个简单的逻辑：</p>
+
+<pre><code class="language-javascript">function Weave(where, code) {  
+  var source = Block(this);
+  code = source.replace(where, code);
+  return Function.apply(null, Block(this, 'param').concat(code));
+}
+</code></pre>
+
+<p>也就是说，你可以为任何一个函数使用Weave()功能，以使得它可以在指定位置“where”增加一段代码。这个指定位置可以是一个正则表达式、或者一个字符串。所以上一小节中的例子可以这样实现：</p>
+
+<pre><code class="language-javascript">func = Weave.call(func1, /$/, Block(func2, 'body'));  
 alert(func);  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>同时，QoBean对这个过程进行了扩展，使得它可以支持：</p>
 
-同时，QoBean对这个过程进行了扩展，使得它可以支持：    
-  - 在Weave()处理的函数中，支持函数形式参数；    
-  - 在代码中可以使用'$&amp;'等正则表达式中允许的替换匹配。    
-这个过程，通过Weave()函数自身的一些编织过程来实现——也就是Weave()自身其实被重写过一次。    
+<ul>
+<li>在Weave()处理的函数中，支持函数形式参数；</li>
+<li>在代码中可以使用'$&amp;'等正则表达式中允许的替换匹配。</li>
+</ul>
 
-  2. 两种重写方法的选择    
-    
-* * *  
-“Weave重写”与“Hook重写”各有应用的场合。一般来说，Hook重写更简洁也更容易让人接受，因    
-为它毕竟是JS自身支持的一种重写方法。但是它存在一个致命的问题——改变了调用栈：    
-<pre class="JScript" name="code">======  
-function func() {  
-  f();  
-}  
+<p>这个过程，通过Weave()函数自身的一些编织过程来实现——也就是Weave()自身其实被重写过一次。</p>
+
+<h3 id="2">2. 两种重写方法的选择</h3>
+
+<p>“Weave重写”与“Hook重写”各有应用的场合。一般来说，Hook重写更简洁也更容易让人接受，因为它毕竟是JS自身支持的一种重写方法。但是它存在一个致命的问题——改变了调用栈：</p>
+
+<pre><code class="language-javascript">function func() {  
+  f();
+}
 
 function f() {  
-  alert(arguments.callee.caller); //显示调用栈上的函数  
-}  
+  alert(arguments.callee.caller); //显示调用栈上的函数
+}
 
-// 1. 正常情况：显示调用者函数func()  
-func();  
+// 1. 正常情况：显示调用者函数func()
+func();
 
-// 重写1次  
+// 重写1次
 f = function(foo) {  
-  return function() {  
-    return foo.apply(this, arguments);  
-  }  
-}(f);  
+  return function() {
+    return foo.apply(this, arguments);
+  }
+}(f);
 
-/* 重写n次  
+/* 重写n次
 f = function(foo) {  
-  ...  
-}(f);  
-*/  
+  ...
+}(f);
+*/
 
-// 2. 异常情况：重写后，显示Hook程序，而不是调用者函数func()  
+// 2. 异常情况：重写后，显示Hook程序，而不是调用者函数func()
 func();  
-======  
-</pre>
+</code></pre>
 
-<pre></pre>  
+<p>“Weave重写”的确没有这个问题，但它要求重写时对被重写代码有充分的了解——Hook重写则没有这个要求。Weave重写至少需要了解被重写代码所在闭包的位置——全局的或局部的。这是因为Weave重写后将产生一个函数，而这个函数（默认）是全局的，例如：</p>
 
-<p>“Weave重写”的确没有这个问题，但它要求重写时对被重写代码有充分的了解——Hook重写则没 <br>
-有这个要求。Weave重写至少需要了解被重写代码所在闭包的位置——全局的或局部的。这是因为 <br>
-Weave重写后将产生一个函数，而这个函数（默认）是全局的，例如：  </p>
-
-<pre class="JScript" name="code">======  
-f = 'global';  
+<pre><code class="language-javascript">f = 'global';  
 function X() {  
-  var f = function() { };  
-  f = Weave.call(f, /$/, 'alert(f)');  
-  f();  
-}  
+  var f = function() { };
+  f = Weave.call(f, /$/, 'alert(f)');
+  f();
+}
 X();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>当你需要它是某个局部的函数时，你不得不重新创建一个（当前闭包内的）scope。例如：</p>
 
-<p>当你需要它是某个局部的函数时，你不得不重新创建一个（当前闭包内的）scope。例如：    </p>
-
-<pre class="JScript" name="code">======  
-f = 'global';  
+<pre><code class="language-javascript">f = 'global';  
 function X() {  
-  var f = function() { };  
-  f = eval(Block(Weave.call(f, /$/, 'alert(f)'), 'scope'));  
-  f();  
-}  
+  var f = function() { };
+  f = eval(Block(Weave.call(f, /$/, 'alert(f)'), 'scope'));
+  f();
+}
 X();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>由于对闭包位置有显性的要求，因此Weave()重写事实上并不太适合于函数内的重写——当然如果你总是确知这些信息的话，又另当别论了。所以，Weave()重写通常只用在全局的(匿名或具名的)函数中——能较为方便地控制闭包的位置。</p>
 
-<p>由于对闭包位置有显性的要求，因此Weave()重写事实上并不太适合于函数内的重写——当然如 <br>
-果你总是确知这些信息的话，又另当别论了。所以，Weave()重写通常只用在全局的(匿名或具名 <br>
-的)函数中——能较为方便地控制闭包的位置。    </p>
+<h3 id="3arugments">3. 模拟形式参数表(arugments)的问题</h3>
 
-<p>  3. 模拟形式参数表(arugments)的问题 <br>
-    </p>
+<p>当然，我们可以随时通过apply/call方法来传递一个参数表。——尽管我们看起来也可以通过对象闭包来模拟参数表中的形式参数，例如：</p>
 
-<hr>
-
-<p>当然，我们可以随时通过apply/call方法来传递一个参数表。——尽管我们看起来也可以通过对 <br>
-象闭包来模拟参数表中的形式参数，例如：    </p>
-
-<pre class="JScript" name="code">======  
-function func(x, y) {  
-  alert(x + y)  
-}  
+<pre><code class="language-javascript">function func(x, y) {  
+  alert(x + y)
+}
 
 o = {x:100, y:100};  
 f = new Function(Block(func, 'body'));  
 func = Scope(o, f);  
 func();  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>但其中的一个严重的问题是，在通过Block()构造的这个函数f()内部，使用arguments时并不能访问到对象o中的成员——而在正常情况下，arugments与形式参数是存在对应关系的。所以事实上在使用Scope()方法时，我们无法通过对象闭包来模拟参数表。</p>
 
-<p>但其中的一个严重的问题是，在通过Block()构造的这个函数f()内部，使用arguments时并不能访 <br>
-问到对象o中的成员——而在正常情况下，arugments与形式参数是存在对应关系的。所以事实上在 <br>
-使用Scope()方法时，我们无法通过对象闭包来模拟参数表。    </p>
+<h2 id="">六、基本的元类声明，与元类系统的实现</h2>
 
-<p>六、基本的元类声明，与元类系统的实现    </p>
-
-<hr>
-
-<p>  1、Meta.js中的元类系统声明 <br>
-    </p>
-
-<hr>
+<h3 id="1metajs">1、Meta.js中的元类系统声明</h3>
 
 <p>QoBean声明了基本的元类系统，它的声明非常简单：  </p>
 
-<pre class="JScript" name="code">======  
-// Constructors-Meta, return TMyObject.Create. It's abstracted define.  
-MetaObject = Function;  
+<pre><code class="language-javascript">// Constructors-Meta, return TMyObject.Create. It's abstracted define.
+MetaObject = Function;
 
-// Classes-Meta, return TMyObject. It's abstracted define.  
+// Classes-Meta, return TMyObject. It's abstracted define.
 MetaClass = Function;  
-======</pre>
+</code></pre>
 
-<pre></pre>    
+<p>也就是说，对于QoBean来说，元类和元对象都是函数——按照前面所讲述的，也就是说是“执行体”。QoBean规定了这些执行体的返回结果，也就是：</p>
 
-<p>也就是说，对于QoBean来说，元类和元对象都是函数——按照前面所讲述的，也就是说是“执行 <br>
-体”。QoBean规定了这些执行体的返回结果，也就是：    </p>
+<ul>
+<li>MetaClass()将返回一个类类型（函数），它声明了一个“基于类的对象系统”的组织形式；</li>
+<li>MetaObject()将返回一个构造器函数，它可以放在TMyObject.Create成员中，用于构建一个对象实例。</li>
+</ul>
 
-<hr>
+<p>Meta.js中，上述两个声明只是抽象声明，并没有实现，也没有描述任务逻辑细节。这也是元语言系统的一个特点：元语言是最基底的声明、描述或实现。它约定了范围与边界，但不一定去直接实现它。</p>
 
-<p>MetaClass()将返回一个类类型（函数），它声明了一个“基于类的对象系统”的组织形式； <br>
-MetaObject()将返回一个构造器函数，它可以放在TMyObject.Create成员中，用于构建一个对象实例。  </p>
+<p>这有点像架构师的工作。呵呵。</p>
 
-<hr>
+<h3 id="2classjs">2、Class.js中的实现</h3>
 
-<p>Meta.js中，上述两个声明只是抽象声明，并没有实现，也没有描述任务逻辑细节。这也是元语言系 <br>
-统的一个特点：元语言是最基底的声明、描述或实现。它约定了范围与边界，但不一定去直接实现它。    </p>
+<p>Class.js中实现了一个类注册函数，用于将一个普通的函数注册为一个“类类型”，或者说它是通过类注册的方式，构建了基于类的对象系统。</p>
 
-<p>这有点像架构师的工作。呵呵。    </p>
+<p>类注册函数为Class()，它描述了类注册以及从类构建一个对象实例的基本方法。包括四个主干步骤：</p>
 
-<p>  2、Class.js中的实现 <br>
-    </p>
+<ol>
+<li>通过MetaClass()取得一个新的类，即cls = MetaClass(AConstructor);  </li>
+<li>设定原构造器的原型继承关系，即AConstructor.prototype = Parent.Create.prototype;  </li>
+<li>初始化类，即Initializtion(cls);  </li>
+<li>重写原来的构造器，即AConstructor = cls.Create</li>
+</ol>
 
-<hr>
+<p>在第3步的初始化类过程中，存在四个小的分支步骤：</p>
 
-<p>Class.js中实现了一个类注册函数，用于将一个普通的函数注册为一个“类类型”，或者说它是通过 <br>
-类注册的方式，构建了基于类的对象系统。    </p>
-
-<p>类注册函数为Class()，它描述了类注册以及从类构建一个对象实例的基本方法。包括四个主干步骤：    </p>
-
-<hr>
-
-<p>1、通过MetaClass()取得一个新的类，即cls = MetaClass(AConstructor); <br>
-2、设定原构造器的原型继承关系，即AConstructor.prototype = Parent.Create.prototype; <br>
-3、初始化类，即Initializtion(cls); <br>
-4、重写原来的构造器，即AConstructor = cls.Create  </p>
-
-<hr>
-
-<p>在第3步的初始化类过程中，存在四个小的分支步骤：    </p>
-
-<hr>
-
-<p>1、填写用于类系统识别的类信息； <br>
-2、从MetaObject()中取得一个元对象构造器到cls.Create，以支持“对象创建”的行为； <br>
-3、重写上述构造器cls.Create的prototype属性，以支持“对象继承”的能力； <br>
-4、重写上述prototype的constructor属性，以支持对象的“构造器(外部)链回溯”。  </p>
-
-<hr>
+<ol>
+<li>填写用于类系统识别的类信息；  </li>
+<li>从MetaObject()中取得一个元对象构造器到cls.Create，以支持“对象创建”的行为；  </li>
+<li>重写上述构造器cls.Create的prototype属性，以支持“对象继承”的能力；  </li>
+<li>重写上述prototype的constructor属性，以支持对象的“构造器(外部)链回溯”。</li>
+</ol>
 
 <p>QoBean中的Class.js代码也很简单，就如下几行：  </p>
 
-<pre class="JScript" name="code">======  
-// class register util  
+<pre><code class="language-javascript">// class register util
 function Class(Parent, Name) {  
-  var Constructor = eval(Name);  
-  var cls = new MetaClass(Constructor);  
+  var Constructor = eval(Name);
+  var cls = new MetaClass(Constructor);
 
-  // parent-class link and prototype set.  
-  Parent &amp;&amp; (Constructor.prototype = Parent.Create.prototype);  
+  // parent-class link and prototype set.
+  Parent &amp;&amp; (Constructor.prototype = Parent.Create.prototype);
 
-  // the qomo classes system.  
-  // Initializtion --&gt;  
-  ((Constructor = cls(Constructor),  // step one  
-    cls.Create = new MetaObject(cls) // step two  
-   ).prototype = Constructor  // step three  
-  ).constructor = cls.Create; // step four  
+  // the qomo classes system.
+  // Initializtion --&gt;
+  ((Constructor = cls(Constructor),  // step one
+    cls.Create = new MetaObject(cls) // step two
+   ).prototype = Constructor  // step three
+  ).constructor = cls.Create; // step four
 
-  // rewrite constructor by 'Name'  
-  (Name instanceof Function) || eval(Name + '= cls.Create');  
-  return cls;  
-}  
-======</pre>
+  // rewrite constructor by 'Name'
+  (Name instanceof Function) || eval(Name + '= cls.Create');
+  return cls;
+}
+</code></pre>
 
-<pre></pre>    
+<p>类注册过程的更多说明可以参见QoBean项目发起时的一篇文章：<a href="/1-92.html">《QoBean技术文档(1)：QoBean的基础技术》</a>。</p>
 
-<p>类注册过程的更多说明可以参见QoBean项目发起时的一篇文章： <br>
-<a href="http://blog.csdn.net/aimingoo/archive/2007/12/31/2006534.aspx">http://blog.csdn.net/aimingoo/archive/2007/12/31/2006534.aspx</a>    </p>
+<h3 id="3objectjs">3、Object.js中的实现</h3>
 
-<p>  3、Object.js中的实现 <br>
-    </p>
+<p>我们看到，Meta.js定义了元语言级别的“类、对象”的抽象，而Class.js中则描述了类和对象的逻辑关系。然而MetaClass()和MetaObject()并没有具体的实现——也就是说，到现在为止我们得到的仍然只是“具有逻辑关系的抽象系统”。我们必须要说明“实体系统是怎样的”，也就是要说明“元类如何创建类、元对象如何创建对象（构造器）”。</p>
 
-<hr>
+<p>而这部分就是在Object.js中实现的。其结果则是完成了全部的类系统，在装载完Object.js之后，QoBean的类、类类型系统也就构建完成了，这个类类型的基本使用与Qomo历来的版本是完全一致的。也就是下面的基本模式：</p>
 
-<p>我们看到，Meta.js定义了元语言级别的“类、对象”的抽象，而Class.js中则描述了类和对象的 <br>
-逻辑关系。然而MetaClass()和MetaObject()并没有具体的实现——也就是说，到现在为止我们得 <br>
-到的仍然只是“具有逻辑关系的抽象系统”。我们必须要说明“实体系统是怎样的”，也就是要 <br>
-说明“元类如何创建类、元对象如何创建对象（构造器）”。    </p>
-
-<p>而这部分就是在Object.js中实现的。其结果则是完成了全部的类系统，在装载完Object.js之后， <br>
-QoBean的类、类类型系统也就构建完成了，这个类类型的基本使用与Qomo历来的版本是完全一致 <br>
-的。也就是下面的基本模式：    </p>
-
-<pre class="JScript" name="code">======  
-// 声明(类似普通构造器函数)  
+<pre><code class="language-javascript">// 声明(类似普通构造器函数)
 function MyObject() {  
-}  
+}
 
-// 注册  
-TMyObject = Class(TObject, 'MyObject');  
+// 注册
+TMyObject = Class(TObject, 'MyObject');
 
-// 使用  
+// 使用
 obj = TMyObject.Create();  
-// or  
+// or
 obj = new MyObject();  
-======</pre>
-
-<pre></pre>    
+</code></pre>
 
 <p>QoBean中的Object.js代码也很简单，就如下几行：  </p>
 
-<pre class="JScript" name="code">======  
-// rewrite meta system  
+<pre><code class="language-javascript">// rewrite meta system
 MetaClass = Meta(function(fromSource) {  
-  return new Function('Base', 'return new Base');  
-}, MetaClass);  
+  return new Function('Base', 'return new Base');
+}, MetaClass);
 
 MetaObject = Meta(function(fromSource) {  
-  var atom = {};  
-  return function() {  
-    if (this instanceof Function) return new arguments.callee(atom, arguments);  
-    if (this.Create) this.Create.apply(this, arguments[0]<mark>=atom ? arguments[1] : arguments);  
-  }  
-}, MetaObject);  
-</mark>====</pre>
+  var atom = {};
+  return function() {
+    if (this instanceof Function) return new arguments.callee(atom, arguments);
+    if (this.Create) this.Create.apply(this, arguments[0]===atom ? arguments[1] : arguments);
+  }
+}, MetaObject);
+</code></pre>
 
-<pre></pre>    
+<h2 id="qobean">七、QoBean中，从元系统开始的系统结构栈</h2>
 
-<p>七、QoBean中，从元系统开始的系统结构栈    </p>
+<p>QoBean的元系统只有Meta.js一个文件，约70行代码。</p>
 
-<hr>
+<p>QoBean的基本对象系统需要载入（参考QoBean代码包中的t_Object.html）：</p>
 
-<p>QoBean的元系统只有Meta.js一个文件，约70行代码。    </p>
+<ul>
+<li>Meta.js</li>
+<li>Class.js</li>
+<li>Object.js</li>
+</ul>
 
-<p>QoBean的基本对象系统需要载入（参考QoBean代码包中的t_Object.html）： <br>
-<font face="Times New Roman" color="#800000">  Meta.js <br>
-  Class.js <br>
-  Object.js</font> <br>
-后两个文件不超过30行代码。整个的基本语言系统在100行JS代码以内。    </p>
+<p>后两个文件不超过30行代码。整个的基本语言系统在100行JS代码以内。</p>
 
-<p>如果更加增强的、完整的QoBean类类型系统，需要按如下栈载入JS文件： <br>
-<font face="">  Meta.js <br>
-  Class.js <br>
-  Namespace.js <br>
-  ObjectEx.js <br>
-  TObject.js</font> <br>
-通过这个代码栈，可以支持Qomo 2.0版本中的全部对象特性。包括get/setter， <br>
-以及Inherted继承，以及匿名类类型等。此外，通过TObject.js，支持了Txxxx <br>
-风格的类类型继承描述。这些内容，可以参考QoBean代码包中的： <br>
-  t<em>ObjectEx.html <br>
-  t</em>ObjectEx2.html    </p>
+<p>如果更加增强的、完整的QoBean类类型系统，需要按如下栈载入JS文件：</p>
 
-<p>QoBean当前版本已经支持了Qomo 2.0底层中的全部语言特性，包括接口、切面等等。 <br>
-这些完整的特性可以通过如下栈来装载： <br>
-<font face="">&lt;!-- Qomo V2版本的JS增强和（切面的）切点 <br>
-  ../trunk/Framework/RTL/JSEnhance.js <br>
-  ../trunk/Framework/RTL/JoPoints.js <br>
---&gt; <br>
-  Intfs/QomoIntfs.js <br>
-  Intfs/Interface.js <br>
-  Meta.js <br>
-  Class.js <br>
-  Namespace.js <br>
-  ObjectEx.js <br>
-  Intfs/ClassIntf.js <br>
-  TObject.js <br>
-&lt;!-- Qomo V2版本中的切面 <br>
-  ../trunk/Framework/RTL/Aspect.js <br>
---&gt;</font> <br>
-这个示例可以参考QoBean代码包中的： <br>
-  t_ObjectEx3.html    </p>
+<ul>
+<li>Meta.js</li>
+<li>Class.js</li>
+<li>Namespace.js</li>
+<li>ObjectEx.js</li>
+<li>TObject.js</li>
+</ul>
 
-<p>QoBean内部版本已经可以完全使用QoBean来替代Qomo V2的语言内核了。通过实测， <br>
-上述的新的内核，比Qomo V2旧的版本减少了1/3的代码，且同时提高了1/3的执行 <br>
-性能。所以，我们在这个节点上发布了QoBean Beta 1.0。    </p>
+<p>通过这个代码栈，可以支持Qomo 2.0版本中的全部对象特性。包括get/setter，以及Inherted继承，以及匿名类类型等。此外，通过TObject.js，支持了Txxxx风格的类类型继承描述。这些内容，可以参考QoBean代码包中的：</p>
+
+<ul>
+<li>t_ObjectEx.html</li>
+<li>t_ObjectEx2.html</li>
+</ul>
+
+<p>QoBean当前版本已经支持了Qomo 2.0底层中的全部语言特性，包括接口、切面等等。</p>
+
+<p>这些完整的特性可以通过如下栈来装载：</p>
+
+<pre><code class="language-html">&lt;!-- Qomo V2版本的JS增强和（切面的）切点  
+  ../trunk/Framework/RTL/JSEnhance.js
+  ../trunk/Framework/RTL/JoPoints.js
+--&gt;
+  Intfs/QomoIntfs.js
+  Intfs/Interface.js
+  Meta.js
+  Class.js
+  Namespace.js
+  ObjectEx.js
+  Intfs/ClassIntf.js
+  TObject.js
+&lt;!-- Qomo V2版本中的切面  
+  ../trunk/Framework/RTL/Aspect.js
+--&gt;
+</code></pre>
+
+<p>这个示例可以参考QoBean代码包中的：</p>
+
+<ul>
+<li>t_ObjectEx3.html</li>
+</ul>
+
+<p>QoBean内部版本已经可以完全使用QoBean来替代Qomo V2的语言内核了。通过实测，上述的新的内核，比Qomo V2旧的版本减少了1/3的代码，且同时提高了1/3的执行性能。所以，我们在这个节点上发布了QoBean Beta 1.0。</p>
+
+<blockquote>
+  <p>注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》<a href="/1-147.html">(之二)</a>、<a href="/1-148.html">(之三)</a>。</p>
+</blockquote>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -805,13 +715,13 @@ MetaObject = Meta(function(fromSource) {
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-110.html">
+                <a href="/1-110.html">
                     QoBean的元语言系统（一）
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-112.html">
+            <span class="post-nav-next" >
+                <a href="/1-112.html">
                     元语言基础技术之：在JS中如何自由地创建函数
                 </a>
                 下一篇
@@ -821,8 +731,8 @@ MetaObject = Meta(function(fromSource) {
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
+<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -841,30 +751,30 @@ MetaObject = Meta(function(fromSource) {
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -878,7 +788,7 @@ MetaObject = Meta(function(fromSource) {
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -891,19 +801,20 @@ MetaObject = Meta(function(fromSource) {
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
 </body>
 
+</html>
