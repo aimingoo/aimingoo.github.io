@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Monster - 用Ghost写博客的终极利器</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=494cfc74ff" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=494cfc74ff" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Monster - 用Ghost写博客的终极利器" />
+    <meta property="og:description" content="是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，独立配置 支持在url中使用缩短路径的风格（使用更精减的ghost slug） 支持Ghost的多作者（multi-author）功能" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1741.html" />
+    <meta property="article:published_time" content="2017-09-19T07:27:23.000Z" />
+    <meta property="article:modified_time" content="2017-09-19T07:27:29.000Z" />
+    <meta property="article:tag" content="OpenSource Project" />
+    <meta property="article:tag" content="博客" />
+    <meta property="article:tag" content="Ghost" />
+    <meta property="article:tag" content="Monster" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Monster - 用Ghost写博客的终极利器" />
+    <meta name="twitter:description" content="是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，独立配置 支持在url中使用缩短路径的风格（使用更精减的ghost slug） 支持Ghost的多作者（multi-author）功能" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1741.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="OpenSource Project, 博客, Ghost, Monster" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "width": 944,
+            "height": 858
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": [
+            "http://blog.csdn.net/aimingoo"
+        ],
+        "description": "I&#x27;m here."
+    },
+    "headline": "Monster - 用Ghost写博客的终极利器",
+    "url": "http://aimingoo.github.io/1-1741.html",
+    "datePublished": "2017-09-19T07:27:23.000Z",
+    "dateModified": "2017-09-19T07:27:29.000Z",
+    "keywords": "OpenSource Project, 博客, Ghost, Monster",
+    "description": "是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，独立配置 支持在url中使用缩短路径的风格（使用更精减的ghost slug） 支持Ghost的多作者（multi-author）功能",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/shared/ghost-url.js?v=494cfc74ff"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "cb6d9de116b8"
+});
+</script>
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-opensource-project tag-bo-ke tag-ghost-tag tag-monster nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=494cfc74ff"></script>
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-opensource-project tag-bo-ke tag-ghost-tag tag-monster featured">
+            <header class="post-header">
+                <h1 class="post-title"><a href="/1-1741.html">Monster - 用Ghost写博客的终极利器</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2017-09-19">5 minutes ago</time>
+                        <time class="post-date" datetime="2017-09-19">(2017-09-19)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/monster/">Monster</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <h2 id="bustermonster">是时候从Buster转到Monster了</h2>
+
+<p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
+
+<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
+
+<p>再之后，将这两个脚本合在一起，就变成了：</p>
+
+<blockquote>
+  <p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
+</blockquote>
+
+<p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
+
+<h2 id="monster">Monster的功能</h2>
+
+<ul>
+<li>全量和增量生成Ghost静态网站</li>
+<li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
+<li>支持生成并不Host在<code>github.io</code>上的网站</li>
+<li>支持同时管理多个网站，独立配置</li>
+<li>支持在url中使用缩短路径的风格（使用更精减的ghost slug）</li>
+<li>支持Ghost的多作者（multi-author）功能</li>
+<li>支持基于github issues的评论管理（面向gitment的工具功能）</li>
+</ul>
+
+<h2 id="monster">安装Monster</h2>
+
+<pre><code class="language-bash">&gt; brew install aimingoo/repo/monster
+</code></pre>
+
+<h2 id="">快速上手</h2>
+
+<pre><code class="language-bash"># 了解ghost运行的本地地址(例如下面的127.0.0.1:2368)
+&gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+
+# 如果你已经在Github上创建了自己的pages，那么你应该先将它clone到本地
+#  - (设网站domain为xxxx.github.io)
+&gt; git clone 'https://github.com/xxxx/xxxx.github.io'
+
+# 配置初始化(用上面的项目作为工作目录)
+#    - 可以不使用xxxx.github.io，而使用自己的domain，例如your.site.com
+#    - 路径"Ghost local .db file"可用如下命令查看(或先略过它)：
+#        &gt; grep -Fe '.db' ${GHOST安装目录}/config.js
+&gt; cd xxxx.github.io
+&gt; monster --init
+Your Github name or domain: xxxx  
+Your Github access token, or Enter to skip:  
+Your Ghost local account(e-mail), or Enter to skip:  
+Your Ghost local .db file, or Enter to skip:  
+Your Ghost site, or Enter set default [localhost:2368]:  
+...
+
+# 全站生成
+&gt; monster --generate
+
+# 更新
+&gt; monster update
+
+# 预览(ctrl+c退出)
+&gt; monster preview
+Serving HTTP on 0.0.0.0 port 8000 ...
+
+# 发布/部署(在生成全站之后)
+&gt; monster --deploy-now
+# 或发布更新（在使用'monster update'之后）
+&gt; monster update --deploy-only
+
+# 其它
+
+# 直接生成全站并发布
+&gt; monster --generate --deploy-now
+# 或在更新后直接发布
+&gt; monster update --deploy-now
+</code></pre>
+
+<h2 id="">工作目录</h2>
+
+<p>在使用<code>monster --init</code>初始化之后，当前目录就被Monster视为工作目录。</p>
+
+<p>Monster会根据当前目录下的<code>.monster</code>配置工作，因此只需要为多个site建立不同的目录，就可以管理multi-domain了。</p>
+
+<p>Monster会操作和维护当前目录下的<code>./static</code>目录来生成静态文件，你可以通过上述的<code>.monster</code>配置来改变这个目录的位置。</p>
+
+<p>最后，当前目录下的<code>monster.log</code>和<code>.sqlitedb</code>也是由Monster来管理的。你可以手工编写一个名为<code>patchme.sh</code>的文件来实现一些复杂的操作，如果它存在，那么Monster会调用并管理它。</p>
+
+<p>Monster的多数操作信息会直接出现在控制台，只有<code>monster --generate</code>和<code>monster update</code>会操作monster.log文件，前者总是覆盖整个文件，而后者是追加日志。</p>
+
+<p>Monster会维护<code>.gitignore</code>或<code>.git/info/exclude</code>文件来避免git将多余的文件push到仓库。所以，上述<code>./static</code>目录以及<code>.monster</code>、<code>.sqlitedb</code>、<code>patchme.sh</code>和<code>monster.log</code>等文件也已经加入了git的ingore list。</p>
+
+<h2 id="">高级特性</h2>
+
+<p>关于Monster的Git issues评论、short path、sync、multi author等特性，请参考后续的文章。</p>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/1-1739.html">
+                    简单实现Ghost Theme的置顶效果
+                </a>
+            </span>
+
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=494cfc74ff" />
+<script src="/assets/js/gitment.browser.js?v=494cfc74ff"></script>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitment({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                I&#x27;m here.
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=494cfc74ff"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=494cfc74ff"></script>
+</body>
+
+</html>

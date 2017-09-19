@@ -1,10 +1,124 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Mon, 11 Sep 2017 03:20:52 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 19 Sep 2017 07:32:11 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Monster - 用Ghost写博客的终极利器]]></title><description><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
+
+<p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
+
+<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
+
+<p>再之后，将这两个脚本合在一起，就变成了：</p>
+
+<blockquote>
+  <p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
+</blockquote>
+
+<p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
+
+<h2 id="monster">Monster的功能</h2>
+
+<ul>
+<li>全量和增量生成Ghost静态网站</li>
+<li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
+<li>支持生成并不Host在<code>github.</code></li></ul>]]></description><link>http://aimingoo.github.io/1-1741.html/</link><guid isPermaLink="false">5bfc1c43-be1d-43e2-b094-16c27efc9fbe</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
+
+<p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
+
+<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
+
+<p>再之后，将这两个脚本合在一起，就变成了：</p>
+
+<blockquote>
+  <p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
+</blockquote>
+
+<p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
+
+<h2 id="monster">Monster的功能</h2>
+
+<ul>
+<li>全量和增量生成Ghost静态网站</li>
+<li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
+<li>支持生成并不Host在<code>github.io</code>上的网站</li>
+<li>支持同时管理多个网站，独立配置</li>
+<li>支持在url中使用缩短路径的风格（使用更精减的ghost slug）</li>
+<li>支持Ghost的多作者（multi-author）功能</li>
+<li>支持基于github issues的评论管理（面向gitment的工具功能）</li>
+</ul>
+
+<h2 id="monster">安装Monster</h2>
+
+<pre><code class="language-bash">&gt; brew install aimingoo/repo/monster
+</code></pre>
+
+<h2 id="">快速上手</h2>
+
+<pre><code class="language-bash"># 了解ghost运行的本地地址(例如下面的127.0.0.1:2368)
+&gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+
+# 如果你已经在Github上创建了自己的pages，那么你应该先将它clone到本地
+#  - (设网站domain为xxxx.github.io)
+&gt; git clone 'https://github.com/xxxx/xxxx.github.io'
+
+# 配置初始化(用上面的项目作为工作目录)
+#    - 可以不使用xxxx.github.io，而使用自己的domain，例如your.site.com
+#    - 路径"Ghost local .db file"可用如下命令查看(或先略过它)：
+#        &gt; grep -Fe '.db' ${GHOST安装目录}/config.js
+&gt; cd xxxx.github.io
+&gt; monster --init
+Your Github name or domain: xxxx  
+Your Github access token, or Enter to skip:  
+Your Ghost local account(e-mail), or Enter to skip:  
+Your Ghost local .db file, or Enter to skip:  
+Your Ghost site, or Enter set default [localhost:2368]:  
+...
+
+# 全站生成
+&gt; monster --generate
+
+# 更新
+&gt; monster update
+
+# 预览(ctrl+c退出)
+&gt; monster preview
+Serving HTTP on 0.0.0.0 port 8000 ...
+
+# 发布/部署(在生成全站之后)
+&gt; monster --deploy-now
+# 或发布更新（在使用'monster update'之后）
+&gt; monster update --deploy-only
+
+# 其它
+
+# 直接生成全站并发布
+&gt; monster --generate --deploy-now
+# 或在更新后直接发布
+&gt; monster update --deploy-now
+</code></pre>
+
+<h2 id="">工作目录</h2>
+
+<p>在使用<code>monster --init</code>初始化之后，当前目录就被Monster视为工作目录。</p>
+
+<p>Monster会根据当前目录下的<code>.monster</code>配置工作，因此只需要为多个site建立不同的目录，就可以管理multi-domain了。</p>
+
+<p>Monster会操作和维护当前目录下的<code>./static</code>目录来生成静态文件，你可以通过上述的<code>.monster</code>配置来改变这个目录的位置。</p>
+
+<p>最后，当前目录下的<code>monster.log</code>和<code>.sqlitedb</code>也是由Monster来管理的。你可以手工编写一个名为<code>patchme.sh</code>的文件来实现一些复杂的操作，如果它存在，那么Monster会调用并管理它。</p>
+
+<p>Monster的多数操作信息会直接出现在控制台，只有<code>monster --generate</code>和<code>monster update</code>会操作monster.log文件，前者总是覆盖整个文件，而后者是追加日志。</p>
+
+<p>Monster会维护<code>.gitignore</code>或<code>.git/info/exclude</code>文件来避免git将多余的文件push到仓库。所以，上述<code>./static</code>目录以及<code>.monster</code>、<code>.sqlitedb</code>、<code>patchme.sh</code>和<code>monster.log</code>等文件也已经加入了git的ingore list。</p>
+
+<h2 id="">高级特性</h2>
+
+<p>关于Monster的Git issues评论、short path、sync、multi author等特性，请参考后续的文章。</p>]]></content:encoded></item><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
 
 <p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
 
 <h2 id="loop">找到loop</h2>
 
-<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/tree/master/affinity">参见这里</a>）：</p>
+<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
 
 <pre><code class="language-html">&lt;div class="content-cards"&gt;  
   {{#foreach posts}}
@@ -22,7 +136,7 @@
 
 <h2 id="loop">找到loop</h2>
 
-<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/tree/master/affinity">参见这里</a>）：</p>
+<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
 
 <pre><code class="language-html">&lt;div class="content-cards"&gt;  
   {{#foreach posts}}
@@ -2310,190 +2424,4 @@ issueLink.innerText = $('Issue Page')
   <p>（然后点下面的『管理SSL站点』）</p>
 </blockquote>
 
-<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_site-1.png" alt="ssl_step-update_site"></p>]]></content:encoded></item><item><title><![CDATA[手记4：谈谈Gitment中泄露secret的前因后果与解决方法]]></title><description><![CDATA[<p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……</p>
-
-<p>这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。</p>
-
-<h2 id="8">8. 问题出在哪里</h2>
-
-<p>Gitment（<a href="https://github.com/imsun/gitment">项目</a>）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（<a href="https://imsun.net/">https://imsun.net/</a>）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：</p>
-
-<ul>
-<li>Github真的可能被屏蔽，尽管这种可能性已经越来越小</li>
-<li>要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的</li>
-</ul>
-
-<p>但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。</p>
-
-<p>这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：</p>
-
-<pre><code class="language-javascript">var gitment = new Gitment({  
-  id: '页面 ID', // 可选。默认为 location.href</code></pre>]]></description><link>http://aimingoo.github.io/1-1722.html/</link><guid isPermaLink="false">bfa19ad7-3e78-4560-a7ff-f79104c7dd8d</guid><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[Github]]></category><category><![CDATA[Gitment]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 28 May 2017 18:17:49 GMT</pubDate><content:encoded><![CDATA[<p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……</p>
-
-<p>这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。</p>
-
-<h2 id="8">8. 问题出在哪里</h2>
-
-<p>Gitment（<a href="https://github.com/imsun/gitment">项目</a>）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（<a href="https://imsun.net/">https://imsun.net/</a>）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：</p>
-
-<ul>
-<li>Github真的可能被屏蔽，尽管这种可能性已经越来越小</li>
-<li>要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的</li>
-</ul>
-
-<p>但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。</p>
-
-<p>这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：</p>
-
-<pre><code class="language-javascript">var gitment = new Gitment({  
-  id: '页面 ID', // 可选。默认为 location.href
-  owner: '你的 GitHub ID',
-  repo: '存储评论的 repo',
-  oauth: {
-    client_id: '你的 client ID',
-    client_secret: '你的 client secret',
-    ...
-</code></pre>
-
-<p>这个<code>client_secret</code>来自于你在自己的Github个人配置<code>Settings -&gt; Developer Settings -&gt; OAuth applicatoins</code>中创建一个application时所生成的secret，这个secret提供了所谓的单点登录认证，以确保其它的Github用户在经过同意后使用你的博客中的Gitment模块来发评化——这种用法类似于新浪、微信、QQ等等的小应用。</p>
-
-<p>通常你需要这个secret有访问者的repo级别的访问权限（因为添加评论其实上是向repo的issues中添加comments），而一旦有人劫持了访问者的access_token，那么它就可以仿冒访问者在任意的github仓库中添加comments、以及issues——看起来很可怕不是？而且事实上看起来这个权限还更大，可以操作访问者自己的仓库。</p>
-
-<p>Gitment的作者为什么要留下这么一个漏洞呢？Github又为什么会允许这样一个漏洞存在呢？</p>
-
-<h3 id="81gitment">8.1 Gitment干了什么？</h3>
-
-<p>其实Gitment的作者是好心的。他在源代码中是这么写的：</p>
-
-<pre><code class="language-javascript">this.state.user.isLoggingIn = true  
-http.post('https://gh-oauth.imsun.net', {  
-    code,
-    client_id,
-    client_secret
-  }, '')
-  .then(data =&gt; {
-    this.accessToken = data.access_token;
-    ...
-</code></pre>
-
-<p>这段代码的意思，是拿你在Github后台生成的一对<code>client_id/client_secret</code>验证信息，去<code>https://gh-oauth.imsun.net</code>上面换取access_token，而这个access_token才是当前登录的Github用户在你的博客用发评论时使用的验证信息。这个access_token会记录在cookies中，并且每次调用Github api时作为Authorization头信息提交给Github验证身份。</p>
-
-<p>你把client_id和client_secret同时给了imsun.net，这是不对的；即使你信任imsun.net，然而把它公布在源代码中，也是不对的。——所以，事实上如果你在博客中部署了上述代码，你还会收到来自Github的一封邮件，提醒你不应该将token放在源代码中（是的，Github会扫描提交的源代码）。</p>
-
-<p>Gitment的作者并不是不知道这个问题，他只是好心的想帮你解决一个问题——这个我们下面会讲到——然而他带来了更严重的问题。</p>
-
-<h3 id="82github">8.2 深入了解Github的单点登录和应用授权</h3>
-
-<p>如果你在Github站外使用它的单点登录（也就是提示你用Github账户登录以使用某种功能），那么在这个网页中——其实也可以不是前端的网页，而是后端应用——需要调用Github API，来将当前用户引导到下面的Github的登录和授权页面：</p>
-
-<pre><code class="language-bash">GET https://github.com/login/oauth/authorize  
-    ?scope=(权限范围, Gitment预设的是'public_repo')
-    &amp;client_id=(验证应用的client_id)
-    &amp;redirect_url=(验证成功后的返回url, Gitment预设的是当前页)
-</code></pre>
-
-<p>这时，（如果当前用户/访客没有登录过，那么）它看到的页面是下面这样的：</p>
-
-<blockquote>
-  <p>（界面1：跨站应用的单点登录界面）</p>
-</blockquote>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-1.png" alt="github_auth_step-1"></p>
-
-<p>如果访客还没有为这个应用授权过（或者他已经是Github的登录用户），那么他之后还会看到下面这个界面：</p>
-
-<blockquote>
-  <p>（界面2：授权）</p>
-</blockquote>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-2.png" alt="github_auth_step-2"></p>
-
-<p>这两步的目的就是让访客登录，并且让他确认你的应用（例如Gitment）能够使用他的账号中的哪些权限。一旦用户确认过这个授权，那么在他的Github账号后台<code>Settings -&gt; Authorized OAuth Apps</code>中就可以看到这个应用（也能Revoke掉它），并且下次就不用再确认授权了。</p>
-
-<p>注意到上述'will redirect to'的地址——它在使用API提交时的配置细节在Github API的说明中有（<a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/#redirect-urls">在这里</a>），简单地说它必须以Application在后台的配置作为前缀。在我们这里讨论的Gitment中，作者将它设置为当前正在访问的网页——例如某篇博客文章（Post）。</p>
-
-<p>接下来如果Github验证并授权了访问的账户，它就会通过HTTP调用来返回304并带上一个Location地址，这个地址就是上面的redirect_url，并且会在这个url后面多带一个<code>code</code>参数。以我的站点上的某个具体的post来说，返回的时候这个Header是下面这样的：</p>
-
-<pre><code>Location:https://aimingoo.github.io/1-1718.html?code=40299d8475d3679c8c8c  
-</code></pre>
-
-<p>在静态页面（例如1-1718.html）中从url取参数的方法就不用细讲了。于是接下来Giment取到这个参数<code>code</code>，它还需要再做一次验证，才能真正的让当前用户能够使用Github API。这个验证操作需要调用：</p>
-
-<pre><code class="language-bash">POST https://github.com/login/oauth/access_token  
-    client_id: ...
-    client_secret: ...
-    code: ...
-</code></pre>
-
-<p>并且它使用POST请求的Accept header来决定以何种格式（xml/json/url-encode）来返回数据。显然地，这里需要在浏览器中使用AJAX请求来向<code>https://github.com/</code>调用这个API。</p>
-
-<p>问题就出在这一步。</p>
-
-<h3 id="83githuboauth">8.3 Github OAuth并不支持浏览器跨站访问</h3>
-
-<p>如果你在命令行上或者其它代码中直接访问上述POST API，那么不错，你能拿到返回数据access_token，然而不幸的是：Gitment在浏览器上，只能使用Ajax。</p>
-
-<p>事实上Gitment可以调用上述API并返回数据，但是注意发起这个API的地址（以上面的post为例）与调用的Github API地址分别是：</p>
-
-<pre><code>https://aimingoo.github.io/1-1718.html  
-https://github.com/login/oauth/access_token  
-</code></pre>
-
-<p>于是浏览器说：这是一个跨站访问！浏览器会把POST请求拆成两个，先发一枚OPTIONS请求问问github.com是否支持跨站，如果github.com接受了OPTIONS并正确返回，那么浏览器才接下来发POST请求。——OPTIONS请求是没有POST BODY区的，显然这是为了避免服务器接受大型的POST请求时浪费资源。关于这个过程的细节，可以参考阮一峰老师的文章『<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a>』。简单地说，服务器端对OPTIONS和POST请求都必须在返回头中包括<code>Access-Control-Allow-Origin</code>字段，并使该字段带有正确的来源Origin信息。——这样一来，浏览器就会认为服务器是接受跨站访问的了。</p>
-
-<p>然而Github的access_token接口并不返回上述头。而且，可以预见的将来，它都不会有这个头。因为这是正确的——我们确实不应该在浏览器上直接使用这个接口，并且公开接口中的client_secret。从另一方面来说，这个access_token接口是应该在一个浏览器用户受信的后端应用中，亦即是我们称为Gitment模板的应用内部发起调用的，它可以持有client_secret而不必告诉任何人，这是Github确认『该应用合法』的唯一凭据。</p>
-
-<p>Gitment没有办法同时做到两件事：</p>
-
-<ul>
-<li>既可以使用一个惟一、统一的Giment client_secret凭据，</li>
-<li>又在redirect_url中指定某个非确定的博客返回地址。</li>
-</ul>
-
-<p>这使得作者无法公开发布一个公众使用的、不需要每个博主去Github后台配置OAuth Application服务的应用。而接下来，作者也有没办法在没有client_secret凭据的情况下，帮你调用Github's access_token接口。</p>
-
-<p>所以，你看到了结果：Gitment的代码要求在网页中泄露你的client_secret，然后提交到<code>https://gh-oauth.imsun.net</code>去，作者会帮助你调用Github API，然后返回一个access_token。</p>
-
-<p>只有这样，当前的访问才能用这个access_token为每一个XHR Request建立有效的Authorization头。</p>
-
-<p>问题的根源，仅仅是出在Github OAuth并不支持浏览器跨站访问——它的返回头用没有Access-Control-Allow-Origin。</p>
-
-<h3 id="84api">8.4 API网关</h3>
-
-<p>显然，这绝壁了就是API网关要干的事情。如果我有一个API网关，那么我就只需要接受来自浏览器的Gitment请求，然后将API转发到Github，并且在返回头上塞上一个Access-Control-Allow-Origin就万事大吉了！</p>
-
-<p>是的，这是对的。不幸的是，没有这么个东东——而且要开放可信的。</p>
-
-<p>我尝试过阿里云的API网关！很牛x的产品，价格也不贵，而且配置操作一路极顺畅，Ding dong Ding dong分分钟就建好了网关，但是——不能定制返回的HTTP Header！</p>
-
-<p>我尝试过微软Azure里的API网关！也很牛x产品，骗了我一块钱人民币，居然让我连配置都完不成——最最反程序员的产品就非它莫属了。</p>
-
-<p>我尝试过很多很多云服务或云端微服务的API网关产品，要么是根本连页面都打不开的，要么就是不支持CORS跨站的。简单地说：你就算想花钱也是花不出去的。</p>
-
-<p>不过真想花钱，还是有一个法子的。你可以租一台虚拟主机，然后在上面架一个Nginx，通过配置来代理这个POST请求并在返回中加上Access-Control-Allow-Origin头。是的，这相当不错，连代码也不用写。但是搞云主机啊，分分钟收钱的。——你的API能访问几次？一个小小小小得不得了的博客，一个月能用10来条评论就不错了，调用上面的登录接口，大概也就三五次吧！</p>
-
-<p>不值当搞台云主机啊！</p>
-
-<p>于是，我说：</p>
-
-<h3 id="85sir">8.5 写点代码吧，Sir</h3>
-
-<p>要写点代码就其实很好办了，用NodeJS也好、PHP/ASP也行，其实甚至BASH脚本都搞得定。只需响应前端（frontend）来的POST请求，然后去Github API接口（backend）上拿数据，在返回前端之前塞上个Header就行了。</p>
-
-<p>不过具体要做起来，就麻烦一点了。我用PHP写了一个名为intersect的项目（<a href="https://github.com/aimingoo/intersect">在这里</a>），它修改自<a href="https://github.com/stamat/corsica">CORSica</a>，不过添加了不少的特性：</p>
-
-<ul>
-<li>HTTPS POST支持</li>
-<li>添加可配置字段（例如为Github API添加client_secret）</li>
-<li>处理前后端不同的Connection方法</li>
-<li>处理Transfer-Encoding</li>
-<li>处理Content-Length的变化</li>
-<li>一些防止滥用的简单guard代码</li>
-<li>...</li>
-</ul>
-
-<p>基本上，我的意思是说，它简单的配置下就可用了；而且稍作定制，也可以作为一个通用的CORS网关。所以，接下来，你就需要找一个能放PHP代码的免费主页，然后把intersect放上去，配置其中的<code>DOMAIN_ACCEPT</code>和<code>PRIVATE_CLIENT_SECRET</code>。这样这个网站就能拿来替代Gitment中对<code>https://gh-oauth.imsun.net</code>的访问了。</p>
-
-<p>当然，Gitment还需要稍稍的改点代码。</p>
-
-<p>这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。</p>]]></content:encoded></item></channel></rss>
+<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_site-1.png" alt="ssl_step-update_site"></p>]]></content:encoded></item></channel></rss>

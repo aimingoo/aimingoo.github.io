@@ -1,41 +1,42 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>JavaScript全局优化带来的负面效果……</title>
-    <meta name="description" content="">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=494cfc74ff" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=494cfc74ff" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=494cfc74ff" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="JavaScript全局优化带来的负面效果……">
-    <meta property="og:description" content='读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6&amp;nbsp; 语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。   这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的：     －－－－－－－－   var obj = new Object();   var events = {m1: "clicked", m2: "changed"};   for (e in events) {      obj[e] = function(){         alert(events[e]);      };   }   // 显示false, 表明是不同的函数实例   alert( obj.m1'>
-    <meta property="og:url" content="http://aimingoo.github.io/1-109.html">
-    <meta property="article:published_time" content="2008-07-23T14:38:00.000Z">
-    <meta property="article:modified_time" content="2008-07-23T14:38:00.000Z">
-    <meta property="article:tag" content="Javascript">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaScript全局优化带来的负面效果……" />
+    <meta property="og:description" content="读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。 这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的： var obj &#x3D; new Object();   var events &#x3D; {m1: &quot;clicked&quot;, m2: &quot;changed&quot;}; for (e in events) {      obj[e] &#x3D; function(){       alert(events[e]);    }; } // 显示false, 表明是不同的函数实例 alert( obj.m1 &#x3D;&#x3D;&#x3D; obj." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-109.html" />
+    <meta property="article:published_time" content="2008-07-23T14:38:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-11T09:34:24.000Z" />
+    <meta property="article:tag" content="Javascript" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="JavaScript全局优化带来的负面效果……">
-    <meta name="twitter:description" content='读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6&amp;nbsp; 语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。   这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的：     －－－－－－－－   var obj = new Object();   var events = {m1: "clicked", m2: "changed"};   for (e in events) {      obj[e] = function(){         alert(events[e]);      };   }   // 显示false, 表明是不同的函数实例   alert( obj.m1'>
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-109.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="JavaScript全局优化带来的负面效果……" />
+    <meta name="twitter:description" content="读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。 这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的： var obj &#x3D; new Object();   var events &#x3D; {m1: &quot;clicked&quot;, m2: &quot;changed&quot;}; for (e in events) {      obj[e] &#x3D; function(){       alert(events[e]);    }; } // 显示false, 表明是不同的函数实例 alert( obj.m1 &#x3D;&#x3D;&#x3D; obj." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-109.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
     
     <script type="application/ld+json">
 {
@@ -64,9 +65,9 @@
     "headline": "JavaScript全局优化带来的负面效果……",
     "url": "http://aimingoo.github.io/1-109.html",
     "datePublished": "2008-07-23T14:38:00.000Z",
-    "dateModified": "2008-07-23T14:38:00.000Z",
+    "dateModified": "2017-09-11T09:34:24.000Z",
     "keywords": "Javascript",
-    "description": "读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6&amp;nbsp; 语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。   这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的：     －－－－－－－－   var obj &#x3D; new Object();   var events &#x3D; {m1: &quot;clicked&quot;, m2: &quot;changed&quot;};   for (e in events) {      obj[e] &#x3D; function(){         alert(events[e]);      };   }   // 显示false, 表明是不同的函数实例   alert( obj.m1",
+    "description": "读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。 这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的： var obj &#x3D; new Object();   var events &#x3D; {m1: &quot;clicked&quot;, m2: &quot;changed&quot;}; for (e in events) {      obj[e] &#x3D; function(){       alert(events[e]);    }; } // 显示false, 表明是不同的函数实例 alert( obj.m1 &#x3D;&#x3D;&#x3D; obj.",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -74,15 +75,15 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=494cfc74ff"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -93,13 +94,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=494cfc74ff"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -109,9 +110,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -122,11 +123,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-109.html">JavaScript全局优化带来的负面效果……</a></h1>
+                <h1 class="post-title"><a href="/1-109.html">JavaScript全局优化带来的负面效果……</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>
+                        <a href="/tag/javascript/">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,103 +145,95 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。  </p>
+                <p>读者在China-pub中指出《JavaScript语言精髓与编程实践》的一个示例在FF上不正常。具体来说，就是第“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例。这个问题我反复测试过，只出现FireFox(SpiderMonkey JavaScript)中。我当时意识到是SpiderMonkey特殊的全局变量引用机制导致的，但因为没有切实地、在源代码级别观察过，因此我没有立即回答这个问题。</p>
 
-<p>这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的：    </p>
+<p>这些天有点时间了，把这个话题拿出来重新讨论。代码是这样子的：</p>
 
-<pre class="JScript" name="code">－－－－－－－－  
-var obj = new Object();  
-var events = {m1: "clicked", m2: "changed"};  
+<pre><code class="language-javascript">var obj = new Object();  
+var events = {m1: "clicked", m2: "changed"};
 
 for (e in events) {  
-   obj[e] = function(){  
-      alert(events[e]);  
-   };  
-}  
-// 显示false, 表明是不同的函数实例  
-alert( obj.m1 <mark>= obj.m2 );  
-－－－－－－－－</mark></pre>
+   obj[e] = function(){
+      alert(events[e]);
+   };
+}
+// 显示false, 表明是不同的函数实例
+alert( obj.m1 === obj.m2 );  
+</code></pre>
 
-<pre></pre>  
+<p>这个示例在其它的js引擎中，总是显示false。这与我们在“4.6.6”章中的分析是一致的。但是在Firefox中，就会显示true。按照我们的分析，这里的匿名函数直接量应该根据循环次数创建多个实例。然而在Firefox中，它只创建了一次。</p>
 
-<p>这个示例在其它的js引擎中，总是显示false。这与我们在“4.6.6”章中的分析是一致的。但是在Firefox中，就会显示true。按照我们的分析，这里的匿名函数直接量应该根据循环次数创建多个实例。然而在Firefox中，它只创建了一次。  </p>
+<p>出了什么问题了？</p>
 
-<p>出了什么问题了？  </p>
+<p>回到SpiderMonkey JavaScript引擎的源代码中，我们得知道，执行引擎并不直接执行代码，而是先将代码文本分析(parser)成代码树，再按规则执行代码树中的指令结点(op)。指令在JS中总是确定的，例如源代码中是FOR，那么总是JSOP_FOR*这个操作码。但是，指令所使用的参数却不是确定的，而是通过参数名绑定到一个具体的操作数。参数名是字符串，也就是标识符；操作数则位于该代码上下文所使用的栈中。这个栈中的操作数使用slot位置来表示。因此，这个关键的函数就是BindNameToSlot()。
+这个函数具体分析执行过程中使用的一个标识符应该绑定到那个闭包（上下文）中的哪个slot位置。这受非常多的因素影响，例如我们下面这段代码（出自“5.2.3  奇特的、甚至是负面的影响”）：</p>
 
-<p>回到SpiderMonkey JavaScript引擎的源代码中，我们得知道，执行引擎并不直接执行代码，而是先将代码文本分析(parser)成代码树，再按规则执行代码树中的指令结点(op)。指令在JS中总是确定的，例如源代码中是FOR，那么总是JSOP_FOR*这个操作码。但是，指令所使用的参数却不是确定的，而是通过参数名绑定到一个具体的操作数。参数名是字符串，也就是标识符；操作数则位于该代码上下文所使用的栈中。这个栈中的操作数使用slot位置来表示。因此，这个关键的函数就是BindNameToSlot()。 <br>
-这个函数具体分析执行过程中使用的一个标识符应该绑定到那个闭包（上下文）中的哪个slot位置。这受非常多的因素影响，例如我们下面这段代码（出自“5.2.3  奇特的、甚至是负面的影响”）：    </p>
-
-<pre class="JScript" name="code">－－－－－－－－  
-var i = 100;  
+<pre><code class="language-javascript">var i = 100;  
 function myFunc(ctx) {  
-  alert("value is: " + i);  
-  eval(ctx);  
-  alert("value is: " + i);  
-}  
-－－－－－－－－</pre>
+  alert("value is: " + i);
+  eval(ctx);
+  alert("value is: " + i);
+}
+</code></pre>
 
-<pre></pre>  
+<p>在myFunc()中，由于有一行动态执行eval()的代码，因此第一行和第二行中的变量“i”，就可能被绑定在不同闭包的solt上。例如我们执行：</p>
 
-<p>在myFunc()中，由于有一行动态执行eval()的代码，因此第一行和第二行中的变量“i”，就可能被绑定在不同闭包的solt上。例如我们执行：    </p>
+<pre><code class="language-javascript">myFunc("var i = 10;");  
+</code></pre>
 
-<pre class="Csharp" name="code">－－－－－－－－  
-myFunc("var i = 10;");  
-－－－－－－－－</pre>
+<p>那么代码的执行效果将是显示：</p>
 
-<pre></pre>  
-
-<p>那么代码的执行效果将是显示：    </p>
-
-<pre class="JScript" name="code">－－－－－－－－  
-value is: 100  
+<pre><code>value is: 100  
 value is: 10  
-－－－－－－－－</pre>
+</code></pre>
 
-<pre></pre>    
+<p>这也就意味着变量名必须在每行代码执行时都重新绑定——而这，也正是JavaScript效率偏低的原因。</p>
 
-<p>这也就意味着变量名必须在每行代码执行时都重新绑定——而这，也正是JavaScript效率偏低的原因。   </p>
+<p>这些过程，对所有的JS引擎来说是统一的，这是语言规范所决定的。然而，SpiderMonkey大概是觉得这想在全局范围上的效率太差……准确地说，如果一个变量标识符总是要绑定到全局变量，而每次绑定都要回溯很多层次的闭包链，所以从效率上来讲，每次都这样做就会很不经济。</p>
 
-<p>这些过程，对所有的JS引擎来说是统一的，这是语言规范所决定的。然而，SpiderMonkey大概是觉得这想在全局范围上的效率太差……准确地说，如果一个变量标识符总是要绑定到全局变量，而每次绑定都要回溯很多层次的闭包链，所以从效率上来讲，每次都这样做就会很不经济。  </p>
+<p>于是SpiderMonkey做了一个优化。这个优化在SpiderMonkey中叫“optimizeGlobal”。其规则是：</p>
 
-<p>于是SpiderMonkey做了一个优化。这个优化在SpiderMonkey中叫“optimizeGlobal”。其规则是：  </p>
+<ul>
+<li>1. 在语法分析期(jsparse.c)对标识符进行计数</li>
+</ul>
 
-<p>1、在语法分析期(jsparse.c)对标识符进行计数    </p>
+<pre><code class="language-javascript">                /* Measure optimizable global variable uses. */
+                ATOM_LIST_SEARCH(ale, &amp;tc-&gt;decls, pn-&gt;pn_atom);
+                if (……
+                    js_IsGlobalReference(tc, pn-&gt;pn_atom, &amp;loopy)) {
+                    tc-&gt;globalUses++;
+                    if (loopy)
+                        tc-&gt;loopyGlobalUses++;
+                }
+</code></pre>
 
-<pre class="Csharp" name="code">                /* Measure optimizable global variable uses. */  
-                ATOM_LIST_SEARCH(ale, &amp;tc-&gt;decls, pn-&gt;pn_atom);  
-                if (……  
-                    js_IsGlobalReference(tc, pn-&gt;pn_atom, &amp;loopy)) {  
-                    tc-&gt;globalUses++;  
-                    if (loopy)  
-                        tc-&gt;loopyGlobalUses++;  
-                }</pre>
+<p>也就是说，当一个标识符是引用全局的，则globalUses加1，而当它处于循环体内(loopy)时，loopyGlobalUses也同时加1。</p>
 
-<pre></pre>    
+<ul>
+<li>2. 在标识符绑定时(BindNameToSlot)确定是否优化，即启用optimizeGlobal</li>
+</ul>
 
-<p>也就是说，当一个标识符是引用全局的，则globalUses加1，而当它处于循环体内(loopy)时，loopyGlobalUses也同时加1。   </p>
+<pre><code class="language-javascript">function BindNameToSlot(...) {  
+...
+        optimizeGlobals = (tc-&gt;globalUses &gt;= 100 ||
+                           (tc-&gt;loopyGlobalUses &amp;&amp;
+                            tc-&gt;loopyGlobalUses &gt;= tc-&gt;globalUses / 2));
+...
+}
+</code></pre>
 
-<p>2、在标识符绑定时(BindNameToSlot)确定是否优化，即启用optimizeGlobal    </p>
+<p>也就是说，在一个代码块中有超过100个全局变量名的引用；或在循环中引用全局变量的数量，超过了该上下文中所引用全局变量数量的1/2。则开启optimizeGlobal……</p>
 
-<pre class="Csharp" name="code">function BindNameToSlot(...) {  
-...  
-        optimizeGlobals = (tc-&gt;globalUses &gt;= 100 ||  
-                           (tc-&gt;loopyGlobalUses &amp;&amp;  
-                            tc-&gt;loopyGlobalUses &gt;= tc-&gt;globalUses / 2));  
-...  
-}</pre>
+<ul>
+<li>3. 当启用optimizeGlobal时的一些优化效果</li>
+</ul>
 
-<pre></pre>    
+<p>这个就不讲了……极复杂的一套规则，其中就包括本文前面我们提到的这个问题。</p>
 
-<p>也就是说，在一个代码块中有超过100个全局变量名的引用；或在循环中引用全局变量的数量，超过了该上下文中所引用全局变量数量的1/2。则开启optimizeGlobal……   </p>
+<p>OK。到这里我们告一段落。基本上来说，从这个例子的实际效果来讲，这是一个失败的优化。或者说SpiderMonkey中存在这样的BUG。在书中“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例，仅在SpiderMonkey中存在异常，就证明了这一点。另一方面，我们可以将示例代码稍作一下修改，改变它的上下文环境，效果就大为不同了。例如：</p>
 
-<p>3、当启用optimizeGlobal时的一些优化效果 <br>
-－－－－－－－－ <br>
-这个就不讲了……极复杂的一套规则，其中就包括本文前面我们提到的这个问题。  </p>
-
-<p>OK。到这里我们告一段落。基本上来说，从这个例子的实际效果来讲，这是一个失败的优化。或者说SpiderMonkey中存在这样的BUG。在书中“4.6.6  语句或语句块中的闭包问题”中的第二、三、四三个示例，仅在SpiderMonkey中存在异常，就证明了这一点。另一方面，我们可以将示例代码稍作一下修改，改变它的上下文环境，效果就大为不同了。例如：  </p>
-
-<pre class="JScript" name="code">var obj = new Object();  
-var events = {m1: "clicked", m2: "changed"};  
+<pre><code class="language-javascript">var obj = new Object();  
+var events = {m1: "clicked", m2: "changed"};
 
 with ({}) { // &lt;-- 打开一个对象闭包  
   for (e in events) {  
@@ -251,9 +244,8 @@ with ({}) { // &lt;-- 打开一个对象闭包
 }  
 
 // 显示false, 表明是不同的函数实例  
-alert( obj.m1 = obj.m2 );</pre>
-
-<pre></pre>    
+alert( obj.m1 = obj.m2 );  
+</code></pre>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -265,13 +257,13 @@ alert( obj.m1 = obj.m2 );</pre>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-108.html">
+                <a href="/1-108.html">
                     对JavaScript的eval()中使用函数的进一步讨论~
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-233.html">
+            <span class="post-nav-next" >
+                <a href="/1-233.html">
                     啥美，细致之美……
                 </a>
                 下一篇
@@ -281,8 +273,8 @@ alert( obj.m1 = obj.m2 );</pre>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=494cfc74ff" />
+<script src="/assets/js/gitment.browser.js?v=494cfc74ff"></script>
 
 <script type="text/javascript">
 	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
@@ -301,30 +293,30 @@ alert( obj.m1 = obj.m2 );</pre>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -338,7 +330,7 @@ alert( obj.m1 = obj.m2 );</pre>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -351,19 +343,20 @@ alert( obj.m1 = obj.m2 );</pre>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=494cfc74ff"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=494cfc74ff"></script>
 </body>
 
+</html>
