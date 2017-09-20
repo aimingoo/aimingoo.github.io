@@ -1,90 +1,89 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomo之快速上手</title>
-    <meta name="description" content="" />
+    <meta name="description" content=".html">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Qomo之快速上手" />
-    <meta property="og:description" content="我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未能挽救它们的失败。 于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。 而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。 于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。 一、装载Qomo 我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样： &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;script src&#x3D;&quot;js/Qomo.js&quot;&amp;gt;" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-122.html" />
-    <meta property="article:published_time" content="2008-10-14T04:31:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-09T08:42:32.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="Qomo" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Qomo之快速上手">
+    <meta property="og:description" content='我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未能挽救它们的失败。 于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。 而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。 于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。 一、装载Qomo 我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样： &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;script src="js/Qomo.js"&amp;gt;'>
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-122/.html">
+    <meta property="article:published_time" content="2008-10-14T04:31:00.000Z">
+    <meta property="article:modified_time" content="2017-09-09T08:42:32.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Qomo">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Qomo之快速上手" />
-    <meta name="twitter:description" content="我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未能挽救它们的失败。 于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。 而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。 于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。 一、装载Qomo 我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样： &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;script src&#x3D;&quot;js/Qomo.js&quot;&amp;gt;" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-122.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, Qomo" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Qomo之快速上手">
+    <meta name="twitter:description" content='我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未能挽救它们的失败。 于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。 而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。 于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。 一、装载Qomo 我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样： &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;script src="js/Qomo.js"&amp;gt;'>
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-122/.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, Qomo">
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomo之快速上手",
-    "url": "http://aimingoo.github.io/1-122.html",
+    "url": "http:/.html/aimingoo.github.io/1-122/.html",
     "datePublished": "2008-10-14T04:31:00.000Z",
     "dateModified": "2017-09-09T08:42:32.000Z",
     "keywords": "Javascript, Qomo",
     "description": "我发现，无论是哪种成功的语言，总是有一个快速入门的读物，而无论它们本身是如何的复杂、艰涩或难于理解。反过来，不成功的语言，总是带有一堆技术性十足、充满了想象和预期的文档。后者的这些文档，有些甚至比代码还多，但是这同样未能挽救它们的失败。 于是，我同样地看到了Qomo。我发现Qomo发布过的文档中，总是有大量无法让人理解的东西。如果你准备写一门语言，那么可能Qomo的文档和代码会给你许多启发。 而如果你只是打算用它，那么大概会变得很痛苦。然而，如果一个人因为想写一门语言而去了解Qomo，那么他大概不会再使用Qomo，这是因为各自存有不同的目标。 于是，我想Qomo小组应该为“一个普通的使用者”而写一些东西。例如现在这篇。 一、装载Qomo 我们计划在将来为各种JavaScript应用环境加入一个定制的loader，用来装入Qomo的其它部分。但现在，Qomo还主要是用在浏览器中。所以他的装载代码是这样： &amp;lt;!-- in test.html --&amp;gt;   &amp;lt;script src&#x3D;&quot;js/Qomo.js&quot;&amp;gt;",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-qomo nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -124,20 +123,20 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-qomo">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-122.html">Qomo之快速上手</a></h1>
+                <h1 class="post-title"><a href="1-122.html">Qomo之快速上手</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="/author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2008-10-14">9 years ago</time>
+                        <time class="post-date" datetime="2008-10-14T12:31:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2008-10-14">(2008-10-14)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/qomo/.html">Qomo</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -173,20 +172,20 @@ ghost.init({
 <pre><code>&lt;yoursite&gt;/js/Build/*.* &lt;yoursite&gt;/js/Components/. &lt;yoursite&gt;/js/Framework/*.* &lt;yoursite&gt;/js/Qomo.js  
 </code></pre>
 
-<p>或者你也可以使用一个编码（压缩&#43;混淆）过的版本，这会是一个独立的文件。</p>
+<p>或者你也可以使用一个编码（压缩+混淆）过的版本，这会是一个独立的文件。</p>
 
-<h2 id="">二、创建一个类，及其实例</h2>
+<h2 id=".html">二、创建一个类，及其实例</h2>
 
 <p>Qomo主要扩展了一些面向对象的语法。最简单的用法，总是包括一个类注册的函数。例如：</p>
 
-<pre><code class="language-javascript">// 1. 声明一个构造器
+<pre><code class="language-javascript">/.html/ 1. 声明一个构造器
 function MyObject() {  
-  // ..
+  /.html/ ..
 }
-// 2. 类注册(创建这个类TMyObject)
+/.html/ 2. 类注册(创建这个类TMyObject)
 TMyObject = Class(TObject, 'MyObject');
 
-// 3. 创建实例的两种(效果上是一样的)
+/.html/ 3. 创建实例的两种(效果上是一样的)
 obj1 = new MyObject();  
 obj2 = TMyObject.Create();  
 </code></pre>
@@ -197,22 +196,22 @@ obj2 = TMyObject.Create();
 
 <p>如果你想这样做，那么你找对了东西，Qomo天生就是这种“私有”和“稳藏”而设计的。这在上面的代码中，修改一下构造器就可以做到：</p>
 
-<pre><code class="language-javascript">// 构造器
+<pre><code class="language-javascript">/.html/ 构造器
 function MyObject() {  
   Attribute(this, 'Name', 'MyObject', 'r');
   Attribute(this, 'Size', 100);
 }
-// 类
+/.html/ 类
 TMyObject = Class(TObject, 'MyObject');
 
-// 实例
+/.html/ 实例
 obj1 = new MyObject();  
 obj2 = new MyObject();
 
-// 两个实例的私有属性不同
+/.html/ 两个实例的私有属性不同
 obj1.set('Size', 20);  
-alert(obj1.get('Size'));  // 20  
-alert(obj2.get('Size'));  // 100  
+alert(obj1.get('Size'));  /.html/ 20  
+alert(obj2.get('Size'));  /.html/ 100  
 </code></pre>
 
 <h2 id="qomo">四、让Qomo在网页中变得更有用</h2>
@@ -229,7 +228,7 @@ alert(obj2.get('Size'));  // 100
 &lt;/body&gt;
 
 &lt;script&gt;  
-// (*注) // $import('Components/Components.js');
+/.html/ (*注) /.html/ $import('Components/Components.js');
 
 el = THtmlController.Create('pwd');  
 alert(el.get('value'));  
@@ -264,8 +263,8 @@ alert(el.get('value'));
 &lt;/body&gt;
 
 &lt;script&gt;  
-// 后续将说明的代码
-// ……
+/.html/ 后续将说明的代码
+/.html/ ……
 &lt;/script&gt;  
 </code></pre>
 
@@ -282,14 +281,14 @@ alert(el.get('value'));
     return this.assignedElement.children('edit');
   }
 
-  // .. 其它的实现代码
+  /.html/ .. 其它的实现代码
 }
 </code></pre>
 
 <p>接下来，我们可以尝试为这个控件添加几个特性，以直接控制界面上的东西：</p>
 
 <pre><code class="language-javascript">function LabledEdit() {  
-  // (略, 同上...)
+  /.html/ (略, 同上...)
 
   this.getLableText = function() {
     return this.get('_label').innerText;
@@ -323,15 +322,15 @@ ed.set('LableText', 'my lable:');
 ed.set('Value', 'hello, world.');  
 </code></pre>
 
-<h2 id="">六、如此麻烦地做一个组件有什么价值？</h2>
+<h2 id=".html">六、如此麻烦地做一个组件有什么价值？</h2>
 
-<p>有什么价&#20540;呢？如果我们的确需要控制这么一个“看起来象组件的HTML代码块”，那么我们直接用几行脚本就可以办到。例如：</p>
+<p>有什么价值呢？如果我们的确需要控制这么一个“看起来象组件的HTML代码块”，那么我们直接用几行脚本就可以办到。例如：</p>
 
 <pre><code class="language-javascript">document.getElementById('edLabled').children(2).value = 'hello, world.';  
-// ...
+/.html/ ...
 </code></pre>
 
-<p>然而，组件系统的真正价&#20540;在于复用，类继承的价&#20540;亦复如此。如果偏离了复用来讨论上述的一切，那无异于隔靴搔痒。我们来想象一下，如果我们需要一个使用FieldSet来做标签的edit，那么又该如何做呢？更多的Editor？</p>
+<p>然而，组件系统的真正价值在于复用，类继承的价值亦复如此。如果偏离了复用来讨论上述的一切，那无异于隔靴搔痒。我们来想象一下，如果我们需要一个使用FieldSet来做标签的edit，那么又该如何做呢？更多的Editor？</p>
 
 <p>好，我们在Qomo中基于上面的TLabledEdit代码来做一个。</p>
 
@@ -346,7 +345,7 @@ function FieldSetEdit() {
 }
 TFieldSetEdit = Class(TLabledEdit, 'FieldSetEdit');
 
-// 示例 var ed = TFieldSetEdit.Create('edLabled2'); 
+/.html/ 示例 var ed = TFieldSetEdit.Create('edLabled2'); 
 ed.set('Value', 'hello, world.');  
 &lt;/script&gt;  
 </code></pre>
@@ -357,7 +356,7 @@ ed.set('Value', 'hello, world.');
 
 <p>Oh。有高手看出来了，我实际上偷了个懒：这里的edLabled2的“HTML结构”与前一种没有本质的不同。是的，好吧，为了让你相信Qomo具有“节省代码”的能力，那么我们就弄复杂一点。</p>
 
-<h2 id="">七、将一个控制层的组件，复用在其它框架库中</h2>
+<h2 id=".html">七、将一个控制层的组件，复用在其它框架库中</h2>
 
 <p>我们找一个相对复杂的Edit，例如我们拿一个YahooUI中的、能自动完成的Edit。大概，我们要装入一个YahooUI，然后初始化它。最后，再装入我们的代码。OK，就象这样：</p>
 
@@ -382,12 +381,12 @@ arrayStates: [
 "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut"] };
 
 YAHOO.example.BasicLocal = function() {  
-    // Use a LocalDataSource
+    /.html/ Use a LocalDataSource
     var oDS = new YAHOO.util.LocalDataSource(YAHOO.example.Data.arrayStates);
-    // Optional to define fields for single-dimensional array 
+    /.html/ Optional to define fields for single-dimensional array 
     oDS.responseSchema = {fields : ["state"]};
 
-    // Instantiate the AutoComplete
+    /.html/ Instantiate the AutoComplete
     var oAC = new YAHOO.widget.AutoComplete("myInput", "myContainer", oDS);
     AC.prehighlightClassName = "yui-ac-prehighlight";
     oAC.useShadow = true;
@@ -408,11 +407,11 @@ YAHOO.example.BasicLocal = function() {
 &lt;!-- load qomo --&gt; &lt;script src="js/Qomo.js"&gt;&lt;/script&gt;
 
 &lt;!-- ours component and demo --&gt; &lt;script&gt; function LabledEdit() {  
-  // (同上, 略...)
+  /.html/ (同上, 略...)
 }
 TLabledEdit = Class(THtmlController, 'LabledEdit');
 
-// 新的TYuiEdit组件
+/.html/ 新的TYuiEdit组件
 YuiEdit = function() {  
   this.getlabel = function() {
     return this.assignedElement.previousSibling;
@@ -423,7 +422,7 @@ YuiEdit = function() {
 }
 TYuiEdit = Class(TLabledEdit, 'YuiEdit');
 
-// 以下示例代码
+/.html/ 以下示例代码
 var ed = TYuiEdit.Create('myAutoComplete');  
 alert(ed.get('LableText'));  
 ed.set('Value', 'hello, world.');  
@@ -432,18 +431,18 @@ ed.set('Value', 'hello, world.');
 
 <p>我们的示例代码，也就是应用程序的逻辑部分，相对于我们前面使用TLabledEdit的例子来说，并未发生改变。而我们使用了非常复杂的——当然我也认为是非常不错的——Yahoo UI组件。</p>
 
-<h2 id="">六、构造更深层次的类</h2>
+<h2 id=".html">六、构造更深层次的类</h2>
 
 <p>如同上面的示例一样，我们总有可能在JavaScript中使用继承层次很深的类。如果并且JavaScript自身的（原型继承的）方法来实现，那么我们需要调用父类的方法时就会比较麻烦。而在Qomo中，扩展了调用父类方法的inherited()，使得这个过程变得很简单。</p>
 
-<pre><code class="language-javascript">// 构造器
+<pre><code class="language-javascript">/.html/ 构造器
 function MyObject() {  
   Attribute(this, 'Size', 100);
 }
 
 function MyObjectEx() {  
   this.getSize = function() {
-    return 2 * this.get(); // &lt;- 在特性(attribute)读写器(方法)中调用缺省的或父类的读写方法
+    return 2 * this.get(); /.html/ &lt;- 在特性(attribute)读写器(方法)中调用缺省的或父类的读写方法
   }
 
   this.aMethod = function() {
@@ -453,17 +452,17 @@ function MyObjectEx() {
 
 function PowerObject() {  
   this.aMethod = function() {
-    this.inherited();   // &lt;- 在方法中调用父类方法
+    this.inherited();   /.html/ &lt;- 在方法中调用父类方法
     alert('hi, in PowerObject');
   }
 }
 
-// 类注册
+/.html/ 类注册
 TMyObject = Class(TObject, 'MyObject');  
 TMyObjectEx = Class(TMyObject, 'MyObjectEx');  
 TPowerObject = Class(TMyObjectEx, 'PowerObject');
 
-// 示例
+/.html/ 示例
 obj = new MyObjectEx();  
 pw = new PowerObject();  
 alert( obj.get('Size') );  
@@ -476,7 +475,7 @@ pw.aMethod();
 
 <pre><code class="language-javascript">ajx = new Ajax();
 
-ajx.open('GET', 'http://www.sina.com.cn/', false);  
+ajx.open('GET', 'http:/.html/www.sina.com.cn/.html', false);  
 ajx.send(null);
 
 text = ajx.responseText;  
@@ -492,18 +491,18 @@ alert('the page size is:'  +  text.length);
 }
 
 function doStateChange(state) {  
-  if (state != 4) return;  // wait downloaded.
+  if (state != 4) return;  /.html/ wait downloaded.
 
   var ajx = this.get('XMLHTTP');
-  if (ajx.status!=200 &amp;&amp; ajx.status!=304 &amp;&amp; ajx.status!=0)  return;  // staus is failed.
+  if (ajx.status!=200 &amp;&amp; ajx.status!=304 &amp;&amp; ajx.status!=0)  return;  /.html/ staus is failed.
 
   doAction(this.data.src, ajx.responseText);
 }
 
-// 测试，不使用Ajax池
+/.html/ 测试，不使用Ajax池
 var ajx = new HttpGetMachine();  
 ajx.OnStateChange.add(doStateChange);  
-ajx.data = { src: 'http://www.sina.com.cn/' };  
+ajx.data = { src: 'http:/.html/www.sina.com.cn/.html' };  
 ajx.OnStateChange('resume');  
 </code></pre>
 
@@ -522,40 +521,40 @@ function doAction(ord, url, ctx) {
 }
 
 function doStateChange(state) {  
-  if (state != 4) return; // wait downloaded.
+  if (state != 4) return; /.html/ wait downloaded.
 
   with (this.get('XMLHTTP')) {
     switch (status) {
       case 200: case 304: case 0:
         doAction(this.id, this.data.src, responseText);
         break;
-      default: // staus is failed.
+      default: /.html/ staus is failed.
         alert('failed: ' + status)
     }
   }
 }
 
-// pool的处理函数. id仅用于识别在处理中的mac序号，不是必须的.
+/.html/ pool的处理函数. id仅用于识别在处理中的mac序号，不是必须的.
 var id = 1;  
 function doOnStateChange_pool(mac, state) {  
-  if (!mac.id) mac.id = id++; // 为machine做一个标识
+  if (!mac.id) mac.id = id++; /.html/ 为machine做一个标识
   doStateChange.call(mac, state);
 }
 
-// 池化管理 - 创建处理池(允许最多3个处理机实例)，并填入数据
+/.html/ 池化管理 - 创建处理池(允许最多3个处理机实例)，并填入数据
 var pool = new Pool(THttpGetMachine, 3);  
 pool.OnStateChange.add(doOnStateChange_pool);  
-pool.push( { src: 'http://www.sina.com.cn/' } );  
-pool.push( { src: 'http://www.snda.com.cn/' } );  
-pool.push( { src: 'http://www.tom.com/' } );  
-pool.push( { src: 'http://www.google.com/' } );  
-// more...
+pool.push( { src: 'http:/.html/www.sina.com.cn/.html' } );  
+pool.push( { src: 'http:/.html/www.snda.com.cn/.html' } );  
+pool.push( { src: 'http:/.html/www.tom.com/.html' } );  
+pool.push( { src: 'http:/.html/www.google.com/.html' } );  
+/.html/ more...
 &lt;/script&gt;  
 </code></pre>
 
 <p>Ajax池实质上是帮助用户管理THttpGetMachine的创建与调度，由pool来决定什么时候传给哪个具体的Machine以数据，并如何响应这个数据的处理状态。</p>
 
-<h2 id="">九、其它的东西</h2>
+<h2 id=".html">九、其它的东西</h2>
 
 <p>Qomo V2.1将原来的LocalDB、Graphi等全部从代码包中移除了，我们将重写它。这个工作很快就会开始。仅从复杂性上讲，V2.1有一个不错的开端，为此我们还移除了现有的大多数Controls。</p>
 
@@ -574,20 +573,20 @@ pool.push( { src: 'http://www.google.com/' } );
 <p>直接下载发布包：</p>
 
 <ul>
-<li><a href="http://download.csdn.net/source/689574">http://download.csdn.net/source/689574</a></li>
-<li><a href="http://download.csdn.net/source/689579">http://download.csdn.net/source/689579</a></li>
+<li><a href="http:/.html/download.csdn.net/source/689574">http:/.html/download.csdn.net/source/689574</a></li>
+<li><a href="http:/.html/download.csdn.net/source/689579">http:/.html/download.csdn.net/source/689579</a></li>
 </ul>
 
 <p>Qomo最新的代码：</p>
 
 <ul>
-<li><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/trunk</a></li>
+<li><a href="https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean">https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/trunk</a></li>
 </ul>
 
 <p>QoBean最新的代码：</p>
 
 <ul>
-<li><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a></li>
+<li><a href="https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean">https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean</a></li>
 </ul>
             </section>
 <!-- removed by aimingoo
@@ -600,13 +599,13 @@ pool.push( { src: 'http://www.google.com/' } );
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-121.html">
+                <a href="1-121.1">
                     像大师们一样思考——从“UML何时死掉”谈起
                 </a>
             </span>
 
-            <span class="post-nav-next" >
-                <a href="/1-235.html">
+            <span class="post-nav-next">
+                <a href="1-235/.html">
                     学习从小抄开始
                 </a>
                 下一篇
@@ -616,11 +615,11 @@ pool.push( { src: 'http://www.google.com/' } );
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
-<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -636,30 +635,30 @@ pool.push( { src: 'http://www.google.com/' } );
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="/profile-aimingoo"></script>
+        <script type="text/javascript" src="profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -673,8 +672,8 @@ pool.push( { src: 'http://www.google.com/' } );
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -686,20 +685,20 @@ pool.push( { src: 'http://www.google.com/' } );
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
-</html>

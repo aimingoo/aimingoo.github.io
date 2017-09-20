@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系">
     <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http://aimingoo.github.io/1-38.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-38/.html">
     <meta property="article:published_time" content="2006-03-12T20:40:00.000Z">
     <meta property="article:modified_time" content="2006-03-12T20:40:00.000Z">
     <meta property="article:tag" content="Javascript">
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系">
     <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-38.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-38/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -41,42 +41,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系",
-    "url": "http://aimingoo.github.io/1-38.html",
+    "url": "http:/.html/aimingoo.github.io/1-38/.html",
     "datePublished": "2006-03-12T20:40:00.000Z",
     "dateModified": "2006-03-12T20:40:00.000Z",
     "keywords": "Javascript, delphi, oop",
     "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -95,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -128,16 +128,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2006-03-13">11 years ago</time>
+                        <time class="post-date" datetime="2006-03-13T04:40:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2006-03-13">(2006-03-13)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/delphi/">delphi</a>, <a href="tag/oop/">oop</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/delphi/.html">delphi</a>, <a href="tag/oop/.html">oop</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -212,14 +212,14 @@ Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类
 
 <hr>
 
-<p>// 类声明 <br>
+<p>/.html/ 类声明 <br>
 function MyObject() { <br>
   this.value = 'Hello, Qomoer!!!'; <br>
 } <br>
-// 类注册 <br>
+/.html/ 类注册 <br>
 TMyObject = Class(TObject, 'MyObject');  </p>
 
-<p><font face="Courier New">// 创建实例和调用 <br>
+<p><font face="Courier New">/.html/ 创建实例和调用 <br>
 var obj = new MyObject(); <br>
 alert(obj.value); <br>
 ----------</font>  </p>
@@ -352,8 +352,8 @@ TMyObject = Class(TObject, 'MyObject');  </p>
 <p><font face="Courier New">var obj = new MyObject(); <br>
 alert(obj.get('Value'));</font>  </p>
 
-<p><font face="Courier New">// 以下代码将导致一个异常 <br>
-// obj.set('Value', 'hi, error!'); <br>
+<p><font face="Courier New">/.html/ 以下代码将导致一个异常 <br>
+/.html/ obj.set('Value', 'hi, error!'); <br>
 ----------</font>  </p>
 
 <p>不过，Attribute()所声明的tag是非强制性的。也就是说，即使声明了只读／写特性， <br>
@@ -395,17 +395,17 @@ TMyObject = Class(TObject, 'MyObject');  </p>
 TMyObjectEx = Class(TMyObject, 'MyObjectEx');</font>  </p>
 
 <p><font face="Courier New">var obj = new MyObjectEx(); <br>
-alert(obj.get('Value'));           // 显示自MyObject()继承来的特性值 <br>
-obj.set('Value', 'hi, success!');  // 为实例特性置新值 <br>
-alert(obj.get('Value'));           // 显示新值</font>  </p>
+alert(obj.get('Value'));           /.html/ 显示自MyObject()继承来的特性值 <br>
+obj.set('Value', 'hi, success!');  /.html/ 为实例特性置新值 <br>
+alert(obj.get('Value'));           /.html/ 显示新值</font>  </p>
 
 <p><font face="Courier New">var obj2 = new MyObject(); <br>
-alert(obj2.get('Value'));          // 检测：其它的实例没有受到影响</font>  </p>
+alert(obj2.get('Value'));          /.html/ 检测：其它的实例没有受到影响</font>  </p>
 
-<p><font face="Courier New">// 对于MyObject()来说，Value特性是不可写的，因此下面的代码将出错 <br>
-// (注: 在Field Test 4中，这项限制被暂时地取消了.) <br>
-// var obj3 = new MyObject(); <br>
-// obj3.set('Value', 1000); <br>
+<p><font face="Courier New">/.html/ 对于MyObject()来说，Value特性是不可写的，因此下面的代码将出错 <br>
+/.html/ (注: 在Field Test 4中，这项限制被暂时地取消了.) <br>
+/.html/ var obj3 = new MyObject(); <br>
+/.html/ obj3.set('Value', 1000); <br>
 ----------</font>  </p>
 
 <p>关于Attribute()的更多示例，请参见：TestCase/BaseObjectDemo2.html  </p>
@@ -504,29 +504,29 @@ obj.run(); <br>
 <hr>
 
 <p>function MyObject() { <br>
-  Attribute(this, 'Value', 0);// 快速特性声明 <br>
-  var v = _get('Data');       // 取(当前类的)父类的特性值 <br>
-  _set('Data', v);            // 置特性值, 但不覆盖父类  </p>
+  Attribute(this, 'Value', 0);/.html/ 快速特性声明 <br>
+  var v = _get('Data');       /.html/ 取(当前类的)父类的特性值 <br>
+  _set('Data', v);            /.html/ 置特性值, 但不覆盖父类  </p>
 
-<p><font face="Courier New">  var cls = _cls();           // 取类引用 <br>
-  var count = 10;             // 声明类(私有)静态成员 <br>
-  var foo = function() {};    // 声明类私有函数 <br>
-  function foo2() {};         // 同上</font>  </p>
+<p><font face="Courier New">  var cls = _cls();           /.html/ 取类引用 <br>
+  var count = 10;             /.html/ 声明类(私有)静态成员 <br>
+  var foo = function() {};    /.html/ 声明类私有函数 <br>
+  function foo2() {};         /.html/ 同上</font>  </p>
 
-<p><font face="Courier New">  this.data = 123;            // 公开属性 <br>
-  this.getValue = function(){ // 特性读方法 <br>
-    this.set();               // 内部的读方法 <br>
-    this.get();               // 内部的写方法 <br>
+<p><font face="Courier New">  this.data = 123;            /.html/ 公开属性 <br>
+  this.getValue = function(){ /.html/ 特性读方法 <br>
+    this.set();               /.html/ 内部的读方法 <br>
+    this.get();               /.html/ 内部的写方法 <br>
   }                          <br>
-  this.setValue = function(){ // 特性写方法 <br>
-    // ... <br>
+  this.setValue = function(){ /.html/ 特性写方法 <br>
+    /.html/ ... <br>
   }                          </font>  </p>
 
-<p><font face="Courier New">  this.method1 = function() { // 类方法 <br>
-    this.inherited();         // 继承(调用)父类方法 <br>
+<p><font face="Courier New">  this.method1 = function() { /.html/ 类方法 <br>
+    this.inherited();         /.html/ 继承(调用)父类方法 <br>
   }</font>  </p>
 
-<p><font face="Courier New">  // (other code...) <br>
+<p><font face="Courier New">  /.html/ (other code...) <br>
 } <br>
 TMyObject = Class(TObject, 'MyObject'); <br>
 ----------</font>  </p>
@@ -550,10 +550,10 @@ TMyObject = Class(TObject, 'MyObject'); <br>
 <hr>
 
 <p>function MyObject() { <br>
-  // (略: 类声明)  </p>
+  /.html/ (略: 类声明)  </p>
 
 <p><font face="Courier New">  this.Create = function(v1, v2, v3) { <br>
-    // 对象构造周期 <br>
+    /.html/ 对象构造周期 <br>
   } <br>
 } <br>
 TMyObject = Class(TObject, 'MyObject'); <br>
@@ -577,12 +577,12 @@ TMyObject = Class(TObject, 'MyObject'); <br>
 
 <p>function MyObject() { <br>
   this.method1 = function() { <br>
-    // ... <br>
+    /.html/ ... <br>
   }  </p>
 
 <p><font face="Courier New">  this.Create = function(v1, v2, v3) { <br>
-    // 对象构造周期 <br>
-    // ... <br>
+    /.html/ 对象构造周期 <br>
+    /.html/ ... <br>
     if (!v1) return;</font>  </p>
 
 <p><font face="Courier New">    this.method1 = function() { <br>
@@ -621,12 +621,12 @@ TMyObject = Class(TObject, 'MyObject');  </font></p>
 
 <hr>
 
-<p>// 语法一：值为'Object'，仅仅保留给TObject的声明 <br>
+<p>/.html/ 语法一：值为'Object'，仅仅保留给TObject的声明 <br>
 function Object(){ <br>
 } <br>
 TObject = Class('Object');  </p>
 
-<p><font face="Courier New">// 语法二：值不为'Object'，相当于调用Class(TObject, '&lt;Constructor Name&gt;'); <br>
+<p><font face="Courier New">/.html/ 语法二：值不为'Object'，相当于调用Class(TObject, '&lt;Constructor Name&gt;'); <br>
 function MyObject(){ <br>
 } <br>
 TMyObject = Class('MyObject'); <br>
@@ -637,12 +637,12 @@ TMyObject = Class('MyObject'); <br>
 
 <hr>
 
-<p>// 语法三：Class()在声明前调用 <br>
+<p>/.html/ 语法三：Class()在声明前调用 <br>
 TMyObject = Class(TObject, 'MyObject'); <br>
 function MyObject(){ <br>
 }  </p>
 
-<p><font face="Courier New">// 语法四：只注册但不声明类 <br>
+<p><font face="Courier New">/.html/ 语法四：只注册但不声明类 <br>
 function MyObject(){ <br>
 } <br>
 Class(TObject, 'MyObject'); <br>
@@ -655,7 +655,7 @@ Class(TObject, 'MyObject'); <br>
 
 <hr>
 
-<p>// 不正确的用法 <br>
+<p>/.html/ 不正确的用法 <br>
 TMyObject = Class('MyObject'); <br>
 MyObject = function(){ <br>
 } <br>
@@ -670,10 +670,10 @@ MyObject = function(){ <br>
 
 <p>obj = new MyObject();  </p>
 
-<p><font face="Courier New">// 1. 在obj.ClassInfo中存在类引用 <br>
+<p><font face="Courier New">/.html/ 1. 在obj.ClassInfo中存在类引用 <br>
 alert(obj.ClassInfo.ClassName);</font>  </p>
 
-<p><font face="Courier New">// 2. 在命名空间上存在该类引用 <br>
+<p><font face="Courier New">/.html/ 2. 在命名空间上存在该类引用 <br>
 var cls = eval(obj.ClassInfo.SpaceName + '.TMyObject'); <br>
 alert(cls.ClassName); <br>
 ----------</font>  </p>
@@ -744,14 +744,14 @@ JavaScript中标准的构造器语法“对象＝new 构造器()”。需要说�
 
 <p>cls = &lt;a<em>name</em>space&gt;.TMyObject;  </p>
 
-<p><font face="Courier New">// 方法一： <br>
+<p><font face="Courier New">/.html/ 方法一： <br>
 var obj1 = cls.Creae();</font>  </p>
 
-<p><font face="Courier New">// 方法二： <br>
+<p><font face="Courier New">/.html/ 方法二： <br>
 var obj2 = new cls.Create();</font>  </p>
 
-<p><font face="Courier New">// 错误的方法： <br>
-// var obj3 = new cls(); <br>
+<p><font face="Courier New">/.html/ 错误的方法： <br>
+/.html/ var obj3 = new cls(); <br>
 ----------</font>  </p>
 
 <p>不要试图对一个类使用new()关键字，在Qomo中，"new cls()"这样的语义是不可理解的。</p>
@@ -766,13 +766,13 @@ var obj2 = new cls.Create();</font>  </p>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-37.html">
+                <a href="1-37/.html">
                     Qomo OpenProject Field Test 4发布！
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-39.html">
+                <a href="1-39/.html">
                     Qomolangma实现篇(六)：Qomo的OOP框架的实现技术
                 </a>
                 下一篇
@@ -782,11 +782,11 @@ var obj2 = new cls.Create();</font>  </p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -802,7 +802,7 @@ var obj2 = new cls.Create();</font>  </p>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -839,8 +839,8 @@ var obj2 = new cls.Create();</font>  </p>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -852,19 +852,20 @@ var obj2 = new cls.Create();</font>  </p>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>手记4：谈谈Gitment中泄露secret的前因后果与解决方法</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="手记4：谈谈Gitment中泄露secret的前因后果与解决方法">
-    <meta property="og:description" content="本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment = new Gitment({     id: '页面 ID', // 可选。默认为 location.href">
-    <meta property="og:url" content="http://aimingoo.github.io/1-1722.html">
+    <meta property="og:description" content="本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https:/.html/imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment = new Gitment({     id: '页面 ID', /.html/ 可选。默认为 location.href">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1722/.html">
     <meta property="article:published_time" content="2017-05-28T18:17:49.000Z">
     <meta property="article:modified_time" content="2017-06-19T16:51:29.000Z">
     <meta property="article:tag" content="博客">
@@ -34,8 +34,8 @@
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="手记4：谈谈Gitment中泄露secret的前因后果与解决方法">
-    <meta name="twitter:description" content="本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment = new Gitment({     id: '页面 ID', // 可选。默认为 location.href">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-1722.html">
+    <meta name="twitter:description" content="本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https:/.html/imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment = new Gitment({     id: '页面 ID', /.html/ 可选。默认为 location.href">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1722/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -43,42 +43,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "手记4：谈谈Gitment中泄露secret的前因后果与解决方法",
-    "url": "http://aimingoo.github.io/1-1722.html",
+    "url": "http:/.html/aimingoo.github.io/1-1722/.html",
     "datePublished": "2017-05-28T18:17:49.000Z",
     "dateModified": "2017-06-19T16:51:29.000Z",
     "keywords": "博客, Javascript, Github, Gitment, OpenSource Project",
-    "description": "本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment &#x3D; new Gitment({     id: &#x27;页面 ID&#x27;, // 可选。默认为 location.href",
+    "description": "本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https:/.html/imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。 这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码： var gitment &#x3D; new Gitment({     id: &#x27;页面 ID&#x27;, /.html/ 可选。默认为 location.href",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -97,25 +97,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -130,16 +130,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-05-29">2 months ago</time>
+                        <time class="post-date" datetime="2017-05-29T02:17:49.4949+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2017-05-29">(2017-05-29)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/bo-ke/">博客</a>, <a href="tag/javascript/">Javascript</a>, <a href="tag/github/">Github</a>, <a href="tag/gitment/">Gitment</a>, <a href="tag/opensource-project/">OpenSource Project</a>
+                        <a href="tag/bo-ke/.html">博客</a>, <a href="tag/javascript/.html">Javascript</a>, <a href="tag/github/.html">Github</a>, <a href="tag/gitment/.html">Gitment</a>, <a href="tag/opensource-project/.html">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -154,7 +154,7 @@ ghost.init({
 
 <h2 id="8">8. 问题出在哪里</h2>
 
-<p>Gitment（<a href="https://github.com/imsun/gitment">项目</a>）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（<a href="https://imsun.net/">https://imsun.net/</a>）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：</p>
+<p>Gitment（<a href="https:/.html/github.com/imsun/gitment">项目</a>）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（<a href="https:/.html/imsun.net/.html">https:/.html/imsun.net/</a>）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：</p>
 
 <ul>
 <li>Github真的可能被屏蔽，尽管这种可能性已经越来越小</li>
@@ -166,7 +166,7 @@ ghost.init({
 <p>这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：</p>
 
 <pre><code class="language-javascript">var gitment = new Gitment({  
-  id: '页面 ID', // 可选。默认为 location.href
+  id: '页面 ID', /.html/ 可选。默认为 location.href
   owner: '你的 GitHub ID',
   repo: '存储评论的 repo',
   oauth: {
@@ -186,17 +186,17 @@ ghost.init({
 <p>其实Gitment的作者是好心的。他在源代码中是这么写的：</p>
 
 <pre><code class="language-javascript">this.state.user.isLoggingIn = true  
-http.post('https://gh-oauth.imsun.net', {  
+http.post('https:/.html/gh-oauth.imsun.net', {  
     code,
     client_id,
     client_secret
-  }, '')
+  }, '.html')
   .then(data =&gt; {
     this.accessToken = data.access_token;
     ...
 </code></pre>
 
-<p>这段代码的意思，是拿你在Github后台生成的一对<code>client_id/client_secret</code>验证信息，去<code>https://gh-oauth.imsun.net</code>上面换取access_token，而这个access_token才是当前登录的Github用户在你的博客用发评论时使用的验证信息。这个access_token会记录在cookies中，并且每次调用Github api时作为Authorization头信息提交给Github验证身份。</p>
+<p>这段代码的意思，是拿你在Github后台生成的一对<code>client_id/client_secret</code>验证信息，去<code>https:/.html/gh-oauth.imsun.net</code>上面换取access_token，而这个access_token才是当前登录的Github用户在你的博客用发评论时使用的验证信息。这个access_token会记录在cookies中，并且每次调用Github api时作为Authorization头信息提交给Github验证身份。</p>
 
 <p>你把client_id和client_secret同时给了imsun.net，这是不对的；即使你信任imsun.net，然而把它公布在源代码中，也是不对的。——所以，事实上如果你在博客中部署了上述代码，你还会收到来自Github的一封邮件，提醒你不应该将token放在源代码中（是的，Github会扫描提交的源代码）。</p>
 
@@ -206,7 +206,7 @@ http.post('https://gh-oauth.imsun.net', {
 
 <p>如果你在Github站外使用它的单点登录（也就是提示你用Github账户登录以使用某种功能），那么在这个网页中——其实也可以不是前端的网页，而是后端应用——需要调用Github API，来将当前用户引导到下面的Github的登录和授权页面：</p>
 
-<pre><code class="language-bash">GET https://github.com/login/oauth/authorize  
+<pre><code class="language-bash">GET https:/.html/github.com/login/oauth/authorize  
     ?scope=(权限范围, Gitment预设的是'public_repo')
     &amp;client_id=(验证应用的client_id)
     &amp;redirect_url=(验证成功后的返回url, Gitment预设的是当前页)
@@ -230,22 +230,22 @@ http.post('https://gh-oauth.imsun.net', {
 
 <p>这两步的目的就是让访客登录，并且让他确认你的应用（例如Gitment）能够使用他的账号中的哪些权限。一旦用户确认过这个授权，那么在他的Github账号后台<code>Settings -&gt; Authorized OAuth Apps</code>中就可以看到这个应用（也能Revoke掉它），并且下次就不用再确认授权了。</p>
 
-<p>注意到上述'will redirect to'的地址——它在使用API提交时的配置细节在Github API的说明中有（<a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/#redirect-urls">在这里</a>），简单地说它必须以Application在后台的配置作为前缀。在我们这里讨论的Gitment中，作者将它设置为当前正在访问的网页——例如某篇博客文章（Post）。</p>
+<p>注意到上述'will redirect to'的地址——它在使用API提交时的配置细节在Github API的说明中有（<a href="https:/.html/developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/#redirect-urls">在这里</a>），简单地说它必须以Application在后台的配置作为前缀。在我们这里讨论的Gitment中，作者将它设置为当前正在访问的网页——例如某篇博客文章（Post）。</p>
 
 <p>接下来如果Github验证并授权了访问的账户，它就会通过HTTP调用来返回304并带上一个Location地址，这个地址就是上面的redirect_url，并且会在这个url后面多带一个<code>code</code>参数。以我的站点上的某个具体的post来说，返回的时候这个Header是下面这样的：</p>
 
-<pre><code>Location:https://aimingoo.github.io/1-1718.html?code=40299d8475d3679c8c8c  
+<pre><code>Location:https:/.html/aimingoo.github.io/1-1718.html?code=40299d8475d3679c8c8c  
 </code></pre>
 
 <p>在静态页面（例如1-1718.html）中从url取参数的方法就不用细讲了。于是接下来Giment取到这个参数<code>code</code>，它还需要再做一次验证，才能真正的让当前用户能够使用Github API。这个验证操作需要调用：</p>
 
-<pre><code class="language-bash">POST https://github.com/login/oauth/access_token  
+<pre><code class="language-bash">POST https:/.html/github.com/login/oauth/access_token  
     client_id: ...
     client_secret: ...
     code: ...
 </code></pre>
 
-<p>并且它使用POST请求的Accept header来决定以何种格式（xml/json/url-encode）来返回数据。显然地，这里需要在浏览器中使用AJAX请求来向<code>https://github.com/</code>调用这个API。</p>
+<p>并且它使用POST请求的Accept header来决定以何种格式（xml/json/url-encode）来返回数据。显然地，这里需要在浏览器中使用AJAX请求来向<code>https:/.html/github.com/</code>调用这个API。</p>
 
 <p>问题就出在这一步。</p>
 
@@ -255,11 +255,11 @@ http.post('https://gh-oauth.imsun.net', {
 
 <p>事实上Gitment可以调用上述API并返回数据，但是注意发起这个API的地址（以上面的post为例）与调用的Github API地址分别是：</p>
 
-<pre><code>https://aimingoo.github.io/1-1718.html  
-https://github.com/login/oauth/access_token  
+<pre><code>https:/.html/aimingoo.github.io/1-1718.html  
+https:/.html/github.com/login/oauth/access_token  
 </code></pre>
 
-<p>于是浏览器说：这是一个跨站访问！浏览器会把POST请求拆成两个，先发一枚OPTIONS请求问问github.com是否支持跨站，如果github.com接受了OPTIONS并正确返回，那么浏览器才接下来发POST请求。——OPTIONS请求是没有POST BODY区的，显然这是为了避免服务器接受大型的POST请求时浪费资源。关于这个过程的细节，可以参考阮一峰老师的文章『<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a>』。简单地说，服务器端对OPTIONS和POST请求都必须在返回头中包括<code>Access-Control-Allow-Origin</code>字段，并使该字段带有正确的来源Origin信息。——这样一来，浏览器就会认为服务器是接受跨站访问的了。</p>
+<p>于是浏览器说：这是一个跨站访问！浏览器会把POST请求拆成两个，先发一枚OPTIONS请求问问github.com是否支持跨站，如果github.com接受了OPTIONS并正确返回，那么浏览器才接下来发POST请求。——OPTIONS请求是没有POST BODY区的，显然这是为了避免服务器接受大型的POST请求时浪费资源。关于这个过程的细节，可以参考阮一峰老师的文章『<a href="http:/.html/www.ruanyifeng.com/blog/2016/04/cors.html">跨域资源共享 CORS 详解</a>』。简单地说，服务器端对OPTIONS和POST请求都必须在返回头中包括<code>Access-Control-Allow-Origin</code>字段，并使该字段带有正确的来源Origin信息。——这样一来，浏览器就会认为服务器是接受跨站访问的了。</p>
 
 <p>然而Github的access_token接口并不返回上述头。而且，可以预见的将来，它都不会有这个头。因为这是正确的——我们确实不应该在浏览器上直接使用这个接口，并且公开接口中的client_secret。从另一方面来说，这个access_token接口是应该在一个浏览器用户受信的后端应用中，亦即是我们称为Gitment模板的应用内部发起调用的，它可以持有client_secret而不必告诉任何人，这是Github确认『该应用合法』的唯一凭据。</p>
 
@@ -272,7 +272,7 @@ https://github.com/login/oauth/access_token
 
 <p>这使得作者无法公开发布一个公众使用的、不需要每个博主去Github后台配置OAuth Application服务的应用。而接下来，作者也有没办法在没有client_secret凭据的情况下，帮你调用Github's access_token接口。</p>
 
-<p>所以，你看到了结果：Gitment的代码要求在网页中泄露你的client_secret，然后提交到<code>https://gh-oauth.imsun.net</code>去，作者会帮助你调用Github API，然后返回一个access_token。</p>
+<p>所以，你看到了结果：Gitment的代码要求在网页中泄露你的client_secret，然后提交到<code>https:/.html/gh-oauth.imsun.net</code>去，作者会帮助你调用Github API，然后返回一个access_token。</p>
 
 <p>只有这样，当前的访问才能用这个access_token为每一个XHR Request建立有效的Authorization头。</p>
 
@@ -300,7 +300,7 @@ https://github.com/login/oauth/access_token
 
 <p>要写点代码就其实很好办了，用NodeJS也好、PHP/ASP也行，其实甚至BASH脚本都搞得定。只需响应前端（frontend）来的POST请求，然后去Github API接口（backend）上拿数据，在返回前端之前塞上个Header就行了。</p>
 
-<p>不过具体要做起来，就麻烦一点了。我用PHP写了一个名为intersect的项目（<a href="https://github.com/aimingoo/intersect">在这里</a>），它修改自<a href="https://github.com/stamat/corsica">CORSica</a>，不过添加了不少的特性：</p>
+<p>不过具体要做起来，就麻烦一点了。我用PHP写了一个名为intersect的项目（<a href="https:/.html/github.com/aimingoo/intersect">在这里</a>），它修改自<a href="https:/.html/github.com/stamat/corsica">CORSica</a>，不过添加了不少的特性：</p>
 
 <ul>
 <li>HTTPS POST支持</li>
@@ -312,7 +312,7 @@ https://github.com/login/oauth/access_token
 <li>...</li>
 </ul>
 
-<p>基本上，我的意思是说，它简单的配置下就可用了；而且稍作定制，也可以作为一个通用的CORS网关。所以，接下来，你就需要找一个能放PHP代码的免费主页，然后把intersect放上去，配置其中的<code>DOMAIN_ACCEPT</code>和<code>PRIVATE_CLIENT_SECRET</code>。这样这个网站就能拿来替代Gitment中对<code>https://gh-oauth.imsun.net</code>的访问了。</p>
+<p>基本上，我的意思是说，它简单的配置下就可用了；而且稍作定制，也可以作为一个通用的CORS网关。所以，接下来，你就需要找一个能放PHP代码的免费主页，然后把intersect放上去，配置其中的<code>DOMAIN_ACCEPT</code>和<code>PRIVATE_CLIENT_SECRET</code>。这样这个网站就能拿来替代Gitment中对<code>https:/.html/gh-oauth.imsun.net</code>的访问了。</p>
 
 <p>当然，Gitment还需要稍稍的改点代码。</p>
 
@@ -328,13 +328,13 @@ https://github.com/login/oauth/access_token
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1721.html">
+                <a href="1-1721.1">
                     手记3：实例教学之Ghost模板定制
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-1723.html">
+                <a href="1-1723/.html">
                     手记5：如何获得一个支持HTTPS的免费空间
                 </a>
                 下一篇
@@ -344,11 +344,11 @@ https://github.com/login/oauth/access_token
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -364,7 +364,7 @@ https://github.com/login/oauth/access_token
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -401,8 +401,8 @@ https://github.com/login/oauth/access_token
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -414,19 +414,20 @@ https://github.com/login/oauth/access_token
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

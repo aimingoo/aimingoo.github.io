@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma实现篇(一)：内核载入模块system.js的实现</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Qomolangma实现篇(一)：内核载入模块system.js的实现">
     <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http://aimingoo.github.io/1-30.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-30/.html">
     <meta property="article:published_time" content="2006-02-12T17:16:00.000Z">
     <meta property="article:modified_time" content="2006-02-12T17:16:00.000Z">
     <meta property="article:tag" content="Javascript">
@@ -32,7 +32,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Qomolangma实现篇(一)：内核载入模块system.js的实现">
     <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-30.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-30/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -40,42 +40,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomolangma实现篇(一)：内核载入模块system.js的实现",
-    "url": "http://aimingoo.github.io/1-30.html",
+    "url": "http:/.html/aimingoo.github.io/1-30/.html",
     "datePublished": "2006-02-12T17:16:00.000Z",
     "dateModified": "2006-02-12T17:16:00.000Z",
     "keywords": "Javascript, 脚本",
     "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -94,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -127,16 +127,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2006-02-13">11 years ago</time>
+                        <time class="post-date" datetime="2006-02-13T01:16:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2006-02-13">(2006-02-13)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/jiao-ben/">脚本</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/jiao-ben/.html">脚本</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -178,16 +178,16 @@ ghost.init({
 
 <hr>
 
-<p>  $import('Names/NamedSystem.js'); //命名空间管理 <br>
-  $import('RTL/JSEnhance.js');     //基于标准JS的增强特性  </p>
+<p>  $import('Names/NamedSystem.js'); /.html/命名空间管理 <br>
+  $import('RTL/JSEnhance.js');     /.html/基于标准JS的增强特性  </p>
 
-<p><font face="Courier New">  $import('JSUnit/debug.js');      //增强的调试输出 <br>
-  // more ...                      //调试分析相关功能(profiler/unit test等)</font>  </p>
+<p><font face="Courier New">  $import('JSUnit/debug.js');      /.html/增强的调试输出 <br>
+  /.html/ more ...                      /.html/调试分析相关功能(profiler/unit test等)</font>  </p>
 
-<p><font face="Courier New">  $import('RTL/error.js');         //错误和异常处理 <br>
-  $import('RTL/object.js');        //实现面向对象语言特性和基类TObject <br>
-  $import('RTL/ajax.js');          //tiny ajax sub system <br>
-  // more ...                      //其它内核级别的特性(SOA、Interface等) <br>
+<p><font face="Courier New">  $import('RTL/error.js');         /.html/错误和异常处理 <br>
+  $import('RTL/object.js');        /.html/实现面向对象语言特性和基类TObject <br>
+  $import('RTL/ajax.js');          /.html/tiny ajax sub system <br>
+  /.html/ more ...                      /.html/其它内核级别的特性(SOA、Interface等) <br>
 ----------</font>  </p>
 
 <p>Qomo的内核是可裁减的：如果开发人员不喜欢使用命名空间，那么可以不载入NamedSystem.js； <br>
@@ -234,7 +234,7 @@ $debug()仅仅只是向document输出字符串信息。这与Debug.writeln()是�
 <hr>
 
 <p>$debug = function() { <br>
-  document.writeln(Array.prototype.join.call(arguments, '')) <br>
+  document.writeln(Array.prototype.join.call(arguments, '.html')) <br>
 }; <br>
 ----------  </p>
 
@@ -266,11 +266,11 @@ $debug()仅仅只是向document输出字符串信息。这与Debug.writeln()是�
 
 <hr>
 
-<p>$import = function() {       // &lt;--- 匿名函数１ <br>
+<p>$import = function() {       /.html/ &lt;--- 匿名函数１ <br>
   var data= ... <br>
   function foo() { ... }   </p>
 
-<p><font face="Courier New">  return function() {        // &lt;--- 匿名函数２ <br>
+<p><font face="Courier New">  return function() {        /.html/ &lt;--- 匿名函数２ <br>
     ... <br>
   }; <br>
 }(); <br>
@@ -289,51 +289,51 @@ $debug()仅仅只是向document输出字符串信息。这与Debug.writeln()是�
 <hr>
 
 <p>$import = function () { <br>
-  // for firefox only <br>
+  /.html/ for firefox only <br>
   var <em>SYS</em>TAG = <br>
   var <em>MOZ</em>TAG = <br>
   var _CHARSET =   </p>
 
-<p><font face="Courier New">  // 使远程获取的脚本 <br>
+<p><font face="Courier New">  /.html/ 使远程获取的脚本 <br>
   var toCurrentCharset = ...</font>  </p>
 
-<p><font face="Courier New">  // 通过检测当前的网页字符集，来确定.js文件使用的编码 <br>
+<p><font face="Courier New">  /.html/ 通过检测当前的网页字符集，来确定.js文件使用的编码 <br>
   var _uu = ...</font>  </p>
 
-<p><font face="Courier New">  // 在firefox以及IE的不同版本下取HTTP连接对象(HTTPRequest) <br>
+<p><font face="Courier New">  /.html/ 在firefox以及IE的不同版本下取HTTP连接对象(HTTPRequest) <br>
   var getHttpConnect = ...</font>  </p>
 
-<p><font face="Courier New">  // 在$import()中使用的一个唯一的http connect <br>
-  // (脚本执行是有先后的，所以没有必要使用异步的HTTP连接) <br>
+<p><font face="Courier New">  /.html/ 在$import()中使用的一个唯一的http connect <br>
+  /.html/ (脚本执行是有先后的，所以没有必要使用异步的HTTP连接) <br>
   var _http = ...</font>  </p>
 
-<p><font face="Courier New">  // 是否使用XMLHTTP来取脚本代码。如果为false，则使用&lt;script&gt;标签载入 <br>
+<p><font face="Courier New">  /.html/ 是否使用XMLHTTP来取脚本代码。如果为false，则使用&lt;script&gt;标签载入 <br>
   var _xml = ...</font>  </p>
 
-<p><font face="Courier New">  // 通过_http连接取代码，并转换编码的函数 <br>
+<p><font face="Courier New">  /.html/ 通过_http连接取代码，并转换编码的函数 <br>
   function httpGet ...</font>  </p>
 
-<p><font face="Courier New">  // 取当前正在运行的脚本URL <br>
-  // (例如system.js的URL，实现使用文件相对路径来$import()的特性) <br>
+<p><font face="Courier New">  /.html/ 取当前正在运行的脚本URL <br>
+  /.html/ (例如system.js的URL，实现使用文件相对路径来$import()的特性) <br>
   function activeJS ...</font>  </p>
 
-<p><font face="Courier New">  // 重要的、在后期可能使用或“重述”的系统信息 <br>
+<p><font face="Courier New">  /.html/ 重要的、在后期可能使用或“重述”的系统信息 <br>
   var _sys = ...</font>  </p>
 
-<p><font face="Courier New">  // 一个activeJS的栈，用于实现“在$import()的代码中再调用$import()”的特性 <br>
+<p><font face="Courier New">  /.html/ 一个activeJS的栈，用于实现“在$import()的代码中再调用$import()”的特性 <br>
   var _stack = ...</font>  </p>
 
-<p><font face="Courier New">  // 远程读取、装载指定src的脚本并执行 <br>
+<p><font face="Courier New">  /.html/ 远程读取、装载指定src的脚本并执行 <br>
   var <em>load</em>and_execute = ...</font>  </p>
 
-<p><font face="Courier New">  // 向外返回的函数 <br>
+<p><font face="Courier New">  /.html/ 向外返回的函数 <br>
   function <em>import(src) { <br>
     /* Qomo Core System.. */ <br>
     _load</em>and_execute( src ); <br>
   }</font>  </p>
 
-<p><font face="Courier New">  // 其它代码(参见后文中“_sys对象的价值”) <br>
-  // ...</font>  </p>
+<p><font face="Courier New">  /.html/ 其它代码(参见后文中“_sys对象的价值”) <br>
+  /.html/ ...</font>  </p>
 
 <p><font face="Courier New">  return _import; <br>
 } <br>
@@ -386,13 +386,13 @@ XMLHTTP可以正确的解析以下编码方式的远程内容： <br>
 
 <hr>
 
-<p>// 字符串"这是一个测试"的gb2312字节码 <br>
+<p>/.html/ 字符串"这是一个测试"的gb2312字节码 <br>
 var s1 = '%D5%E2%CA%C7%D2%BB%B8%F6%B2%E2%CA%D4';  </p>
 
-<p><font face="Courier New">// 解码 <br>
+<p><font face="Courier New">/.html/ 解码 <br>
 var s2 = unescape(s1);</font>  </p>
 
-<p><font face="Courier New">// 显示 <br>
+<p><font face="Courier New">/.html/ 显示 <br>
 document.writeln(s2); <br>
 ----------</font> <br>
 这段代码在utf-8或gb2312字符集的网页上显示都不正常。  </p>
@@ -464,8 +464,8 @@ $import('2.js');  </p>
 <hr>
 
 <p>&lt;script&gt; <br>
-document.writeln('&lt;script src="1.js"&gt;&lt;', '/script&gt;'); <br>
-document.writeln('&lt;script src="2.js"&gt;&lt;', '/script&gt;');  </p>
+document.writeln('&lt;script src="1.js"&gt;&lt;', '.html/script&gt;'); <br>
+document.writeln('&lt;script src="2.js"&gt;&lt;', '.html/script&gt;');  </p>
 
 <p><font face="Courier New">foo<em>in</em>js1(); <br>
 &lt;/script&gt; <br>
@@ -480,10 +480,10 @@ document.writeln()向网页写入的内容会出现在&lt;/script&gt;标签之�
 
 <hr>
 
-<p>$import('/OS/Win32/FileSystem/<em>'); <br>
-$import('/OS/Win32/UI/</em>');  </p>
+<p>$import('.html/OS/Win32/FileSystem/<em>'); <br>
+$import('.html/OS/Win32/UI/</em>');  </p>
 
-<p><font face="Courier New">// some code ... <br>
+<p><font face="Courier New">/.html/ some code ... <br>
 ----------</font> <br>
 这种情况下在“some code”执行前FileSystem和UI模块就应该是被载入、执行过的。 <br>
 而我们已经看到&lt;script&gt;并不支持这种特性。  </p>
@@ -520,19 +520,19 @@ window.execScript()，以实现firefox版本的Qomo内核。  </p>
 <p> 4. 载入路径与activeJS的关系 <br>
  ~~~~~~ <br>
 在Qomo系统中载入一个.js时，采用比较灵活的路径定位策略： <br>
-  - 如果src以"xxxx://"的形式开始，则使用“完整路径”定位； <br>
-  - 如果src以"/"开始，则使用以当前document所在网站的根路径开始的绝对路径； <br>
+  - 如果src以"xxxx:/.html"的形式开始，则使用“完整路径”定位； <br>
+  - 如果src以".html"开始，则使用以当前document所在网站的根路径开始的绝对路径； <br>
   - 否则使用相对路径定位。  </p>
 
-<p>但接下来的问题就比较麻烦了。如果网页的URL是“<a href="http://site/sub/a.html%E2%80%9D%EF%BC%8C%E8%80%8C">http://site/sub/a.html”，而</a> <br>
-Qomo系统被部署在"<a href="http://site/Qomo/">http://site/Qomo/</a>"路径上，则可用如下两种方式之一在a.html <br>
+<p>但接下来的问题就比较麻烦了。如果网页的URL是“<a href="http:/.html/site/sub/a.html%E2%80%9D%EF%BC%8C%E8%80%8C">http:/.html/site/sub/a.html”，而</a> <br>
+Qomo系统被部署在"<a href="http:/.html/site/Qomo/.html">http:/.html/site/Qomo/</a>"路径上，则可用如下两种方式之一在a.html <br>
 中载入system.js： <br>
 <font face="Courier New">  </font></p>
 
 <hr>
 
 <p>&lt;script src="Framework/system.js"&gt;&lt;/script&gt;      &lt;!-- 之一 --&gt; <br>
-&lt;script src="/Qomo/Framework/system.js"&gt;&lt;/script&gt;   &lt;!-- 之二 --&gt; <br>
+&lt;script src=".html/Qomo/Framework/system.js"&gt;&lt;/script&gt;   &lt;!-- 之二 --&gt; <br>
 ----------  </p>
 
 <p>因为XMLHTTP也使用当前网页来做相对定位，因此在这方面他与&lt;script&gt;对象相同。 <br>
@@ -541,13 +541,13 @@ Qomo系统被部署在"<a href="http://site/Qomo/">http://site/Qomo/</a>"路径�
 
 <hr>
 
-<p>// $import()使用XMLHTTP来实现 <br>
-$import('Framework/Names/NameSystem.js');     // 方法一 <br>
-$import('/Qomo/Framework/Names/NameSystem.js');  // 方法二 <br>
+<p>/.html/ $import()使用XMLHTTP来实现 <br>
+$import('Framework/Names/NameSystem.js');     /.html/ 方法一 <br>
+$import('.html/Qomo/Framework/Names/NameSystem.js');  /.html/ 方法二 <br>
 ----------  </p>
 
 <p>各个.js中都要使用当前网页来做相对定位，这导致了系统中的脚本很不灵活，编写 <br>
-代码时要留意其它.js所在位置，目录转移时也不方便。——当然你也可以使用"/"开 <br>
+代码时要留意其它.js所在位置，目录转移时也不方便。——当然你也可以使用".html"开 <br>
 始的绝对定位，但如果这样，Qomo在应用系统中的可部署性就很差了。  </p>
 
 <p>因此Qomo对载入路径的理解是基于“当前.js文件”的。这样一来，在system.js中 <br>
@@ -556,7 +556,7 @@ $import('/Qomo/Framework/Names/NameSystem.js');  // 方法二 <br>
 
 <hr>
 
-<p>// system.js位于/Qomo/Framework/路径上 <br>
+<p>/.html/ system.js位于/Qomo/Framework/路径上 <br>
 $import('Names/NameSystem.js'); <br>
 ---------- <br>
 而在NameSystem.js中如果要导入同样位于Names目录中的A.js文件，则只需要： <br>
@@ -616,11 +616,11 @@ script对象，从而得到src的值。  </p>
 
 <hr>
 
-<p>// 1. in system.js <br>
-Names.registerNamespace('/Framework', 'currentPath');  </p>
+<p>/.html/ 1. in system.js <br>
+Names.registerNamespace('.html/Framework', 'currentPath');  </p>
 
-<p><font face="Courier New">// 2. in my_script.js <br>
-$import('/Framework/Debug/debug.js'); <br>
+<p><font face="Courier New">/.html/ 2. in my_script.js <br>
+$import('.html/Framework/Debug/debug.js'); <br>
 ----------</font>  </p>
 
 <p>这样，由于命名空间的存在，系统的确可以快速地反映模块的位置和相互关系。然 <br>
@@ -649,21 +649,21 @@ Qomo中实现了自注册的命名空间管理子系统，这使得在大多数�
 <hr>
 
 <p>  var _sys = { <br>
-    // 读取这些内容可以了解$import()的运行情况 <br>
+    /.html/ 读取这些内容可以了解$import()的运行情况 <br>
     'scripts': {}, <br>
-    'curScript': '',  </p>
+    'curScript': '.html',  </p>
 
-<p><font face="Courier New">    // ajax kernal <br>
+<p><font face="Courier New">    /.html/ ajax kernal <br>
     'httpGet': httpGet, <br>
     'httpConn': getHttpConnect,</font>  </p>
 
-<p><font face="Courier New">    // decode for XMLHTTP.responseBody <br>
+<p><font face="Courier New">    /.html/ decode for XMLHTTP.responseBody <br>
     'bodyDecode': toCurrentCharset,</font>  </p>
 
-<p><font face="Courier New">    // 取当前正在执行中的脚本的src <br>
+<p><font face="Courier New">    /.html/ 取当前正在执行中的脚本的src <br>
     'activeJS' : activeJS</font>  </p>
 
-<p><font face="Courier New">    // ... <br>
+<p><font face="Courier New">    /.html/ ... <br>
   } <br>
 ----------</font>  </p>
 
@@ -689,7 +689,7 @@ Qomo中实现了自注册的命名空间管理子系统，这使得在大多数�
 <hr>
 
 <p>var httpGet = $import.get('httpGet'); <br>
-var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>');  </p>
+var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.sina.com.cn/</a>');  </p>
 
 <p><font face="Courier New">alert(str); <br>
 ----------</font>  </p>
@@ -706,7 +706,7 @@ var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>
     'transitionUrl': function(url){ ... } <br>
     'srcBase': function() { ... }  </p>
 
-<p><font face="Courier New">    // ... <br>
+<p><font face="Courier New">    /.html/ ... <br>
   } <br>
 ----------</font>  </p>
 
@@ -737,13 +737,13 @@ var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-29.html">
+                <a href="1-29/.html">
                     Qomo OpenProject Field Test 1发布！
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-31.html">
+                <a href="1-31/.html">
                     关于Borland's IDE：发生了就发生了吧!
                 </a>
                 下一篇
@@ -753,11 +753,11 @@ var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -773,7 +773,7 @@ var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -810,8 +810,8 @@ var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -823,19 +823,20 @@ var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

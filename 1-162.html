@@ -4,34 +4,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>前端要给力之：URL应该有多长？</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="前端要给力之：URL应该有多长？">
-    <meta property="og:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v=083   https://static.alipay.net/build/js/home/home.js?t=20101012   https://static.alipay.net/build/">
-    <meta property="og:url" content="http://aimingoo.github.io/1-162.html">
+    <meta property="og:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https:/.html/static.alipay.net/build/js/app/tracker.js?v=083   https:/.html/static.alipay.net/build/js/home/home.js?t=20101012   https:/.html/static.alipay.net/build/.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-162/.html">
     <meta property="article:published_time" content="2010-12-17T05:06:00.000Z">
     <meta property="article:modified_time" content="2017-05-20T12:48:15.000Z">
     <meta property="article:tag" content="浏览器">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="前端要给力之：URL应该有多长？">
-    <meta name="twitter:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v=083   https://static.alipay.net/build/js/home/home.js?t=20101012   https://static.alipay.net/build/">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-162.html">
+    <meta name="twitter:description" content="URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https:/.html/static.alipay.net/build/js/app/tracker.js?v=083   https:/.html/static.alipay.net/build/js/home/home.js?t=20101012   https:/.html/static.alipay.net/build/.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-162/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -39,42 +39,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "前端要给力之：URL应该有多长？",
-    "url": "http://aimingoo.github.io/1-162.html",
+    "url": "http:/.html/aimingoo.github.io/1-162/.html",
     "datePublished": "2010-12-17T05:06:00.000Z",
     "dateModified": "2017-05-20T12:48:15.000Z",
     "keywords": "浏览器",
-    "description": "URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https://static.alipay.net/build/js/app/tracker.js?v&#x3D;083   https://static.alipay.net/build/js/home/home.js?t&#x3D;20101012   https://static.alipay.net/build/",
+    "description": "URL到底应该有多长？我为什么要提这个问题呢？有许多优化指南里都写着：要尽量减小COOKIE、缩短URL，以及尽可能地使用GET请求等等，以便优化WEB页面的请求和装载。但是，这种所谓&amp;ldquo;尽可能&amp;rdquo;、&amp;ldquo;尽量&amp;rdquo;只是定性的描述，定量的来看，要缩短到多少个字节才算少呢？   就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的： https:/.html/static.alipay.net/build/js/app/tracker.js?v&#x3D;083   https:/.html/static.alipay.net/build/js/home/home.js?t&#x3D;20101012   https:/.html/static.alipay.net/build/.html",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -93,25 +93,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -126,16 +126,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2010-12-17">7 years ago</time>
+                        <time class="post-date" datetime="2010-12-17T13:06:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2010-12-17">(2010-12-17)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/liu-lan-qi/">浏览器</a>
+                        <a href="tag/liu-lan-qi/.html">浏览器</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,11 +148,11 @@ ghost.init({
 
 <p>就以我们某次首页的改版中，通过http analyzers我看到几个有趣的.js文件的URL，是这样的：</p>
 
-<pre><code>https://static.alipay.net/build/js/app/tracker.js?v=083  
-https://static.alipay.net/build/js/home/home.js?t=20101012  
-https://static.alipay.net/build/js/pa/alieditcontrol-update.js?t=20101012  
-https://static.alipay.net/javascript/arale_v1.0.js  
-https://static.alipay.net/min/?b=javascript&amp;amp;f=arale/lang/aspect.js,arale/lang/md5.js,arale/lang/uri.js,arale/lang/tmpl.js,arale/lang/date.js,arale/lang/number.js,arale/http/jsonp.js,arale/http/ajax.js,arale/http/core.js,arale/event/event-chain.js,arale/class/declare.js,arale/fx/animator.js,aralex/widget.js,aralex/tplwidget.js,aralex/view.js,aralex/tab/tab.js,aralex/dropdown/dropdown.js,aralex/slider/slider.js,aralex/slider/switchslider.js  
+<pre><code>https:/.html/static.alipay.net/build/js/app/tracker.js?v=083  
+https:/.html/static.alipay.net/build/js/home/home.js?t=20101012  
+https:/.html/static.alipay.net/build/js/pa/alieditcontrol-update.js?t=20101012  
+https:/.html/static.alipay.net/javascript/arale_v1.0.js  
+https:/.html/static.alipay.net/min/?b=javascript&amp;amp;f=arale/lang/aspect.js,arale/lang/md5.js,arale/lang/uri.js,arale/lang/tmpl.js,arale/lang/date.js,arale/lang/number.js,arale/http/jsonp.js,arale/http/ajax.js,arale/http/core.js,arale/event/event-chain.js,arale/class/declare.js,arale/fx/animator.js,aralex/widget.js,aralex/tplwidget.js,aralex/view.js,aralex/tab/tab.js,aralex/dropdown/dropdown.js,aralex/slider/slider.js,aralex/slider/switchslider.js  
 </code></pre>
 
 <p>注意最后一条。嗯，不要惊讶，的确是这样长的URL，确切的长度是443bytes。但这是长了呢？还是不算长呢？  </p>
@@ -178,7 +178,7 @@ MTU与网络环境相关，也有两个推荐值。一般来说， <br>
 
 <pre><code>GET (...) HTTP/1.1  
 Accept:*/*  
-Referer:http://www.alipay.net/  
+Referer:http:/.html/www.alipay.net/  
 Accept-Language:zh-cn  
 User-Agent: (...)  
 Accept-Encoding:gzip, deflate  
@@ -193,7 +193,7 @@ Cookie: (...)
 
 <p>那么不讨论Referer字段的影响，仅以上述为例，我们能用的最佳值，就只剩下了456-184=272字节了。这272字节会有三个地方使用，就是上面标为(...)的三个地方：GET、User-Agent和Cookie。User-Agent这个字段与浏览器相关，不同的浏览器以及该浏览器处理不同的操作系统环境时，都会出现不同。在JS以及服务器上的统计软件中，也常常使用这个字段来判断浏览器环境，例如OS、版本等。这个字段的值有时候会比较长，以我当前的机器为例，该值为：    </p>
 
-<pre><code>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; QQWubi 108; EmbeddedWB 14.52 from: &lt;/span&gt;[&lt;span style="font-family: courier new,courier;"&gt;http://www.bsalsa.com/&lt;/span&gt;](http://www.bsalsa.com/)&lt;span style="font-family: courier new,courier;"&gt; EmbeddedWB 14.52; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 1.1.4322; .NET CLR 3.5.21022; .NET4.0C; .NET4.0E)  
+<pre><code>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; QQWubi 108; EmbeddedWB 14.52 from: &lt;/span&gt;[&lt;span style="font-family: courier new,courier;"&gt;http:/.html/www.bsalsa.com/&lt;/span&gt;](http:/.html/www.bsalsa.com/)&lt;span style="font-family: courier new,courier;"&gt; EmbeddedWB 14.52; .NET CLR 2.0.50727; InfoPath.2; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 1.1.4322; .NET CLR 3.5.21022; .NET4.0C; .NET4.0E)  
 </code></pre>
 
 <p>占用了274字节。也就是说，事实上理想环境下的使用456字节就已经不够用了。按此前讨论的，我们可以退而求其次：    </p>
@@ -210,16 +210,16 @@ Cookie: (...)
 
 <p>现在，Cookie是消耗最大的地方，以我当前的机器为例，该值有几种情况(对于不同的协议与域，是不一样的)：  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(1) 对于首页</strong></span><a href="http://www.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="http://www.alipay.net/">http://www.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有49字节：</strong> <br>
+<p><span style="font-family: courier new,courier;"><strong>(1) 对于首页</strong></span><a href="http:/.html/www.alipay.net/.html"><span style="font-family: courier new,courier;"><strong><a href="http:/.html/www.alipay.net/.html">http:/.html/www.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有49字节：</strong> <br>
 ali<em>apache</em>id=12.1.11.70.1275978936200.5; lastpg=</span>  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(2) 对于</strong></span><a href="http://*.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="http://*.alipay.net/">http://*.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有171字节：</strong> <br>
+<p><span style="font-family: courier new,courier;"><strong>(2) 对于</strong></span><a href="http:/.html/*.alipay.net/.html"><span style="font-family: courier new,courier;"><strong><a href="http:/.html/*.alipay.net/.html">http:/.html/*.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有171字节：</strong> <br>
 ali<em>apache</em>id=12.1.11.70.1275978936200.5; ali<em>apache</em>sid=12.1.46.46.128998714836.4|1289988948; ALIPAYJSESSIONID=bYWcn4Wq0Z5FBCoHzfpn2f1XxDAmBepay; ali<em>apache</em>tracktmp=uid=</span>  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(3) 对于</strong></span><a href="https://static.alipay.net/"><span style="font-family: courier new,courier;"><strong><a href="https://static.alipay.net/">https://static.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有307字节：</strong> <br>
+<p><span style="font-family: courier new,courier;"><strong>(3) 对于</strong></span><a href="https:/.html/static.alipay.net/.html"><span style="font-family: courier new,courier;"><strong><a href="https:/.html/static.alipay.net/.html">https:/.html/static.alipay.net/</a></strong></span></a><span style="font-family: courier new,courier;"><strong>，值有307字节：</strong> <br>
 cna=AKaaAhYBhU0BAeMdAHlnHNcd; ali<em>apache</em>id=169.17.198.19.1272623861747.7; payMethod=directPay; <em>tb</em>order=38016166656317; defaultBank=ICBC; <em>_utma=22931947.260433774.1277279158.1277279158.1282287558.2; _</em>utmz=22931947.1282287558.2.2.utmcsr=life.alipay.net|utmccn=(referral)|utmcmd=referral|utmcct=/index.php</span>  </p>
 
-<p><span style="font-family: courier new,courier;"><strong>(4) 对于http(s)://img.alipay.net/，值有379字节：</strong> <br>
+<p><span style="font-family: courier new,courier;"><strong>(4) 对于http(s):/.html/img.alipay.net/，值有379字节：</strong> <br>
 apay<em>id=159588238.127262386236866.128979461890689.1289969142342368.137; cna=AKaaAhYBhU0BAeMdAHlnHNcd; ali</em>apache<em>id=169.17.198.19.1272623861747.7; payMethod=directPay; _tb</em>order=38016166656317; defaultBank=ICBC; <em>_utma=22931947.260433774.1277279158.1277279158.1282287558.2; _</em>utmz=22931947.1282287558.2.2.utmcsr=life.alipay.net|utmccn=(referral)|utmcmd=referral|utmcct=/index.php</span>  </p>
 
 <p><span style="font-family: courier new,courier;"><strong>(5) 其它情况。</strong></span>  </p>
@@ -279,14 +279,14 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
 
 <p>整体优化的需要：<strong>第一等级的优化，70字节！</strong></p>
 
-<h2 id="">五、技术成熟性与价值</h2>
+<h2 id=".html">五、技术成熟性与价值</h2>
 
 <p>1、twritter中早就使用这样的技术了。  </p>
 
 <p>2、与arale项目类似的，YQL(Yahoo! Query Language)项目也有类似的需求，因此他们将“在URL上传入一个sql”通过上述技术变成了一个短名，例如： <br>
-<a href="http://y.ahoo.it/iHQ8c0sv">http://y.ahoo.it/iHQ8c0sv</a> <br>
+<a href="http:/.html/y.ahoo.it/iHQ8c0sv">http:/.html/y.ahoo.it/iHQ8c0sv</a> <br>
 相当于 <br>
-<a href="http://developer.yahoo.com/yql/console/?q=select%20woeid%20from%20geo.places%20where%20text%3D%22san%20francisco%2C%20ca%22">http://developer.yahoo.com/yql/console/?q=select%20woeid%20from%20geo.places%20where%20text%3D%22san%20francisco%2C%20ca%22</a>  </p>
+<a href="http:/.html/developer.yahoo.com/yql/console/?q=select%20woeid%20from%20geo.places%20where%20text%3D%22san%20francisco%2C%20ca%22">http:/.html/developer.yahoo.com/yql/console/?q=select%20woeid%20from%20geo.places%20where%20text%3D%22san%20francisco%2C%20ca%22</a>  </p>
 
 <p>3、微软还“傻傻说不清楚”，所以你看他们的官网很慢。^^.  </p>
 
@@ -306,13 +306,13 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-161.html">
+                <a href="1-161.1">
                     继承与混合，略谈系统的构建方式
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-163.html">
+                <a href="1-163/.html">
                     前端要给力之：原子，与原子联结的友类、友函数
                 </a>
                 下一篇
@@ -322,11 +322,11 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -342,7 +342,7 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -379,8 +379,8 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -392,19 +392,20 @@ Set-Cookie:ali_apache_tracktmp=uid=; Domain=.alipay.net; Path=/
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

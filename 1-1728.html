@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>在电子书中使用SVG</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="在电子书中使用SVG">
     <meta property="og:description" content="在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，">
-    <meta property="og:url" content="http://aimingoo.github.io/1-1728.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1728/.html">
     <meta property="article:published_time" content="2017-06-07T19:02:44.000Z">
     <meta property="article:modified_time" content="2017-06-10T05:45:38.000Z">
     <meta property="article:tag" content="电子书">
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="在电子书中使用SVG">
     <meta name="twitter:description" content="在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-1728.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1728/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -43,42 +43,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "在电子书中使用SVG",
-    "url": "http://aimingoo.github.io/1-1728.html",
+    "url": "http:/.html/aimingoo.github.io/1-1728/.html",
     "datePublished": "2017-06-07T19:02:44.000Z",
     "dateModified": "2017-06-10T05:45:38.000Z",
     "keywords": "电子书, OpenSource Project, svg, ImageMagick, Kindle",
     "description": "在之前的文章中，我们讨论了《Kindle电子书中该用多大的图片》，以及《详解ImageMagick中SVG的支持》，本文可以看作它们的后续。 在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。 因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。 一些.svg相关的基础知识 与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。 一般来说，.svg不支持多页。尽管多页格式已经发布（SVG 1.2），但多数系统并不支持它。 所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是： .pdf约定默认的分辨率是72DPI；而 .svg通常约定的是90DPI。 然而即使是同一个软件的不同版本，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -97,25 +97,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -130,16 +130,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2017-06-08">2 months ago</time>
+                        <time class="post-date" datetime="2017-06-08T03:02:44.4444+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2017-06-08">(2017-06-08)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/dian-zi-shu/">电子书</a>, <a href="tag/opensource-project/">OpenSource Project</a>, <a href="tag/svg/">svg</a>, <a href="tag/imagemagick/">ImageMagick</a>, <a href="tag/kindle/">Kindle</a>
+                        <a href="tag/dian-zi-shu/.html">电子书</a>, <a href="tag/opensource-project/.html">OpenSource Project</a>, <a href="tag/svg/.html">svg</a>, <a href="tag/imagemagick/.html">ImageMagick</a>, <a href="tag/kindle/.html">Kindle</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -149,7 +149,7 @@ ghost.init({
 
             <section class="post-content">
                 <blockquote>
-  <p>在之前的文章中，我们讨论了《<a href="1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
+  <p>在之前的文章中，我们讨论了《<a href="1-1726.1">Kindle电子书中该用多大的图片</a>》，以及《<a href="1-1727.1">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
 </blockquote>
 
 <p>在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。</p>
@@ -160,7 +160,7 @@ ghost.init({
 
 <p>与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。</p>
 
-<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
+<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https:/.html/www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
 
 <p>所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是：</p>
 
@@ -169,12 +169,12 @@ ghost.init({
 <li>.svg通常约定的是90DPI。</li>
 </ul>
 
-<p>然而即使是同一个软件的不同版本，也可能修改这个约定。例如Inkscape 从v0.92版本开始就默认使用96DPI的约定——而之前它是90DPI（<a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.92#Important_changes">参见这里</a>，以及<a href="http://wiki.inkscape.org/wiki/index.php/Units_In_Inkscape">这里</a>）。</p>
+<p>然而即使是同一个软件的不同版本，也可能修改这个约定。例如Inkscape 从v0.92版本开始就默认使用96DPI的约定——而之前它是90DPI（<a href="http:/.html/wiki.inkscape.org/wiki/index.php/Release_notes/0.92#Important_changes">参见这里</a>，以及<a href="http:/.html/wiki.inkscape.org/wiki/index.php/Units_In_Inkscape">这里</a>）。</p>
 
 <p>相对好一些的消息是：能够实现SVG处理的引擎并不太多——所以上述的一些不确定的限制条件也就相对来说容易穷举。这些引擎主要包括Cario、Inkscape、Apache Batik和一些浏览器上的Canvas。当然，此前讲过的ImageMagick内置的MSVG也算一个，不过它实在弱到没朋友，不提也罢。很多工具其实是以上述引擎为内核或库的，其中最常用的是Cario，包括rsvg在内的许多库/包都只是Cario上的一个封装。</p>
 
 <blockquote>
-  <p>注1：Cario库也支持PDF，所以Inkscape、Poppler等都使用它来输出PDF和PostScript文档（生成的.pdf文件元信息中Creator也是Cario）。但是Inkscape的SVG渲染引擎是自有的，相关信息可以参考<a href="https://en.wikipedia.org/wiki/Cairo_(graphics)">这里</a>。</p>
+  <p>注1：Cario库也支持PDF，所以Inkscape、Poppler等都使用它来输出PDF和PostScript文档（生成的.pdf文件元信息中Creator也是Cario）。但是Inkscape的SVG渲染引擎是自有的，相关信息可以参考<a href="https:/.html/en.wikipedia.org/wiki/Cairo_(graphics)">这里</a>。</p>
 </blockquote>
 
 <p>本文中提到的一些工具可以用如下方式安装：</p>
@@ -193,7 +193,7 @@ ghost.init({
 &gt; pip3 install cairosvg
 
 ## svginfo
-&gt; git clone http://github.com/aimingoo/svginfo
+&gt; git clone http:/.html/github.com/aimingoo/svginfo
 &gt; install svginfo/svginfo /usr/local/bin/
 </code></pre>
 
@@ -203,9 +203,9 @@ ghost.init({
 
 <p>这个过程看起来麻烦，但确实靠谱。</p>
 
-<p>总的来说，从PDF到SVG的工具主要有两个（<a href="https://en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#How_to_convert_a_PDF_to_SVG">Wiki上也是这么说的</a>）。其中最方便、快捷和安全的应该是cityinthesky的pdf2svg，他使用Poppler+Cario；另一个是inkscape，除了在字体处理上表现不稳定之外，它还需要XQuartz的支持（这就比较庞大了）。</p>
+<p>总的来说，从PDF到SVG的工具主要有两个（<a href="https:/.html/en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#How_to_convert_a_PDF_to_SVG">Wiki上也是这么说的</a>）。其中最方便、快捷和安全的应该是cityinthesky的pdf2svg，他使用Poppler+Cario；另一个是inkscape，除了在字体处理上表现不稳定之外，它还需要XQuartz的支持（这就比较庞大了）。</p>
 
-<p>pdf2svg可以直接使用brew安装，它的开源项目<a href="http://www.cityinthesky.co.uk/opensource/pdf2svg">在这里</a>，或<a href="https://github.com/indraniel/pdf2svg">这里</a>。采用相同技术实现的还有<a href="https://github.com/indraniel/pdf2svg">Perl</a>和<a href="https://github.com/jakobwesthoff/pdf2svg">Vala</a>的版本——因为使用的都是相同的库，因此效果应该没差。其它可选的方案包括<a href="https://github.com/ContentMine/pdf2svg">Java</a>、<a href="https://github.com/ststeiger/Pdf2Svg">C#</a>版的等等，但采用的是各自语言下的引擎，我没有一一试过。</p>
+<p>pdf2svg可以直接使用brew安装，它的开源项目<a href="http:/.html/www.cityinthesky.co.uk/opensource/pdf2svg">在这里</a>，或<a href="https:/.html/github.com/indraniel/pdf2svg">这里</a>。采用相同技术实现的还有<a href="https:/.html/github.com/indraniel/pdf2svg">Perl</a>和<a href="https:/.html/github.com/jakobwesthoff/pdf2svg">Vala</a>的版本——因为使用的都是相同的库，因此效果应该没差。其它可选的方案包括<a href="https:/.html/github.com/ContentMine/pdf2svg">Java</a>、<a href="https:/.html/github.com/ststeiger/Pdf2Svg">C#</a>版的等等，但采用的是各自语言下的引擎，我没有一一试过。</p>
 
 <p>使用pdf2svg的参数如下：</p>
 
@@ -280,7 +280,7 @@ Page size:      122 x 62 pts
 
 <p>因为svg缺省是工作在90dpi模式下的，所以MSVG用90dpi来换算.svg的大小，就得到了<code>388 * 90/72 = 485px</code>的宽，而其它模式都是先转换成图片，并指定了参数96DPI，这时宽度就成了<code>388 * 96/72 = 517px</code>。</p>
 
-<p>所以无论如何（除非你能确切指定使用某一种SVG引擎），对于.svg来说，ImageMagick显示的大小是作不得准的。更好的办法是直接显示.svg中的元信息，例如使用<code>svginfo</code>这个工具（<a href="https://github.com/aimingoo/svginfo">下载在这里</a>）：</p>
+<p>所以无论如何（除非你能确切指定使用某一种SVG引擎），对于.svg来说，ImageMagick显示的大小是作不得准的。更好的办法是直接显示.svg中的元信息，例如使用<code>svginfo</code>这个工具（<a href="https:/.html/github.com/aimingoo/svginfo">下载在这里</a>）：</p>
 
 <pre><code class="language-bash">&gt; svginfo your.svg
 width: 388pt  
@@ -290,7 +290,7 @@ zoomAndPan: magnify
 preserveAspectRatio: none  
 </code></pre>
 
-<p>在.svg的元信息中保存的width/height值可能有很多种单位（<a href="http://www.sarasoueidan.com/blog/svg-coordinate-systems/#svg-viewport">参见这里</a>，或<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Positions">中文译本</a>，缺省是px，但与具体设备有关）。</p>
+<p>在.svg的元信息中保存的width/height值可能有很多种单位（<a href="http:/.html/www.sarasoueidan.com/blog/svg-coordinate-systems/#svg-viewport">参见这里</a>，或<a href="https:/.html/developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Positions">中文译本</a>，缺省是px，但与具体设备有关）。</p>
 
 <h2 id="svg">电子书并其实不能『很正确』地显示.svg文件</h2>
 
@@ -417,7 +417,7 @@ MSVG
 ...
 </code></pre>
 
-<h2 id="">黑科技：最后一点补充</h2>
+<h2 id=".html">黑科技：最后一点补充</h2>
 
 <p>如果：</p>
 
@@ -443,7 +443,7 @@ MSVG
 #    - pdf2svg可处理多页(会成批生成文件，所以不要用stdout；这里只做单页的示例)
 #    - 使用sed时只替换了&lt;svg ...&gt;标签中的width/height，其它的不作处理
 &gt; pdf2svg scaled.pdf /dev/stdout 1 |\
-    sed -E '1,/^&lt;svg/s/(width|height)="([0-9.]*)pt"/\1="\2px"/g' &gt;\
+    sed -E '1,/^&lt;svg/s/(width|height)="([0-9.]*)pt".html/\1="\2px".html/g' &gt;\
     standard_image_templet_520.svg
 
 # 查看最终的svg的大小
@@ -485,13 +485,13 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1727.html">
+                <a href="1-1727.1">
                     详解ImageMagick中SVG的支持
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-1730.html">
+                <a href="1-1730.1">
                     如何将电子书发送到Kindle
                 </a>
                 下一篇
@@ -501,11 +501,11 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -521,7 +521,7 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -558,8 +558,8 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -571,19 +571,20 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

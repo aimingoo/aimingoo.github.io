@@ -1,89 +1,88 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>对JavaScript的eval()中使用函数的进一步讨论~</title>
-    <meta name="description" content="" />
+    <meta name="description" content=".html">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=494cfc74ff" />
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=494cfc74ff" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=494cfc74ff" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=494cfc74ff" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=494cfc74ff" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=494cfc74ff" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="对JavaScript的eval()中使用函数的进一步讨论~" />
-    <meta property="og:description" content="《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript和SpiderMonkey中表现不一样： var func &#x3D; eval(&quot;(function(){})&quot;);   alert(typeof func);   更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门地来分析一个具体问题。 首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须先将执行文本理解为语句。如下： eval(&quot;1&quot;)   在JS看来，由于eval()必须执行语句，因此&quot;1&quot;不再是直接量表达式，而是直接量表达式语句，也就是相当于“1;”。这些内容，在“5.2.2  动态执行过程中的语句、表达式与值”中有详细解释。 所以，eval()的返回值，其实是语句最后一个（有效的）" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-108.html" />
-    <meta property="article:published_time" content="2008-07-22T12:29:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-11T09:45:01.000Z" />
-    <meta property="article:tag" content="Javascript" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="对JavaScript的eval()中使用函数的进一步讨论~">
+    <meta property="og:description" content='《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript和SpiderMonkey中表现不一样： var func = eval("(function(){})");   alert(typeof func);   更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门地来分析一个具体问题。 首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须先将执行文本理解为语句。如下： eval("1")   在JS看来，由于eval()必须执行语句，因此"1"不再是直接量表达式，而是直接量表达式语句，也就是相当于“1;”。这些内容，在“5.2.2  动态执行过程中的语句、表达式与值”中有详细解释。 所以，eval()的返回值，其实是语句最后一个（有效的）'>
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-108/.html">
+    <meta property="article:published_time" content="2008-07-22T12:29:00.000Z">
+    <meta property="article:modified_time" content="2017-09-11T09:45:01.000Z">
+    <meta property="article:tag" content="Javascript">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="对JavaScript的eval()中使用函数的进一步讨论~" />
-    <meta name="twitter:description" content="《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript和SpiderMonkey中表现不一样： var func &#x3D; eval(&quot;(function(){})&quot;);   alert(typeof func);   更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门地来分析一个具体问题。 首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须先将执行文本理解为语句。如下： eval(&quot;1&quot;)   在JS看来，由于eval()必须执行语句，因此&quot;1&quot;不再是直接量表达式，而是直接量表达式语句，也就是相当于“1;”。这些内容，在“5.2.2  动态执行过程中的语句、表达式与值”中有详细解释。 所以，eval()的返回值，其实是语句最后一个（有效的）" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-108.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="对JavaScript的eval()中使用函数的进一步讨论~">
+    <meta name="twitter:description" content='《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript和SpiderMonkey中表现不一样： var func = eval("(function(){})");   alert(typeof func);   更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门地来分析一个具体问题。 首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须先将执行文本理解为语句。如下： eval("1")   在JS看来，由于eval()必须执行语句，因此"1"不再是直接量表达式，而是直接量表达式语句，也就是相当于“1;”。这些内容，在“5.2.2  动态执行过程中的语句、表达式与值”中有详细解释。 所以，eval()的返回值，其实是语句最后一个（有效的）'>
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-108/.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript">
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "对JavaScript的eval()中使用函数的进一步讨论~",
-    "url": "http://aimingoo.github.io/1-108.html",
+    "url": "http:/.html/aimingoo.github.io/1-108/.html",
     "datePublished": "2008-07-22T12:29:00.000Z",
     "dateModified": "2017-09-11T09:45:01.000Z",
     "keywords": "Javascript",
     "description": "《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript和SpiderMonkey中表现不一样： var func &#x3D; eval(&quot;(function(){})&quot;);   alert(typeof func);   更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门地来分析一个具体问题。 首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须先将执行文本理解为语句。如下： eval(&quot;1&quot;)   在JS看来，由于eval()必须执行语句，因此&quot;1&quot;不再是直接量表达式，而是直接量表达式语句，也就是相当于“1;”。这些内容，在“5.2.2  动态执行过程中的语句、表达式与值”中有详细解释。 所以，eval()的返回值，其实是语句最后一个（有效的）",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +93,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=494cfc74ff"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -123,20 +122,20 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-108.html">对JavaScript的eval()中使用函数的进一步讨论~</a></h1>
+                <h1 class="post-title"><a href="1-108.html">对JavaScript的eval()中使用函数的进一步讨论~</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="/author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2008-07-22">9 years ago</time>
+                        <time class="post-date" datetime="2008-07-22T20:29:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2008-07-22">(2008-07-22)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/javascript/">Javascript</a>
+                        <a href="tag/javascript/.html">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -163,7 +162,7 @@ alert(typeof func);
 <p>所以，eval()的返回值，其实是语句最后一个（有效的）子句的返回值。接下来，我们需要了解“声明语句”和“表达式”。例如：</p>
 
 <pre><code class="language-javascript">function x() {  
-  //....
+  /.html/....
 }
 </code></pre>
 
@@ -205,7 +204,7 @@ eval("(function X(){})");
 </blockquote>
 
 <pre><code class="language-javascript">var func = eval("(function() { })");  
-// 输出"undefined"alert(typeof func);
+/.html/ 输出"undefined"alert(typeof func);
 </code></pre>
 
 <blockquote>
@@ -214,11 +213,11 @@ eval("(function X(){})");
 
 <p>先留意这段文字是上下文相关的。我只是想说明如何能向变量"func"赋一个有效的值。这涉及到两种方法：</p>
 
-<pre><code class="language-javascript">// 方法1，用匿名函数
+<pre><code class="language-javascript">/.html/ 方法1，用匿名函数
 var func = eval("(function() { })");  
 alert(typeof func);
 
-// 方法2，用具名函数
+/.html/ 方法2，用具名函数
 var func;  
 eval("function func() { }");  
 alert(typeof func);  
@@ -237,33 +236,33 @@ alert(typeof func);
 
 <p>最后再来讲述一个细节问题，这在书上也未有提及，其实也是一个很怪异的事件。首先，在上面我说，在JScript中：</p>
 
-<pre><code class="language-javascript">// 第一种情况
+<pre><code class="language-javascript">/.html/ 第一种情况
 var func = eval("(function(){})");  
-alert(typeof func); // 显示"undefined"  
+alert(typeof func); /.html/ 显示"undefined"  
 </code></pre>
 
 <p>这里显示undefined是因为JScript将后面的函数解释为匿名函数声明，所以没有值。其实是相对要牵强一些的。因为我们修改一下：</p>
 
-<pre><code class="language-javascript">// 第二种情况
+<pre><code class="language-javascript">/.html/ 第二种情况
 var func = eval("(1, function(){})");  
-alert(typeof func);  // 显示"function"  
+alert(typeof func);  /.html/ 显示"function"  
 </code></pre>
 
 <p>就不同了。那么到底为什么第一种情况下，JScript就一定是理解为“声明语句”而不是表达式呢？我不得确知。我只是从：</p>
 
-<pre><code class="language-javascript">// 第三种情况
+<pre><code class="language-javascript">/.html/ 第三种情况
 var X;  
 eval("(function X(){})");  
-alert(typeof X); // 显示"function"  
+alert(typeof X); /.html/ 显示"function"  
 </code></pre>
 
 <p>这种情况下存在“语句声明”的效果来推断第一种情况的。更为奇特的是，我不清楚为什么JScript容许在一个表达式运算符“(...)”中存在一个“语句”——因为理论上说，这种情况是在语法分析中难于解释的。我甚至在“5.4.2.1  语法声明与语句含义不一致的问题”提到下面的代码：</p>
 
-<pre><code class="language-javascript">// 示例5：语法声明阶段重写
-// 重写
+<pre><code class="language-javascript">/.html/ 示例5：语法声明阶段重写
+/.html/ 重写
 (function Object(){}).prototype.value = 100;
 
-// 显示值undefined
+/.html/ 显示值undefined
 var obj = new Object();alert(obj.value);  
 </code></pre>
 
@@ -289,13 +288,13 @@ var obj = new Object();alert(obj.value);
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-232.html">
+                <a href="1-232/.html">
                     纪念际强
                 </a>
             </span>
 
-            <span class="post-nav-next" >
-                <a href="/1-109.html">
+            <span class="post-nav-next">
+                <a href="1-109/.html">
                     JavaScript全局优化带来的负面效果……
                 </a>
                 下一篇
@@ -305,11 +304,11 @@ var obj = new Object();alert(obj.value);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=494cfc74ff" />
-<script src="/assets/js/gitment.browser.js?v=494cfc74ff"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -325,30 +324,30 @@ var obj = new Object();alert(obj.value);
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="/profile-aimingoo"></script>
+        <script type="text/javascript" src="profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -362,8 +361,8 @@ var obj = new Object();alert(obj.value);
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -375,20 +374,20 @@ var obj = new Object();alert(obj.value);
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=494cfc74ff"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=494cfc74ff"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
-</html>

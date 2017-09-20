@@ -1,4 +1,559 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 30 Jul 2017 03:39:16 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>小述系列最终篇：说说《大道至易：实践者的思想》</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>Aimingoo's Blog</title><description>何不乐乐而有哉</description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 20 Sep 2017 04:45:55 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>详解Monster的初始化及配置</title><description>&lt;p&gt;尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+是Monster的最佳使用场景。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;关于在没有Ghost的情况下使用Monster的说明请看这里：&lt;a href="http://aimingoo.github.io/1-1743"&gt;将Monster用作网站离线下载的方法&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;预备工作&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;你需要先启动Ghost并了解它运行在的本地地址&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ghost可以运行在不同的模式下，上面的是&lt;code&gt;development&lt;/code&gt;模式，这种情况下它的缺省端口是&lt;code&gt;:2368&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在&lt;code&gt;${GHOST}&lt;/code&gt;，那么这些数据文件的位置是在：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; grep -Fe '.db' ${GHOST}/config.js
+filename: path.join(__dirname, '/&lt;/code&gt;&lt;/pre&gt;</description><link>http://aimingoo.github.io/1-1742/</link><guid isPermaLink="false">ace57750-3412-4ab2-842e-ab8f41032aab</guid><category>OpenSource Project</category><category>Monster</category><category>Ghost</category><category>博客</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 19 Sep 2017 19:43:06 GMT</pubDate><content:encoded>&lt;p&gt;尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+是Monster的最佳使用场景。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;关于在没有Ghost的情况下使用Monster的说明请看这里：&lt;a href="http://aimingoo.github.io/1-1743"&gt;将Monster用作网站离线下载的方法&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;预备工作&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;你需要先启动Ghost并了解它运行在的本地地址&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ghost可以运行在不同的模式下，上面的是&lt;code&gt;development&lt;/code&gt;模式，这种情况下它的缺省端口是&lt;code&gt;:2368&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在&lt;code&gt;${GHOST}&lt;/code&gt;，那么这些数据文件的位置是在：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; grep -Fe '.db' ${GHOST}/config.js
+filename: path.join(__dirname, '/content/data/ghost.db')  
+filename: path.join(__dirname, '/content/data/ghost-dev.db')  
+filename: path.join(__dirname, '/content/data/ghost-test.db')  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;根据你启动的Ghost的版本不同，选择上面的一个库文件即可（一般是&lt;code&gt;ghost-dev.db&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;你需要安装Buster并确信它可用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; pip install buster
+&amp;gt; buster --version
+0.1.3  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Monster在全量生成网站的时候会调用Buster；如果你只使用它的增量生成功能，那么Buster也可以不安装。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;你需要确信mac环境是否能运行Monster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Monster依赖mac环境上的一些工具。如果你使用brew，那么可以用下面的命令来安装它：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; brew install wget jq curl
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其它还会使用到的工具包括&lt;code&gt;sqlite3&lt;/code&gt;、&lt;code&gt;sum&lt;/code&gt;和&lt;code&gt;git&lt;/code&gt;：&lt;code&gt;sqlite3&lt;/code&gt;应该已经在安装Ghost时安装过了，而&lt;code&gt;sum&lt;/code&gt;是MacOSX原生自带的；多数情况下，建议你安装&lt;code&gt;git&lt;/code&gt;，使用&lt;code&gt;brew install git&lt;/code&gt;即可。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;注：&lt;/strong&gt;&lt;/p&gt;
+  
+  &lt;p&gt;Monster主要是用于生成静态网页，只有当你使用它的部署(deploy)功能时，才会用到&lt;code&gt;git&lt;/code&gt;。所以事实上git并不是必须安装。&lt;/p&gt;
+  
+  &lt;p&gt;Monster使用Git api访问github issues，所以在使用评论相关的功能时并不要求安装git客户端。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最后，你需要安装Monster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;有两种方法安装Monster：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 使用Brew安装
+&amp;gt; brew install aimingoo/repo/monster
+
+# 使用Git仓库安装
+&amp;gt; git clone https://github.com/aimingoo/monster
+&amp;gt; install monster/libexec/monster.sh /usr/local/bin/monster
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=""&gt;初始化及配置&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 创建一个目录，并在该目录中运行如下命令
+&amp;gt; monster --init
+Your Github name or domain : aimingoo  
+Your Github access token, or Enter to skip:  
+Your Ghost local account(e-mail), or Enter to skip:  
+Your Ghost local .db file, or Enter to skip:  
+Your Ghost site, or Enter set default [localhost:2368]:  
+File .monster saved.  
+File .gitignore updated.  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一项配置&lt;code&gt;Github name or domain&lt;/code&gt;总是必须输入的。它可以是一个名为&lt;code&gt;xxxx.github.io&lt;/code&gt;的域名，或只是&lt;code&gt;xxxx&lt;/code&gt;这样的域名前缀（亦即是Github用户账号名），此外还可以是一个非github的域名，例如&lt;code&gt;your.site.com&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id="domain"&gt;如果domain是无效的&lt;/h3&gt;
+
+&lt;p&gt;你可以使用任何domain——哪怕它不是真实的值。Monster的基本逻辑是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GENERATE&lt;/strong&gt;：下载一个&lt;code&gt;SITE&lt;/code&gt;上的网页，放在&lt;code&gt;STATIC_PATH&lt;/code&gt;中；并尝试&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RESET_DOMAIN&lt;/strong&gt;：将网页中有关&lt;code&gt;SITE&lt;/code&gt;的信息替换成&lt;code&gt;DOMAIN&lt;/code&gt;；以及&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DEPLOY_NOW&lt;/strong&gt;：将&lt;code&gt;STATIC_PATH&lt;/code&gt;中的文件复制到当前目录，并尝试将当前目录作为Git仓库来部署。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以只要不启用RESET_DOMAIN（传入&lt;code&gt;--reset-domain=false&lt;/code&gt;参数或者修改&lt;code&gt;.monster&lt;/code&gt;配置），那么无效的DOMAIN是不影响Monster的使用的。&lt;/p&gt;
+
+&lt;h3 id="domain"&gt;如果domain是空值&lt;/h3&gt;
+
+&lt;p&gt;在调用&lt;code&gt;monster --init&lt;/code&gt;并输入缺省配置时，是不能使domain值为空的。&lt;/p&gt;
+
+&lt;p&gt;你可以编辑&lt;code&gt;.monster&lt;/code&gt;以使该参数值为空，但这样的配置仅对update工作模式是有意义的。这会缺省使用&lt;code&gt;&amp;lt;GITHUB_USER&amp;gt;.github.io&lt;/code&gt;来作为DOMAIN值，如果在update工作模式中调用了&lt;code&gt;--deploy-now&lt;/code&gt;、&lt;code&gt;--deploy-only&lt;/code&gt;或&lt;code&gt;--reset-domain&lt;/code&gt;，那么该值也会通过命令行参数传入&lt;code&gt;makesite.sh&lt;/code&gt;，以确保后者可用。&lt;/p&gt;
+
+&lt;p&gt;你不应当使&lt;code&gt;.monster&lt;/code&gt;文件中的&lt;code&gt;DOMAIN&lt;/code&gt;和&lt;code&gt;GITHUB_USER&lt;/code&gt;值同时为空值。——如果是这样，你就必须总是从命令行中传入参数了。&lt;/p&gt;
+
+&lt;h3 id="domain"&gt;关于domain的协议&lt;/h3&gt;
+
+&lt;p&gt;由于Monster并不访问你的domain（它只是更新本地静态网页中的内容），所以在配置文件中并不需要指定domain使用的协议，例如&lt;code&gt;https&lt;/code&gt;或&lt;code&gt;http&lt;/code&gt;。但有一个极小极小的例外，如果：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;你使用了Git issues来作评论，并且&lt;/li&gt;
+&lt;li&gt;你的domain并没有host在&lt;code&gt;xxxx.github.io&lt;/code&gt;上，并且&lt;/li&gt;
+&lt;li&gt;你还打算使用Monster的&lt;code&gt;update --sync-issue&lt;/code&gt;来管理它，&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;那么你需要修改&lt;code&gt;.monster&lt;/code&gt;中的&lt;code&gt;PROTOCOL&lt;/code&gt;参数，缺省时它的值是&lt;code&gt;https&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id="monster"&gt;如果没有&lt;code&gt;.monster&lt;/code&gt;文件&lt;/h3&gt;
+
+&lt;p&gt;如果你没有调用&lt;code&gt;monster —init&lt;/code&gt;来初始化一个&lt;code&gt;.monster&lt;/code&gt;文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。&lt;/p&gt;
+
+&lt;p&gt;这种情况下，对于generate工作模式来说，你必须从命令行通过&lt;code&gt;--domain&lt;/code&gt;传入DOMAIN参数；对于update工作模式来说，则必须传入&lt;code&gt;--db&lt;/code&gt;。当然你还可能需要传入其它在运行中要用到的参数，例如&lt;code&gt;GITHUB_USER&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id="monster"&gt;配置文件.monster的详细说明&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;## Github domain
+#  - （参见上文）
+DOMAIN="..."
+
+## Ghost .db file path
+# - update工作模式下的相关功能依赖该配置
+DB="/User/..."
+
+## Ghost site address
+# - 要静态化（下载）的网站，可以是本地Ghost或远端的任何网址
+# - 可以是任何网站（不是Ghost的网站，甚至不是博客）
+SITE="http://..."
+
+## Github account, and rate of api access
+# - 你的Github账号，是指当前工作目录对应的xxxx.github.io
+GITHUB_USER="Your name"  
+# - 你需要在Github后台为Git client创建一个Access token
+GITHUB_TOKEN="Access token"  
+# - 每次Github API访问之后sleep的时间（单位为秒）；当值为1时，意味着每分钟不会超过60次访问
+GITHUB_APIRATE=1  
+# - 当读取Gitment等博客评论时，每次用Github取数据时的页大小（缺省为每页100条记录）
+GITHUB_PAGESIZE=100
+
+## Other
+# - 你在本地Ghost中的登录帐号
+EMAIL="..."  
+# - 特殊情况下需要用到的domain的协议值（参见上文）
+PROTOCOL="https"
+
+## Advertisement token string for your site
+# - 一个标记字符串，极少使用（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
+AD_TOKEN=""
+
+## Default directory of static files
+# - 生成静态文件的路径
+# - （对于Monster的preview工作模式来说，必须使用该配置而不能用命令行传入参数）
+STATIC_PATH="./static"
+
+## Default behavior
+# - 在GENERATE阶段中显示更多信息
+GENERATE_INFO=false  
+# - 在update工作模式下，强制更新列表类网页
+SYNC_REMOVED=false  
+# - 在操作过程中是否移除static目录中的文件名的'?xxxxxx'版本后缀
+PATCH_VERSION=true  
+# - 是否启用RESET_DOMAIN阶段
+RESET_DOMAIN=true  
+# - 是否启用SHORT_PATH阶段
+SHORT_PATH=false  
+# - 是否启用CHECK_STATIC阶段
+CHECK_STATIC=true
+
+## Pick more files
+# - 是否拾取静态化的云标签文件/tag-cloud
+PICK_STATIC_TAGCLOUD=false  
+# - 是否拾取静态化的profile文件/profile-xxx
+PICK_STATIC_PROFILE=false  
+# - 是否拾取静态化的归档文件/archive-post
+PICK_ARCHIVES_POST=false  
+# - 是否拾取/robots.txt
+PICK_ROBOTS_TXT=true  
+# - 是否拾取sitemap文件/sitemap-*
+PICK_SITEMAP=true  
+# - 在update工作模式下，强制尝试上述PICK_xxxx和索引页等文件
+FORCE=false
+
+## Other override
+# - 在SHORT_PATH阶段中不处理的目录名
+IGNORE_LIST=("archives-post" "author" "page" "rss" "tag" "assets" "content" "shared")  
+# - 在PATCH_VERSION阶段中需要处理的目录名
+VERDIR_LIST=("assets" "shared" "public")  
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>将Monster用作网站离线下载的方法</title><description>&lt;p&gt;没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。&lt;/p&gt;
+
+&lt;h3 id=""&gt;在非工作目录中（不推荐）&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将网站全站下载到&lt;code&gt;./static&lt;/code&gt;目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 由于site与domain相同，所以不会触发reset-domain操作
+&amp;gt; monster --generate --site="http://your.site.com" --domain="your.site.com"
+
+# OR，置reset-domain为false
+&amp;gt; monster --generate --site="http://your.site.com" --domain=. --reset-domain=false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对&lt;code&gt;./static&lt;/code&gt;目录中的静态页面作&lt;code&gt;reset-domain&lt;/code&gt;操作（缺省该选项是打开的）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; monster --domain="your.site.com"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;预览&lt;code&gt;./static&lt;/code&gt;目录中的静态页面&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1743/</link><guid isPermaLink="false">e23f0fe8-7fa5-4bfa-a6d4-b9541dab278b</guid><category>Monster</category><category>博客</category><category>Ghost</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 19 Sep 2017 19:42:58 GMT</pubDate><content:encoded>&lt;p&gt;没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。&lt;/p&gt;
+
+&lt;h3 id=""&gt;在非工作目录中（不推荐）&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;将网站全站下载到&lt;code&gt;./static&lt;/code&gt;目录&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 由于site与domain相同，所以不会触发reset-domain操作
+&amp;gt; monster --generate --site="http://your.site.com" --domain="your.site.com"
+
+# OR，置reset-domain为false
+&amp;gt; monster --generate --site="http://your.site.com" --domain=. --reset-domain=false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对&lt;code&gt;./static&lt;/code&gt;目录中的静态页面作&lt;code&gt;reset-domain&lt;/code&gt;操作（缺省该选项是打开的）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; monster --domain="your.site.com"
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;预览&lt;code&gt;./static&lt;/code&gt;目录中的静态页面&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; monster preview
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=""&gt;初始化一个工作目录用来下载&lt;/h3&gt;
+
+&lt;p&gt;我们可以将一个目录初始化，用作专门的网络离线下载（备份/归档）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;初始化一个工作目录&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 直接用--init初始化一个工作目录，除了domain之外其它的跳过
+#    - 随便填写一个domain地址即可，例如填写一个“.”符号
+&amp;gt; monster --init
+Your Github name or domain: .  
+...
+
+# 置RESET_DOMAIN=false
+&amp;gt; sed -i '' 's/[# ]*\(RESET_DOMAIN\)=.*/\1=false/' .monster
+
+# 添加一行配置
+&amp;gt; echo "GENERATE=true" &amp;gt;&amp;gt; .monster
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;常用操作&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 下载一个站点(例如https://aimingoo.github.io)
+&amp;gt; monster --site="https://aimingoo.github.io"
+
+# 将站点下载到指定目录
+&amp;gt; monster --site="https://aimingoo.github.io" --static-path="./archive"
+
+# 不尝试下载sitemap文件
+&amp;gt; monster --site="https://aimingoo.github.io" --pick-sitemap=false
+&lt;/code&gt;&lt;/pre&gt;</content:encoded></item><item><title>Monster - 用Ghost写博客的终极利器</title><description>&lt;h2 id="bustermonster"&gt;是时候从Buster转到Monster了&lt;/h2&gt;
+
+&lt;p&gt;我最先开始用Ghost写博客时，用来生成静态页面（并发布到&lt;a href="https://aimingoo.github.io"&gt;aimingoo.github.io&lt;/a&gt;）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的&lt;a href="https://github.com/aimingoo/ghost-utils"&gt;ghost-utils&lt;/a&gt;仓库中，名为&lt;code&gt;makesite.sh&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;makesite.sh&lt;/code&gt;其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为&lt;code&gt;updatesite.sh&lt;/code&gt;，用来实现增量生成基于Ghost的静态网站。&lt;/p&gt;
+
+&lt;p&gt;再之后，将这两个脚本合在一起，就变成了：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Monster&lt;/strong&gt;，一个同时支持全量和增量生成Ghost静态网站的工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这是一个用Bash写开源项目，Github地址在这里: &lt;a href="https://github.com/aimingoo/monster"&gt;https://github.com/aimingoo/monster&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="monster"&gt;Monster的功能&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;全量和增量生成Ghost静态网站&lt;/li&gt;
+&lt;li&gt;可以在本地预览或向&lt;code&gt;github.io&lt;/code&gt;部署生成的网站&lt;/li&gt;
+&lt;li&gt;支持生成并不Host在&lt;code&gt;github.&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1741/</link><guid isPermaLink="false">5bfc1c43-be1d-43e2-b094-16c27efc9fbe</guid><category>OpenSource Project</category><category>博客</category><category>Ghost</category><category>Monster</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded>&lt;h2 id="bustermonster"&gt;是时候从Buster转到Monster了&lt;/h2&gt;
+
+&lt;p&gt;我最先开始用Ghost写博客时，用来生成静态页面（并发布到&lt;a href="https://aimingoo.github.io"&gt;aimingoo.github.io&lt;/a&gt;）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的&lt;a href="https://github.com/aimingoo/ghost-utils"&gt;ghost-utils&lt;/a&gt;仓库中，名为&lt;code&gt;makesite.sh&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;makesite.sh&lt;/code&gt;其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为&lt;code&gt;updatesite.sh&lt;/code&gt;，用来实现增量生成基于Ghost的静态网站。&lt;/p&gt;
+
+&lt;p&gt;再之后，将这两个脚本合在一起，就变成了：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Monster&lt;/strong&gt;，一个同时支持全量和增量生成Ghost静态网站的工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这是一个用Bash写开源项目，Github地址在这里: &lt;a href="https://github.com/aimingoo/monster"&gt;https://github.com/aimingoo/monster&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="monster"&gt;Monster的功能&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;全量和增量生成Ghost静态网站&lt;/li&gt;
+&lt;li&gt;可以在本地预览或向&lt;code&gt;github.io&lt;/code&gt;部署生成的网站&lt;/li&gt;
+&lt;li&gt;支持生成并不Host在&lt;code&gt;github.io&lt;/code&gt;上的网站&lt;/li&gt;
+&lt;li&gt;支持同时管理多个网站，独立配置&lt;/li&gt;
+&lt;li&gt;支持在url中使用缩短路径的风格（使用更精减的ghost slug）&lt;/li&gt;
+&lt;li&gt;支持Ghost的多作者（multi-author）功能&lt;/li&gt;
+&lt;li&gt;支持基于github issues的评论管理（面向gitment的工具功能）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="monster"&gt;安装Monster&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; brew install aimingoo/repo/monster
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=""&gt;快速上手&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;# 了解ghost运行的本地地址(例如下面的127.0.0.1:2368)
+&amp;gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+
+# 如果你已经在Github上创建了自己的pages，那么你应该先将它clone到本地
+#  - (设网站domain为xxxx.github.io)
+&amp;gt; git clone 'https://github.com/xxxx/xxxx.github.io'
+
+# 配置初始化(用上面的项目作为工作目录)
+#    - 可以不使用xxxx.github.io，而使用自己的domain，例如your.site.com
+#    - 路径"Ghost local .db file"可用如下命令查看(或先略过它)：
+#        &amp;gt; grep -Fe '.db' ${GHOST安装目录}/config.js
+&amp;gt; cd xxxx.github.io
+&amp;gt; monster --init
+Your Github name or domain: xxxx  
+Your Github access token, or Enter to skip:  
+Your Ghost local account(e-mail), or Enter to skip:  
+Your Ghost local .db file, or Enter to skip:  
+Your Ghost site, or Enter set default [localhost:2368]:  
+...
+
+# 全站生成
+&amp;gt; monster --generate
+
+# 更新
+&amp;gt; monster update
+
+# 预览(ctrl+c退出)
+&amp;gt; monster preview
+Serving HTTP on 0.0.0.0 port 8000 ...
+
+# 发布/部署(在生成全站之后)
+&amp;gt; monster --deploy-now
+# 或发布更新（在使用'monster update'之后）
+&amp;gt; monster update --deploy-only
+
+# 其它
+
+# 直接生成全站并发布
+&amp;gt; monster --generate --deploy-now
+# 或在更新后直接发布
+&amp;gt; monster update --deploy-now
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=""&gt;工作目录&lt;/h2&gt;
+
+&lt;p&gt;在使用&lt;code&gt;monster --init&lt;/code&gt;初始化之后，当前目录就被Monster视为工作目录。&lt;/p&gt;
+
+&lt;p&gt;Monster会根据当前目录下的&lt;code&gt;.monster&lt;/code&gt;配置工作，因此只需要为多个site建立不同的目录，就可以管理multi-domain了。&lt;/p&gt;
+
+&lt;p&gt;Monster会操作和维护当前目录下的&lt;code&gt;./static&lt;/code&gt;目录来生成静态文件，你可以通过上述的&lt;code&gt;.monster&lt;/code&gt;配置来改变这个目录的位置。&lt;/p&gt;
+
+&lt;p&gt;最后，当前目录下的&lt;code&gt;monster.log&lt;/code&gt;和&lt;code&gt;.sqlitedb&lt;/code&gt;也是由Monster来管理的。你可以手工编写一个名为&lt;code&gt;patchme.sh&lt;/code&gt;的文件来实现一些复杂的操作，如果它存在，那么Monster会调用并管理它。&lt;/p&gt;
+
+&lt;p&gt;Monster的多数操作信息会直接出现在控制台，只有&lt;code&gt;monster --generate&lt;/code&gt;和&lt;code&gt;monster update&lt;/code&gt;会操作monster.log文件，前者总是覆盖整个文件，而后者是追加日志。&lt;/p&gt;
+
+&lt;p&gt;Monster会维护&lt;code&gt;.gitignore&lt;/code&gt;或&lt;code&gt;.git/info/exclude&lt;/code&gt;文件来避免git将多余的文件push到仓库。所以，上述&lt;code&gt;./static&lt;/code&gt;目录以及&lt;code&gt;.monster&lt;/code&gt;、&lt;code&gt;.sqlitedb&lt;/code&gt;、&lt;code&gt;patchme.sh&lt;/code&gt;和&lt;code&gt;monster.log&lt;/code&gt;等文件也已经加入了git的ingore list。&lt;/p&gt;
+
+&lt;h2 id=""&gt;高级特性&lt;/h2&gt;
+
+&lt;p&gt;关于Monster的Git issues评论、short path、sync、multi author等特性，请参考：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;阅读列表&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://aimingoo.github.io/1-1742"&gt;详解Monster的初始化及配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://aimingoo.github.io/1-1743"&gt;将Monster用作网站离线下载的方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title>简单实现Ghost Theme的置顶效果</title><description>&lt;p&gt;在&lt;a href="http://aimingoo.github.io/1-1721"&gt;《手记3：实例教学之Ghost模板定制》&lt;/a&gt;里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。&lt;/p&gt;
+
+&lt;p&gt;下面的内容以affinity为例，这个Theme在这里：&lt;a href="https://github.com/Showfom/Affinity"&gt;https://github.com/Showfom/Affinity&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="loop"&gt;找到loop&lt;/h2&gt;
+
+&lt;p&gt;在&lt;code&gt;affinity/partials&lt;/code&gt;目录中的&lt;code&gt;loop.hbs&lt;/code&gt;是一个关键文件，它通常如下结构（&lt;a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs"&gt;代码在这里&lt;/a&gt;）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;div class="content-cards"&amp;gt;  
+  {{#foreach posts}}
+...
+  {{/foreach}}
+&amp;lt;/div&amp;gt;
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们将这一对&lt;code&gt;{{#foreach}&lt;/code&gt;&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1739/</link><guid isPermaLink="false">8d2d0859-a75f-4b1d-97e3-0ef92e4b556f</guid><category>Ghost</category><category>博客</category><dc:creator>aimingoo</dc:creator><pubDate>Wed, 09 Aug 2017 06:22:59 GMT</pubDate><content:encoded>&lt;p&gt;在&lt;a href="http://aimingoo.github.io/1-1721"&gt;《手记3：实例教学之Ghost模板定制》&lt;/a&gt;里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。&lt;/p&gt;
+
+&lt;p&gt;下面的内容以affinity为例，这个Theme在这里：&lt;a href="https://github.com/Showfom/Affinity"&gt;https://github.com/Showfom/Affinity&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id="loop"&gt;找到loop&lt;/h2&gt;
+
+&lt;p&gt;在&lt;code&gt;affinity/partials&lt;/code&gt;目录中的&lt;code&gt;loop.hbs&lt;/code&gt;是一个关键文件，它通常如下结构（&lt;a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs"&gt;代码在这里&lt;/a&gt;）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;div class="content-cards"&amp;gt;  
+  {{#foreach posts}}
+...
+  {{/foreach}}
+&amp;lt;/div&amp;gt;
+
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们将这一对&lt;code&gt;{{#foreach}}&lt;/code&gt;标签中（含标签本身）的全部内容剪切出来，并放到一个新的的&lt;code&gt;partials/content_post.hbs&lt;/code&gt;文件去。然后，将&lt;code&gt;content_post.hbs&lt;/code&gt;复制一份，命名为&lt;code&gt;content_featured.hbs&lt;/code&gt;。这样，在&lt;code&gt;partials&lt;/code&gt;目录中就有了下面三个文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;partials/loop.hbs  
+partials/content_post.hbs  
+partials/content_featured.hbs  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="loop"&gt;在loop中标记置顶贴&lt;/h2&gt;
+
+&lt;p&gt;现在在&lt;code&gt;loop.hbs&lt;/code&gt;中还有一对&lt;code&gt;div&lt;/code&gt;标签：：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;div class="content-cards"&amp;gt;  
+&amp;lt;/div&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;我们只需要把下面的代码直接复制到这一对标签之中，就好了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- 置顶风格 --&amp;gt;  
+{{^is "paged"}}
+  {{! list all feated posts on top }}
+  {{#is "index"}}
+  {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
+  {{#foreach featured}}
+      {{&amp;gt; content_featured}}
+  {{/foreach}}
+  {{/get}}
+  {{/is}}
+
+  {{#is "author"}}
+  {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
+  {{#foreach featured}}
+      {{&amp;gt; content_featured}}
+  {{/foreach}}
+  {{/get}}
+  {{/is}}
+{{/is}}
+
+&amp;lt;!-- 普通风格 --&amp;gt;  
+  {{#foreach posts}}
+    {{#is "tag"}}
+        {{&amp;gt; content_post}}
+    {{else}}
+        {{#unless featured}}
+        {{&amp;gt; content_post}}
+        {{/unless}}
+    {{/is}}
+  {{/foreach}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=""&gt;设定置顶贴的效果&lt;/h2&gt;
+
+&lt;p&gt;现在你只需要修改&lt;code&gt;partials/content_featured.hbs&lt;/code&gt;中的样式，就可以定制你需要的置顶贴的效果了。以affinity为例，我在&lt;code&gt;content_featured.hbs&lt;/code&gt;中的下面代码位置添加了一个&lt;code&gt;featured&lt;/code&gt;类名：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;      ...
+      &amp;lt;header class="card-header featured"&amp;gt;
+        &amp;lt;div class="card-title"&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后，找到&lt;code&gt;assets/css/screen.css&lt;/code&gt;文件，添加这个类的CSS样式：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-css"&gt;.content-cards .featured {
+  border: 1px solid red;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok. 你刷新一下博客效果，每个置顶贴的标题就加了个红框框啦。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;更多的效果请自己搞哇。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=""&gt;确认置顶效果会影响的内容&lt;/h2&gt;
+
+&lt;p&gt;你可以简单地通过下面的方法确认它会影响到的页面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; cd affinity
+&amp;gt; grep -H 'loop' *.hbs
+index.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
+index.hbs:{{&amp;gt; "loop"}}  
+tag.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
+tag.hbs:{{&amp;gt; "loop"}}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这说明tag和index页会受到loop的影响——不过在前面文章里我已经说过，置顶效果是无法影响到tag页的。所以……另外，事实上这里可以列出有index.hbs、author.hbs和tag.hbs三种页面的，只是affinity这个theme没有author.hbs页罢了。&lt;/p&gt;
+
+&lt;h2 id="loophbs"&gt;如果没有loop.hbs&lt;/h2&gt;
+
+&lt;p&gt;如上所提示到的，如果&lt;code&gt;loop.hbs&lt;/code&gt;没有单独地放在&lt;code&gt;partials&lt;/code&gt;目录中，那么它可能直接用一对标签&lt;code&gt;{{#foreach posts}}&lt;/code&gt;放在index、author或tag三个页面中了。找一找？&lt;/p&gt;
+
+&lt;p&gt;你可以直接参考本文来处理这个&lt;code&gt;foreach&lt;/code&gt;。或者，我建议把这部分内容/代码取出来放在&lt;code&gt;loop.hbs&lt;/code&gt;中，然后再照本文所述处理就好啦。&lt;/p&gt;
+
+&lt;p&gt;当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：&lt;a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs"&gt;https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title>小述系列最终篇：说说《大道至易：实践者的思想》</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……&lt;/p&gt;
@@ -407,9 +962,8 @@
 &lt;p&gt;目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.ituring.com.cn/book?tab=ebook&amp;amp;sort=new"&gt;图灵电子书&lt;/a&gt;首页查看；&lt;/li&gt;
-&lt;li&gt;或直接&lt;a href="http://www.ituring.com.cn/book/2429"&gt;《程序原本》&lt;/a&gt;、&lt;a href="http://www.ituring.com.cn/book/2428"&gt;《大道至易：实践者的思想》&lt;/a&gt;，以及&lt;a href="http://www.ituring.com.cn/book/2430"&gt;《我的架构思想》&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1732/</link><guid isPermaLink="false">528fdfaa-f05a-492d-a914-b8296a57e7bd</guid><category>电子书</category><category>出版</category><category>软件工程</category><category>大道至易</category><category>架构</category><category>语言</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 20 Jun 2017 03:54:33 GMT</pubDate><content:encoded>&lt;p&gt;首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。&lt;/p&gt;
+&lt;li&gt;下载在这里：&lt;a href="http://github.com/aimingoo/my-ebooks"&gt;http://github.com/aimingoo/my-ebooks&lt;/a&gt;, 相关信息在这里：&lt;a href="http://aimingoo.github.io/1-1736/"&gt;大道至易&lt;/a&gt;、&lt;a href="http://aimingoo.github.io/1-1735/"&gt;我的架构思想&lt;/a&gt;和&lt;a href="http://aimingoo.github.io/1-1734/"&gt;程序原本&lt;/a&gt;；或，&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.ituring.com.cn/book?tab=ebook&amp;amp;sort=new"&gt;图灵电子书&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1732/</link><guid isPermaLink="false">528fdfaa-f05a-492d-a914-b8296a57e7bd</guid><category>电子书</category><category>出版</category><category>软件工程</category><category>大道至易</category><category>架构</category><category>语言</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 20 Jun 2017 03:54:33 GMT</pubDate><content:encoded>&lt;p&gt;首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""&gt;&lt;/p&gt;
 
@@ -430,6 +984,7 @@
 &lt;p&gt;目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;下载在这里：&lt;a href="http://github.com/aimingoo/my-ebooks"&gt;http://github.com/aimingoo/my-ebooks&lt;/a&gt;, 相关信息在这里：&lt;a href="http://aimingoo.github.io/1-1736/"&gt;大道至易&lt;/a&gt;、&lt;a href="http://aimingoo.github.io/1-1735/"&gt;我的架构思想&lt;/a&gt;和&lt;a href="http://aimingoo.github.io/1-1734/"&gt;程序原本&lt;/a&gt;；或，&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.ituring.com.cn/book?tab=ebook&amp;amp;sort=new"&gt;图灵电子书&lt;/a&gt;首页查看；&lt;/li&gt;
 &lt;li&gt;或直接&lt;a href="http://www.ituring.com.cn/book/2429"&gt;《程序原本》&lt;/a&gt;、&lt;a href="http://www.ituring.com.cn/book/2428"&gt;《大道至易：实践者的思想》&lt;/a&gt;，以及&lt;a href="http://www.ituring.com.cn/book/2430"&gt;《我的架构思想》&lt;/a&gt;。&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title>发布《大道至简》电子版（第三版）</title><description>&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""&gt;&lt;/p&gt;
@@ -1882,731 +2437,4 @@ issueLink.innerText = $('Issue Page')
 
 &lt;blockquote&gt;
   &lt;p&gt;注意：Gitment使用了ES6的语法，所以有些地方是用ES6的模板字符串的，这些地方要使用类似${$('english text')} 这样的方法来转换。&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title>博客迁移手记之快速导航</title><description>&lt;p&gt;本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。&lt;/p&gt;
-
-&lt;p&gt;于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。&lt;/p&gt;
-
-&lt;h2 id=""&gt;快速导航&lt;/h2&gt;
-
-&lt;p&gt;博客迁移手记（一）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;使用BlogToWordpress迁移你的博客&lt;/li&gt;
-&lt;li&gt;使用本地博客Ghost的快速指南与导入工具&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（二）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;从本地博客到Github Pages的最佳指南&lt;/li&gt;
-&lt;li&gt;makesite.sh使用手册&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（三）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以kaldorei为例详解Ghost Theme的定制&lt;/li&gt;
-&lt;li&gt;Ghost中文章置顶的实现方法&lt;/li&gt;
-&lt;li&gt;如何最大程度地静态化Ghost博客&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（四）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Gitment大坑：谈谈secret泄露的前因后果&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（五）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;如何获得一个支持HTTPS的免费空间&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（六）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;用intersect来做Gitment的API网关&lt;/li&gt;
-&lt;li&gt;Gitment的一些Bug修复与补强&lt;/li&gt;
-&lt;li&gt;Gitment的简单多语言支持&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;其它：&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-  &lt;li&gt;&lt;p&gt;我最终改掉了这组博客文章的标题。&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;p&gt;这充分说明使用短标题是正确的。&lt;/p&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;</description><link>http://aimingoo.github.io/1-1724/</link><guid isPermaLink="false">b9502886-b86f-4f2e-b8c1-ee5f4a67f92e</guid><category>博客</category><category>Gitment</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 30 May 2017 07:48:53 GMT</pubDate><content:encoded>&lt;p&gt;本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。&lt;/p&gt;
-
-&lt;p&gt;于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。&lt;/p&gt;
-
-&lt;h2 id=""&gt;快速导航&lt;/h2&gt;
-
-&lt;p&gt;博客迁移手记（一）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;使用BlogToWordpress迁移你的博客&lt;/li&gt;
-&lt;li&gt;使用本地博客Ghost的快速指南与导入工具&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（二）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;从本地博客到Github Pages的最佳指南&lt;/li&gt;
-&lt;li&gt;makesite.sh使用手册&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（三）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以kaldorei为例详解Ghost Theme的定制&lt;/li&gt;
-&lt;li&gt;Ghost中文章置顶的实现方法&lt;/li&gt;
-&lt;li&gt;如何最大程度地静态化Ghost博客&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（四）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Gitment大坑：谈谈secret泄露的前因后果&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（五）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;如何获得一个支持HTTPS的免费空间&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;博客迁移手记（六）&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;用intersect来做Gitment的API网关&lt;/li&gt;
-&lt;li&gt;Gitment的一些Bug修复与补强&lt;/li&gt;
-&lt;li&gt;Gitment的简单多语言支持&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=""&gt;其它：&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-  &lt;li&gt;&lt;p&gt;我最终改掉了这组博客文章的标题。&lt;/p&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;p&gt;这充分说明使用短标题是正确的。&lt;/p&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title>手记5：如何获得一个支持HTTPS的免费空间</title><description>&lt;p&gt;下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。&lt;/p&gt;
-
-&lt;h2 id="10https"&gt;10. 让免费主页空间支持HTTPS&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？&lt;/p&gt;
-  
-  &lt;p&gt;好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。&lt;/p&gt;
-
-&lt;h3 id="101https"&gt;10.1 你的主页空间是不是支持HTTPS？&lt;/h3&gt;
-
-&lt;p&gt;好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"&gt;&lt;/p&gt;
-
-&lt;p&gt;免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Private Key，私钥，它通常与下面的CSR是成对的。
-&lt;ul&gt;&lt;li&gt;CSR，证书验证请求（Cerificate Signing Request）。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Certificate，&lt;/li&gt;&lt;/ul&gt;</description><link>http://aimingoo.github.io/1-1723/</link><guid isPermaLink="false">fa7313be-e458-4280-8739-ab40307afcd0</guid><category>博客</category><category>SSL</category><category>HTTPS</category><category>免费空间</category><category>证书</category><dc:creator>aimingoo</dc:creator><pubDate>Tue, 30 May 2017 07:25:00 GMT</pubDate><content:encoded>&lt;p&gt;下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。&lt;/p&gt;
-
-&lt;h2 id="10https"&gt;10. 让免费主页空间支持HTTPS&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？&lt;/p&gt;
-  
-  &lt;p&gt;好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。&lt;/p&gt;
-
-&lt;h3 id="101https"&gt;10.1 你的主页空间是不是支持HTTPS？&lt;/h3&gt;
-
-&lt;p&gt;好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"&gt;&lt;/p&gt;
-
-&lt;p&gt;免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Private Key，私钥，它通常与下面的CSR是成对的。
-&lt;ul&gt;&lt;li&gt;CSR，证书验证请求（Cerificate Signing Request）。&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Certificate，验证信息。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;简单的逻辑是：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;假设你先有了一个私钥（Private Key），然后&lt;/li&gt;
-&lt;li&gt;你用私钥对一些『要验证的信息』加密，生成了一个验证请求（CSR），最后&lt;/li&gt;
-&lt;li&gt;你要找一个有公信力的机构来证明CSR是你的；如果验证通过他就给你发一份Certificate。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;你最后从『公信力机构』拿到的这个Certificate就是SSL凭证。——找到你的免费空间后台管理中的Certificate填进去，OK，你的网站就支持&lt;code&gt;https&lt;/code&gt;了。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;当然这其中还有很多的细节，比如免费空间服务商怎么把你的Certificate装到Web服务器上面去等等等等。不过除非你是要搞台云主机自己来架服务器，这些就先不要了解了吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id="102certificate"&gt;10.2 两种获得Certificate的方法&lt;/h3&gt;
-
-&lt;p&gt;这三个信息有两种方式来获得。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;一种是你的免费空间提供商为你生成Private Key/CSR这一对信息，然后你将其中的CSR提交给『公信力机构』，后者给你发Certificate文本。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;所以这种情况下你看到免费空间后台管理的SSL配置中会有一个『Generate Key/CSR』按钮，按一下就得到了前面信息了——如果只能填入而不能Generate，那么你也可以自己做，例如在MacOSX中的工具keytool或OpenSSL（&lt;a href="https://faq.xiaoz.me/archives/100.html"&gt;参考这里&lt;/a&gt;，或&lt;a href="https://onlinehelp.tableau.com/current/server/zh-cn/ssl_cert_create.htm"&gt;这里&lt;/a&gt;）。与之对应的，在『公信力机构』的证书申请流程中会有一个类似这样的提示：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-provide_your_csr.png" alt="ssl_step-provide_your_csr"&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;另一种是『公信力机构』一次性地为你把上述三步全做了——他不需要你提供CSR，而是为你生成一个Private Key，然后自己生成CSR、完成验证并最后把Private Key交还给你。例如阿里云为你提供的验证服务就是这样（它后台用的是Symantec的免费DV服务）。这种情况下，你就需要将其中的Private Key交给免费空间提供商了——所以你的免费空间后台管理的SSL配置中，通常在『Generate Key/CSR』按钮旁边，就还会有一个『Upload Key』的功能，这个Key，指的就是Private Key。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;好了。简单地汇总一下上面的信息：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;找一个『公信力机构』，让他证明你的网站是你的；  &lt;/li&gt;
-&lt;li&gt;如果他要CSR，你就给他；如果他不要CSR，那么他应该给你Private Key。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;当然，如果你的主页空间不给你提供ssl功能（没有地方让你提交『公信力机构』验证过的Certificate），那么——换一家吧。&lt;/p&gt;
-
-&lt;h3 id="103"&gt;10.3 怎么证明『你的网站是你的』&lt;/h3&gt;
-
-&lt;p&gt;所谓的『公信力机构』要颁发SSL签证，其实是想说明『因为这个网站你是你的，所以我发了这个证明给你』。因此无论如何，这个机构也要有办法来证明『你的网站是你的』，而不仅仅是因为你提交了CSR申请。&lt;/p&gt;
-
-&lt;p&gt;所以一旦你申请了，那么你就要为接下来的验证工作做准备，而这取决于不同的『公信力机构』采用的验证方法。下面举三种例子。&lt;/p&gt;
-
-&lt;h4 id="1031symantec"&gt;10.3.1 阿里云或Symantec的签证&lt;/h4&gt;
-
-&lt;p&gt;阿里云可以为你的网站提供1年的免费SSL签证，它的这项服务是通过Symantec签证机构来做的（所以腾讯云也是这样）。所以下面其实是在说Symantec的签证要求。&lt;/p&gt;
-
-&lt;p&gt;阿里云是允许你通过修改DNS或在指定的主页位置放一个名为&lt;code&gt;fileauth.txt&lt;/code&gt;的文本文件（一个详细的过程可以&lt;a href="https://yfdxs.com/ali-ssl-amh.html"&gt;看过里&lt;/a&gt;，如果你能修改DNS的CNAME配置那么&lt;a href="https://www.xiaoz.me/archives/7442"&gt;看这里&lt;/a&gt;）。这样，你就必须要：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;有这个网站（或主页）的ftp账号；并且，  &lt;/li&gt;
-&lt;li&gt;可以创建名为&lt;code&gt;.well-known&lt;/code&gt;这样以点字符开始的目录名（基于Windows系统的主机不能创建这样的名称）；并且，  &lt;/li&gt;
-&lt;li&gt;可以确保能通过&lt;code&gt;http://your-domain-name/.well-know/...&lt;/code&gt;这样的url路径下载到上述文本文件（注意：如果你的网站已经开通了https，那么它会优先访问https开头的地址）。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;问题往往出在第3步。这是因为Symantec会优先去https开头的地址下载验证文件，而一般会提供ssl的主机/免费空间都会默认的给你装一个『自主签名的SSL证书』，这个证书事实上会被认为是无效的——因此Symantec就会验证不通过。&lt;/p&gt;
-
-&lt;p&gt;这种情况下你可以曲线救国：先去找别的机构签一个短期一些（通常是3个月）的证书，让这个https地址生效了，然后再回头过验证Symantec的签证（话说，我就是这么干的）。&lt;/p&gt;
-
-&lt;p&gt;不过，有些时候事情并不那么美妙，因为即使你的主页空间『信誓旦旦』地说他们开放了SSL，并且无论如何你都把文件传到了正确的地方，甚至你看起来也的确可以通过https/http来访问到上述的&lt;code&gt;fileauth.txt&lt;/code&gt;文件的URL地址，但是——你就是通不过Symantec（或者阿里云、腾讯云等等）的验证——它们找不到上面的这个文件。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;注意：我就是因为这个问题申请了又放弃了近二十个免费主页空间。相信我，如果你逐一去试，不会好到哪里去的。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;问题出在哪儿呢？&lt;/p&gt;
-
-&lt;p&gt;这是因为非常非常多的『免费主页』本质上都是要在你的主页上挂广告才能活下去的，他们挂广告的方法真的很纷纷多啊。其中一种常用的，就是串改你的url地址，它会把浏览器访问到的url改成带广告代码的，然后自己搞点弹窗啊什么的，最后才重定向到你真实的地址。——这个过程浏览器认得，而『公信力机构』的验证程序可认不得啊，后者在读取验证文件的时候并不支持为浏览器准备的重定向！&lt;/p&gt;
-
-&lt;p&gt;所以，一旦你申请到一个主页空间，先用curl去访问一下，如果是下面这种返回：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; curl 'http://your-domain-name/'
-&amp;lt;html&amp;gt;  
-&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;403 Forbidden&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;  
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;好吧，它的意思是说不支持curl这样的直接访问，一般来说就不能用了。不过如果你不死心，可以再试试伪装成浏览器：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;&amp;gt; curl -H 'User-Agent:Mozilla/5.0' 'http://your-domain-name/'
-&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;script type="text/javascript" ...  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;那么你就真的不用想了：上面的就是挂广告的代码了，你还想什么呢。&lt;/p&gt;
-
-&lt;p&gt;所以你看，我申请了很多又很多个免费空间，都作废了。&lt;/p&gt;
-
-&lt;h4 id="1032instantssl"&gt;10.3.2 试试别的验证方法，例如instantssl的&lt;/h4&gt;
-
-&lt;p&gt;这家『公信力机构』也非常棒，他提供3个月免费的签证。我们上面说过，你可以尝试『曲线救国』，或者干脆就每三个月签一回，都行。&lt;/p&gt;
-
-&lt;p&gt;重要的是，instantssl采用的是邮件验证，而不是验证ftp文件。&lt;/p&gt;
-
-&lt;p&gt;instantssl是科摩多（comodo）提供的一项SSL证书发放服务，所以你用&lt;a href="http://www.comodo.cn/"&gt;comodo.cn&lt;/a&gt;或&lt;a href="http://www.instantssl.cn/"&gt;instantssl.cn&lt;/a&gt;访问都是可以的。他要求你提供自己准备的CSR，之后会提示你会把证书邮寄给你的网站的admin邮箱账号。&lt;/p&gt;
-
-&lt;p&gt;所以，这就要求你的主页空间给你开通邮箱服务，并且你能自定义类似&lt;code&gt;admin@yourname.freespace.xyz&lt;/code&gt;这样的邮箱名——这个instantssl可以让你选，不过总的来说就那几种特定的。&lt;/p&gt;
-
-&lt;p&gt;很好，如果你有这样的免费空间，或者你就是能得到这样的邮箱，那么试试instantssl的吧。我知道&lt;a href="http://infinityfree.net"&gt;infinityfree&lt;/a&gt;免费空间提供这样的邮箱服务，比如我其实申请了一个&lt;code&gt;.epizy.com&lt;/code&gt;的二级域名。但很不幸我没有通过instantssl的验证——它提示我相应名字的签证已经发过了。&lt;/p&gt;
-
-&lt;p&gt;不知道为什么。反正，你也许可以试试。&lt;/p&gt;
-
-&lt;h4 id="1033"&gt;10.3.3 还有一些别的不错的签证机构&lt;/h4&gt;
-
-&lt;p&gt;有个非常非常著名的、推动https的签证组织，叫&lt;code&gt;Let’s Encrypt&lt;/code&gt;。这个签证非常好用，所以也常常有自己做虚拟主机的来用它（&lt;a href="https://www.freehao123.com/lets-encrypt/"&gt;https://www.freehao123.com/lets-encrypt/&lt;/a&gt;），很多介绍中也首推就是它（&lt;a href="https://www.freehao123.com/top-8-free-ssl-cert/"&gt;例如这里&lt;/a&gt;）。&lt;/p&gt;
-
-&lt;p&gt;然而它对web域名签证并不友好，所以就有人搞了网站来做这件事，最好用的就是这家了：&lt;a href="https://www.sslforfree.com/"&gt;https://www.sslforfree.com/&lt;/a&gt;，它发的也是3个月的免费签证。你可以先看看这个教学&lt;a href="https://changken.biz/969"&gt;SSLforFree 免费SSL凭证&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;SSLforFree的验证过程与阿里云/Symantec的类似，也是要求你传一个文件到ftp上（或者改DNS CNAME），不过他不验证https，所以多数『提供了无效的https的免费空间』来说也能很好的通过验证——除了我上面说的挂广告代码的那种情况。&lt;/p&gt;
-
-&lt;p&gt;也许还有其它好的，有知道的不妨推荐给我。&lt;/p&gt;
-
-&lt;h3 id="104"&gt;10.4 安装你得到的凭证&lt;/h3&gt;
-
-&lt;p&gt;『公信力机构』最终给你的是名为Certificate的凭证。并且，&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;如果是他帮你生成的CSR，那么他会给你Private Key；&lt;/li&gt;
-&lt;li&gt;一般来说他会给你一个它作为签证机构的公钥，不过由于使用者（例如你的主页空间服务商）能直接从网站上搜到这个公钥，所以没有给你也是正常的。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;你需要在后台把Certificate凭证和Private Key给上传(Upload)或更新(Update)到你的管理后台——如果它有类似『SSL管理』这样的功能的话。例如：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（第1步先上传你的证书）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_ssl.png" alt="ssl_step-update_ssl"&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（然后点下面的『管理SSL站点』）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_site-1.png" alt="ssl_step-update_site"&gt;&lt;/p&gt;</content:encoded></item><item><title>手记4：谈谈Gitment中泄露secret的前因后果与解决方法</title><description>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
-
-&lt;p&gt;这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。&lt;/p&gt;
-
-&lt;h2 id="8"&gt;8. 问题出在哪里&lt;/h2&gt;
-
-&lt;p&gt;Gitment（&lt;a href="https://github.com/imsun/gitment"&gt;项目&lt;/a&gt;）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（&lt;a href="https://imsun.net/"&gt;https://imsun.net/&lt;/a&gt;）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Github真的可能被屏蔽，尽管这种可能性已经越来越小&lt;/li&gt;
-&lt;li&gt;要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。&lt;/p&gt;
-
-&lt;p&gt;这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-javascript"&gt;var gitment = new Gitment({  
-  id: '页面 ID', // 可选。默认为 location.href&lt;/code&gt;&lt;/pre&gt;</description><link>http://aimingoo.github.io/1-1722/</link><guid isPermaLink="false">bfa19ad7-3e78-4560-a7ff-f79104c7dd8d</guid><category>博客</category><category>Javascript</category><category>Github</category><category>Gitment</category><category>OpenSource Project</category><dc:creator>aimingoo</dc:creator><pubDate>Sun, 28 May 2017 18:17:49 GMT</pubDate><content:encoded>&lt;p&gt;本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点……&lt;/p&gt;
-
-&lt;p&gt;这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。&lt;/p&gt;
-
-&lt;h2 id="8"&gt;8. 问题出在哪里&lt;/h2&gt;
-
-&lt;p&gt;Gitment（&lt;a href="https://github.com/imsun/gitment"&gt;项目&lt;/a&gt;）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（&lt;a href="https://imsun.net/"&gt;https://imsun.net/&lt;/a&gt;）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Github真的可能被屏蔽，尽管这种可能性已经越来越小&lt;/li&gt;
-&lt;li&gt;要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;但是使用Gitment是有问题的。更准确地说，如果你直接在你的博客中部署Gitment这个项目，那么你将面临你的Github application client secret token丢失的风险。这个风险会带来两种可能，一种是你自己的Github账户下的application被假冒，另一种是在你的博客上发表评论的Github用户被冒名。&lt;/p&gt;
-
-&lt;p&gt;这个风险看起来很大。而这对于Gitment来说又难于避免，因为它要求你在使用时往博客模板中插入以下代码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-javascript"&gt;var gitment = new Gitment({  
-  id: '页面 ID', // 可选。默认为 location.href
-  owner: '你的 GitHub ID',
-  repo: '存储评论的 repo',
-  oauth: {
-    client_id: '你的 client ID',
-    client_secret: '你的 client secret',
-    ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个&lt;code&gt;client_secret&lt;/code&gt;来自于你在自己的Github个人配置&lt;code&gt;Settings -&amp;gt; Developer Settings -&amp;gt; OAuth applicatoins&lt;/code&gt;中创建一个application时所生成的secret，这个secret提供了所谓的单点登录认证，以确保其它的Github用户在经过同意后使用你的博客中的Gitment模块来发评化——这种用法类似于新浪、微信、QQ等等的小应用。&lt;/p&gt;
-
-&lt;p&gt;通常你需要这个secret有访问者的repo级别的访问权限（因为添加评论其实上是向repo的issues中添加comments），而一旦有人劫持了访问者的access_token，那么它就可以仿冒访问者在任意的github仓库中添加comments、以及issues——看起来很可怕不是？而且事实上看起来这个权限还更大，可以操作访问者自己的仓库。&lt;/p&gt;
-
-&lt;p&gt;Gitment的作者为什么要留下这么一个漏洞呢？Github又为什么会允许这样一个漏洞存在呢？&lt;/p&gt;
-
-&lt;h3 id="81gitment"&gt;8.1 Gitment干了什么？&lt;/h3&gt;
-
-&lt;p&gt;其实Gitment的作者是好心的。他在源代码中是这么写的：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-javascript"&gt;this.state.user.isLoggingIn = true  
-http.post('https://gh-oauth.imsun.net', {  
-    code,
-    client_id,
-    client_secret
-  }, '')
-  .then(data =&amp;gt; {
-    this.accessToken = data.access_token;
-    ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这段代码的意思，是拿你在Github后台生成的一对&lt;code&gt;client_id/client_secret&lt;/code&gt;验证信息，去&lt;code&gt;https://gh-oauth.imsun.net&lt;/code&gt;上面换取access_token，而这个access_token才是当前登录的Github用户在你的博客用发评论时使用的验证信息。这个access_token会记录在cookies中，并且每次调用Github api时作为Authorization头信息提交给Github验证身份。&lt;/p&gt;
-
-&lt;p&gt;你把client_id和client_secret同时给了imsun.net，这是不对的；即使你信任imsun.net，然而把它公布在源代码中，也是不对的。——所以，事实上如果你在博客中部署了上述代码，你还会收到来自Github的一封邮件，提醒你不应该将token放在源代码中（是的，Github会扫描提交的源代码）。&lt;/p&gt;
-
-&lt;p&gt;Gitment的作者并不是不知道这个问题，他只是好心的想帮你解决一个问题——这个我们下面会讲到——然而他带来了更严重的问题。&lt;/p&gt;
-
-&lt;h3 id="82github"&gt;8.2 深入了解Github的单点登录和应用授权&lt;/h3&gt;
-
-&lt;p&gt;如果你在Github站外使用它的单点登录（也就是提示你用Github账户登录以使用某种功能），那么在这个网页中——其实也可以不是前端的网页，而是后端应用——需要调用Github API，来将当前用户引导到下面的Github的登录和授权页面：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;GET https://github.com/login/oauth/authorize  
-    ?scope=(权限范围, Gitment预设的是'public_repo')
-    &amp;amp;client_id=(验证应用的client_id)
-    &amp;amp;redirect_url=(验证成功后的返回url, Gitment预设的是当前页)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这时，（如果当前用户/访客没有登录过，那么）它看到的页面是下面这样的：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（界面1：跨站应用的单点登录界面）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-1.png" alt="github_auth_step-1"&gt;&lt;/p&gt;
-
-&lt;p&gt;如果访客还没有为这个应用授权过（或者他已经是Github的登录用户），那么他之后还会看到下面这个界面：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（界面2：授权）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src="http://aimingoo.github.io/content/images/2017/05/github_auth_step-2.png" alt="github_auth_step-2"&gt;&lt;/p&gt;
-
-&lt;p&gt;这两步的目的就是让访客登录，并且让他确认你的应用（例如Gitment）能够使用他的账号中的哪些权限。一旦用户确认过这个授权，那么在他的Github账号后台&lt;code&gt;Settings -&amp;gt; Authorized OAuth Apps&lt;/code&gt;中就可以看到这个应用（也能Revoke掉它），并且下次就不用再确认授权了。&lt;/p&gt;
-
-&lt;p&gt;注意到上述'will redirect to'的地址——它在使用API提交时的配置细节在Github API的说明中有（&lt;a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/#redirect-urls"&gt;在这里&lt;/a&gt;），简单地说它必须以Application在后台的配置作为前缀。在我们这里讨论的Gitment中，作者将它设置为当前正在访问的网页——例如某篇博客文章（Post）。&lt;/p&gt;
-
-&lt;p&gt;接下来如果Github验证并授权了访问的账户，它就会通过HTTP调用来返回304并带上一个Location地址，这个地址就是上面的redirect_url，并且会在这个url后面多带一个&lt;code&gt;code&lt;/code&gt;参数。以我的站点上的某个具体的post来说，返回的时候这个Header是下面这样的：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Location:https://aimingoo.github.io/1-1718.html?code=40299d8475d3679c8c8c  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在静态页面（例如1-1718.html）中从url取参数的方法就不用细讲了。于是接下来Giment取到这个参数&lt;code&gt;code&lt;/code&gt;，它还需要再做一次验证，才能真正的让当前用户能够使用Github API。这个验证操作需要调用：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-bash"&gt;POST https://github.com/login/oauth/access_token  
-    client_id: ...
-    client_secret: ...
-    code: ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;并且它使用POST请求的Accept header来决定以何种格式（xml/json/url-encode）来返回数据。显然地，这里需要在浏览器中使用AJAX请求来向&lt;code&gt;https://github.com/&lt;/code&gt;调用这个API。&lt;/p&gt;
-
-&lt;p&gt;问题就出在这一步。&lt;/p&gt;
-
-&lt;h3 id="83githuboauth"&gt;8.3 Github OAuth并不支持浏览器跨站访问&lt;/h3&gt;
-
-&lt;p&gt;如果你在命令行上或者其它代码中直接访问上述POST API，那么不错，你能拿到返回数据access_token，然而不幸的是：Gitment在浏览器上，只能使用Ajax。&lt;/p&gt;
-
-&lt;p&gt;事实上Gitment可以调用上述API并返回数据，但是注意发起这个API的地址（以上面的post为例）与调用的Github API地址分别是：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;https://aimingoo.github.io/1-1718.html  
-https://github.com/login/oauth/access_token  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;于是浏览器说：这是一个跨站访问！浏览器会把POST请求拆成两个，先发一枚OPTIONS请求问问github.com是否支持跨站，如果github.com接受了OPTIONS并正确返回，那么浏览器才接下来发POST请求。——OPTIONS请求是没有POST BODY区的，显然这是为了避免服务器接受大型的POST请求时浪费资源。关于这个过程的细节，可以参考阮一峰老师的文章『&lt;a href="http://www.ruanyifeng.com/blog/2016/04/cors.html"&gt;跨域资源共享 CORS 详解&lt;/a&gt;』。简单地说，服务器端对OPTIONS和POST请求都必须在返回头中包括&lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt;字段，并使该字段带有正确的来源Origin信息。——这样一来，浏览器就会认为服务器是接受跨站访问的了。&lt;/p&gt;
-
-&lt;p&gt;然而Github的access_token接口并不返回上述头。而且，可以预见的将来，它都不会有这个头。因为这是正确的——我们确实不应该在浏览器上直接使用这个接口，并且公开接口中的client_secret。从另一方面来说，这个access_token接口是应该在一个浏览器用户受信的后端应用中，亦即是我们称为Gitment模板的应用内部发起调用的，它可以持有client_secret而不必告诉任何人，这是Github确认『该应用合法』的唯一凭据。&lt;/p&gt;
-
-&lt;p&gt;Gitment没有办法同时做到两件事：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;既可以使用一个惟一、统一的Giment client_secret凭据，&lt;/li&gt;
-&lt;li&gt;又在redirect_url中指定某个非确定的博客返回地址。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这使得作者无法公开发布一个公众使用的、不需要每个博主去Github后台配置OAuth Application服务的应用。而接下来，作者也有没办法在没有client_secret凭据的情况下，帮你调用Github's access_token接口。&lt;/p&gt;
-
-&lt;p&gt;所以，你看到了结果：Gitment的代码要求在网页中泄露你的client_secret，然后提交到&lt;code&gt;https://gh-oauth.imsun.net&lt;/code&gt;去，作者会帮助你调用Github API，然后返回一个access_token。&lt;/p&gt;
-
-&lt;p&gt;只有这样，当前的访问才能用这个access_token为每一个XHR Request建立有效的Authorization头。&lt;/p&gt;
-
-&lt;p&gt;问题的根源，仅仅是出在Github OAuth并不支持浏览器跨站访问——它的返回头用没有Access-Control-Allow-Origin。&lt;/p&gt;
-
-&lt;h3 id="84api"&gt;8.4 API网关&lt;/h3&gt;
-
-&lt;p&gt;显然，这绝壁了就是API网关要干的事情。如果我有一个API网关，那么我就只需要接受来自浏览器的Gitment请求，然后将API转发到Github，并且在返回头上塞上一个Access-Control-Allow-Origin就万事大吉了！&lt;/p&gt;
-
-&lt;p&gt;是的，这是对的。不幸的是，没有这么个东东——而且要开放可信的。&lt;/p&gt;
-
-&lt;p&gt;我尝试过阿里云的API网关！很牛x的产品，价格也不贵，而且配置操作一路极顺畅，Ding dong Ding dong分分钟就建好了网关，但是——不能定制返回的HTTP Header！&lt;/p&gt;
-
-&lt;p&gt;我尝试过微软Azure里的API网关！也很牛x产品，骗了我一块钱人民币，居然让我连配置都完不成——最最反程序员的产品就非它莫属了。&lt;/p&gt;
-
-&lt;p&gt;我尝试过很多很多云服务或云端微服务的API网关产品，要么是根本连页面都打不开的，要么就是不支持CORS跨站的。简单地说：你就算想花钱也是花不出去的。&lt;/p&gt;
-
-&lt;p&gt;不过真想花钱，还是有一个法子的。你可以租一台虚拟主机，然后在上面架一个Nginx，通过配置来代理这个POST请求并在返回中加上Access-Control-Allow-Origin头。是的，这相当不错，连代码也不用写。但是搞云主机啊，分分钟收钱的。——你的API能访问几次？一个小小小小得不得了的博客，一个月能用10来条评论就不错了，调用上面的登录接口，大概也就三五次吧！&lt;/p&gt;
-
-&lt;p&gt;不值当搞台云主机啊！&lt;/p&gt;
-
-&lt;p&gt;于是，我说：&lt;/p&gt;
-
-&lt;h3 id="85sir"&gt;8.5 写点代码吧，Sir&lt;/h3&gt;
-
-&lt;p&gt;要写点代码就其实很好办了，用NodeJS也好、PHP/ASP也行，其实甚至BASH脚本都搞得定。只需响应前端（frontend）来的POST请求，然后去Github API接口（backend）上拿数据，在返回前端之前塞上个Header就行了。&lt;/p&gt;
-
-&lt;p&gt;不过具体要做起来，就麻烦一点了。我用PHP写了一个名为intersect的项目（&lt;a href="https://github.com/aimingoo/intersect"&gt;在这里&lt;/a&gt;），它修改自&lt;a href="https://github.com/stamat/corsica"&gt;CORSica&lt;/a&gt;，不过添加了不少的特性：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;HTTPS POST支持&lt;/li&gt;
-&lt;li&gt;添加可配置字段（例如为Github API添加client_secret）&lt;/li&gt;
-&lt;li&gt;处理前后端不同的Connection方法&lt;/li&gt;
-&lt;li&gt;处理Transfer-Encoding&lt;/li&gt;
-&lt;li&gt;处理Content-Length的变化&lt;/li&gt;
-&lt;li&gt;一些防止滥用的简单guard代码&lt;/li&gt;
-&lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;基本上，我的意思是说，它简单的配置下就可用了；而且稍作定制，也可以作为一个通用的CORS网关。所以，接下来，你就需要找一个能放PHP代码的免费主页，然后把intersect放上去，配置其中的&lt;code&gt;DOMAIN_ACCEPT&lt;/code&gt;和&lt;code&gt;PRIVATE_CLIENT_SECRET&lt;/code&gt;。这样这个网站就能拿来替代Gitment中对&lt;code&gt;https://gh-oauth.imsun.net&lt;/code&gt;的访问了。&lt;/p&gt;
-
-&lt;p&gt;当然，Gitment还需要稍稍的改点代码。&lt;/p&gt;
-
-&lt;p&gt;这个我们回头再说，现在我们得搞一个提供免费主页的网站把这个代码放上去。&lt;/p&gt;</content:encoded></item><item><title>手记3：实例教学之Ghost模板定制</title><description>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
-
-&lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
-
-&lt;p&gt;Ghost缺省使用的主题叫casper theme，你可以在博客管理界面&lt;code&gt;Settings -&amp;gt; General -&amp;gt; Themes&lt;/code&gt;中找到你当前安装过的全部Themes，并任意激活/删除它们。&lt;/p&gt;
-
-&lt;p&gt;有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的&lt;code&gt;content/themes/&lt;/code&gt;目录下。&lt;/p&gt;
-
-&lt;p&gt;我选择的是使用小蘿蔔丁(&lt;a href="http://xlbd.me/"&gt;在这里&lt;/a&gt;)发布的&lt;code&gt;kaldorei - 0.8.0&lt;/code&gt;，你可以下载或阅读这个Theme相关的说明（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei"&gt;这里&lt;/a&gt;）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。&lt;/p&gt;
-
-&lt;p&gt;但我还是做了一些修改（关于Themes的基础使用与修改改可以参考&lt;a href="http://docs.ghost.org/zh/themes/"&gt;这里&lt;/a&gt;）。&lt;/p&gt;
-
-&lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
-
-&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）&lt;/p&gt;</description><link>http://aimingoo.github.io/1-1721/</link><guid isPermaLink="false">5e342c06-52cf-44de-b741-428859c06a61</guid><category>Ghost</category><category>博客</category><category>Javascript</category><dc:creator>aimingoo</dc:creator><pubDate>Sat, 27 May 2017 19:28:21 GMT</pubDate><content:encoded>&lt;p&gt;接下来我们聊一下如何定制这个博客的风格。&lt;/p&gt;
-
-&lt;h2 id="7themes"&gt;7. 定制Themes&lt;/h2&gt;
-
-&lt;p&gt;Ghost缺省使用的主题叫casper theme，你可以在博客管理界面&lt;code&gt;Settings -&amp;gt; General -&amp;gt; Themes&lt;/code&gt;中找到你当前安装过的全部Themes，并任意激活/删除它们。&lt;/p&gt;
-
-&lt;p&gt;有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的&lt;code&gt;content/themes/&lt;/code&gt;目录下。&lt;/p&gt;
-
-&lt;p&gt;我选择的是使用小蘿蔔丁(&lt;a href="http://xlbd.me/"&gt;在这里&lt;/a&gt;)发布的&lt;code&gt;kaldorei - 0.8.0&lt;/code&gt;，你可以下载或阅读这个Theme相关的说明（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei"&gt;这里&lt;/a&gt;）。我可能将来会将博客换成别的什么风格，不过现在kaldorei还是挺合用的。&lt;/p&gt;
-
-&lt;p&gt;但我还是做了一些修改（关于Themes的基础使用与修改改可以参考&lt;a href="http://docs.ghost.org/zh/themes/"&gt;这里&lt;/a&gt;）。&lt;/p&gt;
-
-&lt;h3 id="71"&gt;7.1 一些基本和简单的使用&lt;/h3&gt;
-
-&lt;p&gt;Ghost的一个好处是可以随意定制并生成静态页，这些页可以用博客后台来发布或更新，或者仅仅只是一个普通的静态页面（无需通过后台来更新内容）。无论如果，Ghost提供很简单的方法来做这件事，并且允许你为每一个静态页定制自己的页面风格、主题或模板。&lt;/p&gt;
-
-&lt;p&gt;kaldorei主题是使用这个方式来实现『历史归档』的功能（&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能"&gt;参考这里&lt;/a&gt;），这也相当于介绍了『定制静态页』功能的用法——所以我的博客的『关于』页面就是这样做的。&lt;/p&gt;
-
-&lt;h4 id="711"&gt;7.1.1 处理背景色与背景图片&lt;/h4&gt;
-
-&lt;p&gt;需要两个操作。其一：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-css"&gt;/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
-body {  
-    margin: 0;
-    background: #000;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;其二，在default.hbs模板的body标签之后添加如下风格样式：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;style&amp;gt;  
-body {  
-    background-image: url(/assets/img/background.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-attachment: fixed;
-    background-size: auto;
-}
-
-.site-wrapper {
-    background: none;
-}
-
-.main-header {
-    background: none;
-    border-bottom: none;
-}
-
-.main-nav a {
-    color: #FFF;
-}
-&amp;lt;/style&amp;gt;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;注意这个风格中的背景图片是放在Ghost安装目录下的&lt;code&gt;content/themes/ghost-theme-kaldorei/assets/img&lt;/code&gt;目录中的。makesite.sh脚本（或Buster工具）会搜索到这个文件，并下载这个文件到你的static目录中。&lt;/p&gt;
-
-&lt;h4 id="712"&gt;7.1.2 为每篇博客添加『编辑』按钮&lt;/h4&gt;
-
-&lt;p&gt;当添加了这个按钮之后，我在本地博客中读博文的时就可以随时编辑它，而不必总是回到管理后台去找到这篇文章——Ghost后台没有搜索功能。&lt;/p&gt;
-
-&lt;p&gt;因为添加的这个按钮对线上的用户没有意义，所以在我的&lt;code&gt;makesite.sh&lt;/code&gt;脚本中有一处代码会将它从&lt;code&gt;./static&lt;/code&gt;中的静态页面中清理掉。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- modify file at ./ghost-theme-kaldorei/post.hbs --&amp;gt;  
-&amp;lt;span class="post-meta-item pull-right"&amp;gt;  
-  &amp;lt;!-- 在这个位置插入如下行 --&amp;gt;
-  &amp;lt;a href="/ghost/editor/{{id}}/" target="_blank"&amp;gt;编辑&amp;lt;/a&amp;gt;
-&amp;lt;/span&amp;gt;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id="713"&gt;7.1.3 移除所有页脚&lt;/h4&gt;
-
-&lt;p&gt;纯粹只是个人不喜欢而已，因此除了保留版权说明之外，其它页脚本全部合并/删除掉了。基本上你在.hbs文件中搜索&lt;code&gt;-footer&lt;/code&gt;然后自己斟情清理就行了。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language- bash"&gt;&amp;gt; grep 'footer' *.hbs partials/*
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id="714"&gt;7.1.4 定制个人信息&lt;/h4&gt;
-
-&lt;p&gt;相关的信息页面在如下模板中，斟情修改（许多信息可以在博客后台的个人配置与网页配置中定制）：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;## 清理掉部分社交信息
-ghost-theme-kaldorei/partials/social.hbs  
-ghost-theme-kaldorei/partials/post_author.hbs  
-## 我移除掉了标签数量的统计
-ghost-theme-kaldorei/partials/site_stat.hbs  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id="715"&gt;7.1.5 在博客文章中显示作者信息&lt;/h4&gt;
-
-&lt;p&gt;kaldorei主题并没有特别强调多作者博客的功能，所以它的文章（post）中只显示标签云，而不显示该文章的作者信息。因此我添加了这一功能，但需要做的修改极少：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&amp;gt;  
-&amp;lt;!-- 注意在下面位置的is标签后面，多添加一个post参数，就可以了 --&amp;gt;  
-    {{! 作者：显示作者信息 }}
-    {{#is "author, post"}}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;关于多作者博客的支持，我打算另开一篇博文来讲。&lt;/p&gt;
-
-&lt;p&gt;^^.&lt;/p&gt;
-
-&lt;h4 id="716"&gt;7.1.6 修改语法高亮&lt;/h4&gt;
-
-&lt;p&gt;在default.hbs中载入新的highlight style即可：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- kaldorei的缺省风格是monokai-sublime.css, 在styles目录下找个新的换上就Ok --&amp;gt;  
-&amp;lt;!-- 可以先查看https://highlightjs.org/static/demo/来选择风格 --&amp;gt;  
-&amp;lt;link rel="stylesheet" type="text/css" href="{{asset "plugins/highlight-9.1.0/styles/xcode.css"}}" /&amp;gt;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;此外，你可能需要调整高亮代码左侧的行号背景（或其它），那么应修改如下样式表：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-css"&gt;/* modify file at ./ghost-theme-kaldorei/assets/css/screen.css */
-.pre-numbering {
-    position: absolute;
-    ...
-}
-
-.pre-numbering li {
-    ...
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id="717"&gt;7.1.7 指定文章置顶&lt;/h4&gt;
-
-&lt;p&gt;置顶文章是常见的博客操作，你可以将一篇文章设置为&lt;code&gt;featured&lt;/code&gt;，并且通过修改模板来使它们置顶。这会涉及到不少的修改。&lt;/p&gt;
-
-&lt;p&gt;好在所谓『置顶』操作其实只会发生在带有&lt;code&gt;（列表）list&lt;/code&gt;性质的页面中，这类页面在Ghost中称为&lt;code&gt;paged&lt;/code&gt;，它只出现在以下三类页面上：index, tag and author（&lt;a href="https://themes.ghost.org/docs/paged-context#section-description"&gt;参见这里&lt;/a&gt;）。在这三类页面中，可以用loop模板去列举所有页，但它们的&lt;code&gt;第1页&lt;/code&gt;是paged为false的，而之后的&lt;code&gt;第2..n页&lt;/code&gt;则是paged为true的。可以通过这种区别来将你需要的内容置顶，并在其它页面中筛除它们。&lt;/p&gt;
-
-&lt;p&gt;在具体实现中，由于&lt;code&gt;{{get}}&lt;/code&gt;标记在&lt;code&gt;filter&lt;/code&gt;设置时不能使用包含或查找操作（它能使用的运算支持&lt;a href="https://api.ghost.org/docs/filter"&gt;在这里&lt;/a&gt;），所以tag页不能用index/author页相同的方法来实现置顶。然而此外唯一可能做这个运算的&lt;code&gt;{{has}}&lt;/code&gt;标记却不支持参数传入——所以，你已经知道结果了：在tag页中不支持（按标签分类过的）置顶。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- 在loop.hbs中用以下代码分别载入置顶风格的posts --&amp;gt;  
-{{^is "paged"}}
-    {{! list all feated posts on top }}
-    {{#is "index"}}
-    {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
-    {{#foreach featured}}
-        {{&amp;gt; content_featured}}
-    {{/foreach}}
-    {{/get}}
-    {{/is}}
-
-    {{#is "author"}}
-    {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
-    {{#foreach featured}}
-        {{&amp;gt; content_featured}}
-    {{/foreach}}
-    {{/get}}
-    {{/is}}
-{{/is}}
-
-&amp;lt;!-- 紧接着载入普通风格的posts --&amp;gt;  
-    {{#foreach posts}}
-    {{#is "tag"}}
-        {{&amp;gt; content_post}}
-    {{else}}
-        {{#unless featured}}
-        {{&amp;gt; content_post}}
-        {{/unless}}
-    {{/is}}
-    {{/foreach}}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然后在&lt;code&gt;partials/content_featured.hbs&lt;/code&gt;和&lt;code&gt;partials/content_post.hbs&lt;/code&gt;中分别设置两种样式即可。——可以将原来在loop.hbs中&lt;code&gt;foreach posts&lt;/code&gt;的代码块直接接到&lt;code&gt;partials/content_post.hbs&lt;/code&gt;中。&lt;/p&gt;
-
-&lt;p&gt;最后，一些细节可以参考这里：&lt;a href="https://www.ghostforbeginners.com/move-featured-posts-to-the-top-of-your-blog/"&gt;Move Featured Posts to the Top of your Blog&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h3 id="72"&gt;7.2 将站点信息与云标签静态化&lt;/h3&gt;
-
-&lt;p&gt;Ghost博客静态化有一个小的问题，就是如果你加上了类似『站点状态(site_stat)』或『标签云(tag_cloud)』这样的功能的话，那么你几乎每添加或修改一篇文章，就要全部重新生成静态页，然后再重新Push到github仓库——每次都全站发布一回。&lt;/p&gt;
-
-&lt;p&gt;原因是这样，比如说你的site_stat里有一个『站点发表了多少篇文章』的计数，那么，显然你添加/删除一篇博客，就得让所有静态面这个位置的计数变一下；又例如标签名，你添加一个标签那么全站所有页的标签云都要动态生成一下。&lt;/p&gt;
-
-&lt;p&gt;而事实上——99%的博客文章或静态页面在内容上都没有什么变化 。所以，能不能将这些动态变化的信息静态化掉，不至于每次都要重新生成？&lt;/p&gt;
-
-&lt;p&gt;是能的。我采用的策略是：用js装载这些静态化的信息。&lt;/p&gt;
-
-&lt;h4 id="721"&gt;7.2.1 为标签云添加一个静态页&lt;/h4&gt;
-
-&lt;p&gt;在博客后台添加一篇新的博客，将它的页面url设置成tag_cloud，并配配置它为静态页面（参见『历史归档』的做法，&lt;a href="https://github.com/xiaoluoboding/ghost-theme-kaldorei#开启归档功能"&gt;在这里&lt;/a&gt;）。这一篇博客的内容可以为空。&lt;/p&gt;
-
-&lt;p&gt;然后在&lt;code&gt;content/themes/ghost-theme-kaldorei/&lt;/code&gt;目录下新添加一个名为&lt;code&gt;page-tag-cloud.hbs&lt;/code&gt;的模板——它将是上面这篇文章的专用模板，Ghost是通过文件名来识别的。内容如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-javascript"&gt;document.writeln(function cloudTagHtmlContext() {/*  
-  {{&amp;gt; "tag_cloud"}}
-*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;注意，这是一段标准的JavaScript代码，并且事实上只有一行：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-javascript"&gt;document.writeln(...);  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;当Ghost将在后台把&lt;code&gt;page-tag-cloud.hbs&lt;/code&gt;当成标准的模板文件来处理，所以它会填充其中的Ghost标志，并装载子模板页。而生成出来的静态页实际上是一个.js的文本文件，并且放在（我们在对应博客文章后台配置的）&lt;code&gt;/tag_cloud&lt;/code&gt;这个位置上——不过没有扩展名而已。&lt;/p&gt;
-
-&lt;p&gt;这段脚本的作用仅仅是将cloudTagHtmlContext()这个函数（也可以是匿名函数）中的内容取出来，然后写在网页上。&lt;/p&gt;
-
-&lt;p&gt;这段代码总是通用的，可以用来将任意模板/网页转换成这样一个脚本文件，以便于动态装载。&lt;/p&gt;
-
-&lt;h4 id="722"&gt;7.2.2 修改其它模板以装入上述脚本&lt;/h4&gt;
-
-&lt;p&gt;这很简单，在sitebar.hbs这个文件中找到&lt;code&gt;{{&amp;gt; "tag_cloud"}}&lt;/code&gt;，然后替换成下面的即可：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-html"&gt;&amp;lt;!-- modify file at ./ghost-theme-kaldorei/partials/sidebar.hbs --&amp;gt;  
-&amp;lt;!-- 找到{{&amp;gt; "tag_cloud"}}然后替换成下面的脚本 --&amp;gt;  
-&amp;lt;script type="text/javascript" src="/tag-cloud"&amp;gt;&amp;lt;/script&amp;gt;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id="723site_stat"&gt;7.2.3 关于site_stat&lt;/h4&gt;
-
-&lt;p&gt;与tag_cloud的处理类似，我添加了&lt;code&gt;/profile_site&lt;/code&gt;静态页，并且添加模板如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="language-javascript"&gt;// file at ghost-theme-kaldorei/page-profile-site.hbs
-document.writeln(function cloudTagHtmlContext() {/*  
-    &amp;lt;hr&amp;gt; {{&amp;gt; "site_stat"}}
-    &amp;lt;hr&amp;gt; {{&amp;gt; "social"}}
-*/}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;同样，最后你需要改一下&lt;code&gt;partials/profile.hbs&lt;/code&gt;相应位置来装载&lt;code&gt;/profile_site&lt;/code&gt;这个脚本文件。&lt;/p&gt;
-
-&lt;h3 id="73"&gt;7.3 其它&lt;/h3&gt;
-
-&lt;p&gt;事实上我现在仍然是采用每次都全站生成静态页面来更新整个网站，因此上面的有关『静态化』的处理并不能带来直接的便利。但我的确打算发布一个『只更新最新内容』的小工具，这样网站Online就会变得快些了。&lt;/p&gt;
-
-&lt;p&gt;不同的主题的修改会略有区别，本文只供参考。&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;/blockquote&gt;</content:encoded></item></channel></rss>

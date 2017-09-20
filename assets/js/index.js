@@ -111,6 +111,12 @@
             }
         });
 
+        // add timeago
+        $(".post-date").each(function() {
+            if ($(this).attr("timeago") == "true") {
+                $(this).text(timeAgo($(this).attr("datetime")));
+            }
+        });
         // add archives year
         var yearArray = new Array();
         $(".archives-item").each(function() {

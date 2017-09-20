@@ -1,90 +1,89 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>内训资料公开：设计师的实战过程(1)</title>
-    <meta name="description" content="" />
+    <meta name="description" content=".html">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="内训资料公开：设计师的实战过程(1)" />
-    <meta property="og:description" content="今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。 这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。 完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。 架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。 资料包括录音（但没有视频），和课程中的PPT以及相关资料。 下载：      The Designer," />
-    <meta property="og:url" content="http://aimingoo.github.io/1-113.html" />
-    <meta property="article:published_time" content="2008-07-29T17:01:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-10T15:15:34.000Z" />
-    <meta property="article:tag" content="架构设计" />
-    <meta property="article:tag" content="分享下载" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="内训资料公开：设计师的实战过程(1)">
+    <meta property="og:description" content="今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。 这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。 完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。 架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。 资料包括录音（但没有视频），和课程中的PPT以及相关资料。 下载：      The Designer,">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-113/.html">
+    <meta property="article:published_time" content="2008-07-29T17:01:00.000Z">
+    <meta property="article:modified_time" content="2017-09-10T15:15:34.000Z">
+    <meta property="article:tag" content="架构设计">
+    <meta property="article:tag" content="分享下载">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="内训资料公开：设计师的实战过程(1)" />
-    <meta name="twitter:description" content="今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。 这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。 完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。 架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。 资料包括录音（但没有视频），和课程中的PPT以及相关资料。 下载：      The Designer," />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-113.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="架构设计, 分享下载" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="内训资料公开：设计师的实战过程(1)">
+    <meta name="twitter:description" content="今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。 这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。 完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。 架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。 资料包括录音（但没有视频），和课程中的PPT以及相关资料。 下载：      The Designer,">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-113/.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="架构设计, 分享下载">
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "内训资料公开：设计师的实战过程(1)",
-    "url": "http://aimingoo.github.io/1-113.html",
+    "url": "http:/.html/aimingoo.github.io/1-113/.html",
     "datePublished": "2008-07-29T17:01:00.000Z",
     "dateModified": "2017-09-10T15:15:34.000Z",
     "keywords": "架构设计, 分享下载",
     "description": "今天去CSDN做了一档节目（细节保留……呵呵），这勾起了我对在盛大工作的回忆。曾经，我在盛大做过一次内训，是关于设计师的实战的，这次内训大概是在2007年5月间。时间过去了一年多，如今我来看这些内容，仍然有许多可圈点之处。所以这里就把它公开出来，与大家分享，也欢迎批评。 这次内训讲了三讲，但非常遗憾的是，第一讲没有录完——中间的时候，我的手机内存被耗空了。这一讲一共讨论了“事务系统”中的5份文档，但只录了前三份。后两份则没录下来，但大体的思想，大家可以看得到了。 完成一份好的设计并不是一件容易的事，但其实我们大多数开发人员都具备相应的能力。唯一的问题是真正去做实践时，却没有头绪。因此本期讲座将直接进入实战，以实例为蓝本来完成培训。 架构师、设计师如何工作，一个大型系统或一个子系统如何设计、权衡，大家可以从这个“架构师的实战过程”中，看到一些东西。需要说明的是，这也只是我对系统的理解，不同的人可能有不同的看法，欢迎大家讨论。 资料包括录音（但没有视频），和课程中的PPT以及相关资料。 下载：      The Designer,",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-jia-gou-she-ji tag-fen-xiang-xia-zai nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -124,20 +123,20 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-jia-gou-she-ji tag-fen-xiang-xia-zai">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-113.html">内训资料公开：设计师的实战过程(1)</a></h1>
+                <h1 class="post-title"><a href="1-113.1">内训资料公开：设计师的实战过程(1)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="/author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2008-07-30">9 years ago</time>
+                        <time class="post-date" datetime="2008-07-30T01:01:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2008-07-30">(2008-07-30)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/jia-gou-she-ji/">架构设计</a>, <a href="/tag/fen-xiang-xia-zai/">分享下载</a>
+                        <a href="tag/jia-gou-she-ji/.html">架构设计</a>, <a href="tag/fen-xiang-xia-zai/.html">分享下载</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -160,15 +159,15 @@ ghost.init({
 
 <blockquote>
   <ul>
-  <li>The Designer, Chapter 1.zip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ：第一讲</li>
+  <li>The Designer, Chapter 1.zip        ：第一讲</li>
   <li>The Designer, Player(Platform4).zip ：AMR格式录音的播放器</li>
   </ul>
   
-  <p><a href="http://download.csdn.net/source/562755">http://download.csdn.net/source/562755</a>
-  <a href="http://download.csdn.net/source/562739">http://download.csdn.net/source/562739</a></p>
+  <p><a href="http:/.html/download.csdn.net/source/562755">http:/.html/download.csdn.net/source/562755</a>
+  <a href="http:/.html/download.csdn.net/source/562739">http:/.html/download.csdn.net/source/562739</a></p>
 </blockquote>
 
-<p><strong><a href="/1-115.html">第二讲 >></a></strong></p>
+<p><strong><a href="1-115.1">第二讲 &gt;&gt;</a></strong></p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -180,13 +179,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-112.html">
+                <a href="1-112/.html">
                     元语言基础技术之：在JS中如何自由地创建函数
                 </a>
             </span>
 
-            <span class="post-nav-next" >
-                <a href="/1-114.html">
+            <span class="post-nav-next">
+                <a href="1-114/.html">
                     杂家与集成
                 </a>
                 下一篇
@@ -196,11 +195,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
-<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -216,30 +215,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="/profile-aimingoo"></script>
+        <script type="text/javascript" src="profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -253,8 +252,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -266,20 +265,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
-</html>

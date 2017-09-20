@@ -1,92 +1,91 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》</title>
-    <meta name="description" content="" />
+    <meta name="description" content=".html">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》" />
-    <meta property="og:description" content="本文载于《程序员》2009.10期 行在道上，从局部到全局 &amp;mdash;&amp;mdash;与师者高焕堂、赵善中先生谈《大道至简》 五年前，因为偶然所得，我画下了一个名为&amp;ldquo;软件工程层状模型（EHM）&amp;rdquo;的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简&amp;mdash;&amp;mdash;软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。   对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在EHM模型内外的、工程内外的东西&amp;mdash;&amp;mdash;很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-152.html" />
-    <meta property="article:published_time" content="2010-01-31T18:55:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-09T05:54:08.000Z" />
-    <meta property="article:tag" content="大道至简" />
-    <meta property="article:tag" content="出版" />
-    <meta property="article:tag" content="软件工程" />
-    <meta property="article:tag" content="报载刊载" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》">
+    <meta property="og:description" content="本文载于《程序员》2009.10期 行在道上，从局部到全局 &amp;mdash;&amp;mdash;与师者高焕堂、赵善中先生谈《大道至简》 五年前，因为偶然所得，我画下了一个名为&amp;ldquo;软件工程层状模型（EHM）&amp;rdquo;的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简&amp;mdash;&amp;mdash;软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。   对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在EHM模型内外的、工程内外的东西&amp;mdash;&amp;mdash;很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-152/.html">
+    <meta property="article:published_time" content="2010-01-31T18:55:00.000Z">
+    <meta property="article:modified_time" content="2017-09-09T05:54:08.000Z">
+    <meta property="article:tag" content="大道至简">
+    <meta property="article:tag" content="出版">
+    <meta property="article:tag" content="软件工程">
+    <meta property="article:tag" content="报载刊载">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》" />
-    <meta name="twitter:description" content="本文载于《程序员》2009.10期 行在道上，从局部到全局 &amp;mdash;&amp;mdash;与师者高焕堂、赵善中先生谈《大道至简》 五年前，因为偶然所得，我画下了一个名为&amp;ldquo;软件工程层状模型（EHM）&amp;rdquo;的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简&amp;mdash;&amp;mdash;软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。   对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在EHM模型内外的、工程内外的东西&amp;mdash;&amp;mdash;很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-152.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="大道至简, 出版, 软件工程, 报载刊载" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》">
+    <meta name="twitter:description" content="本文载于《程序员》2009.10期 行在道上，从局部到全局 &amp;mdash;&amp;mdash;与师者高焕堂、赵善中先生谈《大道至简》 五年前，因为偶然所得，我画下了一个名为&amp;ldquo;软件工程层状模型（EHM）&amp;rdquo;的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简&amp;mdash;&amp;mdash;软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。   对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在EHM模型内外的、工程内外的东西&amp;mdash;&amp;mdash;很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-152/.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="大道至简, 出版, 软件工程, 报载刊载">
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》",
-    "url": "http://aimingoo.github.io/1-152.html",
+    "url": "http:/.html/aimingoo.github.io/1-152/.html",
     "datePublished": "2010-01-31T18:55:00.000Z",
     "dateModified": "2017-09-09T05:54:08.000Z",
     "keywords": "大道至简, 出版, 软件工程, 报载刊载",
     "description": "本文载于《程序员》2009.10期 行在道上，从局部到全局 &amp;mdash;&amp;mdash;与师者高焕堂、赵善中先生谈《大道至简》 五年前，因为偶然所得，我画下了一个名为&amp;ldquo;软件工程层状模型（EHM）&amp;rdquo;的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简&amp;mdash;&amp;mdash;软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。   对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在EHM模型内外的、工程内外的东西&amp;mdash;&amp;mdash;很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-da-dao-zhi-jian tag-chu-ban tag-ruan-jian-gong-cheng tag-bao-zai-kan-zai nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -97,25 +96,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -126,20 +125,20 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-da-dao-zhi-jian tag-chu-ban tag-ruan-jian-gong-cheng tag-bao-zai-kan-zai">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-152.html">旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》</a></h1>
+                <h1 class="post-title"><a href="1-152.1">旧文重发：行在道上，从局部到全局——与师者高焕堂、赵善中先生谈《大道至简》</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="/author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2010-02-01">8 years ago</time>
+                        <time class="post-date" datetime="2010-02-01T02:55:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2010-02-01">(2010-02-01)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/da-dao-zhi-jian/">大道至简</a>, <a href="/tag/chu-ban/">出版</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/bao-zai-kan-zai/">报载刊载</a>
+                        <a href="tag/da-dao-zhi-jian/.html">大道至简</a>, <a href="tag/chu-ban/.html">出版</a>, <a href="tag/ruan-jian-gong-cheng/.html">软件工程</a>, <a href="tag/bao-zai-kan-zai/.html">报载刊载</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -152,85 +151,85 @@ ghost.init({
   <p>本文载于《程序员》2009.10期</p>
 </blockquote>
 
-<h2 id="">行在道上，从局部到全局</h2>
+<h2 id=".html">行在道上，从局部到全局</h2>
 
-<p><strong>&mdash;&mdash;与师者高焕堂、赵善中先生谈《大道至简》</strong></p>
+<p><strong>——与师者高焕堂、赵善中先生谈《大道至简》</strong></p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">五年前，因为偶然所得，我画下了一个名为&ldquo;软件工程层状模型（<span lang="EN-US">EHM</span>）&rdquo;的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简&mdash;&mdash;软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">五年前，因为偶然所得，我画下了一个名为“软件工程层状模型（<span lang="EN-US">EHM</span>）”的图。随后，我在这个图的思维框架里面，回顾了自己数年以来的工程与软件开发实践，写下了一本《大道至简——软件工程实践者的思想》。从那时起，我一直徘徊在软件工程与技术研发之间。与大多数人不同的是，这种徘徊不是迷茫的，而是清醒的，至少有一个较为清醒的方向。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在<span lang="EN-US">EHM</span>模型内外的、工程内外的东西&mdash;&mdash;很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？以及，未来该往何处去探索？<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">对于在早些时候一些人对提出的《大道至简》的异论，我的确愤怒过、争辩过。直到我把愤怒之心与争辩之行都彻底地放下，我才看到了那些游离在<span lang="EN-US">EHM</span>模型内外的、工程内外的东西——很明显，一本《大道至简》讲不完整个的工程。那么，它到底讲了些什么？有什么疑问？以及，未来该往何处去探索？<span lang="EN-US"></span></span>  </p>
 
 <p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">这，就是我这五年来的问题。<span lang="EN-US"></span></span>  </p>
 
-<h2 id="">一、《大道至简》点评版的起因与原则</h2>
+<h2 id=".html">一、《大道至简》点评版的起因与原则</h2>
 
 <p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">对《大道至简》的反思始于其纸质出版（<span lang="EN-US">2007</span>年<span lang="EN-US">3</span>月）之前。<span lang="EN-US">2005</span>年末，我开始担任架构师，随着对这一角色的深入，我也渐渐地发现：<span lang="EN-US">EHM</span>图中没有架构角色。非但没有，而且架构这个角色还放不到<span lang="EN-US">EHM</span>图中去。这成为我在相当长的时期里的困惑。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">大概近两年后，我对架构这个角色有了一些领悟，我认识到：<span lang="EN-US">EHM</span>只是工程的一个局部视角，而架构这个角色是站在这个视角上无法看到的。所以&ldquo;<span lang="EN-US">EHM</span>图中不包括架构&rdquo;这个问题我在出版《大道至简》之前就已经知道，但我并没有予以讲述，是因为我自觉没有力量去把它讲清楚。所以无论朋友与读者们如何谈论这点，我是很少发言回应的。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">大概近两年后，我对架构这个角色有了一些领悟，我认识到：<span lang="EN-US">EHM</span>只是工程的一个局部视角，而架构这个角色是站在这个视角上无法看到的。所以“<span lang="EN-US">EHM</span>图中不包括架构”这个问题我在出版《大道至简》之前就已经知道，但我并没有予以讲述，是因为我自觉没有力量去把它讲清楚。所以无论朋友与读者们如何谈论这点，我是很少发言回应的。<span lang="EN-US"></span></span>  </p>
 
 <p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;" lang="EN-US">2007</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">年<span lang="EN-US">2</span>月间，我第一次读《人月神话》，为这本书所揭示出来的工程历史（以及它与现实惊人的相似）而深深震撼。除了这种震撼，我还发现它与《大道至简》所讨论的没有本质上的不同。简而言之，这两本书是在相同的方向上行进着。这是我首次自我肯定了《大道至简》一书的内容及其组织的合理性。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">在<span lang="EN-US">2008</span>年离开盛大去北京的前后，我第一次明确了《大道至简》一书在整体上的不足&mdash;&mdash;只有破坏，没有建树，即所谓只破不立。这直接导致读者在阅读时缺乏整体感。对于初学者与实践者来说，这本书有助于他们在种种&ldquo;工程方法&rdquo;面前披荆斩棘，但荆棘厘清的目的何在？前方是什么？或者该向何处去？&hellip;&hellip;这些在《大道至简》中是没有答案的。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">在<span lang="EN-US">2008</span>年离开盛大去北京的前后，我第一次明确了《大道至简》一书在整体上的不足——只有破坏，没有建树，即所谓只破不立。这直接导致读者在阅读时缺乏整体感。对于初学者与实践者来说，这本书有助于他们在种种“工程方法”面前披荆斩棘，但荆棘厘清的目的何在？前方是什么？或者该向何处去？……这些在《大道至简》中是没有答案的。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">虽然五年来我不断地从内容与形式上对《大道至简》予以肯否，但是我从五年前所站的那个工程的侧面看去，问题仍然如故。今年的<span lang="EN-US">QCon</span>大会期间，再与博文视点的周筠老师谈到这本书，就考虑是否要再出一版《大道至简》的&ldquo;点评版&rdquo;。随后此事有幸得到来自台湾的高焕堂、赵善中老师的扶助，得众大家与同行不吝笔墨、时间评点《大道至简》，遂成新版。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">虽然五年来我不断地从内容与形式上对《大道至简》予以肯否，但是我从五年前所站的那个工程的侧面看去，问题仍然如故。今年的<span lang="EN-US">QCon</span>大会期间，再与博文视点的周筠老师谈到这本书，就考虑是否要再出一版《大道至简》的“点评版”。随后此事有幸得到来自台湾的高焕堂、赵善中老师的扶助，得众大家与同行不吝笔墨、时间评点《大道至简》，遂成新版。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">正如我约请诸位时所言，&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">不惟说好，不怕说坏</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;，我一直谦恭聆听&mdash;&mdash;所谓&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">反者道之动</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;，与你所对立的，既是你的动能，也是你的动向。我想《大道至简》的此次点评，除去其中观点以外的价值，大概便是这样的一种动向了吧。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">正如我约请诸位时所言，“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">不惟说好，不怕说坏</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”，我一直谦恭聆听——所谓“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">反者道之动</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”，与你所对立的，既是你的动能，也是你的动向。我想《大道至简》的此次点评，除去其中观点以外的价值，大概便是这样的一种动向了吧。<span lang="EN-US"></span></span>  </p>
 
-<h2 id="">二、谈工程与架构，与高焕堂老师</h2>
+<h2 id=".html">二、谈工程与架构，与高焕堂老师</h2>
 
 <p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高焕堂先生自成章法，在《大道至简》中讲又一种大道。他在原书每一章中所论所述的，脉络相当清晰，甚至均可独立成篇。先生笔下的人物，既可倏忽来去，时而秦时而鲁，又可穿越时空，如牛顿、达芬奇一般有新兴思想、学进步文化。数个工程角色，积百千年文明进程于一体，在高先生的趣谈中，又骨骼血肉都在，实在难能可贵。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高先生指出，不但是&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">懒人造就了方法</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;，而且也是&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">方法常常造就了懒人</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;。我们学得的方法越多，了解这些方法的初衷、主旨就越少，离工程的真相也就越远。所谓&ldquo;学而不思则罔&rdquo;，我们学了几十年，学的还少吗？消化了多少？有多少只是皮毛？走了一套<span lang="EN-US">ISO</span>，又来一套<span lang="EN-US">CMMI</span>，一套又一套的模型，一个企业能被折腾几回、又经得起几回折腾？为什么《大道至简》中不讲具体可行的方法&mdash;&mdash;我不是不要大家学，怕的是学而不思！<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高先生指出，不但是“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">懒人造就了方法</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”，而且也是“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">方法常常造就了懒人</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”。我们学得的方法越多，了解这些方法的初衷、主旨就越少，离工程的真相也就越远。所谓“学而不思则罔”，我们学了几十年，学的还少吗？消化了多少？有多少只是皮毛？走了一套<span lang="EN-US">ISO</span>，又来一套<span lang="EN-US">CMMI</span>，一套又一套的模型，一个企业能被折腾几回、又经得起几回折腾？为什么《大道至简》中不讲具体可行的方法——我不是不要大家学，怕的是学而不思！<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高先生也提到了他 &ldquo;以序容易&rdquo;的架构思想。他说：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">工匠创造了桌子，平坦方正，提供完美之序，让你容纳书籍之乱，正是迈向伟大哲思的第一步。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;序与乱（易、变化）的对立与协调，在一张桌子的方寸之间，便可时时看到。但又有多少人能从这其中看到架构思想呢？<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高先生也提到了他 “以序容易”的架构思想。他说：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">工匠创造了桌子，平坦方正，提供完美之序，让你容纳书籍之乱，正是迈向伟大哲思的第一步。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”序与乱（易、变化）的对立与协调，在一张桌子的方寸之间，便可时时看到。但又有多少人能从这其中看到架构思想呢？<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">与此相同的，高先生说&ldquo;面向对象&rdquo;其实是一种信仰：&ldquo;</span><span style="font-family: Calibri;"><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;" lang="EN-US">Object-Oriented</span><em>*</strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;">就是相信软件宇宙的一切事物都是<span lang="EN-US">Object</span>，无论面向或背向，只要你相信它是<span lang="EN-US">Object</span>就是<span lang="EN-US">Object</span></span></em>*</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;。但是如同不能指望一个佛教徒去骂佛祖一样，我们不能指望一个有信仰的人去指责信仰本身。&ldquo;以序容易&rdquo;的实质是&ldquo;序&rdquo;的确立，而&ldquo;序&rdquo;一旦确立了，就势必有游离于&ldquo;序&rdquo;之外的；面向对象确立了，也就必然有游离于面向对象之外的。那些笃信面向对象的只是无视于这些&ldquo;游离的存在&rdquo;，囫囵吞枣地用更高的成本去掩饰掉了这些东西。所以，对于高先生的话，我的理解是：&ldquo;序&rdquo;的存在只是在一定程度上给出&ldquo;变化&rdquo;与&ldquo;不变&rdquo;的边界，而不是&ldquo;将变化消弥于无形&rdquo;&mdash;&mdash;认识到这一点，是学而思的第一步。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">与此相同的，高先生说“面向对象”其实是一种信仰：“</span><span style="font-family: Calibri;"><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;" lang="EN-US">Object-Oriented</span><em>*</em></strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;">就是相信软件宇宙的一切事物都是<span lang="EN-US">Object</span>，无论面向或背向，只要你相信它是<span lang="EN-US">Object</span>就是<span lang="EN-US">Object</span></span>*</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”。但是如同不能指望一个佛教徒去骂佛祖一样，我们不能指望一个有信仰的人去指责信仰本身。“以序容易”的实质是“序”的确立，而“序”一旦确立了，就势必有游离于“序”之外的；面向对象确立了，也就必然有游离于面向对象之外的。那些笃信面向对象的只是无视于这些“游离的存在”，囫囵吞枣地用更高的成本去掩饰掉了这些东西。所以，对于高先生的话，我的理解是：“序”的存在只是在一定程度上给出“变化”与“不变”的边界，而不是“将变化消弥于无形”——认识到这一点，是学而思的第一步。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高先生还说&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">设计、工程和管理三足鼎立，始能竞其功&rdquo;</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">。光看字面，工程自然是要包括管理与设计环节的。但依我见，先生所谓&ldquo;工程&rdquo;其实是&ldquo;工程的实施&rdquo;，而设计则是&ldquo;架构与设计&rdquo;。理解这几个核心概念尤为重要，因为对于本书来说重要的是&mdash;&mdash;<span lang="EN-US">EHM</span>模型无法包含架构。所以，本书只是对工程现状的一种反思：在仅有工程实施与管理的情况下，工程是怎样一种局面？而从高先生的视角看去，<span lang="EN-US">(</span>他言下<span lang="EN-US">)</span>&ldquo;那样的工程&rdquo;又是怎样的一种局面呢？高先生说：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">项目经理偏向管理职，而架构师偏向领导职；当项目经理与架构师能相辅相成时，可能就是峰回路转之刻。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;对此，他仍有前提：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">明确的管理，若能换成弹性的领导<span lang="EN-US">(</span>如电影的导演<span lang="EN-US">)</span>，或许会峰回路转也说不定。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;所以，高先生的意思在于，架构师弹性的领导可能会给工程领域带来新气象。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">高先生还说“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">设计、工程和管理三足鼎立，始能竞其功”</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">。光看字面，工程自然是要包括管理与设计环节的。但依我见，先生所谓“工程”其实是“工程的实施”，而设计则是“架构与设计”。理解这几个核心概念尤为重要，因为对于本书来说重要的是——<span lang="EN-US">EHM</span>模型无法包含架构。所以，本书只是对工程现状的一种反思：在仅有工程实施与管理的情况下，工程是怎样一种局面？而从高先生的视角看去，<span lang="EN-US">(</span>他言下<span lang="EN-US">)</span>“那样的工程”又是怎样的一种局面呢？高先生说：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">项目经理偏向管理职，而架构师偏向领导职；当项目经理与架构师能相辅相成时，可能就是峰回路转之刻。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”对此，他仍有前提：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">明确的管理，若能换成弹性的领导<span lang="EN-US">(</span>如电影的导演<span lang="EN-US">)</span>，或许会峰回路转也说不定。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”所以，高先生的意思在于，架构师弹性的领导可能会给工程领域带来新气象。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">除了从架构师的角度来研究其本质，&ldquo;灵活管理模式&rdquo;也是高先生倡导的话题。在对&ldquo;第十章是思考还是思想&rdquo;的点评中，高先生用了一个完整的小故事来讲述了软、硬件工程管理中的差异。这种差异可以推广到建筑工程与软件工程的差异上去&mdash;&mdash;确实，很多时候软件工程是以建筑工程为参考模型的。而高先生在结尾写到：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">一致的分工模式，各自发展的灵活管理模式。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;由此可见，对于管理，高先生仍然是不赞同照搬某种规范模式的。&ldquo;灵活&rdquo;，则表明仍然无序可循，正如同高先生所讲&mdash;&mdash;我们仍然在寻求&ldquo;灵活管理模式&rdquo;背后的&ldquo;序&rdquo;的路上。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">除了从架构师的角度来研究其本质，“灵活管理模式”也是高先生倡导的话题。在对“第十章是思考还是思想”的点评中，高先生用了一个完整的小故事来讲述了软、硬件工程管理中的差异。这种差异可以推广到建筑工程与软件工程的差异上去——确实，很多时候软件工程是以建筑工程为参考模型的。而高先生在结尾写到：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">一致的分工模式，各自发展的灵活管理模式。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”由此可见，对于管理，高先生仍然是不赞同照搬某种规范模式的。“灵活”，则表明仍然无序可循，正如同高先生所讲——我们仍然在寻求“灵活管理模式”背后的“序”的路上。<span lang="EN-US"></span></span>  </p>
 
-<h2 id="">三、再谈工程与架构，与赵善中老师</h2>
+<h2 id=".html">三、再谈工程与架构，与赵善中老师</h2>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">赵善中先生直接将话题切入到&ldquo;架构的实作对软件开发的影响&rdquo;，矛头直刺<span lang="EN-US">EHM</span>图的核心：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">（应该）以&lsquo;软件架构&rsquo;当核心，而不是以&lsquo;程序＝算法＋结构&rsquo;来当核心</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">赵善中先生直接将话题切入到“架构的实作对软件开发的影响”，矛头直刺<span lang="EN-US">EHM</span>图的核心：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">（应该）以‘软件架构’当核心，而不是以‘程序＝算法＋结构’来当核心</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;" lang="EN-US">EHM</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">不是一个用于实作的工程模型，它只是从某个角度来分清了工程的一些环节而已&mdash;&mdash;如同&ldquo;牛屎图&rdquo;一样，<span lang="EN-US">EHM</span>是一个思考模型。相较而言，<span lang="EN-US">EHM</span>更易于发现问题，而&ldquo;牛屎图&rdquo;更适于理清思路。如果非要从中找出个&ldquo;更核心&rdquo;或&ldquo;更重要&rdquo;，那么在&ldquo;牛屎图&rdquo;中要以哪一个作为最底层的圈子也成了问题。所以不妨抛开&ldquo;谁更核心&rdquo;的问题，把赵先生的模型与<span lang="EN-US">EHM</span>图，以及与&ldquo;牛屎图&rdquo;作为相互补益的图来看，就所得多多了。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;" lang="EN-US">EHM</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">不是一个用于实作的工程模型，它只是从某个角度来分清了工程的一些环节而已——如同“牛屎图”一样，<span lang="EN-US">EHM</span>是一个思考模型。相较而言，<span lang="EN-US">EHM</span>更易于发现问题，而“牛屎图”更适于理清思路。如果非要从中找出个“更核心”或“更重要”，那么在“牛屎图”中要以哪一个作为最底层的圈子也成了问题。所以不妨抛开“谁更核心”的问题，把赵先生的模型与<span lang="EN-US">EHM</span>图，以及与“牛屎图”作为相互补益的图来看，就所得多多了。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">一个软件产品，究竟是被&ldquo;开发&rdquo;出来的，还是被&ldquo;架构&rdquo;出来的，或者是被&ldquo;管理&rdquo;出来的？这是一个争执不休的问题。一般人，尤其是技术出身者会直接否定掉第三种答案&mdash;&mdash;他们认为&ldquo;一个软件产品是不可能被&lsquo;管理&rsquo;出来的&rdquo;，它只能是被开发出来，而管理不过是在这个过程中的官僚角色罢了。但是，什么是管理？管理真的就是今天命令你工作、明天要你汇报进度的那个人吗？是不是我们把一些个人的私怨&mdash;&mdash;对某个拙劣的管理人员的不满或轻视&mdash;&mdash;带到了我们讨论问题的语境之中？<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">一个软件产品，究竟是被“开发”出来的，还是被“架构”出来的，或者是被“管理”出来的？这是一个争执不休的问题。一般人，尤其是技术出身者会直接否定掉第三种答案——他们认为“一个软件产品是不可能被‘管理’出来的”，它只能是被开发出来，而管理不过是在这个过程中的官僚角色罢了。但是，什么是管理？管理真的就是今天命令你工作、明天要你汇报进度的那个人吗？是不是我们把一些个人的私怨——对某个拙劣的管理人员的不满或轻视——带到了我们讨论问题的语境之中？<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">开发、管理和架构三种角色，站在自身角度，都会认为自己应该主导软件产品产出。这种观点我向来持以理解，而又置疑的态度。更渐而渐的，对所有&ldquo;某个单一角色主导了软件产品产出&rdquo;这样的观点，我都是表示怀疑的。正如高焕堂先生所提到的，这更像是一个&ldquo;三足鼎立&rdquo;的局面&mdash;&mdash;这种&ldquo;鼎立&rdquo;的局面是一个衡势，这意味着它的平衡是瞬态的，且总在平衡与不平衡之间。所以，我的疑问是：这种局面对于软件的研发、项目的过程来说，是适宜的吗？应成为常态吗？ <span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">开发、管理和架构三种角色，站在自身角度，都会认为自己应该主导软件产品产出。这种观点我向来持以理解，而又置疑的态度。更渐而渐的，对所有“某个单一角色主导了软件产品产出”这样的观点，我都是表示怀疑的。正如高焕堂先生所提到的，这更像是一个“三足鼎立”的局面——这种“鼎立”的局面是一个衡势，这意味着它的平衡是瞬态的，且总在平衡与不平衡之间。所以，我的疑问是：这种局面对于软件的研发、项目的过程来说，是适宜的吗？应成为常态吗？ <span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">从组织学（而非单纯含义的管理学）的角度上来说，鼎立是组织的一种形式，是管理的一个施为目标，而不是管理本身&mdash;&mdash;鼎立是体，而管理是用。虽然我认为高先生所指出的&ldquo;鼎立&rdquo;的局面可能是将来的方向，但如何去组织这样一个组织，管理它，并在这一局面上产出软件产品，是更进一步的学问。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">从组织学（而非单纯含义的管理学）的角度上来说，鼎立是组织的一种形式，是管理的一个施为目标，而不是管理本身——鼎立是体，而管理是用。虽然我认为高先生所指出的“鼎立”的局面可能是将来的方向，但如何去组织这样一个组织，管理它，并在这一局面上产出软件产品，是更进一步的学问。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">在《大道至简》一书中，我基本否定了对软件开发过程的管理：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">开发团队并不需要管理。或者说，在你没有弄清楚状态之前，不要去管它。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;同样的，我也否定了传统的软件产品的&ldquo;产出&rdquo;观念：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">工程不是做的，是组织的</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;。既然我们不能&ldquo;管理&rdquo;一个团队，又不能去&ldquo;做&rdquo;工程，那么我们该怎么办呢？在我跳出上述的三个角色之任一以后，我得到的答案是：组织。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">在《大道至简》一书中，我基本否定了对软件开发过程的管理：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">开发团队并不需要管理。或者说，在你没有弄清楚状态之前，不要去管它。</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”同样的，我也否定了传统的软件产品的“产出”观念：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">工程不是做的，是组织的</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”。既然我们不能“管理”一个团队，又不能去“做”工程，那么我们该怎么办呢？在我跳出上述的三个角色之任一以后，我得到的答案是：组织。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">更进一步地说，管理角色的任命、项目团队的结构等，都是在&ldquo;形成组织&rdquo;&mdash;&mdash;这一过程中的产出和阶段性的决策。对于（泛义的）软件项目来说，没有一成不变的组织，也没有一成不变的模式。更进一步地说，在（具体的）某个软件项目中，组织的行为也处在变化之中。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">更进一步地说，管理角色的任命、项目团队的结构等，都是在“形成组织”——这一过程中的产出和阶段性的决策。对于（泛义的）软件项目来说，没有一成不变的组织，也没有一成不变的模式。更进一步地说，在（具体的）某个软件项目中，组织的行为也处在变化之中。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">我推崇高先生的&ldquo;以序容易&rdquo;的架构思想，而这也意味着我上面的言论会有一个推论：必然以及必须要存在一个&ldquo;无序&rdquo;到&ldquo;有序&rdquo;的过程&mdash;&mdash;即，我们最终仍然会得到一些&ldquo;组织模型&rdquo;（以及管理、过程等模型），以规划和指导实施类同性质的项目。我不否认这一状态和阶段性结果的必然存在，但我怀疑现在是否已经存在&mdash;&mdash;例如某些工程界吹嘘的&ldquo;模型&rdquo;，是否就是终极的银弹。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">我推崇高先生的“以序容易”的架构思想，而这也意味着我上面的言论会有一个推论：必然以及必须要存在一个“无序”到“有序”的过程——即，我们最终仍然会得到一些“组织模型”（以及管理、过程等模型），以规划和指导实施类同性质的项目。我不否认这一状态和阶段性结果的必然存在，但我怀疑现在是否已经存在——例如某些工程界吹嘘的“模型”，是否就是终极的银弹。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">所以，回到赵善中先生的话题，在&ldquo;工程实施&rdquo;的语境下，究竟（现在）有没有确定的模型呢？我不置肯否，惟只置疑。架构是工程中的推手吗？是推动的原力吗？我从架构这一角色的位置&mdash;&mdash;我的意思是权威性上看得到希望，我也从这个角色所必备的能力涵养上看得到希望，但是推及到组织及具体的项目，架构角色真的有这样的能量吗？谁赋予了他调适组织形态、降低组织内耗的责任？如果他没有这样的责任，那么组织如何生存？如果组织不存在了，岂不是仍然回到了皮之不存，毛将焉附的问题上了？<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">所以，回到赵善中先生的话题，在“工程实施”的语境下，究竟（现在）有没有确定的模型呢？我不置肯否，惟只置疑。架构是工程中的推手吗？是推动的原力吗？我从架构这一角色的位置——我的意思是权威性上看得到希望，我也从这个角色所必备的能力涵养上看得到希望，但是推及到组织及具体的项目，架构角色真的有这样的能量吗？谁赋予了他调适组织形态、降低组织内耗的责任？如果他没有这样的责任，那么组织如何生存？如果组织不存在了，岂不是仍然回到了皮之不存，毛将焉附的问题上了？<span lang="EN-US"></span></span>  </p>
 
-<h2 id="">四、从局部看来，向全局看去</h2>
+<h2 id=".html">四、从局部看来，向全局看去</h2>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">在这本书的点评里，高焕堂老师与赵善中老师不约而同地提出&ldquo;要修改<span lang="EN-US">EHM</span>模型&rdquo;。我得先承认&ldquo;修改后的新模型&rdquo;的价值：我尝试在新模式的视角上做了些思考，并有新知新得。然而修改前后的模型，都如同<span lang="EN-US">EHM</span>图本身所表现出来的：只是工程的局部。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">在这本书的点评里，高焕堂老师与赵善中老师不约而同地提出“要修改<span lang="EN-US">EHM</span>模型”。我得先承认“修改后的新模型”的价值：我尝试在新模式的视角上做了些思考，并有新知新得。然而修改前后的模型，都如同<span lang="EN-US">EHM</span>图本身所表现出来的：只是工程的局部。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;" lang="EN-US">EHM</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">图看到了工程的一侧，同样，修改后的新模型也只看得到一侧。无论如何，我们所谈论的也无过于&ldquo;一侧&rdquo;而已。清楚地意识到&ldquo;《大道至简》不过是盲人摸象的结果&rdquo;，正是在我离开盛大的前后、在架构师这个角色上有了一些微末的实践所得以后。而这种&ldquo;全局观&rdquo;，正是架构师所必备的基本素质。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;" lang="EN-US">EHM</span><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">图看到了工程的一侧，同样，修改后的新模型也只看得到一侧。无论如何，我们所谈论的也无过于“一侧”而已。清楚地意识到“《大道至简》不过是盲人摸象的结果”，正是在我离开盛大的前后、在架构师这个角色上有了一些微末的实践所得以后。而这种“全局观”，正是架构师所必备的基本素质。<span lang="EN-US"></span></span>  </p>
 
 <p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">只有看得到全局，才看得到局部。眼界困于局部的人，和摸象的盲人没有多大分别。而架构师这一角色的实践给我带来的，正是在架构以外的体验和质疑：如果工程的本质不在架构，不在管理，也不在那些营营碌碌的开发者身上呢？<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">我看到的一种可能的答案，就是&ldquo;组织&rdquo;。它远远地在<span lang="EN-US">EHM</span>图的最外层&mdash;&mdash;那个层面约束了工程、实施的形式，并适时调整着这种形式；那个层面看得到工程的目标方向，也适时地调整着这种目标方向&mdash;&mdash;真正决定着工程生死的，在工程之外。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">我看到的一种可能的答案，就是“组织”。它远远地在<span lang="EN-US">EHM</span>图的最外层——那个层面约束了工程、实施的形式，并适时调整着这种形式；那个层面看得到工程的目标方向，也适时地调整着这种目标方向——真正决定着工程生死的，在工程之外。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">当然，工程本体的病患是有的，例如说&ldquo;牛屎图&rdquo;中的工具与方法不匹配了，或者质量模型中的时间与质量冲突了等。这些病患并不会因组织的调适而消亡，但是组织的调适能给出治疗这些病患所需的时间、空间和基础。因为所有的病患其实都是长在组织这个&ldquo;体&rdquo;之内外的，组织环侧与开放自身，毛病就显露出来了&mdash;&mdash;这如同人的屁股上长了疮体，总是要抬抬屁股才能抺得上药的。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">当然，工程本体的病患是有的，例如说“牛屎图”中的工具与方法不匹配了，或者质量模型中的时间与质量冲突了等。这些病患并不会因组织的调适而消亡，但是组织的调适能给出治疗这些病患所需的时间、空间和基础。因为所有的病患其实都是长在组织这个“体”之内外的，组织环侧与开放自身，毛病就显露出来了——这如同人的屁股上长了疮体，总是要抬抬屁股才能抺得上药的。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">从这一点来看，&ldquo;从局部看来，向全局看去&rdquo;，既是我这五年来工程实践的所为，也是我将来必行的方向。就软件开发而言，跳出具体角色的限制，看到&ldquo;一个组织&rdquo;和&ldquo;工程的实施&rdquo;的全局，也许正是破局的机要？<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">从这一点来看，“从局部看来，向全局看去”，既是我这五年来工程实践的所为，也是我将来必行的方向。就软件开发而言，跳出具体角色的限制，看到“一个组织”和“工程的实施”的全局，也许正是破局的机要？<span lang="EN-US"></span></span>  </p>
 
-<h2 id="">五、欲辩已忘言</h2>
+<h2 id=".html">五、欲辩已忘言</h2>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">所谓&ldquo;书不尽言，言不尽意&rdquo;，我们通过文字看到的，仅仅是一个人所言讲的一部分；而他所言讲的，又仅仅是他的思想的一个部分。<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">所谓“书不尽言，言不尽意”，我们通过文字看到的，仅仅是一个人所言讲的一部分；而他所言讲的，又仅仅是他的思想的一个部分。<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">所以高焕堂、赵善中两位老师在对拙作的点评中所讲述的，不过是他们思想之一隅；我们由此所能见的，也不过是两位师者学识之一斑。我依了这斑斑点点、去评述与争辩，便如同盲者抚大象而所言的&ldquo;如箕如石、如杵如臼&rdquo;。所以这篇文章，是明知不可为，而强为之。但之所以强为之，是因为不辩不见&mdash;&mdash;连辩的过程都没有了，我们又用什么来视见大象的本体呢？<span lang="EN-US"></span></span>  </p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">所以高焕堂、赵善中两位老师在对拙作的点评中所讲述的，不过是他们思想之一隅；我们由此所能见的，也不过是两位师者学识之一斑。我依了这斑斑点点、去评述与争辩，便如同盲者抚大象而所言的“如箕如石、如杵如臼”。所以这篇文章，是明知不可为，而强为之。但之所以强为之，是因为不辩不见——连辩的过程都没有了，我们又用什么来视见大象的本体呢？<span lang="EN-US"></span></span>  </p>
 
-<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">知识的价值在于传播，论辩的至境在于不言。如同《大道至简》一书说过的：&ldquo;</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">思想已经领悟，文字的、纸质的东西还有什么价值吗？</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">&rdquo;对于我与几位师者、友人所论的，如果你已经听了，那么就忘掉我们所说所辩的；如果你还没有听，或在这短短的文章里还没有听明白，那么就等等这本&ldquo;点评版&rdquo;的出版吧。<span lang="EN-US"></span></span></p>
+<p><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">知识的价值在于传播，论辩的至境在于不言。如同《大道至简》一书说过的：“</span><strong><span style="line-height: 120%; font-family: 楷体_GB2312; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体; mso-hansi-font-family: 宋体;"><span style="font-family: Calibri;">思想已经领悟，文字的、纸质的东西还有什么价值吗？</span></span></strong><span style="line-height: 120%; font-family: 宋体; letter-spacing: 0.3pt; font-size: 12pt; mso-bidi-font-family: 宋体;">”对于我与几位师者、友人所论的，如果你已经听了，那么就忘掉我们所说所辩的；如果你还没有听，或在这短短的文章里还没有听明白，那么就等等这本“点评版”的出版吧。<span lang="EN-US"></span></span></p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -242,13 +241,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-151.html">
+                <a href="1-151/.html">
                     近期的公开资源汇总(已完整)~
                 </a>
             </span>
 
-            <span class="post-nav-next" >
-                <a href="/1-153.html">
+            <span class="post-nav-next">
+                <a href="1-153.1">
                     与任真先生校订“愚公移山”的邮件
                 </a>
                 下一篇
@@ -258,11 +257,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
-<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -278,30 +277,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="/profile-aimingoo"></script>
+        <script type="text/javascript" src="profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -315,8 +314,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -328,20 +327,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
-</html>

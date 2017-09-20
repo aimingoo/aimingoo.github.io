@@ -2,7 +2,7 @@ document.writeln(function siteProfileHtmlContext() {/*
   <hr> <nav class="navigation site-stat">
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>279</strong>
+                <strong>282</strong>
         </span>
         <span class="site-stat-item-name">文章</span>
     </div>
@@ -11,7 +11,7 @@ document.writeln(function siteProfileHtmlContext() {/*
 <script>
 document.writeln('<strong>', '\
             \
-                3\
+                2\
             \
 '.replace(/^\s*|\s*$/g, '') || 0, '<' + '/strong>');
 </script>
@@ -21,7 +21,7 @@ document.writeln('<strong>', '\
 <!--
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>55</strong>
+                <strong>60</strong>
         </span>
         <span class="site-stat-item-name">标签</span>
     </div>
@@ -53,7 +53,7 @@ document.writeln('<strong>', '\
         </li>
 -->
         <li>
-            <a href="/rss/" class="social-rss">
+            <a href="rss/index.html" class="social-rss">
                 <i class="fa fa-xlg fa-rss" data-original-title="订阅本站" data-rel="tooltip"></i>
             </a>
         </li>

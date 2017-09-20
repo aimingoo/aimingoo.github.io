@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma实现篇(八)：Qomo中的AOP框架</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Qomolangma实现篇(八)：Qomo中的AOP框架">
     <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-43.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-43/.html">
     <meta property="article:published_time" content="2006-04-16T20:33:00.000Z">
     <meta property="article:modified_time" content="2017-05-17T06:21:51.000Z">
     <meta property="article:tag" content="Javascript">
@@ -32,7 +32,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Qomolangma实现篇(八)：Qomo中的AOP框架">
     <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-43.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-43/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -40,42 +40,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomolangma实现篇(八)：Qomo中的AOP框架",
-    "url": "http://aimingoo.github.io/1-43.html",
+    "url": "http:/.html/aimingoo.github.io/1-43/.html",
     "datePublished": "2006-04-16T20:33:00.000Z",
     "dateModified": "2017-05-17T06:21:51.000Z",
     "keywords": "Javascript, 框架",
     "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -94,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -127,16 +127,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2006-04-17">11 years ago</time>
+                        <time class="post-date" datetime="2006-04-17T04:33:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2006-04-17">(2006-04-17)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/kuang-jia/">框架</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/kuang-jia/.html">框架</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -220,7 +220,7 @@ AOP的代码对原有系统不会产生可察觉的影响。——需要强调�
 
 <p>影响最广的一个JS AOP实现框架(概念化的模型)是"AOP Fun with JavaScript"，你可以在这里读到 <br>
 这篇文档的全文： <br>
-   <a href="http://www.jroller.com/page/deep/20030701">http://www.jroller.com/page/deep/20030701</a>  </p>
+   <a href="http:/.html/www.jroller.com/page/deep/20030701">http:/.html/www.jroller.com/page/deep/20030701</a>  </p>
 
 <p>此后就有更多声称支持AOP的JS框架出现，例如Dojo。在Dojo中实现了对函数/方法的五种通知类型： <br>
 <font face="Courier New">  - before <br>
@@ -240,13 +240,13 @@ aspect = { <br>
   func : function() { ... } <br>
 }  </p>
 
-<p><font face="Courier New">dojo.event.connect('before',  // 通知类型 <br>
-  observable, 'method',       // 被观察者及被观察的方法 <br>
-  aspect, 'func');            // 切面 <br>
+<p><font face="Courier New">dojo.event.connect('before',  /.html/ 通知类型 <br>
+  observable, 'method',       /.html/ 被观察者及被观察的方法 <br>
+  aspect, 'func');            /.html/ 切面 <br>
 ---------------</font>  </p>
 
 <p>另外一篇描述AOP实现的文档是： <br>
-  <a href="http://www.dotvoid.com/view.php?id=43">http://www.dotvoid.com/view.php?id=43</a>  </p>
+  <a href="http:/.html/www.dotvoid.com/view.php?id=43">http:/.html/www.dotvoid.com/view.php?id=43</a>  </p>
 
 <p>它提供Introduction事件，Before、After和Around三种通知。但这个实现方案中切面的声明，以及 <br>
 与被观察者之间的关系都处理得较为复杂。而且，事实上它破坏了AOP系统所要求的“不知觉性”。  </p>
@@ -340,8 +340,8 @@ alert(a_Aspect.supported('Function'); <br>
 
 <hr>
 
-<p>// assign()的语法： <br>
-// function assign(host, name, pointcut) { ... } <br>
+<p>/.html/ assign()的语法： <br>
+/.html/ function assign(host, name, pointcut) { ... } <br>
 var a<em>Aspect = new ObjectAspect(); <br>
 a</em>Aspect.assign(aObject, '&lt;method_name&gt;', 'Method'); <br>
 ---------------  </p>
@@ -367,8 +367,8 @@ a</em>Aspect.assign(aObject, '&lt;method_name&gt;', 'Method'); <br>
 
 <hr>
 
-<p>// assign()的语法： <br>
-// function assign(host, name, pointcut) { ... } <br>
+<p>/.html/ assign()的语法： <br>
+/.html/ function assign(host, name, pointcut) { ... } <br>
 var a<em>Aspect = new ObjectAspect(aObject, '&lt;method</em>name&gt;', 'Method'); <br>
 --------------- <br>
 它的参数表与assign()是一致的。  </p>
@@ -403,7 +403,7 @@ obj.OnRun.add(func<em>03); <br>
 <hr>
 
 <p>function func_02 { <br>
-  // do somethings..  </p>
+  /.html/ do somethings..  </p>
 
 <p><font face="Courier New">  if ( if<em>you</em>want ) { <br>
     return new BreakEventCast('a<em>string'); <br>
@@ -431,15 +431,15 @@ obj.OnRun.add(func<em>03); <br>
 } <br>
 var obj = new MyObject();  </p>
 
-<p><font face="Courier New">// 1. 创建切面并关联, 添加 <br>
+<p><font face="Courier New">/.html/ 1. 创建切面并关联, 添加 <br>
 var asp = new ObjectAspect(obj, 'run', 'Method');</font>  </p>
 
-<p><font face="Courier New">// 2. 定制切面上的行为 <br>
+<p><font face="Courier New">/.html/ 2. 定制切面上的行为 <br>
 asp.OnIntroduction.add(func<em>01); <br>
 asp.OnIntroduction.add(func</em>02); <br>
 asp.OnAfter.add(func_03);</font>  </p>
 
-<p><font face="Courier New">// 3. (测试)调用对象方法 <br>
+<p><font face="Courier New">/.html/ 3. (测试)调用对象方法 <br>
 obj.run(); <br>
 ---------------</font>  </p>
 
@@ -505,7 +505,7 @@ function MyObject() { <br>
 } <br>
 TMyObject = Class(TObject, 'MyObject');</font>  </p>
 
-<p><font face="Courier New">// 切面上的行为 <br>
+<p><font face="Courier New">/.html/ 切面上的行为 <br>
 var asp = new ClassAspect(TMyObject, 'run', 'Method'); <br>
 asp.OnIntroduction.add(function(o, n, p, a) { <br>
   if (o.value &lt;= 5) return false; <br>
@@ -514,7 +514,7 @@ asp.OnAround.add(function(o, n, p, a) { <br>
   if (o.value &gt; 10) return false; <br>
 });</font>  </p>
 
-<p><font face="Courier New">// 测试 <br>
+<p><font face="Courier New">/.html/ 测试 <br>
 for (var i=0; i&lt;20; i++) { <br>
   var obj = new MyObject(); <br>
   obj.run(); <br>
@@ -536,7 +536,7 @@ for (var i=0; i&lt;20; i++) { <br>
 <hr>
 
 <p>MyFunc = function() { <br>
-  // 1. 一些MyFunc()中的逻辑代码 <br>
+  /.html/ 1. 一些MyFunc()中的逻辑代码 <br>
   var func<em>01 = function() { <br>
     alert('hi, func</em>01'); <br>
   }  </p>
@@ -545,13 +545,13 @@ for (var i=0; i&lt;20; i++) { <br>
     alert('hi, func</em>01'); <br>
   }</font>  </p>
 
-<p><font face="Courier New">  // 2. 实现MyFunc() <br>
+<p><font face="Courier New">  /.html/ 2. 实现MyFunc() <br>
   function <em>MyFunc() { <br>
     func</em>01(); <br>
     func_02(); <br>
   }</font>  </p>
 
-<p><font face="Courier New">  // 3. 返回MyFunc() <br>
+<p><font face="Courier New">  /.html/ 3. 返回MyFunc() <br>
   return _MyFunc; <br>
 }();    </font></p>
 
@@ -581,13 +581,13 @@ for (var i=0; i&lt;20; i++) { <br>
 <hr>
 
 <p><font face="Courier New">MyFunc = function() { <br>
-  // CustomAOP<em>1: 创建连接点 <br>
+  /.html/ CustomAOP<em>1: 创建连接点 <br>
   var _joinpoints</em> = new JoPoints(); <br>
-  <em>joinpoints</em>.add('step1');  // 'step1'切点(pointcut) <br>
-  <em>joinpoints</em>.add('step2');  // 'step2'切点(pointcut)</font>  </p>
+  <em>joinpoints</em>.add('step1');  /.html/ 'step1'切点(pointcut) <br>
+  <em>joinpoints</em>.add('step2');  /.html/ 'step2'切点(pointcut)</font>  </p>
 
-<p><font face="Courier New">  // CustomAOP<em>2: 编织(或织入) <br>
-  // 1. 对MyFunc()中的逻辑代码 <br>
+<p><font face="Courier New">  /.html/ CustomAOP<em>2: 编织(或织入) <br>
+  /.html/ 1. 对MyFunc()中的逻辑代码 <br>
   var func</em>01 = <em>joinpoints</em>.weaving('step1', function() { <br>
     alert('hi, func_01'); <br>
   });</font>  </p>
@@ -596,20 +596,20 @@ for (var i=0; i&lt;20; i++) { <br>
     alert('hi, func_02'); <br>
   });</font>  </p>
 
-<p><font face="Courier New">  // 2. 实现MyFunc() <br>
+<p><font face="Courier New">  /.html/ 2. 实现MyFunc() <br>
   function <em>MyFunc() { <br>
     func</em>01(); <br>
     func_02(); <br>
   }</font>  </p>
 
-<p><font face="Courier New">  // CustomAOP<em>3: 聚合IJoPoints接口 <br>
+<p><font face="Courier New">  /.html/ CustomAOP<em>3: 聚合IJoPoints接口 <br>
   var _Intfs = Aggregate(</em>MyFunc, IJoPoints); <br>
   var intf = <em>Intfs.GetInterface(IJoPoints); <br>
   intf.getLength = function() { return _joinpoints</em>.length } <br>
   intf.items = function(i) { return <em>joinpoints</em>.items(i) } <br>
   intf.names = function(i) { if (!isNaN(i)) return <em>joinpoints</em>[i] }</font>  </p>
 
-<p><font face="Courier New">  // 3. 返回MyFunc() <br>
+<p><font face="Courier New">  /.html/ 3. 返回MyFunc() <br>
   return _MyFunc; <br>
 }(); <br>
 ---------------</font>  </p>
@@ -627,7 +627,7 @@ asp.OnAfter.add(function() { <br>
   alert('do OnAfter'); <br>
 });  </p>
 
-<p><font face="Courier New">// 测试 <br>
+<p><font face="Courier New">/.html/ 测试 <br>
 MyFunc(); <br>
 ---------------</font>  </p>
 
@@ -665,7 +665,7 @@ hi, func</em>02  </p>
 
 <p>(images/aspect<em>merge</em>combine.png)  </p>
 
-<p><a href="http://www.01cn.net/users/aimingoo/files/aspect_merge_combine.png"><img src="http://www.01cn.net/users/aimingoo/files/aspect_merge_combine.png" alt="" title=""></a>    </p>
+<p><a href="http:/.html/www.01cn.net/users/aimingoo/files/aspect_merge_combine.png"><img src="http:/.html/www.01cn.net/users/aimingoo/files/aspect_merge_combine.png" alt=".html" title=".html"></a>    </p>
 
 <hr>
 
@@ -700,7 +700,7 @@ var A4 = new FunctionAspect($import, '$import', 'Function');</font>  </p>
   document.writeln('After: ', n, '&lt;br&gt;'); <br>
 });</font>  </p>
 
-<p><font face="Courier New">// 测试 <br>
+<p><font face="Courier New">/.html/ 测试 <br>
 A1.combine(A2, A3, A4); <br>
 TMyObjectEx = Class(TMyObject, 'MyObjectEx'); <br>
 obj.run(); <br>
@@ -735,11 +735,11 @@ if (!cancel) value = call<em>observable</em>method<em>or</em>more();</font>  </p
     var name = _aspect.get('AspectName'); <br>
     var f = foo;  </p>
 
-<p><font face="Courier New">    // AOP的核心逻辑 <br>
+<p><font face="Courier New">    /.html/ AOP的核心逻辑 <br>
     return function($A) { <br>
       if ($A<mark>=GetHandle) return f;</mark></font>  </p>
 
-<p><font face="Courier New">      // (略) <br>
+<p><font face="Courier New">      /.html/ (略) <br>
       return _value; <br>
     } <br>
   } <br>
@@ -765,10 +765,10 @@ if (!cancel) value = call<em>observable</em>method<em>or</em>more();</font>  </p
 
 <hr>
 
-<p>    // AOP的核心逻辑 <br>
+<p>    /.html/ AOP的核心逻辑 <br>
     return function($A) { <br>
       if ($A=GetHandle) return f; <br>
-      // ... <br>
+      /.html/ ... <br>
     } <br>
 --------------- <br>
 这样就返回了最初暂存的foo()的引用。由于unassign()只需要执行： <br>
@@ -796,15 +796,15 @@ if (!cancel) value = call<em>observable</em>method<em>or</em>more();</font>  </p
 <p><font face="Courier New">  var all = { <br>
     length : 0, <br>
     search : function(ME) { <br>
-      var i = ME(GetHandle), me = all[i];     // 1. 取handle, 并取值 <br>
-      if (me &amp;&amp; me['event']<mark>=ME) return me;  // 2. 复核 <br>
+      var i = ME(GetHandle), me = all[i];     /.html/ 1. 取handle, 并取值 <br>
+      if (me &amp;&amp; me['event']<mark>=ME) return me;  /.html/ 2. 复核 <br>
     } <br>
   }</mark></font>  </p>
 
-<p><font face="Courier New">  // ... <br>
+<p><font face="Courier New">  /.html/ ... <br>
     var ME = function($E) { <br>
       if ($E=GetHandle) return handle; <br>
-      // ... <br>
+      /.html/ ... <br>
 }(); <br>
 ---------------</font>  </p>
 
@@ -884,13 +884,13 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-42.html">
+                <a href="1-42/.html">
                     Qomolangma实现篇(七)：Qomo的接口机制
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-44.html">
+                <a href="1-44/.html">
                     Qomo OpenProject beta1 精彩图集～
                 </a>
                 下一篇
@@ -900,11 +900,11 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -920,7 +920,7 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -957,8 +957,8 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -970,19 +970,20 @@ CustomAspect，仍然是需要完整的Interface特性的。</p>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

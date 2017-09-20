@@ -1,91 +1,90 @@
-<!DOCTYPE html>
-<html>
+
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>VCL已死，RAD已死(5)</title>
-    <meta name="description" content="" />
+    <meta name="description" content=".html">
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=018363abb2" />
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=018363abb2" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=018363abb2" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
-    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="VCL已死，RAD已死(5)" />
-    <meta property="og:description" content="&amp;lt;&amp;lt; 第四节：后RAD时代：界面可视，到界面可描述 五、后RAD时代：领域的成熟 从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。 在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML&amp;#43;CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。 所以，事实上HTML&amp;#43;CSS构成了视觉的“版式”" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-131.html" />
-    <meta property="article:published_time" content="2008-12-25T13:52:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-09T07:52:49.000Z" />
-    <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="语言" />
-    <meta property="article:tag" content="架构设计" />
+    <meta property="og:site_name" content="Aimingoo's Blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="VCL已死，RAD已死(5)">
+    <meta property="og:description" content="&amp;lt;&amp;lt; 第四节：后RAD时代：界面可视，到界面可描述 五、后RAD时代：领域的成熟 从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。 在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML&amp;#43;CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。 所以，事实上HTML&amp;#43;CSS构成了视觉的“版式”">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-131/.html">
+    <meta property="article:published_time" content="2008-12-25T13:52:00.000Z">
+    <meta property="article:modified_time" content="2017-09-09T07:52:49.000Z">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="语言">
+    <meta property="article:tag" content="架构设计">
     
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="VCL已死，RAD已死(5)" />
-    <meta name="twitter:description" content="&amp;lt;&amp;lt; 第四节：后RAD时代：界面可视，到界面可描述 五、后RAD时代：领域的成熟 从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。 在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML&amp;#43;CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。 所以，事实上HTML&amp;#43;CSS构成了视觉的“版式”" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-131.html" />
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="aimingoo" />
-    <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 语言, 架构设计" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VCL已死，RAD已死(5)">
+    <meta name="twitter:description" content="&amp;lt;&amp;lt; 第四节：后RAD时代：界面可视，到界面可描述 五、后RAD时代：领域的成熟 从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。 在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML&amp;#43;CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。 所以，事实上HTML&amp;#43;CSS构成了视觉的“版式”">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-131/.html">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="aimingoo">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Javascript, 语言, 架构设计">
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "VCL已死，RAD已死(5)",
-    "url": "http://aimingoo.github.io/1-131.html",
+    "url": "http:/.html/aimingoo.github.io/1-131/.html",
     "datePublished": "2008-12-25T13:52:00.000Z",
     "dateModified": "2017-09-09T07:52:49.000Z",
     "keywords": "Javascript, 语言, 架构设计",
     "description": "&amp;lt;&amp;lt; 第四节：后RAD时代：界面可视，到界面可描述 五、后RAD时代：领域的成熟 从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严&amp;#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。 在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML&amp;#43;CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。 所以，事实上HTML&amp;#43;CSS构成了视觉的“版式”",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=018363abb2"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <meta name="generator" content="Ghost 0.11">
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-jia-gou-she-ji nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=018363abb2"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -125,20 +124,20 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-yu-yan tag-jia-gou-she-ji">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-131.html">VCL已死，RAD已死(5)</a></h1>
+                <h1 class="post-title"><a href="1-131.1">VCL已死，RAD已死(5)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="/author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2008-12-25">9 years ago</time>
+                        <time class="post-date" datetime="2008-12-25T21:52:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2008-12-25">(2008-12-25)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/jia-gou-she-ji/">架构设计</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/yu-yan/.html">语言</a>, <a href="tag/jia-gou-she-ji/.html">架构设计</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,16 +147,16 @@ ghost.init({
 
             <section class="post-content">
                 <blockquote>
-  <p><a href="/1-129.html">&lt;&lt; 第四节：后RAD时代：界面可视，到界面可描述</a></p>
+  <p><a href="1-129.1">&lt;&lt; 第四节：后RAD时代：界面可视，到界面可描述</a></p>
 </blockquote>
 
 <h2 id="rad">五、后RAD时代：领域的成熟</h2>
 
-<p>从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严&#26684;的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。</p>
+<p>从界面可视，到界面可描述的变化，使UI设计渐已成为一个相对独立领域。UI团队与UED团队之间并没有严格的、学术性区别，在不同的公司中它们的定义并不一样。一般而言，我们称前者为参与UI的全体，而UED则更关注于用户体验的这一部分。有些时候，我们也习惯性地称之为前端开发，或UI开发团队。</p>
 
-<p>在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML&#43;CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。</p>
+<p>在这个领域中有一些明显的特点，例如界面开发过程中采用一种领域设计、开发语言（当然，XML力图成为“通用的描述语言”，于是便有人力主用XHTML来推翻HTML——这个世界上，有领域就有跨领域的“通用”）。我们关注一下HTML+CSS带来的描述能力，首先HTML负责了内容的布局和内容的语义（例如TABLE或IMG），相辅相成的是，CSS则带来了对“上述内容（元素）”的效果修饰。不太为人知的事实是：CSS早期其实是参考传统排版印刷规范而定义的一个子集。</p>
 
-<p>所以，事实上HTML&#43;CSS构成了视觉的“版式”与“修饰”。从这个角度上来看，它们是更接近设计领域的领域语言。而Javascript适时地出现，给HTML&#43;CSS带来了活力，这一切更深层面地源于DHTML/DOM的出现。这从文档结构的抽象上来看，HTML可以描述为“内联&#43;块”元素的集合，前者是块的一个特例。而块的文档结构形式只会有“并列和内嵌”两种，这就是DOM模型中的Sibling与Parent语义的由来(*注1)。所以，DOM可以用非常简单的概念来描述整个HTML。同样的，CSS天生具有“属性继承/覆盖”的特性（层叠样式表的本义），它描述的语义与UI设计中的“效果叠加”是完全对等的。因此，HTML&#43;CSS天生地更为亲切设计人员，并带来了以“效果展现”为主体的WEB设计的繁荣。</p>
+<p>所以，事实上HTML+CSS构成了视觉的“版式”与“修饰”。从这个角度上来看，它们是更接近设计领域的领域语言。而Javascript适时地出现，给HTML+CSS带来了活力，这一切更深层面地源于DHTML/DOM的出现。这从文档结构的抽象上来看，HTML可以描述为“内联+块”元素的集合，前者是块的一个特例。而块的文档结构形式只会有“并列和内嵌”两种，这就是DOM模型中的Sibling与Parent语义的由来(*注1)。所以，DOM可以用非常简单的概念来描述整个HTML。同样的，CSS天生具有“属性继承/覆盖”的特性（层叠样式表的本义），它描述的语义与UI设计中的“效果叠加”是完全对等的。因此，HTML+CSS天生地更为亲切设计人员，并带来了以“效果展现”为主体的WEB设计的繁荣。</p>
 
 <p>这个领域进一步地扩大，我们看到了更多的东西，开发人员也通过DOM/DHTML走向了前端的领域。在过去的十年中，JavaScript大多数时候被作为“一门简单的语言”用在一些入门编程人员出现的地方：例如网页制作，便被人看作是设计师而非专业程序设计人员的工作。本质上说，这是“富服务器端”思想的必然产物。在这种思想下，浏览器端是不必有多少编程的——网页制作人员只需要知道一个按钮上面有一个onclick事件，并可以指向一段（甚至是由其它专业的开发人员提供的）代码即可。</p>
 
@@ -165,17 +164,17 @@ ghost.init({
 
 <p>这就是这个领域的起源与结构。</p>
 
-<p>同样的，B/S开始取代C/S。当浏览器成为普通用户使用计算设备（包括移动的、桌面的、嵌入的等）的首选时，它便隔离了操作系统与Web 环境下的UI。我们没有在任何地方看到一项要求说：一个Page 必须要有一个跟浏览器Toolbar 风&#26684;相同的工具条，或跟窗体风&#26684;相同的菜单。从本质上来说，是浏览器的便捷与普众，催生了B/S 结构下的应用和服务开发。而这样一来，桌面原生的客户端就不复存在了，C/S 结构的应用渐渐地开始消失，除非在客户端存在较大的运算、逻辑或对计算环境的控制。</p>
+<p>同样的，B/S开始取代C/S。当浏览器成为普通用户使用计算设备（包括移动的、桌面的、嵌入的等）的首选时，它便隔离了操作系统与Web 环境下的UI。我们没有在任何地方看到一项要求说：一个Page 必须要有一个跟浏览器Toolbar 风格相同的工具条，或跟窗体风格相同的菜单。从本质上来说，是浏览器的便捷与普众，催生了B/S 结构下的应用和服务开发。而这样一来，桌面原生的客户端就不复存在了，C/S 结构的应用渐渐地开始消失，除非在客户端存在较大的运算、逻辑或对计算环境的控制。</p>
 
 <p>重量级的客户端软件越来越少，因为从根底上说，人们不喜欢用复杂的软件。领域的边界，从浏览器编程界面退缩到网络界面。也就是说，浏览器端（Web 客户端、B 端）的开发人员不再要求“能够调用Win32 API”，而是要求“能够进行网络交互”。</p>
 
 <p>而当这一阵线真正推进到面向socket 的二进制编程时，操作系统就被从这个体系中切割了出去。</p>
 
-<p>Flash Socket 以及HTML5 中的HTML Socket 带来了这种趋势，这种趋势让微软措不及防。一方面Sliverlight 还在为Flash 仓促应战，另一方面IE&#43;JScript 的结构尚未完成六年来最大、最根本的变革（IE8、IE9 或IE10）。然而即使如此，一个如同操作系统一般庞大的Web 领域，已然形成。在这个领域中，微软仍在第一战线，且树敌良多。</p>
+<p>Flash Socket 以及HTML5 中的HTML Socket 带来了这种趋势，这种趋势让微软措不及防。一方面Sliverlight 还在为Flash 仓促应战，另一方面IE+JScript 的结构尚未完成六年来最大、最根本的变革（IE8、IE9 或IE10）。然而即使如此，一个如同操作系统一般庞大的Web 领域，已然形成。在这个领域中，微软仍在第一战线，且树敌良多。</p>
 
 <p>当我们把Web 看成一个像操作系统一样的产品平台时，“程序员”便成为产品生成链条中的一环，程序员文化是被重点考虑的对象，但不是全部。包括平面开发人员、设计师、架构师、部署专家、行业分析人员等在内的团队模型必然会建立。小型的XP 团队仍将存在，但这取决于应付的系统规模，以及在纵向切分上同质性的多少。</p>
 
-<p>横向切分将出现在浏览器端开发的整个过程中，这不但是指整个UI，还会有UI过程中的各个细节，例如框架、数据交互、网络界面等。在这一过程中，纵向切分依然会成为补充。例如将网络界面与数据交互并成一个独立的部分，交由Flash Socket来实现，或交由独立的comet 兼容层来实现。但更确切地说，横向分层仍会带来更细分领域的繁荣，例如JSON 或其他微数据&#26684;式，以及其他基于Socket 或http/https 进行交互的二进制数据&#26684;式将成为专门的研究领域。</p>
+<p>横向切分将出现在浏览器端开发的整个过程中，这不但是指整个UI，还会有UI过程中的各个细节，例如框架、数据交互、网络界面等。在这一过程中，纵向切分依然会成为补充。例如将网络界面与数据交互并成一个独立的部分，交由Flash Socket来实现，或交由独立的comet 兼容层来实现。但更确切地说，横向分层仍会带来更细分领域的繁荣，例如JSON 或其他微数据格式，以及其他基于Socket 或http/https 进行交互的二进制数据格式将成为专门的研究领域。</p>
 
 <p>这其中的原因是，在B端带来的领域必然扩大到一个无法通过纵向切分来一次性交付的地步，因而必然在这一端出现更细化的横向分层。从经验来看，当一个领域足够成熟时，就意味着它可以接受横向分层了，正如现在的桌面作为一个领域，可以接受UC、UCC以及NDA(*注2)等更为细化的分层一样。</p>
 
@@ -191,7 +190,7 @@ ghost.init({
   <li>注2：UC：UI/Client；UCC：UI/Control/Client；NDA：Network/Data/Application</li>
   </ul>
   
-  <p><a href="/1-132.html">第六节（末篇）：更远的将来（有限无责任预测）>></a></p>
+  <p><a href="1-132.1">第六节（末篇）：更远的将来（有限无责任预测）&gt;&gt;</a></p>
 </blockquote>
             </section>
 <!-- removed by aimingoo
@@ -204,13 +203,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-130.html">
+                <a href="1-130.1">
                     关于“VCL已死、RAD已死”答读者问
                 </a>
             </span>
 
-            <span class="post-nav-next" >
-                <a href="/1-132.html">
+            <span class="post-nav-next">
+                <a href="1-132.1">
                     VCL已死，RAD已死(6) - 结语与预测
                 </a>
                 下一篇
@@ -220,11 +219,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=018363abb2" />
-<script src="/assets/js/gitment.browser.js?v=018363abb2"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -240,30 +239,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                I'm here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="/profile-aimingoo"></script>
+        <script type="text/javascript" src="profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i>&nbsp;
+            <i class="fa fa-list-ul"></i> 
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -277,8 +276,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -290,20 +289,20 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=018363abb2"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=018363abb2"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
-</html>

@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma实现篇(四)：基本特性增强与多投事件系统</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Qomolangma实现篇(四)：基本特性增强与多投事件系统">
     <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http://aimingoo.github.io/1-36.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-36/.html">
     <meta property="article:published_time" content="2006-03-06T19:36:00.000Z">
     <meta property="article:modified_time" content="2006-03-06T19:36:00.000Z">
     <meta property="article:tag" content="Javascript">
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Qomolangma实现篇(四)：基本特性增强与多投事件系统">
     <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-36.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-36/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -41,42 +41,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomolangma实现篇(四)：基本特性增强与多投事件系统",
-    "url": "http://aimingoo.github.io/1-36.html",
+    "url": "http:/.html/aimingoo.github.io/1-36/.html",
     "datePublished": "2006-03-06T19:36:00.000Z",
     "dateModified": "2006-03-06T19:36:00.000Z",
     "keywords": "Javascript, 框架, oop",
     "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -95,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -128,16 +128,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2006-03-07">11 years ago</time>
+                        <time class="post-date" datetime="2006-03-07T03:36:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2006-03-07">(2006-03-07)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/kuang-jia/">框架</a>, <a href="tag/oop/">oop</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/kuang-jia/.html">框架</a>, <a href="tag/oop/.html">oop</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -271,7 +271,7 @@ for (i in e) <br>
   this.OnExec = new MuEvent();</font>  </p>
 
 <p><font face="Courier New">  this.run = function() { <br>
-    // do somethings <br>
+    /.html/ do somethings <br>
     this.OnExec(); <br>
   } <br>
 }</font>  </p>
@@ -340,14 +340,14 @@ reset()则在清除之后再添加一个“事件句柄”。由于MuEvent对象
 <p>var e1 = new MuEvent(); <br>
 var e2 = new MuEvent();  </p>
 
-<p><font face="Courier New">// ... <br>
-// add somethings to e1</font>  </p>
+<p><font face="Courier New">/.html/ ... <br>
+/.html/ add somethings to e1</font>  </p>
 
 <p><font face="Courier New">e2.add(func1); <br>
 e2.add(func2); <br>
 e2.add(func3);</font>  </p>
 
-<p><font face="Courier New">// clear e1, and add a list(e2) <br>
+<p><font face="Courier New">/.html/ clear e1, and add a list(e2) <br>
 e1.reset(e2); <br>
 ----------</font>  </p>
 
@@ -375,7 +375,7 @@ e1.reset(e2); <br>
 <p><font face="Courier New">loading.add(loadPicture1); <br>
 loading.add(loadPicture2); <br>
 loading.add(loadPicture3); <br>
-// ... <br>
+/.html/ ... <br>
 loading.add(loadPicture1000);</font>  </p>
 
 <p><font face="Courier New">loading.close(); <br>
@@ -405,7 +405,7 @@ window.onload = loading; <br>
 
 <hr>
 
-<p>// 当创建结束调用 <br>
+<p>/.html/ 当创建结束调用 <br>
 this.DoCreate = function() { <br>
   FLabled.onclick.addMethod(FEdit, FEdit.onclick); <br>
   FLabled.onclick.close(); <br>
@@ -441,7 +441,7 @@ this.DoCreate = function() { <br>
 <hr>
 
 <p>function MuEvent() { <br>
-  // this is a new obj instance <br>
+  /.html/ this is a new obj instance <br>
   var all = this; <br>
   all.length = 0;  </p>
 
@@ -490,10 +490,10 @@ var e2 = new MuEvent();  </p>
 <hr>
 
 <p>  function _MuEvent() { <br>
-    // get a handle and init MuEvent Object <br>
+    /.html/ get a handle and init MuEvent Object <br>
     var handle = all.length++;  </p>
 
-<p><font face="Courier New">    //... <br>
+<p><font face="Courier New">    /.html/... <br>
 ----------</font> <br>
 为了让add()等方法成为“唯一实例”，我将它放在了_MuEvent()之外来实现。但 <br>
 这种情况下，对象执有的handle对add()方法就是不可见的了。因此我们还需要一 <br>
@@ -515,12 +515,12 @@ var e2 = new MuEvent();  </p>
 
 <hr>
 
-<p>var all2 = []; // all ME() object for recheck.  </p>
+<p>var all2 = []; /.html/ all ME() object for recheck.  </p>
 
 <p><font face="Courier New">function add(foo) { <br>
   var i=this.valueOf(), e=all[i]; <br>
   if (e &amp;&amp; eall2[i]) { <br>
-    // add... <br>
+    /.html/ add... <br>
   } <br>
 } <br>
 ----------</font>  </p>
@@ -531,19 +531,19 @@ var e2 = new MuEvent();  </p>
 
 <hr>
 
-<p>// if e1's handle is 10, and hide into a Object/System <br>
+<p>/.html/ if e1's handle is 10, and hide into a Object/System <br>
 var e1 = new MuEvent();    </p>
 
-<p><font face="Courier New">// 套取用的函数 <br>
+<p><font face="Courier New">/.html/ 套取用的函数 <br>
 f = function(){};</font>  </p>
 
-<p><font face="Courier New">// 指定欲套取的句柄 <br>
+<p><font face="Courier New">/.html/ 指定欲套取的句柄 <br>
 f.valueOf = function() { return 10 }</font>  </p>
 
-<p><font face="Courier New">// 重置(注意所有的多投事件对象的方法是相同的) <br>
+<p><font face="Courier New">/.html/ 重置(注意所有的多投事件对象的方法是相同的) <br>
 f.clear = (new MuEvent()).clear;</font>  </p>
 
-<p><font face="Courier New">// 破解e1的事件列表(利用valueOf()返回10的特性) <br>
+<p><font face="Courier New">/.html/ 破解e1的事件列表(利用valueOf()返回10的特性) <br>
 f.clear(); <br>
 ----------</font>  </p>
 
@@ -571,7 +571,7 @@ valueOf()仍然可以被外部代码改写。——这将导致依赖它来获�
 <p>function add(foo) { <br>
   var e = all.search(this); <br>
   if (e) { <br>
-     // ... <br>
+     /.html/ ... <br>
   } <br>
 } <br>
 ---------- <br>
@@ -591,8 +591,8 @@ valueOf()仍然可以被外部代码改写。——这将导致依赖它来获�
 
 <p><font face="Courier New">  var all = { <br>
     length : 0, <br>
-    strong : !fast, // ^.^ <br>
-    // ... <br>
+    strong : !fast, /.html/ ^.^ <br>
+    /.html/ ... <br>
   }</font>  </p>
 
 <p><font face="Courier New">  return _MuEvent; <br>
@@ -644,10 +644,10 @@ obj.onmouseout.add(foo3); <br>
 <hr>
 
 <p>var MuEvent = function (fast) { <br>
-  // ...  </p>
+  /.html/ ...  </p>
 
 <p><font face="Courier New">  return _MuEvent; <br>
-}(false);     // &lt;-- here, set to true <br>
+}(false);     /.html/ &lt;-- here, set to true <br>
 ----------</font>  </p>
 
 <p>最后，最重要的一点提示，是Qomo在这个多投事件系统上的效率牺牲，只会表现在add <br>
@@ -657,15 +657,15 @@ obj.onmouseout.add(foo3); <br>
 <hr>
 
 <p>function _MuEvent() { <br>
-  // get a handle and init MuEvent Object <br>
+  /.html/ get a handle and init MuEvent Object <br>
   var handle = all.last = all.length++;  </p>
 
 <p><font face="Courier New">  var ME = function() { <br>
-    if (all[handle].length &gt; 0)  // &lt;--- 直接使用handle <br>
+    if (all[handle].length &gt; 0)  /.html/ &lt;--- 直接使用handle <br>
       return run.call(this, handle, arguments) <br>
   }</font>  </p>
 
-<p><font face="Courier New">  //... <br>
+<p><font face="Courier New">  /.html/... <br>
 } <br>
 ----------</font> <br>
 由于ME()的执行可以直接使用内部的handle变量，根本就不会调用all.search()。因此 <br>
@@ -682,13 +682,13 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-35.html">
+                <a href="1-35/.html">
                     Qomolangma实现篇(三)：兼容层设计
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-215.html">
+                <a href="1-215/.html">
                     关于：程序员要不要了解内核技术？
                 </a>
                 下一篇
@@ -698,11 +698,11 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -718,7 +718,7 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -755,8 +755,8 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -768,19 +768,20 @@ Qomo只是在“维护事件投送列表(add/reset等)”时有一些search()的
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

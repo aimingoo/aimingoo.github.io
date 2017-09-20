@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>再议《JavaScript代码优化一例》</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="再议《JavaScript代码优化一例》">
-    <meta property="og:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE = /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE = /object[0-9A-Za-z]{8}-[">
-    <meta property="og:url" content="http://aimingoo.github.io/1-81.html">
+    <meta property="og:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http:/.html/prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE = /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE = /object[0-9A-Za-z]{8}-[">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-81/.html">
     <meta property="article:published_time" content="2007-08-29T10:07:00.000Z">
     <meta property="article:modified_time" content="2007-08-29T10:07:00.000Z">
     <meta property="article:tag" content="Javascript">
@@ -31,8 +31,8 @@
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="再议《JavaScript代码优化一例》">
-    <meta name="twitter:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE = /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE = /object[0-9A-Za-z]{8}-[">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-81.html">
+    <meta name="twitter:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http:/.html/prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE = /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE = /object[0-9A-Za-z]{8}-[">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-81/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -40,42 +40,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "再议《JavaScript代码优化一例》",
-    "url": "http://aimingoo.github.io/1-81.html",
+    "url": "http:/.html/aimingoo.github.io/1-81/.html",
     "datePublished": "2007-08-29T10:07:00.000Z",
     "dateModified": "2007-08-29T10:07:00.000Z",
     "keywords": "Javascript, 正则表达式",
-    "description": "今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE &#x3D; /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE &#x3D; /object[0-9A-Za-z]{8}-[",
+    "description": "今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。&amp;nbsp;原例可以在杨先生的blog上找到：  http:/.html/prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry   一、正则表达式的创建代码  －－－  这样的创建代码实在冗余：  var fnRE &#x3D; /functor[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  var objRE &#x3D; /object[0-9A-Za-z]{8}-[",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -94,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -127,16 +127,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2007-08-29">10 years ago</time>
+                        <time class="post-date" datetime="2007-08-29T18:07:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2007-08-29">(2007-08-29)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/">正则表达式</a>
+                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/zheng-ze-biao-da-shi/.html">正则表达式</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,7 +146,7 @@ ghost.init({
 
             <section class="post-content">
                 <p>今天收到《程序员》第８期，读到杨建华先生的“JavaSctipt代码优化一例”。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： <br>
-<a href="http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry">http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry</a>  </p>
+<a href="http:/.html/prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry">http:/.html/prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry</a>  </p>
 
 <p>一、正则表达式的创建代码 <br>
 －－－ <br>
@@ -210,7 +210,7 @@ var objRE</em>d =  new RegExp('(radio<em>)'  + GUID + '</em>(d)', 'i');</font>
   this.push.apply(this, arguments); <br>
 } <br>
 objectListEx.toString = function() { <br>
-  return this.join(''); <br>
+  return this.join('.html'); <br>
 }</font> <br>
 那么，上例的添加就可以写成： <br>
 <font face="Courier New">objectListEx.append(id , ":" , _r , ":" , _a , ":" , _m , ":" , _d , ";");</font> <br>
@@ -218,13 +218,13 @@ objectListEx.toString = function() { <br>
 
 <p>六、新的优化后版本 <br>
 －－－ <br>
-<font face="Courier New">// optimized version <br>
+<font face="Courier New">/.html/ optimized version <br>
 var functorListEx = new StringBuilder(); <br>
 var objectListEx = new StringBuilder();</font>  </p>
 
 <p><font face="Courier New">var coll = document.getElementsByTagName("INPUT"); <br>
   <br>
-// regular expression for matching <br>
+/.html/ regular expression for matching <br>
 var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})'; <br>
 var fnRE =     new RegExp('(functor<em>)'+ GUID, 'i'); <br>
 var objRE =    new RegExp('(object</em>)' + GUID + '$', 'i'); <br>
@@ -233,7 +233,7 @@ var objRE</em>a =  new RegExp('(object<em>)' + GUID + '</em>(a)', 'i'); <br>
 var objRE<em>m =  new RegExp('(radio</em>)'  + GUID + '<em>(m)', 'i'); <br>
 var objRE</em>d =  new RegExp('(radio<em>)'  + GUID + '</em>(d)', 'i');</font>  </p>
 
-<p><font face="Courier New">// helper data structures used by optimized algorithm <br>
+<p><font face="Courier New">/.html/ helper data structures used by optimized algorithm <br>
 var aryObjList = new Array(); <br>
 var aryRList = new Array(); <br>
 var aryAList = new Array(); <br>
@@ -247,11 +247,11 @@ var aryDList = new Array();</font>  </p>
   d: aryDList <br>
 }</font>  </p>
 
-<p><font face="Courier New">// one pass scan to traverse the nodes collection (coll) to build functorListEx <br>
-// and intermediate arrays <br>
+<p><font face="Courier New">/.html/ one pass scan to traverse the nodes collection (coll) to build functorListEx <br>
+/.html/ and intermediate arrays <br>
 for (var i=0,imax=coll.length; i&lt;imax; i++) { <br>
  var <em>obj = coll[i]; <br>
- if (!</em>obj.checked) continue; // &lt;-- 更快的检测 <br>
+ if (!</em>obj.checked) continue; /.html/ &lt;-- 更快的检测 <br>
  if (_obj.type != "checkbox" &amp;&amp; _obj.type != "radio") continue;</font>  </p>
 
 <p><font face="Courier New"> var id = <em>obj.id, name = _obj.name; <br>
@@ -271,19 +271,19 @@ for (var i=0,imax=coll.length; i&lt;imax; i++) { <br>
      if (<em>match[1]<mark>'functor</mark></em>') { <br>
        functorListEx.append(guid, ";") <br>
      } <br>
-     else { // for <em>match[1]'object</em>' <br>
+     else { /.html/ for <em>match[1]'object</em>' <br>
        aryObjList.push(guid) <br>
      } <br>
  } <br>
 }</font>  </p>
 
-<p><font face="Courier New">// further process to build objectListEx from the intermediate arrays <br>
+<p><font face="Courier New">/.html/ further process to build objectListEx from the intermediate arrays <br>
 for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
  var id = aryObjList[i]; <br>
- var r = aryRList[id] || ""; <br>
- var a = aryAList[id] || ""; <br>
- var m = aryMList[id] || ""; <br>
- var d = aryDList[id] || "";</font>  </p>
+ var r = aryRList[id] || ".html"; <br>
+ var a = aryAList[id] || ".html"; <br>
+ var m = aryMList[id] || ".html"; <br>
+ var d = aryDList[id] || ".html";</font>  </p>
 
 <p><font face="Courier New"> objectListEx.append(id , ":" , r , ":" , a , ":" , m , ":" , d , ";"); <br>
 }</font>  </p>
@@ -298,7 +298,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
 </em></font><font face="Courier New"> <br>
    'objecta': aryList[tag][guid] =  tag2 ; break; <br>
 </font><font face="Courier New"> <br>
-   default:  // for r,m,d <br>
+   default:  /.html/ for r,m,d <br>
      aryList[tag][guid] = tag2 + _obj.value; <br>
  }</font>  </p>
             </section>
@@ -312,13 +312,13 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-80.html">
+                <a href="1-80/.html">
                     让leeon不再眷念马桶——书评《精通正则表达式》
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-82.html">
+                <a href="1-82/.html">
                     一些JavaScript 1.6~1.8上的高级技巧～
                 </a>
                 下一篇
@@ -328,11 +328,11 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -348,7 +348,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -385,8 +385,8 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -398,19 +398,20 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) { <br>
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 

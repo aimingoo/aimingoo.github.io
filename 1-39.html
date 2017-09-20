@@ -4,26 +4,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</title>
-    <meta name="description" content="">
+    <meta name="description" content=".html">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=0b79977634">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=0b79977634">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=0b79977634">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
+    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
     <meta name="referrer" content="no-referrer-when-downgrade">
     
     <meta property="og:site_name" content="Aimingoo's Blog">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Qomolangma实现篇(六)：Qomo的OOP框架的实现技术">
     <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta property="og:url" content="http://aimingoo.github.io/1-39.html">
+    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-39/.html">
     <meta property="article:published_time" content="2006-03-20T04:50:00.000Z">
     <meta property="article:modified_time" content="2006-03-20T04:50:00.000Z">
     <meta property="article:tag" content="框架">
@@ -32,7 +32,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Qomolangma实现篇(六)：Qomo的OOP框架的实现技术">
     <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.">
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-39.html">
+    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-39/.html">
     <meta name="twitter:label1" content="Written by">
     <meta name="twitter:data1" content="aimingoo">
     <meta name="twitter:label2" content="Filed under">
@@ -40,42 +40,42 @@
     
     <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@context": "https:/.html/schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
         "sameAs": [
-            "http://blog.csdn.net/aimingoo"
+            "http:/.html/blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomolangma实现篇(六)：Qomo的OOP框架的实现技术",
-    "url": "http://aimingoo.github.io/1-39.html",
+    "url": "http:/.html/aimingoo.github.io/1-39/.html",
     "datePublished": "2006-03-20T04:50:00.000Z",
     "dateModified": "2006-03-20T04:50:00.000Z",
     "keywords": "框架, oop",
     "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：../../Qomo_team.txt  有贡献者：JingYu(zjy@cnpack.",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http:/.html/aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=0b79977634"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -94,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=0b79977634"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
     </ul>
 </div>
 
@@ -127,16 +127,16 @@ ghost.init({
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
-                        <time class="post-date" datetime="2006-03-20">11 years ago</time>
+                        <time class="post-date" datetime="2006-03-20T12:50:00.000+08:00" timeago="true"></time>
                         <time class="post-date" datetime="2006-03-20">(2006-03-20)</time>
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/kuang-jia/">框架</a>, <a href="tag/oop/">oop</a>
+                        <a href="tag/kuang-jia/.html">框架</a>, <a href="tag/oop/.html">oop</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -160,8 +160,8 @@ ghost.init({
 <hr>
 
 <p>(*<font color="#ff0000"> 注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。</font> <br>
-原始版本下载地址：<a href="http://www.01cn.net/users/aimingoo/files/Qomo.V1(f4).zip">http://www.01cn.net/users/aimingoo/files/Qomo.V1(f4).zip</a> <br>
-修正版本下载地址：<a href="http://www.delphibbs.com/keylife/images/u40/Qomo.V1(f4).p1.zip">http://www.delphibbs.com/keylife/images/u40/Qomo.V1(f4).p1.zip</a> <br>
+原始版本下载地址：<a href="http:/.html/www.01cn.net/users/aimingoo/files/Qomo.V1(f4).zip">http:/.html/www.01cn.net/users/aimingoo/files/Qomo.V1(f4).zip</a> <br>
+修正版本下载地址：<a href="http:/.html/www.delphibbs.com/keylife/images/u40/Qomo.V1(f4).p1.zip">http:/.html/www.delphibbs.com/keylife/images/u40/Qomo.V1(f4).p1.zip</a> <br>
 <strong><font color="#ff0000"> <br>
 请对原版中的文件对行替换以完成修正升级</font></strong>)  </p>
 
@@ -183,44 +183,44 @@ ghost.init({
 <hr>
 
 <p><font face="Courier New">Class = function() { <br>
-  // ... <br>
-  // 基本的类数据、公共变量等</font>  </p>
+  /.html/ ... <br>
+  /.html/ 基本的类数据、公共变量等</font>  </p>
 
-<p><font face="Courier New">  // 构建类数据块 <br>
+<p><font face="Courier New">  /.html/ 构建类数据块 <br>
   function ClassDataBlock() { <br>
     var cls = function (Constructor) { <br>
-      // ... <br>
+      /.html/ ... <br>
     } <br>
     return cls; <br>
   }</font>  </p>
 
-<p><font face="Courier New">  // 真正的 Class() 函数 <br>
+<p><font face="Courier New">  /.html/ 真正的 Class() 函数 <br>
   function _Class(Parent, Name) { <br>
     var cls = new ClassDataBlock(Parent, Name); <br>
     cls.OnClassInitializtion(Constructor); <br>
     <br>
-    // 构建对象(实例)数据块 <br>
+    /.html/ 构建对象(实例)数据块 <br>
     function InstanceDataBlock() { <br>
-      // .. <br>
+      /.html/ .. <br>
     } <br>
     <br>
-    // 真正的对象构造器函数 <br>
+    /.html/ 真正的对象构造器函数 <br>
     cls.Create = function () { <br>
-        // ... <br>
+        /.html/ ... <br>
  var Data = new InstanceDataBlock(); <br>
         this.get = Data.get; <br>
         this.set = Data.set; <br>
         this.inherited = Data.inherited; <br>
-        // ...</font>  </p>
+        /.html/ ...</font>  </p>
 
 <p><font face="Courier New"> if (this.Create) this.Create.apply(this, arguments); <br>
-        // ... <br>
+        /.html/ ... <br>
     } <br>
     cls(Constructor); <br>
     cls.OnClassInitialized(InstanceDataBlock); <br>
-    // ...</font>  </p>
+    /.html/ ...</font>  </p>
 
-<p><font face="Courier New">    // 替换构造器 <br>
+<p><font face="Courier New">    /.html/ 替换构造器 <br>
     eval(Name + '= cls.Create'); <br>
     return cls; <br>
   }</font>  </p>
@@ -265,7 +265,7 @@ CDB数据块，真正的CDB被藏在了_Class()调用上下文环境的内部。
 <hr>
 
 <p>var obj1 = new MyObject(); <br>
-// 或 <br>
+/.html/ 或 <br>
 var obj2 = TMyObject.Create(); <br>
 ----------  </p>
 
@@ -274,7 +274,7 @@ var obj2 = TMyObject.Create(); <br>
 
 <hr>
 
-<p>    // 替换构造器 <br>
+<p>    /.html/ 替换构造器 <br>
     eval(Name + '= cls.Create'); <br>
 ---------- <br>
 相对于MyObject()来说，它事实上执行的是： <br>
@@ -294,9 +294,9 @@ TMyObject.Create()。  </p>
 <hr>
 
 <p>    cls.Create = function () { <br>
-        // ... <br>
+        /.html/ ... <br>
  var Data = new InstanceDataBlock(); <br>
-        // ... <br>
+        /.html/ ... <br>
 ----------  </p>
 
 <p>而现在，通过这种封装结构，Qomo具有了一些特性： <br>
@@ -320,13 +320,13 @@ JavaScript中“创建”一种自己的语法。——事实上，Qomo是不想
 
 <hr>
 
-<p>// 详细参见“实现篇(五)——类声明周期与对象构造周期” <br>
+<p>/.html/ 详细参见“实现篇(五)——类声明周期与对象构造周期” <br>
 function MyObject() { <br>
-  Attribute(this, 'Value', 0);// 快速特性声明 <br>
-  var v = _get('Data');       // 取(当前类的)父类的特性值 <br>
-  _set('Data', v);            // 置特性值, 但不覆盖父类  </p>
+  Attribute(this, 'Value', 0);/.html/ 快速特性声明 <br>
+  var v = _get('Data');       /.html/ 取(当前类的)父类的特性值 <br>
+  _set('Data', v);            /.html/ 置特性值, 但不覆盖父类  </p>
 
-<p><font face="Courier New">  // ... <br>
+<p><font face="Courier New">  /.html/ ... <br>
 } <br>
 ----------</font>  </p>
 
@@ -341,7 +341,7 @@ _set = function(n,v) { return _set.caller.caller.set(n, v) } <br>
 _cls = function() { return _cls.caller.caller }  </p>
 
 <p><font face="Courier New">Attribute = function() { <br>
-  // ... <br>
+  /.html/ ... <br>
     var i, argn=arguments.length; <br>
     var Constructor = Attribute.caller; <br>
     var cls = Constructor.caller; <br>
@@ -356,10 +356,10 @@ _cls = function() { return _cls.caller.caller }  </p>
 <hr>
 
 <p>    var Constructor = eval(Name); <br>
-    // ...  </p>
+    /.html/ ...  </p>
 
 <p><font face="Courier New">    var cls = function (Constructor) { <br>
-      // ... <br>
+      /.html/ ... <br>
       base=new Constructor(); <br>
     }</font>  </p>
 
@@ -375,11 +375,11 @@ _cls = function() { return _cls.caller.caller }  </p>
 <hr>
 
 <p>function MyObject() { <br>
-  Attribute(this, 'Value', 0);// 快速特性声明 <br>
-  var v = _get('Data');       // 取(当前类的)父类的特性值 <br>
-  _set('Data', v);            // 置特性值, 但不覆盖父类  </p>
+  Attribute(this, 'Value', 0);/.html/ 快速特性声明 <br>
+  var v = _get('Data');       /.html/ 取(当前类的)父类的特性值 <br>
+  _set('Data', v);            /.html/ 置特性值, 但不覆盖父类  </p>
 
-<p><font face="Courier New">  // ... <br>
+<p><font face="Courier New">  /.html/ ... <br>
 } <br>
 TMyObject = Class(TObject, 'MyObject'); <br>
 ----------</font>  </p>
@@ -417,7 +417,7 @@ TMyObject = Class(TObject, 'MyObject'); <br>
 
 <p>    cls.OnClassInitializtion = function(Constructor) { <br>
       delete this.all; <br>
-      // more ... <br>
+      /.html/ more ... <br>
     } <br>
 ---------- <br>
 又把这些属性和方法给清除掉。使得“类构造周期”之外不可能再通过这些方法来访问CDB。  </p>
@@ -441,12 +441,12 @@ TMyObject = Class(TObject, 'MyObject'); <br>
 
 <p>    cls.Create = function () { <br>
       if (this<mark>=cls) { <br>
-        // 'this' is class ref. <br>
+        /.html/ 'this' is class ref. <br>
         var i, v=arguments, n=v.length, s='new this.Create('; <br>
         if (n&gt;0) for (i=1,s+='v[0]'; i&lt;n; i++) s += ', v[' + i +']'; <br>
         return eval(s+');'); <br>
       } <br>
-      // ... <br>
+      /.html/ ... <br>
 ---------- <br>
 这段代码实际上是重新调用new this.Create()，并传入参数。而我们前面提到过_Class() <br>
 将会把构造器替换成cls.Create()。因此这段代码就达到了使下面两种语法等义的效果： <br>
@@ -455,8 +455,8 @@ TMyObject = Class(TObject, 'MyObject'); <br>
 <hr>
 
 <p>var obj1 = new MyObject(); <br>
-// 或 <br>
-var obj2 = TMyObject.Create(); // 实际将调用上一种语法 <br>
+/.html/ 或 <br>
+var obj2 = TMyObject.Create(); /.html/ 实际将调用上一种语法 <br>
 ----------  </p>
 
 <p>而同样的道理，new MyObject()其真实的调用会是“new cls.Create()”，这种情况下，在 <br>
@@ -467,14 +467,14 @@ Create()函数中，this对象将指向新创建的实例，且this.constructor 
 <hr>
 
 <p>    cls.Create = function () { <br>
-      // ... <br>
+      /.html/ ... <br>
       else if (this &amp;&amp; this.constructor<mark>=cls.Create) { <br>
-        // Make a DataBlock for per Instance, and reset attributes getter/setter. <br>
+        /.html/ Make a DataBlock for per Instance, and reset attributes getter/setter. <br>
         var Data = new InstanceDataBlock(); <br>
         this.get = Data.get; <br>
         this.set = Data.set; <br>
         this.inherited = Data.inherited; <br>
-      // ... <br>
+      /.html/ ... <br>
 ----------  </mark></p>
 
 <p>这样一来，新的对象实例(this)将会执有cls.Create()的一个上下文，并通过创建一个IDB <br>
@@ -487,7 +487,7 @@ Create()函数中，this对象将指向新创建的实例，且this.constructor 
 
 <p>var obj = new MyObject();  </p>
 
-<p><font face="Courier New">// 下面的代码将实际存取Data中的私有数据 <br>
+<p><font face="Courier New">/.html/ 下面的代码将实际存取Data中的私有数据 <br>
 obj.set('Value', 100); <br>
 ----------</font>  </p>
 
@@ -518,18 +518,18 @@ var obj = New TMyObejct();  </p>
 <hr>
 
 <p>  function setClassTypeinfo(cls, Attr, instance) { <br>
-    // ... <br>
+    /.html/ ... <br>
     cls.Create.prototype = instance; <br>
   }  </p>
 
 <p><font face="Courier New">  function ClassDataBlock() <br>
     cls.OnClassInitializtion = function(Constructor) { <br>
       if (Parent) Constructor.prototype = getPrototype(Parent); <br>
-      // ... <br>
+      /.html/ ... <br>
     }</font>  </p>
 
 <p><font face="Courier New">    var cls = function (Constructor) { <br>
-      // ... <br>
+      /.html/ ... <br>
       setClassTypeinfo(cls, Attr=new Attr(), base=new Constructor()); <br>
     } <br>
     <br>
@@ -564,19 +564,19 @@ var obj = New TMyObejct();  </p>
 <hr>
 
 <p>  function _Class() { <br>
-    // ... <br>
+    /.html/ ... <br>
     cls.Create = function () { <br>
-        // ...  </p>
+        /.html/ ...  </p>
 
-<p><font face="Courier New"> // 如果有Create(), 则调用以启动“对象构造周期” <br>
+<p><font face="Courier New"> /.html/ 如果有Create(), 则调用以启动“对象构造周期” <br>
         if (this.Create) this.Create.apply(this, arguments); <br>
     } <br>
   }</font>  </p>
 
 <p><font face="Courier New">function MyObject() { <br>
-  // 下面的代码使类原型得到了Create()方法, 它被理解为对象构造周期的入口 <br>
+  /.html/ 下面的代码使类原型得到了Create()方法, 它被理解为对象构造周期的入口 <br>
   this.Create = function() { <br>
-    // 在下面的代码中的this即是对象实例 <br>
+    /.html/ 在下面的代码中的this即是对象实例 <br>
   } <br>
 } <br>
 TMyObject = Class(TObject, 'MyObject'); <br>
@@ -611,20 +611,20 @@ Class()上下文的全局可见，在Global全局则不可见。这避免了外�
 <hr>
 
 <p>  function setClassTypeinfo(cls, Attr, instance) { <br>
-    // ... <br>
-    // 查找类信息入口并处理重复注册问题  </p>
+    /.html/ ... <br>
+    /.html/ 查找类信息入口并处理重复注册问题  </p>
 
 <p><font face="Courier New">    <em>classinfo</em>[n] = new ClassTypeinfo(cls, Attr); <br>
   }</font>  </p>
 
 <p><font face="Courier New">  function ClassDataBlock() { <br>
-    var Attr = function() {}; // all getter and setter method of attributes</font>  </p>
+    var Attr = function() {}; /.html/ all getter and setter method of attributes</font>  </p>
 
 <p><font face="Courier New">    var cls = function (Constructor) { <br>
       var base, parent = getPrototype(cls.ClassParent); <br>
       if (cls.ClassParent) Attr.prototype = getAttrPrototype(cls.ClassParent); <br>
       setClassTypeinfo(cls, Attr=new Attr(), base=new Constructor()); <br>
-      // ... <br>
+      /.html/ ... <br>
     } <br>
 ----------</font>  </p>
 
@@ -649,12 +649,12 @@ Class()上下文的全局可见，在Global全局则不可见。这避免了外�
 
 <hr>
 
-<p>// 用户的Constructor <br>
+<p>/.html/ 用户的Constructor <br>
 function MyObject() { <br>
   this.getData = function() { /* ... */ } <br>
   Attribute(this, 'Width', 100, 'rw');  </p>
 
-<p><font face="Courier New">  // ... <br>
+<p><font face="Courier New">  /.html/ ... <br>
 }    </font></p>
 
 <hr>
@@ -666,10 +666,10 @@ function MyObject() { <br>
 <hr>
 
 <p>    var cls = function (Constructor) { <br>
-      // ... <br>
+      /.html/ ... <br>
       <br>
       for (var i in base) { <br>
-          // ... <br>
+          /.html/ ... <br>
    if (<em>r</em>attribute.exec(i)) { <br>
             Attr[i] = base[i], delete base[i]; <br>
             if (!(RegExp.$2 in Attr)) Attr[RegExp.$2] = undefined; <br>
@@ -687,7 +687,7 @@ function MyObject() { <br>
 
 <hr>
 
-<p>// 等效于如下声明 <br>
+<p>/.html/ 等效于如下声明 <br>
 Attr = { <br>
   Width: 100, <br>
   Data: undefined, <br>
@@ -714,14 +714,14 @@ Attr = { <br>
 <hr>
 
 <p>  function _Class(Parent, Name) { <br>
-    // ... <br>
+    /.html/ ... <br>
     <br>
-    // some member reference for class <br>
+    /.html/ some member reference for class <br>
     var $all = cls.all; <br>
     var $map = cls.map; <br>
-    var $attr = cls.attrAdapter;  // 保存给Attribute系统使用 <br>
+    var $attr = cls.attrAdapter;  /.html/ 保存给Attribute系统使用 <br>
     function InstanceDataBlock() { <br>
-      // ... <br>
+      /.html/ ... <br>
     } <br>
   } <br>
 ----------  </p>
@@ -736,13 +736,13 @@ Attr = { <br>
 
 <p>  function ClassDataBlock() { <br>
     cls.OnClassInitialized = function(IDB) { <br>
-      // ... <br>
+      /.html/ ... <br>
       if (Parent) IDB.prototype = getAttrPrototype(cls); <br>
     } <br>
   } <br>
   <br>
   function _Class(Parent, Name) { <br>
-    // ... <br>
+    /.html/ ... <br>
     cls(Constructor); <br>
     cls.OnClassInitialized(InstanceDataBlock); <br>
   } <br>
@@ -758,10 +758,10 @@ Attr = { <br>
       var data_ = this;  </p>
 
 <p><font face="Courier New">      this.get = function (n) { <br>
-        //... <br>
-        // 处理不同的调用参数</font>  </p>
+        /.html/... <br>
+        /.html/ 处理不同的调用参数</font>  </p>
 
-<p><font face="Courier New">        return data_[n]; // a value <br>
+<p><font face="Courier New">        return data_[n]; /.html/ a value <br>
       } <br>
     }    </font></p>
 
@@ -774,12 +774,12 @@ getXXXXX()函数。——如果它存在的话： <br>
 <hr>
 
 <p>      this.get = function (n) { <br>
-        //... <br>
-        // 处理不同的调用参数  </p>
+        /.html/... <br>
+        /.html/ 处理不同的调用参数  </p>
 
 <p><font face="Courier New">        else { <br>
-          // get custom-built getter from cls's $Attr.getXXXXXX <br>
-          // in ClassDataBlock, the ref. equ data_['get'+n] <br>
+          /.html/ get custom-built getter from cls's $Attr.getXXXXXX <br>
+          /.html/ in ClassDataBlock, the ref. equ data_['get'+n] <br>
           var f = $attr('get'+n); <br>
           if (f) return f.call(this, n); <br>
         } <br>
@@ -801,7 +801,7 @@ getXXXXX()函数。——如果它存在的话： <br>
     function setAttribute(n, v) { Attr[n] = v }  </p>
 
 <p><font face="Courier New">    cls.OnClassInitializtion = function(Constructor) { <br>
-      // ... <br>
+      /.html/ ... <br>
       this.get = getAttribute; <br>
       this.set = setAttribute; <br>
     } <br>
@@ -821,7 +821,7 @@ getXXXXX()函数。——如果它存在的话： <br>
 <p>this.method = function() { <br>
   this._parent.method.apply(this, arguments);  </p>
 
-<p><font face="Courier New">  // do other.. <br>
+<p><font face="Courier New">  /.html/ do other.. <br>
 } <br>
 ----------</font> <br>
 尽管inherited()的含义，的确与上面的代码达到的效果一致。但如果让开发人员都这样写代码 <br>
@@ -848,22 +848,22 @@ getXXXXX()函数。——如果它存在的话： <br>
 <hr>
 
 <p>  function ClassDataBlock() { <br>
-    // ...  </p>
+    /.html/ ...  </p>
 
-<p><font face="Courier New">    // 在CDB中，在类初始化阶段公布getInheritedMap <br>
+<p><font face="Courier New">    /.html/ 在CDB中，在类初始化阶段公布getInheritedMap <br>
     cls.OnClassInitializtion = function(Constructor) { <br>
-      // ... <br>
+      /.html/ ... <br>
       this.map = getInheritedMap; <br>
     } <br>
   }</font>  </p>
 
-<p><font face="Courier New">    // 获取getInheritedMap()的一个引用 <br>
+<p><font face="Courier New">    /.html/ 获取getInheritedMap()的一个引用 <br>
     var $map = cls.map;</font>  </p>
 
 <p><font face="Courier New">    function InstanceDataBlock() { <br>
-      // ... <br>
+      /.html/ ... <br>
       this.inherited = function(method){ <br>
-        // 调用 $map() <br>
+        /.html/ 调用 $map() <br>
       } <br>
     } <br>
 ----------</font>  </p>
@@ -880,9 +880,9 @@ hasOwnProperty()的返回结果将是true)： <br>
 <hr>
 
 <p>  var n=getPropertyName(method, this); <br>
-  // ... <br>
+  /.html/ ... <br>
   <br>
-  // 由于处于CDB, 所以能直接访问cls引用 <br>
+  /.html/ 由于处于CDB, 所以能直接访问cls引用 <br>
   $cls = cls; <br>
   while ($cls) { <br>
     p = getPrototype($cls); <br>
@@ -912,15 +912,15 @@ hasOwnProperty()的返回结果将是true)： <br>
 
 <p>this.inherited = function(method){ <br>
   var f=this.inherited.caller, args=f.arguments; <br>
-  // ...  </p>
+  /.html/ ...  </p>
 
-<p><font face="Courier New">  // find f() in cache, and get inherited method p() <br>
+<p><font face="Courier New">  /.html/ find f() in cache, and get inherited method p() <br>
   for (var p, i=0; i&lt;cache.length; i++) { <br>
-    // 查找cache，并检测map[0]是不是指定的方法f() <br>
+    /.html/ 查找cache，并检测map[0]是不是指定的方法f() <br>
     if (f = cache[i][0]) { <br>
       p = cache[i]; <br>
-      p.shift();                      // 移除当前方法 <br>
-      return p[0].apply(this, args);  // 调用父类方法 <br>
+      p.shift();                      /.html/ 移除当前方法 <br>
+      return p[0].apply(this, args);  /.html/ 调用父类方法 <br>
     } <br>
   } <br>
 } <br>
@@ -957,7 +957,7 @@ $inherited_invalid的方法。这个方法将触发一个异常。  </p>
 
 <p>a = [method, $inherited_invalid];  </p>
 
-<p><font face="Courier New">// 该call map被填入_maps末尾 <br>
+<p><font face="Courier New">/.html/ 该call map被填入_maps末尾 <br>
 _maps[len] = a; <br>
 ----------</font>  </p>
 
@@ -1006,7 +1006,7 @@ alert(obj.get('Data')); <br>
 <hr>
 
 <p>function inheritedAttribute(foo) { <br>
-  // ... <br>
+  /.html/ ... <br>
   var p, v=[], $cls=Parent; <br>
   while ($cls) { <br>
     p = getAttrPrototype($cls); <br>
@@ -1018,9 +1018,9 @@ alert(obj.get('Data')); <br>
 }  </mark></p>
 
 <p><font face="Courier New">function getInheritedMap(method) { <br>
-  //... <br>
+  /.html/... <br>
   var a=inheritedAttribute(method); <br>
-  // ... <br>
+  /.html/ ... <br>
   <br>
   a.push($inherited<em>invalid); <br>
   return (</em>maps[len] = a); <br>
@@ -1051,7 +1051,7 @@ in &lt;object&gt;语法。然而我们也看到，使用下面的代码并不能
 <hr>
 
 <p>if (typeof object[property]  'undefined') { <br>
-  // ... <br>
+  /.html/ ... <br>
 } <br>
 ---------- <br>
 这样的语句事实上并不能替代&lt;property&gt; in &lt;object&gt;。因为如果"obj[n]=undefined"， <br>
@@ -1099,8 +1099,8 @@ in &lt;object&gt;语法。然而我们也看到，使用下面的代码并不能
   ) <br>
 }</font>  </p>
 
-<p><font face="Courier New">// call()调用apply()并传入参数表 <br>
-// Function.prototype.call = ... <br>
+<p><font face="Courier New">/.html/ call()调用apply()并传入参数表 <br>
+/.html/ Function.prototype.call = ... <br>
 ----------</font>  </p>
 
 <p>这样的代码将得到很好的执行。事实上细节可以掩饰得更好，例如Qomo中就在eval() <br>
@@ -1149,13 +1149,13 @@ obj和args，换做execScript()或者使用new Function()来创建函数并执�
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-38.html">
+                <a href="1-38/.html">
                     Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系
                 </a>
             </span>
 
             <span class="post-nav-next">
-                <a href="1-216.html">
+                <a href="1-216/.html">
                     今天实在闲～～
                 </a>
                 下一篇
@@ -1165,11 +1165,11 @@ obj和args，换做execScript()或者使用new Function()来创建函数并执�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=0b79977634">
-<script src="assets/js/gitment.browser.js?v=0b79977634"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
+<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -1185,7 +1185,7 @@ obj和args，换做execScript()或者使用new Function()来创建函数并执�
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/">
+            <a class="widget-profile-logo" href="author/aimingoo/.html">
                 <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
             </a>
         </div>
@@ -1222,8 +1222,8 @@ obj和args，换做execScript()或者使用new Function()来创建函数并执�
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
+                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -1235,19 +1235,20 @@ obj和args，换做execScript()或者使用new Function()来创建函数并执�
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=0b79977634"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=0b79977634"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
