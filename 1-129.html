@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>VCL已死，RAD已死(4)</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="VCL已死，RAD已死(4)">
-    <meta property="og:description" content="&amp;lt;&amp;lt; 上一节(插播) 四、后RAD时代：界面可视，到界面可描述 RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。 RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。 我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。 也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类&amp;#20284;组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。 传统的做法，是根据开发的需要来确定界面表现的范围——这样UI工程师痛苦，或根据设计来确定开发实现的技术——这样对开发技能要求更高。而最新近的一些思路，也是我前面提及到的UI的变革，">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-129/.html">
-    <meta property="article:published_time" content="2008-12-17T07:19:00.000Z">
-    <meta property="article:modified_time" content="2017-09-09T07:49:58.000Z">
-    <meta property="article:tag" content="编程">
-    <meta property="article:tag" content="软件工程">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="VCL已死，RAD已死(4)" />
+    <meta property="og:description" content="&amp;lt;&amp;lt; 上一节(插播) 四、后RAD时代：界面可视，到界面可描述 RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。 RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。 我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。 也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类&amp;#20284;组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。 传统的做法，是根据开发的需要来确定界面表现的范围——这样UI工程师痛苦，或根据设计来确定开发实现的技术——这样对开发技能要求更高。而最新近的一些思路，也是我前面提及到的UI的变革，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-129.html" />
+    <meta property="article:published_time" content="2008-12-17T07:19:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-09T07:49:58.000Z" />
+    <meta property="article:tag" content="编程" />
+    <meta property="article:tag" content="软件工程" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="VCL已死，RAD已死(4)">
-    <meta name="twitter:description" content="&amp;lt;&amp;lt; 上一节(插播) 四、后RAD时代：界面可视，到界面可描述 RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。 RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。 我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。 也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类&amp;#20284;组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。 传统的做法，是根据开发的需要来确定界面表现的范围——这样UI工程师痛苦，或根据设计来确定开发实现的技术——这样对开发技能要求更高。而最新近的一些思路，也是我前面提及到的UI的变革，">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-129/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="编程, 软件工程">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="VCL已死，RAD已死(4)" />
+    <meta name="twitter:description" content="&amp;lt;&amp;lt; 上一节(插播) 四、后RAD时代：界面可视，到界面可描述 RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。 RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。 我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。 也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类&amp;#20284;组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。 传统的做法，是根据开发的需要来确定界面表现的范围——这样UI工程师痛苦，或根据设计来确定开发实现的技术——这样对开发技能要求更高。而最新近的一些思路，也是我前面提及到的UI的变革，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-129.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="编程, 软件工程" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "VCL已死，RAD已死(4)",
-    "url": "http:/.html/aimingoo.github.io/1-129/.html",
+    "url": "http://aimingoo.github.io/1-129.html",
     "datePublished": "2008-12-17T07:19:00.000Z",
     "dateModified": "2017-09-09T07:49:58.000Z",
     "keywords": "编程, 软件工程",
     "description": "&amp;lt;&amp;lt; 上一节(插播) 四、后RAD时代：界面可视，到界面可描述 RAD过程与快速原型构建的理论直接相关，这种过程方法要求用户及早看到一个产品并试用之。通过用户对产品原型的体验与确认来固化用户需求，这个是应对用户需求变化的有效手段。 RAD过程方法在过去二十多年的时间里取得了不俗的成绩，这是显得易见的。VCL的成功，其一方面的原因也在于它迎合了这一潮流：我们可以通过快速地界面开发，来得到用户可确认的原型。 我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。 也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类&amp;#20284;组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。 传统的做法，是根据开发的需要来确定界面表现的范围——这样UI工程师痛苦，或根据设计来确定开发实现的技术——这样对开发技能要求更高。而最新近的一些思路，也是我前面提及到的UI的变革，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-bian-cheng tag-ruan-jian-gong-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-bian-cheng tag-ruan-jian-gong-cheng">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-129.1">VCL已死，RAD已死(4)</a></h1>
+                <h1 class="post-title"><a href="/1-129.html">VCL已死，RAD已死(4)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/bian-cheng/.html">编程</a>, <a href="tag/ruan-jian-gong-cheng/.html">软件工程</a>
+                        <a href="/tag/bian-cheng/">编程</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,7 +147,7 @@ ghost.init({
 
             <section class="post-content">
                 <blockquote>
-  <p><a href="1-126.1">&lt;&lt; 上一节(插播)</a></p>
+  <p><a href="/1-126.html">&lt;&lt; 上一节(插播)</a></p>
 </blockquote>
 
 <h2 id="rad">四、后RAD时代：界面可视，到界面可描述</h2>
@@ -157,13 +158,13 @@ ghost.init({
 
 <p>我认为这一过程中，“组件化界面－产品”之间可以快速演进是一个关键因素。</p>
 
-<p>也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类似组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。</p>
+<p>也就是说，开发人员可以基于一个“组件化界面”来持续开发，例如企业业务需求。然而，当界面成为主要变化的需求之一时，我们对“组件化界面”的依赖就成了灾难。这包括两个部分，即界面的表现形式和技术的变化。例如初始设计是类&#20284;组件化的、Windows桌面标准的，而后来又很快变成了简洁的、类Mac界面的；又例如最初采用GDI Api，后来又采用DirectUI等等。</p>
 
 <p>传统的做法，是根据开发的需要来确定界面表现的范围——这样UI工程师痛苦，或根据设计来确定开发实现的技术——这样对开发技能要求更高。而最新近的一些思路，也是我前面提及到的UI的变革，是放弃界面可视，而采用界面可描述的方法。更进一步的，是界面可编程模型。</p>
 
-<p>界面可描述与可编程的特性，在WEB上体现得尤为明显。我们其实是通过HTML+CSS来描述一个WEB的页面，另一方面，则基于DHTML或标准DOM这样的模型来做界面编程——这也产生了一个新的领域，即UED（用户体验设计）。</p>
+<p>界面可描述与可编程的特性，在WEB上体现得尤为明显。我们其实是通过HTML&#43;CSS来描述一个WEB的页面，另一方面，则基于DHTML或标准DOM这样的模型来做界面编程——这也产生了一个新的领域，即UED（用户体验设计）。</p>
 
-<p>我在D2(Designer &amp; Developer Frontend Technology Forum)大会上提到过，当界面分离出来的时候，自然产生了E2+C2的问题。E2是指效果（Effect）和体验（Experience），其中效果是美术设计来保证的，而体验则由前端开发来保证。因此体验又可以被分为C2，即控制（Control）与内容（Context）。这个C2在WEB中的具体表现就是JS和DOM，或在Flash中的AS与objects。而C2作为程序设计系统的理论依据在于：“控制+内容”正好对应了“算法+数据结构”。</p>
+<p>我在D2(Designer &amp; Developer Frontend Technology Forum)大会上提到过，当界面分离出来的时候，自然产生了E2&#43;C2的问题。E2是指效果（Effect）和体验（Experience），其中效果是美术设计来保证的，而体验则由前端开发来保证。因此体验又可以被分为C2，即控制（Control）与内容（Context）。这个C2在WEB中的具体表现就是JS和DOM，或在Flash中的AS与objects。而C2作为程序设计系统的理论依据在于：“控制&#43;内容”正好对应了“算法&#43;数据结构”。</p>
 
 <p>我们说“组件化界面”演进到现在，变成了“界面可描述”，又说它产生了一个新的领域，有什么意义呢？真实的问题在于，当应用复杂到这种规模时，前端与应用开发已经不是一个领域、一个团队或一个个人的工作了。更进一步地说，目前的RAD工具无法保证多个领域在同一个工具集之下系统地工作。要知道，现在去实现一个阶段目标的“快速原型”，也已经比20年前的一个应用开发的规模要更大了。</p>
 
@@ -171,7 +172,7 @@ ghost.init({
 
 <p>所以现在我们即使是开发一个让需求方满意的原型都不是件容易的事了。不过，一旦我们承认RAD工具不是灵丹妙药，允许团队中分出一些人力来直面UI，或以专门的UED团队应对客户需求，那么我们又可以迎来清新美好的每一天。我们可以通过一个可描述的UI技术，直接将PS做的原始效果图转换成界面，然后通过独立的脚本语言来驱动之，使之快速应对用户的需求变更。这整个独立的部分，留给其它分层（例如B/S的S端，或U/C/S的C端）的就可以仅仅是一个接口，甚至可以是纯抽象的、未经实现的。</p>
 
-<p>那么回顾这整个过程，我们强调了UI独立的重要性，强调了HTML+CSS带来的界面可描述，与VCL的界面可视的不同，这能表明RAD已死么？不完全是，最多能说明“基于界面可视的RAD产品化技术已死”。</p>
+<p>那么回顾这整个过程，我们强调了UI独立的重要性，强调了HTML&#43;CSS带来的界面可描述，与VCL的界面可视的不同，这能表明RAD已死么？不完全是，最多能说明“基于界面可视的RAD产品化技术已死”。</p>
 
 <p>我必须在这个小节里强调这一点，以说明VCL已死与RAD已死之间，不存在必然的、直接的、强关联的关系。我对RAD之死的观点，VCL只是引子，而非凭据。</p>
 
@@ -180,7 +181,7 @@ ghost.init({
 <p>如同砖工用刀，木工用刨，他们可以在同一体系下工作，关键不在工具的同质，而在于领域的成熟。</p>
 
 <blockquote>
-  <p><a href="1-131.1">第五节：后RAD时代：领域的成熟 &gt;&gt;</a></p>
+  <p><a href="/1-131.html">第五节：后RAD时代：领域的成熟 >></a></p>
 </blockquote>
             </section>
 <!-- removed by aimingoo
@@ -193,13 +194,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-128/.html">
+                <a href="/1-128.html">
                     Erlang in Delphi 项目发布！
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-130.1">
+            <span class="post-nav-next" >
+                <a href="/1-130.html">
                     关于“VCL已死、RAD已死”答读者问
                 </a>
                 下一篇
@@ -209,11 +210,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -229,30 +230,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -266,8 +267,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -279,20 +280,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

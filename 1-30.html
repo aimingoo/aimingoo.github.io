@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(一)：内核载入模块system.js的实现</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Qomolangma实现篇(一)：内核载入模块system.js的实现">
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-30/.html">
-    <meta property="article:published_time" content="2006-02-12T17:16:00.000Z">
-    <meta property="article:modified_time" content="2006-02-12T17:16:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="脚本">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Qomolangma实现篇(一)：内核载入模块system.js的实现" />
+    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-30.html" />
+    <meta property="article:published_time" content="2006-02-12T17:16:00.000Z" />
+    <meta property="article:modified_time" content="2006-02-12T17:16:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="脚本" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Qomolangma实现篇(一)：内核载入模块system.js的实现">
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-30/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 脚本">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Qomolangma实现篇(一)：内核载入模块system.js的实现" />
+    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-30.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 脚本" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Qomolangma实现篇(一)：内核载入模块system.js的实现",
-    "url": "http:/.html/aimingoo.github.io/1-30/.html",
+    "url": "http://aimingoo.github.io/1-30.html",
     "datePublished": "2006-02-12T17:16:00.000Z",
     "dateModified": "2006-02-12T17:16:00.000Z",
     "keywords": "Javascript, 脚本",
     "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-jiao-ben nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-jiao-ben">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></h1>
+                <h1 class="post-title"><a href="/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/jiao-ben/.html">脚本</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/jiao-ben/">脚本</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,586 +146,586 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr>
+                <hr />
 
 <p>Qomolangma OpenProject v1.0  </p>
 
-<p>类别    ：Rich Web Client <br>
-关键词  ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br>
-          DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
+关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br>
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br>
+<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
+项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
 有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
 
-<hr>
+<hr />
 
-<p>一、system.js 模块概要 <br>
+<p>一、system.js 模块概要 <br />
 ~~~~~~~~~~~~~~~~~~  </p>
 
-<p>system.js是Qomo的第一个载入模块。这个模块主要实现三个功能： <br>
-  - 基本的$debug()函数 <br>
-  - 基本的$import()函数 <br>
-  - 内核子系统的装载  </p>
+<p>system.js是Qomo的第一个载入模块。这个模块主要实现三个功能： <br />
+&nbsp; - 基本的$debug()函数 <br />
+&nbsp; - 基本的$import()函数 <br />
+&nbsp; - 内核子系统的装载  </p>
 
 <p>system.js是firefox兼容的。  </p>
 
-<p>二、内核子系统的构成与载入 <br>
+<p>二、内核子系统的构成与载入 <br />
 ~~~~~~~~~~~~~~~~~~  </p>
 
-<p>在Qomo中，所谓内核是指由直接在system.js中载入的模块构成的系统功能层。system.js <br>
-实现了$import()函数，并通过它装载以下模块： <br>
-<font face="Courier New">  </font></p>
+<p>在Qomo中，所谓内核是指由直接在system.js中载入的模块构成的系统功能层。system.js <br />
+实现了$import()函数，并通过它装载以下模块： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  $import('Names/NamedSystem.js'); /.html/命名空间管理 <br>
-  $import('RTL/JSEnhance.js');     /.html/基于标准JS的增强特性  </p>
+<p>&nbsp; $import('Names/NamedSystem.js'); //命名空间管理 <br />
+&nbsp; $import('RTL/JSEnhance.js');&nbsp;&nbsp;&nbsp;&nbsp; //基于标准JS的增强特性</font>  </p>
 
-<p><font face="Courier New">  $import('JSUnit/debug.js');      /.html/增强的调试输出 <br>
-  /.html/ more ...                      /.html/调试分析相关功能(profiler/unit test等)</font>  </p>
+<p><font face="Courier New">&nbsp; $import('JSUnit/debug.js');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //增强的调试输出 <br />
+&nbsp; // more ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //调试分析相关功能(profiler/unit test等)</font>  </p>
 
-<p><font face="Courier New">  $import('RTL/error.js');         /.html/错误和异常处理 <br>
-  $import('RTL/object.js');        /.html/实现面向对象语言特性和基类TObject <br>
-  $import('RTL/ajax.js');          /.html/tiny ajax sub system <br>
-  /.html/ more ...                      /.html/其它内核级别的特性(SOA、Interface等) <br>
+<p><font face="Courier New">&nbsp; $import('RTL/error.js');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //错误和异常处理 <br />
+&nbsp; $import('RTL/object.js');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //实现面向对象语言特性和基类TObject <br />
+&nbsp; $import('RTL/ajax.js');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //tiny ajax sub system <br />
+&nbsp; // more ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //其它内核级别的特性(SOA、Interface等) <br />
 ----------</font>  </p>
 
-<p>Qomo的内核是可裁减的：如果开发人员不喜欢使用命名空间，那么可以不载入NamedSystem.js； <br>
-或者根本就不使用增强的OOP特性，那么也可以不载入object.js。——换而言之，Qomo的 <br>
+<p>Qomo的内核是可裁减的：如果开发人员不喜欢使用命名空间，那么可以不载入NamedSystem.js； <br />
+或者根本就不使用增强的OOP特性，那么也可以不载入object.js。&mdash;&mdash;换而言之，Qomo的 <br />
 结构可以让开发人员重新组织自己的内核子系统，并在这个基础上发展自己的语言和框架。  </p>
 
-<p>Qomo实现这个特性的方法，就是使用“函数重载”和“功能重述”的技术。system.js中的 <br>
-$debug使用了“函数重载”的技术，而$import()中的部分实现特性就利用了“功能重述” <br>
+<p>Qomo实现这个特性的方法，就是使用&ldquo;函数重载&rdquo;和&ldquo;功能重述&rdquo;的技术。system.js中的 <br />
+$debug使用了&ldquo;函数重载&rdquo;的技术，而$import()中的部分实现特性就利用了&ldquo;功能重述&rdquo; <br />
 的技术。  </p>
 
-<p>简单的说：“函数重载”是指在延后的代码中重写当前函数；而“功能重述”则是指在延后 <br>
-的代码中对函数中的一个、多个特性重新描述(并代码实现)。——基本上来说，如果你有良 <br>
-好的代码习惯，那么可以用“更完美的面向对象的设计”＋“OOP的多态特性”来实现这两种 <br>
-技术。然而，system.js是在一个很底层的、内核级别的实现，我不希望它变得庞大而低效， <br>
+<p>简单的说：&ldquo;函数重载&rdquo;是指在延后的代码中重写当前函数；而&ldquo;功能重述&rdquo;则是指在延后 <br />
+的代码中对函数中的一个、多个特性重新描述(并代码实现)。&mdash;&mdash;基本上来说，如果你有良 <br />
+好的代码习惯，那么可以用&ldquo;更完美的面向对象的设计&rdquo;＋&ldquo;OOP的多态特性&rdquo;来实现这两种 <br />
+技术。然而，system.js是在一个很底层的、内核级别的实现，我不希望它变得庞大而低效， <br />
 所以使用了技巧来替代设计。  </p>
 
-<p>三、$debug()的分析 <br>
+<p>三、$debug()的分析 <br />
 ~~~~~~~~~~~~~~~~~~  </p>
 
-<p>在JScript系统中，提供一个调试期对象Debug，这个对象用于调试器控制台输入信息。如果 <br>
-你使用C以及其它的高级语言编程序，你应该知道OutputDebugString()函数。而这个Debug <br>
+<p>在JScript系统中，提供一个调试期对象Debug，这个对象用于调试器控制台输入信息。如果 <br />
+你使用C以及其它的高级语言编程序，你应该知道OutputDebugString()函数。而这个Debug <br />
 对象的作用就与它相同。这个对象提供了两个方法：Debug.write()和Debug.writeln()。  </p>
 
-<p>然而Qomo试图实现一个更有价值的调试输出子系统。例如向一个输出控制台发送对象，或者 <br>
+<p>然而Qomo试图实现一个更有价值的调试输出子系统。例如向一个输出控制台发送对象，或者 <br />
 用于记录效率分析信息等等。因此Qomo提供了$debug()函数。  </p>
 
-<p>然而作为基础模块system.js中的$debug并不提供上述的这些(完整的)特性。system.js中的 <br>
-$debug()仅仅只是向document输出字符串信息。这与Debug.writeln()是一样的，只是输出信 <br>
+<p>然而作为基础模块system.js中的$debug并不提供上述的这些(完整的)特性。system.js中的 <br />
+$debug()仅仅只是向document输出字符串信息。这与Debug.writeln()是一样的，只是输出信 <br />
 息的目标不一样：Debug面向调试控制台，而$debug()面向window.document对象。  </p>
 
-<p>在system.js中的$debug()实现起来可以非常简单。例如这样： <br>
-<font face="Courier New">  </font></p>
+<p>在system.js中的$debug()实现起来可以非常简单。例如这样： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>$debug = document.writeln; <br>
-----------  </p>
-
-<p>然而这样的代码在firefox中会出错。firefox对一些对象的方法做了保护，使得它不能被赋 <br>
-值给JavaScript对象／变量，也不能反过来试图通过赋值来修改这些行为。因此在system.js <br>
-采用的最终代码是这样： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>$debug = function() { <br>
-  document.writeln(Array.prototype.join.call(arguments, '.html')) <br>
-}; <br>
-----------  </p>
-
-<p>这样就将$debug传入的参数arguments视作一个数组，并通过Array对象原型中的join()方法 <br>
-连接成一个字符串，最后使用document.writeln()输出。  </p>
-
-<p>我们前面说到过$debug()使用了“函数重载”的技术。这是因为这里的$debug()事实上只被 <br>
-随后载入的NamedSystem.js和JSEnhance.js使用。——如果在它们“加载的过程中”出了错 <br>
-误、异常(或者出于调试的需要)，就可以通过$debug()来输出信息。然而接下来： <br>
-  - 第一步：在JSEnhance.js的未尾，会有一行代码将$debug置为空函数(NullFunction)； <br>
-  - 第二步：在debug.js的头部，有一段代码重写$debug()函数，实现自己的输出控制台。  </p>
-
-<p>这样就保证了在任何的代码中都可以使用$debug()函数来输出信息。而这个输出的表现会是 <br>
-这样： <br>
-  - 如果是在内核载入中，则向document输出错误信息；否则， <br>
-  - 如果载入了debug.js模块，则会有一个输出控制台来显示信息或者对象(数据)；否则， <br>
-  - $debug()信息被屏弊，或由用户加载的第三方模块来承接调试信息或错误信息的输出。  </p>
-
-<p>开发人员可以自由地、安全地使用$debug()，而无需关心它怎么实现，或者如何输出。如 <br>
-果不希望WEB浏览者看到它，只需要去掉debug.js(或者第三方的模块)，而无需移除源代码 <br>
-中的函数调用。  </p>
-
-<p>四、$import()的实现 <br>
-~~~~~~~~~~~~~~~~~~  </p>
-
-<p>为了使得system.js等内核级别的模块不影响全局变量的定义，因此在内核的很多地方(当 <br>
-然也包括$import()函数)，使用了以下技巧来声明函数： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>$import = function() {       /.html/ &lt;--- 匿名函数１ <br>
-  var data= ... <br>
-  function foo() { ... }   </p>
-
-<p><font face="Courier New">  return function() {        /.html/ &lt;--- 匿名函数２ <br>
-    ... <br>
-  }; <br>
-}(); <br>
+<p>$debug = document.writeln; <br />
 ----------</font>  </p>
 
-<p>这样一来，foo()和data都声明在一个“匿名函数１”的内部，因此不会对今后代码中对全 <br>
-局变量的命名造成影响(命名重复)。而$import()实际上是“匿名函数１”执行后返回的结 <br>
-果：匿名函数２。——JavaScript中，“函数”（对象）可作为其它函数的执行结果返回。  </p>
+<p>然而这样的代码在firefox中会出错。firefox对一些对象的方法做了保护，使得它不能被赋 <br />
+值给JavaScript对象／变量，也不能反过来试图通过赋值来修改这些行为。因此在system.js <br />
+采用的最终代码是这样： <br />
+<font face="Courier New">  </p>
 
-<p>重要的是，由于“匿名函数２”与data、foo()在同一个“上下文环境”中，因此它可以自 <br>
+<hr />
+
+<p>$debug = function() { <br />
+&nbsp; document.writeln(Array.prototype.join.call(arguments, '')) <br />
+}; <br />
+----------</font>  </p>
+
+<p>这样就将$debug传入的参数arguments视作一个数组，并通过Array对象原型中的join()方法 <br />
+连接成一个字符串，最后使用document.writeln()输出。  </p>
+
+<p>我们前面说到过$debug()使用了&ldquo;函数重载&rdquo;的技术。这是因为这里的$debug()事实上只被 <br />
+随后载入的NamedSystem.js和JSEnhance.js使用。&mdash;&mdash;如果在它们&ldquo;加载的过程中&rdquo;出了错 <br />
+误、异常(或者出于调试的需要)，就可以通过$debug()来输出信息。然而接下来： <br />
+&nbsp; - 第一步：在JSEnhance.js的未尾，会有一行代码将$debug置为空函数(NullFunction)； <br />
+&nbsp; - 第二步：在debug.js的头部，有一段代码重写$debug()函数，实现自己的输出控制台。  </p>
+
+<p>这样就保证了在任何的代码中都可以使用$debug()函数来输出信息。而这个输出的表现会是 <br />
+这样： <br />
+&nbsp; - 如果是在内核载入中，则向document输出错误信息；否则， <br />
+&nbsp; - 如果载入了debug.js模块，则会有一个输出控制台来显示信息或者对象(数据)；否则， <br />
+&nbsp; - $debug()信息被屏弊，或由用户加载的第三方模块来承接调试信息或错误信息的输出。  </p>
+
+<p>开发人员可以自由地、安全地使用$debug()，而无需关心它怎么实现，或者如何输出。如 <br />
+果不希望WEB浏览者看到它，只需要去掉debug.js(或者第三方的模块)，而无需移除源代码 <br />
+中的函数调用。  </p>
+
+<p>四、$import()的实现 <br />
+~~~~~~~~~~~~~~~~~~  </p>
+
+<p>为了使得system.js等内核级别的模块不影响全局变量的定义，因此在内核的很多地方(当 <br />
+然也包括$import()函数)，使用了以下技巧来声明函数： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>$import = function() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // &lt;--- 匿名函数１ <br />
+&nbsp; var data= ... <br />
+&nbsp; function foo() { ... } </font>  </p>
+
+<p><font face="Courier New">&nbsp; return function() {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // &lt;--- 匿名函数２ <br />
+&nbsp;&nbsp;&nbsp; ... <br />
+&nbsp; }; <br />
+}(); <br />
+----------</font>  </p>
+
+<p>这样一来，foo()和data都声明在一个&ldquo;匿名函数１&rdquo;的内部，因此不会对今后代码中对全 <br />
+局变量的命名造成影响(命名重复)。而$import()实际上是&ldquo;匿名函数１&rdquo;执行后返回的结 <br />
+果：匿名函数２。&mdash;&mdash;JavaScript中，&ldquo;函数&rdquo;（对象）可作为其它函数的执行结果返回。  </p>
+
+<p>重要的是，由于&ldquo;匿名函数２&rdquo;与data、foo()在同一个&ldquo;上下文环境&rdquo;中，因此它可以自 <br />
 由地存取这些变量和方法。而外部、全局的其它代码就看不到$import()的实现细节了。  </p>
 
-<p>利用这种技巧，$import()实现了许多内部功能和信息的隐藏。其实现如下： <br>
-<font face="Courier New">  </font></p>
+<p>利用这种技巧，$import()实现了许多内部功能和信息的隐藏。其实现如下： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>$import = function () { <br>
-  /.html/ for firefox only <br>
-  var <em>SYS</em>TAG = <br>
-  var <em>MOZ</em>TAG = <br>
-  var _CHARSET =   </p>
+<p>$import = function () { <br />
+&nbsp; // for firefox only <br />
+&nbsp; var <em>SYS</em>TAG = <br />
+&nbsp; var <em>MOZ</em>TAG = <br />
+&nbsp; var _CHARSET = </font>  </p>
 
-<p><font face="Courier New">  /.html/ 使远程获取的脚本 <br>
-  var toCurrentCharset = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 使远程获取的脚本 <br />
+&nbsp; var toCurrentCharset = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 通过检测当前的网页字符集，来确定.js文件使用的编码 <br>
-  var _uu = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 通过检测当前的网页字符集，来确定.js文件使用的编码 <br />
+&nbsp; var _uu = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 在firefox以及IE的不同版本下取HTTP连接对象(HTTPRequest) <br>
-  var getHttpConnect = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 在firefox以及IE的不同版本下取HTTP连接对象(HTTPRequest) <br />
+&nbsp; var getHttpConnect = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 在$import()中使用的一个唯一的http connect <br>
-  /.html/ (脚本执行是有先后的，所以没有必要使用异步的HTTP连接) <br>
-  var _http = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 在$import()中使用的一个唯一的http connect <br />
+&nbsp; // (脚本执行是有先后的，所以没有必要使用异步的HTTP连接) <br />
+&nbsp; var _http = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 是否使用XMLHTTP来取脚本代码。如果为false，则使用&lt;script&gt;标签载入 <br>
-  var _xml = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 是否使用XMLHTTP来取脚本代码。如果为false，则使用&lt;script&gt;标签载入 <br />
+&nbsp; var _xml = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 通过_http连接取代码，并转换编码的函数 <br>
-  function httpGet ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 通过_http连接取代码，并转换编码的函数 <br />
+&nbsp; function httpGet ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 取当前正在运行的脚本URL <br>
-  /.html/ (例如system.js的URL，实现使用文件相对路径来$import()的特性) <br>
-  function activeJS ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 取当前正在运行的脚本URL <br />
+&nbsp; // (例如system.js的URL，实现使用文件相对路径来$import()的特性) <br />
+&nbsp; function activeJS ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 重要的、在后期可能使用或“重述”的系统信息 <br>
-  var _sys = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 重要的、在后期可能使用或&ldquo;重述&rdquo;的系统信息 <br />
+&nbsp; var _sys = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 一个activeJS的栈，用于实现“在$import()的代码中再调用$import()”的特性 <br>
-  var _stack = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 一个activeJS的栈，用于实现&ldquo;在$import()的代码中再调用$import()&rdquo;的特性 <br />
+&nbsp; var _stack = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 远程读取、装载指定src的脚本并执行 <br>
-  var <em>load</em>and_execute = ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 远程读取、装载指定src的脚本并执行 <br />
+&nbsp; var <em>load</em>and_execute = ...</font>  </p>
 
-<p><font face="Courier New">  /.html/ 向外返回的函数 <br>
-  function <em>import(src) { <br>
-    /* Qomo Core System.. */ <br>
-    _load</em>and_execute( src ); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; // 向外返回的函数 <br />
+&nbsp; function <em>import(src) { <br />
+&nbsp;&nbsp;&nbsp; /* Qomo Core System.. */ <br />
+&nbsp;&nbsp;&nbsp; _load</em>and_execute( src ); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  /.html/ 其它代码(参见后文中“_sys对象的价值”) <br>
-  /.html/ ...</font>  </p>
+<p><font face="Courier New">&nbsp; // 其它代码(参见后文中&ldquo;_sys对象的价值&rdquo;) <br />
+&nbsp; // ...</font>  </p>
 
-<p><font face="Courier New">  return _import; <br>
-} <br>
+<p><font face="Courier New">&nbsp; return _import; <br />
+} <br />
 ----------</font>  </p>
 
 <p>下面我们逐一讲述其中的主要功能：  </p>
 
-<p> 1. 网页字符集、unicode及其解码 <br>
- ~~~~~~ <br>
- 在ajax系统中，一个很重要的问题就是编解码的问题。因为不管是Microsoft的XMLHTTP控件， <br>
-还是firefox中的XMLHttpRequest对象，都将远程获取的内容默认识别为Unicode编码。XMLHTTP <br>
-控件默认通过远程内容中的前导字符来识别Uniocde的编码方式。因此在不特别指明的情况下， <br>
-XMLHTTP可以正确的解析以下编码方式的远程内容： <br>
-<font face="Courier New">  </font></p>
+<p>&nbsp;1. 网页字符集、unicode及其解码 <br />
+&nbsp;~~~~~~ <br />
+&nbsp;在ajax系统中，一个很重要的问题就是编解码的问题。因为不管是Microsoft的XMLHTTP控件， <br />
+还是firefox中的XMLHttpRequest对象，都将远程获取的内容默认识别为Unicode编码。XMLHTTP <br />
+控件默认通过远程内容中的前导字符来识别Uniocde的编码方式。因此在不特别指明的情况下， <br />
+XMLHTTP可以正确的解析以下编码方式的远程内容： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  var _uu = _CHARSET in { <br>
-   'utf-8': null, <br>
-   'unicode': null, <br>
-   'utf-16': null, <br>
-   'UnicodeFFFE': null, <br>
-   'utf-32': null, <br>
-   'utf-32BE': null <br>
-  }; <br>
----------- <br>
+<p>&nbsp; var _uu = _CHARSET in { <br />
+&nbsp;&nbsp; 'utf-8': null, <br />
+&nbsp;&nbsp; 'unicode': null, <br />
+&nbsp;&nbsp; 'utf-16': null, <br />
+&nbsp;&nbsp; 'UnicodeFFFE': null, <br />
+&nbsp;&nbsp; 'utf-32': null, <br />
+&nbsp;&nbsp; 'utf-32BE': null <br />
+&nbsp; }; <br />
+----------</font> <br />
 如果XMLHTTP不能通过前导字符来解析编码，那么它就默认远程内容使用了UTF-8的编码格式。  </p>
 
-<p>然而这只是说“远程内容”的格式(例如.js文件使用的编码存储格式)。大多数情况下，我们会 <br>
-在网页中用如下标签来描述“当前网页”的编码： <br>
-<font face="Courier New">  </font></p>
+<p>然而这只是说&ldquo;远程内容&rdquo;的格式(例如.js文件使用的编码存储格式)。大多数情况下，我们会 <br />
+在网页中用如下标签来描述&ldquo;当前网页&rdquo;的编码： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>&lt;meta http-equiv="Content-Type" content="text/html; charset=gb2312"&gt; <br>
----------- <br>
-在没有这个HTML标签描述的情况下，IE会使用当前的默认设置来给网页解码并显示。这种情况 <br>
-下，document.charset将会置为“<em>autodetect</em>all”，或者你在IE菜单“查看-&gt;编码”中选 <br>
-择的字符集。在charset=="<em>autodetect</em>all"时，可以通过存取document.defaultCharset来 <br>
+<p>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=gb2312&quot;&gt; <br />
+----------</font> <br />
+在没有这个HTML标签描述的情况下，IE会使用当前的默认设置来给网页解码并显示。这种情况 <br />
+下，document.charset将会置为&ldquo;<em>autodetect</em>all&rdquo;，或者你在IE菜单&ldquo;查看-&gt;编码&rdquo;中选 <br />
+择的字符集。在charset==&quot;<em>autodetect</em>all&quot;时，可以通过存取document.defaultCharset来 <br />
 得到解码时选择的字符集。  </p>
 
-<p>我们看到一个问题：“当前网页”解码与“远程内容”解码所依赖的字符集设定并不一致。  </p>
+<p>我们看到一个问题：&ldquo;当前网页&rdquo;解码与&ldquo;远程内容&rdquo;解码所依赖的字符集设定并不一致。  </p>
 
-<p>事实上，麻烦不仅于此。在JScript引擎中理解的字符串等内容，使用的也将会是unicode字 <br>
-符集。这一点，无论.js文件编码格式是什么，或者网页编码格式是什么，都不会被改变。 <br>
-也就是说，在一个charsett=gb2312，且.js文件使用gb2312编码的系统中，你使用escape() <br>
-或unescape()都将会在一个unicode环境中进行字符串编解码。更有甚者，你即使强行指定了 <br>
-一个字符串的解码方式，它最终显示在网页上的时候，也不会如你所愿。例如： <br>
-<font face="Courier New">  </font></p>
+<p>事实上，麻烦不仅于此。在JScript引擎中理解的字符串等内容，使用的也将会是unicode字 <br />
+符集。这一点，无论.js文件编码格式是什么，或者网页编码格式是什么，都不会被改变。 <br />
+也就是说，在一个charsett=gb2312，且.js文件使用gb2312编码的系统中，你使用escape() <br />
+或unescape()都将会在一个unicode环境中进行字符串编解码。更有甚者，你即使强行指定了 <br />
+一个字符串的解码方式，它最终显示在网页上的时候，也不会如你所愿。例如： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>/.html/ 字符串"这是一个测试"的gb2312字节码 <br>
-var s1 = '%D5%E2%CA%C7%D2%BB%B8%F6%B2%E2%CA%D4';  </p>
+<p>// 字符串&quot;这是一个测试&quot;的gb2312字节码 <br />
+var s1 = '%D5%E2%CA%C7%D2%BB%B8%F6%B2%E2%CA%D4';</font>  </p>
 
-<p><font face="Courier New">/.html/ 解码 <br>
+<p><font face="Courier New">// 解码 <br />
 var s2 = unescape(s1);</font>  </p>
 
-<p><font face="Courier New">/.html/ 显示 <br>
-document.writeln(s2); <br>
-----------</font> <br>
+<p><font face="Courier New">// 显示 <br />
+document.writeln(s2); <br />
+----------</font> <br />
 这段代码在utf-8或gb2312字符集的网页上显示都不正常。  </p>
 
-<p>在Qomo中$import()函数的解码基于一个假设：“.js文件的‘远程内容’与‘当前网页’ <br>
-必然使用相同的字符集”。——必须说明的是，这是在一个封闭环境中的理想情况。如果 <br>
-你试图用$import()读取RSS的内容，你可能会必须面临“在gb2313网页中去处理utf-8编 <br>
-码的RSS数据”这样的问题。因而你应该清楚：内核一级的$import()主要用于处理Qomo系 <br>
-统(及扩展功能)的模块载入，其它的“远程内容”应该交由更复杂的ajax系统去做。  </p>
+<p>在Qomo中$import()函数的解码基于一个假设：&ldquo;.js文件的&lsquo;远程内容&rsquo;与&lsquo;当前网页&rsquo; <br />
+必然使用相同的字符集&rdquo;。&mdash;&mdash;必须说明的是，这是在一个封闭环境中的理想情况。如果 <br />
+你试图用$import()读取RSS的内容，你可能会必须面临&ldquo;在gb2313网页中去处理utf-8编 <br />
+码的RSS数据&rdquo;这样的问题。因而你应该清楚：内核一级的$import()主要用于处理Qomo系 <br />
+统(及扩展功能)的模块载入，其它的&ldquo;远程内容&rdquo;应该交由更复杂的ajax系统去做。  </p>
 
-<p>因此Qomo认为：远程跟当前网页采用相同编码，因此在网页字符集为unicode的情况下， <br>
-远程内容不需要解码，否则应当从XMLHTTP所(错误)理解的unicode转换为当前字符集。这 <br>
+<p>因此Qomo认为：远程跟当前网页采用相同编码，因此在网页字符集为unicode的情况下， <br />
+远程内容不需要解码，否则应当从XMLHTTP所(错误)理解的unicode转换为当前字符集。这 <br />
 个转换依赖于当前网页字符串的设定，也就是$import()内部的_CHARSET变量的值。  </p>
 
-<p>Qomo在$import()中实现了解码函数：toCurrentCharset()。解码函数只实现了对gb2312 <br>
-字符集的处理，如果需要其它(非unicode)的解码，则需要修改toCurrentCharset()中的 <br>
+<p>Qomo在$import()中实现了解码函数：toCurrentCharset()。解码函数只实现了对gb2312 <br />
+字符集的处理，如果需要其它(非unicode)的解码，则需要修改toCurrentCharset()中的 <br />
 部分代码。  </p>
 
-<p>Qomo的解码函数最初实现gb2312字节码的处理时，借鉴网上流传很广泛的一个bytes2BSTR() <br>
-函数，实现了改良版本的vbs<em>JoinBytes()。在vbs</em>JoinBytes()函数中减少了字符串连接 <br>
-和长度识别的次数，使效率大为提高。但在最终实现这个功能时，借鉴Hutia、bjhaoyun <br>
-在“经典论坛”中公布的、使用unescape()/escape()函数来处理编码字符串的技巧。由于 <br>
+<p>Qomo的解码函数最初实现gb2312字节码的处理时，借鉴网上流传很广泛的一个bytes2BSTR() <br />
+函数，实现了改良版本的vbs<em>JoinBytes()。在vbs</em>JoinBytes()函数中减少了字符串连接 <br />
+和长度识别的次数，使效率大为提高。但在最终实现这个功能时，借鉴Hutia、bjhaoyun <br />
+在&ldquo;经典论坛&rdquo;中公布的、使用unescape()/escape()函数来处理编码字符串的技巧。由于 <br />
 大量优化了代码，新的toCurrentCharset()比bjhaoyun提供的代码有30%左右的性能提升。  </p>
 
-<p>这几种解码方案中，toCurrentCharset()与bjhaoyun的reCode()采用相同的方案，但整体 <br>
-性能提升30%。在通常情况下，toCurrentCharset()比vbs<em>JoinBytes()快３倍以上；在以 <br>
-英文内容为主的情况下，可以快近１０倍；但在中文字符量非常多(例如全中文文本)的情 <br>
+<p>这几种解码方案中，toCurrentCharset()与bjhaoyun的reCode()采用相同的方案，但整体 <br />
+性能提升30%。在通常情况下，toCurrentCharset()比vbs<em>JoinBytes()快３倍以上；在以 <br />
+英文内容为主的情况下，可以快近１０倍；但在中文字符量非常多(例如全中文文本)的情 <br />
 况下，vbs</em>JoinBytes()的性能表现会极佳，甚至会比toCurrentCharset()快50%。  </p>
 
-<p>由于$import()主要处理的主体内容是英文代码.js脚本，因此选用了toCurrentCharset() <br>
+<p>由于$import()主要处理的主体内容是英文代码.js脚本，因此选用了toCurrentCharset() <br />
 作为内置的解码函数。关于其它几个解码函数，可以参见测试网页T_DecodeUnicode.html。  </p>
 
 <p>(目前，)Qomo没有为firefox中使用XMLHttpRequest对象载入的内容提供解码函数。  </p>
 
-<p> 2. XMLHTTP载入与&lt;script&gt;标签载入的区别 <br>
- ~~~~~~ <br>
- 如果XMLHTTP对象不能创建，或者无法正常处理编码。Qomo中提供了后备方案，也就是使 <br>
+<p>&nbsp;2. XMLHTTP载入与&lt;script&gt;标签载入的区别 <br />
+&nbsp;~~~~~~ <br />
+&nbsp;如果XMLHTTP对象不能创建，或者无法正常处理编码。Qomo中提供了后备方案，也就是使 <br />
 用&lt;script&gt;标签来载入模块及其它远程内容。  </p>
 
 <p>然而这两者原本是不能完全替代的，因此有一些差异之处必须补充说明。  </p>
 
-<p>首先XMLHTTP载入的内容存放在XMLHTTP对象(例如Qomo中的_http)的responseBody属性中， <br>
-这是一个以Byte为基础类型的SafeArray数组，而JScript只能处理以Variant为基础类型 <br>
-的SafeArray。所以Qomo中调用VBScript的CStr()来使它变成字符串，然后进一步地交由 <br>
+<p>首先XMLHTTP载入的内容存放在XMLHTTP对象(例如Qomo中的_http)的responseBody属性中， <br />
+这是一个以Byte为基础类型的SafeArray数组，而JScript只能处理以Variant为基础类型 <br />
+的SafeArray。所以Qomo中调用VBScript的CStr()来使它变成字符串，然后进一步地交由 <br />
 toCurrentCharset()处理。  </p>
 
-<p>——然而如果使用&lt;script&gt;标签来载入，那么这整个的解码过程就不需要了。因为&lt;script&gt; <br>
-可以指定charset属性，也可以直接使用“与当前网页相同”字符集的脚本文件。  </p>
+<p>&mdash;&mdash;然而如果使用&lt;script&gt;标签来载入，那么这整个的解码过程就不需要了。因为&lt;script&gt; <br />
+可以指定charset属性，也可以直接使用&ldquo;与当前网页相同&rdquo;字符集的脚本文件。  </p>
 
-<p>如果仅这样看，&lt;script&gt;会比XMLHTTP好。但事实上XMLHTTP具备的另一项优势让&lt;script&gt; <br>
+<p>如果仅这样看，&lt;script&gt;会比XMLHTTP好。但事实上XMLHTTP具备的另一项优势让&lt;script&gt; <br />
 望尘莫及。  </p>
 
-<p>使用异步方式，XMLHTTP载入的内容可以被立即执行。因此在这个例子中： <br>
-<font face="Courier New">  </font></p>
+<p>使用异步方式，XMLHTTP载入的内容可以被立即执行。因此在这个例子中： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>&lt;script&gt; <br>
-$import('1.js'); <br>
-$import('2.js');  </p>
+<p>&lt;script&gt; <br />
+$import('1.js'); <br />
+$import('2.js');</font>  </p>
 
-<p><font face="Courier New">foo<em>in</em>js1(); <br>
-&lt;/script&gt; <br>
-----------</font> <br>
-前两行的1.js和2.js被立即载入并执行了，因此在1.js文件中的foo<em>in</em>js1()可以得到 <br>
-执行。而在下面的例子中： <br>
-<font face="Courier New">  </font></p>
+<p><font face="Courier New">foo<em>in</em>js1(); <br />
+&lt;/script&gt; <br />
+----------</font> <br />
+前两行的1.js和2.js被立即载入并执行了，因此在1.js文件中的foo<em>in</em>js1()可以得到 <br />
+执行。而在下面的例子中： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>&lt;script&gt; <br>
-document.writeln('&lt;script src="1.js"&gt;&lt;', '.html/script&gt;'); <br>
-document.writeln('&lt;script src="2.js"&gt;&lt;', '.html/script&gt;');  </p>
+<p>&lt;script&gt; <br />
+document.writeln('&lt;script src=&quot;1.js&quot;&gt;&lt;', '/script&gt;'); <br />
+document.writeln('&lt;script src=&quot;2.js&quot;&gt;&lt;', '/script&gt;');</font>  </p>
 
-<p><font face="Courier New">foo<em>in</em>js1(); <br>
-&lt;/script&gt; <br>
-----------</font> <br>
-document.writeln()向网页写入的内容会出现在&lt;/script&gt;标签之后。因此，1.js和 <br>
-2.js会在当前的脚本块被全部执行完之后，才被载入、解析并执行。——这也意味着 <br>
+<p><font face="Courier New">foo<em>in</em>js1(); <br />
+&lt;/script&gt; <br />
+----------</font> <br />
+document.writeln()向网页写入的内容会出现在&lt;/script&gt;标签之后。因此，1.js和 <br />
+2.js会在当前的脚本块被全部执行完之后，才被载入、解析并执行。&mdash;&mdash;这也意味着 <br />
 函数foo<em>in</em>js1()调用不会成功。  </p>
 
-<p>很显然，我们在一个大的框架系统中，会利用下面这样的代码来说明当前模块(或单 <br>
-元)的依赖性： <br>
-<font face="Courier New">  </font></p>
+<p>很显然，我们在一个大的框架系统中，会利用下面这样的代码来说明当前模块(或单 <br />
+元)的依赖性： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>$import('.html/OS/Win32/FileSystem/<em>'); <br>
-$import('.html/OS/Win32/UI/</em>');  </p>
+<p>$import('/OS/Win32/FileSystem/<em>'); <br />
+$import('/OS/Win32/UI/</em>');</font>  </p>
 
-<p><font face="Courier New">/.html/ some code ... <br>
-----------</font> <br>
-这种情况下在“some code”执行前FileSystem和UI模块就应该是被载入、执行过的。 <br>
+<p><font face="Courier New">// some code ... <br />
+----------</font> <br />
+这种情况下在&ldquo;some code&rdquo;执行前FileSystem和UI模块就应该是被载入、执行过的。 <br />
 而我们已经看到&lt;script&gt;并不支持这种特性。  </p>
 
-<p>因此Qomo内核中使用&lt;script&gt;来替代$import()仅仅是权益之计，它不能完成$import() <br>
-的全部工作。——但是在一些简化的、小型的、经过定制Qomo系统中，他仍旧是可用 <br>
+<p>因此Qomo内核中使用&lt;script&gt;来替代$import()仅仅是权益之计，它不能完成$import() <br />
+的全部工作。&mdash;&mdash;但是在一些简化的、小型的、经过定制Qomo系统中，他仍旧是可用 <br />
 的。只不过要注意XMLHTTP与&lt;script&gt;之间的这种差异，以及这种差异带来的负面影响。  </p>
 
-<p> 3. execScript()与eval()的不同表现 <br>
- ~~~~~~ <br>
- JScript中有window.execScript()方法，但JavaScript规范中却没有它。因此firefox <br>
+<p>&nbsp;3. execScript()与eval()的不同表现 <br />
+&nbsp;~~~~~~ <br />
+&nbsp;JScript中有window.execScript()方法，但JavaScript规范中却没有它。因此firefox <br />
 并没有实现一个execScript。另一个与之相近的是Global.eval()方法。  </p>
 
-<p>在IE的JScript中，eval()执行一个字符串并返回结果。在执行时，使用的是调用函数的 <br>
-上下文环境。因此如果函数A中调用了eval(Str)，那么字符串Str中的脚本代码可以使用、 <br>
-修改和影响函数A中的局部变量。而window.execScript()将直接使用全局上下文环境， <br>
-因此，execScript(Str)中的字符串Str可以影响全局变量。——也包括声明全局变量、 <br>
+<p>在IE的JScript中，eval()执行一个字符串并返回结果。在执行时，使用的是调用函数的 <br />
+上下文环境。因此如果函数A中调用了eval(Str)，那么字符串Str中的脚本代码可以使用、 <br />
+修改和影响函数A中的局部变量。而window.execScript()将直接使用全局上下文环境， <br />
+因此，execScript(Str)中的字符串Str可以影响全局变量。&mdash;&mdash;也包括声明全局变量、 <br />
 函数以及对象构造器。  </p>
 
-<p>因此我们在用XMLHTTP来远程地取得.js文件的内容之后，我们就可以利用execScript() <br>
+<p>因此我们在用XMLHTTP来远程地取得.js文件的内容之后，我们就可以利用execScript() <br />
 来执行它。这种执行与在&lt;script&gt;标签中的执行效果是一致的。  </p>
 
-<p>从JavaScript的约定来说，Global.eval()不具有在全局的上下文环境中执行的能力。在 <br>
-做一个偶然的代码测试时，我发现firefox中的eval()存在一个奇怪的特性： <br>
-  - 如果在函数中使用window.eval()来执行，则使用全局上下文环境； <br>
-  - 如果使用eval()来执行，则使用当前函数的上下文环境。  </p>
+<p>从JavaScript的约定来说，Global.eval()不具有在全局的上下文环境中执行的能力。在 <br />
+做一个偶然的代码测试时，我发现firefox中的eval()存在一个奇怪的特性： <br />
+&nbsp; - 如果在函数中使用window.eval()来执行，则使用全局上下文环境； <br />
+&nbsp; - 如果使用eval()来执行，则使用当前函数的上下文环境。  </p>
 
-<p>我不确知这是FireFox为ajax而提供的语言特性呢，还是它一个JavaScript实现上的BUG。 <br>
-但我测试过的几个版本都呈现这种效果。因此$import()中我使用了window.eval来替代 <br>
+<p>我不确知这是FireFox为ajax而提供的语言特性呢，还是它一个JavaScript实现上的BUG。 <br />
+但我测试过的几个版本都呈现这种效果。因此$import()中我使用了window.eval来替代 <br />
 window.execScript()，以实现firefox版本的Qomo内核。  </p>
 
 <p>关于这个特性请参见测试网页T_eval.html。  </p>
 
-<p> 4. 载入路径与activeJS的关系 <br>
- ~~~~~~ <br>
-在Qomo系统中载入一个.js时，采用比较灵活的路径定位策略： <br>
-  - 如果src以"xxxx:/.html"的形式开始，则使用“完整路径”定位； <br>
-  - 如果src以".html"开始，则使用以当前document所在网站的根路径开始的绝对路径； <br>
-  - 否则使用相对路径定位。  </p>
+<p>&nbsp;4. 载入路径与activeJS的关系 <br />
+&nbsp;~~~~~~ <br />
+在Qomo系统中载入一个.js时，采用比较灵活的路径定位策略： <br />
+&nbsp; - 如果src以&quot;xxxx://&quot;的形式开始，则使用&ldquo;完整路径&rdquo;定位； <br />
+&nbsp; - 如果src以&quot;/&quot;开始，则使用以当前document所在网站的根路径开始的绝对路径； <br />
+&nbsp; - 否则使用相对路径定位。  </p>
 
-<p>但接下来的问题就比较麻烦了。如果网页的URL是“<a href="http:/.html/site/sub/a.html%E2%80%9D%EF%BC%8C%E8%80%8C">http:/.html/site/sub/a.html”，而</a> <br>
-Qomo系统被部署在"<a href="http:/.html/site/Qomo/.html">http:/.html/site/Qomo/</a>"路径上，则可用如下两种方式之一在a.html <br>
-中载入system.js： <br>
-<font face="Courier New">  </font></p>
+<p>但接下来的问题就比较麻烦了。如果网页的URL是&ldquo;<a href="http://site/sub/a.html&rdquo;，而">http://site/sub/a.html&rdquo;，而</a> <br />
+Qomo系统被部署在&quot;<a href="http://site/Qomo/">http://site/Qomo/</a>&quot;路径上，则可用如下两种方式之一在a.html <br />
+中载入system.js： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>&lt;script src="Framework/system.js"&gt;&lt;/script&gt;      &lt;!-- 之一 --&gt; <br>
-&lt;script src=".html/Qomo/Framework/system.js"&gt;&lt;/script&gt;   &lt;!-- 之二 --&gt; <br>
-----------  </p>
-
-<p>因为XMLHTTP也使用当前网页来做相对定位，因此在这方面他与&lt;script&gt;对象相同。 <br>
-那么显然我们在system.js中导入NameSystem.js应该使用下面这样的代码： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>/.html/ $import()使用XMLHTTP来实现 <br>
-$import('Framework/Names/NameSystem.js');     /.html/ 方法一 <br>
-$import('.html/Qomo/Framework/Names/NameSystem.js');  /.html/ 方法二 <br>
-----------  </p>
-
-<p>各个.js中都要使用当前网页来做相对定位，这导致了系统中的脚本很不灵活，编写 <br>
-代码时要留意其它.js所在位置，目录转移时也不方便。——当然你也可以使用".html"开 <br>
-始的绝对定位，但如果这样，Qomo在应用系统中的可部署性就很差了。  </p>
-
-<p>因此Qomo对载入路径的理解是基于“当前.js文件”的。这样一来，在system.js中 <br>
-就可以这样来导入NameSystem.js： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>/.html/ system.js位于/Qomo/Framework/路径上 <br>
-$import('Names/NameSystem.js'); <br>
----------- <br>
-而在NameSystem.js中如果要导入同样位于Names目录中的A.js文件，则只需要： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>$import('A.js'); <br>
-----------  </p>
-
-<p>为此，Qomo在$import()实现了一个_stack数组变量。它被当做一个后入先出队列， <br>
-以保证curScript中总是存在当前正在执行的.js文件的URL。这样$import()就可以 <br>
-据此来计算“正在执行的.js中新导入的.js的相对路径”。  </p>
-
-<p>麻烦并没有解除。因为Qomo对系统的理解是“可拆解”的，因此它会允许下面这样 <br>
-的代码： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>&lt;script src="Qomo/Framework/system.js"&gt;&lt;/script&gt; <br>
-&lt;script src="Qomo/Controls/Components.js"&gt;&lt;/script&gt; <br>
-&lt;script src="Qomo/DB/DB.js"&gt;&lt;/script&gt;  </p>
-
-<p><font face="Courier New">&lt;script&gt; <br>
-  $import('Qomo/Common/Tools.js'); <br>
-&lt;/script&gt; <br>
-----------</font> <br>
-在这样的一个系统中，system.js、Components.js和DB.js中所理解的“当前路径” <br>
-都不一样。因此我们必须有办法来知道$import()当前正在哪一个.js文件中执行， <br>
-并取得它的src。  </p>
-
-<p>函数activeJS()用于取得由&lt;script&gt;导入的.js文件的URL，然后在.js中就可以使 <br>
-用相对路径来载入其它.js文件了。  </p>
-
-<p>在IE中有机会取到“当前.js的路径”。在使用中我发现&lt;script&gt;对象的readyState <br>
-属性可以帮助我们来实现这个需求。简单的说，.js文件执行时，script.readyState <br>
-的值将会是"interactive"。如果我们列举所有的&lt;script&gt;标签，则可以找到这个 <br>
-script对象，从而得到src的值。  </p>
-
-<p>activeJS()利用这个特性来实现。但firefox中DOM的Script对象不具有readyState <br>
-属性，因此firefox部分的代码采用了识别文件名"system.js"的方法来实现。—— <br>
-但需要注意的是，我没有办法为Qomo在firefox中提供与IE一样的特性。它们之间的 <br>
-差异表现在： <br>
-  - （除非在system.js中，）$import()在firefox中不能使用相对路径的特性 <br>
-  - 如果修改system.js的文件名，则firefox在system.js也不能使用相对路径  </p>
-
-<p>最后，在一个普通的&lt;script&gt;脚本块中使用$import()，它将会以当前的document的 <br>
-路径作为计算相对路径的基础。这时，activeJS()返回空串。——正好script.src <br>
-也是空串。  </p>
-
-<p> 4. 为什么不是命名空间 <br>
- ~~~~~~ <br>
- Qomo支持但不强制使用命名空间。这是Qomo如此复杂地实现$import()的原因。因 <br>
-为在一个支持“命名空间注册”的系统中，可以这样来做： <br>
-<font face="Courier New">  </font></p>
-
-<hr>
-
-<p>/.html/ 1. in system.js <br>
-Names.registerNamespace('.html/Framework', 'currentPath');  </p>
-
-<p><font face="Courier New">/.html/ 2. in my_script.js <br>
-$import('.html/Framework/Debug/debug.js'); <br>
+<p>&lt;script src=&quot;../Framework/system.js&quot;&gt;&lt;/script&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!-- 之一 --&gt; <br />
+&lt;script src=&quot;/Qomo/Framework/system.js&quot;&gt;&lt;/script&gt;&nbsp;&nbsp; &lt;!-- 之二 --&gt; <br />
 ----------</font>  </p>
 
-<p>这样，由于命名空间的存在，系统的确可以快速地反映模块的位置和相互关系。然 <br>
-而这种通过registerNamespace()手工注册的形式，导致用户必须强制使用命名空间。 <br>
-——尽管这没有什么不好，也的确是firefox上可以采用的最佳方式。然而我还是在 <br>
-Qomo中实现了自注册的命名空间管理子系统，这使得在大多数情况下，命名空间都可 <br>
+<p>因为XMLHTTP也使用当前网页来做相对定位，因此在这方面他与&lt;script&gt;对象相同。 <br />
+那么显然我们在system.js中导入NameSystem.js应该使用下面这样的代码： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>// $import()使用XMLHTTP来实现 <br />
+$import('../Framework/Names/NameSystem.js');&nbsp;&nbsp;&nbsp;&nbsp; // 方法一 <br />
+$import('/Qomo/Framework/Names/NameSystem.js');&nbsp; // 方法二 <br />
+----------</font>  </p>
+
+<p>各个.js中都要使用当前网页来做相对定位，这导致了系统中的脚本很不灵活，编写 <br />
+代码时要留意其它.js所在位置，目录转移时也不方便。&mdash;&mdash;当然你也可以使用&quot;/&quot;开 <br />
+始的绝对定位，但如果这样，Qomo在应用系统中的可部署性就很差了。  </p>
+
+<p>因此Qomo对载入路径的理解是基于&ldquo;当前.js文件&rdquo;的。这样一来，在system.js中 <br />
+就可以这样来导入NameSystem.js： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>// system.js位于/Qomo/Framework/路径上 <br />
+$import('Names/NameSystem.js'); <br />
+----------</font> <br />
+而在NameSystem.js中如果要导入同样位于Names目录中的A.js文件，则只需要： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>$import('A.js'); <br />
+----------</font>  </p>
+
+<p>为此，Qomo在$import()实现了一个_stack数组变量。它被当做一个后入先出队列， <br />
+以保证curScript中总是存在当前正在执行的.js文件的URL。这样$import()就可以 <br />
+据此来计算&ldquo;正在执行的.js中新导入的.js的相对路径&rdquo;。  </p>
+
+<p>麻烦并没有解除。因为Qomo对系统的理解是&ldquo;可拆解&rdquo;的，因此它会允许下面这样 <br />
+的代码： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>&lt;script src=&quot;../Qomo/Framework/system.js&quot;&gt;&lt;/script&gt; <br />
+&lt;script src=&quot;../Qomo/Controls/Components.js&quot;&gt;&lt;/script&gt; <br />
+&lt;script src=&quot;../Qomo/DB/DB.js&quot;&gt;&lt;/script&gt;</font>  </p>
+
+<p><font face="Courier New">&lt;script&gt; <br />
+&nbsp; $import('../Qomo/Common/Tools.js'); <br />
+&lt;/script&gt; <br />
+----------</font> <br />
+在这样的一个系统中，system.js、Components.js和DB.js中所理解的&ldquo;当前路径&rdquo; <br />
+都不一样。因此我们必须有办法来知道$import()当前正在哪一个.js文件中执行， <br />
+并取得它的src。  </p>
+
+<p>函数activeJS()用于取得由&lt;script&gt;导入的.js文件的URL，然后在.js中就可以使 <br />
+用相对路径来载入其它.js文件了。  </p>
+
+<p>在IE中有机会取到&ldquo;当前.js的路径&rdquo;。在使用中我发现&lt;script&gt;对象的readyState <br />
+属性可以帮助我们来实现这个需求。简单的说，.js文件执行时，script.readyState <br />
+的值将会是&quot;interactive&quot;。如果我们列举所有的&lt;script&gt;标签，则可以找到这个 <br />
+script对象，从而得到src的值。  </p>
+
+<p>activeJS()利用这个特性来实现。但firefox中DOM的Script对象不具有readyState <br />
+属性，因此firefox部分的代码采用了识别文件名&quot;system.js&quot;的方法来实现。&mdash;&mdash; <br />
+但需要注意的是，我没有办法为Qomo在firefox中提供与IE一样的特性。它们之间的 <br />
+差异表现在： <br />
+&nbsp; - （除非在system.js中，）$import()在firefox中不能使用相对路径的特性 <br />
+&nbsp; - 如果修改system.js的文件名，则firefox在system.js也不能使用相对路径  </p>
+
+<p>最后，在一个普通的&lt;script&gt;脚本块中使用$import()，它将会以当前的document的 <br />
+路径作为计算相对路径的基础。这时，activeJS()返回空串。&mdash;&mdash;正好script.src <br />
+也是空串。  </p>
+
+<p>&nbsp;4. 为什么不是命名空间 <br />
+&nbsp;~~~~~~ <br />
+&nbsp;Qomo支持但不强制使用命名空间。这是Qomo如此复杂地实现$import()的原因。因 <br />
+为在一个支持&ldquo;命名空间注册&rdquo;的系统中，可以这样来做： <br />
+<font face="Courier New">  </p>
+
+<hr />
+
+<p>// 1. in system.js <br />
+Names.registerNamespace('/Framework', 'currentPath');</font>  </p>
+
+<p><font face="Courier New">// 2. in my_script.js <br />
+$import('/Framework/Debug/debug.js'); <br />
+----------</font>  </p>
+
+<p>这样，由于命名空间的存在，系统的确可以快速地反映模块的位置和相互关系。然 <br />
+而这种通过registerNamespace()手工注册的形式，导致用户必须强制使用命名空间。 <br />
+&mdash;&mdash;尽管这没有什么不好，也的确是firefox上可以采用的最佳方式。然而我还是在 <br />
+Qomo中实现了自注册的命名空间管理子系统，这使得在大多数情况下，命名空间都可 <br />
 以通过$import()调用时的路径关系来自动获取和计算。  </p>
 
-<p>即使不加载命名空间模块，Qomo系统也能正常的运行。这是Qomo的一个特点。尽管这 <br>
-个特性在firefox中不能被实现，然而我还是为“喜欢快捷轻巧的内核”的开发者们提 <br>
+<p>即使不加载命名空间模块，Qomo系统也能正常的运行。这是Qomo的一个特点。尽管这 <br />
+个特性在firefox中不能被实现，然而我还是为&ldquo;喜欢快捷轻巧的内核&rdquo;的开发者们提 <br />
 供了一种可能的选择。  </p>
 
 <p>不过关于NameSystem.js的具体实现我们以后再讲。今次我们讨论的，只是system.js。  </p>
 
-<p> 5. _sys对象的价值 <br>
- ~~~~~~ <br>
- 在Qomo的内核中，一部分代码是可被外部使用的。例如解码用的toCurrentCharset() <br>
+<p>&nbsp;5. _sys对象的价值 <br />
+&nbsp;~~~~~~ <br />
+&nbsp;在Qomo的内核中，一部分代码是可被外部使用的。例如解码用的toCurrentCharset() <br />
 以及用于导入.js文件的、异步的XMLHTTP对象。  </p>
 
-<p>然而$import()封装了这些细节。在Qomo对代码的理解里面，是“没有必要，就不要 <br>
-公布”，这样尽可能地少占用一些全局的变量名。  </p>
+<p>然而$import()封装了这些细节。在Qomo对代码的理解里面，是&ldquo;没有必要，就不要 <br />
+公布&rdquo;，这样尽可能地少占用一些全局的变量名。  </p>
 
-<p>那么有价值的资源能如何被使用呢？Qomo在$import()函数声明了对象_sys，： <br>
-<font face="Courier New">  </font></p>
+<p>那么有价值的资源能如何被使用呢？Qomo在$import()函数声明了对象_sys，： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  var _sys = { <br>
-    /.html/ 读取这些内容可以了解$import()的运行情况 <br>
-    'scripts': {}, <br>
-    'curScript': '.html',  </p>
+<p>&nbsp; var _sys = { <br />
+&nbsp;&nbsp;&nbsp; // 读取这些内容可以了解$import()的运行情况 <br />
+&nbsp;&nbsp;&nbsp; 'scripts': {}, <br />
+&nbsp;&nbsp;&nbsp; 'curScript': '',</font>  </p>
 
-<p><font face="Courier New">    /.html/ ajax kernal <br>
-    'httpGet': httpGet, <br>
-    'httpConn': getHttpConnect,</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // ajax kernal <br />
+&nbsp;&nbsp;&nbsp; 'httpGet': httpGet, <br />
+&nbsp;&nbsp;&nbsp; 'httpConn': getHttpConnect,</font>  </p>
 
-<p><font face="Courier New">    /.html/ decode for XMLHTTP.responseBody <br>
-    'bodyDecode': toCurrentCharset,</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // decode for XMLHTTP.responseBody <br />
+&nbsp;&nbsp;&nbsp; 'bodyDecode': toCurrentCharset,</font>  </p>
 
-<p><font face="Courier New">    /.html/ 取当前正在执行中的脚本的src <br>
-    'activeJS' : activeJS</font>  </p>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // 取当前正在执行中的脚本的src <br />
+&nbsp;&nbsp;&nbsp; 'activeJS' : activeJS</font>  </p>
 
-<p><font face="Courier New">    /.html/ ... <br>
-  } <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; } <br />
 ----------</font>  </p>
 
-<p>然后为$import实现了一些用于存取这个对象的方法： <br>
-<font face="Courier New">  </font></p>
+<p>然后为$import实现了一些用于存取这个对象的方法： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  <em>import.get = function(n) { <br>
-    return eval('</em>sys[n]'); <br>
-  }  </p>
+<p>&nbsp; <em>import.get = function(n) { <br />
+&nbsp;&nbsp;&nbsp; return eval('</em>sys[n]'); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  <em>import.set = function(n, v) { <br>
-    return eval('</em>sys[n] = v'); <br>
-  }</font>  </p>
+<p><font face="Courier New">&nbsp; <em>import.set = function(n, v) { <br />
+&nbsp;&nbsp;&nbsp; return eval('</em>sys[n] = v'); <br />
+&nbsp; }</font>  </p>
 
-<p><font face="Courier New">  _import.OnSysInitialized = function() { ... } <br>
+<p><font face="Courier New">&nbsp; _import.OnSysInitialized = function() { ... } <br />
 ----------</font>  </p>
 
-<p>这样，在Qomo中就可以写下面这样的代码来使用_sys对象了： <br>
-<font face="Courier New">  </font></p>
+<p>这样，在Qomo中就可以写下面这样的代码来使用_sys对象了： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>var httpGet = $import.get('httpGet'); <br>
-var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.sina.com.cn/</a>');  </p>
+<p>var httpGet = $import.get('httpGet'); <br />
+var str = httpGet('<a href="http://www.sina.com.cn/">http://www.sina.com.cn/</a>');</font>  </p>
 
-<p><font face="Courier New">alert(str); <br>
+<p><font face="Courier New">alert(str); <br />
 ----------</font>  </p>
 
-<p>而$import.set()的提供，就与我们在最前说到的“功能重述”技术有关了。 <br>
-因为$import.set()修改的是<em>sys对象所存放的“内部功能入口”，因此可以 <br>
-通过调用set()方法来“重新描述”这些功能入口的实现方法。这些能被重述 <br>
-的内容取决于</em>sys对象公开了哪些内容。在Qomo中，这些是可以被重述的： <br>
-<font face="Courier New">  </font></p>
+<p>而$import.set()的提供，就与我们在最前说到的&ldquo;功能重述&rdquo;技术有关了。 <br />
+因为$import.set()修改的是<em>sys对象所存放的&ldquo;内部功能入口&rdquo;，因此可以 <br />
+通过调用set()方法来&ldquo;重新描述&rdquo;这些功能入口的实现方法。这些能被重述 <br />
+的内容取决于</em>sys对象公开了哪些内容。在Qomo中，这些是可以被重述的： <br />
+<font face="Courier New">  </p>
 
-<hr>
+<hr />
 
-<p>  var _sys = { <br>
-    'transitionUrl': function(url){ ... } <br>
-    'srcBase': function() { ... }  </p>
+<p>&nbsp; var _sys = { <br />
+&nbsp;&nbsp;&nbsp; 'transitionUrl': function(url){ ... } <br />
+&nbsp;&nbsp;&nbsp; 'srcBase': function() { ... }</font>  </p>
 
-<p><font face="Courier New">    /.html/ ... <br>
-  } <br>
+<p><font face="Courier New">&nbsp;&nbsp;&nbsp; // ... <br />
+&nbsp; } <br />
 ----------</font>  </p>
 
-<p>一些人应该已经注意到$import()并没有实现“导入包或命名空间”这样的功能。 <br>
-而这里公开这些功能入口，就是使得它们可以被“重述”：如果在NameSystem.js <br>
-中重述transitionUrl()和srcBase()的实现，那么就可以在不修改$import()的 <br>
+<p>一些人应该已经注意到$import()并没有实现&ldquo;导入包或命名空间&rdquo;这样的功能。 <br />
+而这里公开这些功能入口，就是使得它们可以被&ldquo;重述&rdquo;：如果在NameSystem.js <br />
+中重述transitionUrl()和srcBase()的实现，那么就可以在不修改$import()的 <br />
 情况下，支持命名空间和包。  </p>
 
-<p>然而这些“可重述”的特性仍然是与内核直接相关的。因此$import()还公开了 <br>
-一个事件OnSysInitialized()，并在system.js的最未尾激活了这个事件。—— <br>
+<p>然而这些&ldquo;可重述&rdquo;的特性仍然是与内核直接相关的。因此$import()还公开了 <br />
+一个事件OnSysInitialized()，并在system.js的最未尾激活了这个事件。&mdash;&mdash; <br />
 这个事件的响应代码所做的工作，就是为$import()清除set()/set()等这些方法。  </p>
 
-<p>通过$import.get()/set()，我们可以在system.js所导入的其它.js中为$import() <br>
-进行重述，也可以利用$import()已经实现过的特性和代码。而在system.js载入并 <br>
-执行完成之后，这些预留给系统内核的功能就随着OnSysInitialized()的触发而被 <br>
+<p>通过$import.get()/set()，我们可以在system.js所导入的其它.js中为$import() <br />
+进行重述，也可以利用$import()已经实现过的特性和代码。而在system.js载入并 <br />
+执行完成之后，这些预留给系统内核的功能就随着OnSysInitialized()的触发而被 <br />
 清除了。  </p>
 
-<p>system.js模块实现了一个具有张力和包容性的载入框架，为后面实现可裁剪的Qomo <br>
+<p>system.js模块实现了一个具有张力和包容性的载入框架，为后面实现可裁剪的Qomo <br />
 系统提供了充分的基础。</p>
             </section>
 <!-- removed by aimingoo
@@ -737,14 +738,14 @@ var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.s
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-29/.html">
+                <a href="/1-29.html">
                     Qomo OpenProject Field Test 1发布！
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-31/.html">
-                    关于Borland's IDE：发生了就发生了吧!
+            <span class="post-nav-next" >
+                <a href="/1-31.html">
+                    关于Borland&#x27;s IDE：发生了就发生了吧!
                 </a>
                 下一篇
             </span>
@@ -753,11 +754,11 @@ var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.s
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -773,30 +774,30 @@ var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.s
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -810,8 +811,8 @@ var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.s
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -823,20 +824,21 @@ var str = httpGet('<a href="http:/.html/www.sina.com.cn/.html">http:/.html/www.s
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

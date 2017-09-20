@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>如何将电子书发送到Kindle</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="如何将电子书发送到Kindle">
-    <meta property="og:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1730/.html">
-    <meta property="article:published_time" content="2017-06-12T18:55:24.000Z">
-    <meta property="article:modified_time" content="2017-06-15T17:54:24.000Z">
-    <meta property="article:tag" content="Kindle">
-    <meta property="article:tag" content="电子书">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="如何将电子书发送到Kindle" />
+    <meta property="og:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1730.html" />
+    <meta property="article:published_time" content="2017-06-12T18:55:24.000Z" />
+    <meta property="article:modified_time" content="2017-06-15T17:54:24.000Z" />
+    <meta property="article:tag" content="Kindle" />
+    <meta property="article:tag" content="电子书" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="如何将电子书发送到Kindle">
-    <meta name="twitter:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1730/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Kindle, 电子书">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="如何将电子书发送到Kindle" />
+    <meta name="twitter:description" content="前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1730.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Kindle, 电子书" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "如何将电子书发送到Kindle",
-    "url": "http:/.html/aimingoo.github.io/1-1730/.html",
+    "url": "http://aimingoo.github.io/1-1730.html",
     "datePublished": "2017-06-12T18:55:24.000Z",
     "dateModified": "2017-06-15T17:54:24.000Z",
     "keywords": "Kindle, 电子书",
     "description": "前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。 但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。 1. 先说一个例外 首先，这事实上有一个例外。在seutfy的文章中讲到，有以下几个条件： 113(ASIN)值是真实的，与亚马逊上的值相同；   504(ASIN)值与113相同，也是真实的；   501(CDE type)值为EBOK。 满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。 2. 找到你的Kindle所绑定的邮箱 所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如tokindle，或者",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-kindle tag-dian-zi-shu nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-kindle tag-dian-zi-shu">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1730.1">如何将电子书发送到Kindle</a></h1>
+                <h1 class="post-title"><a href="/1-1730.html">如何将电子书发送到Kindle</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/kindle/.html">Kindle</a>, <a href="tag/dian-zi-shu/.html">电子书</a>
+                        <a href="/tag/kindle/">Kindle</a>, <a href="/tag/dian-zi-shu/">电子书</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -151,7 +152,7 @@ ghost.init({
 
 <h2 id="1">1. 先说一个例外</h2>
 
-<p>首先，这事实上有一个例外。在<a href="http:/.html/blog.sina.com.cn/s/blog_5374fceb0102v58q.html">seutfy的文章</a>中讲到，有以下几个条件：</p>
+<p>首先，这事实上有一个例外。在<a href="http://blog.sina.com.cn/s/blog_5374fceb0102v58q.html">seutfy的文章</a>中讲到，有以下几个条件：</p>
 
 <ol>
 <li>113(ASIN)值是真实的，与亚马逊上的值相同；  </li>
@@ -163,12 +164,12 @@ ghost.init({
 
 <h2 id="2kindle">2. 找到你的Kindle所绑定的邮箱</h2>
 
-<p>所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如<a href="https:/.html/github.com/serzh/tokindle">tokindle</a>，或者
-<a href="https:/.html/github.com/nicholaswilde/upload2Kindle">upload2Kindle</a>。原理上也完全一样：就是向与你的Kindle设备绑定的一个邮箱发电子书附件。</p>
+<p>所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如<a href="https://github.com/serzh/tokindle">tokindle</a>，或者
+<a href="https://github.com/nicholaswilde/upload2Kindle">upload2Kindle</a>。原理上也完全一样：就是向与你的Kindle设备绑定的一个邮箱发电子书附件。</p>
 
 <p>你得首先知道这个绑定的邮箱。这事实上有两个（注意，这两个并不一样），其一是你的amazon登录账号，另一个则是每个设备（例如你有多个kindle）都独有的一个邮箱。</p>
 
-<p>我强烈建议你读一下这篇文章<a href="http:/.html/www.hangge.com/blog/cache/detail_1626.html">《将电子书发送到Kindle上的几种方法》</a>所讲，并且建议你先立即开始尝试一下其中的方法2，即“<strong>官方软件Send to kindle</strong>”，下载地址在<a href="https:/.html/www.amazon.com/gp/sendtokindle/pc">这里</a>，或<a href="https:/.html/www.amazon.com/gp/sendtokindle/mac">Mac版本</a>。</p>
+<p>我强烈建议你读一下这篇文章<a href="http://www.hangge.com/blog/cache/detail_1626.html">《将电子书发送到Kindle上的几种方法》</a>所讲，并且建议你先立即开始尝试一下其中的方法2，即“<strong>官方软件Send to kindle</strong>”，下载地址在<a href="https://www.amazon.com/gp/sendtokindle/pc">这里</a>，或<a href="https://www.amazon.com/gp/sendtokindle/mac">Mac版本</a>。</p>
 
 <p>这个官方的“<strong>Send to Kindle</strong>”软件的好处是简单、安全可信：你填入你的amazon账号就可用了。并且，它会列出你可以发送到的Kindle设备列表。但是，它只支持向设备有限格式的电子书（DOC,DOCX,PDF,HTML,TXT and RTF），别的格式（例如你自制的.azw3）都不支持。</p>
 
@@ -180,7 +181,7 @@ ghost.init({
 
 <blockquote>
   <p>图：官方网站入口
-  <img src="content/images/2017/06/-----2017-06-12-23.56.59.png" alt=".html"></p>
+  <img src="/content/images/2017/06/-----2017-06-12-23.56.59.png" alt="" /></p>
 </blockquote>
 
 <p>更快捷的方法是在上面的“<strong>Send to Kindle</strong>”软件中，在它的界面的最下边有“Manage your Kindle”，点击进入就可以了（这就是我建议你先尝试它的主要原因了）。</p>
@@ -208,7 +209,7 @@ ghost.init({
 
 <p>那么你就可以使用Calibre或其它的什么工具来发送你的电子书到你的设备了。由于最终其实经过Kindle官方的邮件服务（因为最终绑定的是xxxxx@kindle.com）来处理，所以下发到你的Kindle设备时，就可以有一张“收藏夹封面”图了。</p>
 
-<p>其它细节，仍推荐阅读：<a href="http:/.html/www.hangge.com/blog/cache/detail_1626.html">《将电子书发送到Kindle上的几种方法》</a>，或者这一篇<a href="https:/.html/kindlefere.com/post/11.html">《Calibre 使用教程之邮件一键推送电子书》</a>。</p>
+<p>其它细节，仍推荐阅读：<a href="http://www.hangge.com/blog/cache/detail_1626.html">《将电子书发送到Kindle上的几种方法》</a>，或者这一篇<a href="https://kindlefere.com/post/11.html">《Calibre 使用教程之邮件一键推送电子书》</a>。</p>
 
 <h2 id="5">5. 这个功能是有限制的</h2>
 
@@ -226,7 +227,7 @@ ghost.init({
 
 <p>最后，我知道你和我一样是有着对阅读有着近乎洁癖的要求：我完全不能忍受一本没有封面，或没有目录的书！</p>
 
-<p>好吧，如果这样，关于收藏夹封面的问题还是有解的：你可以使用<a href="https:/.html/github.com/quiris11/ExtractCoverThumbs">ExtractCoverThumbs</a>这个开源工具。作者发布了它的GUI和Console for Mac的版本（下载在上面地址的releases中）。如果你使用Windows，那么你可以自己下载一份源码（也可以编译成Window GUI的版本）来使用。</p>
+<p>好吧，如果这样，关于收藏夹封面的问题还是有解的：你可以使用<a href="https://github.com/quiris11/ExtractCoverThumbs">ExtractCoverThumbs</a>这个开源工具。作者发布了它的GUI和Console for Mac的版本（下载在上面地址的releases中）。如果你使用Windows，那么你可以自己下载一份源码（也可以编译成Window GUI的版本）来使用。</p>
 
 <p>ExtractCoverThumbs这个工具的作用是直接在你的Kindle的<code>/Volumes/Kindle/system/thumbnails/</code>目录中生成封面的缩略图文件——因此绕开了从Kindle官方的下载过程。它可以操作很多类型的电子书或文档，并且可以帮助你从网上自动下载封面。不过，注意有一项限制：</p>
 
@@ -246,13 +247,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1728/.html">
+                <a href="/1-1728.html">
                     在电子书中使用SVG
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-1729/.html">
+            <span class="post-nav-next" >
+                <a href="/1-1729.html">
                     Kindle的四种封面
                 </a>
                 下一篇
@@ -262,11 +263,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -282,30 +283,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -319,8 +320,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -332,20 +333,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

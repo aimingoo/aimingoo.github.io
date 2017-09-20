@@ -1,90 +1,91 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>关于Qomo OpenProject的进度(2006.01.04)</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="关于Qomo OpenProject的进度(2006.01.04)">
-    <meta property="og:description" content="目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。   我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&amp;mdash;&amp;mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。   由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。   在&amp;ldquo;Qomo OpenProject中的一些关键词(1)(2)&amp;rdquo;这两部分公开之后，接下来计划撰写的文档是：   　八、JavaScript面向对象的支持   　九、Qomo OpenProject中编码规范   此后，就进入Qomo OpenProject项目的源代码分析和开放的阶段了。   ~~~~~~~   目前已公开的文档内容包括：   http:/.html/blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx   一、Qomo OpenProject项目的由来">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-17/.html">
-    <meta property="article:published_time" content="2006-01-03T17:56:00.000Z">
-    <meta property="article:modified_time" content="2006-01-03T17:56:00.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="文档">
-    <meta property="article:tag" content="代码分析">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="关于Qomo OpenProject的进度(2006.01.04)" />
+    <meta property="og:description" content="目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。   我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&amp;mdash;&amp;mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。   由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。   在&amp;ldquo;Qomo OpenProject中的一些关键词(1)(2)&amp;rdquo;这两部分公开之后，接下来计划撰写的文档是：   　八、JavaScript面向对象的支持   　九、Qomo OpenProject中编码规范   此后，就进入Qomo OpenProject项目的源代码分析和开放的阶段了。   ~~~~~~~   目前已公开的文档内容包括：   http://blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx   一、Qomo OpenProject项目的由来" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-17.html" />
+    <meta property="article:published_time" content="2006-01-03T17:56:00.000Z" />
+    <meta property="article:modified_time" content="2006-01-03T17:56:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="文档" />
+    <meta property="article:tag" content="代码分析" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="关于Qomo OpenProject的进度(2006.01.04)">
-    <meta name="twitter:description" content="目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。   我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&amp;mdash;&amp;mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。   由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。   在&amp;ldquo;Qomo OpenProject中的一些关键词(1)(2)&amp;rdquo;这两部分公开之后，接下来计划撰写的文档是：   　八、JavaScript面向对象的支持   　九、Qomo OpenProject中编码规范   此后，就进入Qomo OpenProject项目的源代码分析和开放的阶段了。   ~~~~~~~   目前已公开的文档内容包括：   http:/.html/blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx   一、Qomo OpenProject项目的由来">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-17/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 文档, 代码分析">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="关于Qomo OpenProject的进度(2006.01.04)" />
+    <meta name="twitter:description" content="目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。   我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&amp;mdash;&amp;mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。   由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。   在&amp;ldquo;Qomo OpenProject中的一些关键词(1)(2)&amp;rdquo;这两部分公开之后，接下来计划撰写的文档是：   　八、JavaScript面向对象的支持   　九、Qomo OpenProject中编码规范   此后，就进入Qomo OpenProject项目的源代码分析和开放的阶段了。   ~~~~~~~   目前已公开的文档内容包括：   http://blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx   一、Qomo OpenProject项目的由来" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-17.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 文档, 代码分析" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "关于Qomo OpenProject的进度(2006.01.04)",
-    "url": "http:/.html/aimingoo.github.io/1-17/.html",
+    "url": "http://aimingoo.github.io/1-17.html",
     "datePublished": "2006-01-03T17:56:00.000Z",
     "dateModified": "2006-01-03T17:56:00.000Z",
     "keywords": "Javascript, 文档, 代码分析",
-    "description": "目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。   我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&amp;mdash;&amp;mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。   由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。   在&amp;ldquo;Qomo OpenProject中的一些关键词(1)(2)&amp;rdquo;这两部分公开之后，接下来计划撰写的文档是：   　八、JavaScript面向对象的支持   　九、Qomo OpenProject中编码规范   此后，就进入Qomo OpenProject项目的源代码分析和开放的阶段了。   ~~~~~~~   目前已公开的文档内容包括：   http:/.html/blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx   一、Qomo OpenProject项目的由来",
+    "description": "目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。   我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&amp;mdash;&amp;mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。   由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。   在&amp;ldquo;Qomo OpenProject中的一些关键词(1)(2)&amp;rdquo;这两部分公开之后，接下来计划撰写的文档是：   　八、JavaScript面向对象的支持   　九、Qomo OpenProject中编码规范   此后，就进入Qomo OpenProject项目的源代码分析和开放的阶段了。   ~~~~~~~   目前已公开的文档内容包括：   http://blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx   一、Qomo OpenProject项目的由来",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-wen-dang tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +96,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -124,11 +125,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-wen-dang tag-delphiyuan-dai-ma-fen-xi">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-17.html">关于Qomo OpenProject的进度(2006.01.04)</a></h1>
+                <h1 class="post-title"><a href="/1-17.html">关于Qomo OpenProject的进度(2006.01.04)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/wen-dang/.html">文档</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/.html">代码分析</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/wen-dang/">文档</a>, <a href="/tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,11 +149,11 @@ ghost.init({
             <section class="post-content">
                 <p>目前项目仍在初起阶段。许多事情是我一个人来做的，因此时间上实在不够用。  </p>
 
-<p>我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。——尽管这个工作不复杂，但涉及到原公司的授权问题。  </p>
+<p>我目前的主要工作是撰写项目的相关文档和整理项目中的可公开代码。我需要从原有的WEUI项目中剥离出一些非商业的代码出来。&mdash;&mdash;尽管这个工作不复杂，但涉及到原公司的授权问题。  </p>
 
 <p>由于是开源项目，因此我保证大家是可以得到完整代码、文档的。不过当前，我希望大家能关注已公开的文档部分，并尽可能积极的参与(这两天的e-mail没回，是因为我元旦期间在外地，不能上网)。  </p>
 
-<p>在“Qomo OpenProject中的一些关键词(1)(2)”这两部分公开之后，接下来计划撰写的文档是：  </p>
+<p>在&ldquo;Qomo OpenProject中的一些关键词(1)(2)&rdquo;这两部分公开之后，接下来计划撰写的文档是：  </p>
 
 <p>　八、JavaScript面向对象的支持  </p>
 
@@ -164,19 +165,19 @@ ghost.init({
 
 <p>目前已公开的文档内容包括：  </p>
 
-<p><a href="http:/.html/blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx">http:/.html/blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx</a>  </p>
+<p><a href="http://blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx">http://blog.csdn.net/aimingoo/archive/2005/12/29/564658.aspx</a>  </p>
 
-<p>一、Qomo OpenProject项目的由来 <br>
-二、Qomo OpenProject的组成 <br>
-三、Qomo OpenProject的运行环境 <br>
-四、Qomo OpenProject的特点 <br>
+<p>一、Qomo OpenProject项目的由来 <br />
+二、Qomo OpenProject的组成 <br />
+三、Qomo OpenProject的运行环境 <br />
+四、Qomo OpenProject的特点 <br />
 五、参与Qomo OpenProject项目    </p>
 
-<p><a href="http:/.html/blog.csdn.net/aimingoo/archive/2005/12/30/565729.aspx">http:/.html/blog.csdn.net/aimingoo/archive/2005/12/30/565729.aspx</a>  </p>
+<p><a href="http://blog.csdn.net/aimingoo/archive/2005/12/30/565729.aspx">http://blog.csdn.net/aimingoo/archive/2005/12/30/565729.aspx</a>  </p>
 
 <p>六、Qomo OpenProject中的一些关键词    </p>
 
-<p><a href="http:/.html/blog.csdn.net/aimingoo/archive/2006/01/04/569702.aspx">http:/.html/blog.csdn.net/aimingoo/archive/2006/01/04/569702.aspx</a>  </p>
+<p><a href="http://blog.csdn.net/aimingoo/archive/2006/01/04/569702.aspx">http://blog.csdn.net/aimingoo/archive/2006/01/04/569702.aspx</a>  </p>
 
 <p>七、Qomo OpenProject中的一些关键词(2)</p>
             </section>
@@ -190,13 +191,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-16/.html">
+                <a href="/1-16.html">
                     从基础开始：Qomo OpenProject中的一些关键词(2)
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-214/.html">
+            <span class="post-nav-next" >
+                <a href="/1-214.html">
                     当骂老婆成为习惯～
                 </a>
                 下一篇
@@ -206,11 +207,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -226,30 +227,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -263,8 +264,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -276,20 +277,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

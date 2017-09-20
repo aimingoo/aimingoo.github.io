@@ -1,90 +1,91 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）">
-    <meta property="og:description" content="本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三） 前三节有关背景介绍请至：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一） 4、修改前的准备工作 这里介绍一些Android上的逆向工程的基础。首先，我们要操作Phone.apk，它其实也就是一个.zip文件，其中包括四个主要信息：     &amp;nbsp; - 资源文件：res*.*和resources.arsc     &amp;nbsp; - 代码文件：classes.dex     &amp;nbsp; - 应用描述：AndroidManifest.xml     &amp;nbsp; - 签名信息：META-INF*.*     apktool这个工具可以处理前三种数据，而签名信息则必须使用一个signapk.jar（有些工具包称为AutoSign）。     1）解包（缺省至Phone目录） apktool d -f Phone.">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-179/.html">
-    <meta property="article:published_time" content="2012-09-03T10:08:00.000Z">
-    <meta property="article:modified_time" content="2017-06-13T13:49:14.000Z">
-    <meta property="article:tag" content="android">
-    <meta property="article:tag" content="汇编">
-    <meta property="article:tag" content="代码分析">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）" />
+    <meta property="og:description" content="本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三） 前三节有关背景介绍请至：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一） 4、修改前的准备工作 这里介绍一些Android上的逆向工程的基础。首先，我们要操作Phone.apk，它其实也就是一个.zip文件，其中包括四个主要信息：     &amp;nbsp; - 资源文件：res*.*和resources.arsc     &amp;nbsp; - 代码文件：classes.dex     &amp;nbsp; - 应用描述：AndroidManifest.xml     &amp;nbsp; - 签名信息：META-INF*.*     apktool这个工具可以处理前三种数据，而签名信息则必须使用一个signapk.jar（有些工具包称为AutoSign）。     1）解包（缺省至Phone目录） apktool d -f Phone." />
+    <meta property="og:url" content="http://aimingoo.github.io/1-179.html" />
+    <meta property="article:published_time" content="2012-09-03T10:08:00.000Z" />
+    <meta property="article:modified_time" content="2017-06-13T13:49:14.000Z" />
+    <meta property="article:tag" content="android" />
+    <meta property="article:tag" content="汇编" />
+    <meta property="article:tag" content="代码分析" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）">
-    <meta name="twitter:description" content="本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三） 前三节有关背景介绍请至：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一） 4、修改前的准备工作 这里介绍一些Android上的逆向工程的基础。首先，我们要操作Phone.apk，它其实也就是一个.zip文件，其中包括四个主要信息：     &amp;nbsp; - 资源文件：res*.*和resources.arsc     &amp;nbsp; - 代码文件：classes.dex     &amp;nbsp; - 应用描述：AndroidManifest.xml     &amp;nbsp; - 签名信息：META-INF*.*     apktool这个工具可以处理前三种数据，而签名信息则必须使用一个signapk.jar（有些工具包称为AutoSign）。     1）解包（缺省至Phone目录） apktool d -f Phone.">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-179/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="android, 汇编, 代码分析">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）" />
+    <meta name="twitter:description" content="本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三） 前三节有关背景介绍请至：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一） 4、修改前的准备工作 这里介绍一些Android上的逆向工程的基础。首先，我们要操作Phone.apk，它其实也就是一个.zip文件，其中包括四个主要信息：     &amp;nbsp; - 资源文件：res*.*和resources.arsc     &amp;nbsp; - 代码文件：classes.dex     &amp;nbsp; - 应用描述：AndroidManifest.xml     &amp;nbsp; - 签名信息：META-INF*.*     apktool这个工具可以处理前三种数据，而签名信息则必须使用一个signapk.jar（有些工具包称为AutoSign）。     1）解包（缺省至Phone目录） apktool d -f Phone." />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-179.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="android, 汇编, 代码分析" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）",
-    "url": "http:/.html/aimingoo.github.io/1-179/.html",
+    "url": "http://aimingoo.github.io/1-179.html",
     "datePublished": "2012-09-03T10:08:00.000Z",
     "dateModified": "2017-06-13T13:49:14.000Z",
     "keywords": "android, 汇编, 代码分析",
     "description": "本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三） 前三节有关背景介绍请至：Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一） 4、修改前的准备工作 这里介绍一些Android上的逆向工程的基础。首先，我们要操作Phone.apk，它其实也就是一个.zip文件，其中包括四个主要信息：     &amp;nbsp; - 资源文件：res*.*和resources.arsc     &amp;nbsp; - 代码文件：classes.dex     &amp;nbsp; - 应用描述：AndroidManifest.xml     &amp;nbsp; - 签名信息：META-INF*.*     apktool这个工具可以处理前三种数据，而签名信息则必须使用一个signapk.jar（有些工具包称为AutoSign）。     1）解包（缺省至Phone目录） apktool d -f Phone.",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-android tag-hui-bian tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +96,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -124,11 +125,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-android tag-hui-bian tag-delphiyuan-dai-ma-fen-xi">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-179.1">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</a></h1>
+                <h1 class="post-title"><a href="/1-179.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/android/.html">android</a>, <a href="tag/hui-bian/.html">汇编</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/.html">代码分析</a>
+                        <a href="/tag/android/">android</a>, <a href="/tag/hui-bian/">汇编</a>, <a href="/tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,22 +148,22 @@ ghost.init({
 
             <section class="post-content">
                 <blockquote>
-  <p>本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：<a href="1-180.1">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</a></p>
+  <p>本文分三篇。本篇提供一个最小的修改案例。更详细的修改请参考篇三：<a href="/1-180.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</a></p>
 </blockquote>
 
-<p>前三节有关背景介绍请至：<a href="1-178.1">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</a></p>
+<p>前三节有关背景介绍请至：<a href="/1-178.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</a></p>
 
 <h2 id="4">4、修改前的准备工作</h2>
 
 <p>这里介绍一些Android上的逆向工程的基础。首先，我们要操作Phone.apk，它其实也就是一个.zip文件，其中包括四个主要信息：    </p>
 
-<p>  - 资源文件：res*.*和resources.arsc    </p>
+<p>&nbsp; - 资源文件：res*.*和resources.arsc    </p>
 
-<p>  - 代码文件：classes.dex    </p>
+<p>&nbsp; - 代码文件：classes.dex    </p>
 
-<p>  - 应用描述：AndroidManifest.xml    </p>
+<p>&nbsp; - 应用描述：AndroidManifest.xml    </p>
 
-<p>  - 签名信息：META-INF*.*    </p>
+<p>&nbsp; - 签名信息：META-INF*.*    </p>
 
 <p>apktool这个工具可以处理前三种数据，而签名信息则必须使用一个signapk.jar（有些工具包称为AutoSign）。    </p>
 
@@ -198,7 +199,7 @@ ghost.init({
 
 <p><span style="white-space:pre"></span>InCallScreen.smali    </p>
 
-<p>注意这里的<em>.smali是另一种格式的源代码，它反编译自Dalvik虚拟机中执行码（opcode）。基本上，你可以认为这</em>.smali就是汇编代码（基于寄存器的虚拟机引擎）。好吧，但我们既然要“原生的”，那么就只好来改改这些汇编代码了。:(    </p>
+<p>注意这里的<em>.smali是另一种&#26684;式的源代码，它反编译自Dalvik虚拟机中执行码（opcode）。基本上，你可以认为这</em>.smali就是汇编代码（基于寄存器的虚拟机引擎）。好吧，但我们既然要“原生的”，那么就只好来改改这些汇编代码了。:(    </p>
 
 <h3 id="1incallscreensmali">1）对InCallScreen.smali只需要做一处修改</h3>
 
@@ -248,7 +249,7 @@ ghost.init({
     goto :cond_2  
     :cond_20  
 ## end fix.
-</mark></pre>    
+</pre>    
 
 <p>这里，if-nez变成了if-eqz，而:cond_20这一标签用于插入一段代码，当这些代码执行完成时，仍然会到：    </p>
 
@@ -257,19 +258,19 @@ ghost.init({
 
 <p>这就是上面要记住cond<em>2的原因。至于:cond</em>20是可以随意取的，编译程序是按16进制自动升序来编号这些标签，而0x20号标签一般已经比较大了，不会与现有的标签冲突。当然，写成cond<em>30或cond</em>50也行的。    </p>
 
-<p>此外，这里还必须要注意v0, v5, v1和v4这四个寄存器的使用，必须参考这里的代码上下文为决定使用哪些个空闲的寄存器。其中v1是继承使用了前面的寄存器值，如果此前v1中不是放着CallerInfo的话，则要根据上下文再调整。反正，如果寄存器用错了的话……哈哈……Crash~~    </p>
+<p>此外，这里还必须要注意v0, v5, v1和v4这四个寄存器的使用，必须参考这里的代码上下文为决定使用哪些个空闲的寄存器。其中v1是继承使用了前面的寄存器&#20540;，如果此前v1中不是放着CallerInfo的话，则要根据上下文再调整。反正，如果寄存器用错了的话……哈哈……Crash~~    </p>
 
 <blockquote>
-  <p>注：有一个简单的法子可以避免用错寄存器的问题，就是在将方法开始处的.locals nnn这里的nnn值改大几个，需要用几个寄存器，就加上几个。然后在我们插入的代码中，只使用最后的这几个寄存器号，也就不会冲突了。例如原来是.locals 4，改成.locals 8，则v4,v5,v6,v7这新添加的4个寄存器号，就总是安全的。</p>
+  <p>注：有一个简单的法子可以避免用错寄存器的问题，就是在将方法开始处的.locals nnn这里的nnn&#20540;改大几个，需要用几个寄存器，就加上几个。然后在我们插入的代码中，只使用最后的这几个寄存器号，也就不会冲突了。例如原来是.locals 4，改成.locals 8，则v4,v5,v6,v7这新添加的4个寄存器号，就总是安全的。</p>
 </blockquote>
 
 <h3 id="3callcardsmaliupdatephotoforcallstate">3) 修改CallCard.smali，针对updatePhotoForCallState()方法</h3>
 
-<p>这里的修改与上一例是相似的，只不过是针对updatePhotoForCallState()方法而已。找到：    </p>
+<p>这里的修改与上一例是相&#20284;的，只不过是针对updatePhotoForCallState()方法而已。找到：    </p>
 
 <pre name="code" class="plain">    invoke-static {v9, v3}, Lcom/android/phone/CallCard;-&gt;showCachedImage(Landroid/widget/ImageView;Lcom/android/internal/telephony/CallerInfo;)Z  
     move-result v9  
-    if-nez v9, :cond_2  ## 《《《《=修改此处</pre>    
+    if-nez v9, :cond_2  ## 《《《《</mark>=修改此处</pre>    
 
 改动上面最后一行。变成：    
 
@@ -292,8 +293,8 @@ ghost.init({
 ##  
 .method public showCachedBackground(Lcom/android/internal/telephony/CallerInfo;Lcom/android/internal/telephony/Call;)Z  
     .locals 6  
-    .parameter "ci"  
-    .parameter "call"  
+    .parameter &quot;ci&quot;  
+    .parameter &quot;call&quot;  
 
     .prologue  
     invoke-virtual {p2}, Lcom/android/internal/telephony/Call;-&gt;getState()Lcom/android/internal/telephony/Call$State;  
@@ -366,10 +367,10 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
 
 <pre name="code" class="java">public boolean showCachedBackground(CallerInfo paramCallerInfo, Call paramCall)  
 {  
-  /.html/ 电话是在用状态（来电或呼出或接通）  
+  // 电话是在用状态（来电或呼出或接通）  
   boolean bool = paramCall.getState().isAlive();  
 
-  /.html/ paramCallerInfo.isCachedPhotoCurrent有效  
+  // paramCallerInfo.isCachedPhotoCurrent有效  
   bool = bool &amp;&amp; (paramCallerInfo != null) &amp;&amp; paramCallerInfo.isCachedPhotoCurrent;  
 
   if (bool) {  
@@ -379,14 +380,14 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
       bool = false  
     }  
     else {  
-      /.html/ 置mMainFrame的背景  
+      // 置mMainFrame的背景  
       this.mInCallScreen.mMainFrame.setBackgroundDrawable(localDrawable);  
 
-      /.html/ 使mPhoto不显示（原来的头像就不必显示了嘛）  
+      // 使mPhoto不显示（原来的头像就不必显示了嘛）  
       this.mPhoto.setVisibility(8);  
 
-      /.html/ 修改作个人信息的显示风格（备用，后文解释）  
-      /.html/ setPersonInfoStyle(false);  
+      // 修改作个人信息的显示风格（备用，后文解释）  
+      // setPersonInfoStyle(false);  
     }  
   }  
   return bool;  
@@ -403,13 +404,13 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-178.1">
+                <a href="/1-178.html">
                     Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-180.1">
+            <span class="post-nav-next" >
+                <a href="/1-180.html">
                     Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）
                 </a>
                 下一篇
@@ -419,11 +420,11 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -439,30 +440,30 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -476,8 +477,8 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -489,20 +490,21 @@ showCachedBackground()的思路很简单。由于CallCard.smali总是要从“�
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

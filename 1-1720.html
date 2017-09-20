@@ -1,91 +1,92 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>手记2：从本地博客到Github Pages的最佳指南及工具</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="手记2：从本地博客到Github Pages的最佳指南及工具">
-    <meta property="og:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https:/.html/xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1720/.html">
-    <meta property="article:published_time" content="2017-05-26T18:02:33.000Z">
-    <meta property="article:modified_time" content="2017-05-30T07:54:17.000Z">
-    <meta property="article:tag" content="博客">
-    <meta property="article:tag" content="Ghost">
-    <meta property="article:tag" content="Github">
-    <meta property="article:tag" content="OpenSource Project">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="手记2：从本地博客到Github Pages的最佳指南及工具" />
+    <meta property="og:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1720.html" />
+    <meta property="article:published_time" content="2017-05-26T18:02:33.000Z" />
+    <meta property="article:modified_time" content="2017-05-30T07:54:17.000Z" />
+    <meta property="article:tag" content="博客" />
+    <meta property="article:tag" content="Ghost" />
+    <meta property="article:tag" content="Github" />
+    <meta property="article:tag" content="OpenSource Project" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="手记2：从本地博客到Github Pages的最佳指南及工具">
-    <meta name="twitter:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https:/.html/xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1720/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="博客, Ghost, Github, OpenSource Project">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="手记2：从本地博客到Github Pages的最佳指南及工具" />
+    <meta name="twitter:description" content="现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1720.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="博客, Ghost, Github, OpenSource Project" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "手记2：从本地博客到Github Pages的最佳指南及工具",
-    "url": "http:/.html/aimingoo.github.io/1-1720/.html",
+    "url": "http://aimingoo.github.io/1-1720.html",
     "datePublished": "2017-05-26T18:02:33.000Z",
     "dateModified": "2017-05-30T07:54:17.000Z",
     "keywords": "博客, Ghost, Github, OpenSource Project",
-    "description": "现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https:/.html/xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing",
+    "description": "现在你来到了Ghost的世界（或别的什么本地博客系统），怎么写博客以及格式等等问题都是这个博客系统的问题了，你应该去搜搜相关的教程。就我来说，Ghost挺好用的，偶尔还有些很便利使用的小惊喜。 如果你成功的导入了历史博客（或者你只是随手写了几篇），那么现在你面临的问题是：怎么把它放到网上去。当然可以是某个免费主页空间（只需要静态的就可以了），也可以是——比如我选择的就是Github Pages。这样一来，就可以有一个名为xxxxxx.github.io的博客地址了，而且博客文章和维护等等都使用Github的后台或Git命令行，又熟悉又自然，对吧。 4. Github开工 你得先有Github账号。然后，创建一个名为xxxxxx.github.io的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到GitHub Pages，检查一下，他可能已经缺省写着：   Your site is published at https://xxxxxx.github.io/ OK。建议你将Features中的Wikis与Restrict editing",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-bo-ke tag-ghost-tag tag-github tag-opensource-project nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,25 +97,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -125,11 +126,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-bo-ke tag-ghost-tag tag-github tag-opensource-project">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1720.html">手记2：从本地博客到Github Pages的最佳指南及工具</a></h1>
+                <h1 class="post-title"><a href="/1-1720.html">手记2：从本地博客到Github Pages的最佳指南及工具</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/bo-ke/.html">博客</a>, <a href="tag/ghost-tag/.html">Ghost</a>, <a href="tag/github/.html">Github</a>, <a href="tag/opensource-project/.html">OpenSource Project</a>
+                        <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/github/">Github</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -156,7 +157,7 @@ ghost.init({
 <p>你得先有Github账号。然后，创建一个名为<code>xxxxxx.github.io</code>的仓库。最后，你进入这个仓库，在仓库的Settings（注意不是你的帐户的Settings）中找到<code>GitHub Pages</code>，检查一下，他可能已经缺省写着：</p>
 
 <blockquote>
-  <p><code>Your site is published at https:/.html/xxxxxx.github.io/</code></p>
+  <p><code>Your site is published at https://xxxxxx.github.io/</code></p>
 </blockquote>
 
 <p>OK。建议你将Features中的<code>Wikis</code>与<code>Restrict editing to collaborators only</code>设为关闭，而<code>Issues</code>建议开启——我相信你用得到它。</p>
@@ -167,29 +168,29 @@ ghost.init({
 
 <p>除了上述两个文件，Github什么都没给你，一切都得自己来干。</p>
 
-<p>当然，只要你创建了这个仓库，那么<code>https:/.html/xxxxxx.github.io</code>就已经可以访问了；如果你更新这个仓库，那么网站也就自动更新了。</p>
+<p>当然，只要你创建了这个仓库，那么<code>https://xxxxxx.github.io</code>就已经可以访问了；如果你更新这个仓库，那么网站也就自动更新了。</p>
 
 <p>很酷。</p>
 
 <h2 id="5githubpages">5. 从本地博客到Github Pages</h2>
 
-<p>尽管几乎所有的Ghost用户都被推荐使用Buster来生成静态页（generate static pages），但这个工具确实相当不好用，按某博主所说『<strong>是个大坑</strong>』，不过我也建议你看看他的博客文章（<a href="https:/.html/mrcotter.github.io/ghost-to-github-pages/.html">在这里</a>），写得很细致了。不过如果你不怎么用Python的话，我建议你不要安装pyenv和多版本的python，直接用MacOSX原装的就好——或者只用Brew安装Python 2.x。</p>
+<p>尽管几乎所有的Ghost用户都被推荐使用Buster来生成静态页（generate static pages），但这个工具确实相当不好用，按某博主所说『<strong>是个大坑</strong>』，不过我也建议你看看他的博客文章（<a href="https://mrcotter.github.io/ghost-to-github-pages/">在这里</a>），写得很细致了。不过如果你不怎么用Python的话，我建议你不要安装pyenv和多版本的python，直接用MacOSX原装的就好——或者只用Brew安装Python 2.x。</p>
 
-<p>参考上面这位博主（<a href="https:/.html/mrcotter.github.io/author/kris/.html">Kris Cotter</a>）的文章，我写了一个名为<code>makesite.sh</code>的脚本，它配合Buster使用，并主要用来填Buster的一些坑。下面说说这个工具。</p>
+<p>参考上面这位博主（<a href="https://mrcotter.github.io/author/kris/">Kris Cotter</a>）的文章，我写了一个名为<code>makesite.sh</code>的脚本，它配合Buster使用，并主要用来填Buster的一些坑。下面说说这个工具。</p>
 
 <h3 id="51makesitesh">5.1 使用makesite.sh的标准过程</h3>
 
 <p>参考下面的控制台命令：</p>
 
 <pre><code class="language-bash">## 取一份你的Github Pages仓库，例如(YOURNAME/YOURNAME.github.io)
-&gt; git clone https:/.html/github.com/YOURNAME/YOURNAME.github.io
+&gt; git clone https://github.com/YOURNAME/YOURNAME.github.io
 &gt; cd ./YOURNAME.github.io
 
 ## 定制一下git exclude files
 &gt; echo -e '\nstatic/\nmakesite.sh\npatchme.sh\nbuster.log’ &gt;&gt; .git/info/exclude
 
 ## 下载makesite.sh文件到本地仓库
-&gt; wget -nv 'https:/.html/github.com/aimingoo/ghost-utils/raw/master/makesite.sh'
+&gt; wget -nv 'https://github.com/aimingoo/ghost-utils/raw/master/makesite.sh'
 
 ## 使用帮助
 &gt; bash makesite.sh --help
@@ -260,7 +261,7 @@ ghost.init({
 
 <p>Ghost默认会帮你生成很多东西，有SEO用的amp文件、sitemap文件或rss文件，又例如最新的ld+json数据。然而你不见得都需要用到，其中最严重的就是amp，因为这相当于你生成了两份博客，所以我们需要用<code>--reject-regex</code>来忽略掉它。</p>
 
-<p>还有一种情况非常特殊。在Ghost博客里，tag页可能有两种url（事实上所有的页面都会有这两种页）：<code>/tags/XXX</code>和<code>tags/XXX/</code>。别小看多出来的这个斜杠<code>/</code>：当wget访问<code>/XXX</code>页时，它是将url理解为文件的，因此将要写入的是文件XXX（如果加上<code>--adjust-extension</code>参数那么就写入XXX.html）；而访问<code>/XXX/</code>时，wget认为它访问的是目录，所以也就会尝试创建XXX这个目录并写入<code>./XXX/.html</code>。</p>
+<p>还有一种情况非常特殊。在Ghost博客里，tag页可能有两种url（事实上所有的页面都会有这两种页）：<code>/tags/XXX</code>和<code>tags/XXX/</code>。别小看多出来的这个斜杠<code>/</code>：当wget访问<code>/XXX</code>页时，它是将url理解为文件的，因此将要写入的是文件XXX（如果加上<code>--adjust-extension</code>参数那么就写入XXX.html）；而访问<code>/XXX/</code>时，wget认为它访问的是目录，所以也就会尝试创建XXX这个目录并写入<code>./XXX/index.html</code>。</p>
 
 <p>然而我们设想一个问题：如果一个网站中既有<code>/tags/XXX</code>又有<code>tags/XXX/</code>，那么当wget先找到前者的时候，就会在当前目录下写一个XXX文件，而下一次它找到后一种的时候，会发生什么呢？</p>
 
@@ -270,7 +271,7 @@ ghost.init({
 <li>如果有XXX目录，而又要创建XXX文件的话，wget会创建一个名为XXX.1的文件；</li>
 <li>如果反过来是有XXX文件的情况下，
 <ul><li>需要再创建./XXX/目录，那么wget直接覆盖XXX文件，于是旧的XXX文件丢失，多出来一个新的XXX目录；</li>
-<li>需要创建<code>./XXX/yyy/.html</code>这样的子级目录中的文件的话，那么很不幸，wget抛出一个异常<code>./XXX/yyy : Not a directory</code>，写文件不成功。</li></ul></li>
+<li>需要创建<code>./XXX/yyy/index.html</code>这样的子级目录中的文件的话，那么很不幸，wget抛出一个异常<code>./XXX/yyy : Not a directory</code>，写文件不成功。</li></ul></li>
 </ul>
 
 <p>所以，我们需要忽略掉一些抓取页面，因为他们可能先于一个目录创建之前要写入，又或者与已写入的文件冲突，再或者根本就是多余的、重复的页。</p>
@@ -305,15 +306,15 @@ buster ...
 <p>所以在makesite.sh中有两行代码来对<code>assets</code>和<code>shared</code>目录中的资源做更名，以移除这种版本号：</p>
 
 <pre><code class="language-bash">## 移除assets目录中的资源版本号
-&gt; find static/assets -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'.html" \;
+&gt; find static/assets -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
 
 ## 移除shared目录中的资源版本号(通常只有/ghost-url.js这个文件)
-&gt; find static/shared -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'.html" \;
+&gt; find static/shared -name '*\?*' -type f -exec sh -c "echo '{}' | sed 's|\?.*$||' | xargs -I[] mv '{}' '[]'" \;
 </code></pre>
 
 <h3 id="63resetdomainshortpath">6.3 从reset-domain到short-path</h3>
 
-<p>reset-domain是<a href="https:/.html/mrcotter.github.io/author/kris/.html">Kris Cotter</a>最早版本代码中的功能，简单地说就是将Buster下载的网页文件中残留的<code>localhost:2368</code>再做一次替换，所以我将这个过程叫做reset-domain。</p>
+<p>reset-domain是<a href="https://mrcotter.github.io/author/kris/">Kris Cotter</a>最早版本代码中的功能，简单地说就是将Buster下载的网页文件中残留的<code>localhost:2368</code>再做一次替换，所以我将这个过程叫做reset-domain。</p>
 
 <p>事实上wget的<code>--convert-links</code>参数做过一次高性能的链接转换，但这远远不够——这些转换基于wget的html parser中对"链接"的定义（可以参见tag<em>attr html</em>allow这个数据结构，位于wget源码html.c中）。而reset-domain针对的是可能存在的文本替换——而无论对象是否是.html，或者是否是真实的url链接。</p>
 
@@ -324,7 +325,7 @@ buster ...
 
 <p>然而makesite.sh脚本还在这个操作之前插入了一个<code>--short-path</code>——我想你已经注意到这一点了。</p>
 
-<p>这个short-path的目的是将Ghost生成的类似于<code>/your--post-full-title----as-slug/.html</code>这样长的“目录名+文件名”变得短一些。它基本的想法就是让主页根目录下不要太多的目录，因此将这些目录中的index.html上移到它们的父目录中——对于所有的posts来说，其实也就是根目录下。</p>
+<p>这个short-path的目的是将Ghost生成的类似于<code>/your--post-full-title----as-slug/index.html</code>这样长的“目录名+文件名”变得短一些。它基本的想法就是让主页根目录下不要太多的目录，因此将这些目录中的index.html上移到它们的父目录中——对于所有的posts来说，其实也就是根目录下。</p>
 
 <p>这个过程其实有一个更好的解决方案，就是将所有这些文件移入到<code>/posts/your--post-full-title----as-slug.html</code>，这样一来主页根目录下就只有一个posts目录了。我尝试过，但之后放弃了，因为我写不出一个有效的正则表达式来替换所有“其它”页面中的url——到该页面的新位置。</p>
 
@@ -337,7 +338,7 @@ buster ...
 
 <p>我的主页<code>aimingoo.github.io</code>中其实使用的是更短的url地址，而并不是Ghost中缺省地按照文章标题通过拼音转换而来——后面这种文件名生成得太长太难看了。这种『更短的url』其实是通过为每个post设置它独自的slug属性而得到的，这需要为每篇文章在Ghost后台管理界面去编辑Post的属性。</p>
 
-<p>这也是上一篇博客中提到的<code>putrefy.js</code>这个工具（<a href="https:/.html/github.com/aimingoo/ghost-utils">在这里</a>）中会有一个<code>SLUG_FROMID</code>参数的原因。当配置这个参数为true时，你从旧博客中导入的文章就将自动地以<code>author_id</code>作为前缀，并加上post_id作为slug了——我的博客就是用这种方法来导入的。当然，你也可以将<code>SLUG_FROMID</code>配置为别的什么字符串来作为前缀。</p>
+<p>这也是上一篇博客中提到的<code>putrefy.js</code>这个工具（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）中会有一个<code>SLUG_FROMID</code>参数的原因。当配置这个参数为true时，你从旧博客中导入的文章就将自动地以<code>author_id</code>作为前缀，并加上post_id作为slug了——我的博客就是用这种方法来导入的。当然，你也可以将<code>SLUG_FROMID</code>配置为别的什么字符串来作为前缀。</p>
 
 <p>但是，你在Ghost后台新添加的文章，就需要你手工地改slug了。这个今后我会发布个小工具来自动化的，这里暂且不提。</p>
 
@@ -361,13 +362,13 @@ buster ...
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1719/.html">
+                <a href="/1-1719.html">
                     手记1：迁移博客之全程工具
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-1721.1">
+            <span class="post-nav-next" >
+                <a href="/1-1721.html">
                     手记3：实例教学之Ghost模板定制
                 </a>
                 下一篇
@@ -377,11 +378,11 @@ buster ...
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -397,30 +398,30 @@ buster ...
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -434,8 +435,8 @@ buster ...
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -447,20 +448,21 @@ buster ...
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

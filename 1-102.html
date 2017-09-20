@@ -1,91 +1,92 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>旧文重发：程序员的七种武器</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="旧文重发：程序员的七种武器">
-    <meta property="og:description" content="这篇文章发表在《程序员》杂志2007.03期的专辑&amp;ldquo;程序员的武器大家谈&amp;rdquo;中。 《程序员》：请谈谈您所定位的优秀程序员应该有哪些技能？您是怎样理解程序员七种武器的？ 周爱民：一般来说，剑客用剑、刀客用刀，所以所谓七种武器，用在手上的，或许也就一件两件。但如果以技巧、技法论，却不是一件两件兵器就可以胜出江湖的。例如不懂刀的剑客，遇到用刀的人时便不知道如何刺击了。因为要先知其长短，才能避强而击弱。 不懂刀的剑客与不懂剑的刀客对打起来，大概会如同演舞一般，各练各的招式。 所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克&amp;ldquo;敌&amp;rdquo;制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-102/.html">
-    <meta property="article:published_time" content="2008-06-01T16:29:00.000Z">
-    <meta property="article:modified_time" content="2017-09-12T05:55:42.000Z">
-    <meta property="article:tag" content="项目管理">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="程序人生">
-    <meta property="article:tag" content="报载刊载">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="旧文重发：程序员的七种武器" />
+    <meta property="og:description" content="这篇文章发表在《程序员》杂志2007.03期的专辑&amp;ldquo;程序员的武器大家谈&amp;rdquo;中。 《程序员》：请谈谈您所定位的优秀程序员应该有哪些技能？您是怎样理解程序员七种武器的？ 周爱民：一般来说，剑客用剑、刀客用刀，所以所谓七种武器，用在手上的，或许也就一件两件。但如果以技巧、技法论，却不是一件两件兵器就可以胜出江湖的。例如不懂刀的剑客，遇到用刀的人时便不知道如何刺击了。因为要先知其长短，才能避强而击弱。 不懂刀的剑客与不懂剑的刀客对打起来，大概会如同演舞一般，各练各的招式。 所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克&amp;ldquo;敌&amp;rdquo;制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-102.html" />
+    <meta property="article:published_time" content="2008-06-01T16:29:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-12T05:55:42.000Z" />
+    <meta property="article:tag" content="项目管理" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="程序人生" />
+    <meta property="article:tag" content="报载刊载" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="旧文重发：程序员的七种武器">
-    <meta name="twitter:description" content="这篇文章发表在《程序员》杂志2007.03期的专辑&amp;ldquo;程序员的武器大家谈&amp;rdquo;中。 《程序员》：请谈谈您所定位的优秀程序员应该有哪些技能？您是怎样理解程序员七种武器的？ 周爱民：一般来说，剑客用剑、刀客用刀，所以所谓七种武器，用在手上的，或许也就一件两件。但如果以技巧、技法论，却不是一件两件兵器就可以胜出江湖的。例如不懂刀的剑客，遇到用刀的人时便不知道如何刺击了。因为要先知其长短，才能避强而击弱。 不懂刀的剑客与不懂剑的刀客对打起来，大概会如同演舞一般，各练各的招式。 所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克&amp;ldquo;敌&amp;rdquo;制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-102/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="项目管理, 语言, 程序人生, 报载刊载">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="旧文重发：程序员的七种武器" />
+    <meta name="twitter:description" content="这篇文章发表在《程序员》杂志2007.03期的专辑&amp;ldquo;程序员的武器大家谈&amp;rdquo;中。 《程序员》：请谈谈您所定位的优秀程序员应该有哪些技能？您是怎样理解程序员七种武器的？ 周爱民：一般来说，剑客用剑、刀客用刀，所以所谓七种武器，用在手上的，或许也就一件两件。但如果以技巧、技法论，却不是一件两件兵器就可以胜出江湖的。例如不懂刀的剑客，遇到用刀的人时便不知道如何刺击了。因为要先知其长短，才能避强而击弱。 不懂刀的剑客与不懂剑的刀客对打起来，大概会如同演舞一般，各练各的招式。 所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克&amp;ldquo;敌&amp;rdquo;制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-102.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="项目管理, 语言, 程序人生, 报载刊载" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "旧文重发：程序员的七种武器",
-    "url": "http:/.html/aimingoo.github.io/1-102/.html",
+    "url": "http://aimingoo.github.io/1-102.html",
     "datePublished": "2008-06-01T16:29:00.000Z",
     "dateModified": "2017-09-12T05:55:42.000Z",
     "keywords": "项目管理, 语言, 程序人生, 报载刊载",
     "description": "这篇文章发表在《程序员》杂志2007.03期的专辑&amp;ldquo;程序员的武器大家谈&amp;rdquo;中。 《程序员》：请谈谈您所定位的优秀程序员应该有哪些技能？您是怎样理解程序员七种武器的？ 周爱民：一般来说，剑客用剑、刀客用刀，所以所谓七种武器，用在手上的，或许也就一件两件。但如果以技巧、技法论，却不是一件两件兵器就可以胜出江湖的。例如不懂刀的剑客，遇到用刀的人时便不知道如何刺击了。因为要先知其长短，才能避强而击弱。 不懂刀的剑客与不懂剑的刀客对打起来，大概会如同演舞一般，各练各的招式。 所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克&amp;ldquo;敌&amp;rdquo;制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-xiang-mu-guan-li tag-yu-yan tag-cheng-xu-ren-sheng tag-bao-zai-kan-zai nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,25 +97,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -125,11 +126,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-xiang-mu-guan-li tag-yu-yan tag-cheng-xu-ren-sheng tag-bao-zai-kan-zai">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-102.1">旧文重发：程序员的七种武器</a></h1>
+                <h1 class="post-title"><a href="/1-102.html">旧文重发：程序员的七种武器</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/xiang-mu-guan-li/.html">项目管理</a>, <a href="tag/yu-yan/.html">语言</a>, <a href="tag/cheng-xu-ren-sheng/.html">程序人生</a>, <a href="tag/bao-zai-kan-zai/.html">报载刊载</a>
+                        <a href="/tag/xiang-mu-guan-li/">项目管理</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/cheng-xu-ren-sheng/">程序人生</a>, <a href="/tag/bao-zai-kan-zai/">报载刊载</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,7 +149,7 @@ ghost.init({
 
             <section class="post-content">
                 <blockquote>
-  <p>这篇文章发表在《程序员》杂志2007.03期的专辑“程序员的武器大家谈”中。</p>
+  <p>这篇文章发表在《程序员》杂志2007.03期的专辑&ldquo;程序员的武器大家谈&rdquo;中。</p>
 </blockquote>
 
 <p><strong><em>《程序员》：请谈谈您所定位的优秀程序员应该有哪些技能？您是怎样理解程序员七种武器的？</em></strong></p>
@@ -157,22 +158,22 @@ ghost.init({
 
 <p>不懂刀的剑客与不懂剑的刀客对打起来，大概会如同演舞一般，各练各的招式。</p>
 
-<p>所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克“敌”制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。因此，用汇编写内核的人不必看不上用C写协议层的人，用C++写平台应用的，也不必看不上用SQL写脚本的人。放在一个团队里，汇编、C、C++和SQL在一个项目里可能各有其用，非得让这些人分个高下出来，最终是项目的失败。</p>
+<p>所以，优秀的程序员或程序高手并不是通晓七种武器的全才，必然是精通其一，且概知其它。与江湖不同的是，我们事实上并不拿一种武器去与拿另一种武器的人比斗。我们的对象是一个软件，或者某个工程。我们要克&ldquo;敌&rdquo;制胜，而敌是死物，不是活人。换言之，我们了解这些技术方法的目的，并不是要站到擂台上去比较谁懂得多，或者谁精通什么。我们只是要做一个软件或者具体的工程，那么所谓技术方法，只要对这个软件或工程有效即可。因此，用汇编写内核的人不必看不上用C写协议层的人，用C++写平台应用的，也不必看不上用SQL写脚本的人。放在一个团队里，汇编、C、C++和SQL在一个项目里可能各有其用，非得让这些人分个高下出来，最终是项目的失败。</p>
 
-<p>任何的一种工具都有使用它的境界。很多人看不到这一点，而轻视其它语言或者工具。例如SQL，几乎所有使用高级语言（我当然不是说它比别的语言好而显得“高级”，而只是存在着这么一个分类）的开发人员都认为SQL是“一种相当简单的脚本”。但事实上，我的朋友中就有能把SQL用到出神入化的，他能由SQL的写法来推断数据库设计的失败，或者反过来，为特定的数据库系统写出最优化的SQL。重要的是，这个朋友会针对不同的存取环境、网络结构而设计特定的数据库和SQL，以达到最优。
+<p>任何的一种工具都有使用它的境界。很多人看不到这一点，而轻视其它语言或者工具。例如SQL，几乎所有使用高级语言（我当然不是说它比别的语言好而显得&ldquo;高级&rdquo;，而只是存在着这么一个分类）的开发人员都认为SQL是&ldquo;一种相当简单的脚本&rdquo;。但事实上，我的朋友中就有能把SQL用到出神入化的，他能由SQL的写法来推断数据库设计的失败，或者反过来，为特定的数据库系统写出最优化的SQL。重要的是，这个朋友会针对不同的存取环境、网络结构而设计特定的数据库和SQL，以达到最优。
 优秀的程序员是对工具没有偏见的、能适应场合活用语言的人；而程序高手则基于这个前提，并专精其一，进而通一晓十的人。</p>
 
 <p><strong><em>《程序员》：您认为什么是程序员的基本技能？哪些是最重要的？</em></strong></p>
 
-<p><strong>周爱民：</strong>“七种武器”中，数据结构是成为真正的程序员的基础，而面向对象思想则是门径。</p>
+<p><strong>周爱民：</strong>&ldquo;七种武器&rdquo;中，数据结构是成为真正的程序员的基础，而面向对象思想则是门径。</p>
 
 <p>程序员能否在软件开发这条道路上走下去，很大程度上取决于他对数据结构的了解。任何一种新的语言，或者任何一种新的体系结构的出现，都可以在数据结构上找到相关的解释。</p>
 
-<p>因此，程序员如果能精通数据结构，那么相当于拥有了“以不变应万变”的资本。对此，《人月神话》中用一句话指出了关键：“数据的表现形式是编程的根本”。</p>
+<p>因此，程序员如果能精通数据结构，那么相当于拥有了&ldquo;以不变应万变&rdquo;的资本。对此，《人月神话》中用一句话指出了关键：&ldquo;数据的表现形式是编程的根本&rdquo;。</p>
 
 <p>对象是数据结构抽象的一种，但并不是唯一的一种。从这个角度上来说，对象并不是唯一的编程之道。我曾经说，人造卫星也是在面向过程的时代上的天。也就是说，面向过程也可以组织足够复杂的程序。</p>
 
-<p>然而，所有这些都并不能否认面向对象的价值。面向对象是对事物的本体特性与行为特性的高度抽象，它将数据结构从“死的内存”变成了“活的物件”。面向对象的思想使我们在增强对现实的表达能力的同时，避免了复杂数据结构带来的藕合。由面向对象、信息隐藏和接口抽象三个相关联的概念，构成了整个软件体系设计的理论基础。这三个概念中，面向对象是与软件开发人员关系最密切，最容易理解的，因此它是使你成为真正的程序员，以及从程序员走向程序设计师的最佳门径。</p>
+<p>然而，所有这些都并不能否认面向对象的价值。面向对象是对事物的本体特性与行为特性的高度抽象，它将数据结构从&ldquo;死的内存&rdquo;变成了&ldquo;活的物件&rdquo;。面向对象的思想使我们在增强对现实的表达能力的同时，避免了复杂数据结构带来的藕合。由面向对象、信息隐藏和接口抽象三个相关联的概念，构成了整个软件体系设计的理论基础。这三个概念中，面向对象是与软件开发人员关系最密切，最容易理解的，因此它是使你成为真正的程序员，以及从程序员走向程序设计师的最佳门径。</p>
 
 <p><strong><em>《程序员》：如果用一个问题来测试一个人是不是程序高手，您会怎样问？</em></strong></p>
 
@@ -180,17 +181,17 @@ ghost.init({
 
 <p>在程序高手这个级别上，能脱颖而出的是那种有合作能力的、思想开放的优秀人才，而绝不是技术高下的简单辨别。而观察他对开源项目的经验和兴趣，是一种不错的方式。</p>
 
-<p>这里说的不是“把源代码公开”就是开源项目了。我说的是真正有组织的、持续的、公开源码的项目运作。之所以做这么多的限定条件，是因为现在很多人都已经接受了“源码公开”的思想，但这仅表明这个人有了分享的精神，并不表明他有组织和管理项目的能力。开源项目的生命力是在项目管理者在长时间的维护过程中得以延续的，同样的，项目管理者也在这个过程中历练了自己的技能与心性。而这些，正是高手在成长中不可或缺的要素。</p>
+<p>这里说的不是&ldquo;把源代码公开&rdquo;就是开源项目了。我说的是真正有组织的、持续的、公开源码的项目运作。之所以做这么多的限定条件，是因为现在很多人都已经接受了&ldquo;源码公开&rdquo;的思想，但这仅表明这个人有了分享的精神，并不表明他有组织和管理项目的能力。开源项目的生命力是在项目管理者在长时间的维护过程中得以延续的，同样的，项目管理者也在这个过程中历练了自己的技能与心性。而这些，正是高手在成长中不可或缺的要素。</p>
 
 <p><strong><em>《程序员》：您在成为一个优秀的开发人员过程中，哪几个阶段是最让您难忘的？</em></strong></p>
 
-<p><strong>周爱民：</strong>我做程序之初，只是喜欢而已，其实真的是楞头青。这个阶段看来，就是代码不规范、接口随意，并且经常会推翻重来。“代码不规范”是非专业人员的通病，我在很长时间里面，都有“自己的风格”，所以还专为这个跟以前的部门经理争辩过：我同意格式化呀，但为什么要按你说的格式呢？“接口随意”是没有设计就开始写代码的表现，而“经常推翻重来”则是其后果。非专业人员最初通常就是一个人开始练手，自己给自己写代码，接口怎么写自己都能理解，所以专门去设计反倒是麻烦。但到了团队里面，过于“独特的”程序接口则是灾难，因为你得去给每个人解释这个接口的用法，说服他们使用这种接口。而这往往会遵行强势原则：你要么屈从“更标准的接口设计”，要么团队就放弃你的这些代码。</p>
+<p><strong>周爱民：</strong>我做程序之初，只是喜欢而已，其实真的是楞头青。这个阶段看来，就是代码不规范、接口随意，并且经常会推翻重来。&ldquo;代码不规范&rdquo;是非专业人员的通病，我在很长时间里面，都有&ldquo;自己的风格&rdquo;，所以还专为这个跟以前的部门经理争辩过：我同意格式化呀，但为什么要按你说的格式呢？&ldquo;接口随意&rdquo;是没有设计就开始写代码的表现，而&ldquo;经常推翻重来&rdquo;则是其后果。非专业人员最初通常就是一个人开始练手，自己给自己写代码，接口怎么写自己都能理解，所以专门去设计反倒是麻烦。但到了团队里面，过于&ldquo;独特的&rdquo;程序接口则是灾难，因为你得去给每个人解释这个接口的用法，说服他们使用这种接口。而这往往会遵行强势原则：你要么屈从&ldquo;更标准的接口设计&rdquo;，要么团队就放弃你的这些代码。</p>
 
 <p>做程序再熟练，过不了上面这个阶段就谈不上合作，也谈不上设计。一个人写程序，无需多少设计的功夫。但一个团队合作，没有设计就不行。因此我认为写程序的第二个阶段就是团队开发和专业设计。而这两点，正是从项目管理和技术实现上来组织大规模开发的不二法门。因此，我事实上在这里想说明的是：相对于个体开发，团队开发是更高阶的技术。</p>
 
-<p>在你学会了团队开发，能够轻松地与人合作，或组织小型的开发团队时，要想在这个行业中安身立命就并非难事了。至于用哪种语言，由于你是“优秀的程序员”，因此语言的选择是应项目之所需的，所以不是接下来要谈的关键问题。</p>
+<p>在你学会了团队开发，能够轻松地与人合作，或组织小型的开发团队时，要想在这个行业中安身立命就并非难事了。至于用哪种语言，由于你是&ldquo;优秀的程序员&rdquo;，因此语言的选择是应项目之所需的，所以不是接下来要谈的关键问题。</p>
 
-<p>第三个阶段是你能否在行业中脱颖而出的关键。但这个关键与技术无关，而是一个人的秉性和个性的问题。我们一方面会很阿Q地说“酒香不怕巷子深”，另一方面又说“千里马常有而伯乐不常有”。问题在于，马不能主动地找伯乐，人又为什么不能呢？马困于厩而显凡俗，人立于世可显不群。有表现自己不凡的品质的空间而不施展，根本上说还是能力问题。所以学会沟通、交往，而不是沉迷于代码，可能是第三个阶段的重要瓶颈。</p>
+<p>第三个阶段是你能否在行业中脱颖而出的关键。但这个关键与技术无关，而是一个人的秉性和个性的问题。我们一方面会很阿Q地说&ldquo;酒香不怕巷子深&rdquo;，另一方面又说&ldquo;千里马常有而伯乐不常有&rdquo;。问题在于，马不能主动地找伯乐，人又为什么不能呢？马困于厩而显凡俗，人立于世可显不群。有表现自己不凡的品质的空间而不施展，根本上说还是能力问题。所以学会沟通、交往，而不是沉迷于代码，可能是第三个阶段的重要瓶颈。</p>
 
 <p>在第三个阶段，你可能面临非常多的选择。例如技术主管、项目经理或者设计师、分析师之类。但你应该会发现，这所有的选择都将使你被推到团队的前面，你必须面对整个团队，以及项目的干系人（例如客户）。而能否胜任这些，取决于你的综合素质，而非单一的软件开发技能。</p>
 
@@ -198,7 +199,7 @@ ghost.init({
 
 <p><strong><em>《程序员》：请为开发人员提供几点实践性的指导。</em></strong></p>
 
-<p><strong>周爱民：</strong>把语言作为“称手的兵器”，那么基本技能则相当于内家修为。练石锁也能练出个李元霸，这说明单单靠“不停地写程序”，也是能写出高手来的。但是，如果一上手就给个千百斤的大石锁，李元霸没练成便先牺牲了。所以凡事都有个循序渐进，所循的这个“序”，并不要求每个人都相同，别人的经验，大抵上适合做个参考。而我也不能言讲什么指导性的东西，所以上面所谈，大家尽可以当经验来看，当参考来用。是实践，却不是什么指导。</p>
+<p><strong>周爱民：</strong>把语言作为&ldquo;称手的兵器&rdquo;，那么基本技能则相当于内家修为。练石锁也能练出个李元霸，这说明单单靠&ldquo;不停地写程序&rdquo;，也是能写出高手来的。但是，如果一上手就给个千百斤的大石锁，李元霸没练成便先牺牲了。所以凡事都有个循序渐进，所循的这个&ldquo;序&rdquo;，并不要求每个人都相同，别人的经验，大抵上适合做个参考。而我也不能言讲什么指导性的东西，所以上面所谈，大家尽可以当经验来看，当参考来用。是实践，却不是什么指导。</p>
 
 <p><strong><em>《程序员》：请您谈谈做游戏开发与一般的软件开发，在技能上的要求有什么不同？</em></strong></p>
 
@@ -224,13 +225,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-101.1">
+                <a href="/1-101.html">
                     旧文重发：产品线工程：团队迭代及其问题
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-103.1">
+            <span class="post-nav-next" >
+                <a href="/1-103.html">
                     旧文重发：剑走偏锋：非主流的程序员
                 </a>
                 下一篇
@@ -240,11 +241,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -260,30 +261,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -297,8 +298,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -310,20 +311,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

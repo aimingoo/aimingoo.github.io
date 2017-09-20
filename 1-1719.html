@@ -1,90 +1,91 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>手记1：迁移博客之全程工具</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="手记1：迁移博客之全程工具">
-    <meta property="og:description" content="在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。 1. 如何迁移你的博客 - 推荐BlogToWordpress 确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。 然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。 在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下： 通过BlogToWordpress来将旧博客转到Wordpress导出文件 它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。 它会抓取图片等文件作为附件保存到指定目录。 cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用cnblog2jekyll中的generatemarkdownall。 通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md 我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json Ghost也支持单篇或多篇.md格式文章的导入，">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1719/.html">
-    <meta property="article:published_time" content="2017-05-23T05:38:05.000Z">
-    <meta property="article:modified_time" content="2017-05-30T07:54:38.000Z">
-    <meta property="article:tag" content="博客">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="Ghost">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="手记1：迁移博客之全程工具" />
+    <meta property="og:description" content="在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。 1. 如何迁移你的博客 - 推荐BlogToWordpress 确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。 然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。 在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下： 通过BlogToWordpress来将旧博客转到Wordpress导出文件 它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。 它会抓取图片等文件作为附件保存到指定目录。 cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用cnblog2jekyll中的generatemarkdownall。 通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md 我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json Ghost也支持单篇或多篇.md格式文章的导入，" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1719.html" />
+    <meta property="article:published_time" content="2017-05-23T05:38:05.000Z" />
+    <meta property="article:modified_time" content="2017-05-30T07:54:38.000Z" />
+    <meta property="article:tag" content="博客" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="Ghost" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="手记1：迁移博客之全程工具">
-    <meta name="twitter:description" content="在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。 1. 如何迁移你的博客 - 推荐BlogToWordpress 确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。 然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。 在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下： 通过BlogToWordpress来将旧博客转到Wordpress导出文件 它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。 它会抓取图片等文件作为附件保存到指定目录。 cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用cnblog2jekyll中的generatemarkdownall。 通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md 我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json Ghost也支持单篇或多篇.md格式文章的导入，">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1719/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="博客, Javascript, Ghost">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="手记1：迁移博客之全程工具" />
+    <meta name="twitter:description" content="在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。 1. 如何迁移你的博客 - 推荐BlogToWordpress 确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。 然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。 在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下： 通过BlogToWordpress来将旧博客转到Wordpress导出文件 它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。 它会抓取图片等文件作为附件保存到指定目录。 cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用cnblog2jekyll中的generatemarkdownall。 通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md 我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json Ghost也支持单篇或多篇.md格式文章的导入，" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1719.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="博客, Javascript, Ghost" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "手记1：迁移博客之全程工具",
-    "url": "http:/.html/aimingoo.github.io/1-1719/.html",
+    "url": "http://aimingoo.github.io/1-1719.html",
     "datePublished": "2017-05-23T05:38:05.000Z",
     "dateModified": "2017-05-30T07:54:38.000Z",
     "keywords": "博客, Javascript, Ghost",
     "description": "在这一系列的博客中，我将仔细地记录我搭建这个博客的全部过程、工具，以及诸多技巧。 1. 如何迁移你的博客 - 推荐BlogToWordpress 确实有很多工具来帮助你将历史、陈旧的博客迁到某个地方，而相对来说比较新的做法，就是将博客全文导出，然后按某种格式生成成静态的页面——于是你就有了新的博客站点。 然而事实上并不那么容易——这些工具分种种流派以及不同的实现语言。有幸的是，综合这些尝试，我们可以找到一个较简单而又完整的工具链条：从旧博客转到markdown文件，然后再将markdown导入到新博客中去。 在从旧博客到markdown的转换过程中，还存在一种中间格式，就是标准的Wordpress导出文件格式，这是一种.xml文件。Wordpress是一种在国外受到广泛支持的博客系统，因此相关的工具集非常丰富。通过相当长时间的搜索、分析与比较，我得到了一个最终可用的工具集。如下： 通过BlogToWordpress来将旧博客转到Wordpress导出文件 它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。 它会抓取图片等文件作为附件保存到指定目录。 cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用cnblog2jekyll中的generatemarkdownall。 通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md 我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json Ghost也支持单篇或多篇.md格式文章的导入，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-bo-ke tag-javascript tag-ghost-tag nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +96,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -124,11 +125,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-bo-ke tag-javascript tag-ghost-tag">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1719.html">手记1：迁移博客之全程工具</a></h1>
+                <h1 class="post-title"><a href="/1-1719.html">手记1：迁移博客之全程工具</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/bo-ke/.html">博客</a>, <a href="tag/javascript/.html">Javascript</a>, <a href="tag/ghost-tag/.html">Ghost</a>
+                        <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/ghost-tag/">Ghost</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -160,14 +161,14 @@ ghost.init({
 <li>通过BlogToWordpress来将旧博客转到Wordpress导出文件
 <ul><li>它支持sina、sohu、csdn、163、baidu、天涯博客等等很多种国内的博客。</li>
 <li>它会抓取图片等文件作为附件保存到指定目录。</li>
-<li>cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用<a href="https:/.html/github.com/yanyingwang/cnblog2jekyll">cnblog2jekyll</a>中的generate<em>markdown</em>all。</li></ul></li>
+<li>cnblogs或其它博客可以考虑先用工具转成markdown文件的方法，例如使用<a href="https://github.com/yanyingwang/cnblog2jekyll">cnblog2jekyll</a>中的generate<em>markdown</em>all。</li></ul></li>
 <li>通过wp2md来将Wordpress导出的.xml转换到Markdown格式.md
 <ul><li>我最终使用的是Ghost博客系统，所以我使用wp2ghost来直接转换成了Ghost支持的导入格式.json</li>
 <li>Ghost也支持单篇或多篇.md格式文章的导入，后面会讲到使用.md的方法</li>
 <li>你不必非得使用Ghost博客系统，多数新的博客系统都支持Wordpress的.xml导出文件或者独立的.md文件。</li></ul></li>
 </ul>
 
-<p>BlogToWordpress的支持站点在这里：<a href="http:/.html/www.crifan.com/crifan_released_all/website/python/blogstowordpress/.html">Crifan的BlogsToWordPress</a> ，但是下载是放在SourceForge上的：<a href="https:/.html/sourceforge.net/projects/blogstowordpress">https:/.html/sourceforge.net/projects/blogstowordpress</a>。</p>
+<p>BlogToWordpress的支持站点在这里：<a href="http://www.crifan.com/crifan_released_all/website/python/blogstowordpress/">Crifan的BlogsToWordPress</a> ，但是下载是放在SourceForge上的：<a href="https://sourceforge.net/projects/blogstowordpress">https://sourceforge.net/projects/blogstowordpress</a>。</p>
 
 <p>BlogToWordpress需要Python 2.7.2或2.x，并且需要以下依赖包/库：</p>
 
@@ -183,14 +184,14 @@ ghost.init({
 <p>我在mac上使用的命令如下（SourceForge上也有windows .exe版本，可以尝试）：</p>
 
 <pre><code class="language-bash"># 1. 下载BlogsToWordPress
-&gt; curl -L 'https:/.html/sourceforge.net/projects/blogstowordpress/files/v18.3/BlogsToWordpress_v18.3_2014-05-23.7z/download' -o BlogsToWordpress_v18.3_2014-05-23.7z
+&gt; curl -L 'https://sourceforge.net/projects/blogstowordpress/files/v18.3/BlogsToWordpress_v18.3_2014-05-23.7z/download' -o BlogsToWordpress_v18.3_2014-05-23.7z
 &gt; 7z x BlogsToWordpress_v18.3_2014-05-23.7z
 
 # 2. 生成调用Stub shell script
-&gt; echo 'python BlogsToWordpress.py --maxXmlSize 0 --googleTrans no --wpPicPath ".html/bkImages" -s "$1".html' &gt; runner.sh
+&gt; echo 'python BlogsToWordpress.py --maxXmlSize 0 --googleTrans no --wpPicPath "/bkImages" -s "$1"' &gt; runner.sh
 
 # 3. 运行脚本
-&gt; bash runner.sh "http:/.html/blog.sina.com.cn/aimingoo" | tee BlogsToWordpress.log
+&gt; bash runner.sh "http://blog.sina.com.cn/aimingoo" | tee BlogsToWordpress.log
 
 # 4. 归并文件到目录中
 #    - BlogsToWordPress根据url中的UserName部分来生成下载文件的目录，本例中是aimingoo
@@ -212,7 +213,7 @@ ghost.init({
 <p>所谓本地博客，就是一个你在的电脑上运行的，在浏览器中可以使用</p>
 
 <blockquote>
-  <p><code>http:/.html/localhost/ ...</code></p>
+  <p><code>http://localhost/ ...</code></p>
 </blockquote>
 
 <p>来浏览的博客系统。我们下面就用Ghost来搭一个。</p>
@@ -220,13 +221,13 @@ ghost.init({
 <p>我在mac上使用的命令如下（应该可以在Windows上安装nodejs并搭建Ghost，但我没有试过）：</p>
 
 <pre><code class="language-bash"># 获取和解压Ghost
-&gt; curl -L https:/.html/ghost.org/zip/ghost-latest.zip -o ghost.zip
+&gt; curl -L https://ghost.org/zip/ghost-latest.zip -o ghost.zip
 &gt; unzip -uo ghost.zip -d ghost
 &gt; cd ghost
 
 # 使用npm来安装Ghost
 #    - 如果你没有安装brew，那么参考下面的地址安装一份先
-#    - https:/.html/brew.sh/index_zh-cn.html
+#    - https://brew.sh/index_zh-cn.html
 &gt; brew install node
 &gt; npm install --production
 
@@ -234,7 +235,7 @@ ghost.init({
 &gt; npm start
 Ghost is running in development...  
 Listening on 127.0.0.1:2368  
-Url configured as: http:/.html/localhost:2368  
+Url configured as: http://localhost:2368  
 Ctrl+C to shut down  
 </code></pre>
 
@@ -264,7 +265,7 @@ Ctrl+C to shut down
 
 <pre><code class="language-bash"># 1. 安装wp2ghost
 #    - 也可以直接使用git clone ...
-&gt; svn export https:/.html/github.com/jonhoo/wp2ghost/trunk wp2ghost
+&gt; svn export https://github.com/jonhoo/wp2ghost/trunk wp2ghost
 &gt; cd wp2ghost
 &gt; npm install
 
@@ -279,7 +280,7 @@ Ctrl+C to shut down
 
 # 4. 获取putrefy.js脚本
 #    - 请直接修改putrefy.js源代码，注意它并不是通过命令行参数来配置的
-&gt; curl -L https:/.html/github.com/aimingoo/ghost-utils/raw/master/putrefy.js -o putrefy.js
+&gt; curl -L https://github.com/aimingoo/ghost-utils/raw/master/putrefy.js -o putrefy.js
 &gt; node putrefy.js ghost-tmp.json &gt; ghost.json
 &gt; zip -r ghost_archive.zip ghost.json bkImages
 </code></pre>
@@ -296,15 +297,15 @@ Ctrl+C to shut down
 &gt; npm start
 </code></pre>
 
-<p>缺省情况下，在你用<code>http:/.html/aimingoo.github.io/</code>访问它时会看到了一个初始状态的博客。你需要为自己建立一个博客账号，登录并管理它。这时，你应该访问<code>http:/.html/aimingoo.github.io/ghost/</code>。</p>
+<p>缺省情况下，在你用<code>http://localhost:2368/</code>访问它时会看到了一个初始状态的博客。你需要为自己建立一个博客账号，登录并管理它。这时，你应该访问<code>http://localhost:2368/ghost/</code>。</p>
 
 <p>建立博客账号的过程中，在第二步（输入你的名字、邮箱和初始密码）时会要求你设置博客的标题，忘掉了也没关系，你可以随时在管理界面的<code>Settings -&gt; General</code>中去修改它。</p>
 
-<p><img src="content/images/ghost_startup_step-1.png" alt="ghost_startup_step-1"></p>
+<p><img src="/content/images/ghost_startup_step-1.png" alt="ghost_startup_step-1" /></p>
 
 <p>另外，在第三步时会提示你邀请你的博客团队成员（Ghost是一个多人博客平台），请直接跳过忽略。有关这个功能我们将来再讨论——你随时可以在管理界面的<code>Team</code>功能中发起邀请。</p>
 
-<p><img src="content/images/ghost_startup_step-2.png" alt="ghost_startup_step-2"></p>
+<p><img src="/content/images/ghost_startup_step-2.png" alt="ghost_startup_step-2" /></p>
 
 <p>初始化错了也没关系，来到你的Ghost安装目录，删除数据库文件，然后重启Ghost就可以了。</p>
 
@@ -344,7 +345,7 @@ Ctrl+C to shut down
 <li>对于程序员来说这绝对是个好消息，毕竟我们可以直接用SQL来操作所有的博客文章了。例如以前托管的下载地址更新了，但是在哪些文章中用到它们了呢？不错，用like操作去查找一下posts表中的markdown或html字段就可以了。例如：</li>
 </ul>
 
-<pre><code class="language-bash">  &gt; sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%".html'
+<pre><code class="language-bash">  &gt; sqlite3 ghost-dev.db 'select id, title from posts where markdown like "%skydrive%"'
   1519|《大道至简》的幕后故事：终结篇、勘误和PDF下载
   1595|近期的公开资源汇总(已完整)~
   ...
@@ -354,7 +355,7 @@ Ctrl+C to shut down
 <li><p>如果你得到上述的<code>id</code>值，那么可以直接在Ghost的管理界面中去编辑它——Ghost管理界面没有搜索功能。例如直接在浏览器上使用如下地址：</p>
 
 <blockquote>
-  <p><code>http:/.html/aimingoo.github.io/ghost/editor/1519/</code></p>
+  <p><code>http://localhost:2368/ghost/editor/1519/</code></p>
 </blockquote></li>
 </ul>
             </section>
@@ -368,13 +369,13 @@ Ctrl+C to shut down
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1718/.html">
+                <a href="/1-1718.html">
                     再一次开始更新博客
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-1720/.html">
+            <span class="post-nav-next" >
+                <a href="/1-1720.html">
                     手记2：从本地博客到Github Pages的最佳指南及工具
                 </a>
                 下一篇
@@ -384,11 +385,11 @@ Ctrl+C to shut down
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -404,30 +405,30 @@ Ctrl+C to shut down
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -441,8 +442,8 @@ Ctrl+C to shut down
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -454,20 +455,21 @@ Ctrl+C to shut down
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

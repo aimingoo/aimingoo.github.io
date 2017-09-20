@@ -1,4 +1,311 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 19 Sep 2017 07:32:11 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Monster - 用Ghost写博客的终极利器]]></title><description><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 20 Sep 2017 04:45:55 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[详解Monster的初始化及配置]]></title><description><![CDATA[<p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+是Monster的最佳使用场景。</p>
+
+<blockquote>
+  <p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a>。</p>
+</blockquote>
+
+<h2 id="">预备工作</h2>
+
+<ul>
+<li>你需要先启动Ghost并了解它运行在的本地地址</li>
+</ul>
+
+<pre><code class="language-bash">&gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+</code></pre>
+
+<p>Ghost可以运行在不同的模式下，上面的是<code>development</code>模式，这种情况下它的缺省端口是<code>:2368</code>。</p>
+
+<p>另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在<code>${GHOST}</code>，那么这些数据文件的位置是在：</p>
+
+<pre><code class="language-bash">&gt; grep -Fe '.db' ${GHOST}/config.js
+filename: path.join(__dirname, '/</code></pre>]]></description><link>http://aimingoo.github.io/1-1742.html/</link><guid isPermaLink="false">ace57750-3412-4ab2-842e-ab8f41032aab</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:43:06 GMT</pubDate><content:encoded><![CDATA[<p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+是Monster的最佳使用场景。</p>
+
+<blockquote>
+  <p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a>。</p>
+</blockquote>
+
+<h2 id="">预备工作</h2>
+
+<ul>
+<li>你需要先启动Ghost并了解它运行在的本地地址</li>
+</ul>
+
+<pre><code class="language-bash">&gt; npm start
+Ghost is running in development...  
+Listening on 127.0.0.1:2368  
+...
+</code></pre>
+
+<p>Ghost可以运行在不同的模式下，上面的是<code>development</code>模式，这种情况下它的缺省端口是<code>:2368</code>。</p>
+
+<p>另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在<code>${GHOST}</code>，那么这些数据文件的位置是在：</p>
+
+<pre><code class="language-bash">&gt; grep -Fe '.db' ${GHOST}/config.js
+filename: path.join(__dirname, '/content/data/ghost.db')  
+filename: path.join(__dirname, '/content/data/ghost-dev.db')  
+filename: path.join(__dirname, '/content/data/ghost-test.db')  
+</code></pre>
+
+<p>根据你启动的Ghost的版本不同，选择上面的一个库文件即可（一般是<code>ghost-dev.db</code>）。</p>
+
+<ul>
+<li>你需要安装Buster并确信它可用</li>
+</ul>
+
+<pre><code class="language-bash">&gt; pip install buster
+&gt; buster --version
+0.1.3  
+</code></pre>
+
+<p>Monster在全量生成网站的时候会调用Buster；如果你只使用它的增量生成功能，那么Buster也可以不安装。</p>
+
+<ul>
+<li>你需要确信mac环境是否能运行Monster</li>
+</ul>
+
+<p>Monster依赖mac环境上的一些工具。如果你使用brew，那么可以用下面的命令来安装它：</p>
+
+<pre><code class="language-bash">&gt; brew install wget jq curl
+...
+</code></pre>
+
+<p>其它还会使用到的工具包括<code>sqlite3</code>、<code>sum</code>和<code>git</code>：<code>sqlite3</code>应该已经在安装Ghost时安装过了，而<code>sum</code>是MacOSX原生自带的；多数情况下，建议你安装<code>git</code>，使用<code>brew install git</code>即可。</p>
+
+<blockquote>
+  <p><strong>注：</strong></p>
+  
+  <p>Monster主要是用于生成静态网页，只有当你使用它的部署(deploy)功能时，才会用到<code>git</code>。所以事实上git并不是必须安装。</p>
+  
+  <p>Monster使用Git api访问github issues，所以在使用评论相关的功能时并不要求安装git客户端。</p>
+</blockquote>
+
+<ul>
+<li>最后，你需要安装Monster</li>
+</ul>
+
+<p>有两种方法安装Monster：</p>
+
+<pre><code class="language-bash"># 使用Brew安装
+&gt; brew install aimingoo/repo/monster
+
+# 使用Git仓库安装
+&gt; git clone https://github.com/aimingoo/monster
+&gt; install monster/libexec/monster.sh /usr/local/bin/monster
+</code></pre>
+
+<h2 id="">初始化及配置</h2>
+
+<pre><code class="language-bash"># 创建一个目录，并在该目录中运行如下命令
+&gt; monster --init
+Your Github name or domain : aimingoo  
+Your Github access token, or Enter to skip:  
+Your Ghost local account(e-mail), or Enter to skip:  
+Your Ghost local .db file, or Enter to skip:  
+Your Ghost site, or Enter set default [localhost:2368]:  
+File .monster saved.  
+File .gitignore updated.  
+</code></pre>
+
+<p>第一项配置<code>Github name or domain</code>总是必须输入的。它可以是一个名为<code>xxxx.github.io</code>的域名，或只是<code>xxxx</code>这样的域名前缀（亦即是Github用户账号名），此外还可以是一个非github的域名，例如<code>your.site.com</code>。</p>
+
+<h3 id="domain">如果domain是无效的</h3>
+
+<p>你可以使用任何domain——哪怕它不是真实的值。Monster的基本逻辑是：</p>
+
+<ul>
+<li><strong>GENERATE</strong>：下载一个<code>SITE</code>上的网页，放在<code>STATIC_PATH</code>中；并尝试</li>
+<li><strong>RESET_DOMAIN</strong>：将网页中有关<code>SITE</code>的信息替换成<code>DOMAIN</code>；以及</li>
+<li><strong>DEPLOY_NOW</strong>：将<code>STATIC_PATH</code>中的文件复制到当前目录，并尝试将当前目录作为Git仓库来部署。</li>
+</ul>
+
+<p>所以只要不启用RESET_DOMAIN（传入<code>--reset-domain=false</code>参数或者修改<code>.monster</code>配置），那么无效的DOMAIN是不影响Monster的使用的。</p>
+
+<h3 id="domain">如果domain是空值</h3>
+
+<p>在调用<code>monster --init</code>并输入缺省配置时，是不能使domain值为空的。</p>
+
+<p>你可以编辑<code>.monster</code>以使该参数值为空，但这样的配置仅对update工作模式是有意义的。这会缺省使用<code>&lt;GITHUB_USER&gt;.github.io</code>来作为DOMAIN值，如果在update工作模式中调用了<code>--deploy-now</code>、<code>--deploy-only</code>或<code>--reset-domain</code>，那么该值也会通过命令行参数传入<code>makesite.sh</code>，以确保后者可用。</p>
+
+<p>你不应当使<code>.monster</code>文件中的<code>DOMAIN</code>和<code>GITHUB_USER</code>值同时为空值。——如果是这样，你就必须总是从命令行中传入参数了。</p>
+
+<h3 id="domain">关于domain的协议</h3>
+
+<p>由于Monster并不访问你的domain（它只是更新本地静态网页中的内容），所以在配置文件中并不需要指定domain使用的协议，例如<code>https</code>或<code>http</code>。但有一个极小极小的例外，如果：</p>
+
+<ul>
+<li>你使用了Git issues来作评论，并且</li>
+<li>你的domain并没有host在<code>xxxx.github.io</code>上，并且</li>
+<li>你还打算使用Monster的<code>update --sync-issue</code>来管理它，</li>
+</ul>
+
+<p>那么你需要修改<code>.monster</code>中的<code>PROTOCOL</code>参数，缺省时它的值是<code>https</code>。</p>
+
+<h3 id="monster">如果没有<code>.monster</code>文件</h3>
+
+<p>如果你没有调用<code>monster —init</code>来初始化一个<code>.monster</code>文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。</p>
+
+<p>这种情况下，对于generate工作模式来说，你必须从命令行通过<code>--domain</code>传入DOMAIN参数；对于update工作模式来说，则必须传入<code>--db</code>。当然你还可能需要传入其它在运行中要用到的参数，例如<code>GITHUB_USER</code>。</p>
+
+<h2 id="monster">配置文件.monster的详细说明</h2>
+
+<pre><code>## Github domain
+#  - （参见上文）
+DOMAIN="..."
+
+## Ghost .db file path
+# - update工作模式下的相关功能依赖该配置
+DB="/User/..."
+
+## Ghost site address
+# - 要静态化（下载）的网站，可以是本地Ghost或远端的任何网址
+# - 可以是任何网站（不是Ghost的网站，甚至不是博客）
+SITE="http://..."
+
+## Github account, and rate of api access
+# - 你的Github账号，是指当前工作目录对应的xxxx.github.io
+GITHUB_USER="Your name"  
+# - 你需要在Github后台为Git client创建一个Access token
+GITHUB_TOKEN="Access token"  
+# - 每次Github API访问之后sleep的时间（单位为秒）；当值为1时，意味着每分钟不会超过60次访问
+GITHUB_APIRATE=1  
+# - 当读取Gitment等博客评论时，每次用Github取数据时的页大小（缺省为每页100条记录）
+GITHUB_PAGESIZE=100
+
+## Other
+# - 你在本地Ghost中的登录帐号
+EMAIL="..."  
+# - 特殊情况下需要用到的domain的协议值（参见上文）
+PROTOCOL="https"
+
+## Advertisement token string for your site
+# - 一个标记字符串，极少使用（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
+AD_TOKEN=""
+
+## Default directory of static files
+# - 生成静态文件的路径
+# - （对于Monster的preview工作模式来说，必须使用该配置而不能用命令行传入参数）
+STATIC_PATH="./static"
+
+## Default behavior
+# - 在GENERATE阶段中显示更多信息
+GENERATE_INFO=false  
+# - 在update工作模式下，强制更新列表类网页
+SYNC_REMOVED=false  
+# - 在操作过程中是否移除static目录中的文件名的'?xxxxxx'版本后缀
+PATCH_VERSION=true  
+# - 是否启用RESET_DOMAIN阶段
+RESET_DOMAIN=true  
+# - 是否启用SHORT_PATH阶段
+SHORT_PATH=false  
+# - 是否启用CHECK_STATIC阶段
+CHECK_STATIC=true
+
+## Pick more files
+# - 是否拾取静态化的云标签文件/tag-cloud
+PICK_STATIC_TAGCLOUD=false  
+# - 是否拾取静态化的profile文件/profile-xxx
+PICK_STATIC_PROFILE=false  
+# - 是否拾取静态化的归档文件/archive-post
+PICK_ARCHIVES_POST=false  
+# - 是否拾取/robots.txt
+PICK_ROBOTS_TXT=true  
+# - 是否拾取sitemap文件/sitemap-*
+PICK_SITEMAP=true  
+# - 在update工作模式下，强制尝试上述PICK_xxxx和索引页等文件
+FORCE=false
+
+## Other override
+# - 在SHORT_PATH阶段中不处理的目录名
+IGNORE_LIST=("archives-post" "author" "page" "rss" "tag" "assets" "content" "shared")  
+# - 在PATCH_VERSION阶段中需要处理的目录名
+VERDIR_LIST=("assets" "shared" "public")  
+</code></pre>]]></content:encoded></item><item><title><![CDATA[将Monster用作网站离线下载的方法]]></title><description><![CDATA[<p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
+
+<h3 id="">在非工作目录中（不推荐）</h3>
+
+<ul>
+<li>将网站全站下载到<code>./static</code>目录</li>
+</ul>
+
+<pre><code class="language-bash"># 由于site与domain相同，所以不会触发reset-domain操作
+&gt; monster --generate --site="http://your.site.com" --domain="your.site.com"
+
+# OR，置reset-domain为false
+&gt; monster --generate --site="http://your.site.com" --domain=. --reset-domain=false
+</code></pre>
+
+<ul>
+<li>对<code>./static</code>目录中的静态页面作<code>reset-domain</code>操作（缺省该选项是打开的）</li>
+</ul>
+
+<pre><code class="language-bash">&gt; monster --domain="your.site.com"
+</code></pre>
+
+<ul>
+<li>预览<code>./static</code>目录中的静态页面</li></ul>]]></description><link>http://aimingoo.github.io/1-1743.html/</link><guid isPermaLink="false">e23f0fe8-7fa5-4bfa-a6d4-b9541dab278b</guid><category><![CDATA[Monster]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:42:58 GMT</pubDate><content:encoded><![CDATA[<p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
+
+<h3 id="">在非工作目录中（不推荐）</h3>
+
+<ul>
+<li>将网站全站下载到<code>./static</code>目录</li>
+</ul>
+
+<pre><code class="language-bash"># 由于site与domain相同，所以不会触发reset-domain操作
+&gt; monster --generate --site="http://your.site.com" --domain="your.site.com"
+
+# OR，置reset-domain为false
+&gt; monster --generate --site="http://your.site.com" --domain=. --reset-domain=false
+</code></pre>
+
+<ul>
+<li>对<code>./static</code>目录中的静态页面作<code>reset-domain</code>操作（缺省该选项是打开的）</li>
+</ul>
+
+<pre><code class="language-bash">&gt; monster --domain="your.site.com"
+</code></pre>
+
+<ul>
+<li>预览<code>./static</code>目录中的静态页面</li>
+</ul>
+
+<pre><code class="language-bash">&gt; monster preview
+</code></pre>
+
+<h3 id="">初始化一个工作目录用来下载</h3>
+
+<p>我们可以将一个目录初始化，用作专门的网络离线下载（备份/归档）。</p>
+
+<p><strong>初始化一个工作目录</strong></p>
+
+<pre><code class="language-bash"># 直接用--init初始化一个工作目录，除了domain之外其它的跳过
+#    - 随便填写一个domain地址即可，例如填写一个“.”符号
+&gt; monster --init
+Your Github name or domain: .  
+...
+
+# 置RESET_DOMAIN=false
+&gt; sed -i '' 's/[# ]*\(RESET_DOMAIN\)=.*/\1=false/' .monster
+
+# 添加一行配置
+&gt; echo "GENERATE=true" &gt;&gt; .monster
+</code></pre>
+
+<p><strong>常用操作</strong></p>
+
+<pre><code class="language-bash"># 下载一个站点(例如https://aimingoo.github.io)
+&gt; monster --site="https://aimingoo.github.io"
+
+# 将站点下载到指定目录
+&gt; monster --site="https://aimingoo.github.io" --static-path="./archive"
+
+# 不尝试下载sitemap文件
+&gt; monster --site="https://aimingoo.github.io" --pick-sitemap=false
+</code></pre>]]></content:encoded></item><item><title><![CDATA[Monster - 用Ghost写博客的终极利器]]></title><description><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
 
 <p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
 
@@ -112,7 +419,14 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 
 <h2 id="">高级特性</h2>
 
-<p>关于Monster的Git issues评论、short path、sync、multi author等特性，请参考后续的文章。</p>]]></content:encoded></item><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
+<p>关于Monster的Git issues评论、short path、sync、multi author等特性，请参考：</p>
+
+<p><strong>阅读列表</strong></p>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-1742.html">详解Monster的初始化及配置</a></li>
+<li><a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a></li>
+</ul>]]></content:encoded></item><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
 
 <p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
 
@@ -2123,305 +2437,4 @@ issueLink.innerText = $('Issue Page')
 
 <blockquote>
   <p>注意：Gitment使用了ES6的语法，所以有些地方是用ES6的模板字符串的，这些地方要使用类似${$('english text')} 这样的方法来转换。</p>
-</blockquote>]]></content:encoded></item><item><title><![CDATA[博客迁移手记之快速导航]]></title><description><![CDATA[<p>本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。</p>
-
-<p>于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。</p>
-
-<h2 id="">快速导航</h2>
-
-<p>博客迁移手记（一）</p>
-
-<ul>
-<li>使用BlogToWordpress迁移你的博客</li>
-<li>使用本地博客Ghost的快速指南与导入工具</li>
-</ul>
-
-<p>博客迁移手记（二）</p>
-
-<ul>
-<li>从本地博客到Github Pages的最佳指南</li>
-<li>makesite.sh使用手册</li>
-</ul>
-
-<p>博客迁移手记（三）</p>
-
-<ul>
-<li>以kaldorei为例详解Ghost Theme的定制</li>
-<li>Ghost中文章置顶的实现方法</li>
-<li>如何最大程度地静态化Ghost博客</li>
-</ul>
-
-<p>博客迁移手记（四）</p>
-
-<ul>
-<li>Gitment大坑：谈谈secret泄露的前因后果</li>
-</ul>
-
-<p>博客迁移手记（五）</p>
-
-<ul>
-<li>如何获得一个支持HTTPS的免费空间</li>
-</ul>
-
-<p>博客迁移手记（六）</p>
-
-<ul>
-<li>用intersect来做Gitment的API网关</li>
-<li>Gitment的一些Bug修复与补强</li>
-<li>Gitment的简单多语言支持</li>
-</ul>
-
-<h2 id="">其它：</h2>
-
-<blockquote>
-  <ul>
-  <li><p>我最终改掉了这组博客文章的标题。</p></li>
-  <li><p>这充分说明使用短标题是正确的。</p></li>
-  </ul>
-</blockquote>]]></description><link>http://aimingoo.github.io/1-1724.html/</link><guid isPermaLink="false">b9502886-b86f-4f2e-b8c1-ee5f4a67f92e</guid><category><![CDATA[博客]]></category><category><![CDATA[Gitment]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 30 May 2017 07:48:53 GMT</pubDate><content:encoded><![CDATA[<p>本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。</p>
-
-<p>于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。</p>
-
-<h2 id="">快速导航</h2>
-
-<p>博客迁移手记（一）</p>
-
-<ul>
-<li>使用BlogToWordpress迁移你的博客</li>
-<li>使用本地博客Ghost的快速指南与导入工具</li>
-</ul>
-
-<p>博客迁移手记（二）</p>
-
-<ul>
-<li>从本地博客到Github Pages的最佳指南</li>
-<li>makesite.sh使用手册</li>
-</ul>
-
-<p>博客迁移手记（三）</p>
-
-<ul>
-<li>以kaldorei为例详解Ghost Theme的定制</li>
-<li>Ghost中文章置顶的实现方法</li>
-<li>如何最大程度地静态化Ghost博客</li>
-</ul>
-
-<p>博客迁移手记（四）</p>
-
-<ul>
-<li>Gitment大坑：谈谈secret泄露的前因后果</li>
-</ul>
-
-<p>博客迁移手记（五）</p>
-
-<ul>
-<li>如何获得一个支持HTTPS的免费空间</li>
-</ul>
-
-<p>博客迁移手记（六）</p>
-
-<ul>
-<li>用intersect来做Gitment的API网关</li>
-<li>Gitment的一些Bug修复与补强</li>
-<li>Gitment的简单多语言支持</li>
-</ul>
-
-<h2 id="">其它：</h2>
-
-<blockquote>
-  <ul>
-  <li><p>我最终改掉了这组博客文章的标题。</p></li>
-  <li><p>这充分说明使用短标题是正确的。</p></li>
-  </ul>
-</blockquote>]]></content:encoded></item><item><title><![CDATA[手记5：如何获得一个支持HTTPS的免费空间]]></title><description><![CDATA[<p>下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。</p>
-
-<h2 id="10https">10. 让免费主页空间支持HTTPS</h2>
-
-<blockquote>
-  <p>好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？</p>
-  
-  <p>好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。</p>
-</blockquote>
-
-<p>免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。</p>
-
-<h3 id="101https">10.1 你的主页空间是不是支持HTTPS？</h3>
-
-<p>好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：</p>
-
-<blockquote>
-  <p>（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）</p>
-</blockquote>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"></p>
-
-<p>免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：</p>
-
-<ul>
-<li>Private Key，私钥，它通常与下面的CSR是成对的。
-<ul><li>CSR，证书验证请求（Cerificate Signing Request）。</li></ul></li>
-<li>Certificate，</li></ul>]]></description><link>http://aimingoo.github.io/1-1723.html/</link><guid isPermaLink="false">fa7313be-e458-4280-8739-ab40307afcd0</guid><category><![CDATA[博客]]></category><category><![CDATA[SSL]]></category><category><![CDATA[HTTPS]]></category><category><![CDATA[免费空间]]></category><category><![CDATA[证书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 30 May 2017 07:25:00 GMT</pubDate><content:encoded><![CDATA[<p>下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。</p>
-
-<h2 id="10https">10. 让免费主页空间支持HTTPS</h2>
-
-<blockquote>
-  <p>好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？</p>
-  
-  <p>好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。</p>
-</blockquote>
-
-<p>免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。</p>
-
-<h3 id="101https">10.1 你的主页空间是不是支持HTTPS？</h3>
-
-<p>好吧，确实有很多免费空间『声称』它支持https了。这种情况下它通常会给你用通用工具生成一个自主颁发的ssl凭证——而这个凭证是不受主流浏览器信任的。也就是说，在访问这样的一个网站时，你的浏览器地址栏会是这样：</p>
-
-<blockquote>
-  <p>（我很好奇为什么12306到现在仍然是这样，难道他们也得不到一个有效的ssl凭证吗？）</p>
-</blockquote>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/browser_12306_cn.png" alt="browser_12306_cn"></p>
-
-<p>免费主页空间缺省情况下给你颁发的就是这样一种自主签名的SSL（能通过验证，却不被浏览器环境信任），又或者你的空间根本还不支持ssl/https。这个需要你到主页空间的后台去找一个名为SSL的管理功能，通常它会列举三个信息：</p>
-
-<ul>
-<li>Private Key，私钥，它通常与下面的CSR是成对的。
-<ul><li>CSR，证书验证请求（Cerificate Signing Request）。</li></ul></li>
-<li>Certificate，验证信息。</li>
-</ul>
-
-<p>简单的逻辑是：</p>
-
-<ul>
-<li>假设你先有了一个私钥（Private Key），然后</li>
-<li>你用私钥对一些『要验证的信息』加密，生成了一个验证请求（CSR），最后</li>
-<li>你要找一个有公信力的机构来证明CSR是你的；如果验证通过他就给你发一份Certificate。</li>
-</ul>
-
-<p>你最后从『公信力机构』拿到的这个Certificate就是SSL凭证。——找到你的免费空间后台管理中的Certificate填进去，OK，你的网站就支持<code>https</code>了。</p>
-
-<blockquote>
-  <p>当然这其中还有很多的细节，比如免费空间服务商怎么把你的Certificate装到Web服务器上面去等等等等。不过除非你是要搞台云主机自己来架服务器，这些就先不要了解了吧。</p>
-</blockquote>
-
-<h3 id="102certificate">10.2 两种获得Certificate的方法</h3>
-
-<p>这三个信息有两种方式来获得。</p>
-
-<ul>
-<li>一种是你的免费空间提供商为你生成Private Key/CSR这一对信息，然后你将其中的CSR提交给『公信力机构』，后者给你发Certificate文本。</li>
-</ul>
-
-<p>所以这种情况下你看到免费空间后台管理的SSL配置中会有一个『Generate Key/CSR』按钮，按一下就得到了前面信息了——如果只能填入而不能Generate，那么你也可以自己做，例如在MacOSX中的工具keytool或OpenSSL（<a href="https://faq.xiaoz.me/archives/100.html">参考这里</a>，或<a href="https://onlinehelp.tableau.com/current/server/zh-cn/ssl_cert_create.htm">这里</a>）。与之对应的，在『公信力机构』的证书申请流程中会有一个类似这样的提示：</p>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-provide_your_csr.png" alt="ssl_step-provide_your_csr"></p>
-
-<ul>
-<li>另一种是『公信力机构』一次性地为你把上述三步全做了——他不需要你提供CSR，而是为你生成一个Private Key，然后自己生成CSR、完成验证并最后把Private Key交还给你。例如阿里云为你提供的验证服务就是这样（它后台用的是Symantec的免费DV服务）。这种情况下，你就需要将其中的Private Key交给免费空间提供商了——所以你的免费空间后台管理的SSL配置中，通常在『Generate Key/CSR』按钮旁边，就还会有一个『Upload Key』的功能，这个Key，指的就是Private Key。</li>
-</ul>
-
-<p>好了。简单地汇总一下上面的信息：</p>
-
-<ol>
-<li>找一个『公信力机构』，让他证明你的网站是你的；  </li>
-<li>如果他要CSR，你就给他；如果他不要CSR，那么他应该给你Private Key。</li>
-</ol>
-
-<p>当然，如果你的主页空间不给你提供ssl功能（没有地方让你提交『公信力机构』验证过的Certificate），那么——换一家吧。</p>
-
-<h3 id="103">10.3 怎么证明『你的网站是你的』</h3>
-
-<p>所谓的『公信力机构』要颁发SSL签证，其实是想说明『因为这个网站你是你的，所以我发了这个证明给你』。因此无论如何，这个机构也要有办法来证明『你的网站是你的』，而不仅仅是因为你提交了CSR申请。</p>
-
-<p>所以一旦你申请了，那么你就要为接下来的验证工作做准备，而这取决于不同的『公信力机构』采用的验证方法。下面举三种例子。</p>
-
-<h4 id="1031symantec">10.3.1 阿里云或Symantec的签证</h4>
-
-<p>阿里云可以为你的网站提供1年的免费SSL签证，它的这项服务是通过Symantec签证机构来做的（所以腾讯云也是这样）。所以下面其实是在说Symantec的签证要求。</p>
-
-<p>阿里云是允许你通过修改DNS或在指定的主页位置放一个名为<code>fileauth.txt</code>的文本文件（一个详细的过程可以<a href="https://yfdxs.com/ali-ssl-amh.html">看过里</a>，如果你能修改DNS的CNAME配置那么<a href="https://www.xiaoz.me/archives/7442">看这里</a>）。这样，你就必须要：</p>
-
-<ol>
-<li>有这个网站（或主页）的ftp账号；并且，  </li>
-<li>可以创建名为<code>.well-known</code>这样以点字符开始的目录名（基于Windows系统的主机不能创建这样的名称）；并且，  </li>
-<li>可以确保能通过<code>http://your-domain-name/.well-know/...</code>这样的url路径下载到上述文本文件（注意：如果你的网站已经开通了https，那么它会优先访问https开头的地址）。</li>
-</ol>
-
-<p>问题往往出在第3步。这是因为Symantec会优先去https开头的地址下载验证文件，而一般会提供ssl的主机/免费空间都会默认的给你装一个『自主签名的SSL证书』，这个证书事实上会被认为是无效的——因此Symantec就会验证不通过。</p>
-
-<p>这种情况下你可以曲线救国：先去找别的机构签一个短期一些（通常是3个月）的证书，让这个https地址生效了，然后再回头过验证Symantec的签证（话说，我就是这么干的）。</p>
-
-<p>不过，有些时候事情并不那么美妙，因为即使你的主页空间『信誓旦旦』地说他们开放了SSL，并且无论如何你都把文件传到了正确的地方，甚至你看起来也的确可以通过https/http来访问到上述的<code>fileauth.txt</code>文件的URL地址，但是——你就是通不过Symantec（或者阿里云、腾讯云等等）的验证——它们找不到上面的这个文件。</p>
-
-<blockquote>
-  <p>注意：我就是因为这个问题申请了又放弃了近二十个免费主页空间。相信我，如果你逐一去试，不会好到哪里去的。</p>
-</blockquote>
-
-<p>问题出在哪儿呢？</p>
-
-<p>这是因为非常非常多的『免费主页』本质上都是要在你的主页上挂广告才能活下去的，他们挂广告的方法真的很纷纷多啊。其中一种常用的，就是串改你的url地址，它会把浏览器访问到的url改成带广告代码的，然后自己搞点弹窗啊什么的，最后才重定向到你真实的地址。——这个过程浏览器认得，而『公信力机构』的验证程序可认不得啊，后者在读取验证文件的时候并不支持为浏览器准备的重定向！</p>
-
-<p>所以，一旦你申请到一个主页空间，先用curl去访问一下，如果是下面这种返回：</p>
-
-<pre><code class="language-bash">&gt; curl 'http://your-domain-name/'
-&lt;html&gt;  
-&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt;&lt;/head&gt;  
-...
-</code></pre>
-
-<p>好吧，它的意思是说不支持curl这样的直接访问，一般来说就不能用了。不过如果你不死心，可以再试试伪装成浏览器：</p>
-
-<pre><code class="language-bash">&gt; curl -H 'User-Agent:Mozilla/5.0' 'http://your-domain-name/'
-&lt;html&gt;&lt;body&gt;&lt;script type="text/javascript" ...  
-</code></pre>
-
-<p>那么你就真的不用想了：上面的就是挂广告的代码了，你还想什么呢。</p>
-
-<p>所以你看，我申请了很多又很多个免费空间，都作废了。</p>
-
-<h4 id="1032instantssl">10.3.2 试试别的验证方法，例如instantssl的</h4>
-
-<p>这家『公信力机构』也非常棒，他提供3个月免费的签证。我们上面说过，你可以尝试『曲线救国』，或者干脆就每三个月签一回，都行。</p>
-
-<p>重要的是，instantssl采用的是邮件验证，而不是验证ftp文件。</p>
-
-<p>instantssl是科摩多（comodo）提供的一项SSL证书发放服务，所以你用<a href="http://www.comodo.cn/">comodo.cn</a>或<a href="http://www.instantssl.cn/">instantssl.cn</a>访问都是可以的。他要求你提供自己准备的CSR，之后会提示你会把证书邮寄给你的网站的admin邮箱账号。</p>
-
-<p>所以，这就要求你的主页空间给你开通邮箱服务，并且你能自定义类似<code>admin@yourname.freespace.xyz</code>这样的邮箱名——这个instantssl可以让你选，不过总的来说就那几种特定的。</p>
-
-<p>很好，如果你有这样的免费空间，或者你就是能得到这样的邮箱，那么试试instantssl的吧。我知道<a href="http://infinityfree.net">infinityfree</a>免费空间提供这样的邮箱服务，比如我其实申请了一个<code>.epizy.com</code>的二级域名。但很不幸我没有通过instantssl的验证——它提示我相应名字的签证已经发过了。</p>
-
-<p>不知道为什么。反正，你也许可以试试。</p>
-
-<h4 id="1033">10.3.3 还有一些别的不错的签证机构</h4>
-
-<p>有个非常非常著名的、推动https的签证组织，叫<code>Let’s Encrypt</code>。这个签证非常好用，所以也常常有自己做虚拟主机的来用它（<a href="https://www.freehao123.com/lets-encrypt/">https://www.freehao123.com/lets-encrypt/</a>），很多介绍中也首推就是它（<a href="https://www.freehao123.com/top-8-free-ssl-cert/">例如这里</a>）。</p>
-
-<p>然而它对web域名签证并不友好，所以就有人搞了网站来做这件事，最好用的就是这家了：<a href="https://www.sslforfree.com/">https://www.sslforfree.com/</a>，它发的也是3个月的免费签证。你可以先看看这个教学<a href="https://changken.biz/969">SSLforFree 免费SSL凭证</a>。</p>
-
-<p>SSLforFree的验证过程与阿里云/Symantec的类似，也是要求你传一个文件到ftp上（或者改DNS CNAME），不过他不验证https，所以多数『提供了无效的https的免费空间』来说也能很好的通过验证——除了我上面说的挂广告代码的那种情况。</p>
-
-<p>也许还有其它好的，有知道的不妨推荐给我。</p>
-
-<h3 id="104">10.4 安装你得到的凭证</h3>
-
-<p>『公信力机构』最终给你的是名为Certificate的凭证。并且，</p>
-
-<ul>
-<li>如果是他帮你生成的CSR，那么他会给你Private Key；</li>
-<li>一般来说他会给你一个它作为签证机构的公钥，不过由于使用者（例如你的主页空间服务商）能直接从网站上搜到这个公钥，所以没有给你也是正常的。</li>
-</ul>
-
-<p>你需要在后台把Certificate凭证和Private Key给上传(Upload)或更新(Update)到你的管理后台——如果它有类似『SSL管理』这样的功能的话。例如：</p>
-
-<blockquote>
-  <p>（第1步先上传你的证书）</p>
-</blockquote>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_ssl.png" alt="ssl_step-update_ssl"></p>
-
-<blockquote>
-  <p>（然后点下面的『管理SSL站点』）</p>
-</blockquote>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/05/ssl_step-update_site-1.png" alt="ssl_step-update_site"></p>]]></content:encoded></item></channel></rss>
+</blockquote>]]></content:encoded></item></channel></rss>

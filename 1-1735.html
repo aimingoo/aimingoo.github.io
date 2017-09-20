@@ -1,90 +1,91 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>电子书《我的架构思想》小述</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="电子书《我的架构思想》小述">
-    <meta property="og:description" content="接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：https:/.html/aimingoo.github.io/1-1734.html。      本电子书可自由下载和传播。 这些年来我所谈的“架构思想” 在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（在这里）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。 在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：   画家的笔最终描绘的是他自己心里的映像。 就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。 是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/.html">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1735/.html">
-    <meta property="article:published_time" content="2017-07-23T13:58:00.000Z">
-    <meta property="article:modified_time" content="2017-08-09T06:17:05.000Z">
-    <meta property="article:tag" content="电子书">
-    <meta property="article:tag" content="书序书评">
-    <meta property="article:tag" content="架构">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="电子书《我的架构思想》小述" />
+    <meta property="og:description" content="接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：https://aimingoo.github.io/1-1734.html。      本电子书可自由下载和传播。 这些年来我所谈的“架构思想” 在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（在这里）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。 在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：   画家的笔最终描绘的是他自己心里的映像。 就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。 是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1735.html" />
+    <meta property="article:published_time" content="2017-07-23T13:58:00.000Z" />
+    <meta property="article:modified_time" content="2017-08-09T06:17:05.000Z" />
+    <meta property="article:tag" content="电子书" />
+    <meta property="article:tag" content="书序书评" />
+    <meta property="article:tag" content="架构" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="电子书《我的架构思想》小述">
-    <meta name="twitter:description" content="接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：https:/.html/aimingoo.github.io/1-1734.html。      本电子书可自由下载和传播。 这些年来我所谈的“架构思想” 在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（在这里）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。 在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：   画家的笔最终描绘的是他自己心里的映像。 就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。 是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/.html">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1735/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="电子书, 书序书评, 架构">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="电子书《我的架构思想》小述" />
+    <meta name="twitter:description" content="接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：https://aimingoo.github.io/1-1734.html。      本电子书可自由下载和传播。 这些年来我所谈的“架构思想” 在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（在这里）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。 在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：   画家的笔最终描绘的是他自己心里的映像。 就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。 是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1735.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="电子书, 书序书评, 架构" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "电子书《我的架构思想》小述",
-    "url": "http:/.html/aimingoo.github.io/1-1735/.html",
+    "url": "http://aimingoo.github.io/1-1735.html",
     "datePublished": "2017-07-23T13:58:00.000Z",
     "dateModified": "2017-08-09T06:17:05.000Z",
     "keywords": "电子书, 书序书评, 架构",
-    "description": "接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：https:/.html/aimingoo.github.io/1-1734.html。      本电子书可自由下载和传播。 这些年来我所谈的“架构思想” 在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（在这里）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。 在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：   画家的笔最终描绘的是他自己心里的映像。 就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。 是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/.html",
+    "description": "接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：https://aimingoo.github.io/1-1734.html。      本电子书可自由下载和传播。 这些年来我所谈的“架构思想” 在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（在这里）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。 在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：   画家的笔最终描绘的是他自己心里的映像。 就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。 是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-dian-zi-shu tag-shu-xu-shu-ping tag-jia-gou nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +96,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -124,11 +125,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-dian-zi-shu tag-shu-xu-shu-ping tag-jia-gou">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1735.html">电子书《我的架构思想》小述</a></h1>
+                <h1 class="post-title"><a href="/1-1735.html">电子书《我的架构思想》小述</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/dian-zi-shu/.html">电子书</a>, <a href="tag/shu-xu-shu-ping/.html">书序书评</a>, <a href="tag/jia-gou/.html">架构</a>
+                        <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/shu-xu-shu-ping/">书序书评</a>, <a href="/tag/jia-gou/">架构</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,17 +147,17 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p><img src="content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
+                <p><img src="/content/images/2017/06/poster-1.jpg" alt="poster-1" /></p>
 
 <blockquote>
-  <p>接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：<a href="1-1734.1">https:/.html/aimingoo.github.io/1-1734.html</a>。</p>
+  <p>接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：<a href="/1-1734.html">https://aimingoo.github.io/1-1734.html</a>。</p>
   
   <p>本电子书可自由下载和传播。</p>
 </blockquote>
 
-<h2 id=".html">这些年来我所谈的“架构思想”</h2>
+<h2 id="">这些年来我所谈的“架构思想”</h2>
 
-<p>在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（<a href="http:/.html/blog.csdn.net/aimingoo/article/details/75948724">在这里</a>）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。</p>
+<p>在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（<a href="http://blog.csdn.net/aimingoo/article/details/75948724">在这里</a>）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。</p>
 
 <p>在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：</p>
 
@@ -170,7 +171,7 @@ ghost.init({
 
 <p>真正决定你的架构水平的东西，仍然是你认识这个世界的方法与能力。</p>
 
-<h2 id=".html">怎么来讲“思想”</h2>
+<h2 id="">怎么来讲“思想”</h2>
 
 <p>孟岩先生在序中将本书称为“一本架构思维的认知升级之作”。首先谢谢孟岩对此书的厚赞，另一方面，他也确实戳到了本书对“如何讲思想”的问题。</p>
 
@@ -184,7 +185,7 @@ ghost.init({
 
 <p>在这一点上，孟岩先生看得很真切。</p>
 
-<h2 id=".html">“方法论”的结构化</h2>
+<h2 id="">“方法论”的结构化</h2>
 
 <p>我的方法论最终总要呈现出来，才是可以作为你我所讨论的对象的。这一点我一开始就很清楚：我必须清楚地描述它。</p>
 
@@ -202,7 +203,7 @@ ghost.init({
 
 <p>书之用在读。你是读者，我是写者，我是那个于"读得"之事无能为力的人。</p>
 
-<h2 id=".html">基本模型、理论与原则</h2>
+<h2 id="">基本模型、理论与原则</h2>
 
 <p>严格地来说，《我的架构思想》只提出了一个基本模型，亦即是架构师的能力模型。并且，也只对这个模型中的“领悟”做了进一步细化的讨论，提出了它由“概念抽象、概念表达和基于概念的逻辑表达”三个部分构成。</p>
 
@@ -212,13 +213,13 @@ ghost.init({
 
 <p>而本书中所谓的“架构原则”，不过是在上述过程的生命周期中的一些关键判断。</p>
 
-<h2 id=".html">下载</h2>
+<h2 id="">下载</h2>
 
-<p><strong>1. 高质量的PDF版本 <a href="content/images/attachments/Thinking_in_Architecture.zip">【下载】</a></strong></p>
+<p><strong>1. 高质量的PDF版本 <a href="/content/images/attachments/Thinking_in_Architecture.zip">【下载】</a></strong></p>
 
 <p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
 
-<p><strong>2. 适用于Kindle的版本 <a href="content/images/attachments/Thinking_in_Architecture.azw3">【下载】</a></strong></p>
+<p><strong>2. 适用于Kindle的版本 <a href="/content/images/attachments/Thinking_in_Architecture.azw3">【下载】</a></strong></p>
 
 <p>下载后用USB上传到Kindle即可。</p>
 
@@ -228,24 +229,24 @@ ghost.init({
   <p>上述的修改不影响阅读效果。</p>
 </blockquote>
 
-<p><strong>3. 使用了SVG图的.epub版本 <a href="content/images/attachments/Thinking_in_Architecture.epub">【下载】</a></strong></p>
+<p><strong>3. 使用了SVG图的.epub版本 <a href="/content/images/attachments/Thinking_in_Architecture.epub">【下载】</a></strong></p>
 
 <p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
 
-<p><strong>4. 一般质量图片的.epub版本 <a href="content/images/attachments/Thinking_in_Architecture-i.epub">【下载】</a></strong></p>
+<p><strong>4. 一般质量图片的.epub版本 <a href="/content/images/attachments/Thinking_in_Architecture-i.epub">【下载】</a></strong></p>
 
 <p>一般的掌上阅读软件都可以支持。</p>
 
 <p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
 
-<p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https:/.html/github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
+<p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
 
-<h2 id=".html">其它下载点（不定期更新）</h2>
+<h2 id="">其它下载点（不定期更新）</h2>
 
 <ul>
-<li><p>CSDN下载页：<a href="http:/.html/download.csdn.net/user/aimingoo/uploads">http:/.html/download.csdn.net/user/aimingoo/uploads</a></p></li>
-<li><p>图灵出版社区：<a href="http:/.html/www.ituring.com.cn/book/2430">http:/.html/www.ituring.com.cn/book/2430</a></p></li>
-<li><p>我的Github：<a href="http:/.html/github.com/aimingoo/my-ebooks">http:/.html/github.com/aimingoo/my-ebooks</a></p></li>
+<li><p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p></li>
+<li><p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2430">http://www.ituring.com.cn/book/2430</a></p></li>
+<li><p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p></li>
 </ul>
             </section>
 <!-- removed by aimingoo
@@ -258,13 +259,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1734.1">
+                <a href="/1-1734.html">
                     电子书《程序原本》小述
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-1736/.html">
+            <span class="post-nav-next" >
+                <a href="/1-1736.html">
                     小述系列最终篇：说说《大道至易：实践者的思想》
                 </a>
                 下一篇
@@ -274,11 +275,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -294,30 +295,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -331,8 +332,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -344,20 +345,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

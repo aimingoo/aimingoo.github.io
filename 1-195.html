@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>前端要给力之：红绿灯大战中的火星生命-Promise</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="前端要给力之：红绿灯大战中的火星生命-Promise">
-    <meta property="og:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-195/.html">
-    <meta property="article:published_time" content="2015-04-12T13:35:00.000Z">
-    <meta property="article:modified_time" content="2017-06-13T11:21:11.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="Promise">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="前端要给力之：红绿灯大战中的火星生命-Promise" />
+    <meta property="og:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-195.html" />
+    <meta property="article:published_time" content="2015-04-12T13:35:00.000Z" />
+    <meta property="article:modified_time" content="2017-06-13T11:21:11.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="Promise" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="前端要给力之：红绿灯大战中的火星生命-Promise">
-    <meta name="twitter:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-195/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, Promise">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="前端要给力之：红绿灯大战中的火星生命-Promise" />
+    <meta name="twitter:description" content="传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-195.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, Promise" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "前端要给力之：红绿灯大战中的火星生命-Promise",
-    "url": "http:/.html/aimingoo.github.io/1-195/.html",
+    "url": "http://aimingoo.github.io/1-195.html",
     "datePublished": "2015-04-12T13:35:00.000Z",
     "dateModified": "2017-06-13T11:21:11.000Z",
     "keywords": "Javascript, Promise",
     "description": "传说的开始 前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。   我看这个片子纯粹是因为打得好看，看完也就知道“剑心是个在脸上画叉叉的高颜值冷男（好吧我承认为了显示我还算个跟得上时代的人我把最近听到的几乎所有的流行词以及流行的文字写法全用上了）”。然而面对这样的尴尬，究其根源却在于我是个不知道“传说的开始”的家伙。   所以，今次讲Promise，请容我从这场“红绿灯大战”的起源讲起，更早的，再讲讲我与Promise的故事。至于这样做会不会让读者对Promise这个东西有更深入或更新颖的了解，我实在不知，我只是觉得：当一个传说已经过去，而去看这个故事的人既然不知道它的起始，真是悲剧。   看到winter的代码，我的第一反应是：全无promise的精髓 公历年2015年4月10日，这天中午，天气晴好，时间是正正经的12:00的时候，裕波同学在微博上@我跟hax：     谁来当裁判？   这要裁判的便是@",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-promise nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-promise">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-195.html">前端要给力之：红绿灯大战中的火星生命-Promise</a></h1>
+                <h1 class="post-title"><a href="/1-195.html">前端要给力之：红绿灯大战中的火星生命-Promise</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/promise/.html">Promise</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/promise/">Promise</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,7 +146,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h1 id=".html">传说的开始</h1>
+                <h1 id="">传说的开始</h1>
 
 <p>前些日子看了三集的《浪客剑心》的电影版，它的最后一集是叫“传说的终结”。这几个字让我很感概：我不是剑心迷，我的一些80、90后朋友却是看着剑心漫画长大的，因此他们常讲的一些梗在我看来便如同究极深奥的科学谜题；然而当我有一天终于要看这“传说中的剑心”的时候，它却“终结”了。  </p>
 
@@ -161,7 +162,7 @@ ghost.init({
   <p>谁来当裁判？  </p>
 </blockquote>
 
-<p>这要裁判的便是@寒冬winter 的一段代码（winter的代码#31，<a href="http:/.html/code.w3ctech.com/detail/31" title="代码在这里">在这里</a>）。这段代码是winter向@十年踪迹 同学宣战的，原文是：  </p>
+<p>这要裁判的便是@寒冬winter 的一段代码（winter的代码#31，<a href="http://code.w3ctech.com/detail/31" title="代码在这里">在这里</a>）。这段代码是winter向@十年踪迹 同学宣战的，原文是：  </p>
 
 <blockquote>
   <p>我表示不服！来PK呀！  </p>
@@ -185,9 +186,9 @@ ghost.init({
 
 <p>这是在今年元旦前后，我因为一个项目要写RESTApi接口，而选用了nodejs来写一个test case。因此，大家可以想见的，我一定会面临callback，并显而易见地会痛恨之。所以，我就就写了一个名为Continuer的项目，源代码中还写着“Callback Must Die!”。  </p>
 
-<p>所以，我最初想用来搞掉callback的方法，其实是表现在Continuer这个项目中的（<a href="https:/.html/github.com/aimingoo/continuer">continuer@github</a>）。  </p>
+<p>所以，我最初想用来搞掉callback的方法，其实是表现在Continuer这个项目中的（<a href="https://github.com/aimingoo/continuer">continuer@github</a>）。  </p>
 
-<p>这个项目开源了并在微博上引起了一些前端同学的兴趣。这个时候便有人提到了Promise，质疑为什么在有了Promise的情况下还要做Continuer这样的东西。随后我就在翻读微博的时候，看到了hax与@孢子响马 同学的吵架贴，<a href="http:/.html/weibo.com/2041028560/BDFy7hcIT">在这里在这里，快来看呀，打架好好看</a>。hax向来被我称为吵架王的（有没有周星星电影的即视感），所以他在回复时言辞激烈那是再正常不过了——所以你看我就说“hax这10年来风格依旧，奥柏伦亲王真是大爱啊（这个梗要到“冰与火之歌”中去找）”，这完全符合他“认为正确就要誓死悍卫（或称为死性不改）”的风格。  </p>
+<p>这个项目开源了并在微博上引起了一些前端同学的兴趣。这个时候便有人提到了Promise，质疑为什么在有了Promise的情况下还要做Continuer这样的东西。随后我就在翻读微博的时候，看到了hax与@孢子响马 同学的吵架贴，<a href="http://weibo.com/2041028560/BDFy7hcIT">在这里在这里，快来看呀，打架好好看</a>。hax向来被我称为吵架王的（有没有周星星电影的即视感），所以他在回复时言辞激烈那是再正常不过了——所以你看我就说“hax这10年来风格依旧，奥柏伦亲王真是大爱啊（这个梗要到“冰与火之歌”中去找）”，这完全符合他“认为正确就要誓死悍卫（或称为死性不改）”的风格。  </p>
 
 <p>hax跟孢子响马讨论的是fibjs中解决异步的方式问题，hax的主要观点是  </p>
 
@@ -203,7 +204,7 @@ ghost.init({
 
 <p>hax的意思是说：有些正确性是可以推论出来的，并不因为实用经验多寡的而改变。这是我这么些年来对hax的了解中，他讲过的最哲学而又最逻辑的话（其它的大多数时候，他的哲学正确与逻辑正确是分离的，^^.）。  </p>
 
-<p>好了，这也就是我了解Promise的源起，它来自于另一场战争。那场战争比今次所讨论的要激烈得多。许多猛士在那场地战争中倒下了。这也包括我。我后来因为这个缘故写了一篇《关于Continuer的What与Why》来解释我为什么写Continuer这个项目（<a href="https:/.html/github.com/aimingoo/continuer/wiki/%E5%85%B3%E4%BA%8EContinuer%E7%9A%84What%E4%B8%8EWhy">在这里</a>），这篇文字把我面临的问题锁定在“需要一个顺序执行的序列（以用于run testcases）”。在这个问题下面，写一个轻量的Continuer模块，并不算得“一件多么不正确”的事。  </p>
+<p>好了，这也就是我了解Promise的源起，它来自于另一场战争。那场战争比今次所讨论的要激烈得多。许多猛士在那场地战争中倒下了。这也包括我。我后来因为这个缘故写了一篇《关于Continuer的What与Why》来解释我为什么写Continuer这个项目（<a href="https://github.com/aimingoo/continuer/wiki/%E5%85%B3%E4%BA%8EContinuer%E7%9A%84What%E4%B8%8EWhy">在这里</a>），这篇文字把我面临的问题锁定在“需要一个顺序执行的序列（以用于run testcases）”。在这个问题下面，写一个轻量的Continuer模块，并不算得“一件多么不正确”的事。  </p>
 
 <p>hax后来接受了我的观点，一半是给我面子，另一半大概是懒得跟我吵架（我是吵架王的那个时代已经一去不返了，hax同学请继续坚持，我们这代人就靠你了）。因为，我在上面这篇文章里说Promise“在概念上仍然是基于事件触发的”，在我如今看来，这句话是大大的错了。  </p>
 
@@ -231,13 +232,13 @@ ghost.init({
 
 <p>我立即开始着手这个框架了，一方面Continuer被我抛得远远的（在实用中也发现了不少的问题），另一方面我打算写的文字也被继续搁置了。而我在这个框架上要解决的第一个问题，其实是：Lua不支持Promise。  </p>
 
-<p>呵呵，我是要在ngx_cc这个项目上（这个项目是nginx集群通讯的，<a href="https:/.html/github.com/aimingoo/ngx_cc">在这里</a>）继续做些事情，当然得考虑到语言问题。于是就着手写了一个真正实现Promise的Lua库（你能找到的所有所有lua-promise库都达不到真正ECMAScript兼容）。做这件事的时候是在三亚。话说这次三亚的“F100技术领袖峰会（3月20-22）”到底有多么“技术领袖”呢？主要的表征之一，就是所有人中就只剩下我一个还在写代码的了。我一边开着会跟大家讨论软件工程、设计艺术、技术领导的风格与公司组织架构之间的关系以及传统企业的互联网转型过程中技术决策者的价值……等等，另一面写着这样一个Promise for Lua的库。  </p>
+<p>呵呵，我是要在ngx_cc这个项目上（这个项目是nginx集群通讯的，<a href="https://github.com/aimingoo/ngx_cc">在这里</a>）继续做些事情，当然得考虑到语言问题。于是就着手写了一个真正实现Promise的Lua库（你能找到的所有所有lua-promise库都达不到真正ECMAScript兼容）。做这件事的时候是在三亚。话说这次三亚的“F100技术领袖峰会（3月20-22）”到底有多么“技术领袖”呢？主要的表征之一，就是所有人中就只剩下我一个还在写代码的了。我一边开着会跟大家讨论软件工程、设计艺术、技术领导的风格与公司组织架构之间的关系以及传统企业的互联网转型过程中技术决策者的价值……等等，另一面写着这样一个Promise for Lua的库。  </p>
 
 <p>离开三亚的时候，我跟麦子同学说：Promise库写完了。麦子同学一脸茫然和无限深情地看着我：老公，你潜水的时候像条鱼。  </p>
 
-<h1 id=".html">红绿灯大战的亲历实录</h1>
+<h1 id="">红绿灯大战的亲历实录</h1>
 
-<p>红绿灯大战中，我join进去的时候已经是winter的挑战了，这事实上应该是@winter 对@十年踪迹 一次还击。十年踪迹同学最早是写了这样一个例子（十年踪迹的代码#30，<a href="http:/.html/code.w3ctech.com/detail/30">在这里</a>）：  </p>
+<p>红绿灯大战中，我join进去的时候已经是winter的挑战了，这事实上应该是@winter 对@十年踪迹 一次还击。十年踪迹同学最早是写了这样一个例子（十年踪迹的代码#30，<a href="http://code.w3ctech.com/detail/30">在这里</a>）：  </p>
 
 <pre><code class="language-javascript">function promiseDef(async, i, j){  
   return function(){
@@ -259,7 +260,7 @@ ghost.init({
   }
 }
 
-/.html/红绿灯切换：绿 5s -&gt; 黄 2s -&gt; 红 5s 循环
+//红绿灯切换：绿 5s -&gt; 黄 2s -&gt; 红 5s 循环
 
 var greenPromise = promiseDef(setTimeout, 0).bind(null, 5000);  
 var yelloPromise = promiseDef(setTimeout, 0).bind(null, 2000);  
@@ -283,13 +284,13 @@ var traffic = document.getElementById('traffic');
 })();
 </code></pre>
 
-<p>来说明（<a href="http:/.html/weibo.com/1558150085/CcB8uj6E2">在这里</a>）：  </p>
+<p>来说明（<a href="http://weibo.com/1558150085/CcB8uj6E2">在这里</a>）：  </p>
 
 <blockquote>
   <p>过程抽象之promise化——用过程抽象的思路将一个普通的异步函数“变换”成promise形式~  </p>
 </blockquote>
 
-<p>而winter就写了下面这段代码来约战（winter的代码#31，<a href="http:/.html/code.w3ctech.com/detail/31" title="代码在这里">在这里</a>）：  </p>
+<p>而winter就写了下面这段代码来约战（winter的代码#31，<a href="http://code.w3ctech.com/detail/31" title="代码在这里">在这里</a>）：  </p>
 
 <pre><code class="language-javascript">function turnGreen(){  
     return new Promise(function(resolve, reject) {
@@ -320,7 +321,7 @@ function wait2000(){
     })
 }
 
-/.html/执行！
+//执行！
 void function (){  
     turnGreen()
     .then(wait5000)
@@ -336,7 +337,7 @@ void function (){
 
 <h2 id="promise">Promise写出来怎么会是这个样子？</h2>
 
-<p>好吧！这真的是一个问题，“Promise写出来的样子”是什么样子？我没有细思考这个问题，我就手写了一个，表示“可以是这样”（<a href="http:/.html/code.w3ctech.com/detail/41">aimingoo的代码#41, 在这里</a>）：  </p>
+<p>好吧！这真的是一个问题，“Promise写出来的样子”是什么样子？我没有细思考这个问题，我就手写了一个，表示“可以是这样”（<a href="http://code.w3ctech.com/detail/41">aimingoo的代码#41, 在这里</a>）：  </p>
 
 <pre><code class="language-javascript">function turn(color) {  
   traffic.className = color;
@@ -345,7 +346,7 @@ void function (){
   }.bind(this))
 }
 
-turn.and = turn.bind; /.html/ 仅为了可读性  
+turn.and = turn.bind; // 仅为了可读性  
 void function (){  
   Promise.resolve('green')
     .then(turn.and({wait: 5000, next: 'yellow'}))
@@ -359,46 +360,46 @@ void function (){
 
 <p>这三段代码的好坏，我们晚点在说。反正当时裕波同学是笑出了眼泪的，然后这个case就在前端圈子里面传开了，然后就出现了很多很多种“不同的样子”：  </p>
 
-<hr>
+<hr />
 
-<p>@winter寒冬 强调turn/wait要分离提出的#46：<a href="http:/.html/code.w3ctech.com/detail/46">在这里</a>，与<a href="http:/.html/code.w3ctech.com/detail/39">#39</a>有相似之处。  </p>
+<p>@winter寒冬 强调turn/wait要分离提出的#46：<a href="http://code.w3ctech.com/detail/46">在这里</a>，与<a href="http://code.w3ctech.com/detail/39">#39</a>有相似之处。  </p>
 
-<p>@米粽粽 在#41上的改进型#51：<a href="http:/.html/code.w3ctech.com/detail/51">在这里</a>，这是我后来认为“完美”的版本。  </p>
+<p>@米粽粽 在#41上的改进型#51：<a href="http://code.w3ctech.com/detail/51">在这里</a>，这是我后来认为“完美”的版本。  </p>
 
-<p>@winter寒冬 根本停不下来，张牙舞爪ES6版！#52：<a href="http:/.html/code.w3ctech.com/detail/52">在这里</a>，这是使用yield的版本。  </p>
+<p>@winter寒冬 根本停不下来，张牙舞爪ES6版！#52：<a href="http://code.w3ctech.com/detail/52">在这里</a>，这是使用yield的版本。  </p>
 
-<p>@青空残红 的#45和#48版本，<a href="http:/.html/code.w3ctech.com/detail/45">在这里</a>和<a href="http:/.html/code.w3ctech.com/detail/48">这里</a>，前者尝试对Promise的“.then只能传递一个值”作修补；后者则采用深度递归来处理数组中的每个颜色和时间值。  </p>
+<p>@青空残红 的#45和#48版本，<a href="http://code.w3ctech.com/detail/45">在这里</a>和<a href="http://code.w3ctech.com/detail/48">这里</a>，前者尝试对Promise的“.then只能传递一个值”作修补；后者则采用深度递归来处理数组中的每个颜色和时间值。  </p>
 
-<p>@随机 的全栈解决方案 #69，<a href="http:/.html/code.w3ctech.com/detail/69">在这里</a>，这个方案无关promise，而是引入服务端来做计时器，用ajax/jsonp来处理回调的  </p>
+<p>@随机 的全栈解决方案 #69，<a href="http://code.w3ctech.com/detail/69">在这里</a>，这个方案无关promise，而是引入服务端来做计时器，用ajax/jsonp来处理回调的  </p>
 
-<p>@十年踪迹 引入Task概念，将红绿灯模拟(或声明、描述)成任务的方案 #57，<a href="http:/.html/code.w3ctech.com/detail/57">在这里</a>  </p>
+<p>@十年踪迹 引入Task概念，将红绿灯模拟(或声明、描述)成任务的方案 #57，<a href="http://code.w3ctech.com/detail/57">在这里</a>  </p>
 
-<p>@-Lucifier- 的玩坏promise版 #49，<a href="http:/.html/code.w3ctech.com/detail/49">在这里</a>，这个方案也无关promise，是直接定义红绿灯状态/转换过程，然后用setTimeout回调来处理循环/链的。Lucifier强调：将过程碎片化的promise不是好promise，数据被打散从而无法组织。  </p>
+<p>@-Lucifier- 的玩坏promise版 #49，<a href="http://code.w3ctech.com/detail/49">在这里</a>，这个方案也无关promise，是直接定义红绿灯状态/转换过程，然后用setTimeout回调来处理循环/链的。Lucifier强调：将过程碎片化的promise不是好promise，数据被打散从而无法组织。  </p>
 
-<p>@-Lucifier- 过程与数据分离的promise版 #59，<a href="http:/.html/code.w3ctech.com/detail/59">在这里</a>，这个版本是#49的改进，加入了promise。  </p>
+<p>@-Lucifier- 过程与数据分离的promise版 #59，<a href="http://code.w3ctech.com/detail/59">在这里</a>，这个版本是#49的改进，加入了promise。  </p>
 
-<p>@教主 逗比版（作者自己说的）#42，<a href="http:/.html/code.w3ctech.com/detail/42">在这里</a>，这个也是否定promise的版本，作者可能只是想表达一下情绪。^^.  </p>
+<p>@教主 逗比版（作者自己说的）#42，<a href="http://code.w3ctech.com/detail/42">在这里</a>，这个也是否定promise的版本，作者可能只是想表达一下情绪。^^.  </p>
 
-<p>@ECMA #40，<a href="http:/.html/code.w3ctech.com/detail/40">在这里</a>，分别处理了color/timer定义。  </p>
+<p>@ECMA #40，<a href="http://code.w3ctech.com/detail/40">在这里</a>，分别处理了color/timer定义。  </p>
 
-<p>（注#40、#42、#49、#59等在讨论另一个 session：如果定义的红绿灯规则频繁变化，例如要加个紫灯怎么办。<a href="http:/.html/weibo.com/1221479170/CcD1G9WCi?type=repost">在这里</a>）  </p>
+<p>（注#40、#42、#49、#59等在讨论另一个 session：如果定义的红绿灯规则频繁变化，例如要加个紫灯怎么办。<a href="http://weibo.com/1221479170/CcD1G9WCi?type=repost">在这里</a>）  </p>
 
-<p>还有一些我找不到出处的版本，比如#183 <a href="http:/.html/code.w3ctech.com/detail/183">在这里</a>，事实上这个写得我也看不懂了。  </p>
+<p>还有一些我找不到出处的版本，比如#183 <a href="http://code.w3ctech.com/detail/183">在这里</a>，事实上这个写得我也看不懂了。  </p>
 
-<hr>
+<hr />
 
-<h2 id=".html">欢迎回到火星</h2>
+<h2 id="">欢迎回到火星</h2>
 
 <p>是的，我们刚才的地球探险结束了，火星文明在地球毁灭之后成了银河系中唯一有生命居住的地方。尽管单细胞生命过于原始，但总之好过于地球上的一片荒芜。  </p>
 
 <p>不要再问我“地球文明毁灭于什么”这样的问题了。  </p>
 
-<h2 id=".html">感谢“米粽粽”同学提到我的一篇旧文</h2>
+<h2 id="">感谢“米粽粽”同学提到我的一篇旧文</h2>
 
 <p>事实上，让我换了一个角度思考这个问题的，正是我自己的那篇旧文，感谢“米粽粽”同学提到这篇文章：  </p>
 
 <blockquote>
-  <p>《前端要给力之：代码可以有多烂？》 <a href="http:/.html/blog.csdn.net/aimingoo/article/details/6036574">在这里</a>  </p>
+  <p>《前端要给力之：代码可以有多烂？》 <a href="http://blog.csdn.net/aimingoo/article/details/6036574">在这里</a>  </p>
 </blockquote>
 
 <p>那是另外的一段历史，那段历史揭示了这样一个真理：  </p>
@@ -417,7 +418,7 @@ void function (){
 
 <p>我相信hax的那个判断：如果它能证明正确，那就是正确的。并不因为人多的就是文明，而一个细胞就不能为自己发出声音。  </p>
 
-<h1 id=".html">第一步的抽象</h1>
+<h1 id="">第一步的抽象</h1>
 
 <p>我们所有上面的例子，都做错了第一步。  </p>
 
@@ -444,13 +445,13 @@ void function (){
 
 <p>这种思维模式是：命令式编程。  </p>
 
-<h2 id=".html">一点说明/前提</h2>
+<h2 id="">一点说明/前提</h2>
 
 <p>在所有后续的讨论之间，我需要先说明一点。整个问题的最初提出，是@十年踪迹 的一段关于Promise如何使用的代码，十年踪迹先定义(def)了一些Promise，然后用.then()把它们连续起来，在最后一个.then()中它递归调用restart()来实现循环。整个过程如@十年踪迹 所说的，是Promise应用的一个示例。而Winter与它PK的，以及裕波m给我和hax需要去评判的，也是“如何写好Promise”的一个问题。  </p>
 
 <p>所以我们不讨论非Promise实现，也不讨论Promise在特定问题上是否“更好/更不好”的问题，而是讨论“怎样才算是正确的Promise实现”。  </p>
 
-<h2 id=".html">重新定义问题</h2>
+<h2 id="">重新定义问题</h2>
 
 <p>我们说“循环到第一步”是一个大问题，是指它难于处理，而不是说它是“问题的本身”。在前面的例子中，没有人想到这样的一件事，既然是：  </p>
 
@@ -504,7 +505,7 @@ void function (){
 
 <p>有了上面的数据抽象之后，我们该怎么处理逻辑过程呢？这总结起来只有如下的三步。  </p>
 
-<h2 id=".html">如何确认一个数据“就绪”</h2>
+<h2 id="">如何确认一个数据“就绪”</h2>
 
 <p>无论就绪是指“成功”还是“失败”，一旦这个数据可供处理我们就称为就绪。就我们现在的理解中，一个数据要么在声明出来就已经就绪，要么是过一段时间，由一个异步过程来“使之”就绪。  </p>
 
@@ -534,13 +535,13 @@ void function (){
     traffic.className = color;
 }
 
-Promise.resolve('green')  /.html/ 数据就绪  
-    .then(turn)           /.html/ 做点什么
+Promise.resolve('green')  // 数据就绪  
+    .then(turn)           // 做点什么
 </code></pre>
 
 <p>所以上面的代码在实现逻辑上写成：  </p>
 
-<pre><code class="language-javascript">/.html/ turn()略
+<pre><code class="language-javascript">// turn()略
 var print = function(msg) {  
     console.log(msg)
 }
@@ -579,7 +580,7 @@ promised.then(print);
 
 <p>在.then(fulfilled)中的函数fulfilled不但只能处理一个数据，而且只能处理“刚才”就绪的那个数据。这个所谓刚才，只是指在语法上的顺序。例如：  </p>
 
-<pre><code class="language-javascript">/.html/ ...
+<pre><code class="language-javascript">// ...
 promisedA.then(func1);  
 promisedB.then(func2);  
 func3();  
@@ -610,7 +611,7 @@ func3();
   })
 }
 
-/.html/执行！
+//执行！
 void function run() {  
     turn('green', 1000)
     .then(turn.bind(null, 'yellow', 400))
@@ -621,7 +622,7 @@ void function run() {
 
 <p>请注意这个turn.bind利用了bind的特性在函数闭包中传参，而在turn()处理的代码中，resolve实际上不返回也不“就绪“任何数据。所以.then()链中并没有数据流，而只有逻辑顺序。  </p>
 
-<p>与之对照的，@青空残红 的#45代码就试图使then()链中传递多个数据（<a href="http:/.html/code.w3ctech.com/detail/45">在这里</a>）：  </p>
+<p>与之对照的，@青空残红 的#45代码就试图使then()链中传递多个数据（<a href="http://code.w3ctech.com/detail/45">在这里</a>）：  </p>
 
 <pre><code class="language-javascript">typeof time == 'number' ? setTimeout(function(){resolve.apply(null, Array.prototype.slice(arg))},time) : resolve.apply(null, Array.prototype.slice(arg));  
 </code></pre>
@@ -659,32 +660,32 @@ void function run() {
 
 <p>下面的示例说明这一点：  </p>
 
-<pre><code class="language-javascript">/.html/ case 1: 返回任意值（包括undefind/Error实例)
-/.html/   - 将被以Promise.resolve(value)的方式返回到promise2
+<pre><code class="language-javascript">// case 1: 返回任意值（包括undefind/Error实例)
+//   - 将被以Promise.resolve(value)的方式返回到promise2
 promise2 = promise.then(function() {  
     return 'true'
 })
 
-/.html/ case 2: 返回一个新的promise，这个promise可以是就绪（resolved/rejected）的数据
-/.html/  - 也可以是未就绪的（异步调用处理）的数据
+// case 2: 返回一个新的promise，这个promise可以是就绪（resolved/rejected）的数据
+//  - 也可以是未就绪的（异步调用处理）的数据
 promise2 = promise.then(function() {  
     return Promise.reject('ERROR')
 })
 
 
-/.html/ case 3: 任何时候，代码执行错或throw，都将使promise2得到一个rejected的数据
+// case 3: 任何时候，代码执行错或throw，都将使promise2得到一个rejected的数据
 promise2 = promise.then(function() {  
     throw new Error('ERROR')
 })
 
-/.html/ case 4: 在onRejected()的处理中，也可以返回resolved的数据
+// case 4: 在onRejected()的处理中，也可以返回resolved的数据
 var _ = undefined;  
 promise2 = promise.then(_, function() {  
     return Promise.resolve('OK')
 })
 </code></pre>
 
-<h1 id=".html">解决问题的方法</h1>
+<h1 id="">解决问题的方法</h1>
 
 <p>我们已经得到了那个原始问题的、基于Promise思想的数据定义：  </p>
 
@@ -698,7 +699,7 @@ promise2 = promise.then(_, function() {
 
 <p>那么，接下来呢？  </p>
 
-<h2 id=".html">得到一些基础件</h2>
+<h2 id="">得到一些基础件</h2>
 
 <p>我们先想像一下，我们能“就绪”的，和接下来要处理的是什么。在这个问题中，我们留意到，我们事实上要处理上述4个项中的“每一个”；具体到每一个，都是一个简单的“等待，然后调用（WaitAndDo）”。那么，对“每一个”来说，我们需要一个迭代器来列举之。这个好办，在chrome中array.entries()就可以得到它了；而对每一次的“等待+调用（WaitAndDo）”，我们用一个runner来处理每step的数据。  </p>
 
@@ -715,9 +716,9 @@ function runner(step){
 }
 
 var promisedData = [  
-    [0,     turn.bind('green')],  /.html/ step1
-    [5000,  turn.bind('yellow')], /.html/ step2
-    [2000,  turn.bind('red')],    /.html/ ...
+    [0,     turn.bind('green')],  // step1
+    [5000,  turn.bind('yellow')], // step2
+    [2000,  turn.bind('red')],    // ...
     [5000,  main]
 ];
 
@@ -735,10 +736,10 @@ function main() {
 
 <p>处理这样的迭代的通常思路是使用一个循环，比如用递归函数来实现。考虑到Promise的特性，所以递归函数应该返回一个新的Promise实例，并且总是用Promise链的最后一个.then()来进入下一次递归。这样的一来，main()函数的逻辑就很明显了：  </p>
 
-<pre><code class="language-javascript">/.html/ ...
+<pre><code class="language-javascript">// ...
 
-/.html/ 获得迭代器中的iterator.next()的成员，并使之resolved
-/.html/  - 通过picker.bind()将iterator绑定到this
+// 获得迭代器中的iterator.next()的成员，并使之resolved
+//  - 通过picker.bind()将iterator绑定到this
 function picker(item) {  
     return (item = this.next()).done ? Promise.reject(item) : Promise.resolve(item.value[1]);
 }
@@ -754,11 +755,11 @@ function main() {
 }
 </code></pre>
 
-<p>完整的代码#73（<a href="http:/.html/code.w3ctech.com/detail/73">在这里</a>）。我通常会用一些技巧来把代码写得更像函数式一点，但那些仅仅是技巧而已，例如另一份类似的代码是#60（<a href="http:/.html/code.w3ctech.com/detail/60">在这里</a>），只是在loop的处理上有些不同，但整个框架是一致的。  </p>
+<p>完整的代码#73（<a href="http://code.w3ctech.com/detail/73">在这里</a>）。我通常会用一些技巧来把代码写得更像函数式一点，但那些仅仅是技巧而已，例如另一份类似的代码是#60（<a href="http://code.w3ctech.com/detail/60">在这里</a>），只是在loop的处理上有些不同，但整个框架是一致的。  </p>
 
 <p>我更喜欢在#73中对picker的使用，这个picker通用性很好，没有负担，而且也不影响在后面的代码组织，看起来很清洁的样子。但picker和#60中的loop的关系，就跟Array.prototype.forEach与for (var i=0, …)两种循环类似，不影响使用Promise来解题的思路了。  </p>
 
-<h2 id=".html">迭代中的一些其它问题</h2>
+<h2 id="">迭代中的一些其它问题</h2>
 
 <p>正如一些语言禁止访问for循环的中间变量（或其“返回”）一样，将“迭代”用于“完成一批处理/得到一个数据”是两种不同的抽象，因此也有不同的迭代设计。但总的来说，这是循环结构的一种。  </p>
 
@@ -782,7 +783,7 @@ function main() {
 
 <p>如果“迭代”是一个过程，那么如何做到这个过程对函数外无副作用？这的确需要一些设计，但不是没有现成的解决方法，要不你认为array.forEach()中传入thisObject是来做什么的？至于onRejected，反倒是最容易理解的：该迭代没有设计有效的返回。  </p>
 
-<h1 id=".html">一点点好处</h1>
+<h1 id="">一点点好处</h1>
 
 <p>这样解决问题究竟有什么价值呢？  </p>
 
@@ -800,7 +801,7 @@ function main() {
 
 <p>这个item从promisedData[]中抽掉即可。可见，main()带来了一个清晰、稳定和可靠的执行器环境 。  </p>
 
-<p>接下来，让我们再一次回到原始的问题。看起来我们的“第一步的抽象”还算不错，但实际上仍有那么些粗糙的。比如我们其实可以将2000ms理解为“一个2000的值，和一个称为timeout的行为”这样的一对数据。在这个基础上，我们可以得到更精确/精美的promisedData 和相关的runner。如下（<a href="http:/.html/code.w3ctech.com/detail/184">#184</a>）：  </p>
+<p>接下来，让我们再一次回到原始的问题。看起来我们的“第一步的抽象”还算不错，但实际上仍有那么些粗糙的。比如我们其实可以将2000ms理解为“一个2000的值，和一个称为timeout的行为”这样的一对数据。在这个基础上，我们可以得到更精确/精美的promisedData 和相关的runner。如下（<a href="http://code.w3ctech.com/detail/184">#184</a>）：  </p>
 
 <pre><code class="language-javascript">function timeout(ms) {  
     return new Promise(function(next) { setTimeout(next, ms) })
@@ -809,13 +810,13 @@ function turn(color) {
     return Promise.resolve(traffic.className = color);
 }
 function runner(data){  
-    /.html/ 请试想这里为什么不直接用data[1](data[0]) ?
+    // 请试想这里为什么不直接用data[1](data[0]) ?
     return Promise.resolve(data[0]).then(data[1]);
 }
 var promisedData = [  
-    [0,        timeout],  /.html/ step1
-    ['green',  turn],     /.html/ step2
-    [5000,     timeout],  /.html/ ...
+    [0,        timeout],  // step1
+    ['green',  turn],     // step2
+    [5000,     timeout],  // ...
     ['yellow', turn],
     [2000,     timeout],
     ['red',    turn],
@@ -823,8 +824,8 @@ var promisedData = [
     [undefined, main]
 ];
 
-/.html/ （其它同于代码#73）
-/.html/ ...
+// （其它同于代码#73）
+// ...
 </code></pre>
 
 <p>考虑到更通用的情况，为什么我们不能将“所有的东西”都理解为一个数据呢？又或者将andRun元素理解为数据的模型该如何做呢？  </p>
@@ -832,34 +833,34 @@ var promisedData = [
 <p>当我们将上述step1也理解为“一个行为的一组数据对”的时候，我们就可以“自然而然地”想到，如果“0”不是一个时间，而是一个用表明“远端服务的状态是否就绪”呢？那么，上面这个程序可以非常非常简单地扩展到全栈：  </p>
 
 <pre><code class="language-javascript">var waiting = new Promise(function(resolve, reject) {  
-    /.html/ ajaxLoad and exec resolve() in callback, or reject anything
+    // ajaxLoad and exec resolve() in callback, or reject anything
 });
 var promisedData = [  
-    [waiting,     timeout],  /.html/ step1
+    [waiting,     timeout],  // step1
     ...
 ];
 
-/.html/ （没什么要改的了）
-/.html/ ...
+// （没什么要改的了）
+// ...
 </code></pre>
 
-<h1 id=".html">其它</h1>
+<h1 id="">其它</h1>
 
-<p>1. 我写的Promise in Lua项目在这里：<a href="http:/.html/github.com/aimingoo/Promise">http:/.html/github.com/aimingoo/Promise</a> <br>
-2. 所有代码在code.w3ctech上可以找到，我的在这里：<a href="http:/.html/code.w3ctech.com/4204">http:/.html/code.w3ctech.com/4204</a> <br>
+<p>1. 我写的Promise in Lua项目在这里：<a href="http://github.com/aimingoo/Promise">http://github.com/aimingoo/Promise</a> <br />
+2. 所有代码在code.w3ctech上可以找到，我的在这里：<a href="http://code.w3ctech.com/4204">http://code.w3ctech.com/4204</a> <br />
 3. “前端要给力”这个系列是很久以前就写的了：  </p>
 
 <blockquote>
   <ol>
-  <li><a href="http:/.html/blog.csdn.net/aimingoo/article/details/6036574">前端要给力之：代码可以有多烂？</a></li>
-  <li><a href="http:/.html/blog.csdn.net/aimingoo/article/details/6097378">前端要给力之：原子，与原子联结的友类、友函数</a></li>
-  <li><a href="http:/.html/blog.csdn.net/aimingoo/article/details/6105048">前端要给力之：分解对象构造过程new()</a></li>
-  <li><a href="http:/.html/blog.csdn.net/aimingoo/article/details/6081964">前端要给力之：URL应该有多长？</a></li>
+  <li><a href="http://blog.csdn.net/aimingoo/article/details/6036574">前端要给力之：代码可以有多烂？</a></li>
+  <li><a href="http://blog.csdn.net/aimingoo/article/details/6097378">前端要给力之：原子，与原子联结的友类、友函数</a></li>
+  <li><a href="http://blog.csdn.net/aimingoo/article/details/6105048">前端要给力之：分解对象构造过程new()</a></li>
+  <li><a href="http://blog.csdn.net/aimingoo/article/details/6081964">前端要给力之：URL应该有多长？</a></li>
   </ol>
 </blockquote>
 
-<p>4. 本文最后一个示例是说明在“全栈”的背景下，正确使用Promise可以得到很好的系统弹性。 <br>
-5. 在.then()界面上处理多个参数的方法，是使用Promise.all()来就绪一组数据并作为参数。我建议使用工具函数unpack来处理调用界面部分，例如（<a href="http:/.html/code.w3ctech.com/detail/185">#185</a>）：  </p>
+<p>4. 本文最后一个示例是说明在“全栈”的背景下，正确使用Promise可以得到很好的系统弹性。 <br />
+5. 在.then()界面上处理多个参数的方法，是使用Promise.all()来就绪一组数据并作为参数。我建议使用工具函数unpack来处理调用界面部分，例如（<a href="http://code.w3ctech.com/detail/185">#185</a>）：  </p>
 
 <pre><code class="language-javascript">function unpack(promised) {  
     return this.apply(null, promised)
@@ -881,14 +882,14 @@ Promise.all([1,2,3])
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-263/.html">
+                <a href="/1-263.html">
                     架构师真正要学会的事情
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-196/.html">
-                    确定的世界 - The Promise's World
+            <span class="post-nav-next" >
+                <a href="/1-196.html">
+                    确定的世界 - The Promise&#x27;s World
                 </a>
                 下一篇
             </span>
@@ -897,11 +898,11 @@ Promise.all([1,2,3])
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -917,30 +918,30 @@ Promise.all([1,2,3])
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -954,8 +955,8 @@ Promise.all([1,2,3])
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -967,20 +968,21 @@ Promise.all([1,2,3])
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

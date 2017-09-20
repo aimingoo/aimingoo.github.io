@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>架构师真正要学会的事情</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="架构师真正要学会的事情">
-    <meta property="og:description" content="一、要学会去看，然后忘掉 有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。 另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。 然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。 Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-263/.html">
-    <meta property="article:published_time" content="2014-11-06T22:07:31.000Z">
-    <meta property="article:modified_time" content="2017-06-13T11:22:40.000Z">
-    <meta property="article:tag" content="架构">
-    <meta property="article:tag" content="书序书评">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="架构师真正要学会的事情" />
+    <meta property="og:description" content="一、要学会去看，然后忘掉 有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。 另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。 然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。 Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-263.html" />
+    <meta property="article:published_time" content="2014-11-06T22:07:31.000Z" />
+    <meta property="article:modified_time" content="2017-06-13T11:22:40.000Z" />
+    <meta property="article:tag" content="架构" />
+    <meta property="article:tag" content="书序书评" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="架构师真正要学会的事情">
-    <meta name="twitter:description" content="一、要学会去看，然后忘掉 有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。 另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。 然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。 Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-263/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="架构, 书序书评">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="架构师真正要学会的事情" />
+    <meta name="twitter:description" content="一、要学会去看，然后忘掉 有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。 另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。 然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。 Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-263.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="架构, 书序书评" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "架构师真正要学会的事情",
-    "url": "http:/.html/aimingoo.github.io/1-263/.html",
+    "url": "http://aimingoo.github.io/1-263.html",
     "datePublished": "2014-11-06T22:07:31.000Z",
     "dateModified": "2017-06-13T11:22:40.000Z",
     "keywords": "架构, 书序书评",
     "description": "一、要学会去看，然后忘掉 有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。 另一个与“看”相关的词汇是“所见即可得(WYSIWYG)”。这个词以及与此相关的WIMP（Windows, Icon, Menu and Pointer）曾经主导了整个人机交互的设计理念。也是在20多年前，Borland为Windows桌面系统成功地设计了跨语言的VCL，由此“所见即所得”成为Borland对“如何更便捷地构建UI”的基本假想，以至于这家伟大的公司在互联网时代来临时决定“用VCL描述界面的方式来解决‘网站设计’的问题（RadPHP）”。 然而，互联网上的网页是没有WIMP的；移动设备上的操作系统也不再采用与Windows NT类似的方式开发。 Borland在几年之前将整个开发工具产品线都卖掉了。当时盛大的一个Delphi圈子发起了一次“缅怀活动”，组织者说：",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-jia-gou tag-shu-xu-shu-ping nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-jia-gou tag-shu-xu-shu-ping">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-263.html">架构师真正要学会的事情</a></h1>
+                <h1 class="post-title"><a href="/1-263.html">架构师真正要学会的事情</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/jia-gou/.html">架构</a>, <a href="tag/shu-xu-shu-ping/.html">书序书评</a>
+                        <a href="/tag/jia-gou/">架构</a>, <a href="/tag/shu-xu-shu-ping/">书序书评</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,7 +146,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h2 id=".html">一、要学会去看，然后忘掉</h2>
+                <h2 id="">一、要学会去看，然后忘掉</h2>
 
 <p>有一本书叫《观止》，写的是微软研发Windows NT的一段故事。“观止”在这里的意思是说“看到这些，就无需再看了”，因为世上之物亦无过于此。20多年过去，如今微软在操作系统上面临着的种种挑战与困境，其实与《观止》所叙的研发方法、理念与目标有着天生而来的血缘关系。</p>
 
@@ -157,7 +158,7 @@ ghost.init({
 
 <p>我在那个缅怀网页上写下了五个字：所见即所碍。  </p>
 
-<h2 id=".html">二、要学会去听，然后忘掉</h2>
+<h2 id="">二、要学会去听，然后忘掉</h2>
 
 <p>我通常说架构是一种能力，架构角色则是要求你在具体事务中行使某些行为，而架构师则是用来标识这些能力与行为的一个职务。</p>
 
@@ -167,7 +168,7 @@ ghost.init({
 
 <p>其实不单是你的所见阻碍了你自己，你还被别人的所见阻碍着。</p>
 
-<h2 id=".html">三、要学会去做，然后忘掉</h2>
+<h2 id="">三、要学会去做，然后忘掉</h2>
 
 <p>朋友给我聊他家的两岁小孩：我刚把桌子收拾好，一转眼杯子碗筷什么的都全摔地上了。我问：怎么了？他说：小孩子什么也不懂啊，她看着桌布喜欢，就一把抓过去……</p>
 
@@ -179,7 +180,7 @@ ghost.init({
 
 <p>所谓跨界不是指你能力与方法上的变化，你的作为取决于你的格局，你的格局取决于你的所见。</p>
 
-<h2 id=".html">四、要学会超越</h2>
+<h2 id="">四、要学会超越</h2>
 
 <p>架构师需要超越自己与别人的所见，因为你观察与架构的对象称为“系统”，你看到系统多少的真相，决定了你用怎样的影像去表现它，并进而推进与实现这种影像——亦即是架构。我们所既已知道的、理解的、明白的，形成了我们的知识与行为的一切，却也正是阻碍着我们前进的东西。这些障碍正是你以为你最珍视的、最不可放弃的、最鲜血淅沥体验过的那些经验与成就。在这些所得与所碍中挣扎与决策，就是架构师的全部职责。因此作为架构师，你需要能够超越自已对系统的既有认识，看到你在光明中——显而易见之处——所未见的，这是你驱动系统架构进化的主要动力。</p>
 
@@ -187,15 +188,15 @@ ghost.init({
 
 <p>至此，你是否还在这个角色之中，就是你的觉悟了。  </p>
 
-<h2 id=".html">其它</h2>
+<h2 id="">其它</h2>
 
 <ol>
 <li>本文是为《程序员必读之软件架构》一书所写的序  </li>
-<li>《程序员必读之软件架构》一书的译者是邓钢先生( @米粽粽 <br>
+<li>《程序员必读之软件架构》一书的译者是邓钢先生( @米粽粽 <br />
 据说已关注洗碗30年+）</li>
 <li>该书由图灵出版，原作者是Simon Brown，据说是个布道师（这年头站台上就说自己是甘道夫的人真的是多了去了）  </li>
-<li>该书在图灵社区的信息在这里：<a href="http:/.html/www.ituring.com.cn/book/1444">http:/.html/www.ituring.com.cn/book/1444</a>  </li>
-<li>该书220多页，有4篇序（是多了点，我也是肇祸者之一，对不住大家了）。点这里直到把屏幕戳碰可见译/作者的原序：<a href="http:/.html/www.ituring.com.cn/article/125176"><strong>译者序</strong></a>，<a href="http:/.html/www.ituring.com.cn/tupubarticle/1234"><strong>原序</strong></a>，以及<a href="http:/.html/www.ituring.com.cn/tupubarticle/3630"><strong>杜欢同学的序</strong></a>  </li>
+<li>该书在图灵社区的信息在这里：<a href="http://www.ituring.com.cn/book/1444">http://www.ituring.com.cn/book/1444</a>  </li>
+<li>该书220多页，有4篇序（是多了点，我也是肇祸者之一，对不住大家了）。点这里直到把屏幕戳碰可见译/作者的原序：<a href="http://www.ituring.com.cn/article/125176"><strong>译者序</strong></a>，<a href="http://www.ituring.com.cn/tupubarticle/1234"><strong>原序</strong></a>，以及<a href="http://www.ituring.com.cn/tupubarticle/3630"><strong>杜欢同学的序</strong></a>  </li>
 <li>杜欢同学没请我饭已经很久了，此碎碎念300+1次。</li>
 </ol>
             </section>
@@ -209,13 +210,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-194/.html">
+                <a href="/1-194.html">
                     MPD大会上使用的PPT分享 - 2014
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-195/.html">
+            <span class="post-nav-next" >
+                <a href="/1-195.html">
                     前端要给力之：红绿灯大战中的火星生命-Promise
                 </a>
                 下一篇
@@ -225,11 +226,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -245,30 +246,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -282,8 +283,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -295,20 +296,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

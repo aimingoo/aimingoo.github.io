@@ -1,90 +1,91 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>前端要给力之：代码可以有多烂？</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="前端要给力之：代码可以有多烂？">
-    <meta property="og:description" content="1、烂代码是怎么定义的？ !KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&amp;ldquo;读烂代码系列&amp;rdquo;之后就在群里问呵：烂代码是怎么定义的？   是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。   接下来KissyUI群里的同学给出了很多答案：   /.html/ 1. 圆心   if (a&amp;amp;&amp;amp;b&amp;amp;&amp;amp;c || !a&amp;amp;&amp;amp;!b&amp;amp;&amp;amp;!c){       return false   }   /.html/ 2. 龙藏   (a ^ b) &amp;amp; c   /.html/ 3. 愚公(我给gtalk上的提问者)的答案   (a xor">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-160/.html">
-    <meta property="article:published_time" content="2010-11-26T01:53:00.000Z">
-    <meta property="article:modified_time" content="2017-06-13T13:58:55.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="框架">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="前端要给力之：代码可以有多烂？" />
+    <meta property="og:description" content="1、烂代码是怎么定义的？ !KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&amp;ldquo;读烂代码系列&amp;rdquo;之后就在群里问呵：烂代码是怎么定义的？   是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。   接下来KissyUI群里的同学给出了很多答案：   // 1. 圆心   if (a&amp;amp;&amp;amp;b&amp;amp;&amp;amp;c || !a&amp;amp;&amp;amp;!b&amp;amp;&amp;amp;!c){       return false   }   // 2. 龙藏   (a ^ b) &amp;amp; c   // 3. 愚公(我给gtalk上的提问者)的答案   (a xor" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-160.html" />
+    <meta property="article:published_time" content="2010-11-26T01:53:00.000Z" />
+    <meta property="article:modified_time" content="2017-06-13T13:58:55.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="框架" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="前端要给力之：代码可以有多烂？">
-    <meta name="twitter:description" content="1、烂代码是怎么定义的？ !KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&amp;ldquo;读烂代码系列&amp;rdquo;之后就在群里问呵：烂代码是怎么定义的？   是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。   接下来KissyUI群里的同学给出了很多答案：   /.html/ 1. 圆心   if (a&amp;amp;&amp;amp;b&amp;amp;&amp;amp;c || !a&amp;amp;&amp;amp;!b&amp;amp;&amp;amp;!c){       return false   }   /.html/ 2. 龙藏   (a ^ b) &amp;amp; c   /.html/ 3. 愚公(我给gtalk上的提问者)的答案   (a xor">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-160/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, 框架">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="前端要给力之：代码可以有多烂？" />
+    <meta name="twitter:description" content="1、烂代码是怎么定义的？ !KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&amp;ldquo;读烂代码系列&amp;rdquo;之后就在群里问呵：烂代码是怎么定义的？   是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。   接下来KissyUI群里的同学给出了很多答案：   // 1. 圆心   if (a&amp;amp;&amp;amp;b&amp;amp;&amp;amp;c || !a&amp;amp;&amp;amp;!b&amp;amp;&amp;amp;!c){       return false   }   // 2. 龙藏   (a ^ b) &amp;amp; c   // 3. 愚公(我给gtalk上的提问者)的答案   (a xor" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-160.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 框架" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "前端要给力之：代码可以有多烂？",
-    "url": "http:/.html/aimingoo.github.io/1-160/.html",
+    "url": "http://aimingoo.github.io/1-160.html",
     "datePublished": "2010-11-26T01:53:00.000Z",
     "dateModified": "2017-06-13T13:58:55.000Z",
     "keywords": "Javascript, 语言, 框架",
-    "description": "1、烂代码是怎么定义的？ !KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&amp;ldquo;读烂代码系列&amp;rdquo;之后就在群里问呵：烂代码是怎么定义的？   是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。   接下来KissyUI群里的同学给出了很多答案：   /.html/ 1. 圆心   if (a&amp;amp;&amp;amp;b&amp;amp;&amp;amp;c || !a&amp;amp;&amp;amp;!b&amp;amp;&amp;amp;!c){       return false   }   /.html/ 2. 龙藏   (a ^ b) &amp;amp; c   /.html/ 3. 愚公(我给gtalk上的提问者)的答案   (a xor",
+    "description": "1、烂代码是怎么定义的？ !KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&amp;ldquo;读烂代码系列&amp;rdquo;之后就在群里问呵：烂代码是怎么定义的？   是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。   接下来KissyUI群里的同学给出了很多答案：   // 1. 圆心   if (a&amp;amp;&amp;amp;b&amp;amp;&amp;amp;c || !a&amp;amp;&amp;amp;!b&amp;amp;&amp;amp;!c){       return false   }   // 2. 龙藏   (a ^ b) &amp;amp; c   // 3. 愚公(我给gtalk上的提问者)的答案   (a xor",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-kuang-jia nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,25 +96,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -124,11 +125,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-yu-yan tag-kuang-jia">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-160.html">前端要给力之：代码可以有多烂？</a></h1>
+                <h1 class="post-title"><a href="/1-160.html">前端要给力之：代码可以有多烂？</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/yu-yan/.html">语言</a>, <a href="tag/kuang-jia/.html">框架</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/kuang-jia/">框架</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,31 +149,31 @@ ghost.init({
             <section class="post-content">
                 <h2 id="1">1、烂代码是怎么定义的？</h2>
 
-<p>!KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的“读烂代码系列”之后就在群里问呵：烂代码是怎么定义的？  </p>
+<p>!KissyUI是淘宝Kissy这个前端项目的一个群，龙藏同学在看完我在公司内网的&ldquo;读烂代码系列&rdquo;之后就在群里问呵：烂代码是怎么定义的？  </p>
 
 <p>是呵，到底什么才算烂代码呢？这让我想到一件事，是另一个网友在gtalk上问我的一个问题：他需要a,b,c三个条件全真时为假，全假时也为假，请问如何判断。  </p>
 
 <p>接下来KissyUI群里的同学给出了很多答案：  </p>
 
-<pre><code class="language-javascript">/.html/ 1. 圆心  
+<pre><code class="language-javascript">// 1. 圆心  
 if (a&amp;&amp;b&amp;&amp;c || !a&amp;&amp;!b&amp;&amp;!c){  
     return false  
 }  
-/.html/ 2. 龙藏  
+// 2. 龙藏  
 (a ^ b) &amp; c  
-/.html/ 3. 愚公(我给gtalk上的提问者)的答案  
+// 3. 愚公(我给gtalk上的提问者)的答案  
 (a xor b) or (a xor c)  
-/.html/ 4. 提问者自己的想法  
+// 4. 提问者自己的想法  
 (a + b + c) % 3  
-/.html/ 5. 云谦对答案4的改进版本  
+// 5. 云谦对答案4的改进版本  
 (!!a+!!b+!!c)%n  
-/.html/ 6. 拔赤  
+// 6. 拔赤  
 a ? (b?c:b) : (b?!b:!c)  
-/.html/ 7. 吴英杰  
+// 7. 吴英杰  
 (a != b || b != c)  
 或  
 (!a != !b || !b != !c)  
-/.html/ 8. 姬光  
+// 8. 姬光  
 var v = a&amp;&amp;b&amp;&amp;&amp;c;  
 if(!v){  
    return false;  
@@ -183,9 +184,9 @@ if(!v){
 }  
 </code></pre>
 
-<p>en... 确实，我没有完全验证上面的全面答案的有效性。因为如同龙藏后来强调的：“貌似我们是要讨论什么是烂代码？”的确，我们怎么才能把代码写烂呢？上面出现了种种奇异代码，包括原来提问者的那个取巧的：  </p>
+<p>en... 确实，我没有完全验证上面的全面答案的有效性。因为如同龙藏后来强调的：&ldquo;貌似我们是要讨论什么是烂代码？&rdquo;的确，我们怎么才能把代码写烂呢？上面出现了种种奇异代码，包括原来提问者的那个取巧的：  </p>
 
-<pre><code class="language-javascript">/.html/ 4. 提问者自己的想法  
+<pre><code class="language-javascript">// 4. 提问者自己的想法  
 (a + b + c) % 3
 </code></pre>
 
@@ -194,7 +195,7 @@ if(!v){
 
 <p>因为这个问题出现在js里面，存在弱类型的问题，即a、b、c可能是整数，或字符串等等，因此(a+b+c)%3这个路子就行不通了，所以才有了  </p>
 
-<pre><code class="language-javascript">/.html/ 5. 云谦对答案4的改进版本  
+<pre><code class="language-javascript">// 5. 云谦对答案4的改进版本  
 (!!a+!!b+!!c)%n
 </code></pre>
 
@@ -209,11 +210,11 @@ if(!v){
 
 <p>那么这个问题的基本抽象就是：  </p>
 
-<pre><code class="language-javascript">/.html/ v0，对任意多个运算元求xor  
+<pre><code class="language-javascript">// v0，对任意多个运算元求xor  
 function e_xor() { ... }  
 
 对于这个e_xor()来说，最直接的代码写法是：  
-/.html/ v1，扫描所有参数，发现不同的即返回true，全部相同则返回false。  
+// v1，扫描所有参数，发现不同的即返回true，全部相同则返回false。  
 function e_xor() {  
   var args=arguments, argn=args.length;  
   args[0] = !args[0];  
@@ -226,22 +227,22 @@ function e_xor() {
 
 <p>接下来，我们考虑一个问题，既然arguments就是一个数组，那么可否使用数组方式呢？事实上，据说在某些js环境中，直接存取arguments[x]的效率是较差的。因此，上面的v1版本可以有一个改版：  </p>
 
-<pre><code class="language-javascript">/.html/ v1.1，对v1的改版  
+<pre><code class="language-javascript">// v1.1，对v1的改版  
 function e_xor() {  
   var args=[].slice.call(arguments,0), argn=args.length;  
   ...  
 }
 </code></pre>
 
-<p>这段小小的代码涉及到splice/slice的使用问题。因为操作的是arguments，因此splice可能导致函数入口的“奇异”变化，在不同的引擎中的表现效果并不一致，而slice则又可能导致多出一倍的数据复制。在这里仍然选用slice()的原因是：这里毕竟只是函数参数，不会是“极大量的”数组，因此无需过度考虑存储问题。  </p>
+<p>这段小小的代码涉及到splice/slice的使用问题。因为操作的是arguments，因此splice可能导致函数入口的&ldquo;奇异&rdquo;变化，在不同的引擎中的表现效果并不一致，而slice则又可能导致多出一倍的数据复制。在这里仍然选用slice()的原因是：这里毕竟只是函数参数，不会是&ldquo;极大量的&rdquo;数组，因此无需过度考虑存储问题。  </p>
 
-<p>   </p>
+<p>&nbsp;  </p>
 
 <h2 id="3">3、问题的泛化与求解：专业级别</h2>
 
 <p>接下来，我们既然在args中得到的是一个数组，那么再用for循环就实在不那么摩登了。正确的、流行风格的、不被前端鄙视做法是：  </p>
 
-<pre><code class="language-javascript">/.html/ v2，使用js1.6+的数组方法的实现  
+<pre><code class="language-javascript">// v2，使用js1.6+的数组方法的实现  
 function e_xor(a) {  
   return ([].slice.call(arguments,1)).some(function(b) { if (!b != !a) return true });  
 }
@@ -249,7 +250,7 @@ function e_xor(a) {
 
 <p>为了向一些不太了解js1.6+新特性的同学解释v2这个版本，下面的代码分解了上述这个实现：  </p>
 
-<pre><code class="language-javascript">/.html/ v2.1，对v2的详细分解  
+<pre><code class="language-javascript">// v2.1，对v2的详细分解  
 function e_xor(a) {  
   var args = [].slice.call(arguments,1);  
   var callback = function(b) {  
@@ -270,7 +271,7 @@ function e_xor(a) {
 
 <p>当然，仅仅出于减少!a运算的必要，v2版本也可以有如下的一个改版：  </p>
 
-<pre><code class="language-javascript">/.html/ v2.2，对v2的优化以减少!a运算次数  
+<pre><code class="language-javascript">// v2.2，对v2的优化以减少!a运算次数  
 function e_xor(a) {  
   return (a=!a, [].slice.call(arguments,1)).some(function(b) { if (!b != a) return true });  
 }
@@ -282,19 +283,19 @@ function e_xor(a) {
   <p><code>(a=!a, [].slice.call(arguments,1))</code></p>
 </blockquote>
 
-<p>而连续运算返回最后一个子表达式的值，即slice()后的数组。这样的写法，主要是要将代码控制在“一个表达式”。 </p>
+<p>而连续运算返回最后一个子表达式的值，即slice()后的数组。这样的写法，主要是要将代码控制在&ldquo;一个表达式&rdquo;。 </p>
 
 <h2 id="4guy">4、问题的泛化与求解：Guy入门级别</h2>
 
-<p>好了，现在我们开始v3版本的写法了。为什么呢？因为v2版本仍然不够酷，v2版本使用的是Array.some()，这个在js1.6中扩展的特既不是那么的“函数式”，还有些面向对象的痕迹。作为一个函数式语言的死忠，我认为，类似于“列举一个数组”这样的问题的最正常解法是：递归。  </p>
+<p>好了，现在我们开始v3版本的写法了。为什么呢？因为v2版本仍然不够酷，v2版本使用的是Array.some()，这个在js1.6中扩展的特既不是那么的&ldquo;函数式&rdquo;，还有些面向对象的痕迹。作为一个函数式语言的死忠，我认为，类似于&ldquo;列举一个数组&rdquo;这样的问题的最正常解法是：递归。  </p>
 
-<p>为什么呢？因为erlang这样的纯函数式语言就不会搞出个Array.some()的思路来——当然也是有这样的方法的，只是从“更纯正”的角度上讲，我们得自己写一个。呵呵。这种“纯正的递归”在js里面又怎么搞呢？大概的原型会是这样子：  </p>
+<p>为什么呢？因为erlang这样的纯函数式语言就不会搞出个Array.some()的思路来&mdash;&mdash;当然也是有这样的方法的，只是从&ldquo;更纯正&rdquo;的角度上讲，我们得自己写一个。呵呵。这种&ldquo;纯正的递归&rdquo;在js里面又怎么搞呢？大概的原型会是这样子：  </p>
 
-<pre><code class="language-javascript">/.html/ v3，采用纯函数式的、递归方案的框架  
+<pre><code class="language-javascript">// v3，采用纯函数式的、递归方案的框架  
 function e_xor(a, b) {  ... }  
 </code></pre>
 
-<p>在这个框架里，我们设e_xor()有无数个参数，但每次我们只处理a,b两个，如果a,b相等，则我们将其中之任一，与后续的n-2个参数递归比较。为了实现“递归处理后续n-2个参数”，我们需要借用函数式语言中的一个重要概念：连续/延续(continuous)。这个东东月影曾经出专题来讲过，在这里：<a href="http:/.html/bbs.51js.com/viewthread.php?tid=85325">http:/.html/bbs.51js.com/viewthread.php?tid=85325</a>  </p>
+<p>在这个框架里，我们设e_xor()有无数个参数，但每次我们只处理a,b两个，如果a,b相等，则我们将其中之任一，与后续的n-2个参数递归比较。为了实现&ldquo;递归处理后续n-2个参数&rdquo;，我们需要借用函数式语言中的一个重要概念：连续/延续(continuous)。这个东东月影曾经出专题来讲过，在这里：<a href="http://bbs.51js.com/viewthread.php?tid=85325">http://bbs.51js.com/viewthread.php?tid=85325</a>  </p>
 
 <p>简单地说，延续就是对函数参数进行连续的回调。这个东东呢，在较新的函数式语言范式中都是支持的。为了本文中的这个例子，我单独地写个版本来分析之。我称之为tail()方法，意思是指定函数参数的尾部，它被设计为函数Function上的一个原型方法。  </p>
 
@@ -317,12 +318,12 @@ foo(x,y,z);
 <p>回到tail()方法。它的意思是说：  </p>
 
 <pre><code class="language-javascript">Function.prototype.tail = function() {  
-  return this.apply( /.html/ 重新调用函数自身  
-    this, /.html/ 以函数foo自身作为this Object  
-    [].slice.call(arguments,0) /.html/ 取调用tail时的全部参数，转换为数组  
-    .concat( /.html/ 数组连接  
-      [].slice.call(this.arguments, /.html/ 取本次函数foo调用时的参数，由于tail()总在foo()中调用，因此实际是取最近一次foo()的实际参数  
-        this.length)  /.html/ 按照foo()声明时的形式参数个数，截取foo()函数参数的尾部  
+  return this.apply( // 重新调用函数自身  
+    this, // 以函数foo自身作为this Object  
+    [].slice.call(arguments,0) // 取调用tail时的全部参数，转换为数组  
+    .concat( // 数组连接  
+      [].slice.call(this.arguments, // 取本次函数foo调用时的参数，由于tail()总在foo()中调用，因此实际是取最近一次foo()的实际参数  
+        this.length)  // 按照foo()声明时的形式参数个数，截取foo()函数参数的尾部  
     )  
   );  
 }
@@ -330,7 +331,7 @@ foo(x,y,z);
 
 <p>那么tail()在本例中如何使用呢？  </p>
 
-<pre><code class="language-javascript">/.html/ v3.1，使用tail()的版本  
+<pre><code class="language-javascript">// v3.1，使用tail()的版本  
 function e_xor(a, b) {  
   if (arguments.length == arguments.callee.length) return !a != !b;  
   return (!a == !b ? arguments.callee.tail(b) : true);  
@@ -345,19 +346,19 @@ function e_xor(a, b) {
 
 <p>从上一个小节中，我们看到了Guy解决问题的思路。但是在这个级别上，第一步的抽象通常是最关键的。简单地说，V3里认为：  </p>
 
-<pre><code class="language-javascript">/.html/ v3，采用纯函数式的、递归方案的框架  
+<pre><code class="language-javascript">// v3，采用纯函数式的、递归方案的框架  
 function e_xor(a, b) {  ... }  
 </code></pre>
 
-<p>这个框架抽象本身可能是有问题。正确的理解不是“a,b求异或”，而是“a跟其它元素求异或”。由此，v4的框架抽象是：</p>
+<p>这个框架抽象本身可能是有问题。正确的理解不是&ldquo;a,b求异或&rdquo;，而是&ldquo;a跟其它元素求异或&rdquo;。由此，v4的框架抽象是：</p>
 
-<pre><code class="language-javascript">/.html/ v4，更优的函数式框架抽象，对接口的思考  
+<pre><code class="language-javascript">// v4，更优的函数式框架抽象，对接口的思考  
 function e_xor(a) {  ... }  
 </code></pre>
 
-<p>在v3中，由于每次要向后续部分传入b值，因此我们需要在tail()中做数组拼接concat()。但是，当我们使用v4的框架时，b值本身就隐含在后续部分中，因此无需拼接。这样一来，tail()就有了新的写法——事实上，这更符合tail()的原意，如果真的存在拼接过程，那它更应由foo()来处理，而不是由tail()来处理。  </p>
+<p>在v3中，由于每次要向后续部分传入b值，因此我们需要在tail()中做数组拼接concat()。但是，当我们使用v4的框架时，b值本身就隐含在后续部分中，因此无需拼接。这样一来，tail()就有了新的写法&mdash;&mdash;事实上，这更符合tail()的原意，如果真的存在拼接过程，那它更应由foo()来处理，而不是由tail()来处理。  </p>
 
-<pre><code class="language-javascript">/.html/ 更符合原始抽象含义的tail方法  
+<pre><code class="language-javascript">// 更符合原始抽象含义的tail方法  
 Function.prototype.tail = function() {  
   return this.apply(this, [].slice.call(this.arguments, this.length));  
 }
@@ -365,12 +366,12 @@ Function.prototype.tail = function() {
 
 <p>在v4这个版本中的代码写法，会变得更为简单：  </p>
 
-<pre><code class="language-javascript">/.html/ v4.1，相较于v3更为简单的实现  
+<pre><code class="language-javascript">// v4.1，相较于v3更为简单的实现  
 function e_xor(a) {  
   if (arguments.length &lt; 2) return false;  
   return (!a == !arguments[1] ? arguments.callee.tail() : true);  
 }  
-/.html/ v4.1.1，一个不使用三元表达式的简洁版本  
+// v4.1.1，一个不使用三元表达式的简洁版本  
 function e_xor(a) {  
   if (arguments.length &lt; 2) return false;  
   if (!arguments[1] != !a) return true;  
@@ -386,14 +387,14 @@ function e_xor(a) {
 <li>真正的处理逻辑只有第二行。</li>
 </ul>
 
-<p>由于其它都是框架部分，所以我们可以考虑一种编程范式，它是对tail的扩展，目的是对在tail调用e_xor——就好象对数组调用sort()方法一样。tail的含义是取数据，而新扩展的含义是数组与逻辑都作为整体。例如：  </p>
+<p>由于其它都是框架部分，所以我们可以考虑一种编程范式，它是对tail的扩展，目的是对在tail调用e_xor&mdash;&mdash;就好象对数组调用sort()方法一样。tail的含义是取数据，而新扩展的含义是数组与逻辑都作为整体。例如：  </p>
 
-<pre><code class="language-javascript">/.html/ 在函数原型上扩展的tailed方法，用于作参数的尾部化处理  
+<pre><code class="language-javascript">// 在函数原型上扩展的tailed方法，用于作参数的尾部化处理  
 Function.prototype.tailed = function() {  
-  return function(f) {  /.html/ 将函数this通过参数f保留在闭包上  
-    return function() {  /.html/ tailed()之后的、可调用的e_xor()函数  
+  return function(f) {  // 将函数this通过参数f保留在闭包上  
+    return function() {  // tailed()之后的、可调用的e_xor()函数  
       if (arguments.length &lt; f.length+1) return false;  
-      if (f.apply(this, arguments)) return true;  /.html/ 调用tailed()之前的函数f  
+      if (f.apply(this, arguments)) return true;  // 调用tailed()之前的函数f  
       return arguments.callee.apply(this, [].slice.call(arguments, f.length));  
     }  
   }(this)  
@@ -411,16 +412,16 @@ Function.prototype.tailed = function() {
 
 <pre><code class="language-javascript">/* tiny tailed library, v0.0.0.1 alpha. by aimingoo. */  
 Function.prototype.tailed = ....;  
-/.html/ 对参数a及其后的所有参数求异或  
+// 对参数a及其后的所有参数求异或  
 function xor(a) {  
   if (!arguments[1] != !a) return true;  
 }  
-/.html/ ...更多类似的库函数
+// ...更多类似的库函数
 </code></pre>
 
 <p>那么，这个所谓的tailed库该如何用呢？很简单，一行代码：  </p>
 
-<pre><code class="language-javascript">/.html/ 求任意多个参数的xor值  
+<pre><code class="language-javascript">// 求任意多个参数的xor值  
 xor.tailed()(a,b,c,d,e,f,g);  
 </code></pre>
 
@@ -429,19 +430,19 @@ xor.tailed()(a,b,c,d,e,f,g);
 <pre><code class="language-javascript">if (arguments.length &amp;lt; f.length+1) return false;  
 </code></pre>
 
-<p>中间的f.length+1的这个“1”，是一个有条件的参数，它与xor处理数据的方式有关。简单的说，正是因为要比较a与arguments[1]，所这里要+1，如果某种算法要比较 多个运算元，则tailed()就不通用了。所以正确的、完善的tailed应该允许调用者指定终止条件。例如：  </p>
+<p>中间的f.length+1的这个&ldquo;1&rdquo;，是一个有条件的参数，它与xor处理数据的方式有关。简单的说，正是因为要比较a与arguments[1]，所这里要+1，如果某种算法要比较 多个运算元，则tailed()就不通用了。所以正确的、完善的tailed应该允许调用者指定终止条件。例如：  </p>
 
-<pre><code class="language-javascript">/.html/ less_one()作为tailed库函数中的全局常量，以及缺省的closed条件  
-/.html/ 当less_one返回true时，表明递归应该终止  
+<pre><code class="language-javascript">// less_one()作为tailed库函数中的全局常量，以及缺省的closed条件  
+// 当less_one返回true时，表明递归应该终止  
 function less_one(args, f)  {  
   if (args.length &lt; f.length+1) return true;  
 }  
-/.html/ 在函数原型上扩展的tailed方法，用于作参数的尾部化处理  
+// 在函数原型上扩展的tailed方法，用于作参数的尾部化处理  
 Function.prototype.tailed = function(closed) {  
-  return function(f) {  /.html/ 将函数this通过参数f保留在闭包上  
-    return function() {  /.html/ tailed()之后的、可调用的e_xor()函数  
+  return function(f) {  // 将函数this通过参数f保留在闭包上  
+    return function() {  // tailed()之后的、可调用的e_xor()函数  
       if ((closed||less_one).apply(this, [arguments,f])) return false;  
-      if (f.apply(this, arguments)) return true;  /.html/ 调用tailed()之前的函数f  
+      if (f.apply(this, arguments)) return true;  // 调用tailed()之前的函数f  
       return arguments.callee.apply(this, [].slice.call(arguments, f.length));  
     }  
   }(this)  
@@ -451,19 +452,19 @@ Function.prototype.tailed = function(closed) {
 <p>使用的方法仍然是：  </p>
 
 <pre><code class="language-javascript">xor.tailed()(a,b,c,d,e,f,g);  
-/.html/ 或者  
+// 或者  
 xor.tailed(less_one)(a,b,c,d,e,f,g);  
 </code></pre>
 
 <p>在不同的运算中，less_one()可以是其它的终止条件。</p>
 
-<p>现在，在这个方案——我的意思是tailed library这个库够Guy了吗？不。所谓意淫无止尽，淫人们自有不同的淫法。比如，在上面的代码中我们可以看到一个问题，就是tailed()中有很多层次的函数闭包，这意味着调用时效率与存储空间都存在着无谓的消耗。那么，有什么办法呢？比如说？哈哈，我们可以搞搞范型编程，弄个模板出来：</p>
+<p>现在，在这个方案&mdash;&mdash;我的意思是tailed library这个库够Guy了吗？不。所谓意淫无止尽，淫人们自有不同的淫法。比如，在上面的代码中我们可以看到一个问题，就是tailed()中有很多层次的函数闭包，这意味着调用时效率与存储空间都存在着无谓的消耗。那么，有什么办法呢？比如说？哈哈，我们可以搞搞范型编程，弄个模板出来：</p>
 
 <pre><code class="language-javascript">/* tiny tailed library with templet framework, v0.0.0.1 beta. by aimingoo. */  
 Function.prototype.templeted = function(args) {  
   var buff = ['[', ,'][0]'];  
   buff[1] = this.toString().replace(/_([^_]*)_/g, function($0,$1) { return args[$1]||'_'});  
-  return eval(buff.join('.html'));  
+  return eval(buff.join(''));  
 }  
 function tailed() {  
   var f = _execute_;  
@@ -489,7 +490,7 @@ e_xor = tailed.templeted({
 
 <p>我们在做什么？我们已经离真相越来越远了。或者说，我故意地带大家兜着一个又一个看似有趣，却又渐渐远离真相的圈子。  </p>
 
-<p>我们不是要找一段“不那么烂的代码”吗？如果是这样，那么对于a,b,c三个运算条件的判断，最好的方法大概是：  </p>
+<p>我们不是要找一段&ldquo;不那么烂的代码&rdquo;吗？如果是这样，那么对于a,b,c三个运算条件的判断，最好的方法大概是：  </p>
 
 <blockquote>
   <p><code>(a!=b || a!=c)</code></p>
@@ -511,11 +512,11 @@ e_xor = tailed.templeted({
 }
 </code></pre>
 
-<p>对于这段代码，我们使用JS默认对arguments的存取规则，有优化就优化，没有就算了，因为我们的应用环境并没有提出“这里的arguments有成千上万个”或“e_xor()调用极为频繁”这样的需求。如果没有需求，我们在这方面所做的优化，就是白费功能——除了技术上的完美之外，对应用环境毫无意义。</p>
+<p>对于这段代码，我们使用JS默认对arguments的存取规则，有优化就优化，没有就算了，因为我们的应用环境并没有提出&ldquo;这里的arguments有成千上万个&rdquo;或&ldquo;e_xor()调用极为频繁&rdquo;这样的需求。如果没有需求，我们在这方面所做的优化，就是白费功能&mdash;&mdash;除了技术上的完美之外，对应用环境毫无意义。</p>
 
 <p>够用了。我们的所学，在应用环境中已经足够，不要让技巧在你的代码中泛滥。所谓技术，是控制代码复杂性、让代码变得优美的一种能力，而不是让技术本身变得强大或完美。</p>
 
-<p>所以，我此前在“读烂代码”系统中讨论时，强调的其实是三个过程：</p>
+<p>所以，我此前在&ldquo;读烂代码&rdquo;系统中讨论时，强调的其实是三个过程：</p>
 
 <ul>
 <li>先把业务的需求想清楚，  </li>
@@ -539,13 +540,13 @@ e_xor = tailed.templeted({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-159/.html">
+                <a href="/1-159.html">
                     从“架构师书单”讲开去
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-161.1">
+            <span class="post-nav-next" >
+                <a href="/1-161.html">
                     继承与混合，略谈系统的构建方式
                 </a>
                 下一篇
@@ -555,11 +556,11 @@ e_xor = tailed.templeted({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -575,30 +576,30 @@ e_xor = tailed.templeted({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -612,8 +613,8 @@ e_xor = tailed.templeted({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -625,20 +626,21 @@ e_xor = tailed.templeted({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

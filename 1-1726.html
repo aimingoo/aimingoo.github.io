@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Kindle电子书中该用多大的图片</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Kindle电子书中该用多大的图片">
-    <meta property="og:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-1726/.html">
-    <meta property="article:published_time" content="2017-06-03T10:54:54.000Z">
-    <meta property="article:modified_time" content="2017-06-06T12:03:11.000Z">
-    <meta property="article:tag" content="电子书">
-    <meta property="article:tag" content="Kindle">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Kindle电子书中该用多大的图片" />
+    <meta property="og:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-1726.html" />
+    <meta property="article:published_time" content="2017-06-03T10:54:54.000Z" />
+    <meta property="article:modified_time" content="2017-06-06T12:03:11.000Z" />
+    <meta property="article:tag" content="电子书" />
+    <meta property="article:tag" content="Kindle" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Kindle电子书中该用多大的图片">
-    <meta name="twitter:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-1726/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="电子书, Kindle">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Kindle电子书中该用多大的图片" />
+    <meta name="twitter:description" content="注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-1726.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="电子书, Kindle" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "Kindle电子书中该用多大的图片",
-    "url": "http:/.html/aimingoo.github.io/1-1726/.html",
+    "url": "http://aimingoo.github.io/1-1726.html",
     "datePublished": "2017-06-03T10:54:54.000Z",
     "dateModified": "2017-06-06T12:03:11.000Z",
     "keywords": "电子书, Kindle",
     "description": "注1：本文所涉及的工具，可以采用如下方法安装： # 含identify,convert,mogrify,pdfinfo,pdftoppm等 &amp;gt; brew install ghostscript imagemagick cpdf poppler # 含pdfcrop等 &amp;gt; brew cask install xquartz mactex inkscape   注2：本文缺省是使用PNG图片，使用JPG的方法是一致的（有极少数的转换工具不同）。 如果你总是将一张『足够清晰』的图片缩小到适合Kindle电子书阅读的比例，那么本文中的问题就不是问题：缩小一张普通的图片时，图片质量通常并不会变得更糟。但如果图片中使用了文字，那么麻烦来了：你不知道一张图片中该用多大的文字才能确保图片缩小之后仍然清晰；另外，你也知道的，『线条和文字』在图片缩放操作中总是会有明显的变形。 在Kindle这类电子书中使用『表格』向来是一个巨大的麻烦，其原因就在这里：表格在HTML/Markdown中通常都不友好，而当你决定直接使用图片时，缩放操作对文字和线条又不友好。 你最好的选择是：使用一个阅读器不会对它进行缩放的、",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-dian-zi-shu tag-kindle nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-dian-zi-shu tag-kindle">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1726.1">Kindle电子书中该用多大的图片</a></h1>
+                <h1 class="post-title"><a href="/1-1726.html">Kindle电子书中该用多大的图片</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/dian-zi-shu/.html">电子书</a>, <a href="tag/kindle/.html">Kindle</a>
+                        <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/kindle/">Kindle</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -167,11 +168,11 @@ ghost.init({
 
 <p>那么这样一张图片应该是多大呢？</p>
 
-<h2 id=".html">阅读器有多大，图片就有多大</h2>
+<h2 id="">阅读器有多大，图片就有多大</h2>
 
 <p>答案如标题所说。只要你确切知道阅读器（的可阅读区）的大小，那么制作相同大小的图片就好了。不过对于Kindle——当然也可能包括别的电子书阅读器来说，这个大小要打个折扣。这是因为Kindle设定图片最大宽高度不得超过大约80%的可阅读区。一旦超过这个大小——该值其实是一个不确定的魔法数值，这在后面会更讲到——那么阅读器就会主动缩小这个图片。</p>
 
-<p>Kindle发行过的一些阅读器的规格主要包括（相关数据<a href="http:/.html/socialcompare.com/en/comparison/amazon-kindle-product-line-comparison">在这里</a>，最新近的一些<a href="http:/.html/www.toptenreviews.com/mobile/ebook-readers/best-kindle-comparisons/.html">在这里</a>）：</p>
+<p>Kindle发行过的一些阅读器的规格主要包括（相关数据<a href="http://socialcompare.com/en/comparison/amazon-kindle-product-line-comparison">在这里</a>，最新近的一些<a href="http://www.toptenreviews.com/mobile/ebook-readers/best-kindle-comparisons/">在这里</a>）：</p>
 
 <style type="text/css">  
 .tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
@@ -228,9 +229,9 @@ ghost.init({
   </tr>
 </table>
 
-<p>不仅如此，Kindle还发行过一系列平板的版本（当然使用的是LCD屏而不是电子墨水屏），这些屏幕的规格就更复杂了，例如官方公布的一些规格（<a href="https:/.html/developer.amazon.com/public/solutions/devices/fire-tablets/specifications/01-device-and-feature-specifications">在这里</a>）。</p>
+<p>不仅如此，Kindle还发行过一系列平板的版本（当然使用的是LCD屏而不是电子墨水屏），这些屏幕的规格就更复杂了，例如官方公布的一些规格（<a href="https://developer.amazon.com/public/solutions/devices/fire-tablets/specifications/01-device-and-feature-specifications">在这里</a>）。</p>
 
-<p>综合上面的数据，从实用性的角度来说，我们应该制作宽度小于600*80%左右大小的图片。这条规则在大多数设备上都是适用的——关于这个问题其实是有过广泛的讨论的（例如<a href="https:/.html/www.epubble.com/kindle-maximum-image-size/.html">在这里</a>，以及amazon开发者信息<a href="https:/.html/developer.amazon.com/public/solutions/devices/fire-tablets/app-development/01--screen-layout-and-resolution">在这里</a>）。但这个值不但与设备有关，甚至还与不同的Kindle版本有关，以至于有人发布出测试用的电子书，用来确定在不同设备上的适配图片大小（<a href="https:/.html/www.epubble.com/wp-content/download/KindleMaximumImageSize.prc">Kindle Maximum Image Size (PRC)</a> ）。</p>
+<p>综合上面的数据，从实用性的角度来说，我们应该制作宽度小于600*80%左右大小的图片。这条规则在大多数设备上都是适用的——关于这个问题其实是有过广泛的讨论的（例如<a href="https://www.epubble.com/kindle-maximum-image-size/">在这里</a>，以及amazon开发者信息<a href="https://developer.amazon.com/public/solutions/devices/fire-tablets/app-development/01--screen-layout-and-resolution">在这里</a>）。但这个值不但与设备有关，甚至还与不同的Kindle版本有关，以至于有人发布出测试用的电子书，用来确定在不同设备上的适配图片大小（<a href="https://www.epubble.com/wp-content/download/KindleMaximumImageSize.prc">Kindle Maximum Image Size (PRC)</a> ）。</p>
 
 <p>好吧，总之我们是只看结论的对不。那么，这个结论如下：</p>
 
@@ -240,17 +241,17 @@ ghost.init({
 
 <p>也就是说，图片宽度在520px以内（<code>640*0.8125</code> or <code>600*.87</code>）。</p>
 
-<h2 id=".html">如何做这样大小的图片</h2>
+<h2 id="">如何做这样大小的图片</h2>
 
 <p>下面我们来讲『如何做』。</p>
 
-<h3 id=".html">什么是『这样大小』</h3>
+<h3 id="">什么是『这样大小』</h3>
 
 <p>首先确定一下『这样大小』到底是怎样大。</p>
 
 <p>因为我们所谓520px的图片，其实要从像素点换算成印刷用的厘米(cm)、英寸(in)或磅值(pt)，这些看起来麻烦的东西，通常是平面设计师的基本功。</p>
 
-<p>在显示器上的所谓520px，实际含义是『在一个72ppi的设备上显示520pixel』（注3）。这里的PPI是『像素/英寸(Pixel Per Inch)』，这通常用在显示输出类的设备上；更经常的，你可能看到的是用Dots来表示Pixel，就是DPI了（注4）。一般情况下，这两种说法并不需要区分，都称作分辨率(Resolution ratio)、质量/精度/密度(quality/density)——具体到不同场合则是打印分辨率、显示分辨率、图片精度等等，<a href="http:/.html/www.uigreat.com/article/131">参见这里</a>）。</p>
+<p>在显示器上的所谓520px，实际含义是『在一个72ppi的设备上显示520pixel』（注3）。这里的PPI是『像素/英寸(Pixel Per Inch)』，这通常用在显示输出类的设备上；更经常的，你可能看到的是用Dots来表示Pixel，就是DPI了（注4）。一般情况下，这两种说法并不需要区分，都称作分辨率(Resolution ratio)、质量/精度/密度(quality/density)——具体到不同场合则是打印分辨率、显示分辨率、图片精度等等，<a href="http://www.uigreat.com/article/131">参见这里</a>）。</p>
 
 <blockquote>
   <p>注3: 对于PPI，Windows系统默认为96， Mac OS系统默认PPI 为72。在使用Macbook Pro的Retina屏时，它的默认值是110。</p>
@@ -270,7 +271,7 @@ ghost.init({
   <p>高度320px是上面所说到的622px的一半略多。这是因为我们在电子书上通常不会把一张图做到全屏大小，而使用以半屏高为上限的图片有利于书籍的自动排版。</p>
 </blockquote>
 
-<h3 id=".html">面积计算</h3>
+<h3 id="">面积计算</h3>
 
 <p>想知道这个大小，那么只需要在图形制作软件中新建一张图片，设置像素大小（即是Pixel Dimensions）为520x320px，然后设置分辨率为300DPI，就一切OK了——通常这种情况下我们不需要去手工计算。然而如果你在PowerPoint或Keynote里去做类似的事情，就会发现：.ppt中设置页面是使用厘米(cm)，而.key中却是使用磅（pt）。我们的难题之一，便是要做这个转换（以宽520px为例）：</p>
 
@@ -308,7 +309,7 @@ ghost.init({
 <li>在.key中设置页面大小为<code>136x99</code>pt</li>
 </ul>
 
-<p>接下来在PPT中设置两三条辅助线（以PPT为例，你可以下载这个模板<a href="content/images/attachments/standard_image_templet_520.ppt">PPT格式</a>或<a href="content/images/attachments/standard_image_templet_520.key">Keynote格式</a>）：</p>
+<p>接下来在PPT中设置两三条辅助线（以PPT为例，你可以下载这个模板<a href="/content/images/attachments/standard_image_templet_520.ppt">PPT格式</a>或<a href="/content/images/attachments/standard_image_templet_520.key">Keynote格式</a>）：</p>
 
 <ul>
 <li>右、左侧2.14cm各一条</li>
@@ -317,7 +318,7 @@ ghost.init({
 
 <p>如下图所示：</p>
 
-<p><img src="content/images/2017/06/standard_image_templet_520.png" alt="standard_image_templet_520"></p>
+<p><img src="/content/images/2017/06/standard_image_templet_520.png" alt="standard_image_templet_520" /></p>
 
 <p>我们通常作图时让内容保持在正中间的<code>2.14*2</code>的范围内即可，当右侧使用到极限时会是<code>2.14+2.26cm</code>，亦即是全宽520px。同时，如果是4磅大小的文字，单行可以容纳30~31个（如图）。我建议采用4磅文字，其下限是3.5磅。</p>
 
@@ -355,7 +356,7 @@ ghost.init({
   Units: Undefined
 </code></pre>
 
-<p>你会注意到PDF文件中<code>Units</code>值是没有的。这是PDF格式特殊的地方，事实上在它的文件格式中并没有包含Resolution、Print size和Units的信息——上面由identify得到的信息是计算出来的，而不是文件中的元数据信息。更具体地说，PDF是约定了默认使用72x72DPI的分辨率（所以Identify也直接在默认时使用了Inch作为单位，与图片的默认值不同），而且它是使用Points（磅值/点）来表明大小。那么显而易见的，上述的Print Size是简单地通过<code>128/72</code>就可以得来了——PDF默认采用72x72的DPI原因，也正在于磅值与英寸的换算关系就是<code>72:1</code>（关于这一点，请参见<a href="http:/.html/www.cnblogs.com/stronghorse/p/4913346.html">老马的文章</a>）。</p>
+<p>你会注意到PDF文件中<code>Units</code>值是没有的。这是PDF格式特殊的地方，事实上在它的文件格式中并没有包含Resolution、Print size和Units的信息——上面由identify得到的信息是计算出来的，而不是文件中的元数据信息。更具体地说，PDF是约定了默认使用72x72DPI的分辨率（所以Identify也直接在默认时使用了Inch作为单位，与图片的默认值不同），而且它是使用Points（磅值/点）来表明大小。那么显而易见的，上述的Print Size是简单地通过<code>128/72</code>就可以得来了——PDF默认采用72x72的DPI原因，也正在于磅值与英寸的换算关系就是<code>72:1</code>（关于这一点，请参见<a href="http://www.cnblogs.com/stronghorse/p/4913346.html">老马的文章</a>）。</p>
 
 <p>所以现在你可以得到两个与大小相关的信息，一个是宽高信息(Pts)，也称为页面大小(Page Size)，另一个是可推算出来的打印面积(inch)。而在从PDF转换到PNG图片的过程中，通常就以这个转换后的打印面积来作为图片物理大小。</p>
 
@@ -430,7 +431,7 @@ ghost.init({
 
 <p>那么我们其实需要的是自动切掉图形外围的空白区(trim/crop)——在不同的软件中，可能是这两种功能之一。你可以选择处理最终生成的.png图片，这可以仍然使用上述ImageMagick套件中的convert（你安装之后在命令行中就有了），也可以早先做一步，对.pdf进行trim/crop操作。</p>
 
-<p>这可以使用一个非常著名（而且名实相符）的软件，叫pdfcrop。它是perl脚本，可以你可以直接从官方下载（<a href="https:/.html/sourceforge.net/projects/pdfcrop/files/.html">例如这里</a>），或者安装一个TeX套件包内含（使用<code>brew cask install mactex</code>）。使用起来也很简单：</p>
+<p>这可以使用一个非常著名（而且名实相符）的软件，叫pdfcrop。它是perl脚本，可以你可以直接从官方下载（<a href="https://sourceforge.net/projects/pdfcrop/files/">例如这里</a>），或者安装一个TeX套件包内含（使用<code>brew cask install mactex</code>）。使用起来也很简单：</p>
 
 <pre><code class="language-bash"># Usage: pdfcrop &lt;input[.pdf]&gt; [output file]
 &gt; pdfcrop xxx-300dpi.pdf croped.pdf
@@ -485,7 +486,7 @@ ghost.init({
 &gt; convert -density 300 croped-p1.pdf -background white -flatten 'error-dpi.png'
 
 # 使用pdf2png
-#    - Github: https:/.html/github.com/kaorukobo/pdf2png-mac
+#    - Github: https://github.com/kaorukobo/pdf2png-mac
 #    - 能逐页处理，但输出png的精度受xcode中的组件影响(缺省是144dpi)
 #    - 参数--dpi是用于指定源pdf的dpi值的
 &gt; pdf2png --dpi 300 --page 1 --output '144dpi.png' croped.pdf
@@ -500,7 +501,7 @@ ghost.init({
 <p>如果你希望一步到位地解决上述问题，那么我目前只有一个工具推荐：</p>
 
 <blockquote>
-  <p>注：nconvert是<strong>xnview</strong>提供的一个非商用免费工具，<a href="http:/.html/www.xnview.com/en/nconvert/.html">下载在这里</a></p>
+  <p>注：nconvert是<strong>xnview</strong>提供的一个非商用免费工具，<a href="http://www.xnview.com/en/nconvert/">下载在这里</a></p>
 </blockquote>
 
 <pre><code class="language-bash"># 用ncovert将croped.pdf转换到png
@@ -517,7 +518,7 @@ Conversion of croped.pdf into pic-0.png OK
 ...
 </code></pre>
 
-<p>所以，本文中的模板所导出的PDF(<a href="content/images/attachments/standard_image_templet_520.pdf">在这里</a>)转换成png所采用的方法就是如下：</p>
+<p>所以，本文中的模板所导出的PDF(<a href="/content/images/attachments/standard_image_templet_520.pdf">在这里</a>)转换成png所采用的方法就是如下：</p>
 
 <pre><code class="language-bash"># 在PowerPoint/Keynote中将ppt导出成.pdf，然后
 #    - nconvert是从0页开始对pdf计数的
@@ -553,13 +554,13 @@ Conversion of croped.pdf into pic-0.png OK
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1725/.html">
+                <a href="/1-1725.html">
                     手记6：改造Gitment
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-1727.1">
+            <span class="post-nav-next" >
+                <a href="/1-1727.html">
                     详解ImageMagick中SVG的支持
                 </a>
                 下一篇
@@ -569,11 +570,11 @@ Conversion of croped.pdf into pic-0.png OK
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -589,30 +590,30 @@ Conversion of croped.pdf into pic-0.png OK
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -626,8 +627,8 @@ Conversion of croped.pdf into pic-0.png OK
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -639,20 +640,21 @@ Conversion of croped.pdf into pic-0.png OK
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

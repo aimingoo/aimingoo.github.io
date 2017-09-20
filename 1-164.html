@@ -1,88 +1,89 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>前端要给力之：分解对象构造过程new()</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="前端要给力之：分解对象构造过程new()">
-    <meta property="og:description" content="本文讨论JavaScript中的对象创建运算new。需要说明的是，本文所讨论的“将new()过程分解为多个步骤”，并非一般js开发中的所须技巧，而是在js来构建OOP系统的必要技术。 一、JavaScript构造器与构造过程的特点 JavaScript中通过以下方式声明和使用构造器：   function MyObject() {     this.xxx = 1;   }   MyObject.prototype.yyy = 2;   obj1 = new MyObject();   obj2 = new MyObject();   其中xxx与yyy的不同在于：对于obj1和obj2来说，yyy是相同的属性的不同引用，不同对象实例的初始值总是相同的；而xxx则是各自不同的引用，每个对象实例都不同。上例中使用1、2这样的值类型数据，并不足以体现二者的区别。当我们而使用引用类型(例如数组)，就很容易看出二者的区别来了。例如： function MyObject() {     this.xxx = new Array();   }   MyObject.prototype.yyy = new Array();   obj1">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-164/.html">
-    <meta property="article:published_time" content="2010-12-29T06:57:00.000Z">
-    <meta property="article:modified_time" content="2017-05-20T12:31:59.000Z">
-    <meta property="article:tag" content="Javascript">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="前端要给力之：分解对象构造过程new()" />
+    <meta property="og:description" content="本文讨论JavaScript中的对象创建运算new。需要说明的是，本文所讨论的“将new()过程分解为多个步骤”，并非一般js开发中的所须技巧，而是在js来构建OOP系统的必要技术。 一、JavaScript构造器与构造过程的特点 JavaScript中通过以下方式声明和使用构造器：   function MyObject() {     this.xxx &#x3D; 1;   }   MyObject.prototype.yyy &#x3D; 2;   obj1 &#x3D; new MyObject();   obj2 &#x3D; new MyObject();   其中xxx与yyy的不同在于：对于obj1和obj2来说，yyy是相同的属性的不同引用，不同对象实例的初始值总是相同的；而xxx则是各自不同的引用，每个对象实例都不同。上例中使用1、2这样的值类型数据，并不足以体现二者的区别。当我们而使用引用类型(例如数组)，就很容易看出二者的区别来了。例如： function MyObject() {     this.xxx &#x3D; new Array();   }   MyObject.prototype.yyy &#x3D; new Array();   obj1" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-164.html" />
+    <meta property="article:published_time" content="2010-12-29T06:57:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-20T12:31:59.000Z" />
+    <meta property="article:tag" content="Javascript" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="前端要给力之：分解对象构造过程new()">
-    <meta name="twitter:description" content="本文讨论JavaScript中的对象创建运算new。需要说明的是，本文所讨论的“将new()过程分解为多个步骤”，并非一般js开发中的所须技巧，而是在js来构建OOP系统的必要技术。 一、JavaScript构造器与构造过程的特点 JavaScript中通过以下方式声明和使用构造器：   function MyObject() {     this.xxx = 1;   }   MyObject.prototype.yyy = 2;   obj1 = new MyObject();   obj2 = new MyObject();   其中xxx与yyy的不同在于：对于obj1和obj2来说，yyy是相同的属性的不同引用，不同对象实例的初始值总是相同的；而xxx则是各自不同的引用，每个对象实例都不同。上例中使用1、2这样的值类型数据，并不足以体现二者的区别。当我们而使用引用类型(例如数组)，就很容易看出二者的区别来了。例如： function MyObject() {     this.xxx = new Array();   }   MyObject.prototype.yyy = new Array();   obj1">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-164/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="前端要给力之：分解对象构造过程new()" />
+    <meta name="twitter:description" content="本文讨论JavaScript中的对象创建运算new。需要说明的是，本文所讨论的“将new()过程分解为多个步骤”，并非一般js开发中的所须技巧，而是在js来构建OOP系统的必要技术。 一、JavaScript构造器与构造过程的特点 JavaScript中通过以下方式声明和使用构造器：   function MyObject() {     this.xxx &#x3D; 1;   }   MyObject.prototype.yyy &#x3D; 2;   obj1 &#x3D; new MyObject();   obj2 &#x3D; new MyObject();   其中xxx与yyy的不同在于：对于obj1和obj2来说，yyy是相同的属性的不同引用，不同对象实例的初始值总是相同的；而xxx则是各自不同的引用，每个对象实例都不同。上例中使用1、2这样的值类型数据，并不足以体现二者的区别。当我们而使用引用类型(例如数组)，就很容易看出二者的区别来了。例如： function MyObject() {     this.xxx &#x3D; new Array();   }   MyObject.prototype.yyy &#x3D; new Array();   obj1" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-164.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "前端要给力之：分解对象构造过程new()",
-    "url": "http:/.html/aimingoo.github.io/1-164/.html",
+    "url": "http://aimingoo.github.io/1-164.html",
     "datePublished": "2010-12-29T06:57:00.000Z",
     "dateModified": "2017-05-20T12:31:59.000Z",
     "keywords": "Javascript",
     "description": "本文讨论JavaScript中的对象创建运算new。需要说明的是，本文所讨论的“将new()过程分解为多个步骤”，并非一般js开发中的所须技巧，而是在js来构建OOP系统的必要技术。 一、JavaScript构造器与构造过程的特点 JavaScript中通过以下方式声明和使用构造器：   function MyObject() {     this.xxx &#x3D; 1;   }   MyObject.prototype.yyy &#x3D; 2;   obj1 &#x3D; new MyObject();   obj2 &#x3D; new MyObject();   其中xxx与yyy的不同在于：对于obj1和obj2来说，yyy是相同的属性的不同引用，不同对象实例的初始值总是相同的；而xxx则是各自不同的引用，每个对象实例都不同。上例中使用1、2这样的值类型数据，并不足以体现二者的区别。当我们而使用引用类型(例如数组)，就很容易看出二者的区别来了。例如： function MyObject() {     this.xxx &#x3D; new Array();   }   MyObject.prototype.yyy &#x3D; new Array();   obj1",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -93,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -122,11 +123,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-164.html">前端要给力之：分解对象构造过程new()</a></h1>
+                <h1 class="post-title"><a href="/1-164.html">前端要给力之：分解对象构造过程new()</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>
+                        <a href="/tag/javascript/">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -172,14 +173,14 @@ obj2 = new MyObject();
 obj1.xxx.push('abc');  
 obj1.yyy.push('abc');  
 
-/.html/ 显示1,0，表明obj2.xxx并没有变化  
+// 显示1,0，表明obj2.xxx并没有变化  
 alert([obj1.xxx.length, obj2.xxx.length]);    
 
-/.html/ 显示1,1，表明obj2.yyy同时变化，与obj1.yyy是同一个数组  
+// 显示1,1，表明obj2.yyy同时变化，与obj1.yyy是同一个数组  
 alert([obj1.yyy.length, obj2.yyy.length]);  
 </code></pre>
 
-<p>使用原型的另一个必要在于继承树的建立。这一过程要求new运算符的参与，简单说来，就是"子类.prototype"必须赋值为"new 父类()"所产生的一个实例。例如：  </p>
+<p>使用原型的另一个必要在于继承树的建立。这一过程要求new运算符的参与，简单说来，就是&quot;子类.prototype&quot;必须赋值为&quot;new 父类()&quot;所产生的一个实例。例如：  </p>
 
 <pre><code class="language-javascript">function MyObjectEx() {  
 
@@ -218,7 +219,7 @@ X.prototype = P;
 Y.prototype = P;  
 
 obj = new Y();  
-alert(obj instanceof X); /.html/ 显示true  
+alert(obj instanceof X); // 显示true  
 </code></pre>
 
 <p>在这个示例中，obj创建自Y()，但只因为X.prototype(或者它的原型链中)指向原型P，所以最后显示obj也是X的一个实例。可见instanceof的检测与obj是否创建自函数X是无关的，并不检查函数自身。</p>
@@ -262,10 +263,10 @@ MyObjectEx.prototype = C;
 <pre><code class="language-javascript">obj1 = new MyObject();  
 obj2 = new MyObjectEx();  
 
-/.html/ 显示true, obj2是MyObject()的子类的实例  
+// 显示true, obj2是MyObject()的子类的实例  
 alert(obj2 instanceof MyObject);  
 
-/.html/ 显示false, z属性不会出现在MyObject()的实例中  
+// 显示false, z属性不会出现在MyObject()的实例中  
 alert('z' in obj1);  
 </code></pre>
 
@@ -286,7 +287,7 @@ alert('z' in obj1);
   <p><code>obj = new MyObject(x,y,z);</code></p>
 </blockquote>
 
-<p>就可以被分解为如下两个步骤(fixed at 2010.12.30. note: 接受book_LoveLiness的意见，将constructor的改写过程放在原型阶段)：  </p>
+<p>就可以被分解为如下两个步骤(fixed at 2010.12.30. note:&nbsp;接受book_LoveLiness的意见，将constructor的改写过程放在原型阶段)：  </p>
 
 <pre><code class="language-javascript">obj = Object.create({  
   constructor: MyObject  
@@ -311,7 +312,7 @@ obj.constructor(a, b, c);
 
 <p>当然，这一过程也就与原型继承没有了关系——我们假定这就是JavaScript 1.0的时代吧。</p>
 
-<h3 id=".html">四、构造过程分解的意义</h3>
+<h3 id="">四、构造过程分解的意义</h3>
 
 <p>因为原型继承(包括原型链维护)与构造器调用是可以分开的，所以我们事实上也可以只使用二者之一来创建任何复杂的过程。对于大型OOP框架来说，“是否需要维护原型链”是一个深入的话题。例如一些早期的OOP框架就不管不顾，只考虑子类对象对父类的“相似性”，而无视instanceof运算的效果，这样的时代大概可以追溯到2004年以及之前。后来OOP框架意识JavaScript的原型系统的重要性，因此又回到正途上来，  </p>
 
@@ -379,13 +380,13 @@ obj.constructor(a, b, c);
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-163/.html">
+                <a href="/1-163.html">
                     前端要给力之：原子，与原子联结的友类、友函数
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-251/.html">
+            <span class="post-nav-next" >
+                <a href="/1-251.html">
                     群爆鸡米花。
                 </a>
                 下一篇
@@ -395,11 +396,11 @@ obj.constructor(a, b, c);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -415,30 +416,30 @@ obj.constructor(a, b, c);
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -452,8 +453,8 @@ obj.constructor(a, b, c);
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -465,20 +466,21 @@ obj.constructor(a, b, c);
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

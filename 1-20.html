@@ -1,88 +1,89 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>关于Qomo于ajax的异同～</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="关于Qomo于ajax的异同～">
-    <meta property="og:description" content="现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的&amp;ldquo;标准手段&amp;rdquo;了。&amp;mdash;&amp;mdash;例如M$就用这种方法来做MSDN网站左侧的那个&amp;ldquo;巨大的树&amp;rdquo;。   在ajax出现之前，这一系列的技术被称为&amp;ldquo;ＲＰＣ(Remote Procedure Call)&amp;rdquo;，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为&amp;ldquo;JSRS(javascript remote scripting)&amp;rdquo;的项目，它在Ｓ端有PHP/ASP等多种语言的实现。   现在也还有在RPC这个路线上延伸的技术尝试。例如有人用css或者script标签来替代IFrame实现RPC。   ＲＰＣ时代之后，就是ajax的时代了。ajax本意是&amp;ldquo;">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-20/.html">
-    <meta property="article:published_time" content="2006-01-10T16:21:00.000Z">
-    <meta property="article:modified_time" content="2006-01-10T16:21:00.000Z">
-    <meta property="article:tag" content="Javascript">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="关于Qomo于ajax的异同～" />
+    <meta property="og:description" content="现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的&amp;ldquo;标准手段&amp;rdquo;了。&amp;mdash;&amp;mdash;例如M$就用这种方法来做MSDN网站左侧的那个&amp;ldquo;巨大的树&amp;rdquo;。   在ajax出现之前，这一系列的技术被称为&amp;ldquo;ＲＰＣ(Remote Procedure Call)&amp;rdquo;，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为&amp;ldquo;JSRS(javascript remote scripting)&amp;rdquo;的项目，它在Ｓ端有PHP/ASP等多种语言的实现。   现在也还有在RPC这个路线上延伸的技术尝试。例如有人用css或者script标签来替代IFrame实现RPC。   ＲＰＣ时代之后，就是ajax的时代了。ajax本意是&amp;ldquo;" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-20.html" />
+    <meta property="article:published_time" content="2006-01-10T16:21:00.000Z" />
+    <meta property="article:modified_time" content="2006-01-10T16:21:00.000Z" />
+    <meta property="article:tag" content="Javascript" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="关于Qomo于ajax的异同～">
-    <meta name="twitter:description" content="现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的&amp;ldquo;标准手段&amp;rdquo;了。&amp;mdash;&amp;mdash;例如M$就用这种方法来做MSDN网站左侧的那个&amp;ldquo;巨大的树&amp;rdquo;。   在ajax出现之前，这一系列的技术被称为&amp;ldquo;ＲＰＣ(Remote Procedure Call)&amp;rdquo;，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为&amp;ldquo;JSRS(javascript remote scripting)&amp;rdquo;的项目，它在Ｓ端有PHP/ASP等多种语言的实现。   现在也还有在RPC这个路线上延伸的技术尝试。例如有人用css或者script标签来替代IFrame实现RPC。   ＲＰＣ时代之后，就是ajax的时代了。ajax本意是&amp;ldquo;">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-20/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="关于Qomo于ajax的异同～" />
+    <meta name="twitter:description" content="现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的&amp;ldquo;标准手段&amp;rdquo;了。&amp;mdash;&amp;mdash;例如M$就用这种方法来做MSDN网站左侧的那个&amp;ldquo;巨大的树&amp;rdquo;。   在ajax出现之前，这一系列的技术被称为&amp;ldquo;ＲＰＣ(Remote Procedure Call)&amp;rdquo;，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为&amp;ldquo;JSRS(javascript remote scripting)&amp;rdquo;的项目，它在Ｓ端有PHP/ASP等多种语言的实现。   现在也还有在RPC这个路线上延伸的技术尝试。例如有人用css或者script标签来替代IFrame实现RPC。   ＲＰＣ时代之后，就是ajax的时代了。ajax本意是&amp;ldquo;" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-20.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "关于Qomo于ajax的异同～",
-    "url": "http:/.html/aimingoo.github.io/1-20/.html",
+    "url": "http://aimingoo.github.io/1-20.html",
     "datePublished": "2006-01-10T16:21:00.000Z",
     "dateModified": "2006-01-10T16:21:00.000Z",
     "keywords": "Javascript",
     "description": "现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的&amp;ldquo;标准手段&amp;rdquo;了。&amp;mdash;&amp;mdash;例如M$就用这种方法来做MSDN网站左侧的那个&amp;ldquo;巨大的树&amp;rdquo;。   在ajax出现之前，这一系列的技术被称为&amp;ldquo;ＲＰＣ(Remote Procedure Call)&amp;rdquo;，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为&amp;ldquo;JSRS(javascript remote scripting)&amp;rdquo;的项目，它在Ｓ端有PHP/ASP等多种语言的实现。   现在也还有在RPC这个路线上延伸的技术尝试。例如有人用css或者script标签来替代IFrame实现RPC。   ＲＰＣ时代之后，就是ajax的时代了。ajax本意是&amp;ldquo;",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -93,25 +94,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -122,11 +123,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-20.html">关于Qomo于ajax的异同～</a></h1>
+                <h1 class="post-title"><a href="/1-20.html">关于Qomo于ajax的异同～</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -135,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>
+                        <a href="/tag/javascript/">Javascript</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -144,64 +145,64 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的“标准手段”了。——例如M$就用这种方法来做MSDN网站左侧的那个“巨大的树”。  </p>
+                <p>现在ajax实现太过火了，什么都向上面靠。其实早在2000前以前，WEB开发人员就已经在用Frame/Frameset来实现远程数据的获取。后来ＩＥ成为事实上的B端标准之后，IFrame就成了做远程数据获取的&ldquo;标准手段&rdquo;了。&mdash;&mdash;例如M$就用这种方法来做MSDN网站左侧的那个&ldquo;巨大的树&rdquo;。  </p>
 
-<p>在ajax出现之前，这一系列的技术被称为“ＲＰＣ(Remote Procedure Call)”，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为“JSRS(javascript remote scripting)”的项目，它在Ｓ端有PHP/ASP等多种语言的实现。  </p>
+<p>在ajax出现之前，这一系列的技术被称为&ldquo;ＲＰＣ(Remote Procedure Call)&rdquo;，象XMLRPC、HTTPRPC以及PHPRPC这些开源项目都是有的。PRC的一个问题，是必须实现一个S端，与WEB端的代码约定一个描述过程名(ProcedureName)和参数表的细节的接口。这其中，我比较欣赏的是一个名为&ldquo;JSRS(javascript remote scripting)&rdquo;的项目，它在Ｓ端有PHP/ASP等多种语言的实现。  </p>
 
 <p>现在也还有在RPC这个路线上延伸的技术尝试。例如有人用css或者script标签来替代IFrame实现RPC。  </p>
 
-<p>ＲＰＣ时代之后，就是ajax的时代了。ajax本意是“Asynchronous JavaScript and XML”。从本意上来说，它只是一种技术架构。是B/S两端交互数据的一种技术方法。但由于ajax主张使用XMLHttpRequest来替代RPC技术中的IFrame。这使得在浏览器上能有“无界面刷新”的良好用户体验。再加上现在火热的google成功地实现了“商业品质的应用”。因此ajax技术应用变得非常广泛。——但仅以跨浏览器特性而言，(现在的)IFrame的兼容性也极佳。  </p>
+<p>ＲＰＣ时代之后，就是ajax的时代了。ajax本意是&ldquo;Asynchronous JavaScript and XML&rdquo;。从本意上来说，它只是一种技术架构。是B/S两端交互数据的一种技术方法。但由于ajax主张使用XMLHttpRequest来替代RPC技术中的IFrame。这使得在浏览器上能有&ldquo;无界面刷新&rdquo;的良好用户体验。再加上现在火热的google成功地实现了&ldquo;商业品质的应用&rdquo;。因此ajax技术应用变得非常广泛。&mdash;&mdash;但仅以跨浏览器特性而言，(现在的)IFrame的兼容性也极佳。  </p>
 
 <p>由于ajax以xml作为传输层中表达数据的规范，因此它有良好的多语言编码基础，也能表达很复杂的数据结构。这也是传统的RPC方式所不能比拟的。  </p>
 
 <p>除去这些特性，ajax(的本意)就只是一种技术手段了。  </p>
 
-<p>然而现在的ajax狂热者们把ajax的应用推动另一层“境界”。由于ajax使用xml，因此可以在S端将对象序列化为XML数据；而在B端，由于javascript是一种“有良好的逻辑处理能力”的“基于对象的语言”，因此可以用将XML解释成客户端对象。——从外在的表现上来讲，ajax实现了“将Ｓ端的对象推送到Ｂ端”的能力。  </p>
+<p>然而现在的ajax狂热者们把ajax的应用推动另一层&ldquo;境界&rdquo;。由于ajax使用xml，因此可以在S端将对象序列化为XML数据；而在B端，由于javascript是一种&ldquo;有良好的逻辑处理能力&rdquo;的&ldquo;基于对象的语言&rdquo;，因此可以用将XML解释成客户端对象。&mdash;&mdash;从外在的表现上来讲，ajax实现了&ldquo;将Ｓ端的对象推送到Ｂ端&rdquo;的能力。  </p>
 
-<p>这是目前ajax技术的主要发展方向之一。“如何在Ｓ端和Ｂ端用同样的方式‘表达’和‘理解’对象”，以及“让对象的可执行能力被序列化，并推动到Ｂ端”是ajax面临的问题。而第一层障碍，就是JavaScript自身对“面向对象”支持的不完整，因此无法表达一些Ｓ端对象的特征。  </p>
+<p>这是目前ajax技术的主要发展方向之一。&ldquo;如何在Ｓ端和Ｂ端用同样的方式&lsquo;表达&rsquo;和&lsquo;理解&rsquo;对象&rdquo;，以及&ldquo;让对象的可执行能力被序列化，并推动到Ｂ端&rdquo;是ajax面临的问题。而第一层障碍，就是JavaScript自身对&ldquo;面向对象&rdquo;支持的不完整，因此无法表达一些Ｓ端对象的特征。  </p>
 
-<p>——例如如果Ｓ端是.NET，它的对象Ａ有一个具有读写器(getter/setter)的特性，那么对象被序列化并传到Ｂ端的时候，JavaScript如何理解对象Ａ中的读写器呢？所以ajax现在都是与一个“实现了更丰富的OOP特性的javascript”绑在一起的。  </p>
+<p>&mdash;&mdash;例如如果Ｓ端是.NET，它的对象Ａ有一个具有读写器(getter/setter)的特性，那么对象被序列化并传到Ｂ端的时候，JavaScript如何理解对象Ａ中的读写器呢？所以ajax现在都是与一个&ldquo;实现了更丰富的OOP特性的javascript&rdquo;绑在一起的。  </p>
 
-<p>我想大家应该看到了问题之所在了。“实现更丰富的OOP特性”与“ajax(异步的JS与XML)”有什么关系呢？ajax提出了一个语言级别的需求，然后有一些架构/项目去实现了这些语言特性，再绑在ajax上。ajax就这样越做越大。现在的ajax，已经变成“语言特性的实现＋编程框架＋技术”，而不是ajax技术本身了。  </p>
+<p>我想大家应该看到了问题之所在了。&ldquo;实现更丰富的OOP特性&rdquo;与&ldquo;ajax(异步的JS与XML)&rdquo;有什么关系呢？ajax提出了一个语言级别的需求，然后有一些架构/项目去实现了这些语言特性，再绑在ajax上。ajax就这样越做越大。现在的ajax，已经变成&ldquo;语言特性的实现＋编程框架＋技术&rdquo;，而不是ajax技术本身了。  </p>
 
-<p>Qomo并不去追究这种技术的演化与变形。Qomo关注于一些“语言特性的实现”，也关注于一些“编程框架”的实现。在这两种实现的基础上，Qomo提供了一个轻量的ajax实现技术的框架，也提供了一套(相对于FCL/VCL)轻量级的Component Library。  </p>
+<p>Qomo并不去追究这种技术的演化与变形。Qomo关注于一些&ldquo;语言特性的实现&rdquo;，也关注于一些&ldquo;编程框架&rdquo;的实现。在这两种实现的基础上，Qomo提供了一个轻量的ajax实现技术的框架，也提供了一套(相对于FCL/VCL)轻量级的Component Library。  </p>
 
 <p>这里既然提到了Qomo的特性，那么我就将我在sourceforge上申请create project的描述转过来。大家可以自己来比较分析：  </p>
 
-<p>Qomo OpenProject is a True and Full OOP framework and UI Library.  </p>
+<p>Qomo&nbsp;OpenProject is a True and Full OOP framework and UI Library.  </p>
 
-<p>{ note:  # implemented,  + implementing, * planning, - tring }  </p>
+<p>{ note:&nbsp; # implemented,&nbsp; + implementing, * planning, - tring }  </p>
 
-<p>include features of OOP: <br>
- # inhreited by class <br>
- # attribute getter/setter <br>
- # type system of object <br>
- # abstract and abstract exception <br>
- # mutilcast event <br>
- + interface in javascript <br>
- # namespace system <br>
- # package/unit import <br>
- # tiny ajax architecture <br>
- + SOA Architecture <br>
- * template programming <br>
- - more...  </p>
+<p>include features of OOP: <br />
+&nbsp;# inhreited by class <br />
+&nbsp;# attribute getter/setter <br />
+&nbsp;# type system of object <br />
+&nbsp;# abstract and abstract exception <br />
+&nbsp;# mutilcast event <br />
+&nbsp;+ interface in javascript <br />
+&nbsp;# namespace system <br />
+&nbsp;# package/unit import <br />
+&nbsp;# tiny ajax architecture <br />
+&nbsp;+ SOA Architecture <br />
+&nbsp;* template programming <br />
+&nbsp;- more...  </p>
 
-<p>include features of UI: <br>
- # tidy component framework <br>
- # graphics abstract level and a VML implement <br>
- # database abstract level and a ArrayDB/FileDB implement <br>
- # html element controller and some control component <br>
- # bar, menu, window, etc. in virsual component library. <br>
- * more component, mount a tidy(very very) FCL or VCL. <br>
- - more ...  </p>
+<p>include features of UI: <br />
+&nbsp;# tidy component framework <br />
+&nbsp;# graphics abstract level and a VML implement <br />
+&nbsp;# database abstract level and a ArrayDB/FileDB implement <br />
+&nbsp;# html element controller and some control component <br />
+&nbsp;# bar, menu, window, etc. in virsual component library. <br />
+&nbsp;* more component, mount a tidy(very very) FCL or VCL. <br />
+&nbsp;- more ...  </p>
 
-<p>other features: <br>
- # some utils class. <br>
- # auto class inhnert chart scan and generable <br>
- # document generable tool (C# source) <br>
- # testing and profing tools (JavaScript Source) <br>
- - OOP Core and UI can debugging and designing in VS.NET IDE. <br>
- - more ...  </p>
+<p>other features: <br />
+&nbsp;# some utils class. <br />
+&nbsp;# auto class inhnert chart scan and generable <br />
+&nbsp;# document generable tool (C# source) <br />
+&nbsp;# testing and profing tools (JavaScript Source) <br />
+&nbsp;- OOP Core and UI can debugging and designing in VS.NET IDE. <br />
+&nbsp;- more ...  </p>
 
 <p>the project extracted from a enterprise project. free and open source for all JavaScript fans, and hope anybody join/impulse the project.</p>
             </section>
@@ -215,13 +216,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-19/.html">
+                <a href="/1-19.html">
                     开源项目Everest OpenProject的更名公告！
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-21/.html">
+            <span class="post-nav-next" >
+                <a href="/1-21.html">
                     JavaScript面向对象的支持(2)
                 </a>
                 下一篇
@@ -231,11 +232,11 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -251,30 +252,30 @@ ghost.init({
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -288,8 +289,8 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -301,20 +302,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

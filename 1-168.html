@@ -1,89 +1,90 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>三谈类型问题：ECMAScript为什么错了？</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="三谈类型问题：ECMAScript为什么错了？">
-    <meta property="og:description" content="一、历史 &amp;nbsp;首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。   后来之后来，很多书籍与网站，写文章又制作图片什么的，把这一切板上钉钉地记入了“历史”。   可是JavaScript之父Eich从来没有承认过这件事情，Nombas公司以及它的老板(C--的发明者)之后也没有再解释过这件事情。 我谈及这段历史，是想说明：一个象“history of">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-168/.html">
-    <meta property="article:published_time" content="2011-07-27T05:32:00.000Z">
-    <meta property="article:modified_time" content="2017-05-20T12:16:18.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="三谈类型问题：ECMAScript为什么错了？" />
+    <meta property="og:description" content="一、历史 &amp;nbsp;首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。   后来之后来，很多书籍与网站，写文章又制作图片什么的，把这一切板上钉钉地记入了“历史”。   可是JavaScript之父Eich从来没有承认过这件事情，Nombas公司以及它的老板(C--的发明者)之后也没有再解释过这件事情。 我谈及这段历史，是想说明：一个象“history of" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-168.html" />
+    <meta property="article:published_time" content="2011-07-27T05:32:00.000Z" />
+    <meta property="article:modified_time" content="2017-05-20T12:16:18.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="三谈类型问题：ECMAScript为什么错了？">
-    <meta name="twitter:description" content="一、历史 &amp;nbsp;首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。   后来之后来，很多书籍与网站，写文章又制作图片什么的，把这一切板上钉钉地记入了“历史”。   可是JavaScript之父Eich从来没有承认过这件事情，Nombas公司以及它的老板(C--的发明者)之后也没有再解释过这件事情。 我谈及这段历史，是想说明：一个象“history of">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-168/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="三谈类型问题：ECMAScript为什么错了？" />
+    <meta name="twitter:description" content="一、历史 &amp;nbsp;首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。   后来之后来，很多书籍与网站，写文章又制作图片什么的，把这一切板上钉钉地记入了“历史”。   可是JavaScript之父Eich从来没有承认过这件事情，Nombas公司以及它的老板(C--的发明者)之后也没有再解释过这件事情。 我谈及这段历史，是想说明：一个象“history of" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-168.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "三谈类型问题：ECMAScript为什么错了？",
-    "url": "http:/.html/aimingoo.github.io/1-168/.html",
+    "url": "http://aimingoo.github.io/1-168.html",
     "datePublished": "2011-07-27T05:32:00.000Z",
     "dateModified": "2017-05-20T12:16:18.000Z",
     "keywords": "Javascript, 语言",
     "description": "一、历史 &amp;nbsp;首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。   后来之后来，很多书籍与网站，写文章又制作图片什么的，把这一切板上钉钉地记入了“历史”。   可是JavaScript之父Eich从来没有承认过这件事情，Nombas公司以及它的老板(C--的发明者)之后也没有再解释过这件事情。 我谈及这段历史，是想说明：一个象“history of",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -94,25 +95,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,11 +124,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-yu-yan">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-168.html">三谈类型问题：ECMAScript为什么错了？</a></h1>
+                <h1 class="post-title"><a href="/1-168.html">三谈类型问题：ECMAScript为什么错了？</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/yu-yan/.html">语言</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,9 +146,9 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h2 id=".html">一、历史</h2>
+                <h2 id="">一、历史</h2>
 
-<p> 首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。  </p>
+<p>&nbsp;首先讲一个小历史，这个我以前写过一篇文章在《程序员》上。当年，有一家叫Nombas的公司，发布了一个名为C--的语言，后来做成了一个“能嵌入网页的脚本”。在2001年前后，Nombas官方网页对这一个产品介绍中，使用了“history of scripting”这样的标题，讲述的，却主要是c--这个语言的历史。然而，令人混乱的是：C--这个语言在1998年前后开始按照ECMAScript标准来实现，也就是说，它也是一种JavaScript语言；并且，Nombas公司事实上也是ECMAScript早期的标准委员会成员之一；再并且，一些介绍早期JavaScript历史的材料均根据上述信息，援引Nombas的“history of scripting”这篇文章，进而将JavaScript作为一种脚本语言的源头指向了c--。  </p>
 
 <p>后来之后来，很多书籍与网站，写文章又制作图片什么的，把这一切板上钉钉地记入了“历史”。  </p>
 
@@ -157,11 +158,11 @@ ghost.init({
 
 <p>ECMAScript是不是错的？我记得以前说过，错误的标准也是标准，在它“被纠正”之前，它就是严格正确的。呵呵，这显得有点强辞夺理，但的确如此。而我在本文中所指它的“错误”，而令人误解的这一部分类型描述，而非严格的正确与错误的判决。</p>
 
-<h2 id=".html">二、类型</h2>
+<h2 id="">二、类型</h2>
 
 <p>什么是类型？argb同学强调type是指“类型”，而class是指“类别”。这样来讲是很不正确的。首先，在专业的用词中，type与types是不同的。在讲数据类型的时候，我们称一些数据类型的时候，会说它是types，例如：  </p>
 
-<p>Types are further subclassified into ECMAScript language types and specification types. <br>
+<p>Types are further subclassified into ECMAScript language types and specification types. <br />
 这段文字的意思是说：类型可以分为“ECMAScript 语言(定义的)类型”和“特定类型”两种。注意这里的三个“类型”都用了types。这说明它是一种分类方案。一堆东西分成几堆，每一堆都不是个体——或即使是１个，但仍然是一个分类中的类属概念。  </p>
 
 <p>而当讲述单一类型的时候，就用的是type，例如“Object Type”。  </p>
@@ -170,7 +171,7 @@ ghost.init({
 
 <p>ECMAScript用“语言类型”和“特定类型”这样的分类方法，来描述了“实现一个ECMAScript”所需要的类型支持。但这并不是“一个JavaScript的类型系统”。并不是这样讲的。就好象说，我们讲：世界就人与非人构成。但“人与非人”却并不是世界的类型特性。进一步的讲，“人”包括了“男人、女人、巨人”。这样讲也并没有什么错，但这样没法子考察“巨人”与“男人、女人”的关系。我是说“没法考察”，而不是说“有或没有关系”。</p>
 
-<p>ECMAScript的描述中就存在这样的问题。它说：“语言类型”包括Undefined, Null, Boolean, String, Number 和 Object。这一说法是为了将这些类型与后面的“实现一门语言的过程分别开来。它没法解释：  </p>
+<p>ECMAScript的描述中就存在这样的问题。它说：“语言类型”包括Undefined, Null, Boolean, String, Number&nbsp;和 Object。这一说法是为了将这些类型与后面的“实现一门语言的过程分别开来。它没法解释：  </p>
 
 <ul>
 <li>Undefined与Null的类型关系</li>
@@ -181,7 +182,7 @@ ghost.init({
 
 <p>所以，结论：ECMAScript规范第8章，这一整章是“实现一个JavaScript语言”所需要的类型定义与分类，而不是“JavaScript语言本身的类型”。</p>
 
-<h2 id=".html">三、定义</h2>
+<h2 id="">三、定义</h2>
 
 <p>ECMAScript到底有没有讨论这个语言的类型问题的地方呢？？？  </p>
 
@@ -191,7 +192,7 @@ ghost.init({
 
 <p>就如果本文开篇中提到的“历史”一样。模糊、暗示以及不确定的含义，使得ECMAScript在类型系统的解释上，存有极大的隐患。</p>
 
-<h2 id=".html">四、类型系统</h2>
+<h2 id="">四、类型系统</h2>
 
 <p>一个语言的类型系统，是使用这个语言编程中的关键信息。  </p>
 
@@ -236,7 +237,7 @@ B = A
 
 <p>在JavaScript的应用中，一定要当心这一点，也就是说，typeof(foo)的返回值，只能决定foo()运算的有效性，其它的含义要从对象系统中去找。</p>
 
-<h2 id=".html">六、第二套类型系统：对象</h2>
+<h2 id="">六、第二套类型系统：对象</h2>
 
 <p>我们讨论上述的六种类型——我一般称为基本类型系统，本质上来说它是“过程式语言”和“函数式语言”这两种语言特性所需要的类型系统。如果整个系统中没有object，那么它其实也很不错，也能用于网页展示，也能处理复杂的计算。而object这一类型，以及由此而来的，整个的Object()类型系统，是一个独立的存在。按照Java的设计，我们绝对可以用OOP来实现全部的开发过程，只要最后输入输出设备能够识别String、Boolean和Number这三种类型就行了。但显然的，我们的输出设备——例如键盘/显示器不能识别，所以Java里面一切都可以OOP，但到了设备交互、网络转输的最核心部分，仍然要做对象到值的转换。同样的，如同前面所讨论过的内容，在函数调用等接口上面，也存在传值、传对象(引用)的问题。  </p>
 
@@ -250,7 +251,7 @@ B = A
 
 <p>在对象系统中，string、number、boolean、object和function这些“基本类型系统”中的类型，都有对应的“对象类型”。因此我通常在用string时，表明它就是一个基本类型，是值类型；如果使用String，就强调它是对象类型中的字符串对象，是引用类型；如果使用String()，就强调这是一个构造器，是一个函数。一般来说，我在这样使用的时候是不太容易混淆的。</p>
 
-<h2 id=".html">其它</h2>
+<h2 id="">其它</h2>
 
 <p>1、两套类型系统是“创举”吗？  </p>
 
@@ -292,13 +293,13 @@ B = A
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-167/.html">
+                <a href="/1-167.html">
                     再谈JavaScript的数据类型问题
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-169/.html">
+            <span class="post-nav-next" >
+                <a href="/1-169.html">
                     详图实证：再谈JavaScript的语源问题
                 </a>
                 下一篇
@@ -308,11 +309,11 @@ B = A
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -328,30 +329,30 @@ B = A
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -365,8 +366,8 @@ B = A
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -378,20 +379,21 @@ B = A
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>

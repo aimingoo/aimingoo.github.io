@@ -1,91 +1,92 @@
-
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>QoBean的元语言系统（一）</title>
-    <meta name="description" content=".html">
+    <meta name="description" content="" />
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=aec89d194c">
-    <!-- <link rel="stylesheet" type="text/css" href=".html/fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c">
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c">
-    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     
-    <meta property="og:site_name" content="Aimingoo's Blog">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="QoBean的元语言系统（一）">
-    <meta property="og:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean https:/.html/github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(">
-    <meta property="og:url" content="http:/.html/aimingoo.github.io/1-110/.html">
-    <meta property="article:published_time" content="2008-07-24T18:57:00.000Z">
-    <meta property="article:modified_time" content="2017-09-11T03:17:42.000Z">
-    <meta property="article:tag" content="Javascript">
-    <meta property="article:tag" content="语言">
-    <meta property="article:tag" content="Qomo">
-    <meta property="article:tag" content="OpenSource Project">
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="QoBean的元语言系统（一）" />
+    <meta property="og:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(" />
+    <meta property="og:url" content="http://aimingoo.github.io/1-110.html" />
+    <meta property="article:published_time" content="2008-07-24T18:57:00.000Z" />
+    <meta property="article:modified_time" content="2017-09-11T03:17:42.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="Qomo" />
+    <meta property="article:tag" content="OpenSource Project" />
     
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="QoBean的元语言系统（一）">
-    <meta name="twitter:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean https:/.html/github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(">
-    <meta name="twitter:url" content="http:/.html/aimingoo.github.io/1-110/.html">
-    <meta name="twitter:label1" content="Written by">
-    <meta name="twitter:data1" content="aimingoo">
-    <meta name="twitter:label2" content="Filed under">
-    <meta name="twitter:data2" content="Javascript, 语言, Qomo, OpenSource Project">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="QoBean的元语言系统（一）" />
+    <meta name="twitter:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/1-110.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, Qomo, OpenSource Project" />
     
     <script type="application/ld+json">
 {
-    "@context": "https:/.html/schema.org",
+    "@context": "https://schema.org",
     "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http:/.html/aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
+            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
             "width": 944,
             "height": 858
         },
-        "url": "http:/.html/aimingoo.github.io/author/aimingoo/.html",
+        "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": [
-            "http:/.html/blog.csdn.net/aimingoo"
+            "http://blog.csdn.net/aimingoo"
         ],
         "description": "I&#x27;m here."
     },
     "headline": "QoBean的元语言系统（一）",
-    "url": "http:/.html/aimingoo.github.io/1-110/.html",
+    "url": "http://aimingoo.github.io/1-110.html",
     "datePublished": "2008-07-24T18:57:00.000Z",
     "dateModified": "2017-09-11T03:17:42.000Z",
     "keywords": "Javascript, 语言, Qomo, OpenSource Project",
-    "description": "QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean https:/.html/github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(",
+    "description": "QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http:/.html/aimingoo.github.io"
+        "@id": "http://aimingoo.github.io"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
 	clientSecret: "cb6d9de116b8"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11">
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo's Blog" href="rss/index.rss">
+    <meta name="generator" content="Ghost 0.11" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-qomo tag-opensource-project nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,25 +97,25 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href=".html">Aimingoo&#x27;s Blog</a>';
-            var theAuthor = {slug: 'aimingoo', url: '.html/author/aimingoo/.html'};
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
-                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef=".html' + theAuthor.url + '.html">麦秸的垛</a>';
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
             }
             document.writeln(titleTextInBody);
             </script>
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href=".html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -125,11 +126,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-yu-yan tag-qomo tag-opensource-project">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-110.1">QoBean的元语言系统（一）</a></h1>
+                <h1 class="post-title"><a href="/1-110.html">QoBean的元语言系统（一）</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/.html">Javascript</a>, <a href="tag/yu-yan/.html">语言</a>, <a href="tag/qomo/.html">Qomo</a>, <a href="tag/opensource-project/.html">OpenSource Project</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -160,12 +161,12 @@ ghost.init({
 <p>QoBean的项目地址：</p>
 
 <ul>
-<li><a href="https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean">https:/.html/qomo.svn.sourceforge.net/svnroot/qomo/qobean</a></li>
-<li><a href="https:/.html/github.com/aimingoo/qobean">https:/.html/github.com/aimingoo/qobean</a></li>
+<li><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a></li>
+<li><a href="https://github.com/aimingoo/qobean">https://github.com/aimingoo/qobean</a></li>
 </ul>
 
 <blockquote>
-  <p>注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》<a href="1-147.1">(之二)</a>、<a href="1-148.1">(之三)</a>。</p>
+  <p>注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》<a href="/1-147.html">(之二)</a>、<a href="/1-148.html">(之三)</a>。</p>
 </blockquote>
 
 <h2 id="metalanguage">一、什么是元语言(Meta Language)</h2>
@@ -267,7 +268,7 @@ ghost.init({
 
 <p>在这个最小的语言特性集合上，QoBean开始构建自己的语言系统——这也意味着，只需要拥有这些最小、最简的语言特性，其它语言或其它的JavaScript实现版本、子集等，也可以按照同样的方式构建同等能力的语言系统。这也就是“元语言”最诱人的地方。</p>
 
-<h2 id=".html">三、元系统</h2>
+<h2 id="">三、元系统</h2>
 
 <h3 id="0qobean">0、QoBean的元语言系统基本的编程结构</h3>
 
@@ -288,7 +289,7 @@ ghost.init({
   return atom || {};
 }
 
-/.html/ sample
+// sample
 tbl = {};  
 tbl = Atom(tbl);  
 </code></pre>
@@ -299,7 +300,7 @@ tbl = Atom(tbl);
   return Function.apply(this, arguments)
 }
 
-/.html/ sample
+// sample
 f = new Func();  
 alert(typeof f);  
 </code></pre>
@@ -311,7 +312,7 @@ alert(typeof f);
   return func;
 }
 
-/.html/ sample：meta is meta for self.
+// sample：meta is meta for self.
 Meta = Meta(Meta);  
 </code></pre>
 
@@ -330,7 +331,7 @@ f1 = function(atom) {
     if (arguments[0] === atom) {
       return data;
     }
-    /.html/ ...
+    // ...
   }
 }(f1);
 
@@ -341,7 +342,7 @@ f2 = function(atom) {
     if (data === undefined) {
       data = f1(atom);
     }
-    /.html/ ...
+    // ...
   }
 }(f2);
 </code></pre>
@@ -354,10 +355,10 @@ f2 = function(atom) {
 
 <pre><code class="language-javascript">function MyObject() {  
 }
-/.html/ class register
+// class register
 Class(, 'MyObject');
 
-/.html/ sample
+// sample
 obj = new MyObject();  
 alert(obj instanceof MyObject);
 </code></pre>
@@ -372,7 +373,7 @@ alert(obj instanceof MyObject);
 }
 TMyObject = Class(, 'MyObject');
 
-/.html/ sample
+// sample
 obj = TMyObject.Create();  
 alert(...)  
 </code></pre>
@@ -390,20 +391,20 @@ alert(...)
 obj1 = obj;  
 obj2 = Unique(obj);
 
-/.html/ init, same.
+// init, same.
 alert([obj1.data, obj2.data]);
 
-/.html/ change the reference, the uniqued object was fixed.
+// change the reference, the uniqued object was fixed.
 obj1.data = 200;  
 alert([obj1.data, obj2.data]);
 
-/.html/ change the niqued object, the , no change.
+// change the niqued object, the , no change.
 obj2.data = 300;  
 alert([obj1.data, obj2.data]);  
 </code></pre>
 
 <blockquote>
-  <p>下一篇：<a href="1-111.1">元语言下的编程基本方法 &gt;&gt;</a></p>
+  <p>下一篇：<a href="/1-111.html">元语言下的编程基本方法 >></a></p>
 </blockquote>
             </section>
 <!-- removed by aimingoo
@@ -416,13 +417,13 @@ alert([obj1.data, obj2.data]);
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-233/.html">
+                <a href="/1-233.html">
                     啥美，细致之美……
                 </a>
             </span>
 
-            <span class="post-nav-next">
-                <a href="1-111.1">
+            <span class="post-nav-next" >
+                <a href="/1-111.html">
                     QoBean的元语言系统（二）
                 </a>
                 下一篇
@@ -432,11 +433,11 @@ alert([obj1.data, obj2.data]);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=aec89d194c">
-<script src="assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
+<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '.html').replace(/^.*\/|.html$/g, '.html') };
+	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -452,30 +453,30 @@ alert([obj1.data, obj2.data]);
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo's Blog">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I'm here.
+                I&#x27;m here.
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
         <div class="widget-title-meta">
-            <i class="fa fa-list-ul"></i> 
+            <i class="fa fa-list-ul"></i>&nbsp;
             <span class="title-meta-word">文章目录</span>
         </div>
     </div>
@@ -489,8 +490,8 @@ alert([obj1.data, obj2.data]);
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href=".html">Aimingoo's Blog</a> © 2017</section>
-                <section class="poweredby">Proudly published with <a href="https:/.html/ghost.org">Ghost</a>, Theme <a href="https:/.html/github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
 
@@ -502,20 +503,21 @@ alert([obj1.data, obj2.data]);
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
 </body>
 
+</html>
