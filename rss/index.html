@@ -1,4 +1,353 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 20 Sep 2017 04:45:55 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[详解Monster的初始化及配置]]></title><description><![CDATA[<p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Thu, 21 Sep 2017 15:50:28 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Monster的三种工作模式]]></title><description><![CDATA[<p>Monster有三种工作模式generate、update和preview。其中update与preview必须用Monster的第一个参数来指定，generate模式也可以用第一个参数来指定，缺省时直接使用该模式。即：</p>
+
+<pre><code class="language-bash"># 下面两个指令是相同的
+&gt; monster --generate
+&gt; monster generate --generate
+</code></pre>
+
+<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
+
+<pre><code class="language-bash"># 显示monster的帮助
+&gt; monster --help
+# 显示generate模式(即makesite.sh)的帮助
+&gt; monster generate --help
+</code></pre>
+
+<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
+
+<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
+&gt; monster preivew 8010
+Serving HTTP on</code></pre>]]></description><link>http://aimingoo.github.io/1-1744.html/</link><guid isPermaLink="false">eebb350e-b1c6-4d58-a19c-2ea2ac792301</guid><category><![CDATA[Monster]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 21 Sep 2017 15:50:03 GMT</pubDate><content:encoded><![CDATA[<p>Monster有三种工作模式generate、update和preview。其中update与preview必须用Monster的第一个参数来指定，generate模式也可以用第一个参数来指定，缺省时直接使用该模式。即：</p>
+
+<pre><code class="language-bash"># 下面两个指令是相同的
+&gt; monster --generate
+&gt; monster generate --generate
+</code></pre>
+
+<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
+
+<pre><code class="language-bash"># 显示monster的帮助
+&gt; monster --help
+# 显示generate模式(即makesite.sh)的帮助
+&gt; monster generate --help
+</code></pre>
+
+<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
+
+<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
+&gt; monster preivew 8010
+Serving HTTP on 0.0.0.0 port 8010 ...  
+</code></pre>
+
+<h2 id="generateupdate">generate与update模式的原理不同</h2>
+
+<p>generate工作模式定义了一个对“网站迁移的标准过程”的理解，亦即是分成四步：</p>
+
+<ul>
+<li>generate: 调用Buster生成静态页</li>
+<li>reset-domain：重置页面中的domain地址（它有两个前置过程）
+<ul><li>pick-sitemap：尝试下载sitemaps文件（前置过程）</li>
+<li>patch-version：修补assets等目录中的文件名后缀中的版本号</li></ul></li>
+<li>short-path: 生成简短的网页路径</li>
+<li>deploy-now: 部署到Github仓库（它有一个前置过程）
+<ul><li>check-static：检查reset-domain过程之后的static目录</li></ul></li>
+</ul>
+
+<p>这个迁移并不是特指针对于Git Pages（xxxx.github.io）的，因此generate模式可以在非Ghost博客上正常工作，并且也可以将生成的静态网页Delpoy到非Git Pages的网站上去。所谓“Ghost -> Git Pages”只是上述过程的一个运用而已。</p>
+
+<p>generate工作模式在网页抓取上并不“积极”，它只是使用wget对Site入口（<code>/index.html</code>）进行深度递归并下载所有页面以及图片等等其它附件与资源而已。相对于Buster，它最大的进步是定义和有效利用了上述的四个阶段。</p>
+
+<p>工作模式update在原理上就与generate不同。update工作模式是直接依赖Ghost的数据库文件的，它必须位于Monster可访问的路径上。update工作模式并没有上述的四个阶段，它缺省就直接读取数据库中最新的条目，并根据其title直接使用wget下载该页面和可能的资源。</p>
+
+<p>update工作模式只有<code>fetch</code>和<code>deploy</code>两种行为。其中<code>fetch</code>行为是默认总是进行——除了在使用<code>--deploy-only</code>参数的情况下，而<code>deploy</code>行为是由<code>--deploy-now</code>或<code>--deploy-only</code>来触发的。</p>
+
+<p>update工作模式的<code>deploy</code>行为是直接调用generate模式来实现的，所以事实上二者在Deploy功能上完全一致——只是在调用时，update模式会把<code>--pick-sitemap</code>和<code>--short-path</code>置为false，因为这两个步骤已经在update工作模式中处理过了，不需要generate模式去处理。</p>
+
+<p>在update工作模式之内，<code>--pick-sitemap</code>和<code>--short-path</code>缺省是打开的，并且总是“推荐”使用short path——这在update工作模式中是更佳的选择。</p>
+
+<h2 id="generate">generate模式的缺省行为</h2>
+
+<p>下面的代码将直接调用generate模式的缺省行为：</p>
+
+<pre><code class="language-bash">&gt; monster generate
+</code></pre>
+
+<p>在缺省情况下，Monster相关的配置如下：</p>
+
+<pre><code class="language-bash"># GENERATE过程
+GENERATE=false
+
+# RESET_DOMAIN过程
+PICK_SITEMAP=true  
+PATCH_VERSION=true  
+RESET_DOMAIN=true
+
+# SHORT_PATH过程
+SHORT_PATH=false
+
+# DEPLOY过程
+CHECK_STATIC=true  
+DEPLOY_NOW=false  
+</code></pre>
+
+<p>因此generate模式缺省会跳过GENERATE过程，然后：</p>
+
+<ul>
+<li>判断Static path（例如缺省的<code>./static</code>）是否有效</li>
+</ul>
+
+<p>如果<code>./static</code>不存在，那么直接退出并提示：</p>
+
+<blockquote>
+  <p>Abort because have not './static' directory.</p>
+</blockquote>
+
+<p>否则接下来处理：</p>
+
+<ul>
+<li>首先根据<code>PICK_SITEMAP</code>和<code>PATCH_VERSION</code>的配置来处理<code>RESET_DOMAIN</code>的前置过程；然后，</li>
+<li>将检查生成文件的<code>SITE</code>值与发布到的<code>DOMAIN</code>地址，如果不一样（例如想从本地site生成文件并发布到domain），重置Static目录中所有文件中的domain值（<code>RESET_DOMAIN</code>）。</li>
+</ul>
+
+<p>最后跳过SHORT_PATH过程，并：</p>
+
+<ul>
+<li>检查一次Static目录中的文件是否都重置过domain（<code>CHECK_STATIC</code>）。</li>
+</ul>
+
+<h2 id="update">update模式的缺省行为</h2>
+
+<p>下面的代码将直接调用update模式的缺省行为：</p>
+
+<pre><code class="language-bash">&gt; monster update
+</code></pre>
+
+<p>对于update模式来说，以下参数是缺省置为true值的：</p>
+
+<pre><code class="language-bash">PICK_ROBOTS_TXT=true  
+PICK_SITEMAP=true  
+SHORT_PATH=true  
+RESET_DOMAIN=true  
+</code></pre>
+
+<p>前面说过：update与generate的行为逻辑很不一样。update模式的<code>fetch</code>行为看起来总是更“贪婪”的：</p>
+
+<ul>
+<li>它将尝试获取全部更新文件（依赖.sqlitedb中的信息来分析），并且如果发现有新的post创建，就会尝试获取全部列表文件——例如作者文章列表，以及首页文章索引等（包括<code>PICK_ROBOTS_TXT</code>、<code>PICK_SITEMAP</code>等等）。</li>
+<li>一旦上述过程完成，<code>fetch</code>行为将进一步地检查Static目录，由于<code>SHORT_PATH</code>为true，所以它会尝试将Url中的路径变短。</li>
+<li>最后，update模式会进入<code>RESET_DOMAIN</code>过程，并传入参数<code>--generate=false --pick-sitemap=false --short-path=false</code>以避免makesite.sh模块重复操作。</li>
+</ul>
+
+<p>update模式缺省并不Deploy（除非你在命令行上指定了<code>--deploy-now</code>，它缺省是false值）。</p>
+
+<p>你无法让update过程什么也不做，这一点也与generate不同。唯一可算作例外的，是如果上一次update之后在Ghost中什么变化也没有（没有添加、删除或更新post），那么在update时就不会获得什么更新数据，也不会创建<code>./static</code>目录：</p>
+
+<pre><code class="language-bash">&gt; monster update
+Pick updated or new files ...
+
+Try refresh author's pages ...  
+&gt; Skiped.
+Abort because have not './static' directory.  
+</code></pre>
+
+<h2 id="">开始构建你的网站</h2>
+
+<p>你可以从一开始就选择两种工作模式之一。generate模式每一次总是做全站生成，而update模式只在第一次调用时，读sqlite库中的全部post做一次全站生成——并且部署。</p>
+
+<p>如果你使用过<code>monster update --deploy-now</code>一次，那么Monster会在当前目录下生成一个<code>.sqlitedb</code>文件，用于存储数据库状态的一个时间点——以便下次update增量。</p>
+
+<p>如果已经在用<code>monster generate</code>来直接做全站生成和部署了，那么第一次使用update工作模式时，可以使用下面的命令：</p>
+
+<pre><code class="language-bash">&gt; monster update --init
+File .sqlitedb saved.  
+</code></pre>
+
+<p>这并不真的部署和更新任何东西，只是将<code>.sqlitedb</code>对齐到当前数据库。——之后，无论是<code>--deploy-now</code>还是<code>--deploy-only</code>，update模式每次都会更新<code>.sqlitedb</code>。</p>
+
+<h2 id="generate">generate模式下的参数</h2>
+
+<p>除了需要显式地用<code>monster generate --help</code>显示帮助信息之外，其它情况下都可以省掉第一个参数<code>generate</code>。其它的参数包括：</p>
+
+<pre><code>#
+# 参数开关，--paramName=true/false，只用--paramName相当于指定true
+#
+
+## 四个主要过程
+# - 调用Buster生成全站
+--generate
+# - 重置静态页中的domain(缺省为true)
+--reset-domain
+# - 生成短的Url路径
+--short-path
+# - 调用Git部署
+--deploy-now
+
+## 'RESET_DOMAIN'的前置操作(缺省为true)
+# - 下载sitemap文件
+--pick-sitemap
+# - 修正文件名中的版本信息
+--patch-version
+
+## 'DEPLOY_NOW'的前置操作(缺省为true)
+# - 检查Static目录中的静态页是否已经重置过domain
+--check-static
+
+## 在generate过程中是否显示更详细的信息(缺省为false)
+--generate-info
+
+#
+# 传入其它配置值（字符串）
+#
+
+## 部署到的domain
+--domain="..."
+
+## 下载静态页的Site，支持https
+--site="http://..."
+
+## 存放静态页的目录
+--static-path="..."
+
+#
+# 其它
+#
+
+## 显示帮助
+--help
+
+## 显示版本号
+--version
+</code></pre>
+
+<h2 id="update">update模式下的参数</h2>
+
+<p>可以用<code>monster update</code>来按缺省配置运行udpate模式。其它的参数包括：</p>
+
+<pre><code class="language-bash">#
+# 参数开关，--paramName=true/false，只用--paramName相当于指定true
+#
+
+## 与Fetch和Deply行为相关
+#- 是否调用reset-domain过程(缺省为true)
+--reset-domain
+#- 是否使用短路径(缺省为true)
+--short-path
+#- 在Fetch行为中，尝试为remove post行为而更新所有索引页
+--sync-removed
+#- 直接部署
+--deploy-now
+#- 不fetch文件，只部署Static目录
+--deploy-only
+
+
+## 特定文件获取
+#- 总是下载/tag-cloud
+--pick-static-tagcloud
+#- 总是下载/profile-xxx
+--pick-static-profile
+#- 总是下载/archive-post
+--pick-archive-post
+#- 总是下载/robot.txt
+--pick-robot-txt
+#- 总是下载sitemap文件
+--pick-sitemap
+#- 强制下载上述--pick-xxxx和索引页等文件
+--force
+
+
+#
+# 传入其它配置值（字符串）
+#
+
+## 部署到的domain
+--domain="..."
+#- 在使用'--sync-issue'功能时，在Issue body中写入的Url上使用的协议名，缺省为'https'
+--protocol="..."
+
+## 下载静态页的Site，支持https
+--site="http://..."
+
+## 存放静态页的目录
+--static-path="..."
+
+## 本地Ghost的数据库文件路径
+--db="..."
+
+## 本地Ghost登录帐号，可以用'monster --list user'查看
+#- (帐号邮箱)
+--email="..."
+
+## 一个标记字符串，极少使用
+#-（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
+--ad-token="..."
+</code></pre>
+
+<p>此外，Monster还在update工作模式下提供了一些直接命令，它们与一个（类似上述的）更新和部署过程无关，例如<code>—help</code>。这些命令包括：</p>
+
+<pre><code class="language-bash">#
+# 直接指令
+#
+
+## 生成.sqlitedb文件，对齐当前数据库
+# - 'checksums'参数是仅仅由Monster内部使用的
+--init [checksums]
+
+## 将所有post的slug修改成'authorId-postId'格式
+# - 这意味着生成的Url会是短路径名
+--sync-slug
+
+## 在对应的Github仓库中，为所有的post生成Gitment格式的Issue
+# - Gitment需要用户为每个Post点一次创建Issue按钮，本功能可自动完成
+# - 生成的Issue有两个标签：'${slug}'和'gitment'
+# - 会忽略掉已经生成过的Issue，不会重复生成
+--sync-issue
+
+## 列出unment或user
+# - unment是指“未创建Gitment格式Issue”的post
+# - user是指Ghost库中的用户名
+--list &lt;unment|user&gt;]
+
+## 显示帮助
+--help
+
+## 显示版本号
+--version
+</code></pre>
+
+<p><strong>关于<code>--sync-removed</code>参数</strong></p>
+
+<p>Monster是通过记录数据库中的时间点的方法，来实现增量更新的。由于Ghost并没有在数据库中记录删除post的行为，也并不导致时间点变化，所以Monster也并没有办法简单确认当前Ghost环境中删除过post。</p>
+
+<p>因此一旦用户只删除了post——而又没有任何其它添加或更新操作的话，那么就需要用下面的命令来提交一次update：</p>
+
+<pre><code class="language-bash">&gt; monster --sync-removed --deploy-now
+</code></pre>
+
+<p>这个命令将会重建所有的索引页、标签页等，以便体现删除post这样的操作。</p>
+
+<p>但是有一个小的问题：如果有“上一篇”、“下一篇”这样的导航，那么被删除post的链接仍然会出现在其它post页面上。——不过，由于是增量更新，所以这个链接仍然是可用的。换言之，被删除的post只是不再出现在各种列表页中，并没有真正移除。</p>
+
+<p>很遗憾，目前这是无法直接解决的。</p>
+
+<blockquote>
+  <p>注1：你可以删除<code>.sqlitedb</code>文件再执行<code>monster update</code>，这样可以全站重新生成一次，就可以了。</p>
+  
+  <p>注2：monster只是从Static目录中复制了文件覆盖你的git仓库，这意味着它并没有<code>git rm …</code>来删除仓库中的既有文件——例如你刚刚删除掉的那个post。也就是说，即使你重新全站生成并deploy，那个post已经上传的的静态网页也仍然需要你手工从git仓库中删除。</p>
+</blockquote>
+
+<p><strong>关于<code>--force</code>参数</strong></p>
+
+<p>这是一个用在update工作模式下的比较特别的参数。</p>
+
+<p>前面说过，update工作模式是根据sqlite数据库的状况来实现的。这样一来，某些页面（通常是指定为static的、由特定模板或生成算法动态生成的网页）就不能被更新。在Ghost系统中，这些页面包括author和tag的索引页，以及手工定制的一些类似profile的页面。</p>
+
+<p>当Monster发现有一个post新建的时候，它将认为所有上述页面都可能导致变化，所以就会主动（贪婪）地更新这些页面。但如果没有post新建——而只是更新了既有post，那么由于感知不到上述变化，所以就需要用<code>--force</code>来强制生成这些页面。</p>
+
+<p>Monster不可能穷举所有类似的页面，所以在后续的版本中可能会提供一个机制来让用户定制这个页面列表。就目前而言，如果你有更多页面要处理，你只能手工修改updatesite.sh模块。这个文件位置在：</p>
+
+<pre><code class="language-bash">&gt; brew list monster | grep updatesite
+/usr/local/Cellar/monster/xxxx/libexec/updatesite.sh
+</code></pre>]]></content:encoded></item><item><title><![CDATA[详解Monster的初始化及配置]]></title><description><![CDATA[<p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
 是Monster的最佳使用场景。</p>
 
 <blockquote>
@@ -2255,186 +2604,4 @@ Conversion of croped.pdf into pic-0.png OK
 
 # 使用imagemagick中的mogrify工具, -fuzz 0%与autocrop中的tol参数类似
 &gt; find . -name 'pic-*.png' | xargs -n1 mogrify -fuzz 0% -trim +repage
-</code></pre>]]></content:encoded></item><item><title><![CDATA[手记6：改造Gitment]]></title><description><![CDATA[<blockquote>
-  <p>本文所述的修改请参考我Fork的Gitment项目：<a href="https://github.com/aimingoo/gitment">Giment at aimingoo's project space</a></p>
-</blockquote>
-
-<p>接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。</p>
-
-<h2 id="11gitment">11. 改造Gitment</h2>
-
-<p>折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如<code>makesite.sh</code>（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）。</p>
-
-<p>最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。</p>
-
-<blockquote>
-  <p>注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。</p>
-</blockquote>
-
-<p>所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：<a href="https://github.com/aimingoo/gitment">Giment updates</a></p>]]></description><link>http://aimingoo.github.io/1-1725.html/</link><guid isPermaLink="false">eaab0e82-64c5-4cbb-a31d-64ae617b936b</guid><category><![CDATA[博客]]></category><category><![CDATA[Gitment]]></category><category><![CDATA[Javascript]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Github]]></category><category><![CDATA[前端开发]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 31 May 2017 16:46:14 GMT</pubDate><content:encoded><![CDATA[<blockquote>
-  <p>本文所述的修改请参考我Fork的Gitment项目：<a href="https://github.com/aimingoo/gitment">Giment at aimingoo's project space</a></p>
-</blockquote>
-
-<p>接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。</p>
-
-<h2 id="11gitment">11. 改造Gitment</h2>
-
-<p>折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如<code>makesite.sh</code>（<a href="https://github.com/aimingoo/ghost-utils">在这里</a>）。</p>
-
-<p>最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。</p>
-
-<blockquote>
-  <p>注：你可能已经留意到我并没有告诉大家『到底哪个免费主页空间支持PHP+HTTPS』啊。是的，我刻意隐藏了这个信息，以免文章公开后导致滥用。我最终使用的这个主页空间……老实说，是相当相当不错的了，能给的人家都给了。所以真不忍心被那些挂马的搞死。所以能藏着就藏着吧，如果你想要申请它的话，你直接在我的网站的源码中去找找就好了。</p>
-</blockquote>
-
-<p>所以接下来，我开始改造Gitment，再一次强调，Gitment真正是个相当NB的项目。我fork了一个版本出来，修改版的在这里：<a href="https://github.com/aimingoo/gitment">Giment updates by aimingoo</a></p>
-
-<h3 id="111httphttpsgithubpages">11.1 更有效地支持HTTP/HTTPS的Github Pages</h3>
-
-<p>我们前面说过Github pages也分别支持HTTP和HTTPS两种协议，如果你有幸得到一个HTTP的Github pages site——真的很有幸了，得是以前创建的仓库，新仓库已经没有这个选择了——那么，你仍然可以将intersect（<a href="https://github.com/aimingoo/intersect">在这里</a>）部署在一个仅支持HTTP的Web站点上。</p>
-
-<p>也就是说，只能选择Github pages和intersect同时支持HTTPS，或者反过来选择同时不支持。有趣的是，在Github pages使用HTTP的情况下，Github<strong>同时</strong>也允许访问者通过HTTPS协议来访问你的主页。这样一来就带来了一个问题：在你的Github oAuth Application后台配置中，你只能设置一个callback地址。</p>
-
-<p>所以我在Gitment中加了一个名为<code>force_redirect_protocol</code>的选择，它会在调用</p>
-
-<blockquote>
-  <p><a href="https://github.com/login/oauth/authorize">https://github.com/login/oauth/authorize</a></p>
-</blockquote>
-
-<p>时强制redirect_uri参数使用与Github oAuth Application后台配置一致的值，这样才能在HTTPS/HTTP网站上同时通过authorize验证，并且最后总是使用redirect_uri所设置的协议下的地址。</p>
-
-<pre><code class="language-javascript">// Update (Getment Proj)/src/gitment.js
-
-// Github setting of 'Authorization callback URL' in your OAuth application
-const force_redirect_protocol = 'https'  
-...
-
-class Gitment {  
-  ...
-  get loginLink() {
-    const oauthUri = 'https://github.com/login/oauth/authorize'
-    const redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, force_redirect_protocol);
-    ...
-</code></pre>
-
-<h3 id="112gitmentintersect">11.2 使Gitment支持intersect</h3>
-
-<p>intersect这个PHP项目（<a href="https://github.com/aimingoo/intersect">在这里</a>）并没有完全地实现API Geteway特性。比如说，当它转发一个POST请求时，如果你需要添加新的数据到Request，那么就需要根据POST data的不同类型（Content-Type）来决定如何修改：在JSON中添加一个字段，或在不同的encode data中添加一个数据等等；并且还要正确的修改Content-Length。</p>
-
-<p>所以考虑到简单，intersect只支持在GET请求中，或在使用form-urlencoded协议的POST请求中添加数据。例如我们要追加client_secret这个参数并传送到后端，那么就该选用POST协议。</p>
-
-<p>考虑到Gitment实现XHR请求时的特殊性（它专门实现了一个ajaxFactory），我在修改Gitment项目时更要求：</p>
-
-<blockquote>
-  <p>如果使用POST方法，并强制要求使用form-urlencoded协议，那么应该在<code>http.post()</code>方法中传入字符串格式的data，而不能传入对象。</p>
-</blockquote>
-
-<p>接下来的实现就比较简单了（修改utils.js中的Ajax接口）：</p>
-
-<pre><code class="language-javascript">// Update (Getment Proj)/src/utils.js, es6 syntax
-
-function ajaxFactory(method) {  
-  ...
-  // 在accept头中加上form-urlencoded支持
-  req.setRequestHeader('Accept', '..., application/x-www-form-urlencoded')
-
-  // 在Response数据的解码中支持form-urlencoded
-  req.addEventListener('load', () =&gt; {
-    ...
-    if (/urlencoded/.test(contentType)) {
-       data = req.responseText ? Query.parse(res) : {}
-       ...
-
-  // 强制Requestr的POST协议对string data使用form-urlencoded
-  if (method !== 'GET' &amp;&amp; method !== 'DELETE') {
-    if (isString(data)) {
-      body = data
-      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    ...
-</code></pre>
-
-<p>第二步（修改Gitment.js）：</p>
-
-<pre><code class="language-javascript">// Update (Getment Proj)/src/gitment.js, es6 syntax
-
-class Gitment {  
-  constructor(options = {}) {
-    ...
-    const { client_id, client_secret, proxy_gateway } = this.oauth
-
-    ...
-    var login = !proxy_gateway
-      ? http.post('https://gh-oauth.imsun.net', {code, client_id, client_secret}, '')
-      : http.post('/login/oauth/access_token', `code=${code}&amp;client_id=${client_id}`, proxy_gateway);
-
-    login.then(data =&gt; {
-      this.accessToken = data.access_token
-      ...
-</code></pre>
-
-<p>第三步（Gitment创建时Options）：</p>
-
-<pre><code class="language-javascript">// 现在在Gitment创建时的Options中就可以使用proxy_gateway选项了
-//    - 保持了与旧的client_secert的兼容，二选一配置即可
-const gitment = new Gitment({  
-  id: 'Your page ID', // optional
-  owner: 'Your GitHub ID',
-  repo: 'The repo to store comments',
-  oauth: {
-    client_id: 'Your client ID',
-    proxy_gateway: 'https://your_intersect_gateway'
-    // client_secret: 'Your client secret, either this or proxy_gateway',
-  },
-  // ...
-  // For more available options, check out the documentation below
-})
-</code></pre>
-
-<h3 id="113">11.3 多语言支持</h3>
-
-<p>Gitment的作者没有提供多语言支持是觉得『不必要』，因为Github的用户要是这几个单词也不认得大概就只能回家卖烤红薯了。但我的问题在于，我打算做一个多人博客，所以博客的读者还真有不少与Github无关。</p>
-
-<p>所以，我得需要一个多语言支持。</p>
-
-<p>简单的做法，就是写一个这样的translator：</p>
-
-<pre><code class="language-javascript">// save as (Getment Proj)/src/translator.js
-export function english(Text) {  
-    return Text;
-}
-
-export function chinese(Text) {  
-    return ({
-        'Issue Page': '所有评论',
-        'Initialize Comments': '初始化本文的评论页',
-        ...
-    }[Text]||Text);
-}
-
-export default english;  
-</code></pre>
-
-<p>这里用的都是ES6的语法。这几个简单的export说明当前模块导出了<code>english/chinese</code>等等名字，是用来作为提供多语言支持的翻译函数——在不同语言的函数中添加对照表来支持更多的内容。</p>
-
-<p>使用的时候也挺简单的，在Gitment的<code>src/theme/default.js</code>模块中将它装载进来：</p>
-
-<pre><code class="language-javascript">// 注：如果使用英文(不翻译)，那么以下两种导入方法是等效的
-//    import { english as $ } from '../translator'
-//  import $ from '../translator'
-import { chinese as $ } from '../translator'  
-...
-</code></pre>
-
-<p>然后在需要多语言的地方使用下面的代码即可：</p>
-
-<pre><code class="language-javascript">// 例如，原始代码
-//    issueLink.innerText = 'Issue Page'
-// 改成：
-issueLink.innerText = $('Issue Page')  
-</code></pre>
-
-<p>一处处地找到，改完就Ok啦。</p>
-
-<blockquote>
-  <p>注意：Gitment使用了ES6的语法，所以有些地方是用ES6的模板字符串的，这些地方要使用类似${$('english text')} 这样的方法来转换。</p>
-</blockquote>]]></content:encoded></item></channel></rss>
+</code></pre>]]></content:encoded></item></channel></rss>
