@@ -69,7 +69,34 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
-            <article class="post tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header">
+            <h1 class="post-title"><a href="/1-108.html">对JavaScript的eval()中使用函数的进一步讨论~</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>《JavaScript语言精髓与编程实践》的读者I22141提出了一问题：为什么下面这段代码在JScript和SpiderMonkey中表现不一样： var func = eval("(function(){})");   alert(typeof func);   更进一步的问题是，书中对匿名和具名函数在JScript与SpiderMonkey中的表现解释得不够清楚。好的，这篇文章就这个问题深入讨论，不单涉及书中的内容，也更深入地讲述一下JS的解释与执行过程——其实所有的内容在书中都有涉及，但过于分散，不便于专门地来分析一个具体问题。 首先，应该明确表达式与语句。对于JS来说，eval()总是试图执行一个语句，因此它必须先将执行文本理解为语句。如下： ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2008-07-22T20:29:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2008-07-22">(2008-07-22)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-108.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>            <article class="post tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-232.html">纪念际强</a></h1>
         </header>
@@ -310,33 +337,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-100.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>            <article class="post tag-cheng-xu-ren-sheng tag-bao-zai-kan-zai" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header">
-            <h1 class="post-title"><a href="/1-99.html">旧文重发：程序员的一天</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>程序员的一天      (2004.08.23, aimingoo)      这一篇是我曾经写给CSDN的一篇投稿。算是一段个人经历了。 通常，我的一天总是从上一天的午夜零点开始的。如果这一天是周六或者周日，那么情况将变得非常复杂。 很庆幸的是2004.08.23这一天我的作息还是比较规律的。可能因为它是星期一的缘故，也可能是因为它正好是我的另一个阶段性工作的开始。 2004.08.23 00:00 深夜, 工作中 通常在joy正式入睡之前，我是无法做任何有意义的工作的。 joy是我的老婆， ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/cheng-xu-ren-sheng/">程序人生</a>, <a href="/tag/bao-zai-kan-zai/">报载刊载</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2008-06-01T23:50:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2008-06-01">(2008-06-01)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/cheng-xu-ren-sheng/">程序人生</a>, <a href="/tag/bao-zai-kan-zai/">报载刊载</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-99.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>

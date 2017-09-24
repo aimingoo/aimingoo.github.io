@@ -35,19 +35,19 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	<div class="tag-cloud-content">
 		<!--  -->
 				<a href="/tag/javascript" class="tag-item">Javascript (82)</a>
-				<a href="/tag/za-tan" class="tag-item">杂谈 (64)</a>
+				<a href="/tag/za-tan" class="tag-item">杂谈 (65)</a>
 				<a href="/tag/yu-yan" class="tag-item">语言 (45)</a>
 				<a href="/tag/chu-ban" class="tag-item">出版 (36)</a>
 				<a href="/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (30)</a>
 				<a href="/tag/delphi" class="tag-item">delphi (28)</a>
 				<a href="/tag/kuang-jia" class="tag-item">框架 (21)</a>
+				<a href="/tag/shu-xu-shu-ping" class="tag-item">书序书评 (20)</a>
 				<a href="/tag/bian-cheng" class="tag-item">编程 (19)</a>
-				<a href="/tag/shu-xu-shu-ping" class="tag-item">书序书评 (19)</a>
 				<a href="/tag/jia-gou-she-ji" class="tag-item">架构设计 (16)</a>
+				<a href="/tag/du-shu" class="tag-item">读书 (16)</a>
 				<a href="/tag/wen-dang" class="tag-item">文档 (15)</a>
 				<a href="/tag/jia-gou" class="tag-item">架构 (15)</a>
 				<a href="/tag/gong-ju" class="tag-item">工具 (15)</a>
-				<a href="/tag/du-shu" class="tag-item">读书 (15)</a>
 				<a href="/tag/da-dao-zhi-jian" class="tag-item">大道至简 (15)</a>
 				<a href="/tag/bo-ke" class="tag-item">博客 (13)</a>
 				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (13)</a>
@@ -86,14 +86,13 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/promise" class="tag-item">Promise (2)</a>
 				<a href="/tag/svg" class="tag-item">svg (2)</a>
 				<a href="/tag/imagemagick" class="tag-item">ImageMagick (2)</a>
+				<a href="/tag/cheng-xu-yuan-ben" class="tag-item">程序原本 (2)</a>
 				<a href="/tag/shu-ju-ku" class="tag-item">数据库 (1)</a>
 				<a href="/tag/ssl" class="tag-item">SSL (1)</a>
 				<a href="/tag/https" class="tag-item">HTTPS (1)</a>
 				<a href="/tag/mian-fei-kong-jian" class="tag-item">免费空间 (1)</a>
 				<a href="/tag/zheng-shu" class="tag-item">证书 (1)</a>
 				<a href="/tag/tu-xing-chu-li" class="tag-item">图形处理 (1)</a>
-				<a href="/tag/cheng-xu-yuan-ben" class="tag-item">程序原本 (1)</a>
-				<a href="/tag/bao-zai" class="tag-item">报载 (0)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));
