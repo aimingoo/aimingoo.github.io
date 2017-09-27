@@ -3464,7 +3464,7 @@ var Gitment = function () {
       // _utils.http.post('/login/oauth/access_token',
       //   'code=' + code + '&client_id=' + client_id, // !! the gateway accept form-urlencoded only.
       //   'https://aimingoo.heliohost.org')
-      http.post('https://gh-oauth.imsun.net', {
+      _utils.http.post('https://gh-oauth.imsun.net', {
           code,
           client_id,
           client_secret,
