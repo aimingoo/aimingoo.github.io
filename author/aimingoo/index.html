@@ -26,7 +26,7 @@
     <meta property="og:title" content="aimingoo - Page 1 - Aimingoo&#x27;s Blog" />
     <meta property="og:description" content="I&#x27;m here." />
     <meta property="og:url" content="http://aimingoo.github.io/author/aimingoo/" />
-    <meta property="article:modified_time" content="2017-09-24T10:51:32.000Z" />
+    <meta property="article:modified_time" content="2017-09-27T10:08:49.000Z" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="aimingoo - Page 1 - Aimingoo&#x27;s Blog" />
     <meta name="twitter:description" content="I&#x27;m here." />
@@ -96,62 +96,35 @@ ghost.init({
 
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
-            <article class="post tag-opensource-project tag-bo-ke tag-ghost-tag tag-monster featured" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header toped-post-head">
-            <h1 class="post-title toped-post"><a href="/1-1741.html">Monster - 用Ghost写博客的终极利器</a></h1>
+
+            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header">
+            <h1 class="post-title"><a href="/1-1746.html">解决静态Blog中timeago显示问题的方法</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起， ... </p>
+            <p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt; ... </p>
         </section>
         <footer class="post-meta">
-            <!--  -->
-            <!--  on <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/monster/">Monster</a> -->
+            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
-                
+                <a href="/author/aimingoo/">aimingoo</a>
             </span>
             <span class="post-meta-item post-meta-date">
                 <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-09-19T15:27:23.2323+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2017-09-19">(2017-09-19)</time>
+                <time class="post-date" datetime="2017-09-27T18:10:47.4747+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-09-27">(2017-09-27)</time>
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/monster/">Monster</a>
+                <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>
             </span>
             <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-1741.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+                <a class="read-more" href="/1-1746.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-dian-zi-shu tag-chu-ban tag-ruan-jian-gong-cheng tag-da-dao-zhi-yi tag-jia-gou tag-yu-yan featured" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header toped-post-head">
-            <h1 class="post-title toped-post"><a href="/1-1732.html">三本免费电子书齐齐完工了</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。 大道至易：实践者的思想 我的架构思想：基础模型、理论与原则 程序原本 这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页” ... </p>
-        </section>
-        <footer class="post-meta">
-            <!--  -->
-            <!--  on <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/chu-ban/">出版</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/da-dao-zhi-yi/">大道至易</a>, <a href="/tag/jia-gou/">架构</a>, <a href="/tag/yu-yan/">语言</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-06-20T11:54:33.3333+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2017-06-20">(2017-06-20)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/chu-ban/">出版</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/da-dao-zhi-yi/">大道至易</a>, <a href="/tag/jia-gou/">架构</a>, <a href="/tag/yu-yan/">语言</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-1732.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-cheng-xu-yuan-ben tag-shu-xu-shu-ping tag-du-shu tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-cheng-xu-yuan-ben tag-shu-xu-shu-ping tag-du-shu tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-1745.html">怎么会有两个“原本”</a></h1>
         </header>
@@ -257,6 +230,33 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-1743.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>            <article class="post tag-opensource-project tag-bo-ke tag-ghost-tag tag-monster" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header">
+            <h1 class="post-title"><a href="/1-1741.html">Monster - 用Ghost写博客的终极利器</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起， ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/monster/">Monster</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-09-19T15:27:23.2323+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-09-19">(2017-09-19)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/monster/">Monster</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1741.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>            <article class="post tag-ghost-tag tag-bo-ke" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">

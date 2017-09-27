@@ -34,7 +34,7 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
-				<a href="/tag/javascript" class="tag-item">Javascript (82)</a>
+				<a href="/tag/javascript" class="tag-item">Javascript (83)</a>
 				<a href="/tag/za-tan" class="tag-item">杂谈 (65)</a>
 				<a href="/tag/yu-yan" class="tag-item">语言 (45)</a>
 				<a href="/tag/chu-ban" class="tag-item">出版 (36)</a>
@@ -49,7 +49,7 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/jia-gou" class="tag-item">架构 (15)</a>
 				<a href="/tag/gong-ju" class="tag-item">工具 (15)</a>
 				<a href="/tag/da-dao-zhi-jian" class="tag-item">大道至简 (15)</a>
-				<a href="/tag/bo-ke" class="tag-item">博客 (13)</a>
+				<a href="/tag/bo-ke" class="tag-item">博客 (14)</a>
 				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (13)</a>
 				<a href="/tag/chan-pin" class="tag-item">产品 (12)</a>
 				<a href="/tag/dian-zi-shu" class="tag-item">电子书 (12)</a>
@@ -58,9 +58,9 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/delphiyuan-dai-ma-fen-xi" class="tag-item">代码分析 (9)</a>
 				<a href="/tag/oop" class="tag-item">oop (9)</a>
 				<a href="/tag/liu-lan-qi" class="tag-item">浏览器 (9)</a>
+				<a href="/tag/ghost-tag" class="tag-item">Ghost (9)</a>
 				<a href="/tag/xiang-mu-guan-li" class="tag-item">项目管理 (8)</a>
 				<a href="/tag/jiao-ben" class="tag-item">脚本 (8)</a>
-				<a href="/tag/ghost-tag" class="tag-item">Ghost (8)</a>
 				<a href="/tag/erlang" class="tag-item">erlang (7)</a>
 				<a href="/tag/ce-shi" class="tag-item">测试 (7)</a>
 				<a href="/tag/zuo-lun" class="tag-item">坐论 (7)</a>

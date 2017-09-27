@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 24 Sep 2017 10:53:41 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[怎么会有两个“原本”]]></title><description><![CDATA[<p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是"Elements of Programming"，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用"Elements of Programming"的呀。</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 27 Sep 2017 10:11:13 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
+
+<p>在页面中使用的时候也很简单，基本的做法是：</p>
+
+<pre><code class="language-html">// 在页面中添加timeAgo模块
+&lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
+
+// 在需要显示的位置使用下面的代码
+&lt;script&gt;document.writeln(timeAgo(DATETIME_OF_YOUR_POST))&lt;/script&gt;  
+</code></pre>
+
+<p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
+
+<p><strong>1. 修改default.hbs</strong></p>
+
+<p>将下面的代码插入页面合适的位置以加载timeAgo模块：</p>
+
+<pre><code class="language-html">&lt;!--</code></pre>]]></description><link>http://aimingoo.github.io/1-1746/</link><guid isPermaLink="false">350eab72-8f1f-411d-9c51-8c8fbced6626</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 27 Sep 2017 10:10:47 GMT</pubDate><content:encoded><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
+
+<p>在页面中使用的时候也很简单，基本的做法是：</p>
+
+<pre><code class="language-html">// 在页面中添加timeAgo模块
+&lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
+
+// 在需要显示的位置使用下面的代码
+&lt;script&gt;document.writeln(timeAgo(DATETIME_OF_YOUR_POST))&lt;/script&gt;  
+</code></pre>
+
+<p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
+
+<p><strong>1. 修改default.hbs</strong></p>
+
+<p>将下面的代码插入页面合适的位置以加载timeAgo模块：</p>
+
+<pre><code class="language-html">&lt;!-- 将timeAgo.js置入模板的assets目录 --&gt;  
+&lt;script type="text/javascript" src="{{asset "js/timeAgo.js"}}"&gt;&lt;/script&gt;
+
+&lt;!-- 或使用在线的版本 --&gt;  
+&lt;script type="text/javascript" src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;  
+</code></pre>
+
+<p>如果你的模板有自己的初始化代码（一般放在<code>assets/js/index.js</code>文件中），应该将这行代码插入在初始化代码之前。</p>
+
+<p><strong>2. 修改post.hbs</strong></p>
+
+<p>在<code>post.hbs</code>中找到显示一个Post的日期的位置。它可能使用如下代码（缺省使用Ghost内置的timeago方法显示）：</p>
+
+<pre><code class="language-bash">{{date published_at timeago="true"}}
+</code></pre>
+
+<p>根据你打算在<code>post.hbs</code>使用该值的不同方法，可以直接输出，也可以在页面加载之后重置这个值。</p>
+
+<p>如果是直接在该页面中输出，则将上面的改为：</p>
+
+<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo({{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}))&lt;/script&gt;  
+</code></pre>
+
+<p>注意上面的代码中，我们是用format参数来取得更加精确的时间值（而不是直接使用timeago格式的值）。</p>
+
+<p><strong>3. 如果采用延迟加载的方法</strong></p>
+
+<p>如果这个值是采用延迟加载的方法来显示的，那么它可能放在<code>post.hbs</code>的一对标签中。类似：</p>
+
+<pre><code class="language-html">&lt;time class="post-date" datetime="{{date format='YYYY-MM-DDTHH:mm:ss.sssZ'}}" timeago="true"&gt;&lt;/time&gt;  
+</code></pre>
+
+<p>注意这里的<code>timeago</code>只是一个html标签属性——这个属性是我添加的，用来标示这个<code>&lt;time&gt;</code>标签将采用<code>timeago</code>方式显示。</p>
+
+<p>在延迟加载的情况下，通常是在全局的ready回调中做一些针对当前页面的规格化操作。它可能通过在<code>default.hbs</code>中加载一个<code>.js</code>文件来进入。以我们上面说到过的例子，假如在<code>assets/js/index.js</code>文件中，那么它可能的代码是：</p>
+
+<pre><code class="language-javascript">$(document).ready(function() {
+  ...
+}
+</code></pre>
+
+<p>在这个代码块中，加入下面的代码即可：</p>
+
+<pre><code class="language-javascript">// 列出所有'class="post-date"的标签
+$(".post-date").each(function() {
+    // 检查上面添加的'timeago'属性值是否为'true'
+    if ($(this).attr("timeago") == "true") {
+        // 从'datetime'属性中取时间值，用timeAgo()转换并回写到当前标签中
+        $(this).text(timeAgo($(this).attr("datetime")));
+    }
+});
+</code></pre>]]></content:encoded></item><item><title><![CDATA[怎么会有两个“原本”]]></title><description><![CDATA[<p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是"Elements of Programming"，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用"Elements of Programming"的呀。</p>
 
 <p><img src="http://aimingoo.github.io/content/images/2017/09/two_elements.png" alt="two_elements"></p>
 
@@ -2036,209 +2121,4 @@ msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG
 
 <p>所以我们可以安全地将pt值直接替换成px。而这个方法，对于Inkscape生成的.svg就不适用，对比一下上面的两个特性你就明白了。反过来说，正是由于Cario引擎（pdf2svg使用的svg引擎）并不完整支持以px为单位的svg，所以使用该引擎——以及使用该引擎实现的工具来转换上述（修改后的）.svg到.png或其它格式的时候也是会出问题；而相对应的，Inkscape却能正确处理——它的引擎支持以px为单位的.svg。</p>
 
-<p>最后，多啰嗦一句。由于pdf2svg转换时将字体转换成了矢量信息，这使得通过这种.svg转换成图片或其它格式时不会因为缺少字体而失真（相对应的，Inkscape就存在字体问题）。但是缺点也是有的，就是.svg文件会比较大一些，可能相应的处理速度也会略慢。</p>]]></content:encoded></item><item><title><![CDATA[详解ImageMagick中SVG的支持]]></title><description><![CDATA[<p>事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片：</p>
-
-<pre><code class="language-bash">&gt; identify -verbose your.svg
-Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB  
-  Base filename: your.svg
-  Format: PNG (Portable Network Graphics)
-  Mime type: image/png
-  Class: DirectClass
-...
-</code></pre>
-
-<p>ImageMagick主要有三种支持SVG的方式，包括内置（Internal）、内建（Build-in）和委托（Delegate）。</p>
-
-<p>在高版本的ImageMagick中MSVG总是内置的；而稍早些的版本中，</p>]]></description><link>http://aimingoo.github.io/1-1727/</link><guid isPermaLink="false">a849bf10-dbd6-4709-a2c2-dec2bc6c193c</guid><category><![CDATA[svg]]></category><category><![CDATA[ImageMagick]]></category><category><![CDATA[图形处理]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 05 Jun 2017 11:54:13 GMT</pubDate><content:encoded><![CDATA[<p>事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片：</p>
-
-<pre><code class="language-bash">&gt; identify -verbose your.svg
-Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB  
-  Base filename: your.svg
-  Format: PNG (Portable Network Graphics)
-  Mime type: image/png
-  Class: DirectClass
-...
-</code></pre>
-
-<p>ImageMagick主要有三种支持SVG的方式，包括内置（Internal）、内建（Build-in）和委托（Delegate）。</p>
-
-<p>在高版本的ImageMagick中MSVG总是内置的；而稍早些的版本中，ImageMagick是混合了『内建』和『委托』两种方式来提供SVG的支持的。<strong>需要强调的是</strong>：</p>
-
-<blockquote>
-  <p>请尽量不要直接使用内置的MSVG。</p>
-</blockquote>
-
-<h2 id="msvg">内置的MSVG</h2>
-
-<p>ImageMagick的高版本内置了一个SVG渲染器。它有两种称谓，在代码中叫做<code>IMAGEMAGICK_SVG</code>，例如在编译中提供相应的开关参数；而在用户级别的配置或接口中，它称为MSVG（这里的M是Magick的首字母）。它完整的名称是<code>ImageMagick's own SVG internal renderer</code>，所以<code>自有SVG（Own SVG）</code>、<code>内部渲染器（internal renderer）</code>以及<code>MSVG</code>其实指的都是同一个东西：</p>
-
-<pre><code class="language-bash">&gt; convert -list format | grep SVG
-     MSVG  SVG       rw+   ImageMagick's own SVG internal renderer
-      SVG  SVG       rw+   Scalable Vector Graphics (XML 2.9.4)
-     SVGZ  SVG       rw+   Compressed Scalable Vector Graphics (XML 2.9.4)
-</code></pre>
-
-<p>注意这里的『XML 2.9.4』其实也是MSVG引擎的一部分，它实际上指的是<code>libxml2</code>这个库的版本，因为MSVG是基于xml解析并自行渲染的svg引擎。</p>
-
-<p>由于MSVG存在很多限制，所以ImageMagick『千万百计』地隐藏了它的存在——哈哈，其实没有这么夸张，它们是承认这个东西的存在并且提供官方支持的（<a href="http://www.imagemagick.org/Usage/draw/#svg">在这里</a>）。</p>
-
-<p>在ImageMagick <strong>6.6.7-10</strong>之后的版本中，MSVG总是缺省内置支持(<code>WITH_IMAGEMAGICK_SVG</code>参数缺省打开)，即使是在<code>WITHOUT_X11</code>状态下，编译过程也只是给出WARN级别的警告。</p>
-
-<p>而在此前（ 但晚于v6.3.3-5之后的）版本中，如果<code>WITHOUT_X11</code>，那么编译时将不会内置支持SVG。</p>
-
-<blockquote>
-  <p>参考：<a href="https://www.freshports.org/graphics/ImageMagick/">https://www.freshports.org/graphics/ImageMagick/</a></p>
-</blockquote>
-
-<p>任何情况下，如果你只是想启用MSVG（以避开其它引擎的影响），那么你可以在input文件名上加上"msvg:"前缀（v6.3.4以后）。例如：</p>
-
-<pre><code class="language-bash">&gt; identify -verbose 'msvg:your.svg'
-Image: your.svg  
-  Base filename: b2t_8-2.svg
-  Format: MVG (Magick Vector Graphics)
-  Class: DirectClass
-  Geometry: 485x306+0+0
-...
-</code></pre>
-
-<p>你也可以使用<code>-draw</code>参数来开启一个MSVG的画板并操作它。例如（将这块画板作为源，转换成PNG格式输出）：</p>
-
-<pre><code class="language-bash"># http://www.imagemagick.org/Usage/draw/#svg
-&gt; convert -size 10x6 xc:skyblue  -fill black \
-          -draw 'color 6,3 point' -scale 100x60 draw_color_point.png
-</code></pre>
-
-<h2 id="">内建模式及其开启</h2>
-
-<p>如果ImageMagick在安装时包含librsvg模块，那么就会启用内建模式（所以Build-in SVG也往往直接称为RSVG）。一旦包含这个模块，那么它的优先级比内置的MSVG要高。</p>
-
-<p>如果你是使用brew来安装的ImageMagick，那么你可以用：</p>
-
-<pre><code class="language-bash">&gt; brew info imagemagick
-...
-Optional: fontconfig ✔, little-cms ✘, little-cms2 ✔, libwmf ✘, librsvg ✔ ...  
-</code></pre>
-
-<p>来查看当前环境是否能支持rsvg。如上，<code>librsvg</code>已经安装了，那么就可以通过安装参数来开启它（或使用<code>brew reinstall</code>重新安装）：</p>
-
-<pre><code class="language-bash"># 你可能需要先安装librsvg模块
-#    - brew install librsvg
-&gt; brew install imagemagick --with-librsvg
-</code></pre>
-
-<p>如果你不是使用brew，那么你可以使用如下命令来查看：</p>
-
-<pre><code class="language-bash">&gt; convert -list configure | grep -Eoe '--with-rsvg(=[^\-]+)?'
---with-rsvg=no
-</code></pre>
-
-<p>如果没有rsvg的支持，那么你需要自己编译ImageMagick，相关的操作<a href="http://www.imagemagick.org/script/advanced-unix-installation.php">在这里</a>。</p>
-
-<p>如果你成功安装了rsvg支持，那么可以看到如下信息：</p>
-
-<pre><code class="language-bash"># build-in的delegate中包含了rsvg
-&gt; identify -version | grep --color rsvg
-Delegates (built-in): bzlib cairo fontconfig freetype jng jpeg ltdl lzma png rsvg tiff xml zlib
-
-# 或format中使用了rsvg来支持svg
-&gt; identify -list format | grep -i svg
-convert -list format | grep -i svg  
-     MSVG  SVG       rw+   ImageMagick's own SVG internal renderer
-      SVG  SVG       rw+   Scalable Vector Graphics (RSVG 2.40.17)
-     SVGZ  SVG       rw+   Compressed Scalable Vector Graphics (RSVG 2.40.17)
-</code></pre>
-
-<blockquote>
-  <p>注1：一些资料中称需要使用<code>--use-rsvg</code>参数在编译中开启rsvg支持，这可能是一个被放弃的、早期的构建参数。</p>
-  
-  <p>注2：在brew中用的参数是<code>--with-librsvg</code>，而实际上编译时使用的是<code>--with-rsvg</code>参数。这个转换操作是在brew安装用的formula文件中完成的。</p>
-</blockquote>
-
-<h2 id="">委托模式的开启</h2>
-
-<p>通常情况下，ImageMagick会在内置的MSVG和内建模式（RSVG）之间选择一个；如果二者都没有，那么它会选择第三种，也就是委托模式。</p>
-
-<p>你总是可以通过如下命令查看ImageMagick委托（外部程序）来进行的图形转换，包括SVG：</p>
-
-<pre><code>&gt; convert -list delegate | grep 'svg'
-...
-svg =&gt;          "rsvg-convert' -o '%o' '%i"  
-</code></pre>
-
-<blockquote>
-  <p>注：严格来说，前面说的内建模式事实上也是一种委托。只不过它是在编译时build-in的，所以在<code>--help</code>参数显示的信息中就能直接看到，并且会影响<code>-format</code>显示的格式支持；而在<code>-list delegate</code> 所列举的委托关系中，却并不会出现。</p>
-</blockquote>
-
-<p>由于只有MSVG和rsvg都不生效时才会开启委托模式，但高版本中ImageMagick中总是内置MSVG，所以是很难触发委托模式的。因此，如果你做这个尝试，那么你需要一个不内置MSVG的低版本ImageMagick，并且在编译中关闭<code>--with-rsvg</code>选项。OK，这样你就可以看到ImageMagick调用了上述委托中的<code>rsvg-convert</code>来进行转换。</p>
-
-<p>当然，也有例外，因为其实还是有一个后门来做这件事的，这就是所谓的内部委托。</p>
-
-<h3 id="">内部委托</h3>
-
-<p>准确地说法：MSVG这个内部渲染器提供了一个『内部委托（special internal delegates）』。这种内部委托与上面的<code>rsvg-convert</code>采用的是类似机制，但是通过<code>-list delegate</code>命令是无法查看到的——你得打开配置文件自己来找：</p>
-
-<pre><code class="language-bash"># 查看你的ImageMagick将读取哪些配置文件
-&gt; convert -debug all -list delegate 2&gt;&amp;1 | grep 'delegates.xml'
-Searching for configure file: ...  
-...
-Path: /usr/local/Cellar/imagemagick/7.0.5-9/etc/ImageMagick-7/delegates.xml  
-</code></pre>
-
-<p>注意前面有一个搜索优先顺序的列表（你可能用得上），不过这里我们只需要关心最后这个<code>Path</code>就好了。打开这个文件，查找<code>svg:decode</code>，将<code>stealth="True"</code>删除掉。现在你就可以看到它了：</p>
-
-<pre><code class="language-bash">&gt; convert -list delegate | grep -Ee 'svg(:decode)? ='
-        svg =&gt;          "rsvg-convert' -o '%o' '%i"
- svg:decode =&gt;          "inkscape' '%s' --export-png='%s' --export-dpi='%s' --export-background='%s' --export-background-opacity='%s' &gt; '%s' 2&gt;&amp;1"
-</code></pre>
-
-<blockquote>
-  <p>注：内部委托与一般的（外部程序的）委托模式处理逻辑是一样的，只是在高版本的ImageMagick用<code>svg:decode</code>替代了<code>svg</code>这个入口而已。</p>
-</blockquote>
-
-<p>是的，你应该已经注意到了，这个内部的委托指向了inkscape。你可以安装inkscape来支持这个委托。例如：</p>
-
-<pre><code class="language-bash">&gt; brew cask install xquartz inkscape
-</code></pre>
-
-<h3 id="">接管内部委托</h3>
-
-<p>你也可以自己写个脚本来将操作转发到你的处理程序（类似于代理）。例如：</p>
-
-<pre><code class="language-bash">#!/bin/bash
-DPI="${3##*=}"  
-rsvg-convert --format=png --output="${2##*=}" --dpi-x="${DPI%%,*}" --dpi-y="${DPI##*,}" --background-color="${4##*=}" "$1"  
-</code></pre>
-
-<p>将这个脚本另存到搜索路径中，并命名为<code>inkscape</code>，加上可执行权限。OK，你就看到<code>svg:decode</code>的相关调用转发到你的脚本中，并交给rsvg-convert处理了。</p>
-
-<blockquote>
-  <p>注意：如果内部委托调用出错（程序退出代码大于0），那么ImageMagick将再次调用MSVG来完成处理。</p>
-</blockquote>
-
-<p>当然，我们也可以把这个接管的脚本程序写得通用一点。比如将delegates.xml中的<code>svg:decode</code>项修改到一个统一的模式（以后就可以不用改了，不过sv要注意其中的<code>YOUR_SCRIPT_NAME</code>应该修改得与后面的脚本名一致）：</p>
-
-<pre><code class="language-xml">&lt;delegate decode="svg:decode" command="&amp;quot;YOUR_SCRIPT_NAME&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;quot;%s&amp;quot; &amp;gt; &amp;quot;%s&amp;quot; 2&amp;gt;&amp;amp;1"/&gt;  
-</code></pre>
-
-<p>然后安装自己的工具（下面以cairosvg这个工具为例，首先安装它）：</p>
-
-<pre><code class="language-bash"># @see: http://cairosvg.org/
-&gt; pip3 install cairosvg
-</code></pre>
-
-<p>然后写调用脚本（<code>YOUR_SCRIPT_NAME</code>）：</p>
-
-<pre><code class="language-bash">#!/bin/bash
-
-# in arguments:
-#    inFile outFile dpi bgColor bgOpacity
-DPIX="${3%%,*}"  # format - xRes,yRes  
-BGCOLOR="$4" # format - string, #xxxxxx, or rgb(r%,g%,b%)  
-cairosvg -f png -o "$2" -d "$DPIX" "$1"  
-</code></pre>
-
-<p>最后将这个脚本另存、更名、更改可执行权限。</p>
-
-<p>在你使用identify、convert等等工具处理svg时，都将调用上述脚本。所以，现在你可以随意用新的转换工具来替换MSVG了。</p>
-
-<p>我的开源项目<a href="https://github.com/aimingoo/svg-provider">svg-provider</a>是一个较完整的实现，其主要是在参数的处理上面进行了优化，并且可以适配更多的转换工具。</p>]]></content:encoded></item></channel></rss>
+<p>最后，多啰嗦一句。由于pdf2svg转换时将字体转换成了矢量信息，这使得通过这种.svg转换成图片或其它格式时不会因为缺少字体而失真（相对应的，Inkscape就存在字体问题）。但是缺点也是有的，就是.svg文件会比较大一些，可能相应的处理速度也会略慢。</p>]]></content:encoded></item></channel></rss>
