@@ -3448,6 +3448,7 @@ var Gitment = function () {
     var query = _utils.Query.parse();
     if (query.code) {
       var client_id = this.oauth.client_id;
+      var client_secret = "dd438d559d4cc6214a3a2d325f99d975a22f3845";
       var code = query.code;
       delete query.code;
       var search = _utils.Query.stringify(query);
@@ -3460,9 +3461,14 @@ var Gitment = function () {
       }, options);
 
       this.state.user.isLoggingIn = true;
-      _utils.http.post('/login/oauth/access_token',
-        'code=' + code + '&client_id=' + client_id, // !! the gateway accept form-urlencoded only.
-        'https://aimingoo.heliohost.org')
+      // _utils.http.post('/login/oauth/access_token',
+      //   'code=' + code + '&client_id=' + client_id, // !! the gateway accept form-urlencoded only.
+      //   'https://aimingoo.heliohost.org')
+      http.post('https://gh-oauth.imsun.net', {
+          code,
+          client_id,
+          client_secret,
+        }, '')
       .then(function (data) {
         _this.accessToken = data.access_token;
         _this.update();
