@@ -3990,10 +3990,12 @@ function extendRenderer(instance, renderer) {
 
     (0, _mobx.autorun)(function () {
       var e = render(instance.state, instance);
-      if (targetContainer.firstChild) {
-        targetContainer.replaceChild(e, targetContainer.firstChild);
-      } else {
-        targetContainer.appendChild(e);
+      if (e) {
+        if (targetContainer.firstChild) {
+          targetContainer.replaceChild(e, targetContainer.firstChild);
+        } else {
+          targetContainer.appendChild(e);
+        }
       }
     });
 
