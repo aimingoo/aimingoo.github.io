@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Wed, 27 Sep 2017 10:11:13 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Tue, 03 Oct 2017 15:24:17 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
 
 <p>在页面中使用的时候也很简单，基本的做法是：</p>
 
@@ -6,7 +6,7 @@
 &lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
 
 // 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo(DATETIME_OF_YOUR_POST))&lt;/script&gt;  
+&lt;script&gt;document.writeln(timeAgo("DATETIME_OF_YOUR_POST"))&lt;/script&gt;  
 </code></pre>
 
 <p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
@@ -23,7 +23,7 @@
 &lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
 
 // 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo(DATETIME_OF_YOUR_POST))&lt;/script&gt;  
+&lt;script&gt;document.writeln(timeAgo("DATETIME_OF_YOUR_POST"))&lt;/script&gt;  
 </code></pre>
 
 <p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
@@ -52,7 +52,7 @@
 
 <p>如果是直接在该页面中输出，则将上面的改为：</p>
 
-<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo({{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}))&lt;/script&gt;  
+<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo("{{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}"))&lt;/script&gt;  
 </code></pre>
 
 <p>注意上面的代码中，我们是用format参数来取得更加精确的时间值（而不是直接使用timeago格式的值）。</p>
@@ -70,7 +70,7 @@
 
 <pre><code class="language-javascript">$(document).ready(function() {
   ...
-}
+})
 </code></pre>
 
 <p>在这个代码块中，加入下面的代码即可：</p>
@@ -956,7 +956,7 @@ partials/content_featured.hbs
 
 <h2 id="loop">在loop中标记置顶贴</h2>
 
-<p>现在在<code>loop.hbs</code>中还有一对<code>div</code>标签：：</p>
+<p>现在<code>loop.hbs</code>中还有一对<code>div</code>标签：：</p>
 
 <pre><code class="language-html">&lt;div class="content-cards"&gt;  
 &lt;/div&gt;  
