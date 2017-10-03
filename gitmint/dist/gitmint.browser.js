@@ -3475,13 +3475,22 @@ var _constants = __webpack_require__(0);
 
 var _translator = __webpack_require__(7);
 
+var translator = _interopRequireWildcard(_translator);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var culture = /^([^-]{1,3})(-|$)/;
+var $ = function $(x) {
+  return (0, translator.default)(x);
+};
+
 function renderHeader(_ref, instance) {
   var meta = _ref.meta,
       user = _ref.user,
       reactions = _ref.reactions;
 
   var container = document.createElement('div');
-  container.lang = "en-US";
+  container.lang = culture.test(instance.lang) ? instance.lang : "en-US";
   container.className = 'gitment-container gitment-header-container';
 
   var likeButton = document.createElement('span');
@@ -3512,7 +3521,7 @@ function renderHeader(_ref, instance) {
   issueLink.className = 'gitment-header-issue-link';
   issueLink.href = meta.html_url || "javascript:void(0)";
   issueLink.target = '_blank';
-  issueLink.innerText = (0, _translator.chinese)('Issue Page');
+  issueLink.innerText = $('Issue Page');
   container.appendChild(issueLink);
 
   return container;
@@ -3527,7 +3536,7 @@ function renderComments(_ref2, instance) {
       error = _ref2.error;
 
   var container = document.createElement('div');
-  container.lang = "en-US";
+  container.lang = culture.test(instance.lang) ? instance.lang : "en-US";
   container.className = 'gitment-container gitment-comments-container';
 
   if (error) {
@@ -3545,24 +3554,24 @@ function renderComments(_ref2, instance) {
           alert(e);
         });
       };
-      initButton.innerText = (0, _translator.chinese)('Initialize Comments');
+      initButton.innerText = $('Initialize Comments');
       initHint.appendChild(initButton);
       errorBlock.appendChild(initHint);
     } else {
-      errorBlock.innerText = (0, _translator.chinese)(error);
+      errorBlock.innerText = $(error);
     }
     container.appendChild(errorBlock);
     return container;
   } else if (comments === undefined) {
     var loading = document.createElement('div');
-    loading.innerText = (0, _translator.chinese)('Loading comments...');
+    loading.innerText = $('Loading comments...');
     loading.className = 'gitment-comments-loading';
     container.appendChild(loading);
     return container;
   } else if (!comments.length) {
     var emptyBlock = document.createElement('div');
     emptyBlock.className = 'gitment-comments-empty';
-    emptyBlock.innerText = (0, _translator.chinese)('No Comment Yet');
+    emptyBlock.innerText = $('No Comment Yet');
     container.appendChild(emptyBlock);
     return container;
   }
@@ -3627,7 +3636,7 @@ function renderComments(_ref2, instance) {
       if (currentPage > 1) {
         var previousButton = document.createElement('li');
         previousButton.className = 'gitment-comments-page-item';
-        previousButton.innerText = (0, _translator.chinese)('Previous');
+        previousButton.innerText = $('Previous');
         previousButton.onclick = function () {
           return instance.goto(currentPage - 1);
         };
@@ -3652,7 +3661,7 @@ function renderComments(_ref2, instance) {
       if (currentPage < pageCount) {
         var nextButton = document.createElement('li');
         nextButton.className = 'gitment-comments-page-item';
-        nextButton.innerText = (0, _translator.chinese)('Next');
+        nextButton.innerText = $('Next');
         nextButton.onclick = function () {
           return instance.goto(currentPage + 1);
         };
@@ -3671,12 +3680,12 @@ function renderEditor(_ref3, instance) {
       error = _ref3.error;
 
   var container = document.createElement('div');
-  container.lang = "en-US";
+  container.lang = culture.test(instance.lang) ? instance.lang : "en-US";
   container.className = 'gitment-container gitment-editor-container';
 
   var shouldDisable = user.login && !error ? '' : 'disabled';
-  var disabledTip = user.login ? '' : 'Login to Comment';
-  container.innerHTML = '\n      ' + (user.login ? '<a class="gitment-editor-avatar" href="' + user.html_url + '" target="_blank">\n            <img class="gitment-editor-avatar-img" src="' + user.avatar_url + '"/>\n          </a>' : user.isLoggingIn ? '<div class="gitment-editor-avatar">' + _icons.spinner + '</div>' : '<a class="gitment-editor-avatar" href="' + instance.loginLink + '" title="login with GitHub">\n              ' + _icons.github + '\n            </a>') + '\n    </a>\n    <div class="gitment-editor-main">\n      <div class="gitment-editor-header">\n        <nav class="gitment-editor-tabs">\n          <button class="gitment-editor-tab gitment-selected">' + (0, _translator.chinese)('Write') + '</button>\n          <button class="gitment-editor-tab">' + (0, _translator.chinese)('Preview') + '</button>\n        </nav>\n        <div class="gitment-editor-login">\n          ' + (user.login ? '<a class="gitment-editor-logout-link">' + (0, _translator.chinese)('Logout') + '</a>' : user.isLoggingIn ? (0, _translator.chinese)('Logging in...') : '<a class="gitment-editor-login-link" href="' + instance.loginLink + '">' + (0, _translator.chinese)('Login') + '</a> with GitHub') + '\n        </div>\n      </div>\n      <div class="gitment-editor-body">\n        <div class="gitment-editor-write-field">\n          <textarea placeholder="' + (0, _translator.chinese)('Leave a comment') + '" title="' + disabledTip + '" ' + shouldDisable + '></textarea>\n        </div>\n        <div class="gitment-editor-preview-field gitment-hidden">\n          <div class="gitment-editor-preview gitment-markdown"></div>\n        </div>\n      </div>\n    </div>\n    <div class="gitment-editor-footer">\n      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">\n        Styling with Markdown is supported\n      </a>\n      <button class="gitment-editor-submit" title="' + disabledTip + '" ' + shouldDisable + '>' + (0, _translator.chinese)('Comment') + '</button>\n    </div>\n  ';
+  var disabledTip = user.login ? '' : $('Login to Comment');
+  container.innerHTML = '\n      ' + (user.login ? '<a class="gitment-editor-avatar" href="' + user.html_url + '" target="_blank">\n            <img class="gitment-editor-avatar-img" src="' + user.avatar_url + '"/>\n          </a>' : user.isLoggingIn ? '<div class="gitment-editor-avatar">' + _icons.spinner + '</div>' : '<a class="gitment-editor-avatar" href="' + instance.loginLink + '" title="login with GitHub">\n              ' + _icons.github + '\n            </a>') + '\n    </a>\n    <div class="gitment-editor-main">\n      <div class="gitment-editor-header">\n        <nav class="gitment-editor-tabs">\n          <button class="gitment-editor-tab gitment-selected">' + $('Write') + '</button>\n          <button class="gitment-editor-tab">' + $('Preview') + '</button>\n        </nav>\n        <div class="gitment-editor-login">\n          ' + (user.login ? '<a class="gitment-editor-logout-link">' + $('Logout') + '</a>' : user.isLoggingIn ? $('Logging in...') : '<a class="gitment-editor-login-link" href="' + instance.loginLink + '">' + $('Login') + '</a> with GitHub') + '\n        </div>\n      </div>\n      <div class="gitment-editor-body">\n        <div class="gitment-editor-write-field">\n          <textarea placeholder="' + $('Leave a comment') + '" title="' + disabledTip + '" ' + shouldDisable + '></textarea>\n        </div>\n        <div class="gitment-editor-preview-field gitment-hidden">\n          <div class="gitment-editor-preview gitment-markdown"></div>\n        </div>\n      </div>\n    </div>\n    <div class="gitment-editor-footer">\n      <a class="gitment-editor-footer-tip" href="https://guides.github.com/features/mastering-markdown/" target="_blank">\n        Styling with Markdown is supported\n      </a>\n      <button class="gitment-editor-submit" title="' + disabledTip + '" ' + shouldDisable + '>' + $('Comment') + '</button>\n    </div>\n  ';
   if (user.login) {
     container.querySelector('.gitment-editor-logout-link').onclick = function () {
       return instance.logout();
@@ -3720,11 +3729,11 @@ function renderEditor(_ref3, instance) {
     var preview = previewField.querySelector('.gitment-editor-preview');
     var content = textarea.value.trim();
     if (!content) {
-      preview.innerText = (0, _translator.chinese)('Nothing to preview');
+      preview.innerText = $('Nothing to preview');
       return;
     }
 
-    preview.innerText = (0, _translator.chinese)('Loading preview...');
+    preview.innerText = $('Loading preview...');
     instance.markdown(content).then(function (html) {
       return preview.innerHTML = html;
     });
@@ -3732,34 +3741,52 @@ function renderEditor(_ref3, instance) {
 
   var submitButton = container.querySelector('.gitment-editor-submit');
   submitButton.onclick = function () {
-    submitButton.innerText = (0, _translator.chinese)('Submitting...');
+    submitButton.innerText = $('Submitting...');
     submitButton.setAttribute('disabled', true);
     instance.post(textarea.value.trim()).then(function (data) {
       textarea.value = '';
       textarea.style.height = 'auto';
       submitButton.removeAttribute('disabled');
-      submitButton.innerText = (0, _translator.chinese)('Comment');
+      submitButton.innerText = $('Comment');
     }).catch(function (e) {
       alert(e);
       submitButton.removeAttribute('disabled');
-      submitButton.innerText = (0, _translator.chinese)('Comment');
+      submitButton.innerText = $('Comment');
     });
   };
 
   return container;
 }
 
-function renderFooter() {
+function renderFooter(state, instance) {
   var container = document.createElement('div');
-  container.lang = "en-US";
+  container.lang = culture.test(instance.lang) ? instance.lang : "en-US";
   container.className = 'gitment-container gitment-footer-container';
   container.innerHTML = '\n    Powered by\n    <a class="gitment-footer-project-link" href="https://github.com/imsun/gitment" target="_blank">\n      Gitment\n    </a>\n  ';
   return container;
 }
 
+function renderCounter(_ref4, instance) {
+  var meta = _ref4.meta;
+
+  var counter = document.querySelector(".post-comments-count.gitment-comments-count");
+  if (counter &&
+  // (instance.id.lastIndexOf(counter.getAttribute('data-xid')) > -1) &&
+  counter.getAttribute('itemprop') == "commentsCount") {
+    counter.innerText = meta && meta.comments || 0;
+  }
+}
+
 function render(state, instance) {
   var container = document.createElement('div');
-  container.lang = "en-US";
+  container.lang = culture.test(instance.lang) ? instance.lang : "en-US";
+
+  // rewrite by gitmint
+  $ = instance.lang && translator[instance.lang] || translator.fromLanguageCode(container.lang);
+  instance.updateCount = function () {
+    return instance.renderCounter(state, instance);
+  };
+
   container.className = 'gitment-container gitment-root-container';
   container.appendChild(instance.renderHeader(state, instance));
   container.appendChild(instance.renderComments(state, instance));
@@ -3768,7 +3795,7 @@ function render(state, instance) {
   return container;
 }
 
-exports.default = { render: render, renderHeader: renderHeader, renderComments: renderComments, renderEditor: renderEditor, renderFooter: renderFooter };
+exports.default = { render: render, renderHeader: renderHeader, renderComments: renderComments, renderEditor: renderEditor, renderFooter: renderFooter, renderCounter: renderCounter };
 
 /***/ }),
 /* 3 */
@@ -3987,7 +4014,7 @@ var Gitment = function () {
     key: 'loginLink',
     get: function get() {
       var oauthUri = 'https://github.com/login/oauth/authorize';
-      var redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, force_redirect_protocol);
+      var redirect_uri = this.oauth.redirect_uri || window.location.href.replace(/^https?/i, this.oauth.redirect_protocol || force_redirect_protocol);
 
       var oauthParams = Object.assign({
         scope: scope,
@@ -4007,6 +4034,19 @@ var Gitment = function () {
 
     this.defaultTheme = _default2.default;
     this.useTheme(_default2.default);
+
+    var internalId;
+    Object.defineProperties(this, {
+      'updateCount': new Function(),
+      'id': {
+        get: function get() {
+          return internalId;
+        },
+        set: function set(id) {
+          return internalId = id !== window.location.href ? id : '' + window.location.origin + window.location.pathname + window.location.search;
+        }
+      }
+    });
 
     Object.assign(this, {
       id: window.location.href,
@@ -4165,6 +4205,7 @@ var Gitment = function () {
         return _utils.http.post(matched[3], { body: body }, matched[1] || undefined);
       }).then(function (data) {
         _this6.state.meta.comments++;
+        _this6.updateCount();
         var pageCount = Math.ceil(_this6.state.meta.comments / _this6.perPage);
         if (_this6.state.currentPage === pageCount) {
           _this6.state.comments.push(data);
@@ -4187,6 +4228,7 @@ var Gitment = function () {
       }).then(function (issues) {
         if (!issues.length) return Promise.reject(_constants.NOT_INITIALIZED_ERROR);
         _this7.state.meta = issues[0];
+        _this7.updateCount();
         return issues[0];
       });
     }
@@ -4409,6 +4451,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.english = english;
 exports.chinese = chinese;
+exports.chineseTraditional = chineseTraditional;
+exports.fromLanguageCode = fromLanguageCode;
 function english(Text) {
     return Text;
 }
@@ -4429,10 +4473,51 @@ function chinese(Text) {
         'Write': '评论',
         'Preview': '预览',
         'Logging in...': '登入中...',
+        'Login to Comment': '请登入以发表评论',
         'Leave a comment': '(发表评论)',
         'Login': '登入',
         'Logout': '退出'
     }[Text] || Text;
+}
+
+function chineseTraditional(Text) {
+    return {
+        'Issue Page': '所有評論',
+        'Initialize Comments': '初始化本文的評論頁',
+        'Loading comments...': '加載評論...',
+        'Error: Comments Not Initialized': '(未開放評論)',
+        'No Comment Yet': '(還沒有評論)',
+        'Previous': '上一頁',
+        'Next': '下一頁',
+        'Nothing to preview': '（沒有預覽）',
+        'Loading preview...': '加載預覽...',
+        'Submitting...': '正在提交評論...',
+        'Comment': '發送',
+        'Write': '評論',
+        'Preview': '預覽',
+        'Logging in...': '登入中...',
+        'Login to Comment': '請登入以發表評論',
+        'Leave a comment': '(發表評論)',
+        'Login': '登入',
+        'Logout': '登出'
+    }[Text] || Text;
+}
+
+// @see:
+//  https://www.w3.org/TR/1999/REC-html401-19991224/struct/dirlang.html#h-8.1.1
+//  https://gist.github.com/JamieMason/3748498
+function fromLanguageCode(code) {
+    var culture = /^([^-]+)-/;
+    return {
+        'en': english,
+        'zh': chinese,
+        'zh-CN': chinese,
+        'zh-CHS': chinese,
+        'zh-TW': chineseTraditional,
+        'zh-HK': chineseTraditional,
+        'zh-CHT': chineseTraditional,
+        'en-US': english
+    }[code] || culture.test(code) && fromLanguageCode(code.match(culture)[1]) || english;
 }
 
 exports.default = english;
