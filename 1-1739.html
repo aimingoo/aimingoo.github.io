@@ -284,15 +284,16 @@ tag.hbs:{{&gt; "loop"}}
 <div id="gitment-root"></div>
 
 <link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
-<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
+<!-- <script src="/assets/js/gitment.browser.js?v=aec89d194c"></script> -->
+<script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitment({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
 	  repo: 'aimingoo.github.io',
-	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	  oauth: { client_id: 'c1285a991ba7db5c395a', client_secret: 'dd438d559d4cc6214a3a2d325f99d975a22f3845' }
 	});
 	gitment.render('gitment-root');
 </script>
