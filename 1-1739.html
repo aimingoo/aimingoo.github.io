@@ -304,6 +304,7 @@ tag.hbs:{{&gt; "loop"}}
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
 	  repo: 'aimingoo.github.io',
+      lang: navigator.language || navigator.systemLanguage || navigator.userLanguage,
 	  oauth: { client_id: 'c1285a991ba7db5c395a', client_secret: 'dd438d559d4cc6214a3a2d325f99d975a22f3845' }
 	});
 	gitment.render('gitment-root');
