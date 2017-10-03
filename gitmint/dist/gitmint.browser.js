@@ -4037,7 +4037,10 @@ var Gitment = function () {
 
     var internalId;
     Object.defineProperties(this, {
-      'updateCount': new Function(),
+      'updateCount': {
+        value: new Function(),
+        writable: true
+      },
       'id': {
         get: function get() {
           return internalId;
