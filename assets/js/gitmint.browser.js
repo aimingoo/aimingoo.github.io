@@ -4060,7 +4060,7 @@ var Gitment = function () {
       desc: '',
       labels: [],
       theme: _default2.default,
-      oauth: {},
+      oauth: {client_id: 'c1285a991ba7db5c395a', proxy_gateway： 'https://aimingoo.heliohost.org'},
       perPage: 20,
       maxCommentHeight: 250
     }, options);
@@ -4094,9 +4094,9 @@ var Gitment = function () {
     var query = _utils.Query.parse();
     if (query.code) {
       var _oauth = this.oauth,
-          client_id = _oauth.client_id || 'c1285a991ba7db5c395a',
+          client_id = _oauth.client_id,
           client_secret = _oauth.client_secret,
-          proxy_gateway = _oauth.proxy_gateway || 'https://aimingoo.heliohost.org';
+          proxy_gateway = _oauth.proxy_gateway;
 
       var code = query.code;
       delete query.code;
