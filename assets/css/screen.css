@@ -184,7 +184,7 @@ table {
 @font-face {
     font-family: "casper-icons";
     src: url("../fonts/casper-icons.eot?v=1");
-    src: url("../fonts/casper-icons.eot?v=1#iefix") format("embedded-opentype"), url("../fonts/casper-icons.woff?v=1") format("woff"), url("../fonts/casper-icons.ttf?v=1") format("truetype"), url("../fonts/casper-icons.svg?v=1#icons") format("svg");
+    src: url("../fonts/casper-icons.eot?v=1") format("embedded-opentype"), url("../fonts/casper-icons.woff?v=1") format("woff"), url("../fonts/casper-icons.ttf?v=1") format("truetype"), url("../fonts/casper-icons.svg?v=1") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -708,7 +708,7 @@ body.nav-opened .site-wrapper {
 }
 
 .toped-post {
-    background-image: url(/assets/img/top-arrow.png);
+    background-image: url(../img/top-arrow.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: right;

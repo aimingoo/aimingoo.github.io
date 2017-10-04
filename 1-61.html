@@ -10,36 +10,35 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=aec89d194c" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=aec89d194c" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=aec89d194c" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=aec89d194c" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=aec89d194c" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=aec89d194c" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="从表达式到变量：一行scheme代码之所见" />
-    <meta property="og:description" content="下面这行代码在scheme中是可以执行的，其结果值为12:     ((if #f + *) 3 4)  -----------   在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余  的则是过程参数。   那么，我们先看内层括号中的代码：     (if #f + *)  -----------   &amp;quot;if&amp;quot;是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表  达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它  的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符  串）：     var q &#x3D; &#x27;#f&#x27;;  var v1 &#x3D; &#x27;+&#x27;;  var v2 &#x3D; &#x27;*&#x27;;   ( q ? v1 : v2 );  -----------   或以pascal来描述它的效果：     function" />
+    <meta property="og:description" content="下面这行代码在scheme中是可以执行的，其结果值为12: ((if #f + *) 3 4) 在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余的则是过程参数。 那么，我们先看内层括号中的代码： (if #f + *) if是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符串）： var q &#x3D; &#x27;#f&#x27;;   var v1 &#x3D; &#x27;+&#x27;;   var v2 &#x3D; &#x27;*&#x27;; ( q ? v1 : v2 ); 或以pascal来描述它的效果： function _if(b: boolean; v1, v2: TSymbol): TSymbol;   begin     if ( b" />
     <meta property="og:url" content="http://aimingoo.github.io/1-61.html" />
     <meta property="article:published_time" content="2007-02-12T01:56:00.000Z" />
-    <meta property="article:modified_time" content="2007-02-12T01:56:00.000Z" />
-    <meta property="article:tag" content="pascal" />
-    <meta property="article:tag" content="Javascript" />
+    <meta property="article:modified_time" content="2017-10-04T17:33:01.000Z" />
     <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="lisp" />
     <meta property="article:tag" content="代码分析" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="从表达式到变量：一行scheme代码之所见" />
-    <meta name="twitter:description" content="下面这行代码在scheme中是可以执行的，其结果值为12:     ((if #f + *) 3 4)  -----------   在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余  的则是过程参数。   那么，我们先看内层括号中的代码：     (if #f + *)  -----------   &amp;quot;if&amp;quot;是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表  达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它  的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符  串）：     var q &#x3D; &#x27;#f&#x27;;  var v1 &#x3D; &#x27;+&#x27;;  var v2 &#x3D; &#x27;*&#x27;;   ( q ? v1 : v2 );  -----------   或以pascal来描述它的效果：     function" />
+    <meta name="twitter:description" content="下面这行代码在scheme中是可以执行的，其结果值为12: ((if #f + *) 3 4) 在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余的则是过程参数。 那么，我们先看内层括号中的代码： (if #f + *) if是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符串）： var q &#x3D; &#x27;#f&#x27;;   var v1 &#x3D; &#x27;+&#x27;;   var v2 &#x3D; &#x27;*&#x27;; ( q ? v1 : v2 ); 或以pascal来描述它的效果： function _if(b: boolean; v1, v2: TSymbol): TSymbol;   begin     if ( b" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-61.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="pascal, Javascript, 语言, 代码分析" />
+    <meta name="twitter:data2" content="语言, lisp, 代码分析" />
     
     <script type="application/ld+json">
 {
@@ -68,9 +67,9 @@
     "headline": "从表达式到变量：一行scheme代码之所见",
     "url": "http://aimingoo.github.io/1-61.html",
     "datePublished": "2007-02-12T01:56:00.000Z",
-    "dateModified": "2007-02-12T01:56:00.000Z",
-    "keywords": "pascal, Javascript, 语言, 代码分析",
-    "description": "下面这行代码在scheme中是可以执行的，其结果值为12:     ((if #f + *) 3 4)  -----------   在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余  的则是过程参数。   那么，我们先看内层括号中的代码：     (if #f + *)  -----------   &amp;quot;if&amp;quot;是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表  达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它  的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符  串）：     var q &#x3D; &#x27;#f&#x27;;  var v1 &#x3D; &#x27;+&#x27;;  var v2 &#x3D; &#x27;*&#x27;;   ( q ? v1 : v2 );  -----------   或以pascal来描述它的效果：     function",
+    "dateModified": "2017-10-04T17:33:01.000Z",
+    "keywords": "语言, lisp, 代码分析",
+    "description": "下面这行代码在scheme中是可以执行的，其结果值为12: ((if #f + *) 3 4) 在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余的则是过程参数。 那么，我们先看内层括号中的代码： (if #f + *) if是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符串）： var q &#x3D; &#x27;#f&#x27;;   var v1 &#x3D; &#x27;+&#x27;;   var v2 &#x3D; &#x27;*&#x27;; ( q ? v1 : v2 ); 或以pascal来描述它的效果： function _if(b: boolean; v1, v2: TSymbol): TSymbol;   begin     if ( b",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -78,7 +77,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -86,10 +85,10 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
 </head>
 
-<body class="post-template tag-pascal tag-javascript tag-yu-yan tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-yu-yan tag-lisp tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -97,13 +96,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=aec89d194c"></script>
+<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -113,9 +112,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
+            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
+            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
     </ul>
 </div>
 
@@ -124,13 +123,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-pascal tag-javascript tag-yu-yan tag-delphiyuan-dai-ma-fen-xi">
+        <article class="post tag-yu-yan tag-lisp tag-delphiyuan-dai-ma-fen-xi">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-61.html">从表达式到变量：一行scheme代码之所见</a></h1>
+                <h1 class="post-title"><a href="1-61.html">从表达式到变量：一行scheme代码之所见</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="/author/aimingoo/">aimingoo</a>
+                        <a href="author/aimingoo/index.html">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/pascal/">pascal</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>
+                        <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/lisp/index.html">lisp</a>, <a href="tag/delphiyuan-dai-ma-fen-xi/index.html">代码分析</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,114 +147,85 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>下面这行代码在scheme中是可以执行的，其结果值为12: <br />
-<font face="Courier New">  </p>
+                <p>下面这行代码在scheme中是可以执行的，其结果值为<code>12</code>:</p>
 
-<hr />
+<pre><code class="language-lisp">((if #f + *) 3 4)
+</code></pre>
 
-<p>((if #f + *) 3 4) <br />
------------</font>  </p>
+<p>在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余的则是过程参数。</p>
 
-<p>在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余 <br />
-的则是过程参数。  </p>
+<p>那么，我们先看内层括号中的代码：</p>
 
-<p>那么，我们先看内层括号中的代码： <br />
-<font face="Courier New">  </p>
+<pre><code class="language-lisp">(if #f + *)
+</code></pre>
 
-<hr />
+<p><code>if</code>是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表达式，或者其它语言中的一个<code>if</code>语句（的效果）。试以javascript来描述它的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符串）：</p>
 
-<p>(if #f + *) <br />
------------</font>  </p>
+<pre><code class="language-javascript">var q = '#f';  
+var v1 = '+';  
+var v2 = '*';
 
-<p>&quot;if&quot;是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表 <br />
-达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它 <br />
-的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符 <br />
-串）： <br />
-<font face="Courier New">  </p>
+( q ? v1 : v2 );
+</code></pre>
 
-<hr />
+<p>或以pascal来描述它的效果：</p>
 
-<p>var q = '#f'; <br />
-var v1 = '+'; <br />
-var v2 = '*';</font>  </p>
+<pre><code class="language-pascal">function _if(b: boolean; v1, v2: TSymbol): TSymbol;  
+begin  
+  if ( b ) then
+    return v1
+  else
+    return v2;
+end;
 
-<p><font face="Courier New">( q ? v1 : v2 ); <br />
------------</font>  </p>
+var  
+  q : boolean = false;
+  v1 : TSymbol = '+';
+  v2 : TSymbol = '*';
 
-<p>或以pascal来描述它的效果： <br />
-<font face="Courier New">  </p>
+_if(q, v1, v2);  
+</code></pre>
 
-<hr />
+<p>在上面的例子中，<code>+</code>和<code>*</code>被都只能被记为字符的原因在于：JavaScript和pascal都将运算符理解为语法符号，而scheme将它们理解为内置过程(procedure)。而过程是一段代码，因此是有存储地址的。有存储地址则可以被理解为变量。</p>
 
-<p>function _if(b: boolean; v1, v2: TSymbol): TSymbol; <br />
-begin <br />
-&nbsp; if ( b ) then <br />
-&nbsp;&nbsp;&nbsp; return v1 <br />
-&nbsp; else <br />
-&nbsp;&nbsp;&nbsp; return v2; <br />
-end;</font>  </p>
+<p>也就是说，scheme中的运算符是程序代码可以理解的&ldquo;变量&rdquo;。而常见的高级语言中的运算符是由解释器或编译器理解的。</p>
 
-<p><font face="Courier New">var <br />
-&nbsp; q : boolean = false; <br />
-&nbsp; v1 : TSymbol = '+'; <br />
-&nbsp; v2 : TSymbol = '*';</font>  </p>
+<p>scheme中的<code>()</code>表明执行一个过程（或通常含义上的函数）。由于运算符被理解为内置过程，语句谓词也能被理解为内置过程&hellip;&hellip;而通常我们对语言的理解是：运算符、表达式、语句和变量（以及常量）。因此一个重要的结论是：</p>
 
-<p><font face="Courier New">_if(q, v1, v2); <br />
------------</font>  </p>
+<blockquote>
+  <ul>
+  <li>所有的语法元素都可以被理解为&ldquo;过程调用&rdquo;。</li>
+  </ul>
+</blockquote>
 
-<p>在上面的例子中，+和*被都只能被记为字符的原因在于：JavaScript和pascal都 <br />
-将运算符理解为语法符号，而scheme将它们理解为内置过程(procedure)。而过 <br />
-程是一段代码，因此是有存储地址的。有存储地址则可以被理解为变量。  </p>
+<p>所以</p>
 
-<p>也就是说，scheme中的运算符是程序代码可以理解的&ldquo;变量&rdquo;。而常见的高级语 <br />
-言中的运算符是由解释器或编译器理解的。  </p>
+<pre><code class="language-lisp">(if #f + *)
+</code></pre>
 
-<p>scheme中的()表明执行一个过程（或通常含义上的函数）。由于运算符被理解为 <br />
-内置过程，语句谓词也能被理解为内置过程&hellip;&hellip;而通常我们对语言的理解是：运 <br />
-算符、表达式、语句和变量（以及常量）。因此一个重要的结论是： <br />
-　－所有的语法元素都可以被理解为&ldquo;过程调用&rdquo;。  </p>
+<p>这个代码片断的运算效果，在scheme中只需要表达为一个内置过程的调用，则其它的一些语言则必须用三元表达式、语句、函数调用来表达它。&mdash;&mdash;更何况他们不能将&ldquo;运算符&rdquo;理解为&ldquo;变量&rdquo;。</p>
 
-<p>所以 <br />
-<font face="Courier New">  </p>
+<p>在上面的代码中，内层的调用返回一个运算符(<code>#f</code>是值false，因此返回<code>*</code>)，因此外层的代码变成了：</p>
 
-<hr />
+<pre><code class="language-lisp">(* 3 4)
+</code></pre>
 
-<p>(if #f + *) <br />
------------</font> <br />
-这个代码片断的运算效果，在scheme中只需要表达为一个内置过程的调用，则其 <br />
-它的一些语言则必须用三元表达式、语句、函数调用来表达它。&mdash;&mdash;更何况他们 <br />
-不能将&ldquo;运算符&rdquo;理解为&ldquo;变量&rdquo;。  </p>
+<p>这样就变成了对过程<code>*</code>的调用，亦即是乘法运算。结果是<code>3*4=12</code>。</p>
 
-<p>在上面的代码中，内层的调用返回一个运算符(#f是值false，因此返回*)，因此 <br />
-外层的代码变成了： <br />
-<font face="Courier New">  </p>
+<p>在上面的代码分析中，我们看到了&ldquo;函数式语言&rdquo;的一些根本性的东西：</p>
 
-<hr />
+<ul>
+<li>语句可以被理解为过程（函数）调用的效果；</li>
+<li>运算符也可以被理解为过程（函数）调用的效果；</li>
+<li>运算符与语句（谓词）既然可以被理解为过程，则它可以被理解为（有存储地址的）变量。</li>
+</ul>
 
-<p>(* 3 4) <br />
------------</font> <br />
-这样就变成了对过程<em>的调用，亦即是乘法运算。结果是3</em>4=12。  </p>
+<p>由于语言的所有语义元素都可以被理解为变量（或数据的存储地址），而且它们的都可以被理解为<code>()</code>这个符号（过程调用）的运算效果。因此，scheme用&ldquo;运算&rdquo;和&ldquo;变量&rdquo;两个概念完全地概括了所有代码。它的代码只有一个含义：</p>
 
-<p>在上面的代码分析中，我们看到了&ldquo;函数式语言&rdquo;的一些根本性的东西： <br />
-<strong>&nbsp;－语句可以被理解为过程（函数）调用的效果； <br />
-&nbsp;－运算符也可以被理解为过程（函数）调用的效果； <br />
-&nbsp;－运算符与语句（谓词）既然可以被理解为过程，则它可以被理解为（有存储 <br />
-&nbsp;　地址的）变量。</strong>  </p>
+<pre><code class="language-lisp">(symbol)
+</code></pre>
 
-<p>由于语言的所有语义元素都可以被理解为变量（或数据的存储地址），而且它们 <br />
-的都可以被理解为&ldquo;( )&rdquo;这个符号（过程调用）的运算效果。因此，scheme用 <br />
-&ldquo;运算&rdquo;和&ldquo;变量&rdquo;两个概念完全地概括了所有代码。它的代码只有一个含义： <br />
-**<font face="Courier New" color="#ff0000">  </p>
-
-<hr />
-
-<p>(symbol) <br />
------------</font>**  </p>
-
-<p>最后再罗嗦一点：我们称scheme为函数式语言，类属于一种&ldquo;说明式&rdquo;语言的分 <br />
-类。说明式语言面向&ldquo;程序＝算法＋结构&rdquo;中对&ldquo;算法&rdquo;的解释。而我们常用的 <br />
-面向对象、面向过程的高级语言，则类属于一种&ldquo;命令式&rdquo;语言，侧重于对&ldquo;结 <br />
-构&rdquo;作出解释。</p>
+<p>最后再罗嗦一点：我们称scheme为函数式语言，类属于一种&ldquo;说明式&rdquo;语言的分类。说明式语言面向&ldquo;程序＝算法＋结构&rdquo;中对&ldquo;算法&rdquo;的解释。而我们常用的面向对象、面向过程的高级语言，则类属于一种&ldquo;命令式&rdquo;语言，侧重于对&ldquo;结构&rdquo;作出解释。</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -267,13 +237,13 @@ end;</font>  </p>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-60.html">
+                <a href="1-60.html">
                     Qomolangma.V1.0的发布说明
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="/1-229.html">
+                <a href="1-229.html">
                     也说读书
                 </a>
                 下一篇
@@ -283,16 +253,21 @@ end;</font>  </p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=aec89d194c" />
-<script src="/assets/js/gitment.browser.js?v=aec89d194c"></script>
+<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
+<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/\?.*$/, '').replace(/^.*\/|.html$/g, '') };
-	var gitment = new Gitment({
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
 	  repo: 'aimingoo.github.io',
-	  oauth: { client_id: 'c1285a991ba7db5c395a' }
+	  lang: 'zh-CN'
 	});
 	gitment.render('gitment-root');
 </script>
@@ -303,8 +278,8 @@ end;</font>  </p>
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="author/aimingoo/index.html">
+                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
@@ -314,14 +289,14 @@ end;</font>  </p>
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="/profile-aimingoo"></script>
+        <script type="text/javascript" src="profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -340,7 +315,7 @@ end;</font>  </p>
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -353,21 +328,21 @@ end;</font>  </p>
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=aec89d194c"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=aec89d194c"></script>
+    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
 </body>
 
 </html>
