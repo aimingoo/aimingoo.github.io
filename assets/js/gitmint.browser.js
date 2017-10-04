@@ -4060,7 +4060,7 @@ var Gitment = function () {
       desc: '',
       labels: [],
       theme: _default2.default,
-      oauth: {client_id: 'c1285a991ba7db5c395a', proxy_gateway： 'https://aimingoo.heliohost.org'},
+      oauth: {client_id: 'c1285a991ba7db5c395a', proxy_gateway: 'https://aimingoo.heliohost.org'},
       perPage: 20,
       maxCommentHeight: 250
     }, options);
