@@ -41,6 +41,10 @@
         // numbering for pre>code blocks
         $(function() {
             $('pre code').each(function() {
+                if (! $(this).attr('class')) {
+                    $(this).attr('style', 'background: #F7FAFB;')
+                    return;
+                }
                 var lines = $(this).text().split('\n').length - 1;
                 var $numbering = $('<ul/>').addClass('pre-numbering');
                 $(this).addClass('has-numbering').parent().append($numbering);
