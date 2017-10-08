@@ -10,23 +10,23 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Monster - 用Ghost写博客的终极利器" />
-    <meta property="og:description" content="是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，独立配置 支持在url中使用缩短路径的风格（使用更精减的ghost slug） 支持Ghost的多作者（multi-author）功能" />
+    <meta property="og:description" content="是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster   注：makesite.sh在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。 Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，" />
     <meta property="og:url" content="http://aimingoo.github.io/1-1741.html" />
     <meta property="article:published_time" content="2017-09-19T07:27:23.000Z" />
-    <meta property="article:modified_time" content="2017-09-27T10:10:37.000Z" />
+    <meta property="article:modified_time" content="2017-10-08T16:03:19.000Z" />
     <meta property="article:tag" content="OpenSource Project" />
     <meta property="article:tag" content="博客" />
     <meta property="article:tag" content="Ghost" />
@@ -34,7 +34,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Monster - 用Ghost写博客的终极利器" />
-    <meta name="twitter:description" content="是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，独立配置 支持在url中使用缩短路径的风格（使用更精减的ghost slug） 支持Ghost的多作者（multi-author）功能" />
+    <meta name="twitter:description" content="是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster   注：makesite.sh在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。 Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-1741.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -68,9 +68,9 @@
     "headline": "Monster - 用Ghost写博客的终极利器",
     "url": "http://aimingoo.github.io/1-1741.html",
     "datePublished": "2017-09-19T07:27:23.000Z",
-    "dateModified": "2017-09-27T10:10:37.000Z",
+    "dateModified": "2017-10-08T16:03:19.000Z",
     "keywords": "OpenSource Project, 博客, Ghost, Monster",
-    "description": "是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，独立配置 支持在url中使用缩短路径的风格（使用更精减的ghost slug） 支持Ghost的多作者（multi-author）功能",
+    "description": "是时候从Buster转到Monster了 我最先开始用Ghost写博客时，用来生成静态页面（并发布到aimingoo.github.io）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的ghost-utils仓库中，名为makesite.sh。 makesite.sh其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为updatesite.sh，用来实现增量生成基于Ghost的静态网站。 再之后，将这两个脚本合在一起，就变成了：   Monster，一个同时支持全量和增量生成Ghost静态网站的工具。 这是一个用Bash写开源项目，Github地址在这里: https://github.com/aimingoo/monster   注：makesite.sh在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。 Monster的功能 全量和增量生成Ghost静态网站 可以在本地预览或向github.io部署生成的网站 支持生成并不Host在github.io上的网站 支持同时管理多个网站，",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -78,7 +78,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -86,7 +86,7 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-opensource-project tag-bo-ke tag-ghost-tag tag-monster nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -97,13 +97,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -113,9 +113,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -126,11 +126,11 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-opensource-project tag-bo-ke tag-ghost-tag tag-monster">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-1741.html">Monster - 用Ghost写博客的终极利器</a></h1>
+                <h1 class="post-title"><a href="/1-1741.html">Monster - 用Ghost写博客的终极利器</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/opensource-project/index.html">OpenSource Project</a>, <a href="tag/bo-ke/index.html">博客</a>, <a href="tag/ghost-tag/index.html">Ghost</a>, <a href="tag/monster/index.html">Monster</a>
+                        <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/monster/">Monster</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -152,7 +152,7 @@ ghost.init({
 
 <p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
 
-<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
+<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
 
 <p>再之后，将这两个脚本合在一起，就变成了：</p>
 
@@ -161,6 +161,10 @@ ghost.init({
 </blockquote>
 
 <p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
+
+<blockquote>
+  <p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p>
+</blockquote>
 
 <h2 id="monster">Monster的功能</h2>
 
@@ -248,9 +252,9 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 <p><strong>阅读列表</strong></p>
 
 <ul>
-<li><a href="1-1742.html">详解Monster的初始化及配置</a></li>
-<li><a href="1-1743.html">将Monster用作网站离线下载的方法</a></li>
-<li><a href="1-1744.html">Monster的三种工作模式</a></li>
+<li><a href="/1-1742.html">详解Monster的初始化及配置</a></li>
+<li><a href="/1-1743.html">将Monster用作网站离线下载的方法</a></li>
+<li><a href="/1-1744.html">Monster的三种工作模式</a></li>
 </ul>
             </section>
 <!-- removed by aimingoo
@@ -263,13 +267,13 @@ Serving HTTP on 0.0.0.0 port 8000 ...
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-1739.html">
+                <a href="/1-1739.html">
                     简单实现Ghost Theme的置顶效果
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-1743.html">
+                <a href="/1-1743.html">
                     将Monster用作网站离线下载的方法
                 </a>
                 下一篇
@@ -279,8 +283,8 @@ Serving HTTP on 0.0.0.0 port 8000 ...
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
+<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -304,8 +308,8 @@ a.gitment-editor-footer-tip { display: none; }
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
@@ -315,14 +319,14 @@ a.gitment-editor-footer-tip { display: none; }
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -341,7 +345,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -354,21 +358,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
 </body>
 
 </html>

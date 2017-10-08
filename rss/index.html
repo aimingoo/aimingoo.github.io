@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 08 Oct 2017 14:30:11 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[博客中的系列文章]]></title><description><![CDATA[<h2 id="">【技术类】</h2>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 08 Oct 2017 16:13:34 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[博客中的系列文章]]></title><description><![CDATA[<h2 id="">【技术类】</h2>
 
 <h3 id="qomo">Qomo技术系列</h3>
 
@@ -382,7 +382,7 @@ Serving HTTP on 0.0.0.0 port 8010 ...
 <p>generate工作模式定义了一个对“网站迁移的标准过程”的理解，亦即是分成四步：</p>
 
 <ul>
-<li>generate: 调用Buster生成静态页</li>
+<li>generate: 调用wget生成静态页</li>
 <li>reset-domain：重置页面中的domain地址（它有两个前置过程）
 <ul><li>pick-sitemap：尝试下载sitemaps文件</li>
 <li>patch-version：修补assets等目录中的文件名后缀中的版本号</li></ul></li>
@@ -511,7 +511,7 @@ File .sqlitedb saved.
 #
 
 ## 四个主要过程
-# - 调用Buster生成全站
+# - 生成全站
 --generate
 # - 重置静态页中的domain(缺省为true)
 --reset-domain
@@ -741,15 +741,12 @@ filename: path.join(__dirname, '/content/data/ghost-test.db')
 <p>根据你启动的Ghost的版本不同，选择上面的一个库文件即可（一般是<code>ghost-dev.db</code>）。</p>
 
 <ul>
-<li>你需要安装Buster并确信它可用</li>
+<li>(<strong>discard</strong>)你需要安装Buster并确信它可用</li>
 </ul>
 
-<pre><code class="language-bash">&gt; pip install buster
-&gt; buster --version
-0.1.3  
-</code></pre>
-
-<p>Monster在全量生成网站的时候会调用Buster；如果你只使用它的增量生成功能，那么Buster也可以不安装。</p>
+<blockquote>
+  <p>在Monster早期版本中是调用Buster来生成全站的，但从v1.0.5版本开始就移除了对Buster的依赖。</p>
+</blockquote>
 
 <ul>
 <li>你需要确信mac环境是否能运行Monster</li>
@@ -782,7 +779,8 @@ filename: path.join(__dirname, '/content/data/ghost-test.db')
 
 # 使用Git仓库安装
 &gt; git clone https://github.com/aimingoo/monster
-&gt; install monster/libexec/monster.sh /usr/local/bin/monster
+&gt; ln -s "$(pwd)/monster/libexec/monster.sh" /usr/local/bin/monster
+&gt; chmod +x /usr/local/bin/monster
 </code></pre>
 
 <h2 id="">初始化及配置</h2>
@@ -834,7 +832,7 @@ File .gitignore updated.
 
 <h3 id="monster">如果没有<code>.monster</code>文件</h3>
 
-<p>如果你没有调用<code>monster —init</code>来初始化一个<code>.monster</code>文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。</p>
+<p>如果你没有调用<code>monster --init</code>来初始化一个<code>.monster</code>文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。</p>
 
 <p>这种情况下，对于generate工作模式来说，你必须从命令行通过<code>--domain</code>传入DOMAIN参数；对于update工作模式来说，则必须传入<code>--db</code>。当然你还可能需要传入其它在运行中要用到的参数，例如<code>GITHUB_USER</code>。</p>
 
@@ -996,7 +994,7 @@ Your Github name or domain: .
 
 <p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
 
-<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
+<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
 
 <p>再之后，将这两个脚本合在一起，就变成了：</p>
 
@@ -1006,16 +1004,12 @@ Your Github name or domain: .
 
 <p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
 
-<h2 id="monster">Monster的功能</h2>
-
-<ul>
-<li>全量和增量生成Ghost静态网站</li>
-<li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
-<li>支持生成并不Host在<code>github.</code></li></ul>]]></description><link>http://aimingoo.github.io/1-1741.html/</link><guid isPermaLink="false">5bfc1c43-be1d-43e2-b094-16c27efc9fbe</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
+<blockquote>
+  <p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p></blockquote>]]></description><link>http://aimingoo.github.io/1-1741.html/</link><guid isPermaLink="false">5bfc1c43-be1d-43e2-b094-16c27efc9fbe</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
 
 <p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
 
-<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
+<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
 
 <p>再之后，将这两个脚本合在一起，就变成了：</p>
 
@@ -1024,6 +1018,10 @@ Your Github name or domain: .
 </blockquote>
 
 <p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
+
+<blockquote>
+  <p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p>
+</blockquote>
 
 <h2 id="monster">Monster的功能</h2>
 
