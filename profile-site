@@ -11,6 +11,8 @@ document.writeln(function siteProfileHtmlContext() {/*
 <script>
 document.writeln('<strong>', '\
             \
+                1\
+            \
 '.replace(/^\s*|\s*$/g, '') || 0, '<' + '/strong>');
 </script>
         </span>
@@ -19,7 +21,7 @@ document.writeln('<strong>', '\
 <!--
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>61</strong>
+                <strong>49</strong>
         </span>
         <span class="site-stat-item-name">标签</span>
     </div>
@@ -51,7 +53,7 @@ document.writeln('<strong>', '\
         </li>
 -->
         <li>
-            <a href="rss/index.html" class="social-rss">
+            <a href="/rss/" class="social-rss">
                 <i class="fa fa-xlg fa-rss" data-original-title="订阅本站" data-rel="tooltip"></i>
             </a>
         </li>

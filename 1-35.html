@@ -10,35 +10,35 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Qomolangma实现篇(三)：兼容层设计" />
-    <meta property="og:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:description" content="一、Qomolangma的兼容层设计 自Qomo Field Test3开始，系统从内核一层开始提供跨(浏览器)平台兼容的能力。Qomo试图在不同的浏览器上提供相同(或类同)的框架层特性。 Qomo 的兼容层设计跟常见的其它系统并不一致。基于“Qomo是可拆卸可组装的”这样一个基本思想，Qomo实现的兼容层完全可以“象插件一样增强，或者卸载”。 与一般的系统不同，Qomo基本上是基于IE 6的JScript语言特性来提供的兼容层支撑。也就是说，如果你向Qomo的兼容层添加一个插件，那么你应该致力于“使第三方浏览器表现得跟IE6一致”。而通常的框架可能会反过来，要求通过兼容层来使得框架表现得跟ECMA-JavaScript一致。Qomo没有选择这样做，只是因为Qomo原本就更接近于IE，而非其它。 事实上，我要说明的是，让框架兼容IE，比让IE上的JScript兼容ECMA更难。因为JScript提供了很多ECMA不具备的特性。也就是说，Qomo选择了这种兼容设计，意味着实现一个更强的Java-Script环境。而不是“让IE的JScript表现起来更象JavaScript”。 Qomo上的兼容层设计，已经使Qomo可以正常地在IE5.0中运行了。此外，你会发现，Qomo已经在以下系统上被测试，并得到良好的支持： 以Mozilla(Geckco" />
     <meta property="og:url" content="http://aimingoo.github.io/1-35.html" />
     <meta property="article:published_time" content="2006-03-06T19:31:00.000Z" />
-    <meta property="article:modified_time" content="2006-03-06T19:31:00.000Z" />
+    <meta property="article:modified_time" content="2017-10-08T12:23:54.000Z" />
     <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="框架" />
-    <meta property="article:tag" content="浏览器" />
+    <meta property="article:tag" content="Qomo" />
+    <meta property="article:tag" content="OpenSource Project" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Qomolangma实现篇(三)：兼容层设计" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:description" content="一、Qomolangma的兼容层设计 自Qomo Field Test3开始，系统从内核一层开始提供跨(浏览器)平台兼容的能力。Qomo试图在不同的浏览器上提供相同(或类同)的框架层特性。 Qomo 的兼容层设计跟常见的其它系统并不一致。基于“Qomo是可拆卸可组装的”这样一个基本思想，Qomo实现的兼容层完全可以“象插件一样增强，或者卸载”。 与一般的系统不同，Qomo基本上是基于IE 6的JScript语言特性来提供的兼容层支撑。也就是说，如果你向Qomo的兼容层添加一个插件，那么你应该致力于“使第三方浏览器表现得跟IE6一致”。而通常的框架可能会反过来，要求通过兼容层来使得框架表现得跟ECMA-JavaScript一致。Qomo没有选择这样做，只是因为Qomo原本就更接近于IE，而非其它。 事实上，我要说明的是，让框架兼容IE，比让IE上的JScript兼容ECMA更难。因为JScript提供了很多ECMA不具备的特性。也就是说，Qomo选择了这种兼容设计，意味着实现一个更强的Java-Script环境。而不是“让IE的JScript表现起来更象JavaScript”。 Qomo上的兼容层设计，已经使Qomo可以正常地在IE5.0中运行了。此外，你会发现，Qomo已经在以下系统上被测试，并得到良好的支持： 以Mozilla(Geckco" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-35.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 框架, 浏览器" />
+    <meta name="twitter:data2" content="Javascript, Qomo, OpenSource Project" />
     
     <script type="application/ld+json">
 {
@@ -67,9 +67,9 @@
     "headline": "Qomolangma实现篇(三)：兼容层设计",
     "url": "http://aimingoo.github.io/1-35.html",
     "datePublished": "2006-03-06T19:31:00.000Z",
-    "dateModified": "2006-03-06T19:31:00.000Z",
-    "keywords": "Javascript, 框架, 浏览器",
-    "description": "Qomolangma OpenProject v1.0   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
+    "dateModified": "2017-10-08T12:23:54.000Z",
+    "keywords": "Javascript, Qomo, OpenSource Project",
+    "description": "一、Qomolangma的兼容层设计 自Qomo Field Test3开始，系统从内核一层开始提供跨(浏览器)平台兼容的能力。Qomo试图在不同的浏览器上提供相同(或类同)的框架层特性。 Qomo 的兼容层设计跟常见的其它系统并不一致。基于“Qomo是可拆卸可组装的”这样一个基本思想，Qomo实现的兼容层完全可以“象插件一样增强，或者卸载”。 与一般的系统不同，Qomo基本上是基于IE 6的JScript语言特性来提供的兼容层支撑。也就是说，如果你向Qomo的兼容层添加一个插件，那么你应该致力于“使第三方浏览器表现得跟IE6一致”。而通常的框架可能会反过来，要求通过兼容层来使得框架表现得跟ECMA-JavaScript一致。Qomo没有选择这样做，只是因为Qomo原本就更接近于IE，而非其它。 事实上，我要说明的是，让框架兼容IE，比让IE上的JScript兼容ECMA更难。因为JScript提供了很多ECMA不具备的特性。也就是说，Qomo选择了这种兼容设计，意味着实现一个更强的Java-Script环境。而不是“让IE的JScript表现起来更象JavaScript”。 Qomo上的兼容层设计，已经使Qomo可以正常地在IE5.0中运行了。此外，你会发现，Qomo已经在以下系统上被测试，并得到良好的支持： 以Mozilla(Geckco",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -77,7 +77,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -85,10 +85,10 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-javascript tag-kuang-jia tag-liu-lan-qi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-javascript tag-qomo tag-opensource-project nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -96,13 +96,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -112,9 +112,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -123,13 +123,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-javascript tag-kuang-jia tag-liu-lan-qi">
+        <article class="post tag-javascript tag-qomo tag-opensource-project">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-35.html">Qomolangma实现篇(三)：兼容层设计</a></h1>
+                <h1 class="post-title"><a href="/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +138,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/kuang-jia/index.html">框架</a>, <a href="tag/liu-lan-qi/index.html">浏览器</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,139 +147,100 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <h2 id="qomolangma">一、Qomolangma的兼容层设计</h2>
 
-<p>Qomolangma OpenProject v1.0  </p>
+<p>自Qomo Field Test3开始，系统从内核一层开始提供跨(浏览器)平台兼容的能力。Qomo试图在不同的浏览器上提供相同(或类同)的框架层特性。</p>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<p>Qomo 的兼容层设计跟常见的其它系统并不一致。基于“Qomo是可拆卸可组装的”这样一个基本思想，Qomo实现的兼容层完全可以“象插件一样增强，或者卸载”。</p>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
-有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
+<p>与一般的系统不同，Qomo基本上是基于IE 6的JScript语言特性来提供的兼容层支撑。也就是说，如果你向Qomo的兼容层添加一个插件，那么你应该致力于“使第三方浏览器表现得跟IE6一致”。而通常的框架可能会反过来，要求通过兼容层来使得框架表现得跟ECMA-JavaScript一致。Qomo没有选择这样做，只是因为Qomo原本就更接近于IE，而非其它。</p>
 
-<hr />
+<p>事实上，我要说明的是，让框架兼容IE，比让IE上的JScript兼容ECMA更难。因为JScript提供了很多ECMA不具备的特性。也就是说，Qomo选择了这种兼容设计，意味着实现一个更强的Java-Script环境。而不是“让IE的JScript表现起来更象JavaScript”。</p>
 
-<p>一、Qomolangma的兼容层设计 <br />
-~~~~~~~~~~~~~~~~<del>  </p>
+<p>Qomo上的兼容层设计，已经使Qomo可以正常地在IE5.0中运行了。此外，你会发现，Qomo已经在以下系统上被测试，并得到良好的支持：</p>
 
-<p>自Qomo Field Test3开始，系统从内核一层开始提供跨(浏览器)平台兼容的能力。Qomo试图 <br />
-在不同的浏览器上提供相同(或类同)的框架层特性。  </p>
+<ul>
+<li>以Mozilla(Geckco engine)为内核的浏览器环境，例如Firefox</li>
+<li>Mac上的safari</li>
+<li>Windows平台上的IE5.0, IE5.5, IE6.0, IE7.0(beta1&amp;2)</li>
+</ul>
 
-<p>Qomo 的兼容层设计跟常见的其它系统并不一致。基于&ldquo;Qomo是可拆卸可组装的&rdquo;这样一个基 <br />
-本思想，Qomo实现的兼容层完全可以&ldquo;象插件一样增强，或者卸载&rdquo;。  </p>
+<blockquote>
+  <p>(注: 目前Qomo仅是在JavaScript层面上解决了兼容层问题。对于DOM，Qomo还没有展开设计。)</p>
+</blockquote>
 
-<p>与一般的系统不同，Qomo基本上是基于IE 6的JScript语言特性来提供的兼容层支撑。也就是 <br />
-说，如果你向Qomo的兼容层添加一个插件，那么你应该致力于&ldquo;使第三方浏览器表现得跟IE6 <br />
-一致&rdquo;。而通常的框架可能会反过来，要求通过兼容层来使得框架表现得跟ECMA-JavaScript <br />
-一致。Qomo没有选择这样做，只是因为Qomo原本就更接近于IE，而非其它。  </p>
+<h2 id="qomolangma">二、Qomolangma的兼容层框架</h2>
 
-<p>事实上，我要说明的是，让框架兼容IE，比让IE上的JScript兼容ECMA更难。因为JScript提供 <br />
-了很多ECMA不具备的特性。也就是说，Qomo选择了这种兼容设计，意味着实现一个更强的Java- <br />
-Script环境。而不是&ldquo;让IE的JScript表现起来更象JavaScript&rdquo;。  </p>
+<p>在Qomo的上一个Field Test中，兼容代码和unicode相关的解码是放在system.js中的。但后来Qomo团队发现这种设计导致system.js结构非常不清晰，移植性也极差。因此，在Field Test3之后的版本中，兼容层被抽取出来，用独立的“兼容层框架”来导入兼容代码。此外，unicode相关的解码被放置到与具体版本相关的“兼容代码”中。</p>
 
-<p>Qomo上的兼容层设计，已经使Qomo可以正常地在IE5.0中运行了。此外，你会发现，Qomo已经在 <br />
-以下系统上被测试，并得到良好的支持： <br />
-&nbsp; - 以Mozilla(Geckco engine)为内核的浏览器环境，例如Firefox <br />
-&nbsp; - Mac上的safari <br />
-&nbsp; - Windows平台上的IE5.0, IE5.5, IE6.0, IE7.0(beta1&amp;2)  </p>
+<p>作为一项参考，Qomo的标准设计环境中是这样：IE 5.5+浏览器。在这种环境下，透过兼容层支持：</p>
 
-<p>(注: 目前Qomo仅是在JavaScript层面上解决了兼容层问题。对于DOM，Qomo还没有展开设计。)  </p>
+<pre><code>Geckco engine 1.8.0.1  
+(Mozilla firefox 1.5.0.1以后)
+  - 没有unicode解码特性，因此要求HTML&amp;JS使用UTF-8编码
+  - 使用相对路径系统(因为浏览器对(本地)绝对路径做出了严格的安全限制)
 
-<p>二、Qomolangma的兼容层框架 <br />
-</del>~~~~~~~~~~~~~~<del>  </p>
+Internet Explorer  
+(IE5, 5.5, 6.0及以后)
+  - 自动、智能地支持unicode解码特性。但对于IE5.0使用特殊的解码方案
+  - 使用绝对路径系统，对路径/命名空间的识别和支持更准确和完善
+</code></pre>
 
-<p>在Qomo的上一个Field Test中，兼容代码和unicode相关的解码是放在system.js中的。但后来 <br />
-Qomo团队发现这种设计导致system.js结构非常不清晰，移植性也极差。因此，在Field Test3 <br />
-之后的版本中，兼容层被抽取出来，用独立的&ldquo;兼容层框架&rdquo;来导入兼容代码。此外，unicode <br />
-相关的解码被放置到与具体版本相关的&ldquo;兼容代码&rdquo;中。  </p>
+<p>Qomolangma通过在system.js中导入Compat/CompatLayer.js来装载兼容性框架。CompatLayer.js用于实现：</p>
 
-<p>作为一项参考，Qomo的标准设计环境中是这样：IE 5.5+浏览器。在这种环境下，透过兼容层： <br />
-支持： <br />
-Geckco engine 1.8.0.1  </p>
+<ul>
+<li>识别浏览器及版本</li>
+<li>载入指定版本浏览器的兼容代码</li>
+</ul>
 
-<hr />
+<h2 id="qomolangma">三、Qomolangma如何识别浏览器及版本</h2>
 
-<p>Mozilla firefox 1.5.0.1以后 <br />
-&nbsp; - 没有unicode解码特性，因此要求HTML&amp;JS使用UTF-8编码 <br />
-&nbsp; - 使用相对路径系统(因为浏览器对(本地)绝对路径做出了严格的安全限制)  </p>
+<p>当然，大多数浏览器相关的书籍都要求分析navigator.userAgent字符串来识别浏览器及版本。</p>
 
-<p>Internet Explorer  </p>
+<p>但是Qomo没有(完全)采用这种设计。Qomo使用了一种被称为“Object Sniffing”的、准确而高效的技术来实现浏览器的识别。在CompatLayer.js头部的注释中，你可以看到与之相关的信息。</p>
 
-<hr />
+<p>但是Object Sniffing还是有力所不逮之处。例如识别Firefox v1.5.0与v1.5.0.1。这两个版本只修正了一些极细微的bug。因此Object Sniffing是不能识别的。这种情况下，Qomo仍然使用分析userAgent的技术。为此，Qomo提供了一个内置于CompatLayer.js中的checkit()函数。你可以看看这个有趣的设计：checkit(v1, v2)返回-1/0/1之一，用于表现v1“小于／等于／大于”v2。</p>
 
-<p>IE5, 5.5, 6.0及以后 <br />
-&nbsp; - 自动、智能地支持unicode解码特性。但对于IE5.0使用特殊的解码方案 <br />
-&nbsp; - 使用绝对路径系统，对路径/命名空间的识别和支持更准确和完善  </p>
+<p>CompatLayer.js设计了一个checker对象，它的属性就是浏览器版本标识。例如“ie6、ie5”之类：</p>
 
-<p>Qomolangma通过在system.js中导入Compat/CompatLayer.js来装载兼容性框架。CompatLayer.js <br />
-用于实现： <br />
-&nbsp; - 识别浏览器及版本 <br />
-&nbsp; - 载入指定版本浏览器的兼容代码  </p>
+<pre><code class="language-javascript">  checker = {
+    ie6 : ie &amp;&amp; document.compatMode,
+    ie55 : ie &amp;&amp; !this.ie6 &amp;&amp; [].push,
+    // ...
+  }
+</code></pre>
 
-<p>三、Qomolangma如何识别浏览器及版本 <br />
-</del>~~~~~~~~~~~~~~<del>  </p>
+<p>而后面的表达式是检测该版本的代码。</p>
 
-<p>当然，大多数浏览器相关的书籍都要求分析navigator.userAgent字符串来识别浏览器及版本。 <br />
-但是Qomo没有(完全)采用这种设计。Qomo使用了一种被称为&ldquo;Object Sniffing&rdquo;的、准确而高 <br />
-效的技术来实现浏览器的识别。在CompatLayer.js头部的注释中，你可以看到与之相关的信息。  </p>
+<h2 id="qomolangma">四、Qomolangma中载入指定版本浏览器的兼容代码</h2>
 
-<p>但是Object Sniffing还是有力所不逮之处。例如识别Firefox v1.5.0与v1.5.0.1。这两个版本 <br />
-只修正了一些极细微的bug。因此Object Sniffing是不能识别的。这种情况下，Qomo仍然使用 <br />
-分析userAgent的技术。为此，Qomo提供了一个内置于CompatLayer.js中的checkit()函数。你 <br />
-可以看看这个有趣的设计：checkit(v1, v2)返回-1/0/1之一，用于表现v1&ldquo;小于／等于／大 <br />
-于&rdquo;v2。  </p>
+<p>如果<code>checker.&lt;versionTag&gt;</code>条件为真，则一段相应的兼容代码被自动载入。这段代码的文件名约定为<code>common_&lt;versionTag&gt;.js</code>。</p>
 
-<p>CompatLayer.js设计了一个checker对象，它的属性就是浏览器版本标识。例如&ldquo;ie6、ie5&rdquo; <br />
-之类： <br />
-<font face="Courier New">&nbsp; checker = { <br />
-&nbsp;&nbsp;&nbsp; ie6 : ie &amp;&amp; document.compatMode, <br />
-&nbsp;&nbsp;&nbsp; ie55 : ie &amp;&amp; !this.ie6 &amp;&amp; [].push, <br />
-&nbsp;&nbsp;&nbsp; // ... <br />
-&nbsp; }</font>  </p>
+<p>一个低版本的兼容代码只需要实现兼容更高版本浏览的代码，最后再载入高版本的兼容层即可。例如common_ie5.js未尾就载入了common_ie55.js，而后者再载入common_ie6.js。</p>
 
-<p>而后面的表达式是检测该版本的代码。  </p>
+<p>这样的设计，使得ie6的环境中不需要载入任何“无关的(非必须的)”兼容代码。</p>
 
-<p>四、Qomolangma中载入指定版本浏览器的兼容代码 <br />
-</del>~~~~~~~~~~~~~~<del>  </p>
+<h2 id="">五、兼容层代码的特点与问题</h2>
 
-<p>如果checker.&lt;versionTag&gt;条件为真，则一段相应的兼容代码被自动载入。这段代码的文件 <br />
-名约定为&ldquo;common_&lt;versionTag&gt;.js&rdquo;。  </p>
+<p>Qomo的兼容层充分地考虑了可扩展性。并为后续代码中使用这种载入机制提供了可能：在可以通过$import.get('browser')来取得浏览器版本标识“versionTag”。</p>
 
-<p>一个低版本的兼容代码只需要实现兼容更高版本浏览的代码，最后再载入高版本的兼容层 <br />
-即可。例如common<em>ie5.js未尾就载入了common</em>ie55.js，而后者再载入common_ie6.js。 <br />
-这样的设计，使得ie6的环境中不需要载入任何&ldquo;无关的(非必须的)&rdquo;兼容代码。  </p>
+<p>Qomo兼容层在IE中实现到for IE5.0的兼容，但也付出了巨大的牺牲。这包括：</p>
 
-<p>五、兼容层代码的特点与问题 <br />
-</del>~~~~~~~~~~~~~~~~  </p>
+<ul>
+<li>common_ie5.js巨大，且实现不完整</li>
+<li>不能使用<code>&lt;property&gt; in &lt;Object&gt;</code>语言来检测属性是否存在，因为IE5不支持该语法</li>
+<li>实现了IE5中的RegExp的$x属性和相关特性(例如支持函数的String.replace)，但效率较差，因此IE5的unicode解码只能采用vbs_JoinBytes()。这也使common_ie6.js出现了冗余设计。</li>
+</ul>
 
-<p>Qomo的兼容层充分地考虑了可扩展性。并为后续代码中使用这种载入机制提供了可能：在 <br />
-可以通过$import.get('browser')来取得浏览器版本标识&ldquo;versionTag&rdquo;。  </p>
+<p>Qomo通过对IE5兼容的研究，提出了在Mozilla(firefox)、Opera、safari等浏览器中实现面向IE6提供JavaScript兼容特性的通用方法。例如在common_safari.js等中可以看到RegExp的兼容实现。</p>
 
-<p>Qomo兼容层在IE中实现到for IE5.0的兼容，但也付出了巨大的牺牲。这包括： <br />
-<font face="Courier New">&nbsp; - common<em>ie5.js巨大，且实现不完整 <br />
-&nbsp; - 不能使用&quot;&lt;property&gt; in &lt;Object&gt;&quot;语言来检测属性是否存在，因为IE5不支持该语法 <br />
-&nbsp; - 实现了IE5中的RegExp的$x属性和相关特性(例如支持函数的String.replace)，但效率 <br />
-&nbsp;&nbsp;&nbsp; 较差，因此IE5的unicode解码只能采用vbs</em>JoinBytes()。这也使common_ie6.js出现了 <br />
-&nbsp;&nbsp;&nbsp; 冗余设计。</font>  </p>
+<p>Qomo发现了一些与浏览器版本或内核引擎相关的严重BUG。例如只支持firefox 1.5.0.1以后版本，并非是Qomo采用了何种特殊的、非ECMA特性的JavaScript语法，而仅仅是因为此前的Firefox(以及采用早于Geckco 1.8.0.1的Mozilla系列引擎的浏览器)存在严重的BUG。</p>
 
-<p>Qomo通过对IE5兼容的研究，提出了在Mozilla(firefox)、Opera、safari等浏览器中实现面 <br />
-向IE6提供JavaScript兼容特性的通用方法。例如在common_safari.js等中可以看到RegExp的 <br />
-兼容实现。  </p>
+<p>同样，在兼容层中的一些设计，例如common_mozold.js和common_safari.js中对execScript()的实现。也仅仅是一些未被修正的浏览器BUG导致的代码开销。</p>
 
-<p>Qomo发现了一些与浏览器版本或内核引擎相关的严重BUG。例如只支持firefox 1.5.0.1以后 <br />
-版本，并非是Qomo采用了何种特殊的、非ECMA特性的JavaScript语法，而仅仅是因为此前的 <br />
-Firefox(以及采用早于Geckco 1.8.0.1的Mozilla系列引擎的浏览器)存在严重的BUG。  </p>
+<p>与此相同的，是在IE5上著名的RegExp.lastIndex BUG，这使得common_ie5.js只能用substr()去分隔字符串，以实现RegExp.replace()。——尽管这是低效的根源。</p>
 
-<p>同样，在兼容层中的一些设计，例如common<em>mozold.js和common</em>safari.js中对execScript() <br />
-的实现。也仅仅是一些未被修正的浏览器BUG导致的代码开销。  </p>
-
-<p>与此相同的，是在IE5上著名的RegExp.lastIndex BUG，这使得common_ie5.js只能用substr() <br />
-去分隔字符串，以实现RegExp.replace()。&mdash;&mdash;尽管这是低效的根源。  </p>
-
-<p>这些问题与Qomo使用怎样的兼容方案无关。因此我们只能寄期望于用户使用更新的、没有BUG <br />
-的浏览器。&mdash;&mdash;再或者，忍受bug修补代码所带来的效率开销。:(</p>
+<p>这些问题与Qomo使用怎样的兼容方案无关。因此我们只能寄期望于用户使用更新的、没有BUG的浏览器。——再或者，忍受bug修补代码所带来的效率开销。:(</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -291,13 +252,13 @@ Firefox(以及采用早于Geckco 1.8.0.1的Mozilla系列引擎的浏览器)存�
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-34.html">
+                <a href="/1-34.html">
                     Qomo OpenProject Field Test 3发布！
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-36.html">
+                <a href="/1-36.html">
                     Qomolangma实现篇(四)：基本特性增强与多投事件系统
                 </a>
                 下一篇
@@ -307,8 +268,8 @@ Firefox(以及采用早于Geckco 1.8.0.1的Mozilla系列引擎的浏览器)存�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
+<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -332,8 +293,8 @@ a.gitment-editor-footer-tip { display: none; }
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
@@ -343,14 +304,14 @@ a.gitment-editor-footer-tip { display: none; }
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -369,7 +330,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -382,21 +343,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
 </body>
 
 </html>

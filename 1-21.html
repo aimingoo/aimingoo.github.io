@@ -10,36 +10,34 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript面向对象的支持(2)" />
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:description" content="八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 2). 反射机制在JavaScript中的实现 JavaScript中通过for..in语法来实现了反射机制。但是JavaScript中并不明确区分“属性”与“方法”，以及“事件”。因此，对属性的类型考查在JS中是个问题。下面的代码简单示例for..in的使用与属性识别： // // JavaScript中for..in的使用和属性识别 // var _r_event &#x3D; _r_event &#x3D; /^[Oo]n.*/;   var colorSetting &#x3D; {     method: &#x27;red&#x27;,   event: &#x27;blue&#x27;,   property: &#x27;&#x27; } var obj2 &#x3D; {     a_method : function() {},   a_property: 1,   onclick: undefined } function propertyKind(obj, p) {     return" />
     <meta property="og:url" content="http://aimingoo.github.io/1-21.html" />
     <meta property="article:published_time" content="2006-01-11T17:51:00.000Z" />
-    <meta property="article:modified_time" content="2006-01-11T17:51:00.000Z" />
+    <meta property="article:modified_time" content="2017-10-07T20:16:12.000Z" />
     <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="delphi" />
-    <meta property="article:tag" content="编程" />
-    <meta property="article:tag" content="测试" />
+    <meta property="article:tag" content="面向对象" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript面向对象的支持(2)" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:description" content="八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 2). 反射机制在JavaScript中的实现 JavaScript中通过for..in语法来实现了反射机制。但是JavaScript中并不明确区分“属性”与“方法”，以及“事件”。因此，对属性的类型考查在JS中是个问题。下面的代码简单示例for..in的使用与属性识别： // // JavaScript中for..in的使用和属性识别 // var _r_event &#x3D; _r_event &#x3D; /^[Oo]n.*/;   var colorSetting &#x3D; {     method: &#x27;red&#x27;,   event: &#x27;blue&#x27;,   property: &#x27;&#x27; } var obj2 &#x3D; {     a_method : function() {},   a_property: 1,   onclick: undefined } function propertyKind(obj, p) {     return" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-21.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, delphi, 编程, 测试" />
+    <meta name="twitter:data2" content="Javascript, 面向对象" />
     
     <script type="application/ld+json">
 {
@@ -68,9 +66,9 @@
     "headline": "JavaScript面向对象的支持(2)",
     "url": "http://aimingoo.github.io/1-21.html",
     "datePublished": "2006-01-11T17:51:00.000Z",
-    "dateModified": "2006-01-11T17:51:00.000Z",
-    "keywords": "Javascript, delphi, 编程, 测试",
-    "description": "Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
+    "dateModified": "2017-10-07T20:16:12.000Z",
+    "keywords": "Javascript, 面向对象",
+    "description": "八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 2). 反射机制在JavaScript中的实现 JavaScript中通过for..in语法来实现了反射机制。但是JavaScript中并不明确区分“属性”与“方法”，以及“事件”。因此，对属性的类型考查在JS中是个问题。下面的代码简单示例for..in的使用与属性识别： // // JavaScript中for..in的使用和属性识别 // var _r_event &#x3D; _r_event &#x3D; /^[Oo]n.*/;   var colorSetting &#x3D; {     method: &#x27;red&#x27;,   event: &#x27;blue&#x27;,   property: &#x27;&#x27; } var obj2 &#x3D; {     a_method : function() {},   a_property: 1,   onclick: undefined } function propertyKind(obj, p) {     return",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -78,7 +76,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -86,10 +84,10 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-javascript tag-delphi tag-bian-cheng tag-ce-shi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-javascript tag-mian-xiang-dui-xiang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -97,13 +95,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -113,9 +111,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -124,13 +122,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-javascript tag-delphi tag-bian-cheng tag-ce-shi">
+        <article class="post tag-javascript tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-21.html">JavaScript面向对象的支持(2)</a></h1>
+                <h1 class="post-title"><a href="/1-21.html">JavaScript面向对象的支持(2)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -139,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/delphi/index.html">delphi</a>, <a href="tag/bian-cheng/index.html">编程</a>, <a href="tag/ce-shi/index.html">测试</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -148,246 +146,188 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <h1 id="javascript">八、JavaScript面向对象的支持</h1>
 
-<p>Qomolangma OpenProject v0.9  </p>
+<h2 id="2javascript">2. JavaScript面向对象的支持</h2>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<h3 id="2javascript">2). 反射机制在JavaScript中的实现</h3>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
-有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
+<p>JavaScript中通过<code>for..in</code>语法来实现了反射机制。但是JavaScript中并不明确区分“属性”与“方法”，以及“事件”。因此，对属性的类型考查在JS中是个问题。下面的代码简单示例<code>for..in</code>的使用与属性识别：</p>
 
-<hr />
+<pre><code class="language-javascript">//
+// JavaScript中for..in的使用和属性识别
+//
+var _r_event = _r_event = /^[Oo]n.*/;  
+var colorSetting = {  
+  method: 'red',
+  event: 'blue',
+  property: ''
+}
 
-<p>&nbsp;2). 反射机制在JavaScript中的实现 <br />
-&nbsp;  </p>
+var obj2 = {  
+  a_method : function() {},
+  a_property: 1,
+  onclick: undefined
+}
 
-<hr />
+function propertyKind(obj, p) {  
+  return  (_r_event.test(p) &amp;&amp; (obj[p]==undefined || typeof(obj[p])=='function')) ? 'event'
+    : (typeof(obj[p])=='function') ? 'method'
+    : 'property';
+}
 
-<p>&nbsp; JavaScript中通过for..in语法来实现了反射机制。但是JavaScript中并不 <br />
-明确区分&ldquo;属性&rdquo;与&ldquo;方法&rdquo;，以及&ldquo;事件&rdquo;。因此，对属性的类型考查在JS <br />
-中是个问题。下面的代码简单示例for..in的使用与属性识别： <br />
-<font face="Courier New">//  </p>
+var objectArr = ['window', 'obj2'];
 
-<hr />
+for (var i=0; i&lt;objectArr.length; i++) {  
+  document.writeln('&lt;p&gt;for ', objectArr[i], '&lt;hr&gt;');
 
-<p>// JavaScript中for..in的使用和属性识别 <br />
-//  </p>
+  var obj = eval(objectArr[i]);
+  for (var p in obj) {
+    var kind = propertyKind(obj, p);
+    document.writeln('obj.', p, ' is a ', kind.fontcolor(colorSetting[kind]), ': ', obj[p], '&lt;br&gt;');
+  }
 
-<hr />
+  document.writeln('&lt;/p&gt;');
+}
+</code></pre>
 
-<p>var <em>r</em>event = <em>r</em>event = /^[Oo]n.*/; <br />
-var colorSetting = { <br />
-&nbsp; method: 'red', <br />
-&nbsp; event: 'blue', <br />
-&nbsp; property: '' <br />
-}</font>  </p>
+<p>一个常常被开发者忽略的事实是：JavaScript本身是没有事件(Event)系统的。通常我们在JavaScript用到的onclick等事件，其实是IE的DOM模型提供的。从更内核的角度上讲：IE通过COM的接口属性公布了一组事件接口给DOM。</p>
 
-<p><font face="Courier New">var obj2 = { <br />
-&nbsp; a<em>method : function() {}, <br />
-&nbsp; a</em>property: 1, <br />
-&nbsp; onclick: undefined <br />
-}</font>  </p>
+<p>有两个原因，使得在JS中不能很好的识别“一个属性是不是事件”：</p>
 
-<p><font face="Courier New">function propertyKind(obj, p) { <br />
-&nbsp; return&nbsp; (<em>r</em>event.test(p) &amp;&amp; (obj[p]<mark>undefined || typeof(obj[p])</mark>'function')) ? 'event' <br />
-&nbsp;&nbsp;&nbsp; : (typeof(obj[p])<mark>'function') ? 'method' <br />
-&nbsp;&nbsp;&nbsp; : 'property'; <br />
-}</font>  </p>
+<ul>
+<li>COM接口中本身只有方法，属性与事件，都是通过一组get/set方法来公布的。</li>
+<li>JavaScript中，本身并没有独立的“事件”机制。</li>
+</ul>
 
-<p><font face="Courier New">var objectArr = ['window', 'obj2'];</font>  </p>
+<p>因此我们看到event的识别方法，是检测属性名是否是以<code>on</code>字符串开头(以<code>On</code>开头的是Qomo的约定)。接下来，由于DOM对象中的事件是可以不指定处理函数的，这种情况下事件句柄为null值(Qomo采用相同的约定)；在另外的一些情况下，用户可能象obj2这样，定义一个值为undefined的事件。因此“事件”的判定条件被处理成一个复杂的表达式：</p>
 
-<p><font face="Courier New">for (var i=0; i&lt;objectArr.length; i++) { <br />
-&nbsp; document.writeln('&lt;p&gt;for ', objectArr[i], '&lt;hr&gt;');</font>  </p>
+<blockquote>
+  <p>("属性以on/On开头" &amp;&amp; ("值为null/undefined" || "类型为function"))</p>
+</blockquote>
 
-<p><font face="Courier New">&nbsp; var obj = eval(objectArr[i]); <br />
-&nbsp; for (var p in obj) { <br />
-&nbsp;&nbsp;&nbsp; var kind = propertyKind(obj, p); <br />
-&nbsp;&nbsp;&nbsp; document.writeln('obj.', p, ' is a ', kind.fontcolor(colorSetting[kind]), ': ', obj[p], '&lt;br&gt;'); <br />
-&nbsp; }</font>  </p>
+<p>另外，从上面的这段代码的运行结果来看。对DOM对象使用<code>for..in</code>，是不能列举出对象方法来的。</p>
 
-<p><font face="Courier New">&nbsp; document.writeln('&lt;/p&gt;'); <br />
-}</font>  </p>
+<p>最后说明一点。事实上，在很多语言的实现中，“事件”都不是“面向对象”的语言特性，而是由具体的编程模型来提供的。例如Delphi中的事件驱动机制，是由Win32操作系统中的窗口消息机制来提供，或者由用户代码在Component/Class中主动调用事件处理函数来实现。</p>
 
-<p>一个常常被开发者忽略的事实是：JavaScript本身是没有事件(Event)系统的。通 <br />
-常我们在JavaScript用到的onclick等事件，其实是IE的DOM模型提供的。从更内核 <br />
-的角度上讲：IE通过COM的接口属性公布了一组事件接口给DOM。  </p>
+<p>“事件”是一个“如何驱动编程模型”的机制／问题，而不是语言本身的问题。然而以PME(property/method/event)为框架的OOP概念，已经深入人心，所以当编程语言或系统表现出这些特性来的时候，就已经没人关心“event究竟是谁实现”的了。</p>
 
-<p>有两个原因，使得在JS中不能很好的识别&ldquo;一个属性是不是事件&rdquo;： <br />
-&nbsp; - COM接口中本身只有方法，属性与事件，都是通过一组get/set方法来公布的。 <br />
-&nbsp; - JavaScript中，本身并没有独立的&ldquo;事件&rdquo;机制。  </p>
+<h3 id="3thiswith">3). this与with关键字的使用</h3>
 
-<p>因此我们看到event的识别方法，是检测属性名是否是以'on'字符串开头(以'On'开 <br />
-头的是Qomo的约定)。接下来，由于DOM对象中的事件是可以不指定处理函数的，这 <br />
-种情况下事件句柄为null值(Qomo采用相同的约定)；在另外的一些情况下，用户可 <br />
-能象obj2这样，定义一个值为 undefined的事件。因此&ldquo;事件&rdquo;的判定条件被处理 <br />
-成一个复杂的表达式： <br />
-&nbsp;&nbsp; (&quot;属性以on/On开头&quot; &amp;&amp; (&quot;值为null/undefined&quot; || &quot;类型为function&quot;))  </p>
+<p>在JavaScript的对象系统中，this关键字用在两种地方：</p>
 
-<p>另外，从上面的这段代码的运行结果来看。对DOM对象使用for..in，是不能列举出 <br />
-对象方法来的。  </p>
+<ul>
+<li>在构造器函数中，指代新创建的对象实例</li>
+<li>在对象的方法被调用时，指代调用该方法的对象实例</li>
+</ul>
 
-<p>最后说明一点。事实上，在很多语言的实现中，&ldquo;事件&rdquo;都不是&ldquo;面向对象&rdquo;的语 <br />
-言特性，而是由具体的编程模型来提供的。例如Delphi中的事件驱动机制，是由Win32 <br />
-操作系统中的窗口消息机制来提供，或者由用户代码在Component/Class中主动调用 <br />
-事件处理函数来实现。  </p>
+<p>如果一个函数被作为普通函数(而不是对象方法)调用，那么在函数中的this关键字将指向window对象。与此相同的，如果this关键字不在任何函数中，那么他也指向window对象。</p>
 
-<p>&ldquo;事件&rdquo;是一个&ldquo;如何驱动编程模型&rdquo;的机制／问题，而不是语言本身的问题。然 <br />
-而以PME(property/method/event)为框架的OOP概念，已经深入人心，所以当编程语 <br />
-言或系统表现出这些特性来的时候，就已经没人关心&ldquo;event究竟是谁实现&rdquo;的了。  </p>
+<p>由于在JavaScript中不明确区分函数与方法。因此有些代码看起来很奇怪：</p>
 
-<p>&nbsp;3). this与with关键字的使用 <br />
-&nbsp;  </p>
+<pre><code class="language-javascript">//
+// 函数的几种可能调用形式
+//
+function foo() {  
+  // 下面的this指代调用该方法的对象实例
+  if (this===window) {
+    document.write('call a function.', '&lt;BR&gt;');
+  }
+  else {
+    document.write('call a method, by object: ', this.name, '&lt;BR&gt;');
+  }
+}
 
-<hr />
+function MyObject(name) {  
+  // 下面的this指代new关键字新创建实例
+  this.name = name;
+  this.foo = foo;
+}
 
-<p>&nbsp;在JavaScript的对象系统中，this关键字用在两种地方： <br />
-&nbsp;&nbsp; - 在构造器函数中，指代新创建的对象实例 <br />
-&nbsp;&nbsp; - 在对象的方法被调用时，指代调用该方法的对象实例  </p>
+var obj1 = new MyObject('obj1');  
+var obj2 = new MyObject('obj2');
 
-<p>&nbsp;如果一个函数被作为普通函数(而不是对象方法)调用，那么在函数中的this关键字 <br />
-将指向window对象。与此相同的，如果this关键字不在任何函数中，那么他也指向 <br />
-window对象。  </p>
+// 测试1: 作为函数调用
+foo();
 
-<p>&nbsp;由于在JavaScript中不明确区分函数与方法。因此有些代码看起来很奇怪： <br />
-<font face="Courier New">//  </p>
+// 测试2: 作为对象方法的调用
+obj1.foo();  
+obj2.foo();
 
-<hr />
+// 测试3: 将函数作为“指定对象的”方法调用
+foo.call(obj1);  
+foo.apply(obj2);  
+</code></pre>
 
-<p>// 函数的几种可能调用形式 <br />
-//  </p>
+<p>在上面的代码里，obj1/obj2对foo()的调用是很普通的调用方法。——也就
+是在构造器上，将一个函数指定为对象的方法。</p>
 
-<hr />
+<p>而测试3中的call()与apply()就比较特殊。</p>
 
-<p>function foo() { <br />
-&nbsp; // 下面的this指代调用该方法的对象实例 <br />
-&nbsp; if (this</mark>=window) { <br />
-&nbsp;&nbsp;&nbsp; document.write('call a function.', '&lt;BR&gt;'); <br />
-&nbsp; } <br />
-&nbsp; else { <br />
-&nbsp;&nbsp;&nbsp; document.write('call a method, by object: ', this.name, '&lt;BR&gt;'); <br />
-&nbsp; } <br />
-}</font>  </p>
+<p>在这个测试中，foo()仍然作为普通函数来调用，只是JavaScript的语言特性允许在call()/apply()时，传入一个对象实例来指定foo()的上下文环境中所出现的this关键字的引用。——需要注意的是，此时的foo()仍旧是一个普通
+函数调用，而不是对象方法调用。</p>
 
-<p><font face="Courier New">function MyObject(name) { <br />
-&nbsp; // 下面的this指代new关键字新创建实例 <br />
-&nbsp; this.name = name; <br />
-&nbsp; this.foo = foo; <br />
-}</font>  </p>
+<p>与this“指示调用该方法的对象实例”有些类同的，<code>with()</code>语法也用于限定“在一段代码片段中默认使用对象实例”。——如果不使用<code>with()</code>语法，那么这段代码将受到更外层<code>with()</code>语句的影响；如果没有更外层的<code>with()</code>，那么这段代码的“默认使用的对象实例”将是window。</p>
 
-<p><font face="Courier New">var obj1 = new MyObject('obj1'); <br />
-var obj2 = new MyObject('obj2');</font>  </p>
+<p>然而需要注意的是this与with关键字不是互为影响的。如下面的代码：</p>
 
-<p><font face="Courier New">// 测试1: 作为函数调用 <br />
-foo();</font>  </p>
+<pre><code class="language-javascript">//
+// 测试: this与with关键字不是互为影响的
+//
+function test() {  
+  with (obj2) {
+    this.value = 8;
+  }
+}
+var obj2 = new Object();  
+obj2.value = 10;
 
-<p><font face="Courier New">// 测试2: 作为对象方法的调用 <br />
-obj1.foo(); <br />
-obj2.foo();</font>  </p>
+test();  
+document.writeln('obj2.value: ', obj2.value, '&lt;br&gt;');  
+document.writeln('window.value: ', window.value, '&lt;br&gt;');  
+</code></pre>
 
-<p><font face="Courier New">// 测试3: 将函数作为&ldquo;指定对象的&rdquo;方法调用 <br />
-foo.call(obj1); <br />
-foo.apply(obj2);</font>  </p>
+<p>你不能指望这样的代码在调用结束后，会使obj2.value属性置值为8。这几行代码的结果是：window对象多了一个value属性，并且值为8。</p>
 
-<p>在上面的代码里，obj1/obj2对foo()的调用是很普通的调用方法。&mdash;&mdash;也就 <br />
-是在构造器上，将一个函数指定为对象的方法。  </p>
+<p><code>with(obj){...}</code>这个语法，只能限定对obj的既有属性的读取，而不能主动的声明它。一旦<code>with()</code>里的对象没有指定的属性，或者<code>with()</code>限定了一个不是对象的数据，那么结果会产生一个异常。</p>
 
-<p>而测试3中的call()与apply()就比较特殊。  </p>
+<h3 id="4in">4). 使用in关键字的运算</h3>
 
-<p>在这个测试中，foo()仍然作为普通函数来调用，只是JavaScript的语言特性 <br />
-允许在call()/apply()时，传入一个对象实例来指定foo()的上下文环境中所 <br />
-出现的this关键字的引用。&mdash;&mdash;需要注意的是，此时的foo()仍旧是一个普通 <br />
-函数调用，而不是对象方法调用。  </p>
+<p>除了用<code>for..in</code>来反射对象的成员信息之外，JavaScript中也允许直接用in
+关键字去检测对象是否有指定名字的属性。</p>
 
-<p>与this&ldquo;指示调用该方法的对象实例&rdquo;有些类同的，with()语法也用于限定 <br />
-&ldquo;在一段代码片段中默认使用对象实例&rdquo;。&mdash;&mdash;如果不使用with()语法，那 <br />
-么这段代码将受到更外层with()语句的影响；如果没有更外层的with()，那 <br />
-么这段代码的&ldquo;默认使用的对象实例&rdquo;将是window。  </p>
+<p><code>in</code>关键字经常被提及的原因并不是它检测属性是否存在的能力，因此在早期的代码中，很多可喜欢用<code>if (!obj.propName) {}</code>这样的方式来检测propName是否是有效的属性。——很多时候，检测有效性比检测“是否存有该属性”更有实用性。因此这种情况下，in只是一个可选的、官方的方案。</p>
 
-<p>然而需要注意的是this与with关键字不是互为影响的。如下面的代码： <br />
-<font face="Courier New">//  </p>
+<p><code>in</code>关键字的重要应用是高速字符串检索。尤其是在只需要判定“字符串是否存在”的情况下。例如10万个字符串，如果存储在数组中，那么检索效率将会极差。</p>
 
-<hr />
+<pre><code class="language-javascript">//
+// 使用对象来检索
+//
+function arrayToObject(arr) {  
+  for (var obj=new Object(), i=0, imax=arr.length; i&lt;imax; i++) {
+    obj[arr[i]]=null;
+  }
+  return obj;
+}
 
-<p>// 测试: this与with关键字不是互为影响的 <br />
-//  </p>
+var  
+  arr = ['abc', 'def', 'ghi']; // more and more...
+  obj = arrayToObject(arr);
 
-<hr />
+function valueInArray(v) {  
+  for (var i=0, imax=arr.length; i&lt;imax; i++) {
+    if (arr[i]==v) return true;
+  }
 
-<p>function test() { <br />
-&nbsp; with (obj2) { <br />
-&nbsp;&nbsp;&nbsp; this.value = 8; <br />
-&nbsp; } <br />
-} <br />
-var obj2 = new Object(); <br />
-obj2.value = 10;</font>  </p>
+  return false;
+}
 
-<p><font face="Courier New">test(); <br />
-document.writeln('obj2.value: ', obj2.value, '&lt;br&gt;'); <br />
-document.writeln('window.value: ', window.value, '&lt;br&gt;');</font>  </p>
+function valueInObject(v) {  
+  return v in obj;
+}
+</code></pre>
 
-<p>你不能指望这样的代码在调用结束后，会使obj2.value属性置值为8。这几行 <br />
-代码的结果是：window对象多了一个value属性，并且值为8。  </p>
-
-<p>with(obj){...}这个语法，只能限定对obj的既有属性的读取，而不能主动的 <br />
-声明它。一旦with()里的对象没有指定的属性，或者with()限定了一个不是对 <br />
-象的数据，那么结果会产生一个异常。  </p>
-
-<p>&nbsp;4). 使用in关键字的运算 <br />
-&nbsp;  </p>
-
-<hr />
-
-<p>&nbsp;除了用for..in来反射对象的成员信息之外，JavaScript中也允许直接用in <br />
-关键字去检测对象是否有指定名字的属性。  </p>
-
-<p>&nbsp;in关键字经常被提及的原因并不是它检测属性是否存在的能力，因此在早期 <br />
-的代码中，很多可喜欢用&ldquo;if (!obj.propName) {}&rdquo; 这样的方式来检测propName <br />
-是否是有效的属性。&mdash;&mdash;很多时候，检测有效性比检测&ldquo;是否存有该属性&rdquo;更 <br />
-有实用性。因此这种情况下，in只是一个可选的、官方的方案。  </p>
-
-<p>&nbsp;in关键字的重要应用是高速字符串检索。尤其是在只需要判定&ldquo;字符串是否 <br />
-存在&rdquo;的情况下。例如10万个字符串，如果存储在数组中，那么检索效率将会 <br />
-极差。 <br />
-<font face="Courier New">//  </p>
-
-<hr />
-
-<p>// 使用对象来检索 <br />
-//  </p>
-
-<hr />
-
-<p>function arrayToObject(arr) { <br />
-&nbsp; for (var obj=new Object(), i=0, imax=arr.length; i&lt;imax; i++) { <br />
-&nbsp;&nbsp;&nbsp; obj[arr[i]]=null; <br />
-&nbsp; } <br />
-&nbsp; return obj; <br />
-}</font>  </p>
-
-<p><font face="Courier New">var <br />
-&nbsp; arr = ['abc', 'def', 'ghi']; // more and more... <br />
-&nbsp; obj = arrayToObject(arr);</font>  </p>
-
-<p><font face="Courier New">function valueInArray(v) { <br />
-&nbsp; for (var i=0, imax=arr.length; i&lt;imax; i++) { <br />
-&nbsp;&nbsp;&nbsp; if (arr[i]==v) return true; <br />
-&nbsp; }</font>  </p>
-
-<p><font face="Courier New">&nbsp; return false; <br />
-}</font>  </p>
-
-<p><font face="Courier New">function valueInObject(v) { <br />
-&nbsp; return v in obj; <br />
-}</font>  </p>
-
-<p>这种使用关键字in的方法，也存在一些限制。例如只能查找字符串，而数 <br />
-组元素可以是任意值。另外，arrayToObject()也存在一些开销，这使得它 <br />
-不适合于频繁变动的查找集。最后，(我想你可能已经注意到了)使用对象 <br />
-来查找的时候并不能准确定位到查找数据，而数组中可以指向结果的下标。  </p>
+<p>这种使用关键字in的方法，也存在一些限制。例如只能查找字符串，而数组元素可以是任意值。另外，arrayToObject()也存在一些开销，这使得它不适合于频繁变动的查找集。最后，(我想你可能已经注意到了)使用对象来查找的时候并不能准确定位到查找数据，而数组中可以指向结果的下标。</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -399,13 +339,13 @@ document.writeln('window.value: ', window.value, '&lt;br&gt;');</font>  </p>
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-20.html">
+                <a href="/1-20.html">
                     关于Qomo于ajax的异同～
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-22.html">
+                <a href="/1-22.html">
                     JavaScript面向对象的支持(3)
                 </a>
                 下一篇
@@ -415,8 +355,8 @@ document.writeln('window.value: ', window.value, '&lt;br&gt;');</font>  </p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
+<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -440,8 +380,8 @@ a.gitment-editor-footer-tip { display: none; }
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
@@ -451,14 +391,14 @@ a.gitment-editor-footer-tip { display: none; }
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -477,7 +417,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -490,21 +430,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
 </body>
 
 </html>

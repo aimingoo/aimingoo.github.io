@@ -11,13 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
@@ -26,8 +26,10 @@
     <meta property="og:description" content="动静之间，不变的本质      —— 我的程序语言实践 引子 源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。 这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。 从动态语言到静态语言 我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&amp;mdash;&amp;mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，我用BASIC写过内存处理、端口处理程序。到了1997年的时候，我的一个朋友的毕业设计要用BASIC来写，当时我已经丢下BASIC两年了，但还是用了一晚的时间完成了一个考试管理系统，包括班级、学科管理、成绩管理和档案管理（" />
     <meta property="og:url" content="http://aimingoo.github.io/1-87.html" />
     <meta property="article:published_time" content="2007-11-01T06:12:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-04T10:35:04.000Z" />
+    <meta property="article:modified_time" content="2017-10-07T20:21:43.000Z" />
     <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="面向对象" />
+    <meta property="article:tag" content="函数式" />
     <meta property="article:tag" content="程序人生" />
     
     <meta name="twitter:card" content="summary" />
@@ -37,7 +39,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="语言, 程序人生" />
+    <meta name="twitter:data2" content="语言, 面向对象, 函数式, 程序人生" />
     
     <script type="application/ld+json">
 {
@@ -66,8 +68,8 @@
     "headline": "我的程序语言实践",
     "url": "http://aimingoo.github.io/1-87.html",
     "datePublished": "2007-11-01T06:12:00.000Z",
-    "dateModified": "2017-10-04T10:35:04.000Z",
-    "keywords": "语言, 程序人生",
+    "dateModified": "2017-10-07T20:21:43.000Z",
+    "keywords": "语言, 面向对象, 函数式, 程序人生",
     "description": "动静之间，不变的本质      —— 我的程序语言实践 引子 源于SD2.0大会的召开，以及拙作《JavaScript语言精髓与编程实践》一书的出版在即，CSDN、博文视点以及《程序员》的编辑都希望我写一点关于语言的东西。我已经为这个问题苦恼了很久，因为我不知道可以说什么，既可以与先行者有别，又可以使后来者为鉴。 这下便借用《程序设计语言实践》一书的书名，讲讲我的经历吧。 从动态语言到静态语言 我所学的第一门语言其实是数据库编程语言DBASE，参加的是学校的一个暑期的关于微机操作的培训&amp;mdash;&amp;mdash;程序设计语言只是其中很小的一部分，我们得从键盘键位之类的开始学起。就这样，我也只学了十天。这是在1994年，当时用的是DBASE III。DBASE是解释执行的、弱类型的一种语言，我用它写过数据库的前置的口令检测程序。很快我就换成了BASIC，换这门语言的原因是当时要参加省赛区的一个竞赛，我用了一个月略多的时间来学习它就参赛了，结果是第二名。在后来的学习中，我用BASIC写过内存处理、端口处理程序。到了1997年的时候，我的一个朋友的毕业设计要用BASIC来写，当时我已经丢下BASIC两年了，但还是用了一晚的时间完成了一个考试管理系统，包括班级、学科管理、成绩管理和档案管理（",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -76,7 +78,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -87,7 +89,7 @@ ghost.init({
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-yu-yan tag-cheng-xu-ren-sheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-yu-yan tag-mian-xiang-dui-xiang tag-han-shu-shi tag-cheng-xu-ren-sheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -95,7 +97,7 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=2324fcd7e8"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -122,7 +124,7 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-yu-yan tag-cheng-xu-ren-sheng">
+        <article class="post tag-yu-yan tag-mian-xiang-dui-xiang tag-han-shu-shi tag-cheng-xu-ren-sheng">
             <header class="post-header">
                 <h1 class="post-title"><a href="/1-87.html">我的程序语言实践</a></h1>
                 <section class="post-meta">
@@ -137,7 +139,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/yu-yan/">语言</a>, <a href="/tag/cheng-xu-ren-sheng/">程序人生</a>
+                        <a href="/tag/yu-yan/">语言</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>, <a href="/tag/han-shu-shi/">函数式</a>, <a href="/tag/cheng-xu-ren-sheng/">程序人生</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -312,8 +314,8 @@ left(isTrue)  right(:)
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=2324fcd7e8" />
-<script src="/assets/js/gitmint.browser.js?v=2324fcd7e8"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
+<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -387,21 +389,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
 </body>
 
 </html>

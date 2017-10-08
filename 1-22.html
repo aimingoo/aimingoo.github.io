@@ -10,34 +10,34 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript面向对象的支持(3)" />
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:description" content="八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 5). 使用instanceof关键字的运算 在JavaScript中提供了instanceof关键字来检测实例的类型。这在前面讨论它的“五重身份”时已经讲过。但instanceof的问题是，它总是列举整个原型链以检测类型(关于原型继承的原理在“构造与析构”小节讲述)，如： // // instanceof使用中的问题 // function MyObject() {     // ... } function MyObject2() {     // ... } MyObject2.prototype &#x3D; new MyObject(); obj1 &#x3D; new MyObject();   obj2 &#x3D; new MyObject2(); document.writeln(obj1 instanceof MyObject, &#x27;&amp;lt;BR&amp;gt;&#x27;);   document.writeln(obj2 instanceof MyObject, &#x27;&amp;lt;BR&amp;gt;" />
     <meta property="og:url" content="http://aimingoo.github.io/1-22.html" />
     <meta property="article:published_time" content="2006-01-15T18:25:00.000Z" />
-    <meta property="article:modified_time" content="2006-01-15T18:25:00.000Z" />
+    <meta property="article:modified_time" content="2017-10-07T20:18:41.000Z" />
     <meta property="article:tag" content="Javascript" />
-    <meta property="article:tag" content="oop" />
+    <meta property="article:tag" content="面向对象" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript面向对象的支持(3)" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:description" content="八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 5). 使用instanceof关键字的运算 在JavaScript中提供了instanceof关键字来检测实例的类型。这在前面讨论它的“五重身份”时已经讲过。但instanceof的问题是，它总是列举整个原型链以检测类型(关于原型继承的原理在“构造与析构”小节讲述)，如： // // instanceof使用中的问题 // function MyObject() {     // ... } function MyObject2() {     // ... } MyObject2.prototype &#x3D; new MyObject(); obj1 &#x3D; new MyObject();   obj2 &#x3D; new MyObject2(); document.writeln(obj1 instanceof MyObject, &#x27;&amp;lt;BR&amp;gt;&#x27;);   document.writeln(obj2 instanceof MyObject, &#x27;&amp;lt;BR&amp;gt;" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-22.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, oop" />
+    <meta name="twitter:data2" content="Javascript, 面向对象" />
     
     <script type="application/ld+json">
 {
@@ -66,9 +66,9 @@
     "headline": "JavaScript面向对象的支持(3)",
     "url": "http://aimingoo.github.io/1-22.html",
     "datePublished": "2006-01-15T18:25:00.000Z",
-    "dateModified": "2006-01-15T18:25:00.000Z",
-    "keywords": "Javascript, oop",
-    "description": "Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
+    "dateModified": "2017-10-07T20:18:41.000Z",
+    "keywords": "Javascript, 面向对象",
+    "description": "八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 5). 使用instanceof关键字的运算 在JavaScript中提供了instanceof关键字来检测实例的类型。这在前面讨论它的“五重身份”时已经讲过。但instanceof的问题是，它总是列举整个原型链以检测类型(关于原型继承的原理在“构造与析构”小节讲述)，如： // // instanceof使用中的问题 // function MyObject() {     // ... } function MyObject2() {     // ... } MyObject2.prototype &#x3D; new MyObject(); obj1 &#x3D; new MyObject();   obj2 &#x3D; new MyObject2(); document.writeln(obj1 instanceof MyObject, &#x27;&amp;lt;BR&amp;gt;&#x27;);   document.writeln(obj2 instanceof MyObject, &#x27;&amp;lt;BR&amp;gt;",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -76,7 +76,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -84,10 +84,10 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-javascript tag-oop nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-javascript tag-mian-xiang-dui-xiang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -95,13 +95,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,9 +111,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -122,13 +122,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-javascript tag-oop">
+        <article class="post tag-javascript tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-22.html">JavaScript面向对象的支持(3)</a></h1>
+                <h1 class="post-title"><a href="/1-22.html">JavaScript面向对象的支持(3)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/oop/index.html">oop</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,99 +146,60 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
+                <h1 id="javascript">八、JavaScript面向对象的支持</h1>
 
-<p>Qomolangma OpenProject v0.9  </p>
+<h2 id="2javascript">2. JavaScript面向对象的支持</h2>
 
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
+<h3 id="5instanceof">5). 使用instanceof关键字的运算</h3>
 
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
-有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
+<p>在JavaScript中提供了instanceof关键字来检测实例的类型。这在前面讨论它的“五重身份”时已经讲过。但instanceof的问题是，它总是列举整个原型链以检测类型(关于原型继承的原理在“构造与析构”小节讲述)，如：</p>
 
-<hr />
+<pre><code class="language-javascript">//
+// instanceof使用中的问题
+//
+function MyObject() {  
+  // ...
+}
 
-<p>八、JavaScript面向对象的支持 <br />
-~~~~~~~~~~~~~~~~~~ <br />
-(续)  </p>
+function MyObject2() {  
+  // ...
+}
+MyObject2.prototype = new MyObject();
 
-<ol>
-<li>JavaScript面向对象的支持  </li>
-</ol>
+obj1 = new MyObject();  
+obj2 = new MyObject2();
 
-<hr />
+document.writeln(obj1 instanceof MyObject, '&lt;BR&gt;');  
+document.writeln(obj2 instanceof MyObject, '&lt;BR&gt;');  
+</code></pre>
 
-<p>(续)  </p>
+<p>我们看到，obj1与obj2都是MyObject的实例，但他们是不同的构造函数产生的。——注意，这在面向对象理论中正确的：因为obj2是MyObject的子类实例，因此它具有与obj1相同的特性。在应用中这是obj2的多态性的体现之一。</p>
 
-<p>&nbsp;5). 使用instanceof关键字的运算 <br />
-&nbsp;  </p>
+<p>但是，即便如此，我们也必须面临这样的问题：如何知道obj2与obj1是否是相同类型的实例呢？——也就是说，连构造器都相同？</p>
 
-<hr />
+<p>instanceof关键字不提供这样的机制。一个提供实现这种检测的能力的，是Object.constructor属性。——但请先记住，它的使用远比你想象的要难。</p>
 
-<p>&nbsp;在JavaScript中提供了instanceof关键字来检测实例的类型。这在前面讨 <br />
-论它的&ldquo;五重身份&rdquo;时已经讲过。但instanceof的问题是，它总是列举整个 <br />
-原型链以检测类型(关于原型继承的原理在&ldquo;构造与析构&rdquo;小节讲述)，如： <br />
-<font face="Courier New">//  </p>
+<p>好的，问题先到这里。constructor属性已经涉及到“构造与析构”的问题，这个我们后面再讲。“原型继承”、“构造与析构”是JavaScript的OOP中的主要问题、核心问题，以及“致命问题”。</p>
 
-<hr />
+<h3 id="6nullundefined">6). null与undefined</h3>
 
-<p>// instanceof使用中的问题 <br />
-//  </p>
+<p>在JavaScript中，null与undefined曾一度使我迷惑。下面的文字，有利于你更清晰的认知它(或者让你更迷惑)：</p>
 
-<hr />
-
-<p>function MyObject() { <br />
-&nbsp; // ... <br />
-}</font>  </p>
-
-<p><font face="Courier New">function MyObject2() { <br />
-&nbsp; // ... <br />
-} <br />
-MyObject2.prototype = new MyObject();</font>  </p>
-
-<p><font face="Courier New">obj1 = new MyObject(); <br />
-obj2 = new MyObject2();</font>  </p>
-
-<p><font face="Courier New">document.writeln(obj1 instanceof MyObject, '&lt;BR&gt;'); <br />
-document.writeln(obj2 instanceof MyObject, '&lt;BR&gt;');</font>  </p>
-
-<p>我们看到，obj1与obj2都是MyObject的实例，但他们是不同的构造函数产生 <br />
-的。&mdash;&mdash;注意，这在面向对象理论中正确的：因为obj2是MyObject的子类实 <br />
-例，因此它具有与obj1相同的特性。在应用中这是obj2的多态性的体现之一。  </p>
-
-<p>但是，即便如此，我们也必须面临这样的问题：如何知道obj2与obj1是否是 <br />
-相同类型的实例呢？&mdash;&mdash;也就是说，连构造器都相同？  </p>
-
-<p>instanceof关键字不提供这样的机制。一个提供实现这种检测的能力的，是 <br />
-Object.constructor属性。&mdash;&mdash;但请先记住，它的使用远比你想象的要难。  </p>
-
-<p>好的，问题先到这里。constructor属性已经涉及到&ldquo;构造与析构&rdquo;的问题， <br />
-这个我们后面再讲。&ldquo;原型继承&rdquo;、&ldquo;构造与析构&rdquo;是JavaScript的OOP中 <br />
-的主要问题、核心问题，以及&ldquo;致命问题&rdquo;。  </p>
-
-<p>&nbsp;6). null与undefined <br />
-&nbsp;  </p>
-
-<hr />
-
-<p>&nbsp;在JavaScript中，null与undefined曾一度使我迷惑。下面的文字，有利于 <br />
-你更清晰的认知它(或者让你更迷惑)： <br />
-&nbsp;&nbsp; - null是关键字；undefined是Global对象的一个属性。 <br />
-&nbsp;&nbsp; - null是对象(空对象, 没有任何属性和方法)；undefined是undefined类 <br />
-&nbsp;&nbsp;&nbsp;&nbsp; 型的值。试试下面的代码： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(typeof null); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(typeof undefined); <br />
-&nbsp;&nbsp; - 对象模型中，所有的对象都是Object或其子类的实例，但null对象例外： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(null instanceof Object); <br />
-&nbsp;&nbsp; - null&ldquo;等值(<mark>)&rdquo;于undefined，但不&ldquo;全等值(</mark>=)&rdquo;于undefined： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(null <mark> undefined); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(null </mark> undefined); <br />
-&nbsp;&nbsp; - 运算时null与undefined都可以被类型转换为false，但不等值于false： <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(!null, !undefined); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(null<mark>false); <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.writeln(undefined</mark>false);  </p>
+<ul>
+<li>null是关键字；undefined是Global对象的一个属性。</li>
+<li>null是对象(空对象, 没有任何属性和方法)；undefined是undefined类型的值。试试下面的代码：
+<ul><li>document.writeln(typeof null);</li>
+<li>document.writeln(typeof undefined);</li></ul></li>
+<li>对象模型中，所有的对象都是Object或其子类的实例，但null对象例外：
+<ul><li>document.writeln(null instanceof Object);</li></ul></li>
+<li>null“等值(<code>==</code>)”于undefined，但不“全等值(<code>===</code>)”于undefined：
+<ul><li>document.writeln(null <code>==</code> undefined);</li>
+<li>document.writeln(null <code>==</code> undefined);</li></ul></li>
+<li>运算时null与undefined都可以被类型转换为false，但不等值于false：
+<ul><li>document.writeln(!null, !undefined);</li>
+<li>document.writeln(null<code>==</code>false);</li>
+<li>document.writeln(undefined<code>==</code>false); </li></ul></li>
+</ul>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -250,13 +211,13 @@ Object.constructor属性。&mdash;&mdash;但请先记住，它的使用远比你
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-21.html">
+                <a href="/1-21.html">
                     JavaScript面向对象的支持(2)
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-23.html">
+                <a href="/1-23.html">
                     JavaScript面向对象的支持(4)
                 </a>
                 下一篇
@@ -266,8 +227,8 @@ Object.constructor属性。&mdash;&mdash;但请先记住，它的使用远比你
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
+<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -291,8 +252,8 @@ a.gitment-editor-footer-tip { display: none; }
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
@@ -302,14 +263,14 @@ a.gitment-editor-footer-tip { display: none; }
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -328,7 +289,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -341,21 +302,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
 </body>
 
 </html>

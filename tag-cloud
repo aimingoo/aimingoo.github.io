@@ -34,53 +34,55 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
-				<a href="/tag/javascript" class="tag-item">Javascript (84)</a>
+				<a href="/tag/javascript" class="tag-item">Javascript (85)</a>
 				<a href="/tag/za-tan" class="tag-item">杂谈 (73)</a>
-				<a href="/tag/yu-yan" class="tag-item">语言 (40)</a>
+				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (45)</a>
 				<a href="/tag/chu-ban" class="tag-item">出版 (39)</a>
-				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (36)</a>
+				<a href="/tag/yu-yan" class="tag-item">语言 (38)</a>
+				<a href="/tag/qomo" class="tag-item">Qomo (35)</a>
 				<a href="/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (30)</a>
 				<a href="/tag/cheng-xu-ren-sheng" class="tag-item">程序人生 (27)</a>
 				<a href="/tag/du-shu" class="tag-item">读书 (26)</a>
-				<a href="/tag/qomo" class="tag-item">Qomo (26)</a>
 				<a href="/tag/da-dao-zhi-jian" class="tag-item">大道至简 (25)</a>
-				<a href="/tag/delphi" class="tag-item">delphi (23)</a>
 				<a href="/tag/shu-xu-shu-ping" class="tag-item">书序书评 (21)</a>
+				<a href="/tag/delphi" class="tag-item">delphi (18)</a>
 				<a href="/tag/jia-gou" class="tag-item">架构 (17)</a>
-				<a href="/tag/jia-gou-she-ji" class="tag-item">架构设计 (15)</a>
-				<a href="/tag/bo-ke" class="tag-item">博客 (14)</a>
+				<a href="/tag/jia-gou-she-ji" class="tag-item">架构设计 (16)</a>
+				<a href="/tag/bo-ke" class="tag-item">博客 (15)</a>
+				<a href="/tag/mian-xiang-dui-xiang" class="tag-item">面向对象 (15)</a>
 				<a href="/tag/zuo-lun" class="tag-item">坐论 (13)</a>
 				<a href="/tag/shi-wen" class="tag-item">诗词文章 (13)</a>
-				<a href="/tag/bian-cheng" class="tag-item">编程 (12)</a>
 				<a href="/tag/dian-zi-shu" class="tag-item">电子书 (12)</a>
 				<a href="/tag/fen-xiang-xia-zai" class="tag-item">分享下载 (12)</a>
+				<a href="/tag/bian-cheng" class="tag-item">编程 (10)</a>
 				<a href="/tag/bao-zai-kan-zai" class="tag-item">报载刊载 (10)</a>
-				<a href="/tag/kuang-jia" class="tag-item">框架 (9)</a>
 				<a href="/tag/ghost-tag" class="tag-item">Ghost (9)</a>
 				<a href="/tag/erlang" class="tag-item">erlang (7)</a>
 				<a href="/tag/delphiyuan-dai-ma-fen-xi" class="tag-item">代码分析 (7)</a>
 				<a href="/tag/da-dao-zhi-yi" class="tag-item">大道至易 (6)</a>
 				<a href="/tag/gong-ju" class="tag-item">工具 (5)</a>
-				<a href="/tag/jiao-ben" class="tag-item">脚本 (5)</a>
 				<a href="/tag/ren-yue-shen-hua" class="tag-item">人月神话 (5)</a>
 				<a href="/tag/xiang-mu-guan-li" class="tag-item">项目管理 (4)</a>
 				<a href="/tag/qian-duan-kai-fa" class="tag-item">前端开发 (4)</a>
 				<a href="/tag/chan-pin" class="tag-item">产品 (4)</a>
+				<a href="/tag/jiao-ben" class="tag-item">脚本 (4)</a>
 				<a href="/tag/kindle" class="tag-item">Kindle (4)</a>
 				<a href="/tag/monster" class="tag-item">Monster (4)</a>
 				<a href="/tag/lisp" class="tag-item">lisp (3)</a>
 				<a href="/tag/wen-dang" class="tag-item">文档 (3)</a>
-				<a href="/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (3)</a>
+				<a href="/tag/kuang-jia" class="tag-item">框架 (3)</a>
 				<a href="/tag/hui-bian" class="tag-item">汇编 (3)</a>
 				<a href="/tag/android" class="tag-item">android (3)</a>
 				<a href="/tag/github" class="tag-item">Github (3)</a>
 				<a href="/tag/gitment" class="tag-item">Gitment (3)</a>
-				<a href="/tag/ce-shi" class="tag-item">测试 (2)</a>
+				<a href="/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (2)</a>
 				<a href="/tag/promise" class="tag-item">Promise (2)</a>
 				<a href="/tag/svg" class="tag-item">svg (2)</a>
 				<a href="/tag/imagemagick" class="tag-item">ImageMagick (2)</a>
 				<a href="/tag/cheng-xu-yuan-ben" class="tag-item">程序原本 (2)</a>
 				<a href="/tag/qobean" class="tag-item">QoBean (2)</a>
+				<a href="/tag/han-shu-shi" class="tag-item">函数式 (1)</a>
+				<a href="/tag/ce-shi" class="tag-item">测试 (0)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));

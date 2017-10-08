@@ -62,22 +62,49 @@ ghost.init({
         <div class="tag-meta-content">
             <label class="page-title">标签：Javascript</label>
             <span class="page-description">
-                共计 84 篇文章
+                共计 85 篇文章
             </span>
         </div>
     </section>
 
 
-            <article class="post tag-javascript tag-jiao-ben" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+            <article class="post tag-javascript tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header">
+            <h1 class="post-title"><a href="/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>一、NamedSystem 模块概要 NamedSystem 是Qomo的可选载入模块。这个模块主要实现三个功能： 对$import()在路径识别上的增强 Namespace 子系统的装载 Alias 子系统的装载   // TODO: NamedSystem.js是firefox兼容的。 二、NamedSystem 模块的构成与载入 命名系统分成上述的三个部分，但它们的重要性并不相同。 $import()为了对路径识别进行增强，加入了一个标准的JavaScript对象：Url()。此后通过一个匿名函数的执行来实现对$ ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-02-20T01:23:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-02-20">(2006-02-20)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-32.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>            <article class="post tag-javascript tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v1.0   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>一、system.js 模块概要 system.js是Qomo的第一个载入模块。这个模块主要实现三个功能： 基本的$debug()函数 基本的$import()函数 内核子系统的装载 system.js是firefox兼容的。 二、内核子系统的构成与载入 在Qomo中，所谓内核是指由直接在system.js中载入的模块构成的系统功能层。system.js实现了$import()函数，并通过它装载以下模块： ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/jiao-ben/">脚本</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -89,22 +116,22 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/jiao-ben/">脚本</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-30.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript tag-zheng-ze-biao-da-shi" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-27.html">JavaScript面向对象的支持(7)</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>八、JavaScript面向对象的支持 6. JavaScript面向对象的支持的补充内容 1). 类型系统 我们前面已经完整地描述过JavaScript的两种类型系统。包括： 基础类型系统：由typeof()返回值的六种基础类型 对象类型系统：由new()返回值的、构造器和原型继承组织起来的类型系统 JavaScript是弱类型语言，因此类型自动转换是它语言特性的一个重要组成部分。但对于一个指定的变量而言，(在某一时刻，)它总是有确定的数据类型的。“运算”是导致类型转换的方法(但不是根源)，因此“运算结果的类型”的确定就非常重要。 ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/zheng-ze-biao-da-shi/">正则表达式</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -116,22 +143,22 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/zheng-ze-biao-da-shi/">正则表达式</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-27.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript tag-ce-shi" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-26.html">JavaScript面向对象的支持(6)</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱” ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/ce-shi/">测试</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -143,13 +170,13 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/ce-shi/">测试</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-26.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-du-shu tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-du-shu tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-25.html">经典的《JavaScript 权威指南》中的“对象”不经典</a></h1>
         </header>
@@ -158,7 +185,7 @@ ghost.init({
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/du-shu/">读书</a>, <a href="/tag/javascript/">Javascript</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/du-shu/">读书</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -170,22 +197,22 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/du-shu/">读书</a>, <a href="/tag/javascript/">Javascript</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/du-shu/">读书</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-25.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-24.html">JavaScript面向对象的支持(5)</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>八、JavaScript面向对象的支持 3. 构造、析构与原型问题 4). 需要用户维护的另一个属性：constructor 回顾前面的内容，我们提到过： (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 obj.constructor.prototype指向该对象的原型 通过Object.constructor属性，可以检测obj2与obj1是否是相同类型的实例 与原型链要通过用户代码来维护prototype属性一样，实例的构造器属性constructor也需要用户代码维护。 对于JavaScript的内置对象来说，constructor属性指向内置的构造器函数。如： // // 内置对象实例的constructor属性 // var _object_ ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -197,22 +224,22 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-24.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript tag-delphi" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-23.html">JavaScript面向对象的支持(4)</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、 ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/delphi/">delphi</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -224,22 +251,22 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/delphi/">delphi</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-23.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-22.html">JavaScript面向对象的支持(3)</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 5). 使用instanceof关键字的运算 在JavaScript中提供了instanceof关键字来检测实例的类型。这在前面讨论它的“五重身份”时已经讲过。但instanceof的问题是，它总是列举整个原型链以检测类型(关于原型继承的原理在“构造与析构”小节讲述)，如： // // instanceof使用中的问题 // function MyObject() {     // ... } function MyObject2() {     // ... } MyObject2.prototype = new MyObject(); obj1 ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -251,22 +278,22 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-22.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
-    </article>            <article class="post tag-javascript tag-delphi tag-bian-cheng tag-ce-shi" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+    </article>            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header">
             <h1 class="post-title"><a href="/1-21.html">JavaScript面向对象的支持(2)</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
+            <p>八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 2). 反射机制在JavaScript中的实现 JavaScript中通过for..in语法来实现了反射机制。但是JavaScript中并不明确区分“属性”与“方法”，以及“事件”。因此，对属性的类型考查在JS中是个问题。下面的代码简单示例for..in的使用与属性识别： // // JavaScript中for..in的使用和属性识别 // var _r_event = _r_event = /^[Oo] ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/delphi/">delphi</a>, <a href="/tag/bian-cheng/">编程</a>, <a href="/tag/ce-shi/">测试</a> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
             <span class="post-meta-item post-meta-author">
                 <i class="fa fa-user"></i>
                 <a href="/author/aimingoo/">aimingoo</a>
@@ -278,7 +305,7 @@ ghost.init({
             </span>
             <span class="post-meta-item post-meta-tags">
                 <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/delphi/">delphi</a>, <a href="/tag/bian-cheng/">编程</a>, <a href="/tag/ce-shi/">测试</a>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-21.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
@@ -309,33 +336,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-20.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>            <article class="post tag-javascript tag-yu-yan tag-delphi" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header">
-            <h1 class="post-title"><a href="/1-18.html">JavaScript面向对象的支持(1)</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>Qomolangma OpenProject v0.9   类别&nbsp;&nbsp;&nbsp; ：Rich Web Client  关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &nbsp;&nbsp;&nbsp; ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/delphi/">delphi</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-01-09T02:18:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-01-09">(2006-01-09)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/delphi/">delphi</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-18.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>

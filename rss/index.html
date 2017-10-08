@@ -1,4 +1,207 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Fri, 06 Oct 2017 23:23:04 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 08 Oct 2017 14:30:11 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[博客中的系列文章]]></title><description><![CDATA[<h2 id="">【技术类】</h2>
+
+<h3 id="qomo">Qomo技术系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-15.html">从基础开始：Qomo OpenProject中的一些关键词</a></li>
+<li><a href="http://aimingoo.github.io/1-16.html">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
+<li><a href="http://aimingoo.github.io/1-18.html">JavaScript面向对象的支持(1)</a></li>
+<li><a href="http://aimingoo.github.io/1-21.html">JavaScript面向对象的支持(2)</a></li>
+<li><a href="http://aimingoo.github.io/1-22.html">JavaScript面向对象的支持(3)</a></li>
+<li><a href="http://aimingoo.github.io/1-23.html">JavaScript面向对象的支持(4)</a></li>
+<li><a href="http://aimingoo.github.io/1-24.html">JavaScript面向对象的支持(5)</a></li>
+<li><a href="http://aimingoo.github.io/1-26.html">JavaScript面向对象的支持(6)</a></li>
+<li><a href="http://aimingoo.github.io/1-27.html">JavaScript面向对象的支持(7)</a></li>
+<li><a href="http://aimingoo.github.io/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></li>
+<li><a href="http://aimingoo.github.io/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></li>
+<li><a href="http://aimingoo.github.io/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></li>
+<li><a href="http://aimingoo.github.io/1-36.html">Qomolangma实现篇(四)：基本特性增强与多投事件系统</a></li>
+<li><a href="http://aimingoo.github.io/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></li>
+<li><a href="http://aimingoo.github.io/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
+<li><a href="http://aimingoo.github.io/1-42.html">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
+<li><a href="http://aimingoo.github.io/1-43.html">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
+<li><a href="http://aimingoo.github.io/1-47.html">Qomolangma实现篇(九)</a></li></ul>]]></description><link>http://aimingoo.github.io/1-1747.html/</link><guid isPermaLink="false">ee4161a3-3384-4d9d-8f16-d85b402a9d84</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 08 Oct 2017 14:29:50 GMT</pubDate><content:encoded><![CDATA[<h2 id="">【技术类】</h2>
+
+<h3 id="qomo">Qomo技术系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-15.html">从基础开始：Qomo OpenProject中的一些关键词</a></li>
+<li><a href="http://aimingoo.github.io/1-16.html">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
+<li><a href="http://aimingoo.github.io/1-18.html">JavaScript面向对象的支持(1)</a></li>
+<li><a href="http://aimingoo.github.io/1-21.html">JavaScript面向对象的支持(2)</a></li>
+<li><a href="http://aimingoo.github.io/1-22.html">JavaScript面向对象的支持(3)</a></li>
+<li><a href="http://aimingoo.github.io/1-23.html">JavaScript面向对象的支持(4)</a></li>
+<li><a href="http://aimingoo.github.io/1-24.html">JavaScript面向对象的支持(5)</a></li>
+<li><a href="http://aimingoo.github.io/1-26.html">JavaScript面向对象的支持(6)</a></li>
+<li><a href="http://aimingoo.github.io/1-27.html">JavaScript面向对象的支持(7)</a></li>
+<li><a href="http://aimingoo.github.io/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></li>
+<li><a href="http://aimingoo.github.io/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></li>
+<li><a href="http://aimingoo.github.io/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></li>
+<li><a href="http://aimingoo.github.io/1-36.html">Qomolangma实现篇(四)：基本特性增强与多投事件系统</a></li>
+<li><a href="http://aimingoo.github.io/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></li>
+<li><a href="http://aimingoo.github.io/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
+<li><a href="http://aimingoo.github.io/1-42.html">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
+<li><a href="http://aimingoo.github.io/1-43.html">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
+<li><a href="http://aimingoo.github.io/1-47.html">Qomolangma实现篇(九)：Qomo中的模板系统</a></li>
+<li><a href="http://aimingoo.github.io/1-49.html">Qomolangma框架库(一)：概述、工具、异常、调试与分析</a></li>
+<li><a href="http://aimingoo.github.io/1-51.html">Qomolangma框架库(二)：时间线与时间处理器</a></li>
+<li><a href="http://aimingoo.github.io/1-57.html">Qomolangma框架库(三)：处理池与处理机</a></li>
+</ul>
+
+<h3 id="">“前端要给力”系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-160.html">前端要给力之：代码可以有多烂？</a></li>
+<li><a href="http://aimingoo.github.io/1-162.html">前端要给力之：URL应该有多长？</a></li>
+<li><a href="http://aimingoo.github.io/1-163.html">前端要给力之：原子，与原子联结的友类、友函数</a></li>
+<li><a href="http://aimingoo.github.io/1-164.html">前端要给力之：分解对象构造过程new()</a></li>
+<li><a href="http://aimingoo.github.io/1-195.html">前端要给力之：红绿灯大战中的火星生命-Promise</a></li>
+</ul>
+
+<h3 id="android">Android玩乐系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-178.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</a></li>
+<li><a href="http://aimingoo.github.io/1-179.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</a></li>
+<li><a href="http://aimingoo.github.io/1-180.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</a></li>
+</ul>
+
+<h3 id="javascript">JavaScript类型讨论系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-167.html">再谈JavaScript的数据类型问题</a></li>
+<li><a href="http://aimingoo.github.io/1-168.html">三谈类型问题：ECMAScript为什么错了？</a></li>
+<li><a href="http://aimingoo.github.io/1-170.html">JavaScript类型总览(图)</a></li>
+</ul>
+
+<h2 id="">元语言及其应用系列</h2>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-112.html">元语言基础技术之：在JS中如何自由地创建函数</a></li>
+<li><a href="http://aimingoo.github.io/1-110.html">QoBean的元语言系统（一）</a></li>
+<li><a href="http://aimingoo.github.io/1-111.html">QoBean的元语言系统（二）</a></li>
+<li><a href="http://aimingoo.github.io/1-146.html">为脚本语言平反-JavaScript篇（1）</a></li>
+<li><a href="http://aimingoo.github.io/1-147.html">为脚本语言平反-JavaScript篇（2）</a></li>
+<li><a href="http://aimingoo.github.io/1-148.html">为脚本语言平反-JavaScript篇（3）</a></li>
+</ul>
+
+<h3 id="">设计师的实战过程系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-113.html">内训资料公开：设计师的实战过程(1)</a></li>
+<li><a href="http://aimingoo.github.io/1-115.html">内训资料公开：设计师的实战过程(2)</a></li>
+<li><a href="http://aimingoo.github.io/1-116.html">内训资料公开：设计师的实战过程(3)</a></li>
+</ul>
+
+<h2 id="">【论谈类】</h2>
+
+<h3 id="">我读《人月神话》系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-63.html">杀不死的人狼——我读《人月神话》（一）</a></li>
+<li><a href="http://aimingoo.github.io/1-64.html">杀不死的人狼——我读《人月神话》（二）</a></li>
+<li><a href="http://aimingoo.github.io/1-65.html">杀不死的人狼——我读《人月神话》（三）</a></li>
+<li><a href="http://aimingoo.github.io/1-66.html">杀不死的人狼——我读《人月神话》（四）</a></li>
+<li><a href="http://aimingoo.github.io/1-67.html">杀不死的人狼——我读《人月神话》（五）</a></li>
+</ul>
+
+<h3 id="">《大道至简》的幕后故事系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-70.html">《大道至简》的幕后故事(1)</a></li>
+<li><a href="http://aimingoo.github.io/1-71.html">《大道至简》的幕后故事(2)：“愚公移山记”人物篇</a></li>
+<li><a href="http://aimingoo.github.io/1-72.html">《大道至简》的幕后故事(3)：“愚公移山记”事物篇</a></li>
+<li><a href="http://aimingoo.github.io/1-73.html">《大道至简》的幕后故事(4)：“愚公移山记”军事地理篇</a></li>
+<li><a href="http://aimingoo.github.io/1-74.html">《大道至简》的幕后故事(5)：“愚公移山记”军事谋略篇</a></li>
+<li><a href="http://aimingoo.github.io/1-75.html">《大道至简》的幕后故事：终结篇、勘误和PDF下载</a></li>
+</ul>
+
+<h3 id="vclrad">“VCL已死，RAD已死”系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-123.html">VCL已死，RAD已死(1)</a></li>
+<li><a href="http://aimingoo.github.io/1-124.html">VCL已死，RAD已死(2)</a></li>
+<li><a href="http://aimingoo.github.io/1-125.html">VCL已死，RAD已死(3)</a></li>
+<li><a href="http://aimingoo.github.io/1-126.html">VCL已死，RAD已死(插播)</a></li>
+<li><a href="http://aimingoo.github.io/1-129.html">VCL已死，RAD已死(4)</a></li>
+<li><a href="http://aimingoo.github.io/1-130.html">关于“VCL已死、RAD已死”答读者问</a></li>
+<li><a href="http://aimingoo.github.io/1-131.html">VCL已死，RAD已死(5)</a></li>
+<li><a href="http://aimingoo.github.io/1-132.html">VCL已死，RAD已死(6) - 结语与预测</a></li>
+</ul>
+
+<h3 id="">《大道至易：实践者的思想》第二版发布小述系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-1735.html">电子书《我的架构思想》小述</a></li>
+<li><a href="http://aimingoo.github.io/1-1734.html">电子书《程序原本》小述</a></li>
+<li><a href="http://aimingoo.github.io/1-1736.html">小述系列最终篇：说说《大道至易：实践者的思想》</a></li>
+</ul>
+
+<h3 id="oschina">OSCHINA答读者问系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-186.html">OSCHINA答读者问之一：“软件工程”的学法与用法</a></li>
+<li><a href="http://aimingoo.github.io/1-187.html">OSCHINA答读者问之二：什么是架构？以及什么是架构师？</a></li>
+<li><a href="http://aimingoo.github.io/1-188.html">OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</a></li>
+<li><a href="http://aimingoo.github.io/1-189.html">OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？</a></li>
+<li><a href="http://aimingoo.github.io/1-190.html">OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</a></li>
+<li><a href="http://aimingoo.github.io/1-191.html">OSCHINA答读者问之六：杂谈（完结篇）</a></li>
+</ul>
+
+<h2 id="">【应用类】</h2>
+
+<h3 id="pdf">PDF工具系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-62.html">关于做PDF的FAQ（一）～（四）</a></li>
+</ul>
+
+<h3 id="">博客迁移手记系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-1719.html">手记1：迁移博客之全程工具</a></li>
+<li><a href="http://aimingoo.github.io/1-1720.html">手记2：从本地博客到Github Pages的最佳指南及工具</a></li>
+<li><a href="http://aimingoo.github.io/1-1721.html">手记3：实例教学之Ghost模板定制</a></li>
+<li><a href="http://aimingoo.github.io/1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></li>
+<li><a href="http://aimingoo.github.io/1-1723.html">手记5：如何获得一个支持HTTPS的免费空间</a></li>
+<li><a href="http://aimingoo.github.io/1-1725.html">手记6：改造Gitment</a></li>
+<li><a href="http://aimingoo.github.io/1-1724.html">博客迁移手记之快速导航</a></li>
+</ul>
+
+<h3 id="monster">Monster使用系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-1741.html">Monster - 用Ghost写博客的终极利器</a></li>
+<li><a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a></li>
+<li><a href="http://aimingoo.github.io/1-1742.html">详解Monster的初始化及配置</a></li>
+<li><a href="http://aimingoo.github.io/1-1744.html">Monster的三种工作模式</a></li>
+</ul>
+
+<h2 id="">非技术类</h2>
+
+<h3 id="">坐而论道系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-205.html">坐而论道（之一）</a></li>
+<li><a href="http://aimingoo.github.io/1-206.html">坐而论道（之二）</a></li>
+<li><a href="http://aimingoo.github.io/1-211.html">坐而论道（之三）</a></li>
+<li><a href="http://aimingoo.github.io/1-219.html">坐而论道（之四）</a></li>
+<li><a href="http://aimingoo.github.io/1-259.html">坐而论道（之五）：关于佛学中的“我”</a></li>
+</ul>
+
+<h2 id="">其它/综合</h2>
+
+<h3 id="">旧文重发系列</h3>
+
+<ul>
+<li><a href="http://aimingoo.github.io/1-99.html">旧文重发：程序员的一天</a></li>
+<li><a href="http://aimingoo.github.io/1-100.html">旧文重发：谈企业软件架构设计</a></li>
+<li><a href="http://aimingoo.github.io/1-101.html">旧文重发：产品线工程：团队迭代及其问题</a></li>
+<li><a href="http://aimingoo.github.io/1-102.html">旧文重发：程序员的七种武器</a></li>
+<li><a href="http://aimingoo.github.io/1-103.html">旧文重发：剑走偏锋：非主流的程序员</a></li>
+<li><a href="http://aimingoo.github.io/1-104.html">旧文重发：苹果是怎么吃到的？</a></li>
+<li><a href="http://aimingoo.github.io/1-105.html">旧文重发：做人、做事，做架构师——架构师能力模型解析</a></li>
+</ul>]]></content:encoded></item><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
 
 <p>在页面中使用的时候也很简单，基本的做法是：</p>
 
@@ -1775,350 +1978,4 @@ THUMBNAIL_HEIGHT = 470
   <p>如果你的Kindle固件版本在5.8.5之后，并且仅只针对“用Send功能发送，并同步到Kindle上的‘Docs’”，那么这个工具是不能帮你换封面的。</p>
 </blockquote>
 
-<p>其它所有情况下，它工作得很好。所以，如果是一个.azw3文件，那么你从电脑中复制到Kindle中去，并且用ExtractCoverThumbs处理一下，就OK了。</p>]]></content:encoded></item><item><title><![CDATA[在电子书中使用SVG]]></title><description><![CDATA[<blockquote>
-  <p>在之前的文章中，我们讨论了《<a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="http://aimingoo.github.io/1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
-</blockquote>
-
-<p>在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。</p>
-
-<p>因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。</p>
-
-<h2 id="svg">一些.svg相关的基础知识</h2>
-
-<p>与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。</p>
-
-<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
-
-<p>所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是：</p>
-
-<ul>
-<li>.pdf约定默认的分辨率是72DPI；而</li>
-<li>.svg通常约定的是90DPI。</li>
-</ul>
-
-<p>然而即使是同一个软件的不同版本，</p>]]></description><link>http://aimingoo.github.io/1-1728.html/</link><guid isPermaLink="false">d18ac6ba-a8ce-4b89-8f4e-57b5655612c7</guid><category><![CDATA[电子书]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[svg]]></category><category><![CDATA[ImageMagick]]></category><category><![CDATA[Kindle]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 07 Jun 2017 19:02:44 GMT</pubDate><content:encoded><![CDATA[<blockquote>
-  <p>在之前的文章中，我们讨论了《<a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a>》，以及《<a href="http://aimingoo.github.io/1-1727.html">详解ImageMagick中SVG的支持</a>》，本文可以看作它们的后续。</p>
-</blockquote>
-
-<p>在高版本的电子书格式中是可以支持使用.svg作为图片的，并且看起来与.png/.jpg的使用并没有什么不同。但是，如何制作合适大小的.svg却是一个相当烦恼的问题。</p>
-
-<p>因为电子书在.svg文件上采用了与.png/.jpg不一样的排版规则。</p>
-
-<h2 id="svg">一些.svg相关的基础知识</h2>
-
-<p>与.pdf一样，事实上.svg文件中也是没有DPI信息的，因为它们都是以矢量格式为基础的。而且它们也都相同的使用Points（磅值/点）来记录图片大小，或称之为页面信息。</p>
-
-<p>一般来说，.svg不支持多页。尽管多页格式已经发布（<a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/multipage.html">SVG 1.2</a>），但多数系统并不支持它。</p>
-
-<p>所谓『.svg文件有多大的精度，或多少DPI』其实是个伪命题。因为这其实是不同的处理软件的一个假设/约定——这一点与.pdf是一样的。但不同的是：</p>
-
-<ul>
-<li>.pdf约定默认的分辨率是72DPI；而</li>
-<li>.svg通常约定的是90DPI。</li>
-</ul>
-
-<p>然而即使是同一个软件的不同版本，也可能修改这个约定。例如Inkscape 从v0.92版本开始就默认使用96DPI的约定——而之前它是90DPI（<a href="http://wiki.inkscape.org/wiki/index.php/Release_notes/0.92#Important_changes">参见这里</a>，以及<a href="http://wiki.inkscape.org/wiki/index.php/Units_In_Inkscape">这里</a>）。</p>
-
-<p>相对好一些的消息是：能够实现SVG处理的引擎并不太多——所以上述的一些不确定的限制条件也就相对来说容易穷举。这些引擎主要包括Cario、Inkscape、Apache Batik和一些浏览器上的Canvas。当然，此前讲过的ImageMagick内置的MSVG也算一个，不过它实在弱到没朋友，不提也罢。很多工具其实是以上述引擎为内核或库的，其中最常用的是Cario，包括rsvg在内的许多库/包都只是Cario上的一个封装。</p>
-
-<blockquote>
-  <p>注1：Cario库也支持PDF，所以Inkscape、Poppler等都使用它来输出PDF和PostScript文档（生成的.pdf文件元信息中Creator也是Cario）。但是Inkscape的SVG渲染引擎是自有的，相关信息可以参考<a href="https://en.wikipedia.org/wiki/Cairo_(graphics)">这里</a>。</p>
-</blockquote>
-
-<p>本文中提到的一些工具可以用如下方式安装：</p>
-
-<pre><code class="language-bash">## rsvg, rsvg-convert, and cario ...
-&gt; brew install libsvg librsvg libsvg-cairo cairo
-
-## pdf2svg, mactex(pdfcrop), Inkscape, more...
-&gt; brew install pdf2svg
-&gt; brew cask install xquartz mactex inkscape
-
-# ImageMagick(identify,convert,mogrify...), and pdfinfo or cpdf
-&gt; brew install ghostscript imagemagick cpdf poppler
-
-## cairosvg for python
-&gt; pip3 install cairosvg
-
-## svginfo
-&gt; git clone http://github.com/aimingoo/svginfo
-&gt; install svginfo/svginfo /usr/local/bin/
-</code></pre>
-
-<h2 id="pdfsvg">从PDF到SVG</h2>
-
-<p>你可能已经习惯使用种种矢量图形工具并用来制作.svg，反正我不是。我通常是用PowerPoint或Keynote来制作它们（尤其是表格）并存储为PDF，然后由.pdf转为.svg。</p>
-
-<p>这个过程看起来麻烦，但确实靠谱。</p>
-
-<p>总的来说，从PDF到SVG的工具主要有两个（<a href="https://en.wikipedia.org/wiki/Wikipedia:Graphics_Lab/Resources/PDF_conversion_to_SVG#How_to_convert_a_PDF_to_SVG">Wiki上也是这么说的</a>）。其中最方便、快捷和安全的应该是cityinthesky的pdf2svg，他使用Poppler+Cario；另一个是inkscape，除了在字体处理上表现不稳定之外，它还需要XQuartz的支持（这就比较庞大了）。</p>
-
-<p>pdf2svg可以直接使用brew安装，它的开源项目<a href="http://www.cityinthesky.co.uk/opensource/pdf2svg">在这里</a>，或<a href="https://github.com/indraniel/pdf2svg">这里</a>。采用相同技术实现的还有<a href="https://github.com/indraniel/pdf2svg">Perl</a>和<a href="https://github.com/jakobwesthoff/pdf2svg">Vala</a>的版本——因为使用的都是相同的库，因此效果应该没差。其它可选的方案包括<a href="https://github.com/ContentMine/pdf2svg">Java</a>、<a href="https://github.com/ststeiger/Pdf2Svg">C#</a>版的等等，但采用的是各自语言下的引擎，我没有一一试过。</p>
-
-<p>使用pdf2svg的参数如下：</p>
-
-<pre><code class="language-bash">&gt; pdf2svg --help
-Usage: pdf2svg &lt;in file.pdf&gt; &lt;out file.svg&gt; [&lt;page no&gt;]  
-</code></pre>
-
-<p>其中<code>&lt;page no&gt;</code>可以使用字符串<code>all</code>。</p>
-
-<p>注意pdf2svg并不能指定输出的.svg的大小、DPI等等。其实你使用inkscape来转换也一样没有这类参数——在转换目标格式为.svg时，inkscape仅会多出<code>--export-text-to-path</code>、<code>--export-id</code>两个参数可用。此外，inkscape只能处理单页的PDF：</p>
-
-<pre><code class="language-bash">&gt; inkscape -z --export-plain-svg=&lt;out file.svg&gt; &lt;in file.pdf&gt;
-</code></pre>
-
-<p>最后，pdf2svg与inkscape转换出来的.svg文件的页面大小其实是一样，但是它们使用的单位并不相同。如下：</p>
-
-<pre><code class="language-bash">## inkscape
-&gt; svginfo by-inkscape.svg
-width: 152.5  
-height: 77.5  
-viewBox: 0 0 152.5 77.5
-
-## pdf2svg, and more...
-&gt; svginfo by-cario.svg
-width: 122pt  
-height: 62pt  
-viewBox: 0 0 122 62  
-</code></pre>
-
-<p>注意inkscape转出时使用了缺省单位，这通常是指px；而cario转出时使用的是pt。对于上例来说，原始的pdf文件信息如下：</p>
-
-<pre><code class="language-bash">&gt; pdfinfo my.pdf | grep 'Page size'
-Page size:      122 x 62 pts  
-</code></pre>
-
-<p>可见，两种引擎事实上都是直接以该页面大小的pt值作为.svg的宽高，只不过inkscape转换成了相应的px值。</p>
-
-<blockquote>
-  <p>注1：需要强调的是，上述版本的inkscape的采用的是90DPI的.svg设定，而PDF默认为72DPI。所以从<code>.PDF的Pts</code>到<code>.SVG的px</code>的转换系数是<code>90/72</code>，即<code>width = 122pt * 90/72 = 152.5px</code>。</p>
-  
-  <p>注2：就我的测试来说，Inkscape在处理<code>PDF -&gt; png</code>的转换时不能正确的识别中文字体，其它类型下的转换我并没有一一试过。</p>
-</blockquote>
-
-<h2 id="svginfoimagemagick">svginfo: 不要相信ImageMagick的显示</h2>
-
-<p>如果你使用<code>identify -verbose your.svg</code>来查看svg的信息的话，那么由于ImageMagick可能工作在不同的SVG模式下，所以输出的信息也就不同。——这就是我的上一篇文章为什么叫《详解ImageMagick中SVG的支持》的原因。</p>
-
-<p>我测试了一下上文中提到的4种模式，如下：</p>
-
-<pre><code>## test information of 'identify -verbose your.svg'
-===&gt; MODE: internal, use MSVG
-  Geometry: 485x306+0+0
-  Units: Undefined
-===&gt; MODE: build-in, use RSVG/librsvg
-  Geometry: 517x327+0+0
-  Resolution: 37.8x37.8
-  Print size: 13.6772x8.65079
-  Units: PixelsPerCentimeter
-===&gt; MODE: delegate(internal), use inkscape
-  Geometry: 517x327+0+0
-  Resolution: 37.8x37.8
-  Print size: 13.6772x8.65079
-  Units: PixelsPerCentimeter
-===&gt; MODE: delegate, use rsvg-convert
-  Geometry: 517x327+0+0
-  Units: Undefined
-</code></pre>
-
-<p>这四种模式中，MSVG是唯一一个不转换成图片（因为内置xml解析和svg支持）的方式，也是它与别的模式看起来有差异的原因。此外，由于缺省使用了<code>PixelsPerCentimeter</code>单位，所以Resolution显示是<code>37.8x37.8</code>，换算成英寸则是96DPI。</p>
-
-<p>那么这个<code>your.svg</code>的大小到底是多少呢？很不幸，它真实的数据是<code>388x245 pts</code>。</p>
-
-<p>因为svg缺省是工作在90dpi模式下的，所以MSVG用90dpi来换算.svg的大小，就得到了<code>388 * 90/72 = 485px</code>的宽，而其它模式都是先转换成图片，并指定了参数96DPI，这时宽度就成了<code>388 * 96/72 = 517px</code>。</p>
-
-<p>所以无论如何（除非你能确切指定使用某一种SVG引擎），对于.svg来说，ImageMagick显示的大小是作不得准的。更好的办法是直接显示.svg中的元信息，例如使用<code>svginfo</code>这个工具（<a href="https://github.com/aimingoo/svginfo">下载在这里</a>）：</p>
-
-<pre><code class="language-bash">&gt; svginfo your.svg
-width: 388pt  
-height: 245pt  
-viewBox: 0 0 388 245  
-zoomAndPan: magnify  
-preserveAspectRatio: none  
-</code></pre>
-
-<p>在.svg的元信息中保存的width/height值可能有很多种单位（<a href="http://www.sarasoueidan.com/blog/svg-coordinate-systems/#svg-viewport">参见这里</a>，或<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Positions">中文译本</a>，缺省是px，但与具体设备有关）。</p>
-
-<h2 id="svg">电子书并其实不能『很正确』地显示.svg文件</h2>
-
-<p>现在我们得到了.svg，并且我们确切地知道它的大小与.pdf的Page Size的Pts值存在<code>90:72</code>的关系（因为默认精度不同）。所以我们只需要控制.pdf的大小，就可以得到合适的.svg文件了。——不考虑.svg的工具的话，在.pdf的工具套件中还有cpdf，还有gs等等可用，很丰富。</p>
-
-<p>但是，真正的一张520pts(或者是520px)大小的.svg，会如何显示在电子书上呢？</p>
-
-<p>答案是：不一定。</p>
-
-<p>如果你在电子书中用<code>&lt;img src="xxx.png"&gt;</code>来插入一张图片而没有指定它的宽高，那么几乎所有的排版引擎都能理解这个行为：</p>
-
-<ul>
-<li>将xxx.png图片信息中的宽高信息作为显示宽高；</li>
-<li>如果这个宽高大于设备的可见区域，则缩小到合适的大小。</li>
-</ul>
-
-<p>——所以，在电子书中使用图片时只需要考虑图片的精度，其它方面几乎是完美的、自适应的。</p>
-
-<p>然而如果你用同样的方法来插入一个.svg文件，那么由于pt这个单位的存在，所以设备如何显示就成了『谜之问题』了。首先我们要知道，</p>
-
-<blockquote>
-  <p>如果一个.svg是使用px作为单位（也包括没有单位而缺省的），那么将采用与图片一致的规则。</p>
-</blockquote>
-
-<p>这是一条重要的原则，也成为检测其它.svg单位的关键钥匙。</p>
-
-<p>例如以前面的your.svg为例——它使用了pt作为单位，是388pt。由于.svg是缺省以90DPI为来计算pt值的，所以MSVG还原成px时，显示的是485px的宽。但是到了实际物理设备时，却不一定是以90DPI——这个假想值——来处理的了。例如在Macbook上的iBooks中显示时，iBooks的SVG渲染引擎采用了96DPI的预设值，所以就将显示成<code>388 * 96/72 = 517px</code>；又例如我是要在Kindle Paperwhite3上来显示它，那么由于Kindle使用它的PPI（300DPI）来作为预设值，所以显示出来就应该是惊人的<code>1616px</code>。——好吧，你知道Kindle显示不下了，而.svg是矢量缩放的，所以最终只是按可见区域的全宽来显示它。</p>
-
-<p>电子书的这个处理方案正确不呢？答案是『正确』。因为这其实就是pt作为单位的原始用意。它看起来不是那么『很正确』的原因在于：这样一来，我们就不知道到底该做多大的.svg才能在不同的物理设备上适用了。</p>
-
-<p>那么，最终只剩下了两条规则适用：</p>
-
-<ul>
-<li>在文件中明确使用px作为单位来指定大小的.svg；或者，</li>
-<li>在使用<code>&lt;img ...&gt;</code>标签插入.svg时，指定它的宽高信息。</li>
-</ul>
-
-<h2 id="pxsvg">使用px作为单位来指定大小的.svg</h2>
-
-<p>使用Inkscape转出的.svg是作用缺省单位px的。但是这个转换是采用.pdf的Points换算过来的，为此你必须将.pdf放大一些，才能在Inkscape中得到你预期的的px值大小。这个换算关系如下：</p>
-
-<pre><code class="language-bash"># 步骤1：将.PDF的大小换算成300DPI下比例(放大300/90倍)
-#    - 因为pdf转成svg时还要再放大90/72倍，所以这里不需要直接用300/72作系数
-&gt; cpdf -scale-page "3.33333 3.33333" -scale-to-fit-scale 3.33333 -o new_300DPI.pdf my.pdf
-
-# 步骤2：将新文件转换成.svg
-&gt; inkscape -z --export-plain-svg=my.svg new_300DPI.pdf
-
-# 查看原始的my.pdf的信息
-&gt; pdfinfo my.pdf | grep 'Page size'
-Page size:      122 x 62 pts
-
-# 查看中间文件.pdf的大小
-&gt; pdfinfo new_300DPI.pdf | grep 'Page size'
-Page size:      406.666 x 206.666 pts
-
-# 查看新的.svg的信息
-&gt; svginfo my.svg
-width: 508.33282  
-height: 258.33307  
-viewBox: 0 0 508.33282 258.33307  
-zoomAndPan: magnify  
-preserveAspectRatio: none  
-</code></pre>
-
-<p>验证方法：制作一张<code>508 x 258</code>的图片，与my.svg一起插入到电子书中，它们显示起来将是相同大小。</p>
-
-<h2 id="svg">正确插入.svg的宽高信息</h2>
-
-<p>我们也可以选择如下的途径（在这个过程中不需要对调整中间文件与.svg的大小）：</p>
-
-<blockquote>
-  <ul>
-  <li>从.ppt/.key转换到.pdf，再</li>
-  <li>从.pdf转换到.svg，最后</li>
-  <li>在电子书中插入.svg的宽度信息。</li>
-  </ul>
-</blockquote>
-
-<p>我们假设以.html作为生成电子书的中间格式（如果你真做过电子书的话，你应该知道我为什么这么假设），那么事实上我们就只需要扫描所有的.svg，通过svginfo来查看信息，经过计算并将正确的宽高信息写到.html就好了。</p>
-
-<p>我们需要知道相应的.svg与最初预设的宽高上限（注意考虑到实际使用，我只预设了x方向上限，并不处理y方向）。我们之前说过：合理的预设是<code>520px</code>。所以，例如480px宽的.svg，那么我们就将<code>&lt;img …&gt;</code>中的width值回写成<code>92.3%</code>。</p>
-
-<p>我想，你可能已经发现问题了：这个92.3%应该是指的图片相对于当前设备宽的比例啊，而不是图片自己的宽度值。——是的，我的确是这样考虑的，至于为什么，你得仔细去思考了。</p>
-
-<p>其它（建议综合我最近的几篇文章来理解下述过程）：</p>
-
-<ul>
-<li>我们原始设计的宽是520px，在300DPI情况下的物理宽是1.73333inch；</li>
-<li>当把上述文档输出成PDF时，物理宽（Print Size）不变；而精度变成了PDF默认的72，所以在转换成Points值时变成了124.8pt，即<code>1.73333inch * 72pt/inch</code>；</li>
-<li>我们再从.pdf转到.svg时是pt by pt的，所以相应的.svg值是124.8pt；
-<ul><li>如果使用Inkscape，则转换出的.svg是<code>width = 156</code>，使用了缺省单位px；</li></ul></li>
-<li>使用<code>identify msvg:your.svg</code>取值最快，但要注意它总是以px为单位显示宽高信息；
-<ul><li>在不支持MSVG的ImageMagick的低版本中，建议用svginfo取值并转换单位</li></ul></li>
-</ul>
-
-<p>相关操作如下（下载<a href="http://aimingoo.github.io/content/images/attachments/standard_image_templet_520.pdf">standard_image_templet_520.pdf</a>）：</p>
-
-<pre><code class="language-bash"># 步骤1：使用hires参数和高的resolution值可以使crop操作更精确
-#    - 输出的.pdf的精度与该参数值是无关的
-&gt; pdfcrop --hires --resolution 1200 standard_image_templet_520.pdf croped.pdf
-
-# 步骤2：转换pdf到svg
-&gt; pdf2svg croped.pdf standard_image_templet_520.svg 1
-
-# 使用pdfinfo查看信息
-&gt; pdfinfo croped.pdf | grep 'Page size'
-Page size:      124.8 x 73.26 pts
-
-# 使用svginfo查看信息
-&gt; svginfo standard_image_templet_520.svg
-width: 124.8pt  
-height: 73.26pt  
-viewBox: 0 0 124.8 73.26  
-zoomAndPan: magnify  
-preserveAspectRatio: none
-
-# 使用identify查看信息(强制使用MSVG引擎)
-&gt; identify msvg:standard_image_templet_520.svg | xargs -n1
-msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg  
-MSVG  
-156x92  
-156x92+0+0  
-...
-</code></pre>
-
-<h2 id="">黑科技：最后一点补充</h2>
-
-<p>如果：</p>
-
-<ul>
-<li>你确实想让.svg用px作为单位，以避免修改电子书中的width/height信息；并且，</li>
-<li>你确实又憎恨Inkscape的巨大安装包和超慢速度，以及它只能处理单页的问题；并且，</li>
-<li>你不太担心pdf2svg转换后的.svg文件较大的问题；并且，</li>
-<li>……</li>
-</ul>
-
-<p>也许你只是纯粹的点处理爱好者（px fans?），那么好吧，我们讲一种最简单（目前看来也挺安全，但……我不做任何保证）的黑科技。下面仍然以<code>standard_image_templet_520.pdf</code>这个文件为例：</p>
-
-<pre><code class="language-bash"># 步骤1：在300DPI下crop，以提高crop的计算精度
-#    - 输出的croped.pdf的精度与该参数值是无关的
-&gt; pdfcrop --hires --resolution 300 standard_image_templet_520.pdf croped.pdf
-
-# 步骤1：将.PDF的大小假想成px单位，直接换算成300DPI下的大小
-#    - 也就说无脑放大300/72倍就行啦
-&gt; cpdf -scale-page "4.166667 4.166667" -scale-to-fit-scale 4.166667 -o scaled.pdf croped.pdf
-
-# 步骤3：使用pdf2svg转换
-#    - pdf2svg得到的.svg是使用pt为单位的, 无脑改成px就行啦
-#    - pdf2svg可处理多页(会成批生成文件，所以不要用stdout；这里只做单页的示例)
-#    - 使用sed时只替换了&lt;svg ...&gt;标签中的width/height，其它的不作处理
-&gt; pdf2svg scaled.pdf /dev/stdout 1 |\
-    sed -E '1,/^&lt;svg/s/(width|height)="([0-9.]*)pt"/\1="\2px"/g' &gt;\
-    standard_image_templet_520.svg
-
-# 查看最终的svg的大小
-&gt; svginfo standard_image_templet_520.svg
-width: 520.000042px  
-height: 305.000024px  
-viewBox: 0 0 520.000042 305.000024  
-zoomAndPan: magnify  
-preserveAspectRatio: none
-
-# 使用ImageMagick的MSVG模式查看
-&gt; identify msvg:standard_image_templet_520.svg | xargs -n2
-msvg:standard_image_templet_520.svg=&gt;standard_image_templet_520.svg MSVG  
-520x305 520x305+0+0  
-16-bit sRGB  
-...
-</code></pre>
-
-<p>为什么能这么做呢？</p>
-
-<p>首先，我们知道.svg文件中其实并没有精度信息，所有的元素都是基于页面的大小来做换算的。而且，我们在这里用pdf2svg转换出的.svg还有两个特性：</p>
-
-<ul>
-<li>字体已经被转换成矢量信息，因此.svg中不包含字体及字体大小信息；</li>
-<li>只有<code>&lt;svg …/&gt;</code>元素包含了页面宽高信息，其它元素是基于该信息的矢量。</li>
-</ul>
-
-<p>所以我们可以安全地将pt值直接替换成px。而这个方法，对于Inkscape生成的.svg就不适用，对比一下上面的两个特性你就明白了。反过来说，正是由于Cario引擎（pdf2svg使用的svg引擎）并不完整支持以px为单位的svg，所以使用该引擎——以及使用该引擎实现的工具来转换上述（修改后的）.svg到.png或其它格式的时候也是会出问题；而相对应的，Inkscape却能正确处理——它的引擎支持以px为单位的.svg。</p>
-
-<p>最后，多啰嗦一句。由于pdf2svg转换时将字体转换成了矢量信息，这使得通过这种.svg转换成图片或其它格式时不会因为缺少字体而失真（相对应的，Inkscape就存在字体问题）。但是缺点也是有的，就是.svg文件会比较大一些，可能相应的处理速度也会略慢。</p>]]></content:encoded></item></channel></rss>
+<p>其它所有情况下，它工作得很好。所以，如果是一个.azw3文件，那么你从电脑中复制到Kindle中去，并且用ExtractCoverThumbs处理一下，就OK了。</p>]]></content:encoded></item></channel></rss>

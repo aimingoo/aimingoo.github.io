@@ -10,33 +10,34 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript面向对象的支持(5)" />
-    <meta property="og:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta property="og:description" content="八、JavaScript面向对象的支持 3. 构造、析构与原型问题 4). 需要用户维护的另一个属性：constructor 回顾前面的内容，我们提到过： (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 obj.constructor.prototype指向该对象的原型 通过Object.constructor属性，可以检测obj2与obj1是否是相同类型的实例 与原型链要通过用户代码来维护prototype属性一样，实例的构造器属性constructor也需要用户代码维护。 对于JavaScript的内置对象来说，constructor属性指向内置的构造器函数。如： // // 内置对象实例的constructor属性 // var _object_types &#x3D; {     &#x27;function&#x27;  : Function,   &#x27;boolean&#x27;   : Boolean,   &#x27;regexp&#x27;    : RegExp, // &#x27;math&#x27;     : Math, // &#x27;debug&#x27;    : Debug, // &#x27;image&#x27;    : Image; // &#x27;undef&#x27;    : undefined, // &#x27;dom&#x27;      : undefined, // &#x27;activex&#x27;  : undefined,   &#x27;vbarray&#x27;   : VBArray,   &#x27;array&#x27;     : Array,   &#x27;string&#x27;" />
     <meta property="og:url" content="http://aimingoo.github.io/1-24.html" />
     <meta property="article:published_time" content="2006-01-21T15:24:00.000Z" />
-    <meta property="article:modified_time" content="2006-01-21T15:24:00.000Z" />
+    <meta property="article:modified_time" content="2017-10-07T20:14:08.000Z" />
     <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="面向对象" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript面向对象的支持(5)" />
-    <meta name="twitter:description" content="Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(" />
+    <meta name="twitter:description" content="八、JavaScript面向对象的支持 3. 构造、析构与原型问题 4). 需要用户维护的另一个属性：constructor 回顾前面的内容，我们提到过： (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 obj.constructor.prototype指向该对象的原型 通过Object.constructor属性，可以检测obj2与obj1是否是相同类型的实例 与原型链要通过用户代码来维护prototype属性一样，实例的构造器属性constructor也需要用户代码维护。 对于JavaScript的内置对象来说，constructor属性指向内置的构造器函数。如： // // 内置对象实例的constructor属性 // var _object_types &#x3D; {     &#x27;function&#x27;  : Function,   &#x27;boolean&#x27;   : Boolean,   &#x27;regexp&#x27;    : RegExp, // &#x27;math&#x27;     : Math, // &#x27;debug&#x27;    : Debug, // &#x27;image&#x27;    : Image; // &#x27;undef&#x27;    : undefined, // &#x27;dom&#x27;      : undefined, // &#x27;activex&#x27;  : undefined,   &#x27;vbarray&#x27;   : VBArray,   &#x27;array&#x27;     : Array,   &#x27;string&#x27;" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-24.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript" />
+    <meta name="twitter:data2" content="Javascript, 面向对象" />
     
     <script type="application/ld+json">
 {
@@ -65,9 +66,9 @@
     "headline": "JavaScript面向对象的支持(5)",
     "url": "http://aimingoo.github.io/1-24.html",
     "datePublished": "2006-01-21T15:24:00.000Z",
-    "dateModified": "2006-01-21T15:24:00.000Z",
-    "keywords": "Javascript",
-    "description": "Qomolangma OpenProject v0.9   类别&amp;nbsp;&amp;nbsp;&amp;nbsp; ：Rich Web Client  关键词&amp;nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component，  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; DOM，DTHML，CSS，JavaScript，JScript   项目发起：aimingoo (aim@263.net)  项目团队：aimingoo, leon(pfzhou@gmail.com)  有贡献者：JingYu(",
+    "dateModified": "2017-10-07T20:14:08.000Z",
+    "keywords": "Javascript, 面向对象",
+    "description": "八、JavaScript面向对象的支持 3. 构造、析构与原型问题 4). 需要用户维护的另一个属性：constructor 回顾前面的内容，我们提到过： (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 obj.constructor.prototype指向该对象的原型 通过Object.constructor属性，可以检测obj2与obj1是否是相同类型的实例 与原型链要通过用户代码来维护prototype属性一样，实例的构造器属性constructor也需要用户代码维护。 对于JavaScript的内置对象来说，constructor属性指向内置的构造器函数。如： // // 内置对象实例的constructor属性 // var _object_types &#x3D; {     &#x27;function&#x27;  : Function,   &#x27;boolean&#x27;   : Boolean,   &#x27;regexp&#x27;    : RegExp, // &#x27;math&#x27;     : Math, // &#x27;debug&#x27;    : Debug, // &#x27;image&#x27;    : Image; // &#x27;undef&#x27;    : undefined, // &#x27;dom&#x27;      : undefined, // &#x27;activex&#x27;  : undefined,   &#x27;vbarray&#x27;   : VBArray,   &#x27;array&#x27;     : Array,   &#x27;string&#x27;",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io"
@@ -75,7 +76,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -83,10 +84,10 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-javascript nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-javascript tag-mian-xiang-dui-xiang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -94,13 +95,13 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -110,9 +111,9 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
@@ -121,13 +122,13 @@ ghost.init({
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-javascript">
+        <article class="post tag-javascript tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-24.html">JavaScript面向对象的支持(5)</a></h1>
+                <h1 class="post-title"><a href="/1-24.html">JavaScript面向对象的支持(5)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -136,7 +137,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -145,391 +146,305 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <hr />
-
-<p>Qomolangma OpenProject v0.9  </p>
-
-<p>类别&nbsp;&nbsp;&nbsp; ：Rich Web Client <br />
-关键词&nbsp; ：JS OOP，JS Framwork, Rich Web Client，RIA，Web Component， <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DOM，DTHML，CSS，JavaScript，JScript  </p>
-
-<p>项目发起：aimingoo (<a href="mailto:aim@263.net">aim@263.net</a>) <br />
-项目团队：aimingoo, leon(<a href="mailto:pfzhou@gmail.com">pfzhou@gmail.com</a>) <br />
-有贡献者：JingYu(<a href="mailto:zjy@cnpack.org">zjy@cnpack.org</a>)    </p>
-
-<hr />
-
-<p>八、JavaScript面向对象的支持 <br />
-~~~~~~~~~~~~~~~~~~ <br />
-(续)  </p>
-
-<p>&nbsp;4). 需要用户维护的另一个属性：constructor <br />
-&nbsp;  </p>
-
-<hr />
-
-<p>&nbsp;回顾前面的内容，我们提到过： <br />
-&nbsp;&nbsp; - (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 <br />
-&nbsp;&nbsp; - obj.constructor.prototype指向该对象的原型 <br />
-&nbsp;&nbsp; - 通过Object.constructor属性，可以检测obj2与obj1是否是相同类型的实例  </p>
-
-<p>&nbsp; 与原型链要通过用户代码来维护prototype属性一样，实例的构造器属性constructor <br />
-也需要用户代码维护。  </p>
-
-<p>&nbsp; 对于JavaScript的内置对象来说，constructor属性指向内置的构造器函数。如： <br />
-<font face="Courier New">//  </p>
-
-<hr />
-
-<p>// 内置对象实例的constructor属性 <br />
-//  </p>
-
-<hr />
-
-<p>var <em>object</em>types = { <br />
-&nbsp; 'function'&nbsp; : Function, <br />
-&nbsp; 'boolean'&nbsp;&nbsp; : Boolean, <br />
-&nbsp; 'regexp'&nbsp;&nbsp;&nbsp; : RegExp, <br />
-// 'math'&nbsp;&nbsp;&nbsp;&nbsp; : Math, <br />
-// 'debug'&nbsp;&nbsp;&nbsp; : Debug, <br />
-// 'image'&nbsp;&nbsp;&nbsp; : Image; <br />
-// 'undef'&nbsp;&nbsp;&nbsp; : undefined, <br />
-// 'dom'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : undefined, <br />
-// 'activex'&nbsp; : undefined, <br />
-&nbsp; 'vbarray'&nbsp;&nbsp; : VBArray, <br />
-&nbsp; 'array'&nbsp;&nbsp;&nbsp;&nbsp; : Array, <br />
-&nbsp; 'string'&nbsp;&nbsp;&nbsp; : String, <br />
-&nbsp; 'date'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : Date, <br />
-&nbsp; 'error'&nbsp;&nbsp;&nbsp;&nbsp; : Error, <br />
-&nbsp; 'enumerator': Enumerator, <br />
-&nbsp; 'number'&nbsp;&nbsp;&nbsp; : Number, <br />
-&nbsp; 'object'&nbsp;&nbsp;&nbsp; : Object <br />
-}</font>  </p>
+                <h1 id="javascript">八、JavaScript面向对象的支持</h1>
+
+<h2 id="3">3. 构造、析构与原型问题</h2>
+
+<h3 id="4constructor">4). 需要用户维护的另一个属性：constructor</h3>
+
+<p>回顾前面的内容，我们提到过：</p>
+
+<ul>
+<li>(如果正常地实现继承模型，)对象实例的constructor属性指向构造器</li>
+<li>obj.constructor.prototype指向该对象的原型</li>
+<li>通过Object.constructor属性，可以检测obj2与obj1是否是相同类型的实例</li>
+</ul>
+
+<p>与原型链要通过用户代码来维护prototype属性一样，实例的构造器属性constructor也需要用户代码维护。</p>
 
-<p><font face="Courier New">function objectTypes(obj) { <br />
-&nbsp; if (typeof obj !<mark> 'object') return typeof obj; <br />
-&nbsp; if (obj </mark>= null) return 'null';</font>  </p>
+<p>对于JavaScript的内置对象来说，constructor属性指向内置的构造器函数。如：</p>
 
-<p><font face="Courier New">&nbsp; for (var i in <em>object</em>types) { <br />
-&nbsp;&nbsp;&nbsp; if (obj.constructor<mark>=<em>object</em>types[i]) return i; <br />
-&nbsp; } <br />
-&nbsp; return 'unknow'; <br />
-}</font>  </p>
+<pre><code class="language-javascript">//
+// 内置对象实例的constructor属性
+//
+var _object_types = {  
+  'function'  : Function,
+  'boolean'   : Boolean,
+  'regexp'    : RegExp,
+// 'math'     : Math,
+// 'debug'    : Debug,
+// 'image'    : Image;
+// 'undef'    : undefined,
+// 'dom'      : undefined,
+// 'activex'  : undefined,
+  'vbarray'   : VBArray,
+  'array'     : Array,
+  'string'    : String,
+  'date'      : Date,
+  'error'     : Error,
+  'enumerator': Enumerator,
+  'number'    : Number,
+  'object'    : Object
+}
 
-<p><font face="Courier New">// 测试数据和相关代码 <br />
-function MyObject() { <br />
-} <br />
-function MyObject2() { <br />
-} <br />
-MyObject2.prototype = new MyObject();</font>  </p>
+function objectTypes(obj) {  
+  if (typeof obj !== 'object') return typeof obj;
+  if (obj === null) return 'null';
 
-<p><font face="Courier New">window.execScript(''+ <br />
-'Function CreateVBArray()' + <br />
-'&nbsp; Dim a(2, 2)' + <br />
-'&nbsp; CreateVBArray = a' + <br />
-'End Function', 'VBScript');</font>  </p>
+  for (var i in _object_types) {
+    if (obj.constructor===_object_types[i]) return i;
+  }
+  return 'unknow';
+}
 
-<p><font face="Courier New">document.writeln('&lt;div id=dom style=&quot;display:none&quot;&gt;dom&lt;', '/div&gt;');</font>  </p>
+// 测试数据和相关代码
+function MyObject() {  
+}
+function MyObject2() {  
+}
+MyObject2.prototype = new MyObject();
 
-<p><font face="Courier New">// 测试代码 <br />
-var ax = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;); <br />
-var dom = document.getElementById('dom'); <br />
-var vba = new VBArray(CreateVBArray()); <br />
-var obj = new MyObject(); <br />
-var obj2 = new MyObject2();</font>  </p>
+window.execScript(''+  
+'Function CreateVBArray()' +  
+'  Dim a(2, 2)' +  
+'  CreateVBArray = a' +  
+'End Function', 'VBScript');
 
-<p><font face="Courier New">document.writeln(objectTypes(vba), '&lt;br&gt;'); <br />
-document.writeln(objectTypes(ax), '&lt;br&gt;'); <br />
-document.writeln(objectTypes(obj), '&lt;br&gt;'); <br />
-document.writeln(objectTypes(obj2), '&lt;br&gt;'); <br />
-document.writeln(objectTypes(dom), '&lt;br&gt;');</font>  </p>
+document.writeln('&lt;div id=dom style="display:none"&gt;dom&lt;', '/div&gt;');
 
-<p>在这个例子中，我们发现constructor属性被实现得并不完整。对于DOM对象、ActiveX对象 <br />
-来说这个属性都没有正确的返回。  </p>
+// 测试代码
+var ax = new ActiveXObject("Microsoft.XMLHTTP");  
+var dom = document.getElementById('dom');  
+var vba = new VBArray(CreateVBArray());  
+var obj = new MyObject();  
+var obj2 = new MyObject2();
 
-<p>确切的说，DOM（包括Image)对象与ActiveX对象都不是标准JavaScript的对象体系中的， <br />
-因此它们也可能会具有自己的constructor属性，并有着与JavaScript不同的解释。因此， <br />
-JavaScript中不维护它们的constructor属性，是具有一定的合理性的。  </p>
+document.writeln(objectTypes(vba), '&lt;br&gt;');  
+document.writeln(objectTypes(ax), '&lt;br&gt;');  
+document.writeln(objectTypes(obj), '&lt;br&gt;');  
+document.writeln(objectTypes(obj2), '&lt;br&gt;');  
+document.writeln(objectTypes(dom), '&lt;br&gt;');  
+</code></pre>
 
-<p>另外的一些单体对象(而非构造器)，也不具有constructor属性，例如&ldquo;Math&rdquo;和&ldquo;Debug&rdquo;、 <br />
-&ldquo;Global&rdquo;和&ldquo;RegExp对象&rdquo;。他们是JavaScript内部构造的，不应该公开构造的细节。  </p>
+<p>在这个例子中，我们发现constructor属性被实现得并不完整。对于DOM对象、ActiveX对象来说这个属性都没有正确的返回。</p>
 
-<p>我们也发现实例obj的constructor指向function MyObject()。这说明JavaScript维护了对 <br />
-象的constructor属性。&mdash;&mdash;这与一些人想象的不一样。  </p>
+<p>确切的说，DOM（包括Image)对象与ActiveX对象都不是标准JavaScript的对象体系中的，因此它们也可能会具有自己的constructor属性，并有着与JavaScript不同的解释。因此，JavaScript中不维护它们的constructor属性，是具有一定的合理性的。</p>
 
-<p>然而再接下来，我们发现MyObject2()的实例obj2的constructor仍然指向function MyObject()。 <br />
-尽管这很说不通，然而现实的确如此。&mdash;&mdash;这到底是为什么呢？  </p>
+<p>另外的一些单体对象(而非构造器)，也不具有constructor属性，例如“Math”和“Debug”、“Global”和“RegExp对象”。他们是JavaScript内部构造的，不应该公开构造的细节。</p>
+
+<p>我们也发现实例obj的constructor指向function MyObject()。这说明JavaScript维护了对象的constructor属性。——这与一些人想象的不一样。</p>
 
-<p>事实上，仅下面的代码： <br />
-<font face="Courier New">  </p>
+<p>然而再接下来，我们发现MyObject2()的实例obj2的constructor仍然指向function MyObject()。</p>
 
-<hr />
+<p>尽管这很说不通，然而现实的确如此。——这到底是为什么呢？</p>
 
-<p>function MyObject2() { <br />
-}</font>  </p>
+<p>事实上，仅下面的代码：</p>
 
-<p><font face="Courier New">obj2 = new MyObject2(); <br />
-document.writeln(MyObject2.prototype.constructor </mark>= MyObject2); <br />
---------</font> <br />
-构造的obj2.constructor将正确的指向function MyObject2()。事实上，我们也会注意到这 <br />
-种情况下，MyObject2的原型属性的constructor也正确的指向该函数。然而，由于JavaScript <br />
-要求指定prototype对象来构造原型链： <br />
-<font face="Courier New">  </p>
+<pre><code class="language-javascript">function MyObject2() {  
+}
 
-<hr />
+obj2 = new MyObject2();  
+document.writeln(MyObject2.prototype.constructor === MyObject2);  
+</code></pre>
 
-<p>function MyObject2() { <br />
-} <br />
-MyObject2.prototype = new MyObject();</font>  </p>
+<p>构造的obj2.constructor将正确的指向function MyObject2()。事实上，我们也会注意到这种情况下，MyObject2的原型属性的constructor也正确的指向该函数。然而，由于JavaScript要求指定prototype对象来构造原型链：</p>
 
-<p><font face="Courier New">obj2 = new MyObject2(); <br />
---------</font> <br />
-这时，再访问obj2，将会得到新的原型(也就是MyObject2.prototype)的constructor属性。 <br />
-因此，一切很明了：原型的属性影响到构造过程对对象的constructor的初始设定。  </p>
+<pre><code class="language-javascript">function MyObject2() {  
+}
+MyObject2.prototype = new MyObject();
 
-<p>作为一种补充的解决问题的手段，JavaScript开发规范中说&ldquo;need to remember to reset <br />
-the constructor property'，要求用户自行设定该属性。  </p>
+obj2 = new MyObject2();  
+</code></pre>
 
-<p>所以你会看到更规范的JavaScript代码要求这样书写： <br />
-<font face="Courier New">//  </p>
+<p>这时，再访问obj2，将会得到新的原型(也就是MyObject2.prototype)的constructor属性。</p>
 
-<hr />
+<p>因此，一切很明了：原型的属性影响到构造过程对对象的constructor的初始设定。</p>
 
-<p>// 维护constructor属性的规范代码 <br />
-//  </p>
+<p>作为一种补充的解决问题的手段，JavaScript开发规范中说'need to remember to reset the constructor property'，要求用户自行设定该属性。</p>
 
-<hr />
+<p>所以你会看到更规范的JavaScript代码要求这样书写：</p>
 
-<p>function MyObject2() { <br />
-} <br />
-MyObject2.prototype = new MyObject(); <br />
-MyObject2.prototype.constructor = MyObject2;</font>  </p>
+<pre><code class="language-javascript">//
+// 维护constructor属性的规范代码
+//
+* * *
+function MyObject2() {  
+}
+MyObject2.prototype = new MyObject();  
+MyObject2.prototype.constructor = MyObject2;
 
-<p><font face="Courier New">obj2 = new MyObject2();</font>  </p>
+obj2 = new MyObject2();  
+</code></pre>
 
-<p>更外一种解决问题的方法，是在function MyObject()中去重置该值。当然，这样会使 <br />
-得执行效率稍低一点点： <br />
-<font face="Courier New">//  </p>
+<p>更外一种解决问题的方法，是在function MyObject()中去重置该值。当然，这样会使得执行效率稍低一点点：</p>
 
-<hr />
+<pre><code class="language-javascript">//
+// 维护constructor属性的第二种方式
+//
+function MyObject2() {  
+  this.constructor = arguments.callee;
+  // or, this.constructor = MyObject2;
 
-<p>// 维护constructor属性的第二种方式 <br />
-//  </p>
+  // ...
+}
+MyObject2.prototype = new MyObject();
 
-<hr />
+obj2 = new MyObject2();  
+</code></pre>
 
-<p>function MyObject2() { <br />
-&nbsp; this.constructor = arguments.callee; <br />
-&nbsp; // or, this.constructor = MyObject2;</font>  </p>
+<h3 id="5">5). 析构问题</h3>
 
-<p><font face="Courier New">&nbsp; // ... <br />
-} <br />
-MyObject2.prototype = new MyObject();</font>  </p>
+<p>JavaScript中没有析构函数，但却有“对象析构”的问题。也就是说，尽管我们不知道一个对象什么时候会被析构，也不能截获它的析构过程并处理一些事务。然而，在一些不多见的时候，我们会遇到“要求一个对象立即析构”的问题。</p>
 
-<p><font face="Courier New">obj2 = new MyObject2();</font>  </p>
+<p>问题大多数的时候出现在对ActiveX Object的处理上。因为我们可能在JavaScript里创建了一个ActiveX Object，在做完一些处理之后，我们又需要再创建一个。而如果原来的对象供应者(Server)不允许创建多个实例，那么我们就需要在JavaScript中确保先前的实例是已经被释放过了。接下来，即使Server允许创建多个实例，而在多个实例间允许共享数据(例如OS的授权，或者资源、文件的锁)，那么我们在新实例中的操作就可能会出问题。</p>
 
-<p>&nbsp;5). 析构问题 <br />
-&nbsp;  </p>
+<p>可能还是有人不明白我们在说什么，那么我就举一个例子：如果创建一个Excel对象，打开文件Ａ，然后我们save它，然后关闭这个实例。然后我们再创建Excel对象并打开同一文件。——注意这时JavaScript可能还没有来得及析构前一个对象。——这时我们再想Save这个文件，就发现失败了。下面的代码示例这种情况：</p>
 
-<hr />
+<pre><code class="language-html">//
+// JavaScript中的析构问题(ActiveX Object示例)
+//
+&lt;script&gt;  
+var strSaveLocation = 'file:///E:/1.xls'
 
-<p>&nbsp;JavaScript中没有析构函数，但却有&ldquo;对象析构&rdquo;的问题。也就是说，尽管我们不 <br />
-知道一个对象什么时候会被析构，也不能截获它的析构过程并处理一些事务。然而， <br />
-在一些不多见的时候，我们会遇到&ldquo;要求一个对象立即析构&rdquo;的问题。  </p>
+function createXLS() {  
+  var excel = new ActiveXObject("Excel.Application");
+  var wk = excel.Workbooks.Add();
+  wk.SaveAs(strSaveLocation);
+  wk.Saved = true;
 
-<p>问题大多数的时候出现在对ActiveX Object的处理上。因为我们可能在JavaScript <br />
-里创建了一个ActiveX Object，在做完一些处理之后，我们又需要再创建一个。而 <br />
-如果原来的对象供应者(Server)不允许创建多个实例，那么我们就需要在JavaScript <br />
-中确保先前的实例是已经被释放过了。接下来，即使Server允许创建多个实例，而 <br />
-在多个实例间允许共享数据(例如OS的授权，或者资源、文件的锁)，那么我们在新 <br />
-实例中的操作就可能会出问题。  </p>
+  excel.Quit();
+}
 
-<p>可能还是有人不明白我们在说什么，那么我就举一个例子：如果创建一个Excel对象， <br />
-打开文件Ａ，然后我们save它，然后关闭这个实例。然后我们再创建Excel对象并打开 <br />
-同一文件。&mdash;&mdash;注意这时JavaScript可能还没有来得及析构前一个对象。&mdash;&mdash;这时我们 <br />
-再想Save这个文件，就发现失败了。下面的代码示例这种情况： <br />
-<font face="Courier New">//  </p>
+function writeXLS() {  
+  var excel = new ActiveXObject("Excel.Application");
+  var wk = excel.Workbooks.Open(strSaveLocation);
+  var sheet = wk.Worksheets(1);
+  sheet.Cells(1, 1).Value = '测试字符串';
+  wk.SaveAs(strSaveLocation);
+  wk.Saved = true;
 
-<hr />
+  excel.Quit();
+}
+&lt;/script&gt;
 
-<p>// JavaScript中的析构问题(ActiveX Object示例) <br />
-//  </p>
+&lt;body&gt;  
+  &lt;button onclick="createXLS()"&gt;创建&lt;/button&gt;
+  &lt;button onclick="writeXLS()"&gt;重写&lt;/button&gt;
+&lt;/body&gt;  
+</code></pre>
 
-<hr />
+<p>在这个例子中，在本地文件操作时并不会出现异常。——最多只是有一些内存垃圾而已。然而，如果strSaveLocation是一个远程的URL，这时本地将会保存一个文件存取权限的凭证，而且同时只能一个(远程的)实例来开启该excel文档并存储。于是如果反复点击"重写"按钮，就会出现异常。</p>
 
-<p><span class="Code">&lt;script&gt; <br />
-</span>var strSaveLocation = 'file:///E:/1.xls'</font>  </p>
+<p>——注意，这是在SPS中操作共享文件时的一个实例的简化代码。因此，它并非“学术的”无聊讨论，而且工程中的实际问题。</p>
 
-<p><font face="Courier New">function createXLS() { <br />
-&nbsp; var excel = new ActiveXObject(&quot;Excel.Application&quot;); <br />
-&nbsp; var wk = excel.Workbooks.Add(); <br />
-&nbsp; wk.SaveAs(strSaveLocation); <br />
-&nbsp; wk.Saved = true;</font>  </p>
+<p>解决这个问题的方法很复杂。它涉及到两个问题：</p>
 
-<p><font face="Courier New">&nbsp; excel.Quit(); <br />
-}</font>  </p>
+<ul>
+<li>本地凭证的释放</li>
+<li>ActiveX Object实例的释放</li>
+</ul>
 
-<p><font face="Courier New">function writeXLS() { <br />
-&nbsp; var excel = new ActiveXObject(&quot;Excel.Application&quot;); <br />
-&nbsp; var wk = excel.Workbooks.Open(strSaveLocation); <br />
-&nbsp; var sheet = wk.Worksheets(1); <br />
-&nbsp; sheet.Cells(1, 1).Value = '测试字符串'; <br />
-&nbsp; wk.SaveAs(strSaveLocation); <br />
-&nbsp; wk.Saved = true;</font>  </p>
+<p>下面我们先从JavaScript中对象的“失效”问题说起。简单的说：</p>
 
-<p><font face="Courier New">&nbsp; excel.Quit(); <br />
-} <br />
-<span class="Code">&lt;/script&gt;</span></font>  </p>
+<ul>
+<li>一个对象在其生存的上下文环境之外，即会失效。</li>
+<li>一个全局的对象在没有被执用(引用)的情况下，即会失效。</li>
+</ul>
 
-<p><font face="Courier New"> <br />
-</font>  </p>
+<p>例如：</p>
 
-<p><font face="Courier New">&lt;body&gt; <br />
-&nbsp; &lt;button onclick=&quot;createXLS()&quot;&gt;创建&lt;/button&gt; <br />
-&nbsp; &lt;button onclick=&quot;writeXLS()&quot;&gt;重写&lt;/button&gt; <br />
-&lt;/body&gt;</font>&nbsp;  </p>
+<pre><code class="language-javascript">//
+// JavaScript对象何时失效
+//
+function testObject() {  
+  var _obj1 = new Object();
+}
 
-<p><font face="宋体, MS Song">在这个例子中，在本地文件操作时并不会出现异常。&mdash;&mdash;最多只是有一些内存垃 <br />
-圾而已。然而，如果strSaveLocation是一个远程的URL，这时本地将会保存一个 <br />
-文件存取权限的凭证，而且同时只能一个(远程的)实例来开启该excel文档并存 <br />
-储。于是如果反复点击&quot;重写&quot;按钮，就会出现异常。</font>  </p>
+function testObject2() {  
+  var _obj2 = new Object();
+  return _obj2;
+}
 
-<p>&mdash;&mdash;注意，这是在SPS中操作共享文件时的一个实例的简化代码。因此，它并非 <br />
-&ldquo;学术的&rdquo;无聊讨论，而且工程中的实际问题。  </p>
+// 示例1
+testObject();
 
-<p>解决这个问题的方法很复杂。它涉及到两个问题： <br />
-&nbsp; - 本地凭证的释放 <br />
-&nbsp; - ActiveX Object实例的释放  </p>
+// 示例2
+testObject2()
 
-<p>下面我们先从JavaScript中对象的&ldquo;失效&rdquo;问题说起。简单的说： <br />
-&nbsp; - 一个对象在其生存的上下文环境之外，即会失效。 <br />
-&nbsp; - 一个全局的对象在没有被执用(引用)的情况下，即会失效。  </p>
+// 示例3
+var obj3 = testObject2();  
+obj3 = null;
 
-<p>例如： <br />
-<font face="Courier New">//  </p>
+// 示例4
+var obj4 = testObject2();  
+var arr = [obj4];  
+obj3 = null;  
+arr = [];  
+</code></pre>
 
-<hr />
+<p>在这四个示例中：</p>
 
-<p>// JavaScript对象何时失效 <br />
-//  </p>
+<ul>
+<li>“示例1”在函数testObject()中构造了<code>_obj1</code>，但是在函数退出时，它就已经离开了函数的上下文环境，因此<code>_obj1</code>失效了；</li>
+<li>“示例2”中，testObject2()中也构造了一个对象<code>_obj2</code>并传出，因此对象有了“函数外”的上下文环境(和生存周期)，然而由于函数的返回值没有被其它变量“持有”，因此<code>_obj2</code>也立即失效了；</li>
+<li>“示例3”中，testObject2()构造的<code>_obj2</code>被外部的变量obj3持用了，这时，直到“obj3=null”这行代码生效时，<code>_obj2</code>才会因为引用关系消失而失效。</li>
+<li>与示例3相同的原因，“示例4”中的<code>_obj2</code>会在“arr=[]”这行代码之后才会失效。</li>
+</ul>
 
-<hr />
+<p>但是，对象的“失效”并不等会“释放”。在JavaScript运行环境的内部，没有任何方式来确切地告诉用户“对象什么时候会释放”。这依赖于JavaScript的内存回收机制。——这种策略与.NET中的回收机制是类同的。</p>
 
-<p>function testObject() { <br />
-&nbsp; var _obj1 = new Object(); <br />
-}</font>  </p>
+<p>在前面的Excel操作示例代码中，对象的所有者，也就是"EXCEL.EXE"这个进程只能在“ActiveX Object实例的释放”之后才会发生。而文件的锁，以及操作系统的权限凭证是与进程相关的。因此如果对象仅是“失效”而不是“释放”，那么其它进程处理文件和引用操作系统的权限凭据时就会出问题。</p>
 
-<p><font face="Courier New">function testObject2() { <br />
-&nbsp; var _obj2 = new Object(); <br />
-&nbsp; return _obj2; <br />
-}</font>  </p>
+<p>——有些人说这是JavaScript或者COM机制的BUG。其实不是，这是ＯＳ、ＩＥ和JavaScript之间的一种复杂关系所导致的，而非独立的问题。</p>
 
-<p><font face="Courier New">// 示例1 <br />
-testObject();</font>  </p>
+<p>Microsoft公开了解决这种问题的策略：主动调用内存回收过程。</p>
 
-<p><font face="Courier New">// 示例2 <br />
-testObject2()</font>  </p>
+<p>在(微软的)JScript中提供了一个CollectGarbage()过程(通常简称GC过程)，GC过程用于清理当前IE中的“失效的对象失例”，也就是调用对象的析构过程。</p>
 
-<p><font face="Courier New">// 示例3 <br />
-var obj3 = testObject2(); <br />
-obj3 = null;</font>  </p>
+<p>在上例中调用GC过程的代码是：</p>
 
-<p><font face="Courier New">// 示例4 <br />
-var obj4 = testObject2(); <br />
-var arr = [obj4]; <br />
-obj3 = null; <br />
-arr = [];</font>  </p>
+<pre><code class="language-javascript">//
+// 处理ActiveX Object时，GC过程的标准调用方式
+//
+function writeXLS() {  
+  //(略...)
 
-<p>在这四个示例中： <br />
-&nbsp; - &ldquo;示例1&rdquo;在函数testObject()中构造了<em>obj1，但是在函数退出时， <br />
-&nbsp;&nbsp;&nbsp; 它就已经离开了函数的上下文环境，因此</em>obj1失效了； <br />
-&nbsp; - &ldquo;示例2&rdquo;中，testObject2()中也构造了一个对象<em>obj2并传出，因 <br />
-&nbsp;&nbsp;&nbsp; 此对象有了&ldquo;函数外&rdquo;的上下文环境(和生存周期)，然而由于函数 <br />
-&nbsp;&nbsp;&nbsp; 的返回值没有被其它变量&ldquo;持有&rdquo;，因此</em>obj2也立即失效了； <br />
-&nbsp; - &ldquo;示例3&rdquo;中，testObject2()构造的<em>obj2被外部的变量obj3持用了， <br />
-&nbsp;&nbsp;&nbsp; 这时，直到&ldquo;obj3=null&rdquo;这行代码生效时，</em>obj2才会因为引用关系 <br />
-&nbsp;&nbsp;&nbsp; 消失而失效。 <br />
-&nbsp; - 与示例3相同的原因，&ldquo;示例4&rdquo;中的_obj2会在&ldquo;arr=[]&rdquo;这行代码 <br />
-&nbsp;&nbsp;&nbsp; 之后才会失效。  </p>
+  excel.Quit();
+  excel = null;
+  setTimeout(CollectGarbage, 1);
+}
+</code></pre>
 
-<p>但是，对象的&ldquo;失效&rdquo;并不等会&ldquo;释放&rdquo;。在JavaScript运行环境的内部，没 <br />
-有任何方式来确切地告诉用户&ldquo;对象什么时候会释放&rdquo;。这依赖于JavaScript <br />
-的内存回收机制。&mdash;&mdash;这种策略与.NET中的回收机制是类同的。  </p>
+<p>第一行代码调用excel.Quit()方法来使得excel进程中止并退出，这时由于JavaScript环境执有excel对象实例，因此excel进程并不实际中止。</p>
 
-<p>在前面的Excel操作示例代码中，对象的所有者，也就是&quot;EXCEL.EXE&quot;这个进程 <br />
-只能在&ldquo;ActiveX Object实例的释放&rdquo;之后才会发生。而文件的锁，以及操作 <br />
-系统的权限凭证是与进程相关的。因此如果对象仅是&ldquo;失效&rdquo;而不是&ldquo;释放&rdquo;， <br />
-那么其它进程处理文件和引用操作系统的权限凭据时就会出问题。  </p>
+<p>第二行代码使excel为null，以清除对象引用，从而使对象“失效”。然而由于对象仍旧在函数上下文环境中，因此如果直接调用GC过程，对象仍然不会被清理。</p>
 
-<p>&mdash;&mdash;有些人说这是JavaScript或者COM机制的BUG。其实不是，这是ＯＳ、ＩＥ <br />
-和JavaScript之间的一种复杂关系所导致的，而非独立的问题。  </p>
+<p>第三行代码使用setTimeout()来调用CollectGarbage函数，时间间隔设为'1'，只是使得GC过程发生在writeXLS()函数执行完之后。这样excel对象就满足了“能被GC清理”的两个条件：没有引用和离开上下文环境。</p>
 
-<p>Microsoft公开了解决这种问题的策略：主动调用内存回收过程。  </p>
+<p>GC过程的使用，在使用了ActiveX Object的JS环境中很有效。一些潜在的ActiveX Object包括XML、VML、OWC(Office Web Componet)、flash，甚至包括在JS中的VBArray。</p>
 
-<p>在(微软的)JScript中提供了一个CollectGarbage()过程(通常简称GC过程)， <br />
-GC过程用于清理当前IE中的&ldquo;失效的对象失例&rdquo;，也就是调用对象的析构过程。  </p>
+<p>从这一点来看，ajax架构由于采用了XMLHTTP，并且同时要满足“不切换页面”的特性，因此在适当的时候主动调用GC过程，会得到更好的效率用UI体验。</p>
 
-<p>在上例中调用GC过程的代码是： <br />
-<font face="Courier New">//  </p>
+<p>事实上，即使使用GC过程，前面提到的excel问题仍然不会被完全解决。因为IE还缓存了权限凭据。使页的权限凭据被更新的唯一方法，只能是“切换到新的页面”，因此事实上在前面提到的那个SPS项目中，我采用的方法并不是GC，而是下面这一段代码：</p>
 
-<hr />
+<pre><code class="language-javascript">//
+// 处理ActiveX Object时采用的页面切换代码
+//
+function writeXLS() {  
+  //(略...)
 
-<p>// 处理ActiveX Object时，GC过程的标准调用方式 <br />
-//  </p>
+  excel.Quit();
+  excel = null;
 
-<hr />
+  // 下面代码用于解决IE call Excel的一个BUG, MSDN中提供的方法:
+  //   setTimeout(CollectGarbage, 1);
+  // 由于不能清除(或同步)网页的受信任状态, 所以将导致SaveAs()等方法在
+  // 下次调用时无效.
+  location.reload();
+}
+</code></pre>
 
-<p>function writeXLS() { <br />
-&nbsp; //(略...)</font>  </p>
-
-<p><font face="Courier New">&nbsp; excel.Quit(); <br />
-&nbsp; excel = null; <br />
-&nbsp; setTimeout(CollectGarbage, 1); <br />
-}</font>  </p>
-
-<p>第一行代码调用excel.Quit()方法来使得excel进程中止并退出，这时由于JavaScript <br />
-环境执有excel对象实例，因此excel进程并不实际中止。  </p>
-
-<p>第二行代码使excel为null，以清除对象引用，从而使对象&ldquo;失效&rdquo;。然而由于 <br />
-对象仍旧在函数上下文环境中，因此如果直接调用GC过程，对象仍然不会被清理。  </p>
-
-<p>第三行代码使用setTimeout()来调用CollectGarbage函数，时间间隔设为'1'，只 <br />
-是使得GC过程发生在writeXLS()函数执行完之后。这样excel对象就满足了&ldquo;能被 <br />
-GC清理&rdquo;的两个条件：没有引用和离开上下文环境。  </p>
-
-<p>GC过程的使用，在使用了ActiveX Object的JS环境中很有效。一些潜在的ActiveX <br />
-Object包括XML、VML、OWC(Office Web Componet)、flash，甚至包括在JS中的VBArray。 <br />
-从这一点来看，ajax架构由于采用了XMLHTTP，并且同时要满足&ldquo;不切换页面&rdquo;的 <br />
-特性，因此在适当的时候主动调用GC过程，会得到更好的效率用UI体验。  </p>
-
-<p>事实上，即使使用GC过程，前面提到的excel问题仍然不会被完全解决。因为IE还 <br />
-缓存了权限凭据。使页的权限凭据被更新的唯一方法，只能是&ldquo;切换到新的页面&rdquo;， <br />
-因此事实上在前面提到的那个SPS项目中，我采用的方法并不是GC，而是下面这一 <br />
-段代码： <br />
-<font face="Courier New">//  </p>
-
-<hr />
-
-<p>// 处理ActiveX Object时采用的页面切换代码 <br />
-//  </p>
-
-<hr />
-
-<p>function writeXLS() { <br />
-&nbsp; //(略...)</font>  </p>
-
-<p><font face="Courier New">&nbsp; excel.Quit(); <br />
-&nbsp; excel = null; <br />
-&nbsp; <br />
-&nbsp; // 下面代码用于解决IE call Excel的一个BUG, MSDN中提供的方法: <br />
-&nbsp; //&nbsp;&nbsp; setTimeout(CollectGarbage, 1); <br />
-&nbsp; // 由于不能清除(或同步)网页的受信任状态, 所以将导致SaveAs()等方法在 <br />
-&nbsp; // 下次调用时无效. <br />
-&nbsp; location.reload(); <br />
-}</font>  </p>
-
-<p>最后之最后，关于GC的一个补充说明：在IE窗体被最小化时，IE将会主动调用一次 <br />
-CollectGarbage()函数。这使得IE窗口在最小化之后，内存占用会有明显改善。</p>
+<p>最后之最后，关于GC的一个补充说明：在IE窗体被最小化时，IE将会主动调用一次CollectGarbage()函数。这使得IE窗口在最小化之后，内存占用会有明显改善。</p>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -541,13 +456,13 @@ CollectGarbage()函数。这使得IE窗口在最小化之后，内存占用会�
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-23.html">
+                <a href="/1-23.html">
                     JavaScript面向对象的支持(4)
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-25.html">
+                <a href="/1-25.html">
                     经典的《JavaScript 权威指南》中的“对象”不经典
                 </a>
                 下一篇
@@ -557,8 +472,8 @@ CollectGarbage()函数。这使得IE窗口在最小化之后，内存占用会�
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
+<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -582,8 +497,8 @@ a.gitment-editor-footer-tip { display: none; }
             <div class="widget widget-profile">
         <div class="widget-profile-cover overlay no-cover"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
@@ -593,14 +508,14 @@ a.gitment-editor-footer-tip { display: none; }
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -619,7 +534,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -632,21 +547,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
 </body>
 
 </html>
