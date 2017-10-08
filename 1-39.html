@@ -26,7 +26,7 @@
     <meta property="og:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {     // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
     <meta property="og:url" content="http://aimingoo.github.io/1-39.html" />
     <meta property="article:published_time" content="2006-03-20T04:50:00.000Z" />
-    <meta property="article:modified_time" content="2017-10-08T14:00:59.000Z" />
+    <meta property="article:modified_time" content="2017-10-08T17:55:00.000Z" />
     <meta property="article:tag" content="Javascript" />
     <meta property="article:tag" content="Qomo" />
     <meta property="article:tag" content="OpenSource Project" />
@@ -68,7 +68,7 @@
     "headline": "Qomolangma实现篇(六)：Qomo的OOP框架的实现技术",
     "url": "http://aimingoo.github.io/1-39.html",
     "datePublished": "2006-03-20T04:50:00.000Z",
-    "dateModified": "2017-10-08T14:00:59.000Z",
+    "dateModified": "2017-10-08T17:55:00.000Z",
     "keywords": "Javascript, Qomo, OpenSource Project, 面向对象",
     "description": "注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {     // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数",
     "mainEntityOfPage": {
@@ -814,13 +814,11 @@ function getInheritedMap(method) {
 <p>这样的语句事实上并不能替代<code>&lt;property&gt; in &lt;object&gt;</code>。因为如果"obj[n]=undefined"，
 那么就将再也无法通过这段代码来完成检测。因此更有效的代码是：</p>
 
-<hr />
-
-<p>function hasProperty(p, o) { <br />
+<pre><code class="language-javascript">function hasProperty(p, o) {  
   for (var i in o) if (p==i) return true;
-  return false;</p>
-
-<h2 id="">}</h2>
+  return false;
+}
+</code></pre>
 
 <p>然而我们不能要求开发人员为了兼容IE 5.0都使用hasProperty()来替代<code>&lt;p&gt; in &lt;o&gt;</code>的语法。因此需要在IE 5.0中引入一个parser，对$import()的.js文件中的代码进行替换。</p>
 
