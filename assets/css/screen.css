@@ -1158,7 +1158,7 @@ body.nav-opened .site-wrapper {
 /* Turn off meta for page2+ to make room for extra
    pagination prev/next links */
 
-.archive-template .author-profile .author-meta {
+.paged .author-profile .author-meta {
     display: none;
 }
 
@@ -1601,6 +1601,8 @@ body.nav-opened .site-wrapper {
     -o-transition: .8s;
     -ms-transition: .8s;
 }
+
+/*
 .widget-profile-header > a > img:hover {
     transform: rotate(720deg);
     -webkit-transform: rotate(720deg);
@@ -1610,6 +1612,8 @@ body.nav-opened .site-wrapper {
     filter: alpha(opacity=100) !important;
     opacity: 1 !important;
 }
+*/
+
 .widget-profile-title {
     text-align: center;
     display: inherit !important;
@@ -2442,6 +2446,31 @@ code.has-numbering {
     margin-right: 4px;
     color: #999;
     display: inline-block;
+}
+
+/* ==========================================================================
+  23.1 by aimingoo
+  ========================================================================== */
+
+.archives-info .archives-info-meta .archives-date {
+    width: 4em;
+    display: inline-block;
+}
+.archives-info .archives-info-meta i.meta-user::before {
+    width: 1.5em;
+    text-align: center;
+    display: inline-block;
+}
+.archives-info .archives-info-meta i.meta-user span {
+    width: 6em;
+    text-align: center;
+    display: inline-block;
+}
+.archives-info .archives-info-meta i.u-joyxhy {
+    color: #a56666;
+}
+.archives-info .archives-info-meta a.u-joyxhy {
+    color: #a56666;
 }
 
 /* ==========================================================================

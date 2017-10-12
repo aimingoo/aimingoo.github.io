@@ -41,7 +41,8 @@
         // numbering for pre>code blocks
         $(function() {
             $('pre code').each(function() {
-                if (! $(this).attr('class')) {
+                var language=$(this).attr('class');
+                if (!language || language.match(/[-_]?nohighlight$/)) {
                     $(this).attr('style', 'background: #F7FAFB;')
                     return;
                 }
@@ -53,6 +54,8 @@
                 }
             });
         });
+
+
 
         var toc = $('.toc');
         // toc config

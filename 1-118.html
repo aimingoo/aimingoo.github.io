@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>无废话JavaScript（上）</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="无废话JavaScript（上）" />
-    <meta property="og:description" content="《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如&amp;ldquo;无废话C&amp;rdquo;、&amp;ldquo;无废话书评&amp;rdquo;这类的文章，也想到了JavaScript可没有一篇&amp;ldquo;无废话&amp;rdquo;，所以决定开个篇来写这个。      与这个决定相关的，还因为另一个缘故：许多读者认为我那本《JavaScript语言精髓与编程实践》读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。      声明一下：如果只想看复杂的东西，不要读这篇文章了。 一、JavaScript最初其实是过程式的 追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如： &amp;lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Go&quot; onclick&#x3D;&quot;alert(&#x27;hello&#x27;)&quot;&amp;gt;   第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，" />
+    <meta property="og:description" content="《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如“无废话C”、“无废话书评”这类的文章，也想到了JavaScript可没有一篇“无废话”，所以决定开个篇来写这个。 与这个决定相关的，还因为另一个缘故：许多读者认为我那本**《JavaScript语言精髓与编程实践》**读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。 声明一下：如果只想看复杂的东西，不要读这篇文章了。 一、JavaScript最初其实是过程式的 追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如： &amp;lt;input type&#x3D;&amp;quot;button&amp;quot; value&#x3D;&amp;quot;Go&amp;quot; onclick&#x3D;&amp;quot;alert(&#x27;hello&#x27;)&amp;quot;&amp;gt; 第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，" />
     <meta property="og:url" content="http://aimingoo.github.io/1-118.html" />
     <meta property="article:published_time" content="2008-10-06T07:25:00.000Z" />
     <meta property="article:modified_time" content="2017-10-07T20:22:28.000Z" />
@@ -33,7 +33,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="无废话JavaScript（上）" />
-    <meta name="twitter:description" content="《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如&amp;ldquo;无废话C&amp;rdquo;、&amp;ldquo;无废话书评&amp;rdquo;这类的文章，也想到了JavaScript可没有一篇&amp;ldquo;无废话&amp;rdquo;，所以决定开个篇来写这个。      与这个决定相关的，还因为另一个缘故：许多读者认为我那本《JavaScript语言精髓与编程实践》读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。      声明一下：如果只想看复杂的东西，不要读这篇文章了。 一、JavaScript最初其实是过程式的 追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如： &amp;lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Go&quot; onclick&#x3D;&quot;alert(&#x27;hello&#x27;)&quot;&amp;gt;   第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，" />
+    <meta name="twitter:description" content="《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如“无废话C”、“无废话书评”这类的文章，也想到了JavaScript可没有一篇“无废话”，所以决定开个篇来写这个。 与这个决定相关的，还因为另一个缘故：许多读者认为我那本**《JavaScript语言精髓与编程实践》**读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。 声明一下：如果只想看复杂的东西，不要读这篇文章了。 一、JavaScript最初其实是过程式的 追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如： &amp;lt;input type&#x3D;&amp;quot;button&amp;quot; value&#x3D;&amp;quot;Go&amp;quot; onclick&#x3D;&amp;quot;alert(&#x27;hello&#x27;)&amp;quot;&amp;gt; 第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-118.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -54,37 +54,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "无废话JavaScript（上）",
     "url": "http://aimingoo.github.io/1-118.html",
     "datePublished": "2008-10-06T07:25:00.000Z",
     "dateModified": "2017-10-07T20:22:28.000Z",
     "keywords": "Javascript, 语言, 面向对象",
-    "description": "《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如&amp;ldquo;无废话C&amp;rdquo;、&amp;ldquo;无废话书评&amp;rdquo;这类的文章，也想到了JavaScript可没有一篇&amp;ldquo;无废话&amp;rdquo;，所以决定开个篇来写这个。      与这个决定相关的，还因为另一个缘故：许多读者认为我那本《JavaScript语言精髓与编程实践》读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。      声明一下：如果只想看复杂的东西，不要读这篇文章了。 一、JavaScript最初其实是过程式的 追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如： &amp;lt;input type&#x3D;&quot;button&quot; value&#x3D;&quot;Go&quot; onclick&#x3D;&quot;alert(&#x27;hello&#x27;)&quot;&amp;gt;   第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，",
+    "description": "《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如“无废话C”、“无废话书评”这类的文章，也想到了JavaScript可没有一篇“无废话”，所以决定开个篇来写这个。 与这个决定相关的，还因为另一个缘故：许多读者认为我那本**《JavaScript语言精髓与编程实践》**读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。 声明一下：如果只想看复杂的东西，不要读这篇文章了。 一、JavaScript最初其实是过程式的 追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如： &amp;lt;input type&#x3D;&amp;quot;button&amp;quot; value&#x3D;&amp;quot;Go&amp;quot; onclick&#x3D;&amp;quot;alert(&#x27;hello&#x27;)&amp;quot;&amp;gt; 第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -95,8 +92,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,6 +108,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -121,11 +117,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-yu-yan tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-118.html">无废话JavaScript（上）</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-118.html">无废话JavaScript（上）</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -147,132 +145,97 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <blockquote>
-  <p>《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如&ldquo;无废话C&rdquo;、&ldquo;无废话书评&rdquo;这类的文章，也想到了JavaScript可没有一篇&ldquo;无废话&rdquo;，所以决定开个篇来写这个。</p>
-  
-  <p>与这个决定相关的，还因为另一个缘故：许多读者认为我那本<strong><a href="http://www.china-pub.com/38730">《JavaScript语言精髓与编程实践》</a></strong>读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。</p>
-  
-  <p>声明一下：如果只想看复杂的东西，不要读这篇文章了。</p>
+                <div class="kg-card-markdown"><blockquote>
+<p>《程序员》2008.09期有一篇名为《无废话ErLang》的文章，这让我想到了许多的诸如“无废话C”、“无废话书评”这类的文章，也想到了JavaScript可没有一篇“无废话”，所以决定开个篇来写这个。</p>
+<p>与这个决定相关的，还因为另一个缘故：许多读者认为我那本**<a href="http://www.china-pub.com/38730">《JavaScript语言精髓与编程实践》</a>**读来辛苦，所以我一直想写个简单的读本。索性，这次就写个最简单的吧。</p>
+<p>声明一下：如果只想看复杂的东西，不要读这篇文章了。</p>
 </blockquote>
-
 <h2 id="javascript">一、JavaScript最初其实是过程式的</h2>
-
 <p>追溯到1.0时代的JavaScript，其实是过程式的。它的基本特性有只有两项，一项是能够直接放在网页的HTML标签中去接管事件，例如：</p>
-
-<pre><code class="language-html">&lt;input type="button" value="Go" onclick="alert('hello')"&gt;  
+<pre><code class="language-html">&lt;input type=&quot;button&quot; value=&quot;Go&quot; onclick=&quot;alert('hello')&quot;&gt;
 </code></pre>
-
 <p>第二项则是支持一种简单的对象构造器(函数)。其实这个时代的构造器不如说是初始化函数更合适，它应当这样写：</p>
-
-<pre><code>function MyObject() {  
+<pre><code>function MyObject() {
   this.xxx = '...';
   this.yyy = '...';
 }
-obj = new MyObject();  
+obj = new MyObject();
 </code></pre>
-
-<p>所以，早期的JavaScript无可置疑地背上了&ldquo;基于对象的过程式脚本语言&rdquo;的名头，这一点也不冤枉。除了上面两项特性，JavaScript有着一些一般性的脚本语言的性质，例如：</p>
-
+<p>所以，早期的JavaScript无可置疑地背上了“基于对象的过程式脚本语言”的名头，这一点也不冤枉。除了上面两项特性，JavaScript有着一些一般性的脚本语言的性质，例如：</p>
 <ul>
 <li>整个.js文件一次性装载到执行环境(例如WEB浏览器)中，在经历一次语法分析之后，开始逐行执行；</li>
-<li>在上述语法分析周期，(具名的)函数和用"var"声明的变量被预先处理在一个标识符表中，以便脚本代码使用；</li>
+<li>在上述语法分析周期，(具名的)函数和用&quot;var&quot;声明的变量被预先处理在一个标识符表中，以便脚本代码使用；</li>
 <li>从全局的代码行或函数调用开始执行，整个过程中执行不到的代码不被查错（除第一步中的语法检错外）。</li>
 </ul>
-
 <p>也具有通常的过程式语言的性质，例如：</p>
-
 <ul>
 <li>有if/for/while/switch等语句；</li>
-<li>用function来声明函数，使用"(..)"来声明它的形式参数表，以及表示函数调用和传参；</li>
-<li>类似于C语言的基本语法，包括使用"{..}"来表示代码块，以及使用"!="等运算符号；</li>
-<li>一个类似于Java语言的对象操作运算符"."号，和属性、方法这样的基本概念。</li>
+<li>用function来声明函数，使用&quot;(..)&quot;来声明它的形式参数表，以及表示函数调用和传参；</li>
+<li>类似于C语言的基本语法，包括使用&quot;{..}&quot;来表示代码块，以及使用&quot;!=&quot;等运算符号；</li>
+<li>一个类似于Java语言的对象操作运算符&quot;.&quot;号，和属性、方法这样的基本概念。</li>
 </ul>
-
-<p>好了，现在你看到了一个基本的JavaScript语言，它的代码只有象C一样的函数与语句行，支持非常简单的面向对象编程。OK，这其实也差不多是JavaScript的全部&hellip;&hellip;嗯&hellip;&hellip;全部的语法基础观念。如果你用过一门哪怕稍稍入门一点的程序语言，你都会觉得JavaScript其实挺简单的。</p>
-
-<p>是啊，&ldquo;写个函数，然后调用它&rdquo;，就这么简单。例如：</p>
-
-<pre><code class="language-javascript">function hi() {  
+<p>好了，现在你看到了一个基本的JavaScript语言，它的代码只有象C一样的函数与语句行，支持非常简单的面向对象编程。OK，这其实也差不多是JavaScript的全部……嗯……全部的语法基础观念。如果你用过一门哪怕稍稍入门一点的程序语言，你都会觉得JavaScript其实挺简单的。</p>
+<p>是啊，“写个函数，然后调用它”，就这么简单。例如：</p>
+<pre><code class="language-javascript">function hi() {
   alert('hello, world.');
 }
-hi();  
+hi();
 </code></pre>
-
 <h2 id="">二、稍微复杂一点的是数据类型</h2>
-
-<p>JavaScript有六种基本数据类型，分为两类。一类是值类型，即undefined，string, number和boolean；一类是引用类型，即function和object。检测数据X是何种类型，可以简单地使用"typeof X"来返回一个字符串。</p>
-
-<p>值类型与引用类型在其它高级语言中，是用&ldquo;访问过程中是传值还是传引用&rdquo;来区别的。简单说，在下面函数中：</p>
-
-<pre><code class="language-javascript">function foo(X) {  
+<p>JavaScript有六种基本数据类型，分为两类。一类是值类型，即undefined，string, number和boolean；一类是引用类型，即function和object。检测数据X是何种类型，可以简单地使用&quot;typeof X&quot;来返回一个字符串。</p>
+<p>值类型与引用类型在其它高级语言中，是用“访问过程中是传值还是传引用”来区别的。简单说，在下面函数中：</p>
+<pre><code class="language-javascript">function foo(X) {
 }
 </code></pre>
-
 <p>X传入的是值本身，还是一个指向该值的引用（你可以想象成指针），表明了X是何种类型。与其它语言不同的是，JavaScript并不在调用入口上加指示字来说明传值的方法，例如：</p>
-
-<pre><code class="language-javascript">function foo(var X) {  
+<pre><code class="language-javascript">function foo(var X) {
   // 一般高级语言中，var表明总是传入变量X的引用
 }
 </code></pre>
-
 <p>而是简单的由脚本引擎根据实际传入的X的数据类型来决定如何传值。例如：</p>
-
-<pre><code class="language-javascript">function foo(X) {  
+<pre><code class="language-javascript">function foo(X) {
   ...
 }
-foo('123'); // &amp;lt;- 字符串'123'值  
-foo(aObj);  // &amp;lt;- aObj是一个对象引用  
+foo('123'); // &amp;lt;- 字符串'123'值
+foo(aObj);  // &amp;lt;- aObj是一个对象引用
 </code></pre>
-
 <p>能这样处理的关键，在于JavaScript类型系统足够简洁。六种基本类型包括了三个哲学化的观念：能执行的与不能执行的；对象或非对象；有(值)或无(值)。显然，理解这种哲学性的思想并不容易，因为更复杂一层的、自包含的逻辑是：函数也是对象、值也是对象、无值也是值。</p>
-
 <p>这就是JavaScript类型系统的全部了。如果你想简单的用用，那么你记住下面的就够了：</p>
-
 <ul>
 <li>string、number、boolean三种简单值类型是用来传给网页显示的；</li>
 <li>object用来存放其它的object、funtion或上述简单值类型，并用'.'运算通过一个属性名找到它们；</li>
 <li>undefined是用来检测数据有效无效的；</li>
 <li>function是用来执行的。</li>
 </ul>
-
 <p>当然，如果你要成为思想家或者语言学的疯子，那么去思考上面的哲学化命题吧，我不拦着你。</p>
-
 <h2 id="">三、能用鼻子想通的就是直接量了</h2>
-
-<p>或许很多人都搞不明白JavaScript中的直接量声明，然而它确实是非常简单的。既然我们大多数高级语言都支持常量声明，甚至最原始的汇编语言也支持立即值&mdash;&mdash;例如：</p>
-
+<p>或许很多人都搞不明白JavaScript中的直接量声明，然而它确实是非常简单的。既然我们大多数高级语言都支持常量声明，甚至最原始的汇编语言也支持立即值——例如：</p>
 <pre><code class="language-javascript">// in C
 #define ABYTE  256
 
 // in delphi
-const  
+const
   ABYTE = 256
 
 ; in asm
-mov ah, 256  
+mov ah, 256
 </code></pre>
-
-<p>那么JavaScript当然&hellip;&hellip;必然&hellip;&hellip;可以面无愧色地支持直接量了&mdash;&mdash;他们其实是一个概念。例如：</p>
-
+<p>那么JavaScript当然……必然……可以面无愧色地支持直接量了——他们其实是一个概念。例如：</p>
 <pre><code class="language-javascript">// in javascript
-var  
+var
   aByte = 256
 </code></pre>
-
 <p>只不过在理解的时候，一定要切记：所有上述的代码中，所谓直接量或立即值，是指那个'256'，而不是那个变量或常量的标识符ABYTE/aByte。更进一步的，你要知道JavaScript支持了８种直接量声明：</p>
-
 <pre><code>数值：支持整数，浮点和0x等进制前缀，以及&amp;hellip;&amp;hellip;等等；
 布尔值：true/false；
 无值：undefined；
 函数：function() { ... }，也称为匿名函数；
-字符串：使用'..'或".."，支持多行和转义符；
+字符串：使用'..'或&quot;..&quot;，支持多行和转义符；
 正则表达式：使用/../..，支持g,i,m等正则配置；
 数组：使用[..]，支持嵌套数组；
 对象：使用{...}，支持嵌套对象声明；
 </code></pre>
-
-<p>你可以把上述字符量作为一个个体，用在代码&mdash;&mdash;我的意思是表达式或语句行&mdash;&mdash;的任意位置。用鼻子就可以进行的推论是：</p>
-
+<p>你可以把上述字符量作为一个个体，用在代码——我的意思是表达式或语句行——的任意位置。用鼻子就可以进行的推论是：</p>
 <pre><code class="language-javascript">//既然可以写：
   aaa = 'hello, ' + 'world';
 
@@ -285,64 +248,44 @@ var
 //同样：
 //　&amp;hellip;&amp;hellip;
 </code></pre>
-
-<p>如上的，你可以把所有的直接量放在表达式或语句中间。偶尔的，因为语法解析的必要，你可能需要用一对括号把这个直接量括起来&mdash;&mdash;否则语法上会出现歧义，例如下面这个：</p>
-
-<pre><code class="language-javascript">ddd = (function() {}) + (function() {})  
+<p>如上的，你可以把所有的直接量放在表达式或语句中间。偶尔的，因为语法解析的必要，你可能需要用一对括号把这个直接量括起来——否则语法上会出现歧义，例如下面这个：</p>
+<pre><code class="language-javascript">ddd = (function() {}) + (function() {})
 </code></pre>
-
 <p>好了，直接量原本就这么简单，你只需要期望自己还有一个没退化的鼻子就好了。</p>
-
 <h2 id="">四、原型继承</h2>
-
 <p>原型继承可能是这个世界上最简单不过的东西了。</p>
-
-<p>我们假定一个对象是一张表&mdash;&mdash;伟大的Anders就支持我这个假设，他说JavaScript的对象是&ldquo;属性包&rdquo;&mdash;&mdash;
-这样的一个表中存放的就是&ldquo;name=value&rdquo;这样的&ldquo;名字/值&rdquo;对。当我们想用下面的代码：</p>
-
-<pre><code class="language-javascript">aObj.name  
+<p>我们假定一个对象是一张表——伟大的Anders就支持我这个假设，他说JavaScript的对象是“属性包”——<br>
+这样的一个表中存放的就是“name=value”这样的“名字/值”对。当我们想用下面的代码：</p>
+<pre><code class="language-javascript">aObj.name
 </code></pre>
-
-<p>去找值(value)时，就在表里查一下（用delphi的人应该记得TStringList吧）。对象，哦，所谓对象&mdash;&mdash;在我曾经的理解里&mdash;&mdash;就是&ldquo;带有继承关系的结构体(struct/record)&rdquo;。那么，继承关系是？</p>
-
-<p>是这样，如果上面的查找不成功，对于原型继承来说，只需要在aObj这个对象的&ldquo;原型&rdquo;中找一下，就成了。</p>
-
+<p>去找值(value)时，就在表里查一下（用delphi的人应该记得TStringList吧）。对象，哦，所谓对象——在我曾经的理解里——就是“带有继承关系的结构体(struct/record)”。那么，继承关系是？</p>
+<p>是这样，如果上面的查找不成功，对于原型继承来说，只需要在aObj这个对象的“原型”中找一下，就成了。</p>
 <p>这个原型也是一个对象，记录在构造器函数的prototype属性中。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   // ...
 }
 MyObject.prototype = xxx;
 
-var aObj = new MyObject()  
-zzz = aObj.name;  
+var aObj = new MyObject()
+zzz = aObj.name;
 </code></pre>
-
-<p>当在aObj中找不到name这个属性时，按照上面的规则，就会去xxx这个对象中找，也就是试图找找"xxx.name"。</p>
-
-<p>由于xxx本身也是一个对象，也会有一个构造器函数（例如xxxObject()），因此当xxx.name也找不到时，就会去xxxObject.prototype里面去找&hellip;&hellip;如此&hellip;&hellip;如此深层次的挖掘，直到再也找不到&hellip;&hellip;就返回undefined。</p>
-
+<p>当在aObj中找不到name这个属性时，按照上面的规则，就会去xxx这个对象中找，也就是试图找找&quot;xxx.name&quot;。</p>
+<p>由于xxx本身也是一个对象，也会有一个构造器函数（例如xxxObject()），因此当xxx.name也找不到时，就会去xxxObject.prototype里面去找……如此……如此深层次的挖掘，直到再也找不到……就返回undefined。</p>
 <p>多简单啊，所谓原型继承，只不过是一个简单的检索规则。</p>
-
-<p>反过来说，你需要让aObj能访问到某个成员，也只需要修改一下它（或它们&mdash;&mdash;一指类似aObj的实例）的原型就好了。这在JavaScript中是非常常用的。例如你想让所有的string都有某个属性：</p>
-
-<pre><code class="language-javascript">String.protoype.MyName = 'string'  
+<p>反过来说，你需要让aObj能访问到某个成员，也只需要修改一下它（或它们——一指类似aObj的实例）的原型就好了。这在JavaScript中是非常常用的。例如你想让所有的string都有某个属性：</p>
+<pre><code class="language-javascript">String.protoype.MyName = 'string'
 </code></pre>
-
 <p>又例如你想让所有的对象都有某个属性（或方法，或其它什么东东），那么：</p>
-
-<pre><code>Object.prototype.getMyName = function() {  
+<pre><code>Object.prototype.getMyName = function() {
   return this.MyName;
 }
 </code></pre>
-
-<p>多么美好，现在String也能getMyName了，函数也能getMyName了，所有没有名字的也有名字了&mdash;&mdash;当然，名字是undefined。</p>
-
+<p>多么美好，现在String也能getMyName了，函数也能getMyName了，所有没有名字的也有名字了——当然，名字是undefined。</p>
 <p>没名字也是名字，我没想过你会不会变成哲学疯子，对不起。</p>
-
 <blockquote>
-  <p>下篇<a href="/1-119.html">在这里</a></p>
+<p>下篇<a href="/1-119.html">在这里</a></p>
 </blockquote>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -370,8 +313,8 @@ zzz = aObj.name;
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -393,16 +336,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -445,21 +388,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

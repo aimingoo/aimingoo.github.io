@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomo OpenProject beta1 发布！</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Qomo OpenProject beta1 发布！" />
-    <meta property="og:description" content="Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。 一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。 此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。 1、关于UI与DB组件包 本次，公开发布的beta 1仍不会附带UI和DB代码。但是我稍后会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。 这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。&amp;mdash;&amp;mdash;因为Qomo将会另行提供一套。 2、本次发布中的主要修正 在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是：" />
+    <meta property="og:description" content="Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。 一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。 此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。 1、关于UI与DB组件包 本次，公开发布的beta 1仍不会附带UI和DB代码。但是我稍后会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。 这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。——因为Qomo将会另行提供一套。 2、本次发布中的主要修正 在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是： 重新定义了Qomo的兼容性目标。Qomo今后将在底层提供一个IE、" />
     <meta property="og:url" content="http://aimingoo.github.io/1-41.html" />
     <meta property="article:published_time" content="2006-04-16T20:12:00.000Z" />
     <meta property="article:modified_time" content="2017-10-05T04:22:03.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Qomo OpenProject beta1 发布！" />
-    <meta name="twitter:description" content="Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。 一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。 此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。 1、关于UI与DB组件包 本次，公开发布的beta 1仍不会附带UI和DB代码。但是我稍后会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。 这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。&amp;mdash;&amp;mdash;因为Qomo将会另行提供一套。 2、本次发布中的主要修正 在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是：" />
+    <meta name="twitter:description" content="Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。 一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。 此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。 1、关于UI与DB组件包 本次，公开发布的beta 1仍不会附带UI和DB代码。但是我稍后会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。 这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。——因为Qomo将会另行提供一套。 2、本次发布中的主要修正 在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是： 重新定义了Qomo的兼容性目标。Qomo今后将在底层提供一个IE、" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-41.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,37 +53,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "Qomo OpenProject beta1 发布！",
     "url": "http://aimingoo.github.io/1-41.html",
     "datePublished": "2006-04-16T20:12:00.000Z",
     "dateModified": "2017-10-05T04:22:03.000Z",
     "keywords": "Qomo, OpenSource Project",
-    "description": "Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。 一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。 此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。 1、关于UI与DB组件包 本次，公开发布的beta 1仍不会附带UI和DB代码。但是我稍后会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。 这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。&amp;mdash;&amp;mdash;因为Qomo将会另行提供一套。 2、本次发布中的主要修正 在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是：",
+    "description": "Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。 一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。 此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。 1、关于UI与DB组件包 本次，公开发布的beta 1仍不会附带UI和DB代码。但是我稍后会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。 这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。——因为Qomo将会另行提供一套。 2、本次发布中的主要修正 在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是： 重新定义了Qomo的兼容性目标。Qomo今后将在底层提供一个IE、",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -94,8 +91,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=2324fcd7e8"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,6 +107,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -120,11 +116,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-qomo tag-opensource-project">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-41.html">Qomo OpenProject beta1 发布！</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-41.html">Qomo OpenProject beta1 发布！</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -146,50 +144,31 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。</p>
-
+                <div class="kg-card-markdown"><p>Qomo离上一次发布FT4已经过去整整一个月了。这一段时间中，因为我个人的缘故，未能组织好Qomo的团队，导致UI组和DB组未能正常展开工作。因此截止beta 1发布，以上两个组仍未能释出代码。</p>
 <p>一个最重要的原因，是因为Qomo目前没有一个好的UI和DB框架。以前在WEUI中使用过的UI和DB Components代码并不适用于新的架构和设计，因此只能供参考。</p>
-
 <p>此外，兼容组的Zhe设计了新的兼容框架，基本上已经完成了代码。但测试工作还未结束，因此暂时只作为Qomo项目团队内部的一个测试版本，仍未能放在目前的beta 1中。</p>
-
 <h2 id="1uidb">1、关于UI与DB组件包</h2>
-
 <p>本次，公开发布的beta 1仍不会附带UI和DB代码。但是我<strong>稍后</strong>会在这个blog中发布一个Qomo.Components的包，这个包中将会有目前全部UI、DB相关的代码。这些代码的注释是全中文的。</p>
-
-<p>这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。&mdash;&mdash;因为Qomo将会另行提供一套。</p>
-
+<p>这个包中的代码，事实上是原WEUI项目中的代码(甚至我连注释都没有改掉)。由于Qomo与WEUI有相同的语法与实现架构，因此只用了极少量的修改，这些代码就可以运行在Qomo上了。在今后，这些代码(中的部分或者全部)将不会随Qomo继续发布，它可以作为Qomo爱好者研究借鉴，但我不建议你使用在项目中。——因为Qomo将会另行提供一套。</p>
 <h2 id="2">2、本次发布中的主要修正</h2>
-
 <p>在FT4的基础之上，本次发布代码中有大量的修正代码。最主要的两项修改是：</p>
-
 <ul>
-<li>重新定义了Qomo的兼容性目标。Qomo今后将在底层提供一个IE、Mozilla等浏览器(及不同的JS版本)的公共特性的超集，而不是象以前所说的&ldquo;以IE6为基准&rdquo;。这意味着Qomo将有一个更强大的兼容层。因此，一些原本在JSEnhance.js中的代码被移到了兼容层框架中，例如出现了&ldquo;Compat/common_js16.js&rdquo;这个单元。</li>
-<li>修改了多投事件对象MuEvent()的代码，彻底解决了原来的&ldquo;快就不强壮，强壮就不快&rdquo;的矛盾。</li>
+<li>重新定义了Qomo的兼容性目标。Qomo今后将在底层提供一个IE、Mozilla等浏览器(及不同的JS版本)的公共特性的超集，而不是象以前所说的“以IE6为基准”。这意味着Qomo将有一个更强大的兼容层。因此，一些原本在JSEnhance.js中的代码被移到了兼容层框架中，例如出现了“Compat/common_js16.js”这个单元。</li>
+<li>修改了多投事件对象MuEvent()的代码，彻底解决了原来的“快就不强壮，强壮就不快”的矛盾。</li>
 </ul>
-
 <p>此外，在Object.js、System.js等内核代码中，为一些新特性的实现也加入了代码。但基本上没有调整代码框架，因此不单独叙述了。</p>
-
 <h2 id="3">3、本次发布中的主要添加的内容</h2>
-
-<p>这次beta 1的发布，在Qomo中添加了完整的&ldquo;接口(Interface)&rdquo;机制，以及非常完整的&ldquo;面向切面编程(AOP)&rdquo;框架。并完成了相关技术文档。</p>
-
-<p>beta 1也完成了一个&ldquo;组件继承框图&rdquo;的自动生成程序。这样你要以很容易地看到系统内部的框架结构。我也将在随后再撰文来讲述Qomo底层框架的实现。</p>
-
-<p>beta 1终于开始在Debug/目录下加入代码。今次提供的是一个Profilers.js单元，这个单元用于收集系统运行中的效率数据。它采用原生的javascript代码实现，因此可以脱离Qomo运行。&mdash;&mdash;除了在toData()输出时，他需要一个uneval()函数，这在兼容层代码Compat/common_ie6.js中。</p>
-
-<p>profiles.js本意是试图用AOP框架来实现的，但是这样的话在Aspect.js单元之前的其它单元的载入性能就无法检测了。因此Qomo提供了一个RepImport.js单元，使用$import()提供的一些特性来收集system.js中载入的代码效率。在system.js载入之后，该单元提供的特性将会被关闭(ResetImport)，此后的用户代码，可以通过AOP建立自己的分析系统。一个这样的示例被放在Debug/TestCase/T_profiler.html中。&mdash;&mdash;它也正好演示了AOP与非AOP实现profiler时存在的不同。</p>
-
+<p>这次beta 1的发布，在Qomo中添加了完整的“接口(Interface)”机制，以及非常完整的“面向切面编程(AOP)”框架。并完成了相关技术文档。</p>
+<p>beta 1也完成了一个“组件继承框图”的自动生成程序。这样你要以很容易地看到系统内部的框架结构。我也将在随后再撰文来讲述Qomo底层框架的实现。</p>
+<p>beta 1终于开始在Debug/目录下加入代码。今次提供的是一个Profilers.js单元，这个单元用于收集系统运行中的效率数据。它采用原生的javascript代码实现，因此可以脱离Qomo运行。——除了在toData()输出时，他需要一个uneval()函数，这在兼容层代码Compat/common_ie6.js中。</p>
+<p>profiles.js本意是试图用AOP框架来实现的，但是这样的话在Aspect.js单元之前的其它单元的载入性能就无法检测了。因此Qomo提供了一个RepImport.js单元，使用$import()提供的一些特性来收集system.js中载入的代码效率。在system.js载入之后，该单元提供的特性将会被关闭(ResetImport)，此后的用户代码，可以通过AOP建立自己的分析系统。一个这样的示例被放在Debug/TestCase/T_profiler.html中。——它也正好演示了AOP与非AOP实现profiler时存在的不同。</p>
 <h2 id="4">4、主要添加文件的列表</h2>
-
 <p>组件包：</p>
-
 <pre><code>/Components/*.*
 /Framework/Components.js
 /Framework/Classes.js
 </code></pre>
-
 <p>内核上的修正和新特性：</p>
-
 <pre><code>/Framework/RTL/Interface.js
 /Framework/RTL/Aspect.js
 /Framework/Compat/common_js16.js
@@ -198,9 +177,7 @@ ghost.init({
 /Framework/Debug/RepImport.js
 /Framework/Debug/TestCase/*
 </code></pre>
-
 <p>文档和测试：</p>
-
 <pre><code>/Framework/DOCUMENTs/Qomolangma实现篇(七).txt
 /Framework/DOCUMENTs/Qomolangma实现篇(八).txt
 /Framework/DOCUMENTs/TestCase/AdvObjectDemo3.html
@@ -210,12 +187,11 @@ ghost.init({
 /Framework/DOCUMENTs/TestCase/T_InterfaceAggregate.html
 /Framework/DOCUMENTs/TestCase/T_InterfaceQuery.html
 </code></pre>
-
 <p><strong>下载：Qomo OpenProject beta 1</strong></p>
-
 <ul>
 <li><a href="https://github.com/aimingoo/qomo/releases">https://github.com/aimingoo/qomo/releases</a></li>
 </ul>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -243,8 +219,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=2324fcd7e8" />
-<script src="/assets/js/gitmint.browser.js?v=2324fcd7e8"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -266,16 +242,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -318,21 +294,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

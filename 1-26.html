@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>JavaScript面向对象的支持(6)</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript面向对象的支持(6)" />
-    <meta property="og:description" content="八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。 在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&quot;number&quot;、&quot;string&quot;、&quot;boolean&quot;、&quot;object&quot;、&quot;function&quot; 和 &quot;undefined&quot;。 我们也发现JavaScript的对象系统中，有String、Number、Function、Boolean这四种对象构造器。那么，我们的问题是：如果有一个数字A，typeof(A)的结果，到底会是&#x27;number&#x27;呢，还是一个构造器指向function" />
+    <meta property="og:description" content="八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。 在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&amp;quot;number&amp;quot;、&amp;quot;string&amp;quot;、&amp;quot;boolean&amp;quot;、&amp;quot;object&amp;quot;、&amp;quot;function&amp;quot; 和 &amp;quot;undefined&amp;quot;。 我们也发现JavaScript的对象系统中，" />
     <meta property="og:url" content="http://aimingoo.github.io/1-26.html" />
     <meta property="article:published_time" content="2006-01-24T17:55:00.000Z" />
     <meta property="article:modified_time" content="2017-10-07T20:11:28.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript面向对象的支持(6)" />
-    <meta name="twitter:description" content="八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。 在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&quot;number&quot;、&quot;string&quot;、&quot;boolean&quot;、&quot;object&quot;、&quot;function&quot; 和 &quot;undefined&quot;。 我们也发现JavaScript的对象系统中，有String、Number、Function、Boolean这四种对象构造器。那么，我们的问题是：如果有一个数字A，typeof(A)的结果，到底会是&#x27;number&#x27;呢，还是一个构造器指向function" />
+    <meta name="twitter:description" content="八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。 在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&amp;quot;number&amp;quot;、&amp;quot;string&amp;quot;、&amp;quot;boolean&amp;quot;、&amp;quot;object&amp;quot;、&amp;quot;function&amp;quot; 和 &amp;quot;undefined&amp;quot;。 我们也发现JavaScript的对象系统中，" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-26.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,37 +53,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "JavaScript面向对象的支持(6)",
     "url": "http://aimingoo.github.io/1-26.html",
     "datePublished": "2006-01-24T17:55:00.000Z",
     "dateModified": "2017-10-07T20:11:28.000Z",
     "keywords": "Javascript, 面向对象",
-    "description": "八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。 在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&quot;number&quot;、&quot;string&quot;、&quot;boolean&quot;、&quot;object&quot;、&quot;function&quot; 和 &quot;undefined&quot;。 我们也发现JavaScript的对象系统中，有String、Number、Function、Boolean这四种对象构造器。那么，我们的问题是：如果有一个数字A，typeof(A)的结果，到底会是&#x27;number&#x27;呢，还是一个构造器指向function",
+    "description": "八、JavaScript面向对象的支持 4. 实例和实例引用 在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。 在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&amp;quot;number&amp;quot;、&amp;quot;string&amp;quot;、&amp;quot;boolean&amp;quot;、&amp;quot;object&amp;quot;、&amp;quot;function&amp;quot; 和 &amp;quot;undefined&amp;quot;。 我们也发现JavaScript的对象系统中，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -94,8 +91,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,6 +107,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -120,11 +116,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-26.html">JavaScript面向对象的支持(6)</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-26.html">JavaScript面向对象的支持(6)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -146,108 +144,82 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h1 id="javascript">八、JavaScript面向对象的支持</h1>
-
+                <div class="kg-card-markdown"><h1 id="javascript">八、JavaScript面向对象的支持</h1>
 <h2 id="4">4. 实例和实例引用</h2>
-
 <p>在.NET Framework对CTS(Common Type System)约定“一切都是对象”，并分为“值类型”和“引用类型”两种。其中“值类型”的对象在转换成“引用类型”数据的过程中，需要进行一个“装箱”和“拆箱”的过程。</p>
-
-<p>在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型："number"、"string"、"boolean"、"object"、"function" 和 "undefined"。</p>
-
+<p>在JavaScript也有同样的问题。我们看到的typeof关键字，返回以下六种数据类型：&quot;number&quot;、&quot;string&quot;、&quot;boolean&quot;、&quot;object&quot;、&quot;function&quot; 和 &quot;undefined&quot;。</p>
 <p>我们也发现JavaScript的对象系统中，有String、Number、Function、Boolean这四种对象构造器。那么，我们的问题是：如果有一个数字A，typeof(A)的结果，到底会是'number'呢，还是一个构造器指向function Number()的对象呢？</p>
-
 <pre><code class="language-javascript">//
 // 关于JavaScript的类型的测试代码
 //
-function getTypeInfo(V) {  
+function getTypeInfo(V) {
   return (typeof V == 'object' ?  'Object, construct by '+V.constructor
    : 'Value, type of '+typeof V);
 }
 
-var A1 = 100;  
+var A1 = 100;
 var A2 = new Number(100);
 
-document.writeln('A1 is ', getTypeInfo(A1), '&lt;BR&gt;');  
-document.writeln('A2 is ', getTypeInfo(A2), '&lt;BR&gt;');  
-document.writeln([A1.constructor === A2.constructor, A2.constructor === Number]);  
+document.writeln('A1 is ', getTypeInfo(A1), '&lt;BR&gt;');
+document.writeln('A2 is ', getTypeInfo(A2), '&lt;BR&gt;');
+document.writeln([A1.constructor === A2.constructor, A2.constructor === Number]);
 </code></pre>
-
 <p>测试代码的执行结果如下：</p>
-
 <pre><code> A1 is Value, type of number
  A2 is Object, construct by function Number() { [native code] }
  true,true
 </code></pre>
-
 <p>我们注意到，A1和A2的构造器都指向Number。这意味着通过constructor属性来识别对象，(有时)比typeof更加有效。因为“值类型数据”A1作为一个对象来看待时，与A2有完全相同的特性。</p>
-
 <p>——除了与实例引用有关的问题。</p>
-
 <p>参考JScript手册，我们对其它基础类型和构造器做相同考察，可以发现：</p>
-
 <ul>
 <li>基础类型中的undefined、number、boolean和string，是“值类型”变量</li>
 <li>基础类型中的array、function和object，是“引用类型”变量</li>
 <li>使用new()方法构造出对象，是“引用类型”变量</li>
 </ul>
-
 <p>下面的代码说明“值类型”与“引用类型”之间的区别：</p>
-
 <pre><code class="language-javascript">//
 // 关于JavaScript类型系统中的值/引用问题
 //
-var str1 = 'abcdefgh', str2 = 'abcdefgh';  
+var str1 = 'abcdefgh', str2 = 'abcdefgh';
 var obj1 = new String('abcdefgh'), obj2 = new String('abcdefgh');
 
-document.writeln([str1==str2, str1===str2], '&lt;br&gt;');  
-document.writeln([obj1==obj2, obj1===obj2]);  
+document.writeln([str1==str2, str1===str2], '&lt;br&gt;');
+document.writeln([obj1==obj2, obj1===obj2]);
 </code></pre>
-
 <p>测试代码的执行结果如下：</p>
-
 <pre><code> true, true
  false, false
 </code></pre>
-
 <p>我们看到，无论是等值运算(<code>==</code>)，还是全等运算(<code>===</code>)，对“对象”和“值”的理解都是不一样的。</p>
-
 <p>更进一步的理解这种现象，我们知道：</p>
-
 <ul>
 <li>运算结果为值类型，或变量为值类型时，等值(或全等)比较可以得到预想结果</li>
 <li>(即使包含相同的数据，)不同的对象实例之间是不等值(或全等)的</li>
 <li>同一个对象的不同引用之间，是等值(<code>==</code>)且全等(<code>===</code>)的</li>
 </ul>
-
 <p>但对于String类型，有一点补充：根据JScript的描述，两个字符串比较时，只要有一个是值类型，则按值比较。这意味着在上面的例子中，代码<code>str1==obj1</code>会得到结果true。而全等(<code>===</code>)运算需要检测变量类型的一致性，因此<code>str1===obj1</code>的结果返回false。</p>
-
 <p>JavaScript中的函数参数总是传入值参，引用类型(的实例)是作为指针值传入的。因此函数可以随意重写入口变量，而不用担心外部变量被修改。但是，需要留意传入的引用类型的变量，因为对它方法调用和属性读写可能会影响到实例本身。——但，也可以通过引用类型的参数来传出数据。</p>
-
 <p>最后补充说明一下，值类型比较会逐字节检测对象实例中的数据，效率低但准确性高；而引用类型只检测实例指针和数据类型，因此效率高而准确性低。如果你需要检测两个引用类型是否真的包含相同的数据，可能你需要尝试把它转换成“字符串值”再来比较。</p>
-
 <h2 id="5">5. 函数的上下文环境</h2>
-
 <p>只要写过代码，你应该知道变量是有“全局变量”和“局部变量”之分的。绝大多数的JavaScript程序员也知道下面这些概念：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript中的全局变量与局部变量
 //
-var v1 = '全局变量-1';  
+var v1 = '全局变量-1';
 v2 = '全局变量-2';
 
-function foo() {  
+function foo() {
   v3 = '全局变量-3';
 
   var v4 = '只有在函数内部并使用var定义的，才是局部变量';
 }
 </code></pre>
-
 <p>按照通常对语言的理解来说，不同的代码调用函数，都会拥有一套独立的局部变量。因此下面这段代码很容易理解：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript的局部变量
 //
-function MyObject() {  
+function MyObject() {
   var o = new Object;
 
   this.getValue = function() {
@@ -255,19 +227,16 @@ function MyObject() {
   }
 }
 
-var obj1 = new MyObject();  
-var obj2 = new MyObject();  
-document.writeln(obj1.getValue() == obj2.getValue());  
+var obj1 = new MyObject();
+var obj2 = new MyObject();
+document.writeln(obj1.getValue() == obj2.getValue());
 </code></pre>
-
 <p>结果显示false，表明不同(实例的方法)调用返回的局部变量“obj1/obj2”是不相同。</p>
-
 <p>变量的局部、全局特性与OOP的封装性中的“私有(private)”、“公开(public)”具有类同性。因此绝大多数资料总是以下面的方式来说明JavaScript的面向对象系统中的“封装权限级别”问题：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript中OOP封装性
 //
-function MyObject() {  
+function MyObject() {
   // 1. 私有成员和方法
   var private_prop = 0;
   var private_method_1 = function() {
@@ -293,35 +262,29 @@ function MyObject() {
 }
 
 // 4. 公开成员和方法(2)
-MyObject.prototype.public_prop_1 = '';  
-MyObject.prototype.public_method_1 = function () {  
+MyObject.prototype.public_prop_1 = '';
+MyObject.prototype.public_method_1 = function () {
   // ...
 }
 
-var obj1 = new MyObject();  
+var obj1 = new MyObject();
 var obj2 = new MyObject();
 
-document.writeln(obj1.privileged_method(), '&lt;br&gt;');  
-document.writeln(obj2.privileged_method());  
+document.writeln(obj1.privileged_method(), '&lt;br&gt;');
+document.writeln(obj2.privileged_method());
 </code></pre>
-
 <p>在这里，“私有(private)”表明只有在(构造)函数内部可访问，而“特权(privileged)”是特指一种存取“私有域”的“公开(public)”方法。“公开(public)”表明在(构造)函数外可以调用和存取。</p>
-
 <p>除了上述的封装权限之外，一些文档还介绍了其它两种相关的概念：</p>
-
 <ul>
 <li>原型属性：Classname.prototype.propertyName = someValue</li>
 <li>(类)静态属性：Classname.propertyName = someValue</li>
 </ul>
-
 <p>然而，从面向对象的角度上来讲，上面这些概念都很难自圆其说：JavaScript究竟是为何、以及如何划分出这些封装权限和概念来的呢？</p>
-
 <p>——因为我们必须注意到下面这个例子所带来的问题：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript中的局部变量
 //
-function MyFoo() {  
+function MyFoo() {
   var i;
 
   MyFoo.setValue = function (v) {
@@ -333,51 +296,40 @@ function MyFoo() {
 }
 MyFoo();
 
-var obj1 = new Object();  
+var obj1 = new Object();
 var obj2 = new Object();
 
 // 测试一
-MyFoo.setValue.call(obj1, 'obj1');  
+MyFoo.setValue.call(obj1, 'obj1');
 document.writeln(MyFoo.getValue.call(obj1), '&lt;BR&gt;');
 
 // 测试二
-MyFoo.setValue.call(obj2, 'obj2');  
-document.writeln(MyFoo.getValue.call(obj2));  
-document.writeln(MyFoo.getValue.call(obj1));  
-document.writeln(MyFoo.getValue());  
+MyFoo.setValue.call(obj2, 'obj2');
+document.writeln(MyFoo.getValue.call(obj2));
+document.writeln(MyFoo.getValue.call(obj1));
+document.writeln(MyFoo.getValue());
 </code></pre>
-
 <p>在这个测试代码中，obj1/obj2都是Object()实例。我们使用function.call()的方式来调用setValue/getValue，使得在MyFoo()调用的过程中替换this为obj1/obj2实例。</p>
-
 <p>然而我们发现“测试二”完成之后，obj2、obj1以及function MyFoo()所持有的局部变量都返回了“obj2”。——这表明三个函数使用了同一个局部变量。</p>
-
 <p>由此可见，JavaScript在处理局部变量时，对“普通函数”与“构造器”是分别对待的。这种处理策略在一些JavaScript相关的资料中被解释作“面向对象中的私有域”问题。而事实上，我更愿意从源代码一级来告诉你真相：这是对象的上下文环境的问题。——只不过从表面看去，“上下文环境”的问题被转嫁到对象的封装性问题上了。</p>
-
 <p>(在阅读下面的文字之前，)先做一个概念性的说明：</p>
-
 <ul>
 <li>在普通函数中，上下文环境被window对象所持有</li>
 <li>在“构造器和对象方法”中，上下文环境被对象实例所持有</li>
 </ul>
-
 <p>在JavaScript的实现代码中，每次创建一个对象，解释器将为对象创建一个上下文环境链，用于存放对象在进入“构造器和对象方法”时对function()内部数据的一个备份。</p>
-
 <p>JavaScript保证这个对象在以后再进入“构造器和对象方法”内部时，总是持有该上下文环境，和一个与之相关的this对象。由于对象可能有多个方法，且每个方法可能又存在多层嵌套函数，因此这事实上构成了一个上下文环境的树型链表结构。而在构造器和对象方法之外，JavaScript不提供任何访问(该构造器和对象方法的)上下文环境的方法。</p>
-
 <p>简而言之：</p>
-
 <ul>
 <li>上下文环境与对象实例调用“构造器和对象方法”时相关，而与(普通)函数无关</li>
 <li>上下文环境记录一个对象在“构造函数和对象方法”内部的私有数据</li>
 <li>上下文环境采用链式结构，以记录多层的嵌套函数中的上下文</li>
 </ul>
-
 <p>由于上下文环境只与构造函数及其内部的嵌套函数有关，重新阅读前面的代码：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript中的局部变量
 //
-function MyFoo() {  
+function MyFoo() {
   var i;
 
   MyFoo.setValue = function (v) {
@@ -389,21 +341,17 @@ function MyFoo() {
 }
 MyFoo();
 
-var obj1 = new Object();  
-MyFoo.setValue.call(obj1, 'obj1');  
+var obj1 = new Object();
+MyFoo.setValue.call(obj1, 'obj1');
 </code></pre>
-
 <p>我们发现setValue()的确可以访问到位于MyFoo()函数内部的“局部变量i”，但是由于setValue()方法的执有者是MyFoo对象(记住函数也是对象)，因此MyFoo对象拥有MyFoo()函数的唯一一份“上下文环境”。</p>
-
 <p>接下来MyFoo.setValue.call()调用虽然为setValue()传入了新的this对象，但实际上拥有“上下文环境”的仍旧是MyFoo对象。因此我们看到无论创建多少个obj1/obj2，最终操作的都是同一个私有变量i。</p>
-
 <p>全局函数/变量的“上下文环境”持有者为window，因此下面的代码说明了“为什么全局变量能被任意的对象和函数访问”：</p>
-
 <pre><code class="language-javascript">//
 // 全局函数的上下文
 //
 /*
-function Window() {  
+function Window() {
 */
   var global_i = 0;
   var global_j = 1;
@@ -416,21 +364,16 @@ function Window() {
 /*
 }
 
-window = new Window();  
+window = new Window();
 */
 </code></pre>
-
-<p>因此我们可以看到foo<em>0()与foo</em>1()能同时访问global<em>i和global</em>j。接下来的推论是，上下文环境决定了变量的“全局”与“私有”。而不是反过来通过变量的私有与全局来讨论上下文环境问题。</p>
-
+<p>因此我们可以看到foo_0()与foo_1()能同时访问global_i和global_j。接下来的推论是，上下文环境决定了变量的“全局”与“私有”。而不是反过来通过变量的私有与全局来讨论上下文环境问题。</p>
 <p>更进一步的推论是：JavaScript中的全局变量与函数，本质上是window对象的私有变量与方法。而这个上下文环境块，位于所有(window对象内部的)对象实例的上下文环境链表的顶端，因此都可能访问到。</p>
-
 <p>用“上下文环境”的理论，你可以顺利地解释在本小节中，有关变量的“全局／局部”作用域的问题，以及有关对象方法的封装权限问题。事实上，在实现JavaScript的C源代码中，这个“上下文环境”被叫做“JSContext”，并作为函数／方法的第一个参数传入。——如果你有兴趣，你可以从源代码中证实本小节所述的理论。</p>
-
 <p>另外，《JavaScript权威指南》这本书中第4.7节也讲述了这个问题，但被叫做“变量的作用域”。然而重要的是，这本书把问题讲反了。——作者试图用“全局、局部的作用域”，来解释产生这种现象的“上下文环境”的问题。因此这个小节显得凌乱而且难以自圆其说。</p>
-
 <p>不过在4.6.3小节，作者也提到了执行环境(execution context)的问题，这就与我们这里说的“上下文环境”是一致的了。然而更麻烦的是，作者又将读者引错了方法，试图用函数的上下文环境去解释DOM和ScriptEngine中的问题。</p>
-
 <p>但这本书在“上下文环境链表”的查询方式上的讲述，是正确的而合理的。只是把这个叫成“作用域”有点不对，或者不妥。</p>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -448,8 +391,8 @@ window = new Window();
             </span>
 
             <span class="post-nav-next" >
-                <a href="/1-27.html">
-                    JavaScript面向对象的支持(7)
+                <a href="/2-13.html">
+                    苇子猪头
                 </a>
                 下一篇
             </span>
@@ -458,8 +401,8 @@ window = new Window();
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -481,16 +424,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -533,21 +476,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

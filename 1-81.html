@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>再议《JavaScript代码优化一例》</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="再议《JavaScript代码优化一例》" />
-    <meta property="og:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/ 一、正则表达式的创建代码 这样的创建代码实在冗余： var fnRE &#x3D; /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]" />
+    <meta property="og:description" content="今天收到《程序员》第８期，读到杨建华先生的“JavaSctipt代码优化一例”。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/ 一、正则表达式的创建代码 这样的创建代码实在冗余： var fnRE &#x3D; /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;" />
     <meta property="og:url" content="http://aimingoo.github.io/1-81.html" />
     <meta property="article:published_time" content="2007-08-29T10:07:00.000Z" />
     <meta property="article:modified_time" content="2017-10-04T17:32:17.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="再议《JavaScript代码优化一例》" />
-    <meta name="twitter:description" content="今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/ 一、正则表达式的创建代码 这样的创建代码实在冗余： var fnRE &#x3D; /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]" />
+    <meta name="twitter:description" content="今天收到《程序员》第８期，读到杨建华先生的“JavaSctipt代码优化一例”。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/ 一、正则表达式的创建代码 这样的创建代码实在冗余： var fnRE &#x3D; /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-81.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,37 +53,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "再议《JavaScript代码优化一例》",
     "url": "http://aimingoo.github.io/1-81.html",
     "datePublished": "2007-08-29T10:07:00.000Z",
     "dateModified": "2017-10-04T17:32:17.000Z",
     "keywords": "Javascript, 代码分析",
-    "description": "今天收到《程序员》第８期，读到杨建华先生的&amp;ldquo;JavaSctipt代码优化一例&amp;rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/ 一、正则表达式的创建代码 这样的创建代码实在冗余： var fnRE &#x3D; /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]",
+    "description": "今天收到《程序员》第８期，读到杨建华先生的“JavaSctipt代码优化一例”。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到： http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/ 一、正则表达式的创建代码 这样的创建代码实在冗余： var fnRE &#x3D; /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -94,8 +91,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=2324fcd7e8"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,6 +107,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -120,11 +116,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-delphiyuan-dai-ma-fen-xi">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-81.html">再议《JavaScript代码优化一例》</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-81.html">再议《JavaScript代码优化一例》</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -146,128 +144,96 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>今天收到《程序员》第８期，读到杨建华先生的&ldquo;JavaSctipt代码优化一例&rdquo;。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到：</p>
-
+                <div class="kg-card-markdown"><p>今天收到《程序员》第８期，读到杨建华先生的“JavaSctipt代码优化一例”。仔细读来，觉得所做优化未能尽彻。所以专写一篇文章来讨论杨先生的例子。 原例可以在杨先生的blog上找到：</p>
 <ul>
 <li><a href="http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry">http://prowyh.spaces.live.com/blog/cns!EAAA8AB356F88EA0!403.entry</a></li>
 <li><a href="https://prowyh.wordpress.com/2007/08/29/javascript%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E4%B8%80%E4%BE%8B%EF%BC%88%E6%96%87%EF%BC%89/">https://prowyh.wordpress.com/2007/08/29/javascript代码优化一例（文）/</a></li>
 </ul>
-
 <h2 id="">一、正则表达式的创建代码</h2>
-
 <p>这样的创建代码实在冗余：</p>
-
-<pre><code class="language-javascript">var fnRE = /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;  
-var objRE = /object_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$/i;  
-var objRE_r =  /radio_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_r/i;  
-var objRE_a = /object_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_a/i;  
-var objRE_m =  /radio_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_m/i;  
-var objRE_d =  /radio_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_d/i;  
+<pre><code class="language-javascript">var fnRE = /functor_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}/i;
+var objRE = /object_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}$/i;
+var objRE_r =  /radio_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_r/i;
+var objRE_a = /object_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_a/i;
+var objRE_m =  /radio_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_m/i;
+var objRE_d =  /radio_[0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12}_d/i;
 </code></pre>
-
 <p>仔细读来，其实就是一个添加前后缀的GUID。那么可否写成如下：</p>
-
-<pre><code class="language-javascript">var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})';  
-var fnRE =     new RegExp('(functor_)'+ GUID, 'i');  
-var objRE =    new RegExp('(object_)' + GUID + '$', 'i');  
-var objRE_r =  new RegExp('(radio_)'  + GUID + '_(r)', 'i');  
-var objRE_a =  new RegExp('(object_)' + GUID + '_(a)', 'i');  
-var objRE_m =  new RegExp('(radio_)'  + GUID + '_(m)', 'i');  
-var objRE_d =  new RegExp('(radio_)'  + GUID + '_(d)', 'i');  
+<pre><code class="language-javascript">var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})';
+var fnRE =     new RegExp('(functor_)'+ GUID, 'i');
+var objRE =    new RegExp('(object_)' + GUID + '$', 'i');
+var objRE_r =  new RegExp('(radio_)'  + GUID + '_(r)', 'i');
+var objRE_a =  new RegExp('(object_)' + GUID + '_(a)', 'i');
+var objRE_m =  new RegExp('(radio_)'  + GUID + '_(m)', 'i');
+var objRE_d =  new RegExp('(radio_)'  + GUID + '_(d)', 'i');
 </code></pre>
-
 <p>这里看起来是用了字符串连接运算，但由于变量声明只运算一次，因此对效率没什么影响。而且可读性强了，修改起来也方便。</p>
-
 <p>请注意这里用到了正则表达式中的分组'( )'，这在后面是会很有用的。</p>
-
 <h2 id="">二、正则使用中的分组</h2>
-
 <p>代码总是通过</p>
-
-<pre><code class="language-javascript">aryAList[_match[0].split("_")[1]] = "a_";  
+<pre><code class="language-javascript">aryAList[_match[0].split(&quot;_&quot;)[1]] = &quot;a_&quot;;
 </code></pre>
-
 <p>这样的形式来从匹配中分离GUID，但如果使用上面的分组，那么这项运算就不必要了。简单的使用</p>
-
-<pre><code class="language-javascript">aryAList[_match[2]] = "a_";  
+<pre><code class="language-javascript">aryAList[_match[2]] = &quot;a_&quot;;
 </code></pre>
-
 <p>就可以得到结果。</p>
-
 <h2 id="dom">三、应注意DOM引用的耗时</h2>
-
 <p>代码中，在循环内不断地访问DOM对象的成员，然而DOM对象的成员存取是耗时的。更细的说，每一个成员都会通过COM组件封装，因此效率是差的。所以下面的代码：</p>
-
 <pre><code class="language-javascript"> else if ((_match = _obj.name.match(objRE_m)) != null)  {
  }
  else if ((_match = _obj.name.match(objRE_d)) != null)  {
  }
 </code></pre>
-
 <p>应当被改作：</p>
-
-<pre><code class="language-javascript">var name = _obj.name;  
+<pre><code class="language-javascript">var name = _obj.name;
  else if ((_match = **name.match**(objRE_m)) != null)  {
  }
  else if ((_match = **name.match**(objRE_d)) != null)  {
  }
 </code></pre>
-
 <h2 id="">四、过于复杂的逻辑</h2>
-
 <p>代码过于依赖其它语言的编程经验，而忽略了JavaScript的自身特性。因此实现的逻辑中规中矩，但是难以扩展，而且复杂。例如循环中的大量if..else if ...连用。后文单独给出这部分的优化。</p>
-
 <h2 id="stringbuilder">五、从StringBuilder()接口来看，优化程度不够</h2>
-
 <p>文章提到StringBuilder是一个字符串构建的高效对象。我留意到它的使用是：</p>
-
-<pre><code class="language-javascript">objectListEx.append(_id + ":" + _r + ":" + _a + ":" + _m + ":" + _d + ";");  
+<pre><code class="language-javascript">objectListEx.append(_id + &quot;:&quot; + _r + &quot;:&quot; + _a + &quot;:&quot; + _m + &quot;:&quot; + _d + &quot;;&quot;);
 </code></pre>
-
 <p>那么可以说这个对象的优化是不够的。因为这里传入一个字符串参数，而传入参数又用字符串连接运算，效率提升很有限。</p>
-
 <p>如果StringBuilder是用array.join来实现字符串拼接的话，那么更加良好的方式是允许在append中使用多个参数。例如：</p>
-
-<pre><code class="language-javascript">objectListEx.append = function() {  
+<pre><code class="language-javascript">objectListEx.append = function() {
   this.push.apply(this, arguments);
 }
-objectListEx.toString = function() {  
+objectListEx.toString = function() {
   return this.join('');
 }
 </code></pre>
-
 <p>那么，上例的添加就可以写成：</p>
-
-<pre><code class="language-javascript">objectListEx.append(_id , ":" , _r , ":" , _a , ":" , _m , ":" , _d , ";");  
+<pre><code class="language-javascript">objectListEx.append(_id , &quot;:&quot; , _r , &quot;:&quot; , _a , &quot;:&quot; , _m , &quot;:&quot; , _d , &quot;;&quot;);
 </code></pre>
-
 <p>这就避免了多余的字符串连接运算。</p>
-
 <p>六、新的优化后版本</p>
-
 <pre><code class="language-javascript">// optimized version
-var functorListEx = new StringBuilder();  
+var functorListEx = new StringBuilder();
 var objectListEx = new StringBuilder();
 
-var coll = document.getElementsByTagName("INPUT");
+var coll = document.getElementsByTagName(&quot;INPUT&quot;);
 
 // regular expression for matching
-var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})';  
-var fnRE =     new RegExp('(functor_)'+ GUID, 'i');  
-var objRE =    new RegExp('(object_)' + GUID + '$', 'i');  
-var objRE_r =  new RegExp('(radio_)'  + GUID + '_(r)', 'i');  
-var objRE_a =  new RegExp('(object_)' + GUID + '_(a)', 'i');  
-var objRE_m =  new RegExp('(radio_)'  + GUID + '_(m)', 'i');  
+var GUID = '([0-9A-Za-z]{8}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{4}-[0-9A-Za-z]{12})';
+var fnRE =     new RegExp('(functor_)'+ GUID, 'i');
+var objRE =    new RegExp('(object_)' + GUID + '$', 'i');
+var objRE_r =  new RegExp('(radio_)'  + GUID + '_(r)', 'i');
+var objRE_a =  new RegExp('(object_)' + GUID + '_(a)', 'i');
+var objRE_m =  new RegExp('(radio_)'  + GUID + '_(m)', 'i');
 var objRE_d =  new RegExp('(radio_)'  + GUID + '_(d)', 'i');
 
 // helper data structures used by optimized algorithm
-var aryObjList = new Array();  
-var aryRList = new Array();  
-var aryAList = new Array();  
-var aryMList = new Array();  
+var aryObjList = new Array();
+var aryRList = new Array();
+var aryAList = new Array();
+var aryMList = new Array();
 var aryDList = new Array();
 
-var aryList = {  
+var aryList = {
   r: aryRList,
   a: aryAList,
   m: aryMList,
@@ -276,10 +242,10 @@ var aryList = {
 
 // one pass scan to traverse the nodes collection (coll) to build functorListEx
 // and intermediate arrays
-for (var i=0,imax=coll.length; i&lt;imax; i++) {  
+for (var i=0,imax=coll.length; i&lt;imax; i++) {
  var _obj = coll[i];
  if (!_obj.checked) continue; // &lt;-- 更快的检测
- if (_obj.type != "checkbox" &amp;&amp; _obj.type != "radio") continue;
+ if (_obj.type != &quot;checkbox&quot; &amp;&amp; _obj.type != &quot;radio&quot;) continue;
 
  var id = _obj.id, name = _obj.name;
  var _match = id.match(fnRE) || name.match(objRE_r) || id.match(objRE_a) ||
@@ -296,7 +262,7 @@ for (var i=0,imax=coll.length; i&lt;imax; i++) {
 
    default :
      if (_match[1]=='functor_') {
-       functorListEx.append(guid, ";")
+       functorListEx.append(guid, &quot;;&quot;)
      }
      else { // for _match[1]=='object_'
        aryObjList.push(guid)
@@ -305,23 +271,20 @@ for (var i=0,imax=coll.length; i&lt;imax; i++) {
 }
 
 // further process to build objectListEx from the intermediate arrays
-for (var i=0, imax=aryObjList.length; i&lt;imax; i++) {  
+for (var i=0, imax=aryObjList.length; i&lt;imax; i++) {
  var id = aryObjList[i];
- var r = aryRList[id] || "";
- var a = aryAList[id] || "";
- var m = aryMList[id] || "";
- var d = aryDList[id] || "";
+ var r = aryRList[id] || &quot;&quot;;
+ var a = aryAList[id] || &quot;&quot;;
+ var m = aryMList[id] || &quot;&quot;;
+ var d = aryDList[id] || &quot;&quot;;
 
- objectListEx.append(id , ":" , r , ":" , a , ":" , m , ":" , d , ";");
+ objectListEx.append(id , &quot;:&quot; , r , &quot;:&quot; , a , &quot;:&quot; , m , &quot;:&quot; , d , &quot;;&quot;);
 }
 </code></pre>
-
 <h2 id="">七、又一处小的优化</h2>
-
 <p>刚才想了想，其实上面代码中的switch还是啰嗦了。下面做一下下小的优化：</p>
-
 <pre><code class="language-javascript"> switch (_match[1] + tag) {
-   'functor_undefined': functorListEx.append(guid, ";"); break;
+   'functor_undefined': functorListEx.append(guid, &quot;;&quot;); break;
 
    'object_undefined': aryObjList.push(guid); break;
 
@@ -331,6 +294,7 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) {
      aryList[tag][guid] = tag2 + _obj.value;
  }
 </code></pre>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -348,8 +312,8 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) {
             </span>
 
             <span class="post-nav-next" >
-                <a href="/1-83.html">
-                    有源则至清——我读《移山之道》
+                <a href="/2-69.html">
+                    Nothing&amp;nbsp;special
                 </a>
                 下一篇
             </span>
@@ -358,8 +322,8 @@ for (var i=0, imax=aryObjList.length; i&lt;imax; i++) {
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=2324fcd7e8" />
-<script src="/assets/js/gitmint.browser.js?v=2324fcd7e8"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -381,16 +345,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -433,21 +397,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

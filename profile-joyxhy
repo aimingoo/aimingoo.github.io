@@ -3,5 +3,6 @@ document.writeln(function authorProfileContext() {/*
             
             
 
+            <span class="author-stats"><i class="fa fa-file-text-o"></i> 共计发表 212 篇文章，继续努力。</span>
         </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));

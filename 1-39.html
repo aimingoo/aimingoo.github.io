@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Qomolangma实现篇(六)：Qomo的OOP框架的实现技术" />
-    <meta property="og:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {     // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
+    <meta property="og:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {   // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
     <meta property="og:url" content="http://aimingoo.github.io/1-39.html" />
     <meta property="article:published_time" content="2006-03-20T04:50:00.000Z" />
     <meta property="article:modified_time" content="2017-10-08T17:55:00.000Z" />
@@ -34,7 +34,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Qomolangma实现篇(六)：Qomo的OOP框架的实现技术" />
-    <meta name="twitter:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {     // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
+    <meta name="twitter:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {   // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-39.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -55,37 +55,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "Qomolangma实现篇(六)：Qomo的OOP框架的实现技术",
     "url": "http://aimingoo.github.io/1-39.html",
     "datePublished": "2006-03-20T04:50:00.000Z",
     "dateModified": "2017-10-08T17:55:00.000Z",
     "keywords": "Javascript, Qomo, OpenSource Project, 面向对象",
-    "description": "注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {     // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数",
+    "description": "注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {   // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -96,8 +93,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -114,6 +109,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -122,11 +118,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-qomo tag-opensource-project tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -148,19 +146,14 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <blockquote>
-  <p>注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。</p>
+                <div class="kg-card-markdown"><blockquote>
+<p>注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。</p>
 </blockquote>
-
 <h2 id="qomolangma">一、Qomolangma中类继承的基本架构</h2>
-
 <p>Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。</p>
-
 <p>——尽管，这并不如你想象地那样容易。</p>
-
 <p>Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下：</p>
-
-<pre><code class="language-javascript">Class = function() {  
+<pre><code class="language-javascript">Class = function() {
   // ...
   // 基本的类数据、公共变量等
 
@@ -206,66 +199,45 @@ ghost.init({
   return _Class;
 }();
 </code></pre>
-
 <h3 id="1cdbidb">1. 类数据块(CDB)与实例数据块(IDB)</h3>
-
 <p>这是在Qomo中两个最重要的数据结构。籍由JavaScript中严格的上下文环境带来的特性，Qomo为每个类封装了一个类数据块(CDB, Class Data Block)。同时，也为每一个构造的对象封装了一个实例数据块(IDB, Instance Data Block)。</p>
-
 <p>在上面的框架代码中，我们看到CDB与IDB都是通过new()关键字来创建的。不过，不同的是，InstanceDataBlock()是一个普通的构造函数，它返回由JavaScript的new()关键字创建的对象实例Data。而ClassDataBlock()并不这样，它内部暂存了new()创建的对象实例(this)，而将一个函数对象cls返回给外部。</p>
-
 <p>而我们看到，在_Class()中调用ClassDataBlock()，并将返回的函数对象cls作为结果值返回给外部。也就是说，如果我们用下面的代码：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
 }
-TMyObject = Class(TObject, 'MyObject');  
+TMyObject = Class(TObject, 'MyObject');
 </code></pre>
-
 <p>那么我们最后得到的TMyObject就是由ClassDataBlock()返回的cls。——而并不是真实的CDB数据块，真正的CDB被藏在了_Class()调用上下文环境的内部。</p>
-
 <p>由于我们允许用下面两种代码来创建一个实例：</p>
-
-<pre><code class="language-javascript">var obj1 = new MyObject();  
+<pre><code class="language-javascript">var obj1 = new MyObject();
 // 或
-var obj2 = TMyObject.Create();  
+var obj2 = TMyObject.Create();
 </code></pre>
-
 <p>而在框架代码的内部，我们看到下面的代码：</p>
-
 <pre><code class="language-javascript">    // 替换构造器
     eval(Name + '= cls.Create');
 </code></pre>
-
 <p>相对于MyObject()来说，它事实上执行的是：</p>
-
 <pre><code class="language-javascript">    eval('MyObject = cls.Create');
 </code></pre>
-
 <p>也就是说，前面提到的两种创建对象实例的代码，最终都将调用到cls.Create。也就是TMyObject.Create()。</p>
-
 <p>我们也看到，在TMyObject.Create中，Qomo为实例创建了一个IDB：</p>
-
 <pre><code class="language-javascript">    cls.Create = function () {
         // ...
  var Data = new InstanceDataBlock();
         // ...
 </code></pre>
-
 <p>而现在，通过这种封装结构，Qomo具有了一些特性：</p>
-
 <ul>
 <li>每一个类都有一个CDB。</li>
 <li>类的各个实例都有各自的IDB，但统一拥有类的CDB。</li>
 <li>在类的外部不能直接访问到CDB。同样，在实例的外部也不能直接访问到IDB。</li>
 </ul>
-
 <h3 id="2cdb">2. “类”如何在构造期访问CDB</h3>
-
 <p>对于OOP系统来说，“类”通常是声明性的。也就是说，类一旦被声明，则类基本上只是代表一种特定的数据结构的“类型”。在Qomo当然也遵循这一原则。但Qomo不可能在JavaScript中“创建”一种自己的语法。——事实上，Qomo是不想创建这样一种语法，并用一个parser去解析它，然后要求开发人员重新理解、并在此基础上编程。</p>
-
 <p>因此，Qomo采用了一些带有“声明性语义”的函数，或者符合JS规范的代码来完成这件事。例如：</p>
-
 <pre><code class="language-javascript">// 详细参见“实现篇(五)——类声明周期与对象构造周期”
-function MyObject() {  
+function MyObject() {
   Attribute(this, 'Value', 0);// 快速特性声明
   var v = _get('Data');       // 取(当前类的)父类的特性值
   _set('Data', v);            // 置特性值, 但不覆盖父类
@@ -273,23 +245,19 @@ function MyObject() {
   // ...
 }
 </code></pre>
-
 <p>这里最重要的几个扩展函数就是_cls, _get, _set和Attribute()。在这几个函数的实现代码中，我们都可以看到：</p>
-
-<pre><code class="language-javascript">_get = function(n) { return _get.caller.caller.get(n) }  
-_set = function(n,v) { return _set.caller.caller.set(n, v) }  
+<pre><code class="language-javascript">_get = function(n) { return _get.caller.caller.get(n) }
+_set = function(n,v) { return _set.caller.caller.set(n, v) }
 _cls = function() { return _cls.caller.caller }
 
-Attribute = function() {  
+Attribute = function() {
   // ...
     var i, argn=arguments.length;
     var Constructor = Attribute.caller;
     var cls = Constructor.caller;
 }
 </code></pre>
-
 <p>也就是说，它们通过“函数被调用时的上下文”来查找到“类引用(cls)”和“真实的构造函数(Constructor)”。这是因为这个Constructor总是在下面这样的环境中被调用的：</p>
-
 <pre><code class="language-javascript">    var Constructor = eval(Name);
     // ...
 
@@ -302,27 +270,21 @@ Attribute = function() {
     cls(Constructor);
     cls.OnClassInitialized(InstanceDataBlock);
 </code></pre>
-
 <p>而所谓Constructor，则是用户原始的构造器函数(而不是后来被替换的cls.Create)。因此，如下面的代码：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 0);// 快速特性声明
   var v = _get('Data');       // 取(当前类的)父类的特性值
   _set('Data', v);            // 置特性值, 但不覆盖父类
 
   // ...
 }
-TMyObject = Class(TObject, 'MyObject');  
+TMyObject = Class(TObject, 'MyObject');
 </code></pre>
-
 <p>在这个类的构造周期中，Attribute()调用中的caller就是Constructor(亦即是MyObject)，而Constructor.caller就指向cls()这个函数，这就是Attribute()中下面代码的来源(其它几个函数类同)：</p>
-
 <pre><code class="language-javascript">    var Constructor = Attribute.caller;
     var cls = Constructor.caller;
 </code></pre>
-
 <p>而cls()调用发生在一个类初始化(OnClassInitializtion)和结束化(OnClassInitialized)之间。Qomo在初始化中写着：</p>
-
 <pre><code class="language-javascript">    cls.OnClassInitializtion = function(Constructor) {
       if (Parent) Constructor.prototype = getPrototype(Parent);
       this.all = all;
@@ -332,26 +294,18 @@ TMyObject = Class(TObject, 'MyObject');
       this.attrAdapter = getAttribute;
     }
 </code></pre>
-
 <p>这样，cls.get()、cls.set()等特性在“类构造周期”就可用了。而接下来：</p>
-
 <pre><code class="language-javascript">    cls.OnClassInitializtion = function(Constructor) {
       delete this.all;
       // more ...
     }
 </code></pre>
-
 <p>又把这些属性和方法给清除掉。使得“类构造周期”之外不可能再通过这些方法来访问CDB。</p>
-
 <h3 id="3idb">3. “对象(实例)”如何访问IDB</h3>
-
 <p>对象实例(自身)的构造过程其实是由new ()关键字完成的。如下面的代码：</p>
-
-<pre><code class="language-javascript">var obj2 = TMyObject.Create();  
+<pre><code class="language-javascript">var obj2 = TMyObject.Create();
 </code></pre>
-
 <p>这时进入Create()方法时，this指向TMyObject自身。因此_Class()中下面的代码被调用：</p>
-
 <pre><code class="language-javascript">    cls.Create = function () {
       if (this===cls) {
         // 'this' is class ref.
@@ -361,16 +315,12 @@ TMyObject = Class(TObject, 'MyObject');
       }
       // ...
 </code></pre>
-
 <p>这段代码实际上是重新调用new this.Create()，并传入参数。而我们前面提到过_Class()将会把构造器替换成cls.Create()。因此这段代码就达到了使下面两种语法等义的效果：</p>
-
-<pre><code class="language-javascript">var obj1 = new MyObject();  
+<pre><code class="language-javascript">var obj1 = new MyObject();
 // 或
-var obj2 = TMyObject.Create(); // 实际将调用上一种语法  
+var obj2 = TMyObject.Create(); // 实际将调用上一种语法
 </code></pre>
-
 <p>而同样的道理，new MyObject()其真实的调用会是“new cls.Create()”，这种情况下，在Create()函数中，this对象将指向新创建的实例，且<code>this.constructor === cls.Create</code>。所以将会调用到下面的代码：</p>
-
 <pre><code class="language-javascript">    cls.Create = function () {
       // ...
       else if (this &amp;&amp; this.constructor===cls.Create) {
@@ -381,29 +331,21 @@ var obj2 = TMyObject.Create(); // 实际将调用上一种语法
         this.inherited = Data.inherited;
       // ...
 </code></pre>
-
-<p>这样一来，新的对象实例(this)将会执有cls.Create()的一个上下文，并通过创建一个IDB的实例Data。然后，通过"this.get = Data.get"这样的代码，使对象实例执有一些访问IDB内部私有数据的方法。这样一来，我们在外部代码中就可以get/set/inherited，但却无法存取到IDB(也就是私有变量Data)中的数据了：</p>
-
+<p>这样一来，新的对象实例(this)将会执有cls.Create()的一个上下文，并通过创建一个IDB的实例Data。然后，通过&quot;this.get = Data.get&quot;这样的代码，使对象实例执有一些访问IDB内部私有数据的方法。这样一来，我们在外部代码中就可以get/set/inherited，但却无法存取到IDB(也就是私有变量Data)中的数据了：</p>
 <pre><code class="language-javascript">var obj = new MyObject();
 
 // 下面的代码将实际存取Data中的私有数据
-obj.set('Value', 100);  
+obj.set('Value', 100);
 </code></pre>
-
 <h3 id="4">4. 对象构造周期：如何统一原型构造与类构造体系</h3>
-
 <p>有两种方法来实现“类构造体系”。其一是用类抄写，也就是试图用下面这样的代码：</p>
-
-<pre><code class="language-javascript">var clrRef = TObject;  
+<pre><code class="language-javascript">var clrRef = TObject;
 var obj = New TMyObejct();
 
-for (var i in clrRef) obj[i] = clrRef[i];  
+for (var i in clrRef) obj[i] = clrRef[i];
 </code></pre>
-
 <p>我们的确可以通过这种方法来使得obj拥有一份TObject中的对象方法、属性与数据存取界面。——事实上这也是Qomo的前身WEUI采用的方法。——但是这样实现的效率是极低的。</p>
-
 <p>在Qomo中，采用了第二种方法，也就是通过“原型继承”来实现“类继承”。在这样的方案中，开发人员看到的会是“类继承”体系中的代码，而Class()关键字则在注册过程中隐含地完成了原型链的维护：</p>
-
 <pre><code class="language-javascript">  function setClassTypeinfo(cls, Attr, instance) {
     // ...
     cls.Create.prototype = instance;
@@ -434,16 +376,12 @@ for (var i in clrRef) obj[i] = clrRef[i];
     return cls;
   }
 </code></pre>
-
 <p>我们看到，“类注册Class()”调用的本质，是：</p>
-
 <ul>
 <li>创建CDB，并生成类的原型base. 这个原型是通过用户的构造函数Constructor来创建的，它的原型指向父类的原型：getPrototype(Parent)</li>
-<li>对象构造函数指向cls.Create()，而在cls()调用过程中将setClassTypeinfo()。这个过程传入的instance来自于类的原型，也就是"base=new Constructor()"。这意味着“类只是声明并实现了原型”，而对象“创建自类的一个(原型)复制”。</li>
+<li>对象构造函数指向cls.Create()，而在cls()调用过程中将setClassTypeinfo()。这个过程传入的instance来自于类的原型，也就是&quot;base=new Constructor()&quot;。这意味着“类只是声明并实现了原型”，而对象“创建自类的一个(原型)复制”。</li>
 </ul>
-
 <p>使用这种技术达到的效果，与前面提到的“类抄写”是一致的。但由于利用了系统内置的原型机制、写复制机制和继承关系，因此效率上将高许多。而且由于“对象构造”其实基于一个“类实例的原型”，因此下面的代码就将“对象构造周期”与“类构造周期”分离开来了：</p>
-
 <pre><code class="language-javascript">  function _Class() {
     // ...
     cls.Create = function () {
@@ -454,33 +392,26 @@ for (var i in clrRef) obj[i] = clrRef[i];
     }
   }
 
-function MyObject() {  
+function MyObject() {
   // 下面的代码使类原型得到了Create()方法, 它被理解为对象构造周期的入口
   this.Create = function() {
     // 在下面的代码中的this即是对象实例
   }
 }
-TMyObject = Class(TObject, 'MyObject');  
-var obj = new MyObject();  
+TMyObject = Class(TObject, 'MyObject');
+var obj = new MyObject();
 </code></pre>
-
 <h2 id="qomolangmaattribute">二、Qomolangma中的特性(Attribute)系统</h2>
-
 <p>在充分意识到原型继承的优点之后，Qomo在FT4之后的代码中，采用了类似实现“类继承”机制的代码来实现了特性(Attribute)系统。——而在FT4发布的Object.js代码中，采用的则是类似于“类抄写”的机制。</p>
-
-<p>Qomo为每一个类保存了一个类引用，这被放在一个名为"Class Type Info"的结构中，</p>
-
+<p>Qomo为每一个类保存了一个类引用，这被放在一个名为&quot;Class Type Info&quot;的结构中，</p>
 <pre><code class="language-javascript">  function ClassTypeinfo(cls, Attr) {
     this.class_ = cls;
     this.$Attr_ = Attr;
     this.next__ = _classinfo_[cls.ClassName];
   }
 </code></pre>
-
 <p>全局对象<code>_classinfo_</code>用于保存所有类信息的入口，如果两个类名一致，则该入口被理解为一个链表。——这用于处理不同命名空间上的同名类。——而<code>_classinfo_</code>只是Class()上下文的全局可见，在Global全局则不可见。这避免了外部的代码修改它。</p>
-
 <p>在Qomo的类系统中，构建“类类型信息”时，采用的是如下的代码：</p>
-
 <pre><code class="language-javascript">  function setClassTypeinfo(cls, Attr, instance) {
     // ...
     // 查找类信息入口并处理重复注册问题
@@ -498,28 +429,20 @@ var obj = new MyObject();
       // ...
     }
 </code></pre>
-
 <p>正是这些代码展示了Qomo如果驾驭原型继承机制来实现复杂的Attribute系统。</p>
-
 <h3 id="1attribute">1. Attribute系统的构建</h3>
-
 <p>Attr首先是一个空的函数。准确地说，它是一个原型系统中的构造器。接下来，cls()函数中检测如果cls存在父类ClassParent，则通过getAttrPrototype()获得父类的Attriburte原型，并置为构造器Attr的原型“Attr.prototype”。</p>
-
 <p>接下来的使用Attr()来构造原型，并替换掉这个不现使用的构造器。因而Attr=new Attr()执行之后，Attr将是一个有效对象实例。它携带了所有从父类的Attribute中“原型继承”得来的读写器(getter/setter)，以及特性值(AttributeValue)。</p>
-
 <p>接下来，“base = new Constructor()”这行代码开始调用。由于在Constructor中可以添加新的读写器，以及声明Attribute。例如：</p>
-
 <pre><code class="language-javascript">// 用户的Constructor
-function MyObject() {  
+function MyObject() {
   this.getData = function() { /* ... */ }
   Attribute(this, 'Width', 100, 'rw');
 
   // ...
 }
 </code></pre>
-
 <p>这样一来，返回的base对象将与父类的原型存在差异。差异中如果有Attribute，那么应该当记入Attr对象。因此就有了下面的代码：</p>
-
 <pre><code class="language-javascript">    var cls = function (Constructor) {
       // ...
 
@@ -532,27 +455,19 @@ function MyObject() {
       }
     }
 </code></pre>
-
 <p>这段代码用于分析base中的属性i是否是getter/setter，如果是，则在Attr上保存一个引用，并从base(类原型)上删除这个属性。——而后，(如果需要)再在Attr上建立一个与特性同名的属性，用于存值。</p>
-
 <p>相对于上面的MyObject()，这段cls()代码的处理使得该类拥有如下的一个Attr：</p>
-
 <pre><code class="language-javascript">// 等效于如下声明
-Attr = {  
+Attr = {
   Width: 100,
   Data: undefined,
   getData: function() { /* ... */ }
 }
 </code></pre>
-
 <p>而这个Attr被记入到typeinfo。对其子类来说，就可以通过getAttrPrototype()来获取并作为自己的原型，从而创建起Attribute的原型继承链。</p>
-
 <h3 id="2attribute">2. Attribute的读写</h3>
-
 <p>对于用户代码来说，读写Attribute的其实是对象实例。因此，这个读／写方法应该是对象的方法。而刚才我们看到Attr其实是在ClassDataBlock内部，也就是类的内部、对象的外部。这意味着我们不能在对象中直接存取到它。</p>
-
-<p>Qomo通过类的OnClassInitializtion/OnClassInitialized，来打通了“对象->类”访问的通道。具体的策略，就是在“对象可访问的上下文中，保存了三个对象方法的指针”：</p>
-
+<p>Qomo通过类的OnClassInitializtion/OnClassInitialized，来打通了“对象-&gt;类”访问的通道。具体的策略，就是在“对象可访问的上下文中，保存了三个对象方法的指针”：</p>
 <pre><code class="language-javascript">  function _Class(Parent, Name) {
     // ...
 
@@ -565,11 +480,8 @@ Attr = {
     }
   }
 </code></pre>
-
 <p>这样，在IDB中就可以通过$attr来访问对父类的Attr中的getter/setter()。——尽管在后面的代码中将使得这是不必须的，但Qomo中还是保留了这一做法。</p>
-
 <p>接下来，当类完成初始化时：</p>
-
 <pre><code class="language-javascript">  function ClassDataBlock() {
     cls.OnClassInitialized = function(IDB) {
       // ...
@@ -583,9 +495,7 @@ Attr = {
     cls.OnClassInitialized(InstanceDataBlock);
   }
 </code></pre>
-
 <p>我们看到IDB的原型被置为了当前类(cls)的Attribute原型。这使得在对象构造期间，我们通过new InstanceDataBlock()得到的实例(this)将是与类的Attr原型等同的一个实例：</p>
-
 <pre><code class="language-javascript">    function InstanceDataBlock() {
       var data_ = this;
 
@@ -597,9 +507,7 @@ Attr = {
       }
     }
 </code></pre>
-
 <p>因此obj.get(n)就可以简单地返回<code>data_[n]</code>。当然也可以快速地处理到Attr中保存过的getXXXXX()函数。——如果它存在的话：</p>
-
 <pre><code class="language-javascript">      this.get = function (n) {
         //...
         // 处理不同的调用参数
@@ -612,11 +520,8 @@ Attr = {
         }
       }
 </code></pre>
-
 <h3 id="3attribute">3. “类构造周期”中的Attribute读写</h3>
-
 <p>“类构造周期”中对Attribute的读写与对象实例的读取稍有差异，但本质上是一致的。因为类中Attr对象既是子类的Attr的原型，也是一个私有的对象。因此：</p>
-
 <pre><code class="language-javascript">    function getAttribute(n) { return Attr[n] }
     function setAttribute(n, v) { Attr[n] = v }
 
@@ -626,31 +531,21 @@ Attr = {
       this.set = setAttribute;
     }
 </code></pre>
-
-<p>类引用(this)上的get/set，是留给“类构造周期”中的<code>_set()/_get()</code>和Attribute()来使用的。例如_set的代码就是"_set.caller.caller.set(n, v)"。</p>
-
+<p>类引用(this)上的get/set，是留给“类构造周期”中的<code>_set()/_get()</code>和Attribute()来使用的。例如_set的代码就是&quot;_set.caller.caller.set(n, v)&quot;。</p>
 <h2 id="qomolangmainherited">三、Qomolangma中如何用inherited来调用父类方法</h2>
-
 <p>obj.inherited()试图让当前对象具有访问父类方法的能力。这种能力应该是内置于系统的，而不是象一些其它OOP框架那样，要求写如下的代码：</p>
-
-<pre><code class="language-javascript">this.method = function() {  
+<pre><code class="language-javascript">this.method = function() {
   this._parent.method.apply(this, arguments);
 
   // do other..
 }
 </code></pre>
-
 <p>尽管inherited()的含义，的确与上面的代码达到的效果一致。但如果让开发人员都这样写代码却实在有点勉强，况且还需要在对象系统中再维护_parent。——当然，在事实上开发人员也可以通过this.constructor.prototype来得到它，而这样处理也更加麻烦。</p>
-
 <h3 id="1inherited">1. inherited的实质是父类原型的遍历</h3>
-
 <p>Qomo试图把复杂的事物变得简单一些。尽管在这些简单的背后，是和原始情况一样、甚至有过之的复杂。Qomo的obj.inherited()的实现中最核心的一行代码是这样：</p>
-
 <pre><code class="language-javascript">        var p = cache[cache.length] = $map.call(this, f).slice(1);
 </code></pre>
-
 <p>其中$map来自于父类的CDB中getInheritedMap()函数的一个引用：</p>
-
 <pre><code class="language-javascript">  function ClassDataBlock() {
     // ...
 
@@ -671,11 +566,8 @@ Attr = {
       }
     }
 </code></pre>
-
 <p>而getInheritedMap用于从当前类及其原型中查找指定方法的call map。这个map就是一个栈，用于收集在当前类及父类中所有被覆盖(override)的方法。栈顶是调用inherited()方法时的这个函数。</p>
-
 <p>在类及父类中获取call map的代码并不复杂。我们遍历所有的父类prototype，然后通过调用检测方法/属性的函数hasOwnProperty()，来判定该方法是否被修改过(一旦该方法被覆盖，那么hasOwnProperty()的返回结果将是true)：</p>
-
 <pre><code class="language-javascript">  var n=getPropertyName(method, this);
   // ...
 
@@ -687,22 +579,16 @@ Attr = {
     $cls = $cls.ClassParent;
   }
 </code></pre>
-
 <p>上面的代码中getPrototype()是在Class()所保留的<code>_classinfo_</code>中，通过类名来查找它的原型引用。</p>
-
 <p>然而我们也发现一个问题，即使通过name字符串在<code>_classinfo_</code>效率不错，但我们也需要通过不断的原型遍历来查找整个的call map。因此如果每次obj.inherited()都要重复这个过程的话，那么效率将会很差。</p>
-
 <p>因此，Qomo为每一个call map建立了一个缓存。它基于两个规则：</p>
-
 <ul>
-<li>即使是大型系统中，inherited()的使用也不是对每个方法的，也就是需要inherited()
+<li>即使是大型系统中，inherited()的使用也不是对每个方法的，也就是需要inherited()<br>
 的方法数小于对象方法数。</li>
 <li>如果A方法试图inherited()，那么它每次调用inherited()总会得到相同的方法引用。</li>
 </ul>
-
 <p>可见每次都通过getPropertyName()来得到name，并通过name访问cache的方法并不可取。因为getPropertyName()本身就需要遍历一次对象方法和属性。因此Qomo建立的call map缓存的第一个结点并不是PropertyName，而是当前调用inherited()的方法本身：</p>
-
-<pre><code class="language-javascript">this.inherited = function(method){  
+<pre><code class="language-javascript">this.inherited = function(method){
   var f=this.inherited.caller, args=f.arguments;
   // ...
 
@@ -717,59 +603,43 @@ Attr = {
   }
 }
 </code></pre>
-
 <h3 id="2inheritedcallmap">2. 同一对象方法中，多次inherited()调用的实质是call map栈的出栈</h3>
-
 <p>上面提到了call map是一个栈，它的建立是通过getInheritedMap()对父类原型进行遍历。而inherited()通过cache[i][0]查找到当前正在调用的函数和call map。</p>
-
-<p>这样一来，在A去inherited(B)时，B如果又inherited(D)，那么D调用obj.inherited()，仍然会回到这个函数，并见到cache[i][0]上的方法D。这时，call map的下一个方法就可以被取出来，并执"p[0].apply(this, args)"操作。</p>
-
+<p>这样一来，在A去inherited(B)时，B如果又inherited(D)，那么D调用obj.inherited()，仍然会回到这个函数，并见到cache[i][0]上的方法D。这时，call map的下一个方法就可以被取出来，并执&quot;p[0].apply(this, args)&quot;操作。</p>
 <p>很明显，如果有多次的inherited()，那么整个的行为看起来就象是cache[i]中的元素在出栈。</p>
-
 <p>问题是：如果到达最后一个元素呢？</p>
-
 <p>根据inherited()的语义，我们的确有可能在一个类的方法中试图去inherited()一个父类中不存在的方法。——你或者写错了类，或者是开发人员用错了inherited()，总之这是必将会发生的一件事。</p>
-
 <p>Qomo为此做好了准备。Qomo在构建call map的时候，为栈底(数组最末元素)填入了一个名为$inherited_invalid的方法。这个方法将触发一个异常。</p>
-
 <p>而如果一个方法在父类中根本没有同名的(被覆盖的)方法，那么在cache中它将有一个如下格式的call map：</p>
-
 <pre><code class="language-javascript">a = [method, $inherited_invalid];
 
 // 该call map被填入_maps末尾
-_maps[len] = a;  
+_maps[len] = a;
 </code></pre>
-
 <p>很显然，如果要对这个method进行inherited()，那么将立即执行到$inherited_invalid()并导致一个异常的触发。</p>
-
 <h3 id="3attributeinherited">3. 在Attribute的读写器中的inherited()</h3>
-
 <p>相对于Attributes系统，Inherited实现起来更为复杂。其中的因素之一，就是Inherited事实上也需要实现一部分Attributes的功能。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   this.getData = function() {
     return 100
   }
 }
 
-function MyObjectEx() {  
+function MyObjectEx() {
   this.getData = function() {
     return this.inherited() * 2
   }
 }
 
-TMyObject = Class(TObject, 'MyObject');  
+TMyObject = Class(TObject, 'MyObject');
 TMyObjectEx = Class(TMyObject, 'MyObjectEx');
 
-var obj = new MyObjectEx();  
-alert(obj.get('Data'));  
+var obj = new MyObjectEx();
+alert(obj.get('Data'));
 </code></pre>
-
 <p>在这个例子中，我们见到读写器方法getData()也需要调用父类方法。而我们也知道，“父类方法MyObject.getData()是被Attributes系统隐藏的，因此如果要Inhterited()访问到，就需要Attribute提供相应的机制。</p>
-
 <p>但这在Qomo中并不麻烦。因为建立call map的getInheritedMap()运行在CDB的上下文中，因此它可以访问内部的Attr对象的属性和原型。所以getInheritedMap()中的实现代码并不复杂：</p>
-
-<pre><code class="language-javascript">function inheritedAttribute(foo) {  
+<pre><code class="language-javascript">function inheritedAttribute(foo) {
   // ...
   var p, v=[], $cls=Parent;
   while ($cls) {
@@ -781,7 +651,7 @@ alert(obj.get('Data'));
   return v;
 }
 
-function getInheritedMap(method) {  
+function getInheritedMap(method) {
   //...
   var a=inheritedAttribute(method);
   // ...
@@ -790,54 +660,37 @@ function getInheritedMap(method) {
   return (_maps[len] = a);
 }
 </code></pre>
-
 <h2 id="qomolangma">四、Qomolangma中的一些问题</h2>
-
 <p>事实上我们已经发现，Qomo为IE 5.0兼容做出了太多的牺牲。例如在common_ie5.js中使用了大量的代码来提供与IE5.5+相等同的RegExp.replace()，也使用了较低效的方式来避让了IE 5中存在的RegExp.lastIndex的BUG。</p>
-
 <p>即使如此，我们仍旧认为这些兼容的工作是值得的。然而现在，在Object.js之后，我们终于发现了无可回避的问题。这主要体现在两个方面：</p>
-
 <ul>
 <li><code>&lt;property&gt; in &lt;object&gt;</code> 的使用</li>
 <li>apply与call的实现</li>
 </ul>
-
 <h3 id="1propertyinobject">1. <code>&lt;property&gt; in &lt;object&gt;</code> 的使用</h3>
-
 <p>在Object.js之前的代码中，都已经尽可能地避开了不能在IE 5.0中使用的<code>&lt;property&gt; in &lt;object&gt;</code>语法。然而我们也看到，使用下面的代码并不能真正的解决问题：</p>
-
-<pre><code class="language-javascript">if (typeof object[property] == 'undefined') {  
+<pre><code class="language-javascript">if (typeof object[property] == 'undefined') {
   // ...
 }
 </code></pre>
-
-<p>这样的语句事实上并不能替代<code>&lt;property&gt; in &lt;object&gt;</code>。因为如果"obj[n]=undefined"，
+<p>这样的语句事实上并不能替代<code>&lt;property&gt; in &lt;object&gt;</code>。因为如果&quot;obj[n]=undefined&quot;，<br>
 那么就将再也无法通过这段代码来完成检测。因此更有效的代码是：</p>
-
-<pre><code class="language-javascript">function hasProperty(p, o) {  
+<pre><code class="language-javascript">function hasProperty(p, o) {
   for (var i in o) if (p==i) return true;
   return false;
 }
 </code></pre>
-
 <p>然而我们不能要求开发人员为了兼容IE 5.0都使用hasProperty()来替代<code>&lt;p&gt; in &lt;o&gt;</code>的语法。因此需要在IE 5.0中引入一个parser，对$import()的.js文件中的代码进行替换。</p>
-
 <p>然而这件工作变得异常坚巨。其中最重要的原因是：</p>
-
 <ul>
 <li>我们无法快速地识别<code>for (p in o)</code>与<code>if (p in o)</code>之间的差异</li>
 <li>我们也无法对类似于<code>if (!(o in o))</code>这样多层的运算进行快速、有效的parser</li>
 </ul>
-
 <p>因此<code>&lt;p&gt; in &lt;o&gt;</code>已经让我们在IE 5兼容的道路上遇到了大麻烦。但即使如此，这一切仍不是最重要的。因为Zhe(<a href="mailto:fangzhe@msn.com">fangzhe@msn.com</a>)已经开始尝试一个更强大的parser，用于解决Mozilla与safari上的一些BUG修补。如果他的工作能有一些进展，则<code>&lt;p&gt; in &lt;o&gt;</code>的问题仍然有望解决。</p>
-
 <p>真正的问题出在call()与apply()。</p>
-
 <h3 id="2applycall">2. apply与call的实现</h3>
-
 <p>在IE 5上实现apply与call并不难。其基本的做法是：</p>
-
-<pre><code class="language-javascript">Function.prototype.apply = function(obj, args) {  
+<pre><code class="language-javascript">Function.prototype.apply = function(obj, args) {
   for (var i=0, arr=[]; i&lt;args.length; i++) arr.push('args[' + i + ']');
   obj._func = this;
 
@@ -850,31 +703,25 @@ function getInheritedMap(method) {
 // call()调用apply()并传入参数表
 // Function.prototype.call = ...
 </code></pre>
-
 <p>这样的代码将得到很好的执行。事实上细节可以掩饰得更好，例如Qomo中就在eval()执行的字符串中加入了一行<code>delete obj._func</code>来处理掉这个多余的属性。</p>
-
 <p>在apply()的实现中，采用eval()的真正原因是：只有eval()才能访问上下文中的变量obj和args，换做execScript()或者使用new Function()来创建函数并执行都不能取得这种效果。</p>
-
 <p>然而eval()执行出现了另一个问题，也就是在eval()中调用<code>obj._func()</code>时，<code>_func()</code>上下文件中得到的caller为null：</p>
-
-<pre><code class="language-javascript">function foo(v) {  
+<pre><code class="language-javascript">function foo(v) {
   alert(foo.caller);
   alert(v);
 }
 
-function foo1() {  
+function foo1() {
   var a = 100;
   eval('foo(a)');
 }
 
-foo1();  
+foo1();
 </code></pre>
-
 <p>这对于一般的代码来说并没有什么影响。然而Qomo在实现inherited()的时候，以及实现obj.get/set方法时，使用了caller属性来取得调用者函数的引用。然后get/set和inherited过程中，将大量使用caller来处理多层调用间的关系。</p>
-
 <p>这些技巧是使得Qomo有能力处理this.get()这种简略语法的关键。然而多层的调用却不得不通过apply()来传递参数。——显然“IE5上apply()中的代码得不到caller”已经成为致命的问题了。</p>
-
 <p>鉴于此，Qomo从FT4开始将暂停对IE 5.0的兼容性支持。</p>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -886,8 +733,8 @@ foo1();
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-38.html">
-                    Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系
+                <a href="/2-20.html">
+                    暴风雪三尖之王者归来
                 </a>
             </span>
 
@@ -902,8 +749,8 @@ foo1();
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -925,16 +772,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -977,21 +824,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

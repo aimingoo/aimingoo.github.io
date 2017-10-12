@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>迷路和羞辱</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="迷路和羞辱" />
+    <meta property="og:description" content="起了个大早送老公去开会，开会的地方比他公司远很多。路上很堵，车和行人都争先恐后互不相让，到处都是违章现象。 一小时后到会场，总算没迟到。他进会场，我回家。 返程选择的路禁行了，大概跟附近大规模修路有关，这是没预料到的。只好跟前方的车左拐进一条小弄，接着就迷路了。小路口有个警察，我把车停在他跟前询路，警察说我方向反了，需要前行左拐左拐再右拐掉头走。 前行左拐左拐再右拐，我背着口诀开车。 右拐时路口忽然一交警示意我靠边。我停稳下车，他让我出示行车证和驾照。我迷惑了，问他什么原因，他说你挤什么？你不按规定变更车道。 说实话，在杭州马路上行驶，见多了名车从旁边呼啸而过的现象。平时开车我顶多不让别的车，但基本是不会去挤别人的。再说刚才我是跟着前方的车一起拐的呀，怎么人家可以，换我就不行？ 我向警察微笑并恳求，是否能因为我是外地人不熟悉路况的原因网开一面？ 警察说，外地人多了，我都要网开一面吗？都像你这样交通不早乱套了？ 我心想，坏了，原来杭州的交通是我们外地人搞乱的，我也有份。 警察拿出POS机，对照我的驾照输入信息。他个子很高，我看他需仰视。他一脸“" />
+    <meta property="og:url" content="http://aimingoo.github.io/2-182.html" />
+    <meta property="article:published_time" content="2009-12-30T04:52:07.000Z" />
+    <meta property="article:modified_time" content="2017-10-11T17:36:56.000Z" />
+    <meta property="article:tag" content="信手拈来" />
+    <meta property="article:tag" content="生活" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="迷路和羞辱" />
+    <meta name="twitter:description" content="起了个大早送老公去开会，开会的地方比他公司远很多。路上很堵，车和行人都争先恐后互不相让，到处都是违章现象。 一小时后到会场，总算没迟到。他进会场，我回家。 返程选择的路禁行了，大概跟附近大规模修路有关，这是没预料到的。只好跟前方的车左拐进一条小弄，接着就迷路了。小路口有个警察，我把车停在他跟前询路，警察说我方向反了，需要前行左拐左拐再右拐掉头走。 前行左拐左拐再右拐，我背着口诀开车。 右拐时路口忽然一交警示意我靠边。我停稳下车，他让我出示行车证和驾照。我迷惑了，问他什么原因，他说你挤什么？你不按规定变更车道。 说实话，在杭州马路上行驶，见多了名车从旁边呼啸而过的现象。平时开车我顶多不让别的车，但基本是不会去挤别人的。再说刚才我是跟着前方的车一起拐的呀，怎么人家可以，换我就不行？ 我向警察微笑并恳求，是否能因为我是外地人不熟悉路况的原因网开一面？ 警察说，外地人多了，我都要网开一面吗？都像你这样交通不早乱套了？ 我心想，坏了，原来杭州的交通是我们外地人搞乱的，我也有份。 警察拿出POS机，对照我的驾照输入信息。他个子很高，我看他需仰视。他一脸“" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/2-182.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="x.hy" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="信手拈来, 生活" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "x.hy",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/WechatIMG1139-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/joyxhy/",
+        "sameAs": []
+    },
+    "headline": "迷路和羞辱",
+    "url": "http://aimingoo.github.io/2-182.html",
+    "datePublished": "2009-12-30T04:52:07.000Z",
+    "dateModified": "2017-10-11T17:36:56.000Z",
+    "keywords": "信手拈来, 生活",
+    "description": "起了个大早送老公去开会，开会的地方比他公司远很多。路上很堵，车和行人都争先恐后互不相让，到处都是违章现象。 一小时后到会场，总算没迟到。他进会场，我回家。 返程选择的路禁行了，大概跟附近大规模修路有关，这是没预料到的。只好跟前方的车左拐进一条小弄，接着就迷路了。小路口有个警察，我把车停在他跟前询路，警察说我方向反了，需要前行左拐左拐再右拐掉头走。 前行左拐左拐再右拐，我背着口诀开车。 右拐时路口忽然一交警示意我靠边。我停稳下车，他让我出示行车证和驾照。我迷惑了，问他什么原因，他说你挤什么？你不按规定变更车道。 说实话，在杭州马路上行驶，见多了名车从旁边呼啸而过的现象。平时开车我顶多不让别的车，但基本是不会去挤别人的。再说刚才我是跟着前方的车一起拐的呀，怎么人家可以，换我就不行？ 我向警察微笑并恳求，是否能因为我是外地人不熟悉路况的原因网开一面？ 警察说，外地人多了，我都要网开一面吗？都像你这样交通不早乱套了？ 我心想，坏了，原来杭州的交通是我们外地人搞乱的，我也有份。 警察拿出POS机，对照我的驾照输入信息。他个子很高，我看他需仰视。他一脸“",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.12" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-xin-shou-nian-lai tag-sheng-huo nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'joyxhy', url: '/author/joyxhy/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="joyxhy" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-xin-shou-nian-lai tag-sheng-huo">
+            <header class="post-header">
+                <h1 class="post-title u-joyxhy"><a href="/2-182.html">迷路和羞辱</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/joyxhy/">x.hy</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2009-12-30T12:52:07.077+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2009-12-30">(2009-12-30)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/xin-shou-nian-lai/">信手拈来</a>, <a href="/tag/sheng-huo/">生活</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><p>起了个大早送老公去开会，开会的地方比他公司远很多。路上很堵，车和行人都争先恐后互不相让，到处都是违章现象。</p>
+<p>一小时后到会场，总算没迟到。他进会场，我回家。</p>
+<p>返程选择的路禁行了，大概跟附近大规模修路有关，这是没预料到的。只好跟前方的车左拐进一条小弄，接着就迷路了。小路口有个警察，我把车停在他跟前询路，警察说我方向反了，需要前行左拐左拐再右拐掉头走。</p>
+<p>前行左拐左拐再右拐，我背着口诀开车。</p>
+<p>右拐时路口忽然一交警示意我靠边。我停稳下车，他让我出示行车证和驾照。我迷惑了，问他什么原因，他说你挤什么？你不按规定变更车道。</p>
+<p>说实话，在杭州马路上行驶，见多了名车从旁边呼啸而过的现象。平时开车我顶多不让别的车，但基本是不会去挤别人的。再说刚才我是跟着前方的车一起拐的呀，怎么人家可以，换我就不行？</p>
+<p>我向警察微笑并恳求，是否能因为我是外地人不熟悉路况的原因网开一面？</p>
+<p>警察说，外地人多了，我都要网开一面吗？都像你这样交通不早乱套了？</p>
+<p>我心想，坏了，原来杭州的交通是我们外地人搞乱的，我也有份。</p>
+<p>警察拿出POS机，对照我的驾照输入信息。他个子很高，我看他需仰视。他一脸“我不罚你我罚谁”的专注，我猜他守株待兔多日，总算逮到一个外地的、开破车的、女司机，不用担心惹毛本地的大款或要员，可以放心大胆地罚，还可以出出平日里看到宝马宝时捷之类的名车横冲直撞却缩头不敢惹的怒气。</p>
+<p>他还在嘀嘀嘀地按着手中的POS机，我仰脸看着他的鼻孔发呆。天挺冷的，他的鼻孔呼出大团的热气，跟汽车的排气管似的，至少不比一头打喷嚏的驴少。</p>
+<p>想想当年未出嫁时，遇到相同的情况，警察看了看我的小脸，手一抬：走吧，下不为例。现在，警察看了看我的老脸，眉一皱：少废话，罚款一百，扣两分！</p>
+<p>人老珠黄，还没洗脸，破车，外地牌照，女司机。何等的羞辱。</p>
+<p>我自己想想都觉得不可原谅，是很合适的罚款对象。</p>
+<p>警察说，你违反了交通法叉叉条叉叉项，压了地上的实线，你这叫犯法，我罚你是让你记住下次别犯！</p>
+<p>我不过是老实巴交地迷路而已，怎么就犯法了呢？</p>
+<p>我用一百元换了他递给我的罚单，罚单上有他的名字：陈霉鬼。难怪，想不触霉头都不行。</p>
+<p>离开我的犯罪现场，一路上都在反思我的罪行。百思不得其解，为什么跟着前面的丰田拐弯，人家合法而我却违法了？</p>
+<p>记得上次在另一个城市，我变更左拐弯车道时压了双黄线，被前方的警察拦下，他第一句话就是：那线画地上是让你压的？比起那个城市的火爆脾气的警察，杭州的交警还是蛮温和的。</p>
+<p>回家路上我又早拐了一个路口，那里在盖房子，绕来绕去我就绕进了一个死胡同。死胡同里没警察，开心死我了。</p>
+<p>另：回家又看了看罚单，糊涂的时候把人家警察叔叔的名字看错了，霉字多看个雨头，鬼字少看个木旁。哈，原来人家不叫霉鬼。</p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/2-181.html">
+                    龙井乡之冬
+                </a>
+            </span>
+
+            <span class="post-nav-next" >
+                <a href="/2-183.html">
+                    梦见鬼
+                </a>
+                下一篇
+            </span>
+        </aside>
+
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5167-1-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/joyxhy/">
+                <img src="/content/images/2017/10/WechatIMG1139-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">x.hy</span>
+        <hr>
+        <p class="widget-profile-desc">
+                麦大老板今晚吃啥呢？
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-joyxhy"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="joyxhy" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
+</body>
+
+</html>

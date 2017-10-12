@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>QoBean的元语言系统（一）</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="QoBean的元语言系统（一）" />
-    <meta property="og:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(" />
+    <meta property="og:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean 注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(" />
     <meta property="og:url" content="http://aimingoo.github.io/1-110.html" />
     <meta property="article:published_time" content="2008-07-24T18:57:00.000Z" />
     <meta property="article:modified_time" content="2017-10-07T20:22:12.000Z" />
@@ -35,7 +35,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="QoBean的元语言系统（一）" />
-    <meta name="twitter:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(" />
+    <meta name="twitter:description" content="QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean 注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-110.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -56,37 +56,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "QoBean的元语言系统（一）",
     "url": "http://aimingoo.github.io/1-110.html",
     "datePublished": "2008-07-24T18:57:00.000Z",
     "dateModified": "2017-10-07T20:22:12.000Z",
     "keywords": "Javascript, Qomo, OpenSource Project, 语言, 面向对象",
-    "description": "QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean   注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(",
+    "description": "QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。 “QoBean的元语言系统”包括三篇，分别是： 元语言系统基础，以及程序的基础元素 元语言下的编程基本方法 元语言的应用：虚拟执行环境 QoBean的项目地址： https://qomo.svn.sourceforge.net/svnroot/qomo/qobean https://github.com/aimingoo/qobean 注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》(之二)、(之三)。 一、什么是元语言(Meta Language) “元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -97,8 +94,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -115,6 +110,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -123,11 +119,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-qomo tag-opensource-project tag-yu-yan tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-110.html">QoBean的元语言系统（一）</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-110.html">QoBean的元语言系统（一）</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -149,183 +147,124 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。</p>
-
+                <div class="kg-card-markdown"><p>QoBean是从元语言系统开始构建整个语言系统的，从本文开始，我开始讲述QoBean所理解的元语言。不过，不同的人、从不同的侧面所理解的“元语言”是不一样的，不必求同。</p>
 <p>“QoBean的元语言系统”包括三篇，分别是：</p>
-
 <ul>
 <li>元语言系统基础，以及程序的基础元素</li>
 <li>元语言下的编程基本方法</li>
 <li>元语言的应用：虚拟执行环境</li>
 </ul>
-
 <p>QoBean的项目地址：</p>
-
 <ul>
 <li><a href="https://qomo.svn.sourceforge.net/svnroot/qomo/qobean">https://qomo.svn.sourceforge.net/svnroot/qomo/qobean</a></li>
 <li><a href="https://github.com/aimingoo/qobean">https://github.com/aimingoo/qobean</a></li>
 </ul>
-
 <blockquote>
-  <p>注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》<a href="/1-147.html">(之二)</a>、<a href="/1-148.html">(之三)</a>。</p>
+<p>注：本系列第三篇之“元语言的应用：虚拟执行环境”并没有完成。但相关内容可以参考《为脚本语言平反-JavaScript篇》<a href="/1-147.html">(之二)</a>、<a href="/1-148.html">(之三)</a>。</p>
 </blockquote>
-
 <h2 id="metalanguage">一、什么是元语言(Meta Language)</h2>
-
 <p>“元(meta)”这个词到了中文里头，就非常难于说清楚。就好象当年蹦出来个“超类(super classes)”就糊涂了一群人一样，“元类(meta classes)”以及类似的“meta xxx”也让人开心不起来。</p>
-
 <p>有两个角度来看这个问题。一个是站在既有的知识上，例如你懂得了“类”，然后我就告诉你“所谓元类，就是比类更高一级的、能产生类的类”。这种解释方法下，所谓“元语言”，就是“能产生语言的一种语言”。</p>
-
 <p>这第一种解释方法并没有错，例如最新的ECMAScript Ed4（也就是JavaScript 2）就是用元语言来定义的。具体来说，ECMAScript Ed4规范就是用一种名为Ocaml的元语言来描述，该描述文档自身也就是一份代码，可以被直接“编译”成为一种真实的、可直接使用的JavaScript 2的语言引擎。所以相对于JS2，Ocaml就是一种元语言——当然，Ocaml是一种通用性元语言，不只是能“定义和生成”ECMAScript Ed4那么简单。</p>
-
 <p>第二种解释方法，则是站在纵深处，从一个领域的核心、本质出发进行说明。例如说，程序的本质是“算法+数据结构”，所以对任意程序来说，所谓“元”，就是Algorithms和Data Structures，具体实现上，在函数式语言中，Algorithms被统一成为Function；在面向对象语言中，数据结构被统一成Object。这些所谓的“统一”，其实都不过是在两种元语言的“原子类型抽象”上的泛化或概括。</p>
-
 <p>这又说得复杂了，什么是“原子类型抽象”呢？我杜撰了这个词，我希望说明，可能“数据类型”不是字节、双字节这样的面向机器结构的，也不是“对象”、“类”这样面向抽象系统的。“数据类型”仅只是“算法”所面对的“目标”。当数据是x时，算法就是那个f(x)；当数据是m时，f()就不适用了，得是T(m)。</p>
-
 <p>再反过来，当算法是Z()时，数据还会是x或m吗？不是。所以，数据与算法是伴生的，不同的算法、不同的数据之间有机地结合时，才是好的程序。</p>
-
 <p>所以第二种解释方法也是对的。我们可以说物质的“元”是分子、原子等等，也可以说物质的“元”是能量。用这种方法来解释时，没有第一种解释法那样的“参考对象”，所以它的有效性或概念都取决于解释者的“角度”，不同的角度有不同的说法，失去了“角度”的解释就没有意义——既不是对，也不是错。</p>
-
 <p>那么QoBean如何定义“元语言”呢？QoBean对此有两项解释：</p>
-
 <ul>
 <li>元语言定义程序(program)的基础元素：算法与数据结构</li>
 <li>元语言说明编程(programming)的基本方法：代码的组织形式</li>
 </ul>
-
 <h2 id="qobean">二、QoBean中的基本系统约定</h2>
-
 <h3 id="1">1. 数据类型</h3>
-
 <p>基于JS的基本观念，QoBean提出（运算性的）值数据，和引用数据两类。引用数据仅有“对象”一种，从数据的角度上来说，函数也是一类“对象”。值数据包括三种基本数据：数值、字符串和布尔值，和一种特定的、表达无数据的数据：undefined。</p>
-
 <p>对象具有双重性，作为对象时，它是关联数组。所谓关联数组，即是如下形式的表：</p>
-
-<pre><code class="language-javascript">tbl = {  
+<pre><code class="language-javascript">tbl = {
    name: 'table',
    x: 100,
    y: 100
  }
 </code></pre>
-
 <p>对象可以描述一个一般形式的索引数组，形式如下：</p>
-
-<pre><code class="language-javascript">tbl = {  
+<pre><code class="language-javascript">tbl = {
    0: 100,
    1: 100,
    2: 100,
    length: 3
  }
 </code></pre>
-
 <p>或以直接量形式描述一个索引数组（普通含义上的JavaScript数组），也是一个对象，或对象的子类：</p>
-
-<pre><code class="language-javascript">tbl = [100, 100, 100];  
+<pre><code class="language-javascript">tbl = [100, 100, 100];
 </code></pre>
-
 <h3 id="2">2. 执行体</h3>
-
 <p>QoBean在元语言级别上，所能理解的执行体只有“函数”。</p>
-
 <p>函数作为执行体时，可以通过new运行“产生”数据——对象。其形式如下：</p>
-
-<pre><code class="language-javascript">tbl = new f()  
+<pre><code class="language-javascript">tbl = new f()
 </code></pre>
-
 <p>函数自身也可以产生函数：</p>
-
-<pre><code class="language-javascript">foo = f();  
+<pre><code class="language-javascript">foo = f();
 </code></pre>
-
 <p>或</p>
-
-<pre><code class="language-javascript">foo = new f;  
+<pre><code class="language-javascript">foo = new f;
 </code></pre>
-
 <p>或</p>
-
-<pre><code class="language-javascript">foo = new f();  
+<pre><code class="language-javascript">foo = new f();
 </code></pre>
-
 <p>上述三种形式在具体使用和f()的实现上略有不同。</p>
-
 <p>函数具有双重性。当它作为执行体时——例如f()，表明执行函数；当它作为数据体时——例如f，表明它是一个对象。二者的区别在于一个执行运算符“()”。</p>
-
 <p>QoBean的元语言系统不理解其它的JavaScript语言元素，例如不理解语句，也不理解变量声明。但是理解由上述“类型系统、执行体”延伸出来的概念，例如由函数延伸出来的闭包概念。</p>
-
 <h3 id="3">3. 动态执行能力</h3>
-
 <p>QoBean要求基本系统具有动态执行能力，也就是动态分析(parse)和执行(execture)由基本语法特性（上述“基本数据”和“执行体”）组成的代码文本的能力。在JavaScript中，也就是eval()这个方法。</p>
-
-<p>由于QoBean理解函数中的闭包，因此也要求eval()理解这一特性。具体来说，QoBean要求：当eval()在一个闭包中执行上述代码文本时，代码文本产生的闭包位于当前闭包链的未端。这里的闭包，包括JS中的对象闭包与函数闭包两种。这意味着下面的代码，可能在打开的X对象的“对象闭包”的后面追加一
+<p>由于QoBean理解函数中的闭包，因此也要求eval()理解这一特性。具体来说，QoBean要求：当eval()在一个闭包中执行上述代码文本时，代码文本产生的闭包位于当前闭包链的未端。这里的闭包，包括JS中的对象闭包与函数闭包两种。这意味着下面的代码，可能在打开的X对象的“对象闭包”的后面追加一<br>
 个新的闭包——这里的“可能”是指：这取决于eval()代码文本的内容：</p>
-
-<pre><code class="language-javascript">with (X) eval(_CODE_CONTEXT);  
+<pre><code class="language-javascript">with (X) eval(_CODE_CONTEXT);
 </code></pre>
-
 <h3 id="4">4. 其它</h3>
-
 <p>基本上来说，上面约定了JavaScript语言特性的一个非常小的集合。这个集合不包括Date、RegExp之类的工具对象，也不包括语句或变量这些语法概念——不过QoBean理解“标识符”，没有标识符，元系统是组建不起来的。</p>
-
 <p>在这个最小的语言特性集合上，QoBean开始构建自己的语言系统——这也意味着，只需要拥有这些最小、最简的语言特性，其它语言或其它的JavaScript实现版本、子集等，也可以按照同样的方式构建同等能力的语言系统。这也就是“元语言”最诱人的地方。</p>
-
 <h2 id="">三、元系统</h2>
-
 <h3 id="0qobean">0、QoBean的元语言系统基本的编程结构</h3>
-
-<p>QoBean的元语言系统由以下函数构成：  </p>
-
+<p>QoBean的元语言系统由以下函数构成：</p>
 <pre><code class="language-javascript">  function Atom(atom) { }
   function Meta(func, baseMeta) { }
   function Unique(f) { }
   MetaObject = Function;
   MetaClass = Function;
 </code></pre>
-
 <h3 id="1">1. 原子－元函数、元数据、元继承关系</h3>
-
 <p>所谓“元数据”，就是独立的、独一无二的一个数据体。简单的说，你可以“元化（使之变成元）”一个数据，该过程通过Atom()来实现：</p>
-
-<pre><code class="language-javascript">function Atom(atom) {  
+<pre><code class="language-javascript">function Atom(atom) {
   return atom || {};
 }
 
 // sample
-tbl = {};  
-tbl = Atom(tbl);  
+tbl = {};
+tbl = Atom(tbl);
 </code></pre>
-
 <p>我们可以通过函数来实现自身的元函数，也就是产生函数执行体（而不是对象数据）的函数，例如：</p>
-
-<pre><code class="language-javascript">function Func() {  
+<pre><code class="language-javascript">function Func() {
   return Function.apply(this, arguments)
 }
 
 // sample
-f = new Func();  
-alert(typeof f);  
+f = new Func();
+alert(typeof f);
 </code></pre>
-
 <p>元继承关系通过Meta()和属性meta来实现，例如：</p>
-
-<pre><code class="language-javascript">function Meta(func, baseMeta) {  
+<pre><code class="language-javascript">function Meta(func, baseMeta) {
   func.meta = baseMeta || arguments.callee;
   return func;
 }
 
 // sample：meta is meta for self.
-Meta = Meta(Meta);  
+Meta = Meta(Meta);
 </code></pre>
-
 <h3 id="2">2. 友元</h3>
-
 <p>表面上看，Atom()看起来象是一个多余的实现。但它是实现友元的一个非常好的途径。所谓友元，是元A跟元B之间执有一种私有关系，二者之间可以互访数据。在QoBean的机制里，这通过Atom()来实现。</p>
-
 <p>例如：</p>
-
 <pre><code class="language-javascript">f1 = f2 = Atom();
 
-f1 = function(atom) {  
+f1 = function(atom) {
   var data = {  ... };
 
   return function() {
@@ -336,7 +275,7 @@ f1 = function(atom) {
   }
 }(f1);
 
-f2 = function(atom) {  
+f2 = function(atom) {
   var data;
 
   return function() {
@@ -347,66 +286,55 @@ f2 = function(atom) {
   }
 }(f2);
 </code></pre>
-
 <p>在上述系统中，f1与f2之间都执有一个相互识别的凭证——一个通过Atom()得到的友元原子。通过该凭证，f1可以向f2提供私有数据（反之也成立）。除此之外，系统之外的其它函数/对象都无法得到f1中的数据。</p>
-
 <h3 id="3">3. 类系统</h3>
-
 <p>元对象与元类是在元函数上的两个扩展。基本上来说，声明了一种“对象系统”的组织方式：类继承模式。这种关系是可以识别的，例如obj是MyObject的一个实例、obj也同时是Object的一个实例。</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
 }
 // class register
 Class(, 'MyObject');
 
 // sample
-obj = new MyObject();  
+obj = new MyObject();
 alert(obj instanceof MyObject);
+
 </code></pre>
-
 <p>在元系统中，并没有对类系统做任何实现。实现的代码在Class.js中。</p>
-
 <h3 id="4">4. 类类型系统</h3>
-
 <p>你可以在Class()做类注册时得到一个类类型（你也可以忽略它）。类类型是一种“类系统”的组织方式。类系统中也可以进行继承关系的识别，例如TMyObject继承自TObject。QoBean约定的规则为：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
 }
 TMyObject = Class(, 'MyObject');
 
 // sample
-obj = TMyObject.Create();  
-alert(...)  
+obj = TMyObject.Create();
+alert(...)
 </code></pre>
-
 <p>在元系统中，并没有对类类系统做任何实现。实现的代码在Class.js中。</p>
-
 <h3 id="5">5. 唯一化</h3>
-
 <p>你可以用Unique()函数唯一化一个对象，唯一化的好处是新对象与旧对象完全一样，但是修改新的对象时，旧的对象不会同时被修改。举例来说：</p>
-
-<pre><code class="language-javascript">obj = {  
+<pre><code class="language-javascript">obj = {
   data: 100
 }
 
-obj1 = obj;  
+obj1 = obj;
 obj2 = Unique(obj);
 
 // init, same.
 alert([obj1.data, obj2.data]);
 
 // change the reference, the uniqued object was fixed.
-obj1.data = 200;  
+obj1.data = 200;
 alert([obj1.data, obj2.data]);
 
 // change the niqued object, the , no change.
-obj2.data = 300;  
-alert([obj1.data, obj2.data]);  
+obj2.data = 300;
+alert([obj1.data, obj2.data]);
 </code></pre>
-
 <blockquote>
-  <p>下一篇：<a href="/1-111.html">元语言下的编程基本方法 >></a></p>
+<p>下一篇：<a href="/1-111.html">元语言下的编程基本方法 &gt;&gt;</a></p>
 </blockquote>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -418,8 +346,8 @@ alert([obj1.data, obj2.data]);
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-233.html">
-                    啥美，细致之美……
+                <a href="/2-117.html">
+                    夜北京
                 </a>
             </span>
 
@@ -434,8 +362,8 @@ alert([obj1.data, obj2.data]);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -457,16 +385,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -509,21 +437,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

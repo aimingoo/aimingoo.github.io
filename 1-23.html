@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>JavaScript面向对象的支持(4)</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript面向对象的支持(4)" />
-    <meta property="og:description" content="八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、继承的示例 // function MyObject() {     this.v1 &#x3D; &#x27;abc&#x27;; } function MyObject2() {     this.v2 &#x3D; &#x27;def&#x27;; } MyObject2.prototype &#x3D; new MyObject(); var obj1 &#x3D; new MyObject();   var obj2 &#x3D; new MyObject2();   1)" />
+    <meta property="og:description" content="八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、继承的示例 // function MyObject() {   this.v1 &#x3D; &#x27;abc&#x27;; } function MyObject2() {   this.v2 &#x3D; &#x27;def&#x27;; } MyObject2.prototype &#x3D; new MyObject(); var obj1 &#x3D; new MyObject(); var obj2 &#x3D; new MyObject2(); 1)" />
     <meta property="og:url" content="http://aimingoo.github.io/1-23.html" />
     <meta property="article:published_time" content="2006-01-15T18:34:00.000Z" />
     <meta property="article:modified_time" content="2017-10-07T20:15:33.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript面向对象的支持(4)" />
-    <meta name="twitter:description" content="八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、继承的示例 // function MyObject() {     this.v1 &#x3D; &#x27;abc&#x27;; } function MyObject2() {     this.v2 &#x3D; &#x27;def&#x27;; } MyObject2.prototype &#x3D; new MyObject(); var obj1 &#x3D; new MyObject();   var obj2 &#x3D; new MyObject2();   1)" />
+    <meta name="twitter:description" content="八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、继承的示例 // function MyObject() {   this.v1 &#x3D; &#x27;abc&#x27;; } function MyObject2() {   this.v2 &#x3D; &#x27;def&#x27;; } MyObject2.prototype &#x3D; new MyObject(); var obj1 &#x3D; new MyObject(); var obj2 &#x3D; new MyObject2(); 1)" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-23.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,37 +53,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "JavaScript面向对象的支持(4)",
     "url": "http://aimingoo.github.io/1-23.html",
     "datePublished": "2006-01-15T18:34:00.000Z",
     "dateModified": "2017-10-07T20:15:33.000Z",
     "keywords": "Javascript, 面向对象",
-    "description": "八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、继承的示例 // function MyObject() {     this.v1 &#x3D; &#x27;abc&#x27;; } function MyObject2() {     this.v2 &#x3D; &#x27;def&#x27;; } MyObject2.prototype &#x3D; new MyObject(); var obj1 &#x3D; new MyObject();   var obj2 &#x3D; new MyObject2();   1)",
+    "description": "八、JavaScript面向对象的支持 3. 构造、析构与原型问题 我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点： 构造器是一个普通的函数 原型是一个对象实例 构造器有原型属性，对象实例没有 (如果正常地实现继承模型，)对象实例的constructor属性指向构造器 从三、四条推出：obj.constructor.prototype指向该对象的原型 好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。 // // 理解原型、构造、继承的示例 // function MyObject() {   this.v1 &#x3D; &#x27;abc&#x27;; } function MyObject2() {   this.v2 &#x3D; &#x27;def&#x27;; } MyObject2.prototype &#x3D; new MyObject(); var obj1 &#x3D; new MyObject(); var obj2 &#x3D; new MyObject2(); 1)",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -94,8 +91,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,6 +107,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -120,11 +116,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-23.html">JavaScript面向对象的支持(4)</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-23.html">JavaScript面向对象的支持(4)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -146,12 +144,9 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h1 id="javascript">八、JavaScript面向对象的支持</h1>
-
+                <div class="kg-card-markdown"><h1 id="javascript">八、JavaScript面向对象的支持</h1>
 <h2 id="3">3. 构造、析构与原型问题</h2>
-
 <p>我们已经知道一个对象是需要通过构造器函数来产生的。我们先记住几点：</p>
-
 <ul>
 <li>构造器是一个普通的函数</li>
 <li>原型是一个对象实例</li>
@@ -159,41 +154,32 @@ ghost.init({
 <li>(如果正常地实现继承模型，)对象实例的constructor属性指向构造器</li>
 <li>从三、四条推出：obj.constructor.prototype指向该对象的原型</li>
 </ul>
-
 <p>好，我们接下来分析一个例子，来说明JavaScript的“继承原型”声明，以及构造过程。</p>
-
 <pre><code class="language-javascript">//
 // 理解原型、构造、继承的示例
 //
-function MyObject() {  
+function MyObject() {
   this.v1 = 'abc';
 }
 
-function MyObject2() {  
+function MyObject2() {
   this.v2 = 'def';
 }
 MyObject2.prototype = new MyObject();
 
-var obj1 = new MyObject();  
-var obj2 = new MyObject2();  
+var obj1 = new MyObject();
+var obj2 = new MyObject2();
 </code></pre>
-
 <h3 id="1new">1). new()关键字的形式化代码</h3>
-
 <p>我们先来看“obj1 = new MyObject()”这行代码中的这个new关键字。</p>
-
 <p>new关键字用于产生一个新的实例（说到这里补充一下，我习惯于把保留字叫关键字。另外，在JavaScript中new关键字同时也是一个运算符），这个实例的缺省属性中，(至少)会执有构造器函数的原型属性(prototype)的一个引用(在ECMA Javascript规范中，对象的这个属性名定义为<code>__proto__</code>)。</p>
-
 <p>每一个函数，无论它是否用作构造器，都会有一个独一无二的原型对象(prototype)。对于JavaScript“内置对象的构造器”来说，它指向内部的一个原型。缺省时JavaScript构造出一个“空的初始对象实例(不是null)”并使原型引用指向它。然而如果你给函数的这个prototype赋一个新的对象，那么新的对象实例将执有它的一个引用。</p>
-
 <p>接下来，构造过程将调用MyObject()来完成初始化。——注意，这里只是“初始化”。</p>
-
 <p>为了清楚地解释这个过程，我用代码形式化地描述一下这个过程：</p>
-
 <pre><code class="language-javascript">//
 // new()关键字的形式化代码
 //
-function new(aFunction) {  
+function new(aFunction) {
   // 基本对象实例
   var _this = {};
 
@@ -230,98 +216,77 @@ function new(aFunction) {
   return _this;
 }
 </code></pre>
-
 <p>所以我们看到以下两点：</p>
-
 <ul>
 <li>构造函数(aFunction)本身只是对传入的this实例做“初始化”处理，而不是构造一个对象实例。</li>
 <li>构造的过程实际发生在new()关键字/运算符的内部。</li>
 </ul>
-
 <p>而且，构造函数(aFunction)本身并不需要操作prototype，也不需要回传this。</p>
-
 <h3 id="2prototype">2). 由用户代码维护的原型(prototype)链</h3>
-
 <p>接下来我们更深入的讨论原型链与构造过程的问题。这就是：</p>
-
 <ul>
 <li>原型链是用户代码创建的，new()关键字并不协助维护原型链</li>
 </ul>
-
 <p>以Delphi代码为例，我们在声明继承关系的时候，可以用这样的代码：</p>
-
 <pre><code class="language-javascript">//
 // delphi中使用的“类”类型声明
 //
-type  
+type
   TAnimal = class(TObject); // 动物
   TMammal = class(TAnimal); // 哺乳动物
   TCanine = class(TMammal); // 犬科的哺乳动物
   TDog = class(TCanine);    // 狗
 </code></pre>
-
 <p>这时，Delphi的编译器会通过编译技术来维护一个继承关系链表。我们可以通过类似以下的代码来查询这个链表：</p>
-
 <pre><code class="language-javascript">//
 // delphi中使用继关系链表的关键代码
 //
-function isAnimal(obj: TObject): boolean;  
-begin  
+function isAnimal(obj: TObject): boolean;
+begin
   Result := obj is TAnimal;
 end;
 
-var  
+var
   dog := TDog;
 
 // ...
-dog := TDog.Create();  
-writeln(isAnimal(dog));  
+dog := TDog.Create();
+writeln(isAnimal(dog));
 </code></pre>
-
 <p>可以看到，在Delphi的用户代码中，不需要直接继护继承关系的链表。这是因为Delphi是强类型语言，在处理用class()关键字声明类型时，delphi的编译器已经为用户构造了这个继承关系链。——注意，这个过程是声明，而不是执行代码。</p>
-
 <p>而在JavaScript中，如果需要获知对象“是否是某个基类的子类对象”，那么你需要手工的来维护(与delphi这个例子类似的)一个链表。当然，这个链表不叫类型继承树，而叫“(对象的)原型链表”。——在JS中，没有“类”类型。</p>
-
 <p>参考前面的JS和Delphi代码，一个类同的例子是这样：</p>
-
 <pre><code class="language-javascript">//
 // JS中“原型链表”的关键代码
 //
 // 1. 构造器
-function Animal() {};  
-function Mammal() {};  
-function Canine() {};  
+function Animal() {};
+function Mammal() {};
+function Canine() {};
 function Dog() {};
 
 // 2. 原型链表
-Mammal.prototype = new Animal();  
-Canine.prototype = new Mammal();  
+Mammal.prototype = new Animal();
+Canine.prototype = new Mammal();
 Dog.prototype = new Canine();
 
 // 3. 示例函数
-function isAnimal(obj) {  
+function isAnimal(obj) {
   return obj instanceof Animal;
 }
 
-var  
+var
   dog = new Dog();
-document.writeln(isAnimal(dog));  
+document.writeln(isAnimal(dog));
 </code></pre>
-
 <p>可以看到，在JS的用户代码中，“原型链表”的构建方法是一行代码：</p>
-
 <ul>
-<li>"当前类的构造器函数".prototype = "直接父类的实例"</li>
+<li>&quot;当前类的构造器函数&quot;.prototype = &quot;直接父类的实例&quot;</li>
 </ul>
-
 <p>这与Delphi一类的语言不同：维护原型链的实质是在执行代码，而非声明。</p>
-
 <p>那么，“是执行而非声明”到底有什么意义呢？</p>
-
 <p>JavaScript是会有编译过程的。这个过程主要处理的是“语法检错”、“语法声明”和“条件编译指令”。而这里的“语法声明”，主要处理的就是函数声明。——这也是我说“函数是第一类的，而对象不是”的一个原因。</p>
-
 <p>如下例：</p>
-
 <pre><code class="language-javascript">//
 // 函数声明与执行语句的关系(firefox 兼容)
 //
@@ -332,93 +297,78 @@ testFoo(1234);
 // 2. 尝试输出obj1
 
 // 3. 尝试输出obj2
-testFoo(obj1);  
-try {  
+testFoo(obj1);
+try {
   testFoo(obj2);
 }
-catch(e) {  
+catch(e) {
   document.writeln('Exception: ', e.description, '&lt;BR&gt;');
 }
 
 // 声明testFoo()
-function testFoo(v) {  
+function testFoo(v) {
   document.writeln(v, '&lt;BR&gt;');
 }
 
 //  声明object
-var obj1 = {};  
-obj2 = {  
+var obj1 = {};
+obj2 = {
   toString: function() {return 'hi, object.'}
 }
 
 // 4. 输出obj1
 // 5. 输出obj2
-testFoo(obj1);  
-testFoo(obj2);  
+testFoo(obj1);
+testFoo(obj2);
 </code></pre>
-
 <p>这个示例代码在JS环境中执行的结果是：</p>
-
 <pre><code>  1234
   undefined
   Exception: 'obj2' 未定义
   [object Object]
   hi, obj
 </code></pre>
-
 <p>问题是，testFoo()是在它被声明之前被执行的；而同样用“直接声明”的形式定义的object变量，却不能在声明之前引用。——例子中，第二、三个输入是不正确的。</p>
-
 <p>函数可以在声明之前引用，而其它类型的数值必须在声明之后才能被使用。这说明“声明”与“执行期引用”在JavaScript中是两个过程。</p>
-
-<p>另外我们也可以发现，使用"var"来声明的时候，编译器会先确认有该变量存在，但变量的值会是“undefined”。——因此“testFoo(obj1)”不会发生异常。但是，只有等到关于obj1的赋值语句被执行过，才会有正常的输出。请对照第二、三与第四、五行输出的差异。</p>
-
+<p>另外我们也可以发现，使用&quot;var&quot;来声明的时候，编译器会先确认有该变量存在，但变量的值会是“undefined”。——因此“testFoo(obj1)”不会发生异常。但是，只有等到关于obj1的赋值语句被执行过，才会有正常的输出。请对照第二、三与第四、五行输出的差异。</p>
 <p>由于JavaScript对原型链的维护是“执行”而不是“声明”，这说明“原型链是由用户代码来维护的，而不是编译器维护的。</p>
-
 <p>由这个推论，我们来看下面这个例子：</p>
-
 <pre><code class="language-javascript">//
 // 示例：错误的原型链
 //
 
 // 1. 构造器
-function Animal() {}; // 动物  
-function Mammal() {}; // 哺乳动物  
+function Animal() {}; // 动物
+function Mammal() {}; // 哺乳动物
 function Canine() {}; // 犬科的哺乳动物
 
 // 2. 构造原型链
-var instance = new Mammal();  
-Mammal.prototype = new Animal();  
+var instance = new Mammal();
+Mammal.prototype = new Animal();
 Canine.prototype = instance;
 
 // 3. 测试输出
-var obj = new Canine();  
-document.writeln(obj instanceof Animal);  
+var obj = new Canine();
+document.writeln(obj instanceof Animal);
 </code></pre>
-
 <p>这个输出结果，使我们看到一个错误的原型链导致的结果“犬科的哺乳动物‘不是’一种动物”。</p>
-
 <p>根源在于“2. 构造原型链”下面的几行代码是解释执行的，而不是象var和function那样是“声明”并在编译期被理解的。解决问题的方法是修改那三行代码，使得它的“执行过程”符合逻辑：</p>
-
 <pre><code class="language-javascript">//
 // 上例的修正代码(部分)
 //
 
 // 2. 构造原型链
-Mammal.prototype = new Animal();  
-var instance = new Mammal();  
-Canine.prototype = instance;  
+Mammal.prototype = new Animal();
+var instance = new Mammal();
+Canine.prototype = instance;
 </code></pre>
-
 <h3 id="3">3). 原型实例是如何被构造过程使用的</h3>
-
 <p>仍以Delphi为例。构造过程中，delphi中会首先创建一个指定实例大小的“空的对象”，然后逐一给属性赋值，以及调用构造过程中的方法、触发事件等。</p>
-
 <p>JavaScript中的new()关键字中隐含的构造过程，与Delphi的构造过程并不完全一致。但在构造器函数中发生的行为却与上述的类似：</p>
-
 <pre><code class="language-javascript">//
 // JS中的构造过程(形式代码)
 //
-function MyObject2() {  
+function MyObject2() {
   this.prop = 3;
   this.method = a_method_function;
 
@@ -429,35 +379,28 @@ function MyObject2() {
 }
 MyObject2.prototype = new MyObject(); // MyObject()的声明略
 
-var obj = new MyObject2();  
+var obj = new MyObject2();
 </code></pre>
-
 <p>如果以单个类为参考对象的，这个构造过程中JavaScript可以拥有与Delphi一样丰富的行为。然而，由于Delphi中的构造过程是“动态的”，因此事实上Delphi还会调用父类(MyObject)的构造过程，以及触发父类的OnCreate()事件。</p>
-
 <p>JavaScript没有这样的特性。父类的构造过程仅仅发生在为原型(prototype属性)赋值的那一行代码上。其后，无论有多少个new MyObject2()发生，MyObject()这个构造器都不会被使用。——这也意味着：</p>
-
 <ul>
 <li>构造过程中，原型对象是一次性生成的；新对象只持有这个原型实例的引用(并用“写复制”的机制来存取其属性)，而并不再调用原型的构造器。</li>
 </ul>
-
 <p>由于不再调用父类的构造器，因此Delphi中的一些特性无法在JavaScript中实现。这主要影响到构造阶段的一些事件和行为。——无法把一些“对象构造过程中”的代码写到父类的构造器中。因为无论子类构造多少次，这次对象的构造过程根本不会激活父类构造器中的代码。</p>
-
 <p>JavaScript中属性的存取是动态的，因为对象存取父类属性依赖于原型链表，构造过程却是静态的，并不访问父类的构造器；而在Delphi等一些编译型语言中，(不使用读写器的)属性的存取是静态的，而对象的构造过程则动态地调用父类的构造函数。所以再一次请大家看清楚new()关键字的形式代码中的这一行：</p>
-
 <pre><code class="language-javascript">//
 // new()关键字的形式化代码
 //
-function new(aFunction) {  
+function new(aFunction) {
   // 原型引用
   var _proto= aFunction.prototype;
 
   // ...
 }
 </code></pre>
-
 <p>这个过程中，JavaScript做的是“get a prototype_Ref”，而Delphi等其它语言做的是“Inherited Create()”。</p>
-
 <p>(本节未完待续...)</p>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -475,8 +418,8 @@ function new(aFunction) {
             </span>
 
             <span class="post-nav-next" >
-                <a href="/1-24.html">
-                    JavaScript面向对象的支持(5)
+                <a href="/2-11.html">
+                    超级大馋猫
                 </a>
                 下一篇
             </span>
@@ -485,8 +428,8 @@ function new(aFunction) {
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -508,16 +451,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -560,21 +503,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

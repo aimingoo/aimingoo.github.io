@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>无废话JavaScript（下）</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="无废话JavaScript（下）" />
-    <meta property="og:description" content="上一篇在这里，在这里，在这里&amp;hellip;&amp;hellip; 五、函数式 这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们&amp;hellip;&amp;hellip;如同爱迪生的灯泡还在照耀着我们。 其实函数式语言很简单，它就是一种与命令式语言同样&amp;ldquo;完备&amp;rdquo;的语言实现方案。由于它的基础思想与命令式&amp;mdash;&amp;mdash;如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了&amp;mdash;&amp;mdash;语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。 而事实上，你天天都在用它。 下面这行代码，就充满了函数式语言的思想： a + b   是吗？真的，如果你把那个&amp;ldquo;+&amp;rdquo;号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、" />
+    <meta property="og:description" content="上一篇在这里，在这里，在这里…… 五、函数式 这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们……如同爱迪生的灯泡还在照耀着我们。 其实函数式语言很简单，它就是一种与命令式语言同样“完备”的语言实现方案。由于它的基础思想与命令式——如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了——语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。 而事实上，你天天都在用它。 下面这行代码，就充满了函数式语言的思想： a + b 是吗？真的，如果你把那个“+”号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、一个功能入口……也就是说，代码中的某个东西，要么它是数据，要么它是运算。而如果它是运算，你就可以把它看成“函数”。上面这行代码——表达式中，a和b显然是数据，而+" />
     <meta property="og:url" content="http://aimingoo.github.io/1-119.html" />
     <meta property="article:published_time" content="2008-10-06T07:35:00.000Z" />
     <meta property="article:modified_time" content="2017-09-09T09:02:29.000Z" />
@@ -33,7 +33,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="无废话JavaScript（下）" />
-    <meta name="twitter:description" content="上一篇在这里，在这里，在这里&amp;hellip;&amp;hellip; 五、函数式 这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们&amp;hellip;&amp;hellip;如同爱迪生的灯泡还在照耀着我们。 其实函数式语言很简单，它就是一种与命令式语言同样&amp;ldquo;完备&amp;rdquo;的语言实现方案。由于它的基础思想与命令式&amp;mdash;&amp;mdash;如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了&amp;mdash;&amp;mdash;语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。 而事实上，你天天都在用它。 下面这行代码，就充满了函数式语言的思想： a + b   是吗？真的，如果你把那个&amp;ldquo;+&amp;rdquo;号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、" />
+    <meta name="twitter:description" content="上一篇在这里，在这里，在这里…… 五、函数式 这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们……如同爱迪生的灯泡还在照耀着我们。 其实函数式语言很简单，它就是一种与命令式语言同样“完备”的语言实现方案。由于它的基础思想与命令式——如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了——语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。 而事实上，你天天都在用它。 下面这行代码，就充满了函数式语言的思想： a + b 是吗？真的，如果你把那个“+”号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、一个功能入口……也就是说，代码中的某个东西，要么它是数据，要么它是运算。而如果它是运算，你就可以把它看成“函数”。上面这行代码——表达式中，a和b显然是数据，而+" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-119.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -54,38 +54,35 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "无废话JavaScript（下）",
     "url": "http://aimingoo.github.io/1-119.html",
     "datePublished": "2008-10-06T07:35:00.000Z",
     "dateModified": "2017-09-09T09:02:29.000Z",
     "keywords": "Javascript, 语言, 编程",
-    "description": "上一篇在这里，在这里，在这里&amp;hellip;&amp;hellip; 五、函数式 这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们&amp;hellip;&amp;hellip;如同爱迪生的灯泡还在照耀着我们。 其实函数式语言很简单，它就是一种与命令式语言同样&amp;ldquo;完备&amp;rdquo;的语言实现方案。由于它的基础思想与命令式&amp;mdash;&amp;mdash;如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了&amp;mdash;&amp;mdash;语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。 而事实上，你天天都在用它。 下面这行代码，就充满了函数式语言的思想： a + b   是吗？真的，如果你把那个&amp;ldquo;+&amp;rdquo;号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、",
+    "description": "上一篇在这里，在这里，在这里…… 五、函数式 这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们……如同爱迪生的灯泡还在照耀着我们。 其实函数式语言很简单，它就是一种与命令式语言同样“完备”的语言实现方案。由于它的基础思想与命令式——如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了——语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。 而事实上，你天天都在用它。 下面这行代码，就充满了函数式语言的思想： a + b 是吗？真的，如果你把那个“+”号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、一个功能入口……也就是说，代码中的某个东西，要么它是数据，要么它是运算。而如果它是运算，你就可以把它看成“函数”。上面这行代码——表达式中，a和b显然是数据，而+",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 1.12" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan tag-bian-cheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -96,13 +93,11 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
-
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -112,24 +107,27 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-yu-yan tag-bian-cheng">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-119.html">无废话JavaScript（下）</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-119.html">无废话JavaScript（下）</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -138,7 +136,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/yu-yan/index.html">语言</a>, <a href="tag/bian-cheng/index.html">编程</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/bian-cheng/">编程</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -147,118 +145,79 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <blockquote>
-  <p>上一篇<a href="1-118.html">在这里，在这里，在这里&hellip;&hellip;</a></p>
+                <div class="kg-card-markdown"><blockquote>
+<p>上一篇<a href="/1-118.html">在这里，在这里，在这里……</a></p>
 </blockquote>
-
 <h2 id="">五、函数式</h2>
-
-<p>这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们&hellip;&hellip;如同爱迪生的灯泡还在照耀着我们。</p>
-
-<p>其实函数式语言很简单，它就是一种与命令式语言同样&ldquo;完备&rdquo;的语言实现方案。由于它的基础思想与命令式&mdash;&mdash;如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了&mdash;&mdash;语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。</p>
-
+<p>这个可不是JavaScript的发明，它的发明人已经死了，而他的这个发明还在困扰着我们……如同爱迪生的灯泡还在照耀着我们。</p>
+<p>其实函数式语言很简单，它就是一种与命令式语言同样“完备”的语言实现方案。由于它的基础思想与命令式——如果你不想用这个难于理解的名词，那就把它换成C，或者Delphi好了——语言完全不同，所以大多数情况下，它也与这些传统的、通用的、商业化的语言格格不入。</p>
 <p>而事实上，你天天都在用它。</p>
-
 <p>下面这行代码，就充满了函数式语言的思想：</p>
-
-<pre><code class="language-javascript">a + b  
+<pre><code class="language-javascript">a + b
 </code></pre>
-
-<p>是吗？真的，如果你把那个&ldquo;+&rdquo;号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、一个功能入口&hellip;&hellip;也就是说，代码中的某个东西，要么它是数据，要么它是运算。而如果它是运算，你就可以把它看成&ldquo;函数&rdquo;。上面这行代码&mdash;&mdash;表达式中，a和b显然是数据，而+号则是对之进
-行操作的运算，所以它自然可以看成一个&ldquo;功能、过程或运算&rdquo;。所以&hellip;&hellip;操作两个数求和的&ldquo;函数&rdquo;可以写成这样：</p>
-
-<pre><code class="language-javascript">func_add(a, b)  
+<p>是吗？真的，如果你把那个“+”号看成一个函数，就完全一样了。事实上，所谓函数(function)，就是一个执行过程、一段运算、一个功能入口……也就是说，代码中的某个东西，要么它是数据，要么它是运算。而如果它是运算，你就可以把它看成“函数”。上面这行代码——表达式中，a和b显然是数据，而+号则是对之进<br>
+行操作的运算，所以它自然可以看成一个“功能、过程或运算”。所以……操作两个数求和的“函数”可以写成这样：</p>
+<pre><code class="language-javascript">func_add(a, b)
 </code></pre>
-
 <p>或者这样：</p>
-
 <pre><code class="language-javascript">(+ a b)
 </code></pre>
-
-<p>所有这些，只是文字上的标记法不同而已。就好象我说这个符号是&ldquo;jia&rdquo;，而你非得说它是&ldquo;暗得&rdquo;，另一个
-人却非要读作&ldquo;a-d-d&rdquo;。有什么不同吗？没有。</p>
-
-<p>所有程序员天天都在写语句，写表达式，与运算逻辑。大家都知道这些东西都可以写在一个&hellip;&hellip;嗯&hellip;&hellip;无比巨大的函数里，或者分在无数个小的、看起来很漂亮的函数里。当所有这些函数一个又一个连续起来运算时，它就成了&ldquo;函数式语言&rdquo;。所以称为&ldquo;函数式语言的祖老爷爷&rdquo;的LISP就是这样&ldquo;把函数运算连起来&rdquo;的语言：</p>
-
+<p>所有这些，只是文字上的标记法不同而已。就好象我说这个符号是“jia”，而你非得说它是“暗得”，另一个<br>
+人却非要读作“a-d-d”。有什么不同吗？没有。</p>
+<p>所有程序员天天都在写语句，写表达式，与运算逻辑。大家都知道这些东西都可以写在一个……嗯……无比巨大的函数里，或者分在无数个小的、看起来很漂亮的函数里。当所有这些函数一个又一个连续起来运算时，它就成了“函数式语言”。所以称为“函数式语言的祖老爷爷”的LISP就是这样“把函数运算连起来”的语言：</p>
 <pre><code class="language-javascript"> (defun subst (x y z)
    (cond ((atom z)
           (cond ((eq z y) x)
                 ('t z)))
          ('t (cons (subst x y (car z))
                    (subst x y (cdr z))))))
+
 </code></pre>
-
 <p>有人认为它是丑陋的意大利面条，也有人认为它是最简洁的语言。Oh，随你，了解了就好了，管它象什么尼。</p>
-
-<p>由于函数式语言只有连续执行的函数&mdash;&mdash;所以它没有了&ldquo;语句&rdquo;而又必须实现逻辑上的完整性。简单地说，他需要在连续执行的过程中实现&ldquo;顺序、分支与循环&rdquo;三个基本逻辑。函数式的解决之道，是用三元条件运算来代替if/then/else，也就下面的代码：</p>
-
+<p>由于函数式语言只有连续执行的函数——所以它没有了“语句”而又必须实现逻辑上的完整性。简单地说，他需要在连续执行的过程中实现“顺序、分支与循环”三个基本逻辑。函数式的解决之道，是用三元条件运算来代替if/then/else，也就下面的代码：</p>
 <pre><code class="language-javascript">if a then b else c
 
 // 相当于
-a ? b : c  
+a ? b : c
 </code></pre>
-
-<p>另外，就是用递归（函数调函数）来实现循环。考虑到递归函数调用中会导致栈溢出(Stack overflow at ...)，所以函数式语言就提出了&ldquo;尾递归&rdquo;，也就是在书写代码是&ldquo;确保&rdquo;仅只在函数内的最后一个运算中递归调用。</p>
-
-<p>这样一来，这个递归调用就不需要保留栈了&mdash;&mdash;因为再没有后续运算了，因此就能被优化成一行不需要返回的jmp汇编指令。</p>
-
-<p>世界真美好，所谓函数式不过是一堆运算入口，以及jmp、jmp、jmp。但，但是，难道不是吗&mdash;&mdash;这块CPU？</p>
-
+<p>另外，就是用递归（函数调函数）来实现循环。考虑到递归函数调用中会导致栈溢出(Stack overflow at ...)，所以函数式语言就提出了“尾递归”，也就是在书写代码是“确保”仅只在函数内的最后一个运算中递归调用。</p>
+<p>这样一来，这个递归调用就不需要保留栈了——因为再没有后续运算了，因此就能被优化成一行不需要返回的jmp汇编指令。</p>
+<p>世界真美好，所谓函数式不过是一堆运算入口，以及jmp、jmp、jmp。但，但是，难道不是吗——这块CPU？</p>
 <h2 id="1">六、更高级的函数式(1)</h2>
-
 <p>其实世界并不美好。</p>
-
-<p>如果一块CPU死躺在那里，它也就只有顺序呀、分支啦、循环之类的指令在里头。但是当它运行起来，就得有一个时钟在滴嗒&hellip;滴嗒&hellip;如果是多核的，还会同时有好几个这样的东东在滴嗒着。</p>
-
+<p>如果一块CPU死躺在那里，它也就只有顺序呀、分支啦、循环之类的指令在里头。但是当它运行起来，就得有一个时钟在滴嗒…滴嗒…如果是多核的，还会同时有好几个这样的东东在滴嗒着。</p>
 <p>这就是问题，世界原本不是单一时序，也不是守序的。所以会有并发，会有中断，也会有异常。函数式语言应该自己应该像意大利面条一样无限延展开去，那么是不是有多个滴嗒时就该有多根意大利面条呢？但，这种情况下还叫意大利面条吗？</p>
-
-<p>函数式里的解决方案叫延续(Continuation)和结点。延续是停止当前转到另一处、然后再返回来；而结点则确保一个位置上的代码是独立完备的，与另一个结点无关。在函数式语言中，多个结点就象平行宇宙，大多数情况下它们是互相透明的，如果它们要发生联系，得需要极其巨大的能量，以及&hellip;&hellip;一个虫洞。</p>
-
-<p>多个结点的问题我们不需要深究，多个空间下的访问带来的时空问题，是天体学家以及时空多维理论家们研究的问题，我们只需要知道：如果你希望多个结点之间存在交叉的访问关系，那么世界/宇宙会因此毁灭。这样类似的说明写在ErLang这类天生支持多个宇宙的语言的白皮书、参考手册以及宇航员日常指南之中。如果你要穷究其根源，并且认为自己已经能明确了解300个以上的高等数字、物理学和天体学术语，地么下面有一份面向程序员的入口指引，不妨从这里开始：
+<p>函数式里的解决方案叫延续(Continuation)和结点。延续是停止当前转到另一处、然后再返回来；而结点则确保一个位置上的代码是独立完备的，与另一个结点无关。在函数式语言中，多个结点就象平行宇宙，大多数情况下它们是互相透明的，如果它们要发生联系，得需要极其巨大的能量，以及……一个虫洞。</p>
+<p>多个结点的问题我们不需要深究，多个空间下的访问带来的时空问题，是天体学家以及时空多维理论家们研究的问题，我们只需要知道：如果你希望多个结点之间存在交叉的访问关系，那么世界/宇宙会因此毁灭。这样类似的说明写在ErLang这类天生支持多个宇宙的语言的白皮书、参考手册以及宇航员日常指南之中。如果你要穷究其根源，并且认为自己已经能明确了解300个以上的高等数字、物理学和天体学术语，地么下面有一份面向程序员的入口指引，不妨从这里开始：<br>
 <a href="http://www.blogjava.net/canonical/archive/2007/12/05/165664.html">http://www.blogjava.net/canonical/archive/2007/12/05/165664.html</a></p>
-
 <p>延续是解决状态问题的方法之一。简单说来，有时间就有状态：有过去，现在和将来。对于过去，我们有历史，也就会因为过去发生了什么而决定现在发生什么，例如因为昨天喝高了小酒，所以今天只能吃稀粥；而现在也就是明天的昨天，所以要为了明天能做什么而记录下今天的状态，例如今天已经吃了稀粥；至于明天，当然，将要发生的事情很多，我们得一件一件地做好准备。</p>
-
-<p>Oh，重要的就是这个&ldquo;做好准备&rdquo;了。这在计算机系统里叫：事件。或者叫计划，或者叫突发。知道为什么我们的PC机可以运行吗？En...是因为有一个指令流水线在按照一个足够微小的时间片去执行指令。对于运算系统 <br />
-来说，这个定时发生的指令访问行为，就是中断。所以有一天一个朋友问我：如果执行逻辑只有顺序、分支与循环，那么流程系统中的触发器算什么？我想了很久，无解。而现在来回答这个问题，就得把&ldquo;时间&rdquo;这个维
+<p>Oh，重要的就是这个“做好准备”了。这在计算机系统里叫：事件。或者叫计划，或者叫突发。知道为什么我们的PC机可以运行吗？En...是因为有一个指令流水线在按照一个足够微小的时间片去执行指令。对于运算系统<br>
+来说，这个定时发生的指令访问行为，就是中断。所以有一天一个朋友问我：如果执行逻辑只有顺序、分支与循环，那么流程系统中的触发器算什么？我想了很久，无解。而现在来回答这个问题，就得把“时间”这个维<br>
 度加上，所谓突发、并发以及类似的东西，是时序概念下的逻辑。</p>
-
-<p>好了，当我们&ldquo;做好准备&rdquo;，为了将来要触发某个东西做准备的时候&mdash;&mdash;简单的说，就当是个时钟处理程序好了（在windows中它叫OnTimer，在浏览器中它叫setTimeout/setInterval），为了这个时候我们能够在函数式语言中做好一顿意大利面条，我们说明：&ldquo;我们已经做好了准备&rdquo;，以及&ldquo;我们做好了怎样的准备&rdquo;。而按照函数式的基本原则，一个函数是与状态无关的，它与&ldquo;将来&rdquo;这样一个时序无关。这，变成了一个矛盾。</p>
-
-<p>事实上开始我们已经与这个矛盾正面冲突了一次，这就是&ldquo;循环&rdquo;。因为循环需要一个状态量来指示循环进度，这个&ldquo;进度&rdquo;就是时序相关的。而函数式使用了&ldquo;递归&rdquo;来解决它，也就是通过递归函数的参数来传递这个进度。在&ldquo;递归参数&rdquo;&mdash;&mdash;这个界面的两边，函数式都是时序无关的。由此带来的问题就是栈溢出，解决方法则是尾递归；又由此带来的问题就是编程复杂性，以及能否证明尾递归能替代所有递归；解决方案是&hellip;&hellip;温伯格说得没错，所有解决问题的方法都会带来新的问题。Oh...又是温伯格。</p>
-
-<p>现在，我们明确的需要&ldquo;更多的状态&rdquo;了，因为我们已经将系统运行一个或是多个的时序里&mdash;&mdash;也就CPU。即使我们有结点，而且保证&ldquo;没有虫洞&rdquo;，那么我们也需要解决一个CPU中的过去、现在与将来的问题。</p>
-
-<p>函数式的仙家们说了两个字：持续。简单啊，就是把为过去、现在的状态，和为将来的准备作为函数的参数传过去。看起来，&ldquo;现在&rdquo;立即就要爆炸了，因为既要包括过去的、现在的状态以及变化，还要包括将来的运算。于
-是新的解决方案是：若要现在不爆炸，"持续"的界面上不要发生运算就好了。</p>
-
-<p>运算由&ldquo;将来&rdquo;根据&ldquo;过去&rdquo;的数据做决策，这就是持续。支持它的函数式特性，就是在惰性求值。简单的说，</p>
-
-<pre><code class="language-javascript">function f(x, c) {  
+<p>好了，当我们“做好准备”，为了将来要触发某个东西做准备的时候——简单的说，就当是个时钟处理程序好了（在windows中它叫OnTimer，在浏览器中它叫setTimeout/setInterval），为了这个时候我们能够在函数式语言中做好一顿意大利面条，我们说明：“我们已经做好了准备”，以及“我们做好了怎样的准备”。而按照函数式的基本原则，一个函数是与状态无关的，它与“将来”这样一个时序无关。这，变成了一个矛盾。</p>
+<p>事实上开始我们已经与这个矛盾正面冲突了一次，这就是“循环”。因为循环需要一个状态量来指示循环进度，这个“进度”就是时序相关的。而函数式使用了“递归”来解决它，也就是通过递归函数的参数来传递这个进度。在“递归参数”——这个界面的两边，函数式都是时序无关的。由此带来的问题就是栈溢出，解决方法则是尾递归；又由此带来的问题就是编程复杂性，以及能否证明尾递归能替代所有递归；解决方案是……温伯格说得没错，所有解决问题的方法都会带来新的问题。Oh...又是温伯格。</p>
+<p>现在，我们明确的需要“更多的状态”了，因为我们已经将系统运行一个或是多个的时序里——也就CPU。即使我们有结点，而且保证“没有虫洞”，那么我们也需要解决一个CPU中的过去、现在与将来的问题。</p>
+<p>函数式的仙家们说了两个字：持续。简单啊，就是把为过去、现在的状态，和为将来的准备作为函数的参数传过去。看起来，“现在”立即就要爆炸了，因为既要包括过去的、现在的状态以及变化，还要包括将来的运算。于<br>
+是新的解决方案是：若要现在不爆炸，&quot;持续&quot;的界面上不要发生运算就好了。</p>
+<p>运算由“将来”根据“过去”的数据做决策，这就是持续。支持它的函数式特性，就是在惰性求值。简单的说，</p>
+<pre><code class="language-javascript">function f(x, c) {
   ...
   c(x);
 }
-f(data, f);  
+f(data, f);
 </code></pre>
-
 <p>由于在传送界面f()上，c本身是不求值的，所以爆炸会发生在/不会发生都是在将来c(x)进行运算的时候。如果宇宙的熵有极限，那么这个极限也是在末可知的将来。而且，在末可知的将来，也有可能回扭曲回现在。这就是持续的两个原则：</p>
-
 <ul>
 <li>一个成功持续之后，是一个新的持续（或过程）</li>
 <li>一个失败持续将回到上一个选择点</li>
 </ul>
-
-<p>正是因为有持续的状态，且这个状态及持续本身都是通过函数参数传递的，所以，&ldquo;回到选择点&rdquo;只是将来自身的一个决择，与现在的状态是无关的。</p>
-
+<p>正是因为有持续的状态，且这个状态及持续本身都是通过函数参数传递的，所以，“回到选择点”只是将来自身的一个决择，与现在的状态是无关的。</p>
 <h2 id="2">七、更高级的函数式(2)</h2>
-
-<p>无论如何，种种函数式的复杂性，确实是在编程范型中保持一种自我的纯粹性而存在的。例如生成器（产生器）这个问题，由于一批数据的产生之间是有关系的（例如增量），而产生过程是时序相关的（不总是在一次调用中得到全部的数据），因此函数式语言定义了一个&ldquo;生成器&rdquo;这样的函数概念。我们可以在生成器中定义一个yield，这个返回就是&ldquo;将来&rdquo;回到这个&ldquo;现在&rdquo;的一个虫洞。</p>
-
+<p>无论如何，种种函数式的复杂性，确实是在编程范型中保持一种自我的纯粹性而存在的。例如生成器（产生器）这个问题，由于一批数据的产生之间是有关系的（例如增量），而产生过程是时序相关的（不总是在一次调用中得到全部的数据），因此函数式语言定义了一个“生成器”这样的函数概念。我们可以在生成器中定义一个yield，这个返回就是“将来”回到这个“现在”的一个虫洞。</p>
 <p>通过这个虫洞，我们可以拿到一个时序相关的数据。下面就是这样的一个例子(mozilla上的斐波那契数列示例)：</p>
-
-<pre><code class="language-html">&lt;-- for firefox 3 --&gt;  
-&lt;script type="application/javascript;version=1.7"&gt;  
-function fib() {  
+<pre><code class="language-html">&lt;-- for firefox 3 --&gt;
+&lt;script type=&quot;application/javascript;version=1.7&quot;&gt;
+function fib() {
   var i = 0, j = 1;
   while (true) {
     yield i;        //&lt;-虫洞在这里
@@ -270,26 +229,23 @@ function fib() {
 
 var g = fib();
 
-a = g.next();  
-b = g.next();  
-c = g.next();  
+a = g.next();
+b = g.next();
+c = g.next();
 // ...
 
 // .. 三天以后(或一个循环以后)，某时空旅行家想回到fib里去看看
 z = g.next();
 
-// 呵，原来是值"2"
-alert(z);  
-&lt;/script&gt;  
+// 呵，原来是值&quot;2&quot;
+alert(z);
+&lt;/script&gt;
 </code></pre>
-
 <h2 id="">八、结语</h2>
-
-<p>好象，好象这篇《无废话》有很多废话&hellip;&hellip;哈哈，玩笑啦，真的全无废话，还是活人能看的木？</p>
-
-<p>真的那么想读无废话，你应该去读大学教材了。或者，这里还有一本<strong><a href="http://www.china-pub.com/38730">《JavaScirpt语言精髓与编程实践》</a></strong>。</p>
-
-<p>看见木，语言&hellip;&hellip;精髓哦&hellip;&hellip;，哈哈。</p>
+<p>好象，好象这篇《无废话》有很多废话……哈哈，玩笑啦，真的全无废话，还是活人能看的木？</p>
+<p>真的那么想读无废话，你应该去读大学教材了。或者，这里还有一本**<a href="http://www.china-pub.com/38730">《JavaScirpt语言精髓与编程实践》</a>**。</p>
+<p>看见木，语言……精髓哦……，哈哈。</p>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -301,13 +257,13 @@ alert(z);
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-118.html">
+                <a href="/1-118.html">
                     无废话JavaScript（上）
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-120.html">
+                <a href="/1-120.html">
                     主要程序设计语言范型综论与概要
                 </a>
                 下一篇
@@ -317,8 +273,8 @@ alert(z);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -340,27 +296,27 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -379,7 +335,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -392,21 +348,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>再谈borland与MS对BUG的不同态度~</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="再谈borland与MS对BUG的不同态度~" />
-    <meta property="og:description" content="在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，" />
+    <meta property="og:description" content="在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，" />
     <meta property="og:url" content="http://aimingoo.github.io/1-10.html" />
     <meta property="article:published_time" content="2005-12-04T11:39:00.000Z" />
     <meta property="article:modified_time" content="2017-10-06T09:08:15.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="再谈borland与MS对BUG的不同态度~" />
-    <meta name="twitter:description" content="在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，" />
+    <meta name="twitter:description" content="在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-10.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,37 +53,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "再谈borland与MS对BUG的不同态度~",
     "url": "http://aimingoo.github.io/1-10.html",
     "datePublished": "2005-12-04T11:39:00.000Z",
     "dateModified": "2017-10-06T09:08:15.000Z",
     "keywords": "delphi, 程序人生",
-    "description": "在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及&amp;ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&amp;rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，",
+    "description": "在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -94,8 +91,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,6 +107,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -120,11 +116,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-delphi tag-cheng-xu-ren-sheng">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-10.html">再谈borland与MS对BUG的不同态度~</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-10.html">再谈borland与MS对BUG的不同态度~</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -146,8 +144,7 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及&ldquo;强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack&rdquo;，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：</p>
-
+                <div class="kg-card-markdown"><p>在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面：</p>
 <pre><code>y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。
 
 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想……
@@ -168,6 +165,7 @@ MS的做法是由自己来承担这个过失，他们总是试图以最快的速
  - MS是Studio，是一个工厂。你可以瞧不起工人，但你不可能不用工厂出来的东西。
  - Borland是Delphi，是一座神庙。你会对每一个神庙中的人敬畏有加，但你永远走不进神庙。
 </code></pre>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -195,8 +193,8 @@ MS的做法是由自己来承担这个过失，他们总是试图以最快的速
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -218,16 +216,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -270,21 +268,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

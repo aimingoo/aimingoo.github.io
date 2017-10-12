@@ -43,10 +43,19 @@ var switcherObjects = {
             border-bottom: none;
         }
 
-        .main-nav a {
-            color: #000;
+        .main-nav-title {
+            padding: 23px 32px;
+            background: rgba(255,255,255,.15);
         }
-        </style>
+
+        .main-nav a {
+            color: #f2dede;
+        }
+
+        .u-joyxhy a {
+            color: #8e7588;
+        }
+       </style>
     */}
 }
 
@@ -58,9 +67,21 @@ if (!authorName && (authorName = location.href.match(/\/author\/([^\/]+)\/?$/)))
     authorName = authorName[1];
 }
 
+
 switcherObjects.default = switcherObjects.aimingoo;
 switch (authorName && (authorName in switcherObjects)) {
     case false: authorName = 'aimingoo'; // or break only
     default:
+        // custom styles
         document.writeln(switcherObjects[authorName].toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+        // custom header
+        var all_nav_items = document.querySelector('header.main-header').querySelectorAll('div.nav.pull-right ul li');
+        if (authorName == 'joyxhy') {
+            var item = [].filter.call(all_nav_items, function(el) { return el.innerText=='首页'})[0];
+            if (item) with (item.querySelector('A')) innerText="Aimingoo's Blog";
+            var item = [].filter.call(all_nav_items, function(el) { return el.innerText=='历史'})[0];
+            if (item) with (item.querySelector('A')) href=href.replace('archives-post', 'archives-post-joyxhy');
+            var item = [].filter.call(all_nav_items, function(el) { return el.innerText=='关于'})[0];
+            if (item) with (item.querySelector('A')) href=href.replace('about', 'about-joyxhy');
+        }
 }

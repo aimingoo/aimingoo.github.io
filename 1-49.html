@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma框架库(一)：概述、工具、异常、调试与分析</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=2324fcd7e8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=2324fcd7e8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Qomolangma框架库(一)：概述、工具、异常、调试与分析" />
-    <meta property="og:description" content="一、概述：Qomolangma中的框架库(v0.1) 在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。 其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了&amp;ldquo;Qomo需要一个新的UI库&amp;rdquo;的结果。 Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。&amp;mdash;&amp;mdash;尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。&amp;mdash;&amp;mdash;事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。 但这些都不是这一组文章要讨论的内容。 因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括： 公共框架类库: Framework/Classes.js, Framework/Common/* 日志、" />
+    <meta property="og:description" content="一、概述：Qomolangma中的框架库(v0.1) 在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。 其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了“Qomo需要一个新的UI库”的结果。 Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。——尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。——事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。 但这些都不是这一组文章要讨论的内容。 因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括： 公共框架类库: Framework/Classes.js, Framework/Common/* 日志、调试、分析和单元测试框架：Framework/Debug/* DOM、CSS兼容层框架：" />
     <meta property="og:url" content="http://aimingoo.github.io/1-49.html" />
     <meta property="article:published_time" content="2006-09-23T15:54:00.000Z" />
     <meta property="article:modified_time" content="2017-10-05T04:04:17.000Z" />
@@ -33,7 +33,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Qomolangma框架库(一)：概述、工具、异常、调试与分析" />
-    <meta name="twitter:description" content="一、概述：Qomolangma中的框架库(v0.1) 在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。 其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了&amp;ldquo;Qomo需要一个新的UI库&amp;rdquo;的结果。 Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。&amp;mdash;&amp;mdash;尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。&amp;mdash;&amp;mdash;事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。 但这些都不是这一组文章要讨论的内容。 因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括： 公共框架类库: Framework/Classes.js, Framework/Common/* 日志、" />
+    <meta name="twitter:description" content="一、概述：Qomolangma中的框架库(v0.1) 在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。 其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了“Qomo需要一个新的UI库”的结果。 Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。——尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。——事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。 但这些都不是这一组文章要讨论的内容。 因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括： 公共框架类库: Framework/Classes.js, Framework/Common/* 日志、调试、分析和单元测试框架：Framework/Debug/* DOM、CSS兼容层框架：" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-49.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -54,37 +54,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "Qomolangma框架库(一)：概述、工具、异常、调试与分析",
     "url": "http://aimingoo.github.io/1-49.html",
     "datePublished": "2006-09-23T15:54:00.000Z",
     "dateModified": "2017-10-05T04:04:17.000Z",
     "keywords": "Qomo, OpenSource Project, Javascript",
-    "description": "一、概述：Qomolangma中的框架库(v0.1) 在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。 其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了&amp;ldquo;Qomo需要一个新的UI库&amp;rdquo;的结果。 Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。&amp;mdash;&amp;mdash;尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。&amp;mdash;&amp;mdash;事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。 但这些都不是这一组文章要讨论的内容。 因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括： 公共框架类库: Framework/Classes.js, Framework/Common/* 日志、",
+    "description": "一、概述：Qomolangma中的框架库(v0.1) 在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。 其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了“Qomo需要一个新的UI库”的结果。 Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。——尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。——事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。 但这些都不是这一组文章要讨论的内容。 因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括： 公共框架类库: Framework/Classes.js, Framework/Common/* 日志、调试、分析和单元测试框架：Framework/Debug/* DOM、CSS兼容层框架：",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -95,8 +92,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=2324fcd7e8"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,6 +108,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -121,11 +117,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-qomo tag-opensource-project tag-javascript">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-49.html">Qomolangma框架库(一)：概述、工具、异常、调试与分析</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-49.html">Qomolangma框架库(一)：概述、工具、异常、调试与分析</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -147,67 +145,43 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h2 id="qomolangmav01">一、概述：Qomolangma中的框架库(v0.1)</h2>
-
+                <div class="kg-card-markdown"><h2 id="qomolangmav01">一、概述：Qomolangma中的框架库(v0.1)</h2>
 <p>在UI层方面，Qomo一直没有足够的进展，因此Qomo在beta 1之前公布的代码看起来就象是一个语言实验工程，而不象是一个面向应用的项目。</p>
-
-<p>其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了&ldquo;Qomo需要一个新的UI库&rdquo;的结果。</p>
-
-<p>Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。&mdash;&mdash;尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。&mdash;&mdash;事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。</p>
-
+<p>其实Qomo的前身(WEUI)本身就是围绕UserInterface Library来提出的，因此WEUI的确有自己的UI层。此外，它也有完整的DB和Graphics层(及一个VML的实现)。但是Qomo对UI层提出的目标与WEUI并不一致，因此这直接导致了“Qomo需要一个新的UI库”的结果。</p>
+<p>Qomo在beta 2中包含部分UI、DB层的代码，但是并不推荐将它归为Qomo的一个组成部分并应用。——尽管这些的确可以在Qomo下运行得很好，开发人员可以从中得到很多的思想与技术实现。——事实上Qomo也从WEUI的UI和Graphics框架的基础框架上借鉴了一些东西。</p>
 <p>但这些都不是这一组文章要讨论的内容。</p>
-
 <p>因为在Qomo的beta 2之后，除了一些底层语言体系的修补之外，Qomo团队将开始有关框架库(并不是UI库)的开发工作。这些工作包括：</p>
-
 <ul>
 <li>公共框架类库: Framework/Classes.js, Framework/Common/*</li>
 <li>日志、调试、分析和单元测试框架：Framework/Debug/*</li>
 <li>DOM、CSS兼容层框架：Components/Compat/*</li>
 </ul>
-
 <h2 id="qomo">二、Qomo的基础库与基础类库</h2>
-
 <p>Qomo的基础库是一些工具函数，或者原生(native)的JavaScript类。它的地位与RTL中的JSEnhance.js是相同的，但基础库并不只是针对JavaScript进行增强。</p>
-
 <p>Qomo的基础类库建立自Qomo的OOP框架。也就是说，至少是继承自TObjecct的类。基础类库表现为一些工具类、容器类、全局(单例)类和一些其它抽象层次较低的类。</p>
-
 <p>Qomo的基础库与基础类库</p>
-
 <ul>
 <li>Framework/Common/*</li>
 </ul>
-
 <p>它通过一个包文件载入：</p>
-
 <ul>
 <li>Framework/Classes.js</li>
 </ul>
-
 <h2 id="">三、基础库中的工具函数</h2>
-
 <p>基础库中的工具函数(目前)包括在：</p>
-
 <ul>
 <li>系统实用工具： Framework/Common/SysUtils.js</li>
 <li>对象实用工具： Framework/Common/ObjUtils.js</li>
 <li>类型或数据结构定义及转换工具： Framework/Common/ConvUtils.js</li>
 </ul>
-
 <p>三个文件中。</p>
-
-<p>其中，ObjUtils.js和ConvUtils.js虽然包括在Qomo Beta2中，但事实上没有正式发布。&mdash;&mdash;很多代码已经移除；部分代码未经测试也没有相关的说明。因此本文先不讲述它们。</p>
-
+<p>其中，ObjUtils.js和ConvUtils.js虽然包括在Qomo Beta2中，但事实上没有正式发布。——很多代码已经移除；部分代码未经测试也没有相关的说明。因此本文先不讲述它们。</p>
 <p>SysUtils.js中的目前只发布了4个工具函数。事实上他们在我以前的工程中大量使用过。下面做一些简单地介绍。</p>
-
 <h3 id="1createuniqueid">1. createUniqueID()</h3>
-
-<p>该函数产生一个唯一的标识符。一般来说，他在当前的Web页(包括多帧)中都是不重复的。它基于一个随机数产生的算法规则：即使是在同一时刻调用两次随机数，也会因种子的变化而产生不同的值。因此拼接随机数和日期值通常会得到一个唯一的标识。&mdash;&mdash;如果对随机数的算法的设定出了问题，则另论。</p>
-
+<p>该函数产生一个唯一的标识符。一般来说，他在当前的Web页(包括多帧)中都是不重复的。它基于一个随机数产生的算法规则：即使是在同一时刻调用两次随机数，也会因种子的变化而产生不同的值。因此拼接随机数和日期值通常会得到一个唯一的标识。——如果对随机数的算法的设定出了问题，则另论。</p>
 <h3 id="2createuniquevar">2. createUniqueVar()</h3>
-
 <p>UniqueID可以作为标识，但无法作为全局变量使用。而本函数则用声明一个全局变量，并且返回该变量名。这个声明可以被delete删除以回收内存。例如：</p>
-
-<pre><code class="language-javascript">function myFunc() {  
+<pre><code class="language-javascript">function myFunc() {
   // 创建并得到变量名
   var name = createUniqueVar();
 
@@ -218,22 +192,16 @@ ghost.init({
   eval('delete ' + name);
 }
 </code></pre>
-
 <h3 id="3isvariantvarname">3. isVariant(varName)</h3>
-
 <p>传入一个变量名，该函数会返回该变量名是否是一个变量。既可以是全局变量，也可以是局部变量。例如：</p>
-
-<pre><code class="language-javascript">function myFunc() {  
+<pre><code class="language-javascript">function myFunc() {
   alert(isVariant('myFunc'));
 }
 </code></pre>
-
 <h3 id="4definedavariant">4. defined(aVariant)</h3>
-
 <p>查看一个变量或值是否被声明过。例如：</p>
-
-<pre><code class="language-javascript">var all = [1,,3,4];  
-function myFunc() {  
+<pre><code class="language-javascript">var all = [1,,3,4];
+function myFunc() {
   for (var i=0; i&lt;all.length; i++) {
     if (defined(all[i])) {
       alert(all[i]);
@@ -241,27 +209,19 @@ function myFunc() {
   }
 }
 </code></pre>
-
 <h2 id="">四、基础库中的异常与断言</h2>
-
 <h3 id="1javascript">1. JavaScript中的异常基础</h3>
-
 <p>在JavaScript语言中，创建异常对象的方法是：</p>
-
 <pre><code class="language-javascript">    e = new Error([number[, description]]);
 </code></pre>
-
 <p>你可以在创建时或者创建后抛出异常：</p>
-
 <pre><code class="language-javascript">  // 创建时抛出
   throw new Error(100, 'this is exception - 100.');
   // 创建后抛出
   var e = new Error(101, 'this is exceptio - 101.');
   throw e;
 </code></pre>
-
 <p>按照JavaScript的语言规范，你可以在try中捕获到异常后再次抛出。例如：</p>
-
 <pre><code class="language-javascript">  try {
     // ...
   }
@@ -269,26 +229,19 @@ function myFunc() {
     throw e;    // 再次抛出
   }
 </code></pre>
-
 <h3 id="2qomo">2. Qomo基础库中的异常</h3>
-
 <p>我们发现标准JS中的异常很难管理。例如异常的编号，或者显示信息时大多使用直接声明的字符串。因此，Qomo约定一个异常可以用两个成员的数组表示。例如：</p>
-
 <pre><code class="language-javascript">      EAccessInvaildClass = [8109, 'Class invaild: lost typeinfo!'];
 在第二个成员(字符串)中允许使用%s通配符。例如：
-      EAttributeCantRead = [8112, 'The "%s" attribute can/'t read for %s.'];
+      EAttributeCantRead = [8112, 'The &quot;%s&quot; attribute can/'t read for %s.'];
 </code></pre>
-
 <p>Qomo认为这是一个标准的异常记录/对象的结构。这种定义是非常取巧的：</p>
-
 <ul>
 <li>如果不使用Qomo的异常框架，那么标准JS中将会把数组转换成字符串，这时得到的信息是可以阅读的。</li>
 <li>如果使用Qomo异常框架，那么由于Qomo替换了Error()类，因此将生成更友好的信息。</li>
 <li>在JSEnhance.js中，Qomo再次替换了Error()类，这使得%s可以被处理，从而使动态的组织异常信息成为非常便利的事。</li>
 </ul>
-
 <p>在RTL/Error.js中，Qomo重写了Error()类。这使得Error()有以下构造形式：</p>
-
 <pre><code class="language-javascript">  e = new Error();
   e = new Error(number);
   e = new Error(number, description);
@@ -296,70 +249,47 @@ function myFunc() {
   e = new Error(a_qomo_exp);
   e = new Error(a_qomo_exp, instanceObj);
 </code></pre>
-
-<p>其中，instanceObj 表明一个关联到该异常的对象实例。但Qomo并不处理instanceObj, 只是通过异常对象来传递它。这样可以使try .. catch捕获到的异常对象有一个instanceObj属性，指向触发异常时送过来的一个&ldquo;参考实例&rdquo;。</p>
-
+<p>其中，instanceObj 表明一个关联到该异常的对象实例。但Qomo并不处理instanceObj, 只是通过异常对象来传递它。这样可以使try .. catch捕获到的异常对象有一个instanceObj属性，指向触发异常时送过来的一个“参考实例”。</p>
 <p>而<code>a_qomo_exp</code>表是一个按qomo的规则声明的异常数组(参阅前面的内容)。这样我们就可以用下面的代码来简单的触发一个异常：</p>
-
 <pre><code class="language-javascript">  throw new Error(EAccessInvaildClass);
 </code></pre>
-
 <p>如果系统未装载过Error.js，那么显示的信息将是：</p>
-
 <pre><code>错误: 8109,Class invaild: lost typeinfo!
 </code></pre>
-
 <p>如果系统已经装载过Error.js，那么显示的信息将是：</p>
-
 <pre><code>错误: Class invaild: lost typeinfo!
 </code></pre>
-
 <p>或者我们也可以这样使用带通配符的异常：</p>
-
 <pre><code class="language-javascript">  throw new Error(EAttributeCantRead.concat('get', 'Enumerator'));
 </code></pre>
-
 <p>如果我们装载过JSEnhance.js，那么显示的信息将是：</p>
-
-<pre><code>错误: The "get" attribute can't read for Enumerator.
+<pre><code>错误: The &quot;get&quot; attribute can't read for Enumerator.
 </code></pre>
-
-<p>这样，无论如何，我们都能给用户&ldquo;相对友好&rdquo;的错误信息。</p>
-
+<p>这样，无论如何，我们都能给用户“相对友好”的错误信息。</p>
 <h3 id="3qomo">3. Qomo基础库中的断言</h3>
-
 <p>Qomo中的断言实现得非常简单。它其实就是一个Qomo的异常。如下：</p>
-
-<pre><code class="language-javascript">var  
+<pre><code class="language-javascript">var
   EAssertFail = [8001, 'assert is failed./n/n%s'];
 
 $assert = function (isTrue, info) {
   if (!isTrue) throw new Error(EAssertFail.concat([info]));
 }
 </code></pre>
-
 <p>由于Qomo有自己的异常实现，因此断言的显示将非常友好。</p>
-
 <h2 id="profiler">五、基础库中的性能分析工具(Profiler)</h2>
-
 <p>Qomo在Debug.js单元中载入了一个Profiler工具，是分析代码性能的利器。它的一个使用示例是：</p>
-
 <ul>
 <li>Framework/Debug/TestCase/T_profiler.html</li>
 </ul>
-
 <p>Qomo中的profiler使用起来非常方便，也可以使用多组的profiler。系统中单独初始化了一个全局的$profilers，以方便使用。</p>
-
 <h3 id="1">1. 核心结构</h3>
-
 <p>如果不考虑输出的效果，那么直接调用Qomo的profiler就可以得到它的核心结构和使用流程了：</p>
-
-<pre><code class="language-html">&lt;!-- 载入Profiler类 --&gt;  
+<pre><code class="language-html">&lt;!-- 载入Profiler类 --&gt;
 &lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt;
 
-&lt;script&gt;  
+&lt;script&gt;
 // 在用户代码中插入分析语句, 然后执行
-function myFunc() {  
+function myFunc() {
   $profilers('myFunc').begin()
 
   // your code ...
@@ -369,21 +299,17 @@ function myFunc() {
 myFunc();
 
 // 输出分析结果
-document.writeln($profilers);  
-&lt;/script&gt;  
+document.writeln($profilers);
+&lt;/script&gt;
 </code></pre>
-
-<p>但是这样输入的东西根本没有办法看。因此，Qomo提供一组工具来辅助使用profiler。当然，你也可以定制它。&mdash;&mdash;这个后面再讲。</p>
-
+<p>但是这样输入的东西根本没有办法看。因此，Qomo提供一组工具来辅助使用profiler。当然，你也可以定制它。——这个后面再讲。</p>
 <h3 id="2dbgutils">2. 基础Dbg.Utils的简单使用</h3>
-
 <p>使用Dbg.Utils.js是非常便捷的做法：</p>
-
-<pre><code class="language-html">&lt;!-- 载入Profiler类和调试用工具单元 --&gt;  
-&lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt;  
+<pre><code class="language-html">&lt;!-- 载入Profiler类和调试用工具单元 --&gt;
+&lt;script src='Framework/Debug/Profilers.js'&gt;&lt;/script&gt;
 &lt;script src='Framework/Debug/Dbg.Utils.js'&gt;&lt;/script&gt;
 
-&lt;script&gt;  
+&lt;script&gt;
 // 在用户代码中插入分析语句, 然后执行
 // (同上, 略... )
 
@@ -394,45 +320,33 @@ $debug.resetTo(function() {
 });
 
 // 显示profiler信息
-showProfiler($profilers);  
-&lt;/script&gt;  
+showProfiler($profilers);
+&lt;/script&gt;
 </code></pre>
-
 <p>注意这里有两处关键的细节。一是要求载入Dbg.Utils.js，至于它位于Profilers.js之前或者之后并没有关系。</p>
-
 <h3 id="3">3. 为分析对象指定精确的标签</h3>
-
 <p>在开始的示例里，我们用一对</p>
-
 <pre><code class="language-javascript">  $profilers('myFunc').begin()
   $profilers('myFunc').end()
 </code></pre>
-
 <p>来开始和结束分析。这里的myFunc可以是任意字符，也可以是任意多的参数。这样，你可以指定：</p>
-
 <pre><code class="language-javascript">  $profilers('myFunc', 'build').begin();
   $profilers('myFunc', 'build').end();
 
   $profilers('myFunc', 'execute').begin();
   $profilers('myFunc', 'execute').end();
 </code></pre>
-
 <p>这样对一个函数的多组分析。也可以指定：</p>
-
 <pre><code class="language-javascript">  $profilers('myFunc', '1').begin();
   $profilers('myFunc', '1').end();
 
   $profilers('myFunc', '2').begin();
   $profilers('myFunc', '2').end();
 </code></pre>
-
 <p>这样来表明步骤。</p>
-
 <h3 id="4">4. 处理递归</h3>
-
 <p>接下来，对于递归的函数，你可以采取两种方法来处理它。其一是加标签，例如：</p>
-
-<pre><code class="language-javascript">function calc(n) {  
+<pre><code class="language-javascript">function calc(n) {
   $profilers('calc', n).begin();
 
   var v = n;
@@ -445,12 +359,10 @@ showProfiler($profilers);
   return v;
 }
 
-calc(10);  
+calc(10);
 </code></pre>
-
 <p>第二种方法，则是借用profiler返回标志，例如：</p>
-
-<pre><code class="language-javascript">function calc(n) {  
+<pre><code class="language-javascript">function calc(n) {
   var tag = $profilers('calc').begin();
 
   var v = n;
@@ -463,214 +375,152 @@ calc(10);
   return v;
 }
 
-calc(10);  
+calc(10);
 </code></pre>
-
 <p>这两种方法中，第一种分另产生不同的profiler记录项，因此采用标准方法处理即可；第二种则产生同一记录项的多个记录值，对于这种情况，在Dbg.Utils.js中的showProfiler()展示了如何处理。</p>
-
-<h3 id="5ddebug">5. 显示结果: $debug()的重写</h3>
-
-<p>$debug()最初被声明在system.js中，用于直接向document输出调试信息。但是这样必然会破坏网页的显示效果。&mdash;&mdash;尤其profiler的信息量非常大。</p>
-
+<h3 id="5debug">5. 显示结果: $debug()的重写</h3>
+<p>$debug()最初被声明在system.js中，用于直接向document输出调试信息。但是这样必然会破坏网页的显示效果。——尤其profiler的信息量非常大。</p>
 <p>因此，在Dbg.Utils.js中，我们重写了它。使它的输出被放到缓存中：</p>
-
 <pre><code class="language-javascript">$debug = function() {
   // ...
 
   arguments.callee['$cached$'] += arguments.join('');
 }
 </code></pre>
-
 <p>其中，arguments.callee直接向$debug()函数本身。使用callee而不是$debug自身，是避免$debug()被再次重写。</p>
-
-<p>我们还为$debug添加了一个方法resetTo()。这个方法传入一个函数，新函数要能够输出这些被缓存的信息。&mdash;&mdash;它在被resetTo()时将被自动调用一次。然后该新函数将替代原$debug()在系统中的作用。</p>
-
+<p>我们还为$debug添加了一个方法resetTo()。这个方法传入一个函数，新函数要能够输出这些被缓存的信息。——它在被resetTo()时将被自动调用一次。然后该新函数将替代原$debug()在系统中的作用。</p>
 <p>例如我们在面第二节中讲到的：</p>
-
 <pre><code class="language-javascript">// 重写$debug()函数
 $debug.resetTo(function() {
   arguments.join = Array.prototype.join;
   document.writeln(arguments.join(''));
 });
 
-showProfiler($profilers);  
+showProfiler($profilers);
 </code></pre>
-
 <p>这个重写就是用于向document输出，它也被用在下面这个示例里：</p>
-
 <ul>
 <li>Framework/Debug/TestCase/T_profiler.html</li>
 </ul>
-
 <p>另外一处使用，则是在：</p>
-
 <ul>
 <li>Components/QomoHierarchyPoster.html</li>
 </ul>
-
 <p>它的写法是将信息显示到一个HTML元素中：</p>
-
 <pre><code class="language-javascript">$debug.resetTo(function() {
   arguments.join = Array.prototype.join;
   document.getElementById('Qo_DBGINFO').insertAdjacentHTML(
     'beforeEnd', arguments.join(''));
 });
 </code></pre>
-
 <h3 id="6showprofiler">6. 显示结果: showProfiler()及其定制</h3>
-
 <p>事实上，Dbg.Utils.js作为一个实用工具单元，可以完全不用载入到当前页面。这种情况下，Profilers的功能依然是可用的。包括使用：</p>
-
 <pre><code class="language-javascript">  $profilers('your_tag').begin();
   $profilers('your_tag').end();
 </code></pre>
-
 <p>这样的方法来记录profiler数据。因为$profilers这个全局对象是被创建在Profiles.js中的。</p>
-
 <p>如果你不打算使用Dbg.Utils.js中的showProfiers()来显示结果。那么你可以自己写一个，例如打开一个新窗口来显示。这时你只需要参考一下showProfiers()的代码即可：</p>
-
-<pre><code class="language-javascript">function showProfiers(prof) {  
+<pre><code class="language-javascript">function showProfiers(prof) {
   var data = prof.toData();
 
   // ...
 }
 </code></pre>
-
 <p>这样从prof中得到的数据是如下的一种结构：</p>
-
-<pre><code class="language-javascript">a_data_instance = {  
+<pre><code class="language-javascript">a_data_instance = {
   'your_tag_1': [beginTime1, endTime1, beginTime2, endTime2, ...],
   'your_tag_2': [...],
   'your_tag_3': [...]
   // ...
 }
 </code></pre>
-
-<p>你只需要写代码去循环处理即可。&mdash;&mdash;注意beginTime/endTime的值是Number类型的。如果你要转换为Date()对象，那么可以&ldquo;new Date(beginTime)&rdquo;这样即可。</p>
-
+<p>你只需要写代码去循环处理即可。——注意beginTime/endTime的值是Number类型的。如果你要转换为Date()对象，那么可以“new Date(beginTime)”这样即可。</p>
 <h3 id="7profilers">7. 在系统中处理多个Profilers()对象</h3>
-
-<p>只要你愿意，你可以创建多个Profilers()对象，他们之间是没有干扰的。&mdash;&mdash;当然，你也可以只创建一个，并用不同的标签来分组显示它们。这一切只取决于你的选择。</p>
-
+<p>只要你愿意，你可以创建多个Profilers()对象，他们之间是没有干扰的。——当然，你也可以只创建一个，并用不同的标签来分组显示它们。这一切只取决于你的选择。</p>
 <p>如果你打算创建多个Profilers，那么大概的代码如下：</p>
-
-<pre><code class="language-javascript">var prof1 = new Profilers();  
+<pre><code class="language-javascript">var prof1 = new Profilers();
 var prof2 = new Profilers();
 
 // prof1('tag').begin() ...
 // ...
 
-showProfiler(prof1);  
-showProfiler(prof2);  
+showProfiler(prof1);
+showProfiler(prof2);
 </code></pre>
-
 <h3 id="8profilers">8. 清理profilers数据</h3>
-
-<p>如果你要开始新一批的profilers分析。那么你应该清除一下原有的数据。但到目前为止，Profilers()对象并没有提供clear()方法。&mdash;&mdash;我认为不必须。</p>
-
+<p>如果你要开始新一批的profilers分析。那么你应该清除一下原有的数据。但到目前为止，Profilers()对象并没有提供clear()方法。——我认为不必须。</p>
 <p>因此如果你需要清理数据，最好的方法就是重新创建一个。例如：</p>
-
 <pre><code class="language-javascript">// 重新创建全局的分析器
 $profilers = new Profilers();
 </code></pre>
-
 <h2 id="profilersaop">六、Profilers与AOP的结合使用</h2>
-
 <p>大概要为每一个函数去写.begin()和.end()会是一件让人痛苦的事，而且频繁地改动原先的函数，也不是是一件什么好事。因此事实上在Profilers的使用示例中，我采用的都是AOP来实现。在</p>
-
 <ul>
 <li>Components/QomoHierarchyPoster.html</li>
 <li>Framework/Debug/TestCase/T_profiler.html</li>
 </ul>
-
 <p>这两个文件中，都可以看到AOP的用法。其中，<code>T_profiler.html</code>载入了一个<code>AOP_MyProf.js</code>文件，这里的示例最为简单：</p>
-
 <pre><code class="language-javascript">// 加入profiler相关的代码($profilers是全局对象)
 var asp_import = new FunctionAspect($import, '$import', 'Function');
 
-asp_import.OnBefore.add(function(o, n, p, a) {  
+asp_import.OnBefore.add(function(o, n, p, a) {
   with ($profilers(n, FN(a[0]))) {
     set('url', a[0]);
     a['$tag$'] = begin();
   }
 });
 
-asp_import.OnAfter.add(function(o, n, p, a, v) {  
+asp_import.OnAfter.add(function(o, n, p, a, v) {
   $profilers(n, FN(a[0])).end(a['$tag$']);
 });
 </code></pre>
-
-<p>我们看到<code>asp_import</code>就是一个为"$import()"创建的一个切面，这个切面的名字，就是<code>$import</code>。所以我们在OnBefore和OnAfter中看到的参数<code>n</code>，值就是<code>$import</code>。</p>
-
-<p>接下来，我们在OnBefore的事件处理函数中，添加了对每一次$import()调用的profiler分析。这里传入的参数<code>a</code>，就是调用$import()时的arguments。所以<code>a[0]</code>就是$import()的文件名。&mdash;&mdash;因为，我们总是用<code>$import('a_js_url')</code>来导入文件的。</p>
-
-<p>调用$profilers()时传入了两个标签。其中<code>n</code>总是"$import"，而FN(a[0])则是取到URL未尾的文件名。因此，相当于创建了一个名为<code>$import/a_js_filename</code>形式的标识。这在后面用showProfilers()时就可以看到了。</p>
-
+<p>我们看到<code>asp_import</code>就是一个为&quot;$import()&quot;创建的一个切面，这个切面的名字，就是<code>$import</code>。所以我们在OnBefore和OnAfter中看到的参数<code>n</code>，值就是<code>$import</code>。</p>
+<p>接下来，我们在OnBefore的事件处理函数中，添加了对每一次$import()调用的profiler分析。这里传入的参数<code>a</code>，就是调用$import()时的arguments。所以<code>a[0]</code>就是$import()的文件名。——因为，我们总是用<code>$import('a_js_url')</code>来导入文件的。</p>
+<p>调用$profilers()时传入了两个标签。其中<code>n</code>总是&quot;$import&quot;，而FN(a[0])则是取到URL未尾的文件名。因此，相当于创建了一个名为<code>$import/a_js_filename</code>形式的标识。这在后面用showProfilers()时就可以看到了。</p>
 <p>接下来，由于我们还需要在showProfilers()时能显示一点数据，例如载入的实例的URL的完整径，因此我们调用了set()方法。这段代码实际相当于：</p>
-
-<pre><code class="language-javascript">asp_import.OnBefore.add(function(o, n, p, a) {  
+<pre><code class="language-javascript">asp_import.OnBefore.add(function(o, n, p, a) {
   var prof = $profilers(n, FN(a[0]));
 
   prof.set('url', a[0]);
   a['$tag$'] = prof.begin();
 });
 </code></pre>
-
-<p>prof.set('url', ...)这行代码可以为一个prof添加任意多的、任何名称的定制数据。这些数据可以提供给showProfiler()来使用。&mdash;&mdash;当然，你自己也可以写一个showProfiler()来处理这些数据。</p>
-
-<p>最后一行是为了处理在Qomo中将同一个.js文件导入多次。&mdash;&mdash;<code>$import/a_js_filename</code>会重复，从而看起来象是处理同一段代码(像对递归过程profiler)。&mdash;&mdash;因此这里把prof.begin()返回的标识放在a['$tag$']里。</p>
-
+<p>prof.set('url', ...)这行代码可以为一个prof添加任意多的、任何名称的定制数据。这些数据可以提供给showProfiler()来使用。——当然，你自己也可以写一个showProfiler()来处理这些数据。</p>
+<p>最后一行是为了处理在Qomo中将同一个.js文件导入多次。——<code>$import/a_js_filename</code>会重复，从而看起来象是处理同一段代码(像对递归过程profiler)。——因此这里把prof.begin()返回的标识放在a['$tag$']里。</p>
 <p>这里用了一个取巧的方法：AOP事件中的参数a是调用被关注点时的参数arguments，因此对同一个关注对象来说，OnBefore与OnAfter所使用的arguments也是同一个。所以当切面到达OnAfter时，我们只需要处理成</p>
-
 <pre><code class="language-javascript">  $profilers(n, FN(a[0])).end(a['$tag$']);
 </code></pre>
-
-<p>就可以了。&mdash;&mdash;<code>a['$tag']</code>就是我们需要使用的begin()返回值。而且，我们也不需要去delete这个属性。因为当函数运行结束后，arguments将自动被javascript引擎销毁。</p>
-
+<p>就可以了。——<code>a['$tag']</code>就是我们需要使用的begin()返回值。而且，我们也不需要去delete这个属性。因为当函数运行结束后，arguments将自动被javascript引擎销毁。</p>
 <p>同样的技术也被用在</p>
-
 <ul>
 <li>Components/QomoHierarchyPoster.html</li>
 </ul>
-
 <p>这个文件中。不过QomoHierarchyPoster.html在profilers中值得言讲的，却在于它对combine()的活用。</p>
-
 <p>在QomoHierarchyPoster.html中，我们处理了五个切面，并试图对它们做性能分析：</p>
-
 <pre><code class="language-javascript">var asp_getTopoString = new FunctionAspect(getTopoString, 'getTopoString', 'Function');
 
-var asp_LinesString = new FunctionAspect(getLinesString, 'getLinesString', 'Function');  
-var asp_drawTopo = new FunctionAspect(drawTopo, 'drawTopo', 'Function');  
-var asp_active = new FunctionAspect(activeTopoInCanvas, 'activeTopoInCanvas', 'Function');  
-var asp_cache = new FunctionAspect(cacheTargetByNodes, 'cacheTargetByNodes', 'Function');  
+var asp_LinesString = new FunctionAspect(getLinesString, 'getLinesString', 'Function');
+var asp_drawTopo = new FunctionAspect(drawTopo, 'drawTopo', 'Function');
+var asp_active = new FunctionAspect(activeTopoInCanvas, 'activeTopoInCanvas', 'Function');
+var asp_cache = new FunctionAspect(cacheTargetByNodes, 'cacheTargetByNodes', 'Function');
 </code></pre>
-
 <p>而这时，我们只为一个切面的OnBefore()和OnAfter()添加了事件处理句柄：</p>
-
-<pre><code class="language-javascript">asp_getTopoString.OnBefore.add(function(o, n, p, a) {  
-  a["$tag$"] = $profilers('$prof', p, n).begin();
+<pre><code class="language-javascript">asp_getTopoString.OnBefore.add(function(o, n, p, a) {
+  a[&quot;$tag$&quot;] = $profilers('$prof', p, n).begin();
 });
 
-asp_getTopoString.OnAfter.add(function(o, n, p, a, v) {  
-  $profilers('$prof', p, n).end(a["$tag$"]);
+asp_getTopoString.OnAfter.add(function(o, n, p, a, v) {
+  $profilers('$prof', p, n).end(a[&quot;$tag$&quot;]);
 });
 </code></pre>
-
-<p>为了让其它几个切面也得到相同的处理能力，我们使用了Qomo AOP中的&ldquo;联合(combine)&rdquo;，这非常简单，一行代码就可以了：</p>
-
-<pre><code class="language-javascript">asp_getTopoString.combine(asp_LinesString, asp_drawTopo, asp_active, asp_cache);  
+<p>为了让其它几个切面也得到相同的处理能力，我们使用了Qomo AOP中的“联合(combine)”，这非常简单，一行代码就可以了：</p>
+<pre><code class="language-javascript">asp_getTopoString.combine(asp_LinesString, asp_drawTopo, asp_active, asp_cache);
 </code></pre>
-
 <p>于是，上面的五个切面所处理的被观察者(函数)执行时，都会触发<code>asp_getTopoString</code>的OnBefore和OnAfter事件了。</p>
-
 <p>我相信Qomo AOP的价值远非如此。接下来的应用，看大家的吧。^.^</p>
-
 <h2 id="">七、其它</h2>
-
 <h3 id="1qomo">1. 可以独立于Qomo框架的内核模块</h3>
-
 <p>在Qomo内核中，Profilers.js、Dbg.Utils.js与JSEnhance.js一样，都不需要加载Qomo的框架，因此可以直接在其它的、第三方的代码框架中使用。这样的内核模块还包括：</p>
-
 <pre><code class="language-javascript">// 包括Profilers, Dbg.Utils和RepImport等
 $import('Debug/Debug.js');
 
@@ -692,20 +542,16 @@ $import('Names/NamedSystem.js');
 // 脚本功能增强
 $import('RTL/JSEnhance.js');
 </code></pre>
-
 <p>由于Profilers被设计成可以针对整个Qomo做性能分析(包括最初的$import()，以及后续加载的各个组件与类)，因此它必须在最先载入。同样的原因，整个的Debug.js是第一个由system.js载入的单元。</p>
-
 <h3 id="2">2. 框架库之其它内容</h3>
-
 <p>在Qomo beta2的基础库中，还包括三个重要的成员：</p>
-
 <ul>
 <li>队列/池，以及处理器类</li>
 <li>时间序列、时间线与数据发生器</li>
 <li>ajax原型：HttpMachine()</li>
 </ul>
-
 <p>这些内容在随后我将专门撰文讲解。</p>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -733,8 +579,8 @@ $import('RTL/JSEnhance.js');
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=2324fcd7e8" />
-<script src="/assets/js/gitmint.browser.js?v=2324fcd7e8"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -756,16 +602,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -808,21 +654,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=2324fcd7e8"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=2324fcd7e8"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

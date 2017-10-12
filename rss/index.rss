@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><generator>Ghost 0.11</generator><lastBuildDate>Sun, 08 Oct 2017 14:30:11 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[博客中的系列文章]]></title><description><![CDATA[<h2 id="">【技术类】</h2>
-
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.12</generator><lastBuildDate>Thu, 12 Oct 2017 03:14:25 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[博客中的系列文章]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">【技术类】</h2>
 <h3 id="qomo">Qomo技术系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-15/">从基础开始：Qomo OpenProject中的一些关键词</a></li>
 <li><a href="http://aimingoo.github.io/1-16/">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
@@ -20,10 +18,8 @@
 <li><a href="http://aimingoo.github.io/1-39/">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
 <li><a href="http://aimingoo.github.io/1-42/">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
 <li><a href="http://aimingoo.github.io/1-43/">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
-<li><a href="http://aimingoo.github.io/1-47/">Qomolangma实现篇(九)</a></li></ul>]]></description><link>http://aimingoo.github.io/1-1747/</link><guid isPermaLink="false">ee4161a3-3384-4d9d-8f16-d85b402a9d84</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 08 Oct 2017 14:29:50 GMT</pubDate><content:encoded><![CDATA[<h2 id="">【技术类】</h2>
-
+<li><a href="http://aimingoo.github.io/1-47/">Qomolangma实现篇(九)</a></li></ul></div>]]></description><link>http://aimingoo.github.io/1-1747/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c4</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 08 Oct 2017 14:29:50 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">【技术类】</h2>
 <h3 id="qomo">Qomo技术系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-15/">从基础开始：Qomo OpenProject中的一些关键词</a></li>
 <li><a href="http://aimingoo.github.io/1-16/">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
@@ -47,9 +43,7 @@
 <li><a href="http://aimingoo.github.io/1-51/">Qomolangma框架库(二)：时间线与时间处理器</a></li>
 <li><a href="http://aimingoo.github.io/1-57/">Qomolangma框架库(三)：处理池与处理机</a></li>
 </ul>
-
 <h3 id="">“前端要给力”系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-160/">前端要给力之：代码可以有多烂？</a></li>
 <li><a href="http://aimingoo.github.io/1-162/">前端要给力之：URL应该有多长？</a></li>
@@ -57,25 +51,19 @@
 <li><a href="http://aimingoo.github.io/1-164/">前端要给力之：分解对象构造过程new()</a></li>
 <li><a href="http://aimingoo.github.io/1-195/">前端要给力之：红绿灯大战中的火星生命-Promise</a></li>
 </ul>
-
 <h3 id="android">Android玩乐系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-178/">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</a></li>
 <li><a href="http://aimingoo.github.io/1-179/">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</a></li>
 <li><a href="http://aimingoo.github.io/1-180/">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</a></li>
 </ul>
-
 <h3 id="javascript">JavaScript类型讨论系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-167/">再谈JavaScript的数据类型问题</a></li>
 <li><a href="http://aimingoo.github.io/1-168/">三谈类型问题：ECMAScript为什么错了？</a></li>
 <li><a href="http://aimingoo.github.io/1-170/">JavaScript类型总览(图)</a></li>
 </ul>
-
-<h2 id="">元语言及其应用系列</h2>
-
+<h3 id="">元语言及其应用系列</h3>
 <ul>
 <li><a href="http://aimingoo.github.io/1-112/">元语言基础技术之：在JS中如何自由地创建函数</a></li>
 <li><a href="http://aimingoo.github.io/1-110/">QoBean的元语言系统（一）</a></li>
@@ -84,19 +72,14 @@
 <li><a href="http://aimingoo.github.io/1-147/">为脚本语言平反-JavaScript篇（2）</a></li>
 <li><a href="http://aimingoo.github.io/1-148/">为脚本语言平反-JavaScript篇（3）</a></li>
 </ul>
-
 <h3 id="">设计师的实战过程系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-113/">内训资料公开：设计师的实战过程(1)</a></li>
 <li><a href="http://aimingoo.github.io/1-115/">内训资料公开：设计师的实战过程(2)</a></li>
 <li><a href="http://aimingoo.github.io/1-116/">内训资料公开：设计师的实战过程(3)</a></li>
 </ul>
-
 <h2 id="">【论谈类】</h2>
-
 <h3 id="">我读《人月神话》系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-63/">杀不死的人狼——我读《人月神话》（一）</a></li>
 <li><a href="http://aimingoo.github.io/1-64/">杀不死的人狼——我读《人月神话》（二）</a></li>
@@ -104,9 +87,7 @@
 <li><a href="http://aimingoo.github.io/1-66/">杀不死的人狼——我读《人月神话》（四）</a></li>
 <li><a href="http://aimingoo.github.io/1-67/">杀不死的人狼——我读《人月神话》（五）</a></li>
 </ul>
-
 <h3 id="">《大道至简》的幕后故事系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-70/">《大道至简》的幕后故事(1)</a></li>
 <li><a href="http://aimingoo.github.io/1-71/">《大道至简》的幕后故事(2)：“愚公移山记”人物篇</a></li>
@@ -115,9 +96,7 @@
 <li><a href="http://aimingoo.github.io/1-74/">《大道至简》的幕后故事(5)：“愚公移山记”军事谋略篇</a></li>
 <li><a href="http://aimingoo.github.io/1-75/">《大道至简》的幕后故事：终结篇、勘误和PDF下载</a></li>
 </ul>
-
 <h3 id="vclrad">“VCL已死，RAD已死”系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-123/">VCL已死，RAD已死(1)</a></li>
 <li><a href="http://aimingoo.github.io/1-124/">VCL已死，RAD已死(2)</a></li>
@@ -128,17 +107,13 @@
 <li><a href="http://aimingoo.github.io/1-131/">VCL已死，RAD已死(5)</a></li>
 <li><a href="http://aimingoo.github.io/1-132/">VCL已死，RAD已死(6) - 结语与预测</a></li>
 </ul>
-
 <h3 id="">《大道至易：实践者的思想》第二版发布小述系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-1735/">电子书《我的架构思想》小述</a></li>
 <li><a href="http://aimingoo.github.io/1-1734/">电子书《程序原本》小述</a></li>
 <li><a href="http://aimingoo.github.io/1-1736/">小述系列最终篇：说说《大道至易：实践者的思想》</a></li>
 </ul>
-
 <h3 id="oschina">OSCHINA答读者问系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-186/">OSCHINA答读者问之一：“软件工程”的学法与用法</a></li>
 <li><a href="http://aimingoo.github.io/1-187/">OSCHINA答读者问之二：什么是架构？以及什么是架构师？</a></li>
@@ -147,17 +122,14 @@
 <li><a href="http://aimingoo.github.io/1-190/">OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</a></li>
 <li><a href="http://aimingoo.github.io/1-191/">OSCHINA答读者问之六：杂谈（完结篇）</a></li>
 </ul>
-
 <h2 id="">【应用类】</h2>
-
 <h3 id="pdf">PDF工具系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-62/">关于做PDF的FAQ（一）～（四）</a></li>
+<li><a href="http://aimingoo.github.io/1-1726/">Kindle电子书中该用多大的图片</a></li>
+<li><a href="http://aimingoo.github.io/1-1728/">在电子书中使用SVG</a></li>
 </ul>
-
 <h3 id="">博客迁移手记系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-1719/">手记1：迁移博客之全程工具</a></li>
 <li><a href="http://aimingoo.github.io/1-1720/">手记2：从本地博客到Github Pages的最佳指南及工具</a></li>
@@ -167,20 +139,15 @@
 <li><a href="http://aimingoo.github.io/1-1725/">手记6：改造Gitment</a></li>
 <li><a href="http://aimingoo.github.io/1-1724/">博客迁移手记之快速导航</a></li>
 </ul>
-
 <h3 id="monster">Monster使用系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-1741/">Monster - 用Ghost写博客的终极利器</a></li>
 <li><a href="http://aimingoo.github.io/1-1743/">将Monster用作网站离线下载的方法</a></li>
 <li><a href="http://aimingoo.github.io/1-1742/">详解Monster的初始化及配置</a></li>
 <li><a href="http://aimingoo.github.io/1-1744/">Monster的三种工作模式</a></li>
 </ul>
-
-<h2 id="">非技术类</h2>
-
+<h2 id="">【非技术类】</h2>
 <h3 id="">坐而论道系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-205/">坐而论道（之一）</a></li>
 <li><a href="http://aimingoo.github.io/1-206/">坐而论道（之二）</a></li>
@@ -188,11 +155,8 @@
 <li><a href="http://aimingoo.github.io/1-219/">坐而论道（之四）</a></li>
 <li><a href="http://aimingoo.github.io/1-259/">坐而论道（之五）：关于佛学中的“我”</a></li>
 </ul>
-
-<h2 id="">其它/综合</h2>
-
+<h2 id="">【其它/综合】</h2>
 <h3 id="">旧文重发系列</h3>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-99/">旧文重发：程序员的一天</a></li>
 <li><a href="http://aimingoo.github.io/1-100/">旧文重发：谈企业软件架构设计</a></li>
@@ -201,317 +165,226 @@
 <li><a href="http://aimingoo.github.io/1-103/">旧文重发：剑走偏锋：非主流的程序员</a></li>
 <li><a href="http://aimingoo.github.io/1-104/">旧文重发：苹果是怎么吃到的？</a></li>
 <li><a href="http://aimingoo.github.io/1-105/">旧文重发：做人、做事，做架构师——架构师能力模型解析</a></li>
-</ul>]]></content:encoded></item><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
-
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<div class="kg-card-markdown"><p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
 <p>在页面中使用的时候也很简单，基本的做法是：</p>
-
 <pre><code class="language-html">// 在页面中添加timeAgo模块
-&lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
+&lt;script src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
 
 // 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo("DATETIME_OF_YOUR_POST"))&lt;/script&gt;  
+&lt;script&gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&lt;/script&gt;
 </code></pre>
-
 <p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
-
-<p><strong>1. 修改default.hbs</strong></p>
-
-<p>将下面的代码插入页面合适的位置以加载timeAgo模块：</p>
-
-<pre><code class="language-html">&lt;!--</code></pre>]]></description><link>http://aimingoo.github.io/1-1746/</link><guid isPermaLink="false">350eab72-8f1f-411d-9c51-8c8fbced6626</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 27 Sep 2017 10:10:47 GMT</pubDate><content:encoded><![CDATA[<p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
-
+<p><strong>1. 修改default.</strong></p></div>]]></description><link>http://aimingoo.github.io/1-1746/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c3</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 27 Sep 2017 10:10:47 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
 <p>在页面中使用的时候也很简单，基本的做法是：</p>
-
 <pre><code class="language-html">// 在页面中添加timeAgo模块
-&lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
+&lt;script src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
 
 // 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo("DATETIME_OF_YOUR_POST"))&lt;/script&gt;  
+&lt;script&gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&lt;/script&gt;
 </code></pre>
-
 <p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
-
 <p><strong>1. 修改default.hbs</strong></p>
-
 <p>将下面的代码插入页面合适的位置以加载timeAgo模块：</p>
+<pre><code class="language-html">&lt;!-- 将timeAgo.js置入模板的assets目录 --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;{{asset &quot;js/timeAgo.js&quot;}}&quot;&gt;&lt;/script&gt;
 
-<pre><code class="language-html">&lt;!-- 将timeAgo.js置入模板的assets目录 --&gt;  
-&lt;script type="text/javascript" src="{{asset "js/timeAgo.js"}}"&gt;&lt;/script&gt;
-
-&lt;!-- 或使用在线的版本 --&gt;  
-&lt;script type="text/javascript" src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;  
+&lt;!-- 或使用在线的版本 --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-
 <p>如果你的模板有自己的初始化代码（一般放在<code>assets/js/index.js</code>文件中），应该将这行代码插入在初始化代码之前。</p>
-
 <p><strong>2. 修改post.hbs</strong></p>
-
 <p>在<code>post.hbs</code>中找到显示一个Post的日期的位置。它可能使用如下代码（缺省使用Ghost内置的timeago方法显示）：</p>
-
-<pre><code class="language-bash">{{date published_at timeago="true"}}
+<pre><code class="language-bash">{{date published_at timeago=&quot;true&quot;}}
 </code></pre>
-
 <p>根据你打算在<code>post.hbs</code>使用该值的不同方法，可以直接输出，也可以在页面加载之后重置这个值。</p>
-
 <p>如果是直接在该页面中输出，则将上面的改为：</p>
-
-<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo("{{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}"))&lt;/script&gt;  
+<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo(&quot;{{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}&quot;))&lt;/script&gt;
 </code></pre>
-
 <p>注意上面的代码中，我们是用format参数来取得更加精确的时间值（而不是直接使用timeago格式的值）。</p>
-
 <p><strong>3. 如果采用延迟加载的方法</strong></p>
-
 <p>如果这个值是采用延迟加载的方法来显示的，那么它可能放在<code>post.hbs</code>的一对标签中。类似：</p>
-
-<pre><code class="language-html">&lt;time class="post-date" datetime="{{date format='YYYY-MM-DDTHH:mm:ss.sssZ'}}" timeago="true"&gt;&lt;/time&gt;  
+<pre><code class="language-html">&lt;time class=&quot;post-date&quot; datetime=&quot;{{date format='YYYY-MM-DDTHH:mm:ss.sssZ'}}&quot; timeago=&quot;true&quot;&gt;&lt;/time&gt;
 </code></pre>
-
 <p>注意这里的<code>timeago</code>只是一个html标签属性——这个属性是我添加的，用来标示这个<code>&lt;time&gt;</code>标签将采用<code>timeago</code>方式显示。</p>
-
 <p>在延迟加载的情况下，通常是在全局的ready回调中做一些针对当前页面的规格化操作。它可能通过在<code>default.hbs</code>中加载一个<code>.js</code>文件来进入。以我们上面说到过的例子，假如在<code>assets/js/index.js</code>文件中，那么它可能的代码是：</p>
-
 <pre><code class="language-javascript">$(document).ready(function() {
   ...
 })
 </code></pre>
-
 <p>在这个代码块中，加入下面的代码即可：</p>
-
-<pre><code class="language-javascript">// 列出所有'class="post-date"的标签
-$(".post-date").each(function() {
+<pre><code class="language-javascript">// 列出所有'class=&quot;post-date&quot;的标签
+$(&quot;.post-date&quot;).each(function() {
     // 检查上面添加的'timeago'属性值是否为'true'
-    if ($(this).attr("timeago") == "true") {
+    if ($(this).attr(&quot;timeago&quot;) == &quot;true&quot;) {
         // 从'datetime'属性中取时间值，用timeAgo()转换并回写到当前标签中
-        $(this).text(timeAgo($(this).attr("datetime")));
+        $(this).text(timeAgo($(this).attr(&quot;datetime&quot;)));
     }
 });
-</code></pre>]]></content:encoded></item><item><title><![CDATA[怎么会有两个“原本”]]></title><description><![CDATA[<p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是"Elements of Programming"，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用"Elements of Programming"的呀。</p>
-
+</code></pre>
+</div>]]></content:encoded></item><item><title><![CDATA[怎么会有两个“原本”]]></title><description><![CDATA[<div class="kg-card-markdown"><p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是&quot;Elements of Programming&quot;，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用&quot;Elements of Programming&quot;的呀。</p>
 <p><img src="http://aimingoo.github.io/content/images/2017/09/two_elements.png" alt="two_elements"></p>
-
 <blockquote>
-  <p>这两本书的介绍在这里：</p>
-  
-  <ul>
-  <li>《编程原本》<a href="https://book.douban.com/subject/7564093/">https://book.douban.com/subject/7564093/</a></li>
-  <li>《程序原本》<a href="http://blog.csdn.net/aimingoo/article/details/75506782">http://blog.csdn.net/aimingoo/article/details/75506782</a></li>
-  </ul>
-</blockquote>
-
-<p>Alex这本书是2009年出的，中文版则等到了2012年。所以我写《大道至易》的时候并不知道这本书，这很正常。到2012年《大道至易》发行的时候，我在“程序原本”这一篇上用的标题是“</p>]]></description><link>http://aimingoo.github.io/1-1745/</link><guid isPermaLink="false">edfbfea7-3319-4d87-a0eb-8fed2eae5bd6</guid><category><![CDATA[程序原本]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[读书]]></category><category><![CDATA[杂谈]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 24 Sep 2017 10:53:20 GMT</pubDate><content:encoded><![CDATA[<p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是"Elements of Programming"，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用"Elements of Programming"的呀。</p>
-
-<p><img src="http://aimingoo.github.io/content/images/2017/09/two_elements.png" alt="two_elements"></p>
-
-<blockquote>
-  <p>这两本书的介绍在这里：</p>
-  
-  <ul>
-  <li>《编程原本》<a href="https://book.douban.com/subject/7564093/">https://book.douban.com/subject/7564093/</a></li>
-  <li>《程序原本》<a href="http://blog.csdn.net/aimingoo/article/details/75506782">http://blog.csdn.net/aimingoo/article/details/75506782</a></li>
-  </ul>
-</blockquote>
-
-<p>Alex这本书是2009年出的，中文版则等到了2012年。所以我写《大道至易》的时候并不知道这本书，这很正常。到2012年《大道至易》发行的时候，我在“程序原本”这一篇上用的标题是“程序源流”，是再到后来把这一部分独立成书并打算出电子版的时候，才用回到更早拟的名字，也就是《程序原本》。</p>
-
-<p>于是现在就有了两个“原本”：《编程原本》和《程序原本》。</p>
-
-<p>我仔细读了读Alex的《编程原本》，感叹于裘宗燕老师精准的翻译——是的，没错，这本书确实应该叫“编程（Programming）原本”。Alex在讲的，根本就不是“程序是怎么一回事”，而是“怎么写出好程序”——编程源于数学，因而可以从一个数学系统的构建和演进来理解编程的精髓，并“（或许就是）希望基于这种思维方法和开发技术，为范围广泛的软件系统建立起坚实基础”。由于这样的观念，Alex的《编程原本》中的数学系统既不是严格学术上的数学，也不是一般含义上的计算机系统。</p>
-
-<p>在书中，Alex用于定义/构建数学系统的篇幅很小，也就是第一章（“基础”，14页）。而在这14页中，用于讨论“数/数据”的篇幅更少，大概只有3~4个小节。在全书接下来的篇幅中，Alex就基于这样的数学系统开始设计和分析算法，并以之解决实际问题了。</p>
-
-<p>这与我在《程序原本》中讲述的内容与方法完全不同，并且存在着根本观念上的不同。在《程序原本》的第一个小节中，我就通过一个断言“算是程序之表，数是程序之本”，将整本书定调在了对“数”的讨论之中。由数的结构化延伸到算的结构化，以及后面的应用和系统的结构化，其本质上是在讨论：如今在“程序”中出现的种种元素，无非是大家在“结构化”这一个求解方向上的所得。因此我才在《我的架构思想》中提出了我对这所有观察作出的结论：程序是可被组织的元素。并由此提出进一步的观点：结构化——只是“程序是什么”的一个解，而绝非唯一解。</p>
-
-<p>所以，我其实是在讨论“程序（Program）的原本”，而Alex在讨论的是“编程（Programming）的原本”。正是因此，《程序原本》中看到的就是数据，或者结构化视角下的可组织元素；《编程原本》中看到的就是数学系统，以及由此构建的算法与实现。</p>
-
-<p>在<code>算法 + 数据结构 = 程序</code>这个经典的描述中，我讨论的是“数据结构”的问题，并进一步的讨论了“对数据、算法和程序的结构化”的问题，而Alex讨论的是算法问题。源于这种分析问题的剖面不同，Alex的《编程原本》要求读者有较高的数学基础，而《程序原本》则几乎对此没有什么要求——所以你看我在致谢中就只感谢了“我的小学数学老师”。^^.</p>
-
-<p>不过《程序原本》要求你有很好的抽象思维能力，你可以把整本书看成一个完整的抽象思维与论证的训练——如何拿着最基础、简单的“数”的概念与原则，构建出对整个的系统描述。这本书回顾了你所有见到过的“程序”的样子，以及这些“样子”背后的逻辑，但是却并不教你写一行有效的代码、一个有用的算法，或者一个看起来有明确运行逻辑的系统。</p>
-
-<p>算是程序之表，数是程序之本。</p>
-
-<blockquote>
-  <p>又：</p>
-  
-  <p>我最终觉得我在这本书的英文译名上还是犯了“严重且不可饶恕的错误”，所以只好悻悻然地将所有已经用过英文名的地方（例如github上）都进行了修改。我的《程序原本》这本书，今后就只用<em>"Elements of Program"</em>这个英文的书名吧。</p>
-  
-  <p>好象更确切的译法是<em>“Elements of Programs”</em>？比如“算法 + 数据结构 = 程序”原书名就是<em>"Algorithms + Data Structures = Programs"</em>。算了，就这样吧！我的英文还没有好到可以较真这个东西的地步😹</p>
-</blockquote>]]></content:encoded></item><item><title><![CDATA[Monster的三种工作模式]]></title><description><![CDATA[<p>Monster有三种工作模式generate、update和preview。可以通过Monster的第一个参数来指定，在第一个参数缺省时直接使用generate模式。例如：</p>
-
-<pre><code class="language-bash"># 下面两个指令是相同的
-&gt; monster --generate
-&gt; monster generate --generate
-</code></pre>
-
-<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
-
-<pre><code class="language-bash"># 显示monster的帮助
-&gt; monster --help
-# 显示generate模式(即makesite.sh)的帮助
-&gt; monster generate --help
-</code></pre>
-
-<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
-
-<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
-&gt; monster preivew 8010
-Serving HTTP on 0.</code></pre>]]></description><link>http://aimingoo.github.io/1-1744/</link><guid isPermaLink="false">eebb350e-b1c6-4d58-a19c-2ea2ac792301</guid><category><![CDATA[Monster]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 21 Sep 2017 15:50:03 GMT</pubDate><content:encoded><![CDATA[<p>Monster有三种工作模式generate、update和preview。可以通过Monster的第一个参数来指定，在第一个参数缺省时直接使用generate模式。例如：</p>
-
-<pre><code class="language-bash"># 下面两个指令是相同的
-&gt; monster --generate
-&gt; monster generate --generate
-</code></pre>
-
-<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
-
-<pre><code class="language-bash"># 显示monster的帮助
-&gt; monster --help
-# 显示generate模式(即makesite.sh)的帮助
-&gt; monster generate --help
-</code></pre>
-
-<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
-
-<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
-&gt; monster preivew 8010
-Serving HTTP on 0.0.0.0 port 8010 ...  
-</code></pre>
-
-<h2 id="generateupdate">generate与update模式的原理不同</h2>
-
-<p>generate工作模式定义了一个对“网站迁移的标准过程”的理解，亦即是分成四步：</p>
-
+<p>这两本书的介绍在这里：</p>
 <ul>
-<li>generate: 调用Buster生成静态页</li>
+<li>《编程原本》<a href="https://book.douban.com/subject/7564093/">https://book.douban.com/subject/7564093/</a></li>
+<li>《程序原本》<a href="http://blog.csdn.net/aimingoo/article/details/75506782">http://blog.csdn.net/aimingoo/article/details/75506782</a></li>
+</ul>
+</blockquote>
+<p>Alex这本书是2009年出的，中文版则等到了2012年。所以我写《大道至易》的时候并不知道这本书，这很正常。到2012年《大道至易》</p></div>]]></description><link>http://aimingoo.github.io/1-1745/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c2</guid><category><![CDATA[程序原本]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[读书]]></category><category><![CDATA[杂谈]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 24 Sep 2017 10:53:20 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是&quot;Elements of Programming&quot;，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用&quot;Elements of Programming&quot;的呀。</p>
+<p><img src="http://aimingoo.github.io/content/images/2017/09/two_elements.png" alt="two_elements"></p>
+<blockquote>
+<p>这两本书的介绍在这里：</p>
+<ul>
+<li>《编程原本》<a href="https://book.douban.com/subject/7564093/">https://book.douban.com/subject/7564093/</a></li>
+<li>《程序原本》<a href="http://blog.csdn.net/aimingoo/article/details/75506782">http://blog.csdn.net/aimingoo/article/details/75506782</a></li>
+</ul>
+</blockquote>
+<p>Alex这本书是2009年出的，中文版则等到了2012年。所以我写《大道至易》的时候并不知道这本书，这很正常。到2012年《大道至易》发行的时候，我在“程序原本”这一篇上用的标题是“程序源流”，是再到后来把这一部分独立成书并打算出电子版的时候，才用回到更早拟的名字，也就是《程序原本》。</p>
+<p>于是现在就有了两个“原本”：《编程原本》和《程序原本》。</p>
+<p>我仔细读了读Alex的《编程原本》，感叹于裘宗燕老师精准的翻译——是的，没错，这本书确实应该叫“编程（Programming）原本”。Alex在讲的，根本就不是“程序是怎么一回事”，而是“怎么写出好程序”——编程源于数学，因而可以从一个数学系统的构建和演进来理解编程的精髓，并“（或许就是）希望基于这种思维方法和开发技术，为范围广泛的软件系统建立起坚实基础”。由于这样的观念，Alex的《编程原本》中的数学系统既不是严格学术上的数学，也不是一般含义上的计算机系统。</p>
+<p>在书中，Alex用于定义/构建数学系统的篇幅很小，也就是第一章（“基础”，14页）。而在这14页中，用于讨论“数/数据”的篇幅更少，大概只有3~4个小节。在全书接下来的篇幅中，Alex就基于这样的数学系统开始设计和分析算法，并以之解决实际问题了。</p>
+<p>这与我在《程序原本》中讲述的内容与方法完全不同，并且存在着根本观念上的不同。在《程序原本》的第一个小节中，我就通过一个断言“算是程序之表，数是程序之本”，将整本书定调在了对“数”的讨论之中。由数的结构化延伸到算的结构化，以及后面的应用和系统的结构化，其本质上是在讨论：如今在“程序”中出现的种种元素，无非是大家在“结构化”这一个求解方向上的所得。因此我才在《我的架构思想》中提出了我对这所有观察作出的结论：程序是可被组织的元素。并由此提出进一步的观点：结构化——只是“程序是什么”的一个解，而绝非唯一解。</p>
+<p>所以，我其实是在讨论“程序（Program）的原本”，而Alex在讨论的是“编程（Programming）的原本”。正是因此，《程序原本》中看到的就是数据，或者结构化视角下的可组织元素；《编程原本》中看到的就是数学系统，以及由此构建的算法与实现。</p>
+<p>在<code>算法 + 数据结构 = 程序</code>这个经典的描述中，我讨论的是“数据结构”的问题，并进一步的讨论了“对数据、算法和程序的结构化”的问题，而Alex讨论的是算法问题。源于这种分析问题的剖面不同，Alex的《编程原本》要求读者有较高的数学基础，而《程序原本》则几乎对此没有什么要求——所以你看我在致谢中就只感谢了“我的小学数学老师”。^^.</p>
+<p>不过《程序原本》要求你有很好的抽象思维能力，你可以把整本书看成一个完整的抽象思维与论证的训练——如何拿着最基础、简单的“数”的概念与原则，构建出对整个的系统描述。这本书回顾了你所有见到过的“程序”的样子，以及这些“样子”背后的逻辑，但是却并不教你写一行有效的代码、一个有用的算法，或者一个看起来有明确运行逻辑的系统。</p>
+<p>算是程序之表，数是程序之本。</p>
+<blockquote>
+<p>又：</p>
+<p>我最终觉得我在这本书的英文译名上还是犯了“严重且不可饶恕的错误”，所以只好悻悻然地将所有已经用过英文名的地方（例如github上）都进行了修改。我的《程序原本》这本书，今后就只用*&quot;Elements of Program&quot;*这个英文的书名吧。</p>
+<p>好象更确切的译法是*“Elements of Programs”<em>？比如“算法 + 数据结构 = 程序”原书名就是</em>&quot;Algorithms + Data Structures = Programs&quot;*。算了，就这样吧！我的英文还没有好到可以较真这个东西的地步😹</p>
+</blockquote>
+</div>]]></content:encoded></item><item><title><![CDATA[Monster的三种工作模式]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Monster有三种工作模式generate、update和preview。可以通过Monster的第一个参数来指定，在第一个参数缺省时直接使用generate模式。例如：</p>
+<pre><code class="language-bash"># 下面两个指令是相同的
+&gt; monster --generate
+&gt; monster generate --generate
+</code></pre>
+<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
+<pre><code class="language-bash"># 显示monster的帮助
+&gt; monster --help
+# 显示generate模式(即makesite.sh)的帮助
+&gt; monster generate --help
+</code></pre>
+<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
+<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
+&gt; monster preivew 8010
+Serving HTTP on 0.</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1744/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c1</guid><category><![CDATA[Monster]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 21 Sep 2017 15:50:03 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Monster有三种工作模式generate、update和preview。可以通过Monster的第一个参数来指定，在第一个参数缺省时直接使用generate模式。例如：</p>
+<pre><code class="language-bash"># 下面两个指令是相同的
+&gt; monster --generate
+&gt; monster generate --generate
+</code></pre>
+<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
+<pre><code class="language-bash"># 显示monster的帮助
+&gt; monster --help
+# 显示generate模式(即makesite.sh)的帮助
+&gt; monster generate --help
+</code></pre>
+<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
+<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
+&gt; monster preivew 8010
+Serving HTTP on 0.0.0.0 port 8010 ...
+</code></pre>
+<h2 id="generateupdate">generate与update模式的原理不同</h2>
+<p>generate工作模式定义了一个对“网站迁移的标准过程”的理解，亦即是分成四步：</p>
+<ul>
+<li>generate: 调用wget生成静态页</li>
 <li>reset-domain：重置页面中的domain地址（它有两个前置过程）
-<ul><li>pick-sitemap：尝试下载sitemaps文件</li>
-<li>patch-version：修补assets等目录中的文件名后缀中的版本号</li></ul></li>
+<ul>
+<li>pick-sitemap：尝试下载sitemaps文件</li>
+<li>patch-version：修补assets等目录中的文件名后缀中的版本号</li>
+</ul>
+</li>
 <li>short-path: 生成简短的网页路径</li>
 <li>deploy-now: 部署到Github仓库（它有一个前置过程）
-<ul><li>check-static：检查reset-domain过程之后的static目录</li></ul></li>
+<ul>
+<li>check-static：检查reset-domain过程之后的static目录</li>
 </ul>
-
-<p>这个迁移并不是特指针对于Git Pages（xxxx.github.io）的，因此generate模式可以在非Ghost博客上正常工作，并且也可以将生成的静态网页Delpoy到非Git Pages的网站上去。所谓“Ghost -> Git Pages”只是上述过程的一个运用而已。</p>
-
+</li>
+</ul>
+<p>这个迁移并不是特指针对于Git Pages（xxxx.github.io）的，因此generate模式可以在非Ghost博客上正常工作，并且也可以将生成的静态网页Delpoy到非Git Pages的网站上去。所谓“Ghost -&gt; Git Pages”只是上述过程的一个运用而已。</p>
 <p>generate工作模式在网页抓取上并不“积极”，它只是使用wget对Site入口（<code>/index.html</code>）进行深度递归并下载所有页面以及图片等等其它附件与资源而已。相对于Buster，它最大的进步是定义和有效利用了上述的四个阶段。</p>
-
 <p>工作模式update在原理上就与generate不同。update工作模式是直接依赖Ghost的数据库文件的，它必须位于Monster可访问的路径上。update工作模式并没有上述的四个阶段，它缺省就直接读取数据库中最新的条目，并根据其title直接使用wget下载该页面和可能的资源。</p>
-
 <p>update工作模式只有<code>fetch</code>和<code>deploy</code>两种行为。其中<code>fetch</code>行为是默认总是进行——除了在使用<code>--deploy-only</code>参数的情况下，而<code>deploy</code>行为是由<code>--deploy-now</code>或<code>--deploy-only</code>来触发的。</p>
-
 <p>update工作模式的<code>deploy</code>行为是直接调用generate模式来实现的，所以事实上二者在Deploy功能上完全一致——只是在调用时，update模式会把<code>--pick-sitemap</code>和<code>--short-path</code>置为false，因为这两个步骤已经在update工作模式中处理过了，不需要generate模式去处理。</p>
-
 <p>在update工作模式之内，<code>--pick-sitemap</code>和<code>--short-path</code>缺省是打开的，并且总是“推荐”使用short path——这在update工作模式中是更佳的选择。</p>
-
 <h2 id="generate">generate模式的缺省行为</h2>
-
 <p>下面的代码将直接调用generate模式的缺省行为：</p>
-
 <pre><code class="language-bash">&gt; monster generate
 </code></pre>
-
 <p>在缺省情况下，Monster相关的配置如下：</p>
-
 <pre><code class="language-bash"># GENERATE过程
 GENERATE=false
 
 # RESET_DOMAIN过程
-PICK_SITEMAP=true  
-PATCH_VERSION=true  
+PICK_SITEMAP=true
+PATCH_VERSION=true
 RESET_DOMAIN=true
 
 # SHORT_PATH过程
 SHORT_PATH=false
 
 # DEPLOY过程
-CHECK_STATIC=true  
-DEPLOY_NOW=false  
+CHECK_STATIC=true
+DEPLOY_NOW=false
 </code></pre>
-
 <p>因此generate模式缺省会跳过GENERATE过程，然后：</p>
-
 <ul>
 <li>判断Static path（例如缺省的<code>./static</code>）是否有效</li>
 </ul>
-
 <p>如果<code>./static</code>不存在，那么直接退出并提示：</p>
-
 <blockquote>
-  <p>Abort because have not './static' directory.</p>
+<p>Abort because have not './static' directory.</p>
 </blockquote>
-
 <p>否则接下来处理：</p>
-
 <ul>
 <li>首先根据<code>PICK_SITEMAP</code>和<code>PATCH_VERSION</code>的配置来处理<code>RESET_DOMAIN</code>的前置过程；然后，</li>
 <li>将检查生成文件的<code>SITE</code>值与发布到的<code>DOMAIN</code>地址，如果不一样（例如想从本地site生成文件并发布到domain），重置Static目录中所有文件中的domain值（<code>RESET_DOMAIN</code>）。</li>
 </ul>
-
 <p>最后跳过SHORT_PATH过程，并：</p>
-
 <ul>
 <li>检查一次Static目录中的文件是否都重置过domain（<code>CHECK_STATIC</code>）。</li>
 </ul>
-
 <h2 id="update">update模式的缺省行为</h2>
-
 <p>下面的代码将直接调用update模式的缺省行为：</p>
-
 <pre><code class="language-bash">&gt; monster update
 </code></pre>
-
 <p>对于update模式来说，以下参数是缺省置为true值的：</p>
-
-<pre><code class="language-bash">PICK_ROBOTS_TXT=true  
-PICK_SITEMAP=true  
-SHORT_PATH=true  
-RESET_DOMAIN=true  
+<pre><code class="language-bash">PICK_ROBOTS_TXT=true
+PICK_SITEMAP=true
+SHORT_PATH=true
+RESET_DOMAIN=true
 </code></pre>
-
 <p>前面说过：update与generate的行为逻辑很不一样。update模式的<code>fetch</code>行为看起来总是更“贪婪”的：</p>
-
 <ul>
 <li>它将尝试获取全部更新文件（依赖.sqlitedb中的信息来分析），并且如果发现有新的post创建，就会尝试获取全部列表文件——例如作者文章列表，以及首页文章索引等（包括<code>PICK_ROBOTS_TXT</code>、<code>PICK_SITEMAP</code>等等）。</li>
 <li>一旦上述过程完成，<code>fetch</code>行为将进一步地检查Static目录，由于<code>SHORT_PATH</code>为true，所以它会尝试将Url中的路径变短。</li>
 <li>最后，update模式会进入<code>RESET_DOMAIN</code>过程，并传入参数<code>--generate=false --pick-sitemap=false --short-path=false</code>以避免makesite.sh模块重复操作。</li>
 </ul>
-
 <p>update模式缺省并不Deploy（除非你在命令行上指定了<code>--deploy-now</code>，它缺省是false值）。</p>
-
 <p>你无法让update过程什么也不做，这一点也与generate不同。唯一可算作例外的，是如果上一次update之后在Ghost中什么变化也没有（没有添加、删除或更新post），那么在update时就不会获得什么更新数据，也不会创建<code>./static</code>目录：</p>
-
 <pre><code class="language-bash">&gt; monster update
 Pick updated or new files ...
 
-Try refresh author's pages ...  
+Try refresh author's pages ...
 &gt; Skiped.
-Abort because have not './static' directory.  
+Abort because have not './static' directory.
 </code></pre>
-
 <h2 id="">开始构建你的网站</h2>
-
 <p>你可以从一开始就选择两种工作模式之一。generate模式每一次总是做全站生成，而update模式只在第一次调用时，读sqlite库中的全部post做一次全站生成——并且部署。</p>
-
 <p>如果你使用过<code>monster update --deploy-now</code>一次，那么Monster会在当前目录下生成一个<code>.sqlitedb</code>文件，用于存储数据库状态的一个时间点——以便下次update增量。</p>
-
 <p>如果已经在用<code>monster generate</code>来直接做全站生成和部署了，那么第一次使用update工作模式时，可以使用下面的命令：</p>
-
 <pre><code class="language-bash">&gt; monster update --init
-File .sqlitedb saved.  
+File .sqlitedb saved.
 </code></pre>
-
 <p>这并不真的部署和更新任何东西，只是将<code>.sqlitedb</code>对齐到当前数据库。——之后，无论是<code>--deploy-now</code>还是<code>--deploy-only</code>，update模式每次都会更新<code>.sqlitedb</code>。</p>
-
 <h2 id="generate">generate模式下的参数</h2>
-
 <p>除了需要显式地用<code>monster generate --help</code>显示帮助信息之外，其它情况下都可以省掉第一个参数<code>generate</code>。其它的参数包括：</p>
-
 <pre><code>#
 # 参数开关，--paramName=true/false，只用--paramName相当于指定true
 #
 
 ## 四个主要过程
-# - 调用Buster生成全站
+# - 生成全站
 --generate
 # - 重置静态页中的domain(缺省为true)
 --reset-domain
@@ -538,13 +411,13 @@ File .sqlitedb saved.
 #
 
 ## 部署到的domain
---domain="..."
+--domain=&quot;...&quot;
 
 ## 下载静态页的Site，支持https
---site="http://..."
+--site=&quot;http://...&quot;
 
 ## 存放静态页的目录
---static-path="..."
+--static-path=&quot;...&quot;
 
 #
 # 其它
@@ -556,11 +429,8 @@ File .sqlitedb saved.
 ## 显示版本号
 --version
 </code></pre>
-
 <h2 id="update">update模式下的参数</h2>
-
 <p>可以用<code>monster update</code>来按缺省配置运行udpate模式。其它的参数包括：</p>
-
 <pre><code class="language-bash">#
 # 参数开关，--paramName=true/false，只用--paramName相当于指定true
 #
@@ -598,30 +468,28 @@ File .sqlitedb saved.
 #
 
 ## 部署到的domain
---domain="..."
+--domain=&quot;...&quot;
 #- 在使用'--sync-issue'功能时，在Issue body中写入的Url上使用的协议名，缺省为'https'
---protocol="..."
+--protocol=&quot;...&quot;
 
 ## 下载静态页的Site，支持https
---site="http://..."
+--site=&quot;http://...&quot;
 
 ## 存放静态页的目录
---static-path="..."
+--static-path=&quot;...&quot;
 
 ## 本地Ghost的数据库文件路径
---db="..."
+--db=&quot;...&quot;
 
 ## 本地Ghost登录帐号，可以用'monster --list user'查看
 #- (帐号邮箱)
---email="..."
+--email=&quot;...&quot;
 
 ## 一个标记字符串，极少使用
 #-（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
---ad-token="..."
+--ad-token=&quot;...&quot;
 </code></pre>
-
 <p>此外，Monster还在update工作模式下提供了一些直接命令，它们与一个（类似上述的）更新和部署过程无关，例如<code>—help</code>。这些命令包括：</p>
-
 <pre><code class="language-bash">#
 # 直接指令
 #
@@ -651,382 +519,285 @@ File .sqlitedb saved.
 ## 显示版本号
 --version
 </code></pre>
-
 <p><strong>关于<code>--sync-removed</code>参数</strong></p>
-
 <p>Monster是通过记录数据库中的时间点的方法，来实现增量更新的。由于Ghost并没有在数据库中记录删除post的行为，也并不导致时间点变化，所以Monster也并没有办法简单确认当前Ghost环境中删除过post。</p>
-
 <p>因此一旦用户只删除了post——而又没有任何其它添加或更新操作的话，那么就需要用下面的命令来提交一次update：</p>
-
 <pre><code class="language-bash">&gt; monster --sync-removed --deploy-now
 </code></pre>
-
 <p>这个命令将会重建所有的索引页、标签页等，以便体现删除post这样的操作。</p>
-
 <p>但是有一个小的问题：如果有“上一篇”、“下一篇”这样的导航，那么被删除post的链接仍然会出现在其它post页面上。——不过，由于是增量更新，所以这个链接仍然是可用的。换言之，被删除的post只是不再出现在各种列表页中，并没有真正移除。</p>
-
 <p>很遗憾，目前这是无法直接解决的。</p>
-
 <blockquote>
-  <p>注1：你可以删除<code>.sqlitedb</code>文件再执行<code>monster update</code>，这样可以全站重新生成一次，就可以了。</p>
-  
-  <p>注2：monster只是从Static目录中复制了文件覆盖你的git仓库，这意味着它并没有<code>git rm …</code>来删除仓库中的既有文件——例如你刚刚删除掉的那个post。也就是说，即使你重新全站生成并deploy，那个post已经上传的的静态网页也仍然需要你手工从git仓库中删除。</p>
+<p>注1：你可以删除<code>.sqlitedb</code>文件再执行<code>monster update</code>，这样可以全站重新生成一次，就可以了。</p>
+<p>注2：monster只是从Static目录中复制了文件覆盖你的git仓库，这意味着它并没有<code>git rm …</code>来删除仓库中的既有文件——例如你刚刚删除掉的那个post。也就是说，即使你重新全站生成并deploy，那个post已经上传的的静态网页也仍然需要你手工从git仓库中删除。</p>
 </blockquote>
-
 <p><strong>关于<code>--force</code>参数</strong></p>
-
 <p>这是一个用在update工作模式下的比较特别的参数。</p>
-
 <p>前面说过，update工作模式是根据sqlite数据库的状况来实现的。这样一来，某些页面（通常是指定为static的、由特定模板或生成算法动态生成的网页）就不能被更新。在Ghost系统中，这些页面包括author和tag的索引页，以及手工定制的一些类似profile的页面。</p>
-
 <p>当Monster发现有一个post新建的时候，它将认为所有上述页面都可能导致变化，所以就会主动（贪婪）地更新这些页面。但如果没有post新建——而只是更新了既有post，那么由于感知不到上述变化，所以就需要用<code>--force</code>来强制生成这些页面。</p>
-
 <p>Monster不可能穷举所有类似的页面，所以在后续的版本中可能会提供一个机制来让用户定制这个页面列表。就目前而言，如果你有更多页面要处理，你只能手工修改updatesite.sh模块。这个文件位置在：</p>
-
 <pre><code class="language-bash">&gt; brew list monster | grep updatesite
 /usr/local/Cellar/monster/xxxx/libexec/updatesite.sh
-</code></pre>]]></content:encoded></item><item><title><![CDATA[详解Monster的初始化及配置]]></title><description><![CDATA[<p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+</code></pre>
+</div>]]></content:encoded></item><item><title><![CDATA[详解Monster的初始化及配置]]></title><description><![CDATA[<div class="kg-card-markdown"><p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然<br>
 是Monster的最佳使用场景。</p>
-
 <blockquote>
-  <p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743">将Monster用作网站离线下载的方法</a>。</p>
+<p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743">将Monster用作网站离线下载的方法</a>。</p>
 </blockquote>
-
 <h2 id="">预备工作</h2>
-
 <ul>
 <li>你需要先启动Ghost并了解它运行在的本地地址</li>
 </ul>
-
 <pre><code class="language-bash">&gt; npm start
-Ghost is running in development...  
-Listening on 127.0.0.1:2368  
+Ghost is running in development... 
+Listening on 127.0.0.1:2368 
 ...
 </code></pre>
-
 <p>Ghost可以运行在不同的模式下，上面的是<code>development</code>模式，这种情况下它的缺省端口是<code>:2368</code>。</p>
-
 <p>另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在<code>${GHOST}</code>，那么这些数据文件的位置是在：</p>
-
 <pre><code class="language-bash">&gt; grep -Fe '.db' ${GHOST}/config.js
-filename: path.join(__dirname, '/</code></pre>]]></description><link>http://aimingoo.github.io/1-1742/</link><guid isPermaLink="false">ace57750-3412-4ab2-842e-ab8f41032aab</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:43:06 GMT</pubDate><content:encoded><![CDATA[<p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然
+filename: path.join(__dirname, '/</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1742/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5bf</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:43:06 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然<br>
 是Monster的最佳使用场景。</p>
-
 <blockquote>
-  <p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743">将Monster用作网站离线下载的方法</a>。</p>
+<p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743">将Monster用作网站离线下载的方法</a>。</p>
 </blockquote>
-
 <h2 id="">预备工作</h2>
-
 <ul>
 <li>你需要先启动Ghost并了解它运行在的本地地址</li>
 </ul>
-
 <pre><code class="language-bash">&gt; npm start
-Ghost is running in development...  
-Listening on 127.0.0.1:2368  
+Ghost is running in development... 
+Listening on 127.0.0.1:2368 
 ...
 </code></pre>
-
 <p>Ghost可以运行在不同的模式下，上面的是<code>development</code>模式，这种情况下它的缺省端口是<code>:2368</code>。</p>
-
 <p>另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在<code>${GHOST}</code>，那么这些数据文件的位置是在：</p>
-
 <pre><code class="language-bash">&gt; grep -Fe '.db' ${GHOST}/config.js
-filename: path.join(__dirname, '/content/data/ghost.db')  
-filename: path.join(__dirname, '/content/data/ghost-dev.db')  
-filename: path.join(__dirname, '/content/data/ghost-test.db')  
+filename: path.join(__dirname, '/content/data/ghost.db')
+filename: path.join(__dirname, '/content/data/ghost-dev.db')
+filename: path.join(__dirname, '/content/data/ghost-test.db')
 </code></pre>
-
 <p>根据你启动的Ghost的版本不同，选择上面的一个库文件即可（一般是<code>ghost-dev.db</code>）。</p>
-
 <ul>
-<li>你需要安装Buster并确信它可用</li>
+<li>(<strong>discard</strong>)你需要安装Buster并确信它可用</li>
 </ul>
-
-<pre><code class="language-bash">&gt; pip install buster
-&gt; buster --version
-0.1.3  
-</code></pre>
-
-<p>Monster在全量生成网站的时候会调用Buster；如果你只使用它的增量生成功能，那么Buster也可以不安装。</p>
-
+<blockquote>
+<p>在Monster早期版本中是调用Buster来生成全站的，但从v1.0.5版本开始就移除了对Buster的依赖。</p>
+</blockquote>
 <ul>
 <li>你需要确信mac环境是否能运行Monster</li>
 </ul>
-
 <p>Monster依赖mac环境上的一些工具。如果你使用brew，那么可以用下面的命令来安装它：</p>
-
 <pre><code class="language-bash">&gt; brew install wget jq curl
 ...
 </code></pre>
-
 <p>其它还会使用到的工具包括<code>sqlite3</code>、<code>sum</code>和<code>git</code>：<code>sqlite3</code>应该已经在安装Ghost时安装过了，而<code>sum</code>是MacOSX原生自带的；多数情况下，建议你安装<code>git</code>，使用<code>brew install git</code>即可。</p>
-
 <blockquote>
-  <p><strong>注：</strong></p>
-  
-  <p>Monster主要是用于生成静态网页，只有当你使用它的部署(deploy)功能时，才会用到<code>git</code>。所以事实上git并不是必须安装。</p>
-  
-  <p>Monster使用Git api访问github issues，所以在使用评论相关的功能时并不要求安装git客户端。</p>
+<p><strong>注：</strong></p>
+<p>Monster主要是用于生成静态网页，只有当你使用它的部署(deploy)功能时，才会用到<code>git</code>。所以事实上git并不是必须安装。</p>
+<p>Monster使用Git api访问github issues，所以在使用评论相关的功能时并不要求安装git客户端。</p>
 </blockquote>
-
 <ul>
 <li>最后，你需要安装Monster</li>
 </ul>
-
 <p>有两种方法安装Monster：</p>
-
 <pre><code class="language-bash"># 使用Brew安装
 &gt; brew install aimingoo/repo/monster
 
 # 使用Git仓库安装
 &gt; git clone https://github.com/aimingoo/monster
-&gt; install monster/libexec/monster.sh /usr/local/bin/monster
+&gt; ln -s &quot;$(pwd)/monster/libexec/monster.sh&quot; /usr/local/bin/monster
+&gt; chmod +x /usr/local/bin/monster
 </code></pre>
-
 <h2 id="">初始化及配置</h2>
-
 <pre><code class="language-bash"># 创建一个目录，并在该目录中运行如下命令
 &gt; monster --init
-Your Github name or domain : aimingoo  
-Your Github access token, or Enter to skip:  
-Your Ghost local account(e-mail), or Enter to skip:  
-Your Ghost local .db file, or Enter to skip:  
-Your Ghost site, or Enter set default [localhost:2368]:  
-File .monster saved.  
-File .gitignore updated.  
+Your Github name or domain : aimingoo
+Your Github access token, or Enter to skip: 
+Your Ghost local account(e-mail), or Enter to skip: 
+Your Ghost local .db file, or Enter to skip: 
+Your Ghost site, or Enter set default [localhost:2368]: 
+File .monster saved.
+File .gitignore updated.
 </code></pre>
-
 <p>第一项配置<code>Github name or domain</code>总是必须输入的。它可以是一个名为<code>xxxx.github.io</code>的域名，或只是<code>xxxx</code>这样的域名前缀（亦即是Github用户账号名），此外还可以是一个非github的域名，例如<code>your.site.com</code>。</p>
-
 <h3 id="domain">如果domain是无效的</h3>
-
 <p>你可以使用任何domain——哪怕它不是真实的值。Monster的基本逻辑是：</p>
-
 <ul>
 <li><strong>GENERATE</strong>：下载一个<code>SITE</code>上的网页，放在<code>STATIC_PATH</code>中；并尝试</li>
 <li><strong>RESET_DOMAIN</strong>：将网页中有关<code>SITE</code>的信息替换成<code>DOMAIN</code>；以及</li>
 <li><strong>DEPLOY_NOW</strong>：将<code>STATIC_PATH</code>中的文件复制到当前目录，并尝试将当前目录作为Git仓库来部署。</li>
 </ul>
-
 <p>所以只要不启用RESET_DOMAIN（传入<code>--reset-domain=false</code>参数或者修改<code>.monster</code>配置），那么无效的DOMAIN是不影响Monster的使用的。</p>
-
 <h3 id="domain">如果domain是空值</h3>
-
 <p>在调用<code>monster --init</code>并输入缺省配置时，是不能使domain值为空的。</p>
-
 <p>你可以编辑<code>.monster</code>以使该参数值为空，但这样的配置仅对update工作模式是有意义的。这会缺省使用<code>&lt;GITHUB_USER&gt;.github.io</code>来作为DOMAIN值，如果在update工作模式中调用了<code>--deploy-now</code>、<code>--deploy-only</code>或<code>--reset-domain</code>，那么该值也会通过命令行参数传入<code>makesite.sh</code>，以确保后者可用。</p>
-
 <p>你不应当使<code>.monster</code>文件中的<code>DOMAIN</code>和<code>GITHUB_USER</code>值同时为空值。——如果是这样，你就必须总是从命令行中传入参数了。</p>
-
 <h3 id="domain">关于domain的协议</h3>
-
 <p>由于Monster并不访问你的domain（它只是更新本地静态网页中的内容），所以在配置文件中并不需要指定domain使用的协议，例如<code>https</code>或<code>http</code>。但有一个极小极小的例外，如果：</p>
-
 <ul>
 <li>你使用了Git issues来作评论，并且</li>
 <li>你的domain并没有host在<code>xxxx.github.io</code>上，并且</li>
 <li>你还打算使用Monster的<code>update --sync-issue</code>来管理它，</li>
 </ul>
-
 <p>那么你需要修改<code>.monster</code>中的<code>PROTOCOL</code>参数，缺省时它的值是<code>https</code>。</p>
-
 <h3 id="monster">如果没有<code>.monster</code>文件</h3>
-
-<p>如果你没有调用<code>monster —init</code>来初始化一个<code>.monster</code>文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。</p>
-
+<p>如果你没有调用<code>monster --init</code>来初始化一个<code>.monster</code>文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。</p>
 <p>这种情况下，对于generate工作模式来说，你必须从命令行通过<code>--domain</code>传入DOMAIN参数；对于update工作模式来说，则必须传入<code>--db</code>。当然你还可能需要传入其它在运行中要用到的参数，例如<code>GITHUB_USER</code>。</p>
-
 <h2 id="monster">配置文件.monster的详细说明</h2>
-
 <pre><code>## Github domain
 #  - （参见上文）
-DOMAIN="..."
+DOMAIN=&quot;...&quot;
 
 ## Ghost .db file path
 # - update工作模式下的相关功能依赖该配置
-DB="/User/..."
+DB=&quot;/User/...&quot;
 
 ## Ghost site address
 # - 要静态化（下载）的网站，可以是本地Ghost或远端的任何网址
 # - 可以是任何网站（不是Ghost的网站，甚至不是博客）
-SITE="http://..."
+SITE=&quot;http://...&quot;
 
 ## Github account, and rate of api access
 # - 你的Github账号，是指当前工作目录对应的xxxx.github.io
-GITHUB_USER="Your name"  
+GITHUB_USER=&quot;Your name&quot;
 # - 你需要在Github后台为Git client创建一个Access token
-GITHUB_TOKEN="Access token"  
+GITHUB_TOKEN=&quot;Access token&quot;
 # - 每次Github API访问之后sleep的时间（单位为秒）；当值为1时，意味着每分钟不会超过60次访问
-GITHUB_APIRATE=1  
+GITHUB_APIRATE=1
 # - 当读取Gitment等博客评论时，每次用Github取数据时的页大小（缺省为每页100条记录）
 GITHUB_PAGESIZE=100
 
 ## Other
 # - 你在本地Ghost中的登录帐号
-EMAIL="..."  
+EMAIL=&quot;...&quot;
 # - 特殊情况下需要用到的domain的协议值（参见上文）
-PROTOCOL="https"
+PROTOCOL=&quot;https&quot;
 
 ## Advertisement token string for your site
 # - 一个标记字符串，极少使用（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
-AD_TOKEN=""
+AD_TOKEN=&quot;&quot;
 
 ## Default directory of static files
 # - 生成静态文件的路径
 # - （对于Monster的preview工作模式来说，必须使用该配置而不能用命令行传入参数）
-STATIC_PATH="./static"
+STATIC_PATH=&quot;./static&quot;
 
 ## Default behavior
 # - 在GENERATE阶段中显示更多信息
-GENERATE_INFO=false  
+GENERATE_INFO=false
 # - 在update工作模式下，强制更新列表类网页
-SYNC_REMOVED=false  
+SYNC_REMOVED=false
 # - 在操作过程中是否移除static目录中的文件名的'?xxxxxx'版本后缀
-PATCH_VERSION=true  
+PATCH_VERSION=true
 # - 是否启用RESET_DOMAIN阶段
-RESET_DOMAIN=true  
+RESET_DOMAIN=true
 # - 是否启用SHORT_PATH阶段
-SHORT_PATH=false  
+SHORT_PATH=false
 # - 是否启用CHECK_STATIC阶段
 CHECK_STATIC=true
 
 ## Pick more files
 # - 是否拾取静态化的云标签文件/tag-cloud
-PICK_STATIC_TAGCLOUD=false  
+PICK_STATIC_TAGCLOUD=false
 # - 是否拾取静态化的profile文件/profile-xxx
-PICK_STATIC_PROFILE=false  
+PICK_STATIC_PROFILE=false
 # - 是否拾取静态化的归档文件/archive-post
-PICK_ARCHIVES_POST=false  
+PICK_ARCHIVES_POST=false
 # - 是否拾取/robots.txt
-PICK_ROBOTS_TXT=true  
+PICK_ROBOTS_TXT=true
 # - 是否拾取sitemap文件/sitemap-*
-PICK_SITEMAP=true  
+PICK_SITEMAP=true
 # - 在update工作模式下，强制尝试上述PICK_xxxx和索引页等文件
 FORCE=false
 
 ## Other override
 # - 在SHORT_PATH阶段中不处理的目录名
-IGNORE_LIST=("archives-post" "author" "page" "rss" "tag" "assets" "content" "shared")  
+IGNORE_LIST=(&quot;archives-post&quot; &quot;author&quot; &quot;page&quot; &quot;rss&quot; &quot;tag&quot; &quot;assets&quot; &quot;content&quot; &quot;shared&quot;)
 # - 在PATCH_VERSION阶段中需要处理的目录名
-VERDIR_LIST=("assets" "shared" "public")  
-</code></pre>]]></content:encoded></item><item><title><![CDATA[将Monster用作网站离线下载的方法]]></title><description><![CDATA[<p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
-
+VERDIR_LIST=(&quot;assets&quot; &quot;shared&quot; &quot;public&quot;)
+</code></pre>
+</div>]]></content:encoded></item><item><title><![CDATA[将Monster用作网站离线下载的方法]]></title><description><![CDATA[<div class="kg-card-markdown"><p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
 <h3 id="">在非工作目录中（不推荐）</h3>
-
 <ul>
 <li>将网站全站下载到<code>./static</code>目录</li>
 </ul>
-
 <pre><code class="language-bash"># 由于site与domain相同，所以不会触发reset-domain操作
-&gt; monster --generate --site="http://your.site.com" --domain="your.site.com"
+&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=&quot;your.site.com&quot;
 
 # OR，置reset-domain为false
-&gt; monster --generate --site="http://your.site.com" --domain=. --reset-domain=false
+&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=. --reset-domain=false
 </code></pre>
-
 <ul>
 <li>对<code>./static</code>目录中的静态页面作<code>reset-domain</code>操作（缺省该选项是打开的）</li>
 </ul>
-
-<pre><code class="language-bash">&gt; monster --domain="your.site.com"
-</code></pre>
-
-<ul>
-<li>预览<code>./static</code>目录中的静态页面</li></ul>]]></description><link>http://aimingoo.github.io/1-1743/</link><guid isPermaLink="false">e23f0fe8-7fa5-4bfa-a6d4-b9541dab278b</guid><category><![CDATA[Monster]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:42:58 GMT</pubDate><content:encoded><![CDATA[<p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
-
+<pre><code class="language-bash">&gt; monster --domain=</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1743/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c0</guid><category><![CDATA[Monster]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:42:58 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
 <h3 id="">在非工作目录中（不推荐）</h3>
-
 <ul>
 <li>将网站全站下载到<code>./static</code>目录</li>
 </ul>
-
 <pre><code class="language-bash"># 由于site与domain相同，所以不会触发reset-domain操作
-&gt; monster --generate --site="http://your.site.com" --domain="your.site.com"
+&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=&quot;your.site.com&quot;
 
 # OR，置reset-domain为false
-&gt; monster --generate --site="http://your.site.com" --domain=. --reset-domain=false
+&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=. --reset-domain=false
 </code></pre>
-
 <ul>
 <li>对<code>./static</code>目录中的静态页面作<code>reset-domain</code>操作（缺省该选项是打开的）</li>
 </ul>
-
-<pre><code class="language-bash">&gt; monster --domain="your.site.com"
+<pre><code class="language-bash">&gt; monster --domain=&quot;your.site.com&quot;
 </code></pre>
-
 <ul>
 <li>预览<code>./static</code>目录中的静态页面</li>
 </ul>
-
 <pre><code class="language-bash">&gt; monster preview
 </code></pre>
-
 <h3 id="">初始化一个工作目录用来下载</h3>
-
 <p>我们可以将一个目录初始化，用作专门的网络离线下载（备份/归档）。</p>
-
 <p><strong>初始化一个工作目录</strong></p>
-
 <pre><code class="language-bash"># 直接用--init初始化一个工作目录，除了domain之外其它的跳过
-#    - 随便填写一个domain地址即可，例如填写一个“.”符号
+#	- 随便填写一个domain地址即可，例如填写一个“.”符号
 &gt; monster --init
-Your Github name or domain: .  
+Your Github name or domain: .
 ...
 
 # 置RESET_DOMAIN=false
 &gt; sed -i '' 's/[# ]*\(RESET_DOMAIN\)=.*/\1=false/' .monster
 
 # 添加一行配置
-&gt; echo "GENERATE=true" &gt;&gt; .monster
+&gt; echo &quot;GENERATE=true&quot; &gt;&gt; .monster
 </code></pre>
-
 <p><strong>常用操作</strong></p>
-
 <pre><code class="language-bash"># 下载一个站点(例如https://aimingoo.github.io)
-&gt; monster --site="https://aimingoo.github.io"
+&gt; monster --site=&quot;https://aimingoo.github.io&quot;
 
 # 将站点下载到指定目录
-&gt; monster --site="https://aimingoo.github.io" --static-path="./archive"
+&gt; monster --site=&quot;https://aimingoo.github.io&quot; --static-path=&quot;./archive&quot;
 
 # 不尝试下载sitemap文件
-&gt; monster --site="https://aimingoo.github.io" --pick-sitemap=false
-</code></pre>]]></content:encoded></item><item><title><![CDATA[Monster - 用Ghost写博客的终极利器]]></title><description><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
-
+&gt; monster --site=&quot;https://aimingoo.github.io&quot; --pick-sitemap=false
+</code></pre>
+</div>]]></content:encoded></item><item><title><![CDATA[Monster - 用Ghost写博客的终极利器]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="bustermonster">是时候从Buster转到Monster了</h2>
 <p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
-
-<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
-
+<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
 <p>再之后，将这两个脚本合在一起，就变成了：</p>
-
 <blockquote>
-  <p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
+<p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
 </blockquote>
-
 <p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
-
-<h2 id="monster">Monster的功能</h2>
-
-<ul>
-<li>全量和增量生成Ghost静态网站</li>
-<li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
-<li>支持生成并不Host在<code>github.</code></li></ul>]]></description><link>http://aimingoo.github.io/1-1741/</link><guid isPermaLink="false">5bfc1c43-be1d-43e2-b094-16c27efc9fbe</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded><![CDATA[<h2 id="bustermonster">是时候从Buster转到Monster了</h2>
-
+<blockquote>
+<p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p></blockquote></div>]]></description><link>http://aimingoo.github.io/1-1741/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5be</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="bustermonster">是时候从Buster转到Monster了</h2>
 <p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
-
-<p><code>makesite.sh</code>其实是Buster的一个壳，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
-
+<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
 <p>再之后，将这两个脚本合在一起，就变成了：</p>
-
 <blockquote>
-  <p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
+<p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
 </blockquote>
-
 <p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
-
+<blockquote>
+<p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p>
+</blockquote>
 <h2 id="monster">Monster的功能</h2>
-
 <ul>
 <li>全量和增量生成Ghost静态网站</li>
 <li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
@@ -1036,18 +807,14 @@ Your Github name or domain: .
 <li>支持Ghost的多作者（multi-author）功能</li>
 <li>支持基于github issues的评论管理（面向gitment的工具功能）</li>
 </ul>
-
 <h2 id="monster">安装Monster</h2>
-
 <pre><code class="language-bash">&gt; brew install aimingoo/repo/monster
 </code></pre>
-
 <h2 id="">快速上手</h2>
-
 <pre><code class="language-bash"># 了解ghost运行的本地地址(例如下面的127.0.0.1:2368)
 &gt; npm start
-Ghost is running in development...  
-Listening on 127.0.0.1:2368  
+Ghost is running in development... 
+Listening on 127.0.0.1:2368 
 ...
 
 # 如果你已经在Github上创建了自己的pages，那么你应该先将它clone到本地
@@ -1055,16 +822,16 @@ Listening on 127.0.0.1:2368
 &gt; git clone 'https://github.com/xxxx/xxxx.github.io'
 
 # 配置初始化(用上面的项目作为工作目录)
-#    - 可以不使用xxxx.github.io，而使用自己的domain，例如your.site.com
-#    - 路径"Ghost local .db file"可用如下命令查看(或先略过它)：
-#        &gt; grep -Fe '.db' ${GHOST安装目录}/config.js
+#	- 可以不使用xxxx.github.io，而使用自己的domain，例如your.site.com
+#	- 路径&quot;Ghost local .db file&quot;可用如下命令查看(或先略过它)：
+#		&gt; grep -Fe '.db' ${GHOST安装目录}/config.js
 &gt; cd xxxx.github.io
 &gt; monster --init
-Your Github name or domain: xxxx  
-Your Github access token, or Enter to skip:  
-Your Ghost local account(e-mail), or Enter to skip:  
-Your Ghost local .db file, or Enter to skip:  
-Your Ghost site, or Enter set default [localhost:2368]:  
+Your Github name or domain: xxxx
+Your Github access token, or Enter to skip: 
+Your Ghost local account(e-mail), or Enter to skip: 
+Your Ghost local .db file, or Enter to skip: 
+Your Ghost site, or Enter set default [localhost:2368]: 
 ...
 
 # 全站生成
@@ -1089,40 +856,37 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 # 或在更新后直接发布
 &gt; monster update --deploy-now
 </code></pre>
-
 <h2 id="">工作目录</h2>
-
 <p>在使用<code>monster --init</code>初始化之后，当前目录就被Monster视为工作目录。</p>
-
 <p>Monster会根据当前目录下的<code>.monster</code>配置工作，因此只需要为多个site建立不同的目录，就可以管理multi-domain了。</p>
-
 <p>Monster会操作和维护当前目录下的<code>./static</code>目录来生成静态文件，你可以通过上述的<code>.monster</code>配置来改变这个目录的位置。</p>
-
 <p>最后，当前目录下的<code>monster.log</code>和<code>.sqlitedb</code>也是由Monster来管理的。你可以手工编写一个名为<code>patchme.sh</code>的文件来实现一些复杂的操作，如果它存在，那么Monster会调用并管理它。</p>
-
 <p>Monster的多数操作信息会直接出现在控制台，只有<code>monster --generate</code>和<code>monster update</code>会操作monster.log文件，前者总是覆盖整个文件，而后者是追加日志。</p>
-
 <p>Monster会维护<code>.gitignore</code>或<code>.git/info/exclude</code>文件来避免git将多余的文件push到仓库。所以，上述<code>./static</code>目录以及<code>.monster</code>、<code>.sqlitedb</code>、<code>patchme.sh</code>和<code>monster.log</code>等文件也已经加入了git的ingore list。</p>
-
 <h2 id="">高级特性</h2>
-
 <p>关于Monster的Git issues评论、short path、sync、multi author等特性，请参考：</p>
-
 <p><strong>阅读列表</strong></p>
-
 <ul>
 <li><a href="http://aimingoo.github.io/1-1742">详解Monster的初始化及配置</a></li>
 <li><a href="http://aimingoo.github.io/1-1743">将Monster用作网站离线下载的方法</a></li>
 <li><a href="http://aimingoo.github.io/1-1744">Monster的三种工作模式</a></li>
-</ul>]]></content:encoded></item><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
-
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<div class="kg-card-markdown"><p>在<a href="http://aimingoo.github.io/1-1721">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
 <p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
-
 <h2 id="loop">找到loop</h2>
-
 <p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
+<pre><code class="language-html">&lt;div class=&quot;content-cards&quot;&gt;
+  {{#foreach posts}}
+...
+  {{/foreach}}
+&lt;/div&gt;
 
-<pre><code class="language-html">&lt;div class="content-cards"&gt;  
+{{!-- Previous/next page links - displayed on every page --}}
+{{pagination}</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1739/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5bc</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 09 Aug 2017 06:22:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>在<a href="http://aimingoo.github.io/1-1721">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
+<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
+<h2 id="loop">找到loop</h2>
+<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
+<pre><code class="language-html">&lt;div class=&quot;content-cards&quot;&gt;
   {{#foreach posts}}
 ...
   {{/foreach}}
@@ -1131,55 +895,30 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 {{!-- Previous/next page links - displayed on every page --}}
 {{pagination}}
 </code></pre>
-
-<p>我们将这一对<code>{{#foreach}</code></p>]]></description><link>http://aimingoo.github.io/1-1739/</link><guid isPermaLink="false">8d2d0859-a75f-4b1d-97e3-0ef92e4b556f</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 09 Aug 2017 06:22:59 GMT</pubDate><content:encoded><![CDATA[<p>在<a href="http://aimingoo.github.io/1-1721">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
-
-<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
-
-<h2 id="loop">找到loop</h2>
-
-<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
-
-<pre><code class="language-html">&lt;div class="content-cards"&gt;  
-  {{#foreach posts}}
-...
-  {{/foreach}}
-&lt;/div&gt;
-
-{{!-- Previous/next page links - displayed on every page --}}
-{{pagination}}
-</code></pre>
-
 <p>我们将这一对<code>{{#foreach}}</code>标签中（含标签本身）的全部内容剪切出来，并放到一个新的的<code>partials/content_post.hbs</code>文件去。然后，将<code>content_post.hbs</code>复制一份，命名为<code>content_featured.hbs</code>。这样，在<code>partials</code>目录中就有了下面三个文件：</p>
-
-<pre><code>partials/loop.hbs  
-partials/content_post.hbs  
-partials/content_featured.hbs  
+<pre><code>partials/loop.hbs
+partials/content_post.hbs
+partials/content_featured.hbs
 </code></pre>
-
 <h2 id="loop">在loop中标记置顶贴</h2>
-
 <p>现在<code>loop.hbs</code>中还有一对<code>div</code>标签：：</p>
-
-<pre><code class="language-html">&lt;div class="content-cards"&gt;  
-&lt;/div&gt;  
+<pre><code class="language-html">&lt;div class=&quot;content-cards&quot;&gt;
+&lt;/div&gt;
 </code></pre>
-
 <p>我们只需要把下面的代码直接复制到这一对标签之中，就好了：</p>
-
-<pre><code class="language-html">&lt;!-- 置顶风格 --&gt;  
-{{^is "paged"}}
+<pre><code class="language-html">&lt;!-- 置顶风格 --&gt;
+{{^is &quot;paged&quot;}}
   {{! list all feated posts on top }}
-  {{#is "index"}}
-  {{#get "posts" filter="featured:true" limit="all" include="tags" as |featured|}}
+  {{#is &quot;index&quot;}}
+  {{#get &quot;posts&quot; filter=&quot;featured:true&quot; limit=&quot;all&quot; include=&quot;tags&quot; as |featured|}}
   {{#foreach featured}}
       {{&gt; content_featured}}
   {{/foreach}}
   {{/get}}
   {{/is}}
 
-  {{#is "author"}}
-  {{#get "posts" filter="featured:true+author:{{author.slug}}" limit="all" include="tags" as |featured|}}
+  {{#is &quot;author&quot;}}
+  {{#get &quot;posts&quot; filter=&quot;featured:true+author:{{author.slug}}&quot; limit=&quot;all&quot; include=&quot;tags&quot; as |featured|}}
   {{#foreach featured}}
       {{&gt; content_featured}}
   {{/foreach}}
@@ -1187,9 +926,9 @@ partials/content_featured.hbs
   {{/is}}
 {{/is}}
 
-&lt;!-- 普通风格 --&gt;  
+&lt;!-- 普通风格 --&gt;
   {{#foreach posts}}
-    {{#is "tag"}}
+    {{#is &quot;tag&quot;}}
         {{&gt; content_post}}
     {{else}}
         {{#unless featured}}
@@ -1198,784 +937,513 @@ partials/content_featured.hbs
     {{/is}}
   {{/foreach}}
 </code></pre>
-
 <h2 id="">设定置顶贴的效果</h2>
-
 <p>现在你只需要修改<code>partials/content_featured.hbs</code>中的样式，就可以定制你需要的置顶贴的效果了。以affinity为例，我在<code>content_featured.hbs</code>中的下面代码位置添加了一个<code>featured</code>类名：</p>
-
 <pre><code>      ...
-      &lt;header class="card-header featured"&gt;
-        &lt;div class="card-title"&gt;
+      &lt;header class=&quot;card-header featured&quot;&gt;
+        &lt;div class=&quot;card-title&quot;&gt;
+
 </code></pre>
-
 <p>然后，找到<code>assets/css/screen.css</code>文件，添加这个类的CSS样式：</p>
-
 <pre><code class="language-css">.content-cards .featured {
   border: 1px solid red;
 }
 </code></pre>
-
 <p>Ok. 你刷新一下博客效果，每个置顶贴的标题就加了个红框框啦。</p>
-
 <blockquote>
-  <p>更多的效果请自己搞哇。</p>
+<p>更多的效果请自己搞哇。</p>
 </blockquote>
-
 <h2 id="">确认置顶效果会影响的内容</h2>
-
 <p>你可以简单地通过下面的方法确认它会影响到的页面：</p>
-
 <pre><code class="language-bash">&gt; cd affinity
 &gt; grep -H 'loop' *.hbs
-index.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
-index.hbs:{{&gt; "loop"}}  
-tag.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}  
-tag.hbs:{{&gt; "loop"}}  
+index.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}
+index.hbs:{{&gt; &quot;loop&quot;}}
+tag.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}
+tag.hbs:{{&gt; &quot;loop&quot;}}
 </code></pre>
-
 <p>这说明tag和index页会受到loop的影响——不过在前面文章里我已经说过，置顶效果是无法影响到tag页的。所以……另外，事实上这里可以列出有index.hbs、author.hbs和tag.hbs三种页面的，只是affinity这个theme没有author.hbs页罢了。</p>
-
 <h2 id="loophbs">如果没有loop.hbs</h2>
-
 <p>如上所提示到的，如果<code>loop.hbs</code>没有单独地放在<code>partials</code>目录中，那么它可能直接用一对标签<code>{{#foreach posts}}</code>放在index、author或tag三个页面中了。找一找？</p>
-
 <p>你可以直接参考本文来处理这个<code>foreach</code>。或者，我建议把这部分内容/代码取出来放在<code>loop.hbs</code>中，然后再照本文所述处理就好啦。</p>
-
-<p>当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：<a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs">https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs</a></p>]]></content:encoded></item><item><title><![CDATA[小述系列最终篇：说说《大道至易：实践者的思想》]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
-
+<p>当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：<a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs">https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs</a></p>
+</div>]]></content:encoded></item><item><title><![CDATA[小述系列最终篇：说说《大道至易：实践者的思想》]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
 <blockquote>
-  <p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
-  
-  <p>所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。</p>
-  
-  <p>本电子书可自由下载和传播。</p>
+<p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
+<p>所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。</p>
+<p>本电子书可自由下载和传播。</p>
 </blockquote>
-
 <h2 id="">霍泰稳先生的序</h2>
-
 <p>认识泰稳兄已经很多年，第一次请他写序。之所以邀他来写，是因为他是少见的、有着对技术深刻理解的管理者。这十多年来，国内IT技术的、尤其是工程与管理相关的每一次动荡变化，他都是参与者与亲历者。</p>
-
-<p>而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“</p>]]></description><link>http://aimingoo.github.io/1-1736/</link><guid isPermaLink="false">47888d52-efb0-4fb6-a589-590dacc7c381</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[书序书评]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 30 Jul 2017 03:35:54 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
-
+<p>而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“</p></div>]]></description><link>http://aimingoo.github.io/1-1736/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5bb</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[书序书评]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 30 Jul 2017 03:35:54 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
 <blockquote>
-  <p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
-  
-  <p>所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。</p>
-  
-  <p>本电子书可自由下载和传播。</p>
+<p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
+<p>所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。</p>
+<p>本电子书可自由下载和传播。</p>
 </blockquote>
-
 <h2 id="">霍泰稳先生的序</h2>
-
 <p>认识泰稳兄已经很多年，第一次请他写序。之所以邀他来写，是因为他是少见的、有着对技术深刻理解的管理者。这十多年来，国内IT技术的、尤其是工程与管理相关的每一次动荡变化，他都是参与者与亲历者。</p>
-
 <p>而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“具体工程”。而我所谈诸多，也莫过于“落地”二字之要：这二字的前面，是我所经历与感悟的种种工程与思想；其后面，于读者而言的，不过是“具体到项目该怎么做”这样的一句发问。</p>
-
 <p>我写《大道至易》的本意，就是不想教读者怎么“去做”。然而清谈无用，还要先有行，才有思的。所以我是期望读者在做的过程中，哪怕有一霎时的反思能触到书中的所言，便是我做到了。</p>
-
 <p>只是一如书中所言：</p>
-
 <blockquote>
-  <p>“拉屎就算是一项工程，具体来说，也得自己拉”</p>
+<p>“拉屎就算是一项工程，具体来说，也得自己拉”</p>
 </blockquote>
-
 <p>——行是你的事。</p>
-
 <h2 id="">这本书是最难写的</h2>
-
 <p>这本书原是其第一版中的一编，它是成书最晚的部分。我是先回顾了自己对技术的认识，这大概只写了半年（即《程序原本》）；再用半年就写完了对自己架构观点的总结（即《我的架构思想》）。然而在写本编时，却用了接近一年的时间；我不是一个情绪化的人，其间却好几次写到情绪失控，几乎无法完成本编。</p>
-
 <p>而书中却看不到“我的情绪”——这就是《大道至易》最难写的地方。</p>
-
 <p>有所谓“大义微言”，这是指《春秋》一书以记事为条贯，而微言大义与其中。我虽然没有什么“大义”要讲，却不慎地采用了“微言”这一写法。所以令读者可读可受而不自知，原本就是目的与方法所在。这是难写处之一。</p>
-
 <p>难处之二在于要谈什么。</p>
-
 <p>《大道至易》根底里还是要谈软件工程的，毕竟它是承续《大道至简》而来。但我越来越发现，《大道至简》所讲的其实只是工程的要略，而不是工程之实作。工程要实际做起来的时候，人、事和物是一个也分不开的。也就是说，真正的在做工程的时候，你面临的并不是敏捷不敏捷、方法不方法，而是各种扯皮、各种纷乱，以及具体到的那个产品做不出来。</p>
-
 <p>——没有那么多理论让你可用，也没有一个具体可行的、不会出错的“最佳实践”让你去试。</p>
-
 <p>如《大道至易》书中所言，连佛祖都在教你拉屎，但你具体要拉的时候佛祖也是无能为力的。所以我也就不愿做那书写定规的佛祖，而只好写些让你“思而不解”的文字。</p>
-
 <p>要点是你要去思，才会有你的解。我不会比佛祖更强，他都教不了你拉屎，况乎我哉！</p>
-
 <blockquote>
-  <p>注：别说我亵渎佛祖，的确有本《毗尼母经》写了佛祖教僧众拉屎的方法。</p>
+<p>注：别说我亵渎佛祖，的确有本《毗尼母经》写了佛祖教僧众拉屎的方法。</p>
 </blockquote>
-
 <h2 id="">所以……</h2>
-
 <p>要解决“人的问题”，核心是解决“权的问题”，更核心是解决“利的问题”。所谓“势者，利之所趋”，作为管理者，你懂得了所有人的“利的诉求”，你就看到了形势；你顺应了形势，也就事半功倍了。</p>
-
 <p>这是最最核心的那点观察。然而如果你从这本书中看到的就是权术，读到的就是势利，那就又错读了书。因为我并没有谈这些，我谈的仍然是工程中的种种，从学术的到民间的，从组织的到个人的，从团队到产品……总之，我要谈的仍然是你想做的那些具体的事。如同泰稳兄一开始所言：</p>
-
 <blockquote>
-  <p>“大道至易，落地为要”</p>
+<p>“大道至易，落地为要”</p>
 </blockquote>
-
 <p>我不能帮你走，所以我只能让你读到这些观察。这是我能告诉你的、或指示你去看到的、在这个地表上的真相。就如同书中一再用的那四个字：</p>
-
 <blockquote>
-  <p>“这是现实”。</p>
+<p>“这是现实”。</p>
 </blockquote>
-
 <h2 id="66">什么是“66%的从众者”</h2>
-
 <p>起初，这一系列（三本）电子书的封面是一直悬而未决的。我为此找过图灵的编辑，找过我曾经的同事……然而出于我对这本书前作封面的喜好，我否定了许多精彩而用心的设计（不好意思，此处确有私念）。直到我最终决定封面的风格时，便是先定下了这本《大道至易（第二版）》——也就是这黑黑的封面，而封皮上只有两个人，和一句话：</p>
-
 <blockquote>
-  <p>“你是66%的从众者吗？”</p>
+<p>“你是66%的从众者吗？”</p>
 </blockquote>
-
 <p>从《大道至简》的三人论道，变成如今的两人问诘。书的封面的变化，反映了我思想与陈述方法的变化 。如今，我不已不甚在意于“论”，而在意于“问”。</p>
-
 <p>正确的问题，本身就是答案。“你是66%的从众者吗？”如果不是，那么你是谁？你面对的是谁？他面对的是你吗？你何以知道他是从众者，而你不是？若他追随你，又何以证明不是在从众？若不追随你，那又何谓从众？从众的本质属性是什么？是管理与控制？是精神教化？是同理心？若这些是本质属性，那么为什么不是你的属性？你何以觉出“这些”是或不是你的属性？</p>
-
 <p>若三人为众，那么这三个人，又有哪一个不是从众者呢？</p>
-
 <h2 id="">要懂得人</h2>
-
 <p>现在你大概已经知道了，这本书之最难处，在于我谈的是人性，而不是工程的方法。</p>
-
 <p>懂得人心，才是具体工程的要义。</p>
-
 <p>心变，则万物为之变；这才是“易”理。</p>
-
 <h2 id="">要容人</h2>
-
 <p>所以，“易”是最难管的。你的团队的每个人都活在自己的心上，而你连我心都安不下来，谈何去管别人的。收束人心，大概是为人父母者最悲剧的事情了；如你所知的，连天下父母也无法收束的心，又如何能让管理者去收束。</p>
-
 <p>哪有这样的道理啊。</p>
-
 <p>所以莫老想着要管这管那，莫老想着要管人管事。所谓“管”，就是官头上的帽子，你越努力去管，就越是官相毕现，而被管者就越是奴相毕现。所以我说“要做事，不要管理”，容得大家一门心思地去把事情做好，那么管不管，有什么要紧？</p>
-
 <p>所以要“容得下易”。容得下易，也就是容得下可变之心；心可变了，才有万物之可变，才有生活之气象。所以总有团队会死气沉沉，总有产品会胎死腹中，总有工程会不知其所终……</p>
-
 <p>容不下变化，那么就死路一条了。</p>
-
 <h2 id="">下载</h2>
-
 <p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.zip">【下载】</a></strong></p>
-
 <p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-
 <p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.azw3">【下载】</a></strong></p>
-
 <p>下载后用USB上传到Kindle即可。</p>
-
 <blockquote>
-  <p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-  
-  <p>上述的修改不影响阅读效果。</p>
+<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
+<p>上述的修改不影响阅读效果。</p>
 </blockquote>
-
 <p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.epub">【下载】</a></strong></p>
-
 <p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
-
 <p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.epub">【下载】</a></strong></p>
-
 <p>一般的掌上阅读软件都可以支持。</p>
-
 <p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
-
 <p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
-
 <h2 id="">其它下载点(不定期更新)</h2>
-
 <ul>
-<li><p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p></li>
-<li><p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2428">http://www.ituring.com.cn/book/2428</a></p></li>
-<li><p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p></li>
-</ul>]]></content:encoded></item><item><title><![CDATA[电子书《我的架构思想》小述]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
-
+<li>
+<p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p>
+</li>
+<li>
+<p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2428">http://www.ituring.com.cn/book/2428</a></p>
+</li>
+<li>
+<p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p>
+</li>
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[电子书《我的架构思想》小述]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
 <blockquote>
-  <p>接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：<a href="http://aimingoo.github.io/1-1734">https://aimingoo.github.io/1-1734.html</a>。</p>
-  
-  <p>本电子书可自由下载和传播。</p>
+<p>接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：<a href="http://aimingoo.github.io/1-1734">https://aimingoo.github.io/1-1734.html</a>。</p>
+<p>本电子书可自由下载和传播。</p>
 </blockquote>
-
 <h2 id="">这些年来我所谈的“架构思想”</h2>
-
 <p>在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（<a href="http://blog.csdn.net/aimingoo/article/details/75948724">在这里</a>）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。</p>
-
 <p>在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：</p>
-
 <blockquote>
-  <p>画家的笔最终描绘的是他自己心里的映像。</p>
+<p>画家的笔最终描绘的是他自己心里的映像。</p>
 </blockquote>
-
 <p>就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。</p>
-
-<p>是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/</p>]]></description><link>http://aimingoo.github.io/1-1735/</link><guid isPermaLink="false">622c6cb8-8677-4aac-94ea-d304eb64e7ac</guid><category><![CDATA[电子书]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[架构]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 23 Jul 2017 13:58:00 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
-
+<p>是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/</p></div>]]></description><link>http://aimingoo.github.io/1-1735/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5ba</guid><category><![CDATA[电子书]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[架构]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 23 Jul 2017 13:58:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
 <blockquote>
-  <p>接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：<a href="http://aimingoo.github.io/1-1734">https://aimingoo.github.io/1-1734.html</a>。</p>
-  
-  <p>本电子书可自由下载和传播。</p>
+<p>接下来谈谈《我的架构思想》。上一篇是“电子书《程序原本》小述”，在这里：<a href="http://aimingoo.github.io/1-1734">https://aimingoo.github.io/1-1734.html</a>。</p>
+<p>本电子书可自由下载和传播。</p>
 </blockquote>
-
 <h2 id="">这些年来我所谈的“架构思想”</h2>
-
 <p>在2007年，我还在盛大的时候曾做过一次名为《设计师的实战过程》的内部分享，这个分享现今在CSDN还能下载到（<a href="http://blog.csdn.net/aimingoo/article/details/75948724">在这里</a>）。但在此之后，我便再也没有讲过“设计”，而是开始讲“架构”，例如我在2009年第一届QCon大会中所讲的《我之于架构的主要观点》。</p>
-
 <p>在我看来，设计与架构是完全不同的两个层面的东西。就如同我后来在《架构之美》的序中所写的：</p>
-
 <blockquote>
-  <p>画家的笔最终描绘的是他自己心里的映像。</p>
+<p>画家的笔最终描绘的是他自己心里的映像。</p>
 </blockquote>
-
 <p>就架构来说，这个“映像”并不是设计出来的。这个映像如何得来，便是架构思想的全部。</p>
-
 <p>是我们的认识从根底里决定了我们如何去理解一个系统，并为之描绘一个架构以便于进一步的沟通交流。从“架构之为物”的角度来说，架构其实就是一个沟通的工具，它与模型/模具，与白板/粉笔，与纸张/文字并没有质的区别。也如同这些工具一般，如果我们脑中空无一物，那么模型、模具、白板……等等也百无一用。</p>
-
 <p>真正决定你的架构水平的东西，仍然是你认识这个世界的方法与能力。</p>
-
 <h2 id="">怎么来讲“思想”</h2>
-
 <p>孟岩先生在序中将本书称为“一本架构思维的认知升级之作”。首先谢谢孟岩对此书的厚赞，另一方面，他也确实戳到了本书对“如何讲思想”的问题。</p>
-
 <p>但凡要读到本书，大抵都是有一些架构经验或经历的读者了。即使不济，也多少看过、用过一些经典的架构。既如此，读者心中已然有一个自己的“思维模型”，有自己对事物的认知方法与逻辑，否则他也原本就不会做、不会看、不会用那些架构了。所以，《我的架构思想》的读者并不是白板一块，可以任由我将我的思想抹涂在上面。</p>
-
 <p>那么“认知升级”又是什么意思呢？是不是托大地说，“周爱民的架构思想”就是更高级的，所以读者需要通过这本书来统统地完成一次升级呢？不。我没有这个意思，也不做这种企图。这也是这本书名字强调是“我的”的原因：我的是我的，你的是你的；最终之于你有价值的仍然是你的，而非我的。</p>
-
 <p>好吧，说得简单直白一些：我期望读者通过这本书，能提炼与升级自己在架构过程中的思想，得到更新的、更高层次的、更有实战与更富效力的“你的架构思想”。</p>
-
 <p>所以我并不是在讲我的思想，或教述我如何想，而是谈论思想何以得来的方法论，“我的架构思想”本不过是个印证与参考罢了。</p>
-
 <p>在这一点上，孟岩先生看得很真切。</p>
-
 <h2 id="">“方法论”的结构化</h2>
-
 <p>我的方法论最终总要呈现出来，才是可以作为你我所讨论的对象的。这一点我一开始就很清楚：我必须清楚地描述它。</p>
-
 <p>我其实一早就把这个结果给了读者，但我想你未见得能看到它。这段文字就在引言里面：</p>
-
 <blockquote>
-  <p>任何一个优秀的架构师都有自己独特的思考方式，这决定了他如何抽象系统，以及如何“创造性地”设计与构画这个系统。……在这个过程中，我们需要三种能力：概念抽象能力、概念表达能力和基于概念的逻辑表达能力。</p>
+<p>任何一个优秀的架构师都有自己独特的思考方式，这决定了他如何抽象系统，以及如何“创造性地”设计与构画这个系统。……在这个过程中，我们需要三种能力：概念抽象能力、概念表达能力和基于概念的逻辑表达能力。</p>
 </blockquote>
-
 <p>这三种能力在后文的架构师能力模型中被概括为“领悟”。</p>
-
 <p>整本书都是在一次又一次应用这三种能力，教读者如何跟随这个过程去得到最终的架构对象。这些架构对象包括：“引言：架构师的思维”的“修养和思维”，正文中之“知识”、“认识”、“系统”与“架构”等等，以及附录中的“VEO模型”等等。我不过是在运用上述能力去得到并解释它们，而读者则可以作为一个观察者来观见、见证这一过程。</p>
-
 <p>在这些“过程与方法”之外的，是方法论和它之上的认识论。读者可以更深层次地将自己的方法论与认识论与书中对接印证。能行进到这一步，就真的是大有斩获了。</p>
-
-<p>书之用在读。你是读者，我是写者，我是那个于"读得"之事无能为力的人。</p>
-
+<p>书之用在读。你是读者，我是写者，我是那个于&quot;读得&quot;之事无能为力的人。</p>
 <h2 id="">基本模型、理论与原则</h2>
-
 <p>严格地来说，《我的架构思想》只提出了一个基本模型，亦即是架构师的能力模型。并且，也只对这个模型中的“领悟”做了进一步细化的讨论，提出了它由“概念抽象、概念表达和基于概念的逻辑表达”三个部分构成。</p>
-
 <p>而其中最核心的，又是指“概念抽象”。“架构意图”这一关键的要素，就是从对这个能力的辨识而得出来的。从认识论的角度上，这就是所谓的“见所欲见”——你看见的，是你所想看见的。你的意图决定了你的认识，进而决定了你的架构，这是一个“从认识到表达”的基本逻辑。</p>
-
 <p>“架构意图”在这本书中有着不容争辩、毋庸置疑的重要位置。所以我说“架构意图是架构的灵魂”，并认为几乎所有的架构活动，以及有关架构的争议都可以围绕对它的识别和理解来进行。因此我后来在一些大会中讲述我的架构思想时，会概括为“架构意图驱动的过程模型”——这一过程包括架构发起、架构构建和架构交付三个部分。</p>
-
 <p>而本书中所谓的“架构原则”，不过是在上述过程的生命周期中的一些关键判断。</p>
-
 <h2 id="">下载</h2>
-
 <p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture.zip">【下载】</a></strong></p>
-
 <p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-
 <p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture.azw3">【下载】</a></strong></p>
-
 <p>下载后用USB上传到Kindle即可。</p>
-
 <blockquote>
-  <p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-  
-  <p>上述的修改不影响阅读效果。</p>
+<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
+<p>上述的修改不影响阅读效果。</p>
 </blockquote>
-
 <p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture.epub">【下载】</a></strong></p>
-
 <p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
-
 <p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Thinking_in_Architecture-i.epub">【下载】</a></strong></p>
-
 <p>一般的掌上阅读软件都可以支持。</p>
-
 <p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
-
 <p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
-
 <h2 id="">其它下载点（不定期更新）</h2>
-
 <ul>
-<li><p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p></li>
-<li><p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2430">http://www.ituring.com.cn/book/2430</a></p></li>
-<li><p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p></li>
-</ul>]]></content:encoded></item><item><title><![CDATA[电子书《程序原本》小述]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
-
+<li>
+<p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p>
+</li>
+<li>
+<p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2430">http://www.ituring.com.cn/book/2430</a></p>
+</li>
+<li>
+<p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p>
+</li>
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[电子书《程序原本》小述]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
 <blockquote>
-  <p>《程序原本》作为电子书首发已经一个月了（下载附后），它到底是一本怎么样的书呢？我想站在我自己的角度对它做一些阐述，或是有利于对它的理解与传播的。</p>
-  
-  <p>本电子书可自由下载和传播。</p>
+<p>《程序原本》作为电子书首发已经一个月了（下载附后），它到底是一本怎么样的书呢？我想站在我自己的角度对它做一些阐述，或是有利于对它的理解与传播的。</p>
+<p>本电子书可自由下载和传播。</p>
 </blockquote>
-
 <h2 id="">什么是“原本”</h2>
-
 <p>书名取自于《几何原本（Euclid's Elements）》，因此这个“原本”，其实原意应从Elements来找，一般来说理解成“不可或缺的、核心的要素，或元素”就好了。</p>
-
 <p>《程序原本》确实就是想从这个角度来阐述“程序”这个主题。这本书从数、算以及抽象的源起谈起，从它们之间的关系，以及计算范式的定义谈起，把“计算机程序（或程序计算）”整件事的骨架抽离出来。然后再谈到在这个骨架之外来描述它的语言——计算机程序设计语言的方方面面。</p>
-
 <p>这是这本书的前面部分。坦率地说，这部分并没有什么“新”东西。因为这些认识其实一早都有了，先哲大贤们已经论述得很清楚了，而我只是做了个引线人，把这些东西串起来并摆成了一个角度以便于大家观察罢了。</p>
-
-<p>我在这个观察之外提出的问题是：“程序”是如何演进的？如今你所见的种种语言，以及由这些种种语言所得的种种“程序”</p>]]></description><link>http://aimingoo.github.io/1-1734/</link><guid isPermaLink="false">60b41365-0ee9-4c3e-89a7-5385eb91b13d</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[程序原本]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 20 Jul 2017 05:18:54 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
-
+<p>我在这个观察之外提出的问题是：“程序”是如何演进的？如今你所见的种种语言，以及由这些种种语言所得的种种“程序”</p></div>]]></description><link>http://aimingoo.github.io/1-1734/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b9</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[程序原本]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 20 Jul 2017 05:18:54 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
 <blockquote>
-  <p>《程序原本》作为电子书首发已经一个月了（下载附后），它到底是一本怎么样的书呢？我想站在我自己的角度对它做一些阐述，或是有利于对它的理解与传播的。</p>
-  
-  <p>本电子书可自由下载和传播。</p>
+<p>《程序原本》作为电子书首发已经一个月了（下载附后），它到底是一本怎么样的书呢？我想站在我自己的角度对它做一些阐述，或是有利于对它的理解与传播的。</p>
+<p>本电子书可自由下载和传播。</p>
 </blockquote>
-
 <h2 id="">什么是“原本”</h2>
-
 <p>书名取自于《几何原本（Euclid's Elements）》，因此这个“原本”，其实原意应从Elements来找，一般来说理解成“不可或缺的、核心的要素，或元素”就好了。</p>
-
 <p>《程序原本》确实就是想从这个角度来阐述“程序”这个主题。这本书从数、算以及抽象的源起谈起，从它们之间的关系，以及计算范式的定义谈起，把“计算机程序（或程序计算）”整件事的骨架抽离出来。然后再谈到在这个骨架之外来描述它的语言——计算机程序设计语言的方方面面。</p>
-
 <p>这是这本书的前面部分。坦率地说，这部分并没有什么“新”东西。因为这些认识其实一早都有了，先哲大贤们已经论述得很清楚了，而我只是做了个引线人，把这些东西串起来并摆成了一个角度以便于大家观察罢了。</p>
-
 <p>我在这个观察之外提出的问题是：“程序”是如何演进的？如今你所见的种种语言，以及由这些种种语言所得的种种“程序”之间的关系是如何的？</p>
-
 <h2 id="">怎么来讲述这些“原本”</h2>
-
 <p>在书中，我总是试图用非常严谨地推论来提出或论证观点。我已然尽极大可能地来做这件事，并尝试让读者还能“不太费力”地理解它。</p>
-
 <p>《结构程序设计》这本书在“论证”这件事上做得远比我要好得多，然而却更多的使用了数理逻辑。我可能采用的逻辑会略有些不同。比如下面这段：</p>
-
 <p><img src="http://aimingoo.github.io/content/images/2017/07/-----2017-07-20-11.05.55.png" alt="屏幕快照 2017-07-20 11.05.55"></p>
-
 <p>这段文字在讲述一个“获取/捕获/剥离”抽象的过程，它最终只是想说明“对于计算来说，<code>equ0()</code>与<code>值0</code>是同义的”。这句话看起来没有什么特别需要强调的——也许你早就明白了，或者它已经显白得不需要论述。但是，有了这个观点，接下来的论述就完全成立了：</p>
-
 <blockquote>
-  <p>现在，我们提出最后一个推论。</p>
-  
-  <ul>
-  <li>既然<code>equ0</code>可以指代任意有限的计算步骤，那么它必等价于图灵机的“顺序逻辑”中所有步骤；</li>
-  <li>既然<code>equ0</code>可以指代图灵机所有的顺序步骤，则必然能指代顺序步骤的两种特例：分支与循环；</li>
-  <li>既然<code>equ0</code>既可以指代计算的要素“数”，又可以指代计算的要素“算”，还可以指代描述正确计算所必须的逻辑，那么<code>equ0</code>本身——在概念抽象上——必然等同于一个完整的计算系统。</li>
-  </ul>
-  
-  <p>这就是“函数式”计算范式的基本抽象。</p>
-</blockquote>
-
-<p>这直接地解释了“函数式”是什么的问题，解释了“函数式”的核心的“值无关”和“值等义于函数（以及其确定性）”的问题，解释了函数式计算完备的问题……</p>
-
-<p>非但对“语言范式”的解释如此，整本书对它所讨论的几乎所有主题，都是采用这种方式来叙述与论证的。一旦你理解了一个观点、概念与逻辑，那么更多的内容就如同覆盆之珠，琳琅满目了。</p>
-
-<h2 id="">什么是“不变的”</h2>
-
-<p>我们总试图在纷繁的表相之中找到其内在“不变的”那些规律，有人谓之为“道”。我也是这样，我试图去追寻这些不变的东西，所以也有朋友说我是“求道者”。这其实太过抬举——我并不求道，我追求的只是知道而已。</p>
-
-<p>这也许谈得远了，然而更近一些的问题是：我为什么要去寻找“程序原本”中那些不变的东西呢？</p>
-
-<p>这十余年来，我的架构经历告诉我：所谓问题，要么是系统与其要素之间的矛盾，要么是观察与其预期之间的矛盾。撷其一而论，若是“系统与其要素”之间的矛盾，那么认清“这些要素是什么”就是极重要的问题了。</p>
-
-<p>所以我会去找寻一个“计算系统”内部的种种要素，从最核心的，到某种特定系统的，无一遗漏。正是在这个过程中，我得到了《程序原本》一书的全部框架。也正是因此，这本书就是在描述这一切要素以及它们之间的冲突与矛盾。</p>
-
-<p>更重要的是，我看到了这么多年以来（我的意思是自有“计算机程序”至今），我们从末改变过的解题思路：结构化。要知道，时至今日，我们居然只知道、只尝试过、只成功过这样一种方法。</p>
-
-<p>这难道不是一件可怕的事吗？</p>
-
-<h2 id="">为什么是“架构师的入门之径”</h2>
-
-<p>在《程序原本》这本书的简介中称，这本书“是架构师的入门之径”。你也许会奇怪我为什么会这样来介绍它。</p>
-
-<p>其实这套电子书的第一版（《大道至易》）中，我的确就是先从《程序原本》写起的，之后再写到《我的架构思想》。因此从思维的路径来说，我也是将这“程序原本”作为了我讨论架构话题的入门之径的。所以，这简介也并非妄言。</p>
-
-<p>如果你仔细地读这本《程序原本》，你会发现它已经讨论到了“系统”、“子系统”、“模块”、“分布”、“依赖”等等这些系统架构的“元素”，在它的后半部分更像是涉足到架构领域的书了。然而，它仍然是在“程序”这个体系下进行深入的讨论，而对“架构”只字不提。</p>
-
-<p>这就是所谓“入门之径”的另一层真义了。</p>
-
-<p>我们真的太容易在种种大会以及种种文章中听到或看到上面这些词汇（以及要素）了，并且由它们所组成的方案更是多如牛毛。然而，这些听来的看来的，最多让你知之皮表而已，你真的了解“架构为何物”，以及“如何得到架构”吗？</p>
-
-<p>不，《程序原本》原本就只是打算让你清晰、明了、一览无遗地看到这些皮表，而已。更多的，我们要到《我的架构思想》中去谈。</p>
-
-<h2 id="">下载</h2>
-
-<p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program.zip">【下载】</a></strong></p>
-
-<p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-
-<p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program.azw3">【下载】</a></strong></p>
-
-<p>下载后用USB上传到Kindle即可。</p>
-
-<blockquote>
-  <p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-  
-  <p>上述的修改不影响阅读效果。</p>
-</blockquote>
-
-<p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program.epub">【下载】</a></strong></p>
-
-<p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
-
-<p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program-i.epub">【下载】</a></strong></p>
-
-<p>一般的掌上阅读软件都可以支持。</p>
-
-<p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
-
-<p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
-
-<h2 id="">其它下载点（不定期更新）</h2>
-
+<p>现在，我们提出最后一个推论。</p>
 <ul>
-<li><p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p></li>
-<li><p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2429">http://www.ituring.com.cn/book/2429</a></p></li>
-<li><p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p></li>
-</ul>]]></content:encoded></item><item><title><![CDATA[三本免费电子书齐齐完工了]]></title><description><![CDATA[<p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
-
+<li>既然<code>equ0</code>可以指代任意有限的计算步骤，那么它必等价于图灵机的“顺序逻辑”中所有步骤；</li>
+<li>既然<code>equ0</code>可以指代图灵机所有的顺序步骤，则必然能指代顺序步骤的两种特例：分支与循环；</li>
+<li>既然<code>equ0</code>既可以指代计算的要素“数”，又可以指代计算的要素“算”，还可以指代描述正确计算所必须的逻辑，那么<code>equ0</code>本身——在概念抽象上——必然等同于一个完整的计算系统。</li>
+</ul>
+<p>这就是“函数式”计算范式的基本抽象。</p>
+</blockquote>
+<p>这直接地解释了“函数式”是什么的问题，解释了“函数式”的核心的“值无关”和“值等义于函数（以及其确定性）”的问题，解释了函数式计算完备的问题……</p>
+<p>非但对“语言范式”的解释如此，整本书对它所讨论的几乎所有主题，都是采用这种方式来叙述与论证的。一旦你理解了一个观点、概念与逻辑，那么更多的内容就如同覆盆之珠，琳琅满目了。</p>
+<h2 id="">什么是“不变的”</h2>
+<p>我们总试图在纷繁的表相之中找到其内在“不变的”那些规律，有人谓之为“道”。我也是这样，我试图去追寻这些不变的东西，所以也有朋友说我是“求道者”。这其实太过抬举——我并不求道，我追求的只是知道而已。</p>
+<p>这也许谈得远了，然而更近一些的问题是：我为什么要去寻找“程序原本”中那些不变的东西呢？</p>
+<p>这十余年来，我的架构经历告诉我：所谓问题，要么是系统与其要素之间的矛盾，要么是观察与其预期之间的矛盾。撷其一而论，若是“系统与其要素”之间的矛盾，那么认清“这些要素是什么”就是极重要的问题了。</p>
+<p>所以我会去找寻一个“计算系统”内部的种种要素，从最核心的，到某种特定系统的，无一遗漏。正是在这个过程中，我得到了《程序原本》一书的全部框架。也正是因此，这本书就是在描述这一切要素以及它们之间的冲突与矛盾。</p>
+<p>更重要的是，我看到了这么多年以来（我的意思是自有“计算机程序”至今），我们从末改变过的解题思路：结构化。要知道，时至今日，我们居然只知道、只尝试过、只成功过这样一种方法。</p>
+<p>这难道不是一件可怕的事吗？</p>
+<h2 id="">为什么是“架构师的入门之径”</h2>
+<p>在《程序原本》这本书的简介中称，这本书“是架构师的入门之径”。你也许会奇怪我为什么会这样来介绍它。</p>
+<p>其实这套电子书的第一版（《大道至易》）中，我的确就是先从《程序原本》写起的，之后再写到《我的架构思想》。因此从思维的路径来说，我也是将这“程序原本”作为了我讨论架构话题的入门之径的。所以，这简介也并非妄言。</p>
+<p>如果你仔细地读这本《程序原本》，你会发现它已经讨论到了“系统”、“子系统”、“模块”、“分布”、“依赖”等等这些系统架构的“元素”，在它的后半部分更像是涉足到架构领域的书了。然而，它仍然是在“程序”这个体系下进行深入的讨论，而对“架构”只字不提。</p>
+<p>这就是所谓“入门之径”的另一层真义了。</p>
+<p>我们真的太容易在种种大会以及种种文章中听到或看到上面这些词汇（以及要素）了，并且由它们所组成的方案更是多如牛毛。然而，这些听来的看来的，最多让你知之皮表而已，你真的了解“架构为何物”，以及“如何得到架构”吗？</p>
+<p>不，《程序原本》原本就只是打算让你清晰、明了、一览无遗地看到这些皮表，而已。更多的，我们要到《我的架构思想》中去谈。</p>
+<h2 id="">下载</h2>
+<p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program.zip">【下载】</a></strong></p>
+<p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
+<p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program.azw3">【下载】</a></strong></p>
+<p>下载后用USB上传到Kindle即可。</p>
+<blockquote>
+<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
+<p>上述的修改不影响阅读效果。</p>
+</blockquote>
+<p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program.epub">【下载】</a></strong></p>
+<p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
+<p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Elements_of_Program-i.epub">【下载】</a></strong></p>
+<p>一般的掌上阅读软件都可以支持。</p>
+<p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
+<p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
+<h2 id="">其它下载点（不定期更新）</h2>
+<ul>
+<li>
+<p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p>
+</li>
+<li>
+<p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2429">http://www.ituring.com.cn/book/2429</a></p>
+</li>
+<li>
+<p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p>
+</li>
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[三本免费电子书齐齐完工了]]></title><description><![CDATA[<div class="kg-card-markdown"><p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
 <p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
-
 <ul>
 <li>大道至易：实践者的思想</li>
 <li>我的架构思想：基础模型、理论与原则</li>
 <li>程序原本</li>
 </ul>
-
 <p>这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页”版式并设置“首页不同”（在Macbook的预览中是默认的）。</p>
-
 <blockquote>
-  <p>本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。</p>
+<p>本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。</p>
 </blockquote>
-
 <p><strong>下载：</strong></p>
-
 <p>目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：</p>
-
 <ul>
 <li>下载在这里：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a>, 相关信息在这里：<a href="http://aimingoo.github.io/1-1736/">大道至易</a>、<a href="http://aimingoo.github.io/1-1735/">我的架构思想</a>和<a href="http://aimingoo.github.io/1-1734/">程序原本</a>；或，</li>
-<li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a></li></ul>]]></description><link>http://aimingoo.github.io/1-1732/</link><guid isPermaLink="false">528fdfaa-f05a-492d-a914-b8296a57e7bd</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[架构]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 20 Jun 2017 03:54:33 GMT</pubDate><content:encoded><![CDATA[<p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
-
+<li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a></li></ul></div>]]></description><link>http://aimingoo.github.io/1-1732/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b8</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[架构]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 20 Jun 2017 03:54:33 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>首先感谢图灵出版社，能许可我将之前的《大道至易》拿回来重制并发布免费电子书。这也是此次选择图灵出版社、图灵社区来首发这套电子书的原因。</p>
 <p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt=""></p>
-
 <ul>
 <li>大道至易：实践者的思想</li>
 <li>我的架构思想：基础模型、理论与原则</li>
 <li>程序原本</li>
 </ul>
-
 <p>这套书同时发行了多种格式的电子版，包括ePub、eBook、PDF、mobi等。如果你使用桌面电脑，我推荐你阅读PDF格式的电子版。PDF格式的电子版采用了标准纸质书的排版方法，包括页眉、页脚、奇偶页设置，以及目录等等，因此建议阅读时使用“双页”版式并设置“首页不同”（在Macbook的预览中是默认的）。</p>
-
 <blockquote>
-  <p>本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。</p>
+<p>本电子书也针对Kindle进行过优化，全部插图采用了.svg矢量格式，确保在Kindle中阅读效果最佳。</p>
 </blockquote>
-
 <p><strong>下载：</strong></p>
-
 <p>目前推荐在图灵社区下载和讨论（当然也欢迎你在我的博客中留言，要登录你的Github账号先）：</p>
-
 <ul>
 <li>下载在这里：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a>, 相关信息在这里：<a href="http://aimingoo.github.io/1-1736/">大道至易</a>、<a href="http://aimingoo.github.io/1-1735/">我的架构思想</a>和<a href="http://aimingoo.github.io/1-1734/">程序原本</a>；或，</li>
 <li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a>首页查看；</li>
 <li>或直接<a href="http://www.ituring.com.cn/book/2429">《程序原本》</a>、<a href="http://www.ituring.com.cn/book/2428">《大道至易：实践者的思想》</a>，以及<a href="http://www.ituring.com.cn/book/2430">《我的架构思想》</a>。</li>
-</ul>]]></content:encoded></item><item><title><![CDATA[发布《大道至简》电子版（第三版）]]></title><description><![CDATA[<p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
-
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[发布《大道至简》电子版（第三版）]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
 <blockquote>
-  <p><strong>第六版：2017.05.03，电子版（第三版）</strong></p>
-  
-  <ul>
-  <li><p>在发布《大道至易（第二版）》时为本书重制了电子版。</p></li>
-  <li><p>内容在本书电子版（第二版）的基础上没有更新。</p></li>
-  <li><p>使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。</p></li>
-  </ul>
+<p><strong>第六版：2017.05.03，电子版（第三版）</strong></p>
+<ul>
+<li>
+<p>在发布《大道至易（第二版）》时为本书重制了电子版。</p>
+</li>
+<li>
+<p>内容在本书电子版（第二版）的基础上没有更新。</p>
+</li>
+<li>
+<p>使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。</p>
+</li>
+</ul>
 </blockquote>
-
 <h2 id="">关于本电子版</h2>
-
 <p>该电子版是采用上一版为底本的，并且没有作文字上的增修。主要是为了发布质量更好的版本而制作的。</p>
-
 <p>从第一版开始，本书的电子版一直都是没有封面的（考虑到效果，在本版本的.PDF上制作了一个简单的封面效果）。</p>
-
 <h2 id="">下载</h2>
-
 <p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.zip">【下载】</a></strong></p>
-
 <p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-
 <p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.azw3">【下载】</a></strong></p>
-
 <p>下载后用USB上传到Kindle即可。</p>
-
 <blockquote>
-  <p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-  
-  <p>上述的修改不影响阅读效果。</p>
+<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
+<p>上述的修改不影响阅读效果。</p>
 </blockquote>
-
 <p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.epub">【下载】</a></strong></p>
-
-<p>推荐在Macbook、</p>]]></description><link>http://aimingoo.github.io/1-1731/</link><guid isPermaLink="false">ffa393a9-8644-4750-b302-0f0a9bf8c6e6</guid><category><![CDATA[大道至简]]></category><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 15 Jun 2017 20:03:08 GMT</pubDate><content:encoded><![CDATA[<p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
-
+<p>推荐在Macbook、</p></div>]]></description><link>http://aimingoo.github.io/1-1731/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b7</guid><category><![CDATA[大道至简]]></category><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 15 Jun 2017 20:03:08 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
 <blockquote>
-  <p><strong>第六版：2017.05.03，电子版（第三版）</strong></p>
-  
-  <ul>
-  <li><p>在发布《大道至易（第二版）》时为本书重制了电子版。</p></li>
-  <li><p>内容在本书电子版（第二版）的基础上没有更新。</p></li>
-  <li><p>使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。</p></li>
-  </ul>
+<p><strong>第六版：2017.05.03，电子版（第三版）</strong></p>
+<ul>
+<li>
+<p>在发布《大道至易（第二版）》时为本书重制了电子版。</p>
+</li>
+<li>
+<p>内容在本书电子版（第二版）的基础上没有更新。</p>
+</li>
+<li>
+<p>使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。</p>
+</li>
+</ul>
 </blockquote>
-
 <h2 id="">关于本电子版</h2>
-
 <p>该电子版是采用上一版为底本的，并且没有作文字上的增修。主要是为了发布质量更好的版本而制作的。</p>
-
 <p>从第一版开始，本书的电子版一直都是没有封面的（考虑到效果，在本版本的.PDF上制作了一个简单的封面效果）。</p>
-
 <h2 id="">下载</h2>
-
 <p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.zip">【下载】</a></strong></p>
-
 <p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-
 <p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.azw3">【下载】</a></strong></p>
-
 <p>下载后用USB上传到Kindle即可。</p>
-
 <blockquote>
-  <p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-  
-  <p>上述的修改不影响阅读效果。</p>
+<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
+<p>上述的修改不影响阅读效果。</p>
 </blockquote>
-
 <p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.epub">【下载】</a></strong></p>
-
 <p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
-
 <p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest-i.epub">【下载】</a></strong></p>
-
 <p>一般的掌上阅读软件都可以支持。</p>
-
 <p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
-
 <p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
-
 <h2 id="">历史中的版本</h2>
-
 <ul>
-<li><p>最早发布这本书的电子版是在12年前，在这里：<a href="http://aimingoo.github.io/1-197">公开《大道至简——软件工程实践者的思想》电子版</a> </p></li>
-<li><p>2012年发布了它的电子版第二版，在这里：<a href="http://aimingoo.github.io/1-261">大动作！！！公开《大道至简：软件工程实践者的思想》电子版（第二版）</a></p></li>
-<li><p>本书（含纸质版）主要版次共有六版。其中各版本细节，请翻阅电子书末尾的“版本历史”。</p></li>
-</ul>]]></content:encoded></item><item><title><![CDATA[Kindle的四种封面]]></title><description><![CDATA[<p>Kindle电子书的封面到底是多大呢？</p>
-
+<li>
+<p>最早发布这本书的电子版是在12年前，在这里：<a href="http://aimingoo.github.io/1-197">公开《大道至简——软件工程实践者的思想》电子版</a></p>
+</li>
+<li>
+<p>2012年发布了它的电子版第二版，在这里：<a href="http://aimingoo.github.io/1-261">大动作！！！公开《大道至简：软件工程实践者的思想》电子版（第二版）</a></p>
+</li>
+<li>
+<p>本书（含纸质版）主要版次共有六版。其中各版本细节，请翻阅电子书末尾的“版本历史”。</p>
+</li>
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[Kindle的四种封面]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Kindle电子书的封面到底是多大呢？</p>
 <p>这是个几乎无解的问题，无论如何，你找不到一个通用、有效的答案。但总的来说，视作用的不同，Kindle的封面为成四种：</p>
-
 <ul>
 <li>官方营销封面</li>
 <li>收藏夹封面</li>
 <li>首页列表封面</li>
 <li>电子书封面</li>
 </ul>
-
 <h2 id="">一、官方营销封面</h2>
-
 <p>这个封面设计见于官方文档（<a href="http://http://kindlegen.s3.amazonaws.com/AmazonKindlePublishingGuidelines.pdf">Amazon Kindle Publishing Guidelines</a>）。营销封面最好是2700×1688px，300ppi，图片大小不得超过5MB。</p>
-
 <blockquote>
-  <p>在稍早一些的文档中，这个大小被推荐为2560×1600，其比例是16:10。</p>
+<p>在稍早一些的文档中，这个大小被推荐为2560×1600，其比例是16:10。</p>
 </blockquote>
-
 <p>营销封面是用于亚马逊官方营销推广的，通常它是一本书“封面+书脊+封底”的完整样式。它不在书籍中直接使用，而是要求通过官方发布系统上传给亚马逊网站的。</p>
-
 <p>营销封面如果没有达到指定大小，那么在上传的时候会有一个提示；如果图片最小边小于500px，那么在网站上根本就不显示了。</p>
-
 <h2 id="">二、收藏夹封面</h2>
-
 <p>这个封面是指从Kindle设备的首页进入“我的图书馆”或“收藏夹”时所看到的图书封面。</p>
-
-<p>如果你直接从电脑放拷贝电子书到Kindle设备中，那么是不会显示这个封面的。它的大小并没有任何约定的规则，</p>]]></description><link>http://aimingoo.github.io/1-1729/</link><guid isPermaLink="false">6355a22b-27ba-47c6-90c2-c510bd56ee9c</guid><category><![CDATA[Kindle]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 12 Jun 2017 18:56:49 GMT</pubDate><content:encoded><![CDATA[<p>Kindle电子书的封面到底是多大呢？</p>
-
+<p>如果你直接从电脑放拷贝电子书到Kindle设备中，那么是不会显示这个封面的。它的大小并没有任何约定的规则，</p></div>]]></description><link>http://aimingoo.github.io/1-1729/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b5</guid><category><![CDATA[Kindle]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 12 Jun 2017 18:56:49 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Kindle电子书的封面到底是多大呢？</p>
 <p>这是个几乎无解的问题，无论如何，你找不到一个通用、有效的答案。但总的来说，视作用的不同，Kindle的封面为成四种：</p>
-
 <ul>
 <li>官方营销封面</li>
 <li>收藏夹封面</li>
 <li>首页列表封面</li>
 <li>电子书封面</li>
 </ul>
-
 <h2 id="">一、官方营销封面</h2>
-
 <p>这个封面设计见于官方文档（<a href="http://http://kindlegen.s3.amazonaws.com/AmazonKindlePublishingGuidelines.pdf">Amazon Kindle Publishing Guidelines</a>）。营销封面最好是2700×1688px，300ppi，图片大小不得超过5MB。</p>
-
 <blockquote>
-  <p>在稍早一些的文档中，这个大小被推荐为2560×1600，其比例是16:10。</p>
+<p>在稍早一些的文档中，这个大小被推荐为2560×1600，其比例是16:10。</p>
 </blockquote>
-
 <p>营销封面是用于亚马逊官方营销推广的，通常它是一本书“封面+书脊+封底”的完整样式。它不在书籍中直接使用，而是要求通过官方发布系统上传给亚马逊网站的。</p>
-
 <p>营销封面如果没有达到指定大小，那么在上传的时候会有一个提示；如果图片最小边小于500px，那么在网站上根本就不显示了。</p>
-
 <h2 id="">二、收藏夹封面</h2>
-
 <p>这个封面是指从Kindle设备的首页进入“我的图书馆”或“收藏夹”时所看到的图书封面。</p>
-
 <p>如果你直接从电脑放拷贝电子书到Kindle设备中，那么是不会显示这个封面的。它的大小并没有任何约定的规则，有文档称它总是被缩小到330px高度显示，并且宽高比为1:1.6。</p>
-
 <p>事实上这个大小并不是个确数。这是因为这张封面图“按理说”应该是由亚马逊的线上系统向下推送到你的设备的，因此它会根据你的设备的大小而改变下推封面图片的宽高。从经验上说，这个值可能包括的大小有：305x458, 291x467, 305x461, 305x430 (a shorter, wider cover), 257x467 (a tall, narrow cover)等等。关于这一点，Calibre在它的源码中也有备注（<a href="https://github.com/kovidgoyal/calibre/commit/38bf9adba33a7a15b3aee5e6c99e13727a4afc46">kindle/driver.py</a>）：</p>
-
 <pre><code># x330 on the PaperWhite
 # x262 on the Touch. Doesn't choke on x330, though.
 # x470 on the Voyage, checked that it works on PW, dont have Touch anymore
-THUMBNAIL_HEIGHT = 470  
+THUMBNAIL_HEIGHT = 470
 </code></pre>
-
 <p>所以，如果你设计一张收藏夹封面缩略图，那么建议的大小可以是294x470px，或者上述列出的大小中最接近你的设备的值。</p>
-
 <p>无论如何，假设你有这样一张收藏夹封面图，那么你可以用“发送到Kindle（参见后文）”这样的功能来上传它（而不是直接从电脑里复制文件到设备中），这样才能使它有效。</p>
-
 <h2 id="">三、首页列表封面</h2>
-
 <p>首页列表封面是当你按下“导航”栏中的“首页（Home）”按钮时，返回到首页——这时你的文档会出现在首页推荐（可能是前三个）——时出现的封面图。当然，这需要当前在“网格视图”模式下，因为列表模式是不显示封面的。</p>
-
 <p>这个封面的特殊之处在于它其实与下面所说的“电子书封面”（第四种）是同一个，但是显示方式会不同。就目前来说，当可能显示成完整大小和1/2大小两种模式——在首页列表中。</p>
-
 <p>因此你得考虑在这个模式下它让人比较舒适的大小——毕竟这是最常见的、第一视觉的。然而，同样不幸的是，它也没有官方文档支持。你在“电子书封面”（第四种）中设置了多大，它就在首页等比缩放然后显示出来，完全无视宽高比、清晰度等等任何东西。</p>
-
 <p>而且，它还会在右上角占掉一个位置来显示“当前阅读进度”。通常，它可能还会遮挡一点你的书名。</p>
-
 <p>总之是很崩溃的。</p>
-
 <h2 id="">四、电子书封面（内容封面）</h2>
-
 <p>这才是一本书“正式的”封面。所谓正式的，是因为它被写入到你的电子书(.mobi或.azw3等)文件内部，是不变的。</p>
-
 <p>通常情况下，它是一本相应纸质书的封面。所以它事实上的大小，也不是亚马逊所能决定的。也因为同样的缘故，“如何很好地显示它”就变成了问题。</p>
-
 <blockquote>
-  <p>有文章推荐说这里的封面宽高比推荐是1:1.725。我尝试过，但这种封面过高，显得特别瘦窄。而且跟实体书比例差距过大，很难制作出一张比例协调的封面用图。</p>
+<p>有文章推荐说这里的封面宽高比推荐是1:1.725。我尝试过，但这种封面过高，显得特别瘦窄。而且跟实体书比例差距过大，很难制作出一张比例协调的封面用图。</p>
 </blockquote>
-
 <p>如上一小节所说，它会在“首页列表封面”上显示，然而可能因为它的比例显示得不那么好看。另外一种“更正确地”找到它的方法，是打开这本书之后，进入目录，在最前面处找到“封面”并点击进入。</p>
-
 <p>这样看到的封面才是“电子书封面”真正的样子。当然，也可能很不幸，因为它可能根本不是为你的设备而设计的，于是很可能底边是空白的，或左右两侧是空白的。</p>
-
 <p>总而言之，你无法决定这张封面如何在设备上显示。</p>
-
 <h2 id="">五、总结</h2>
-
 <p>没有什么好方法确保第四种模式在“所有设备”上都能获得很好的阅读体验。建议你制作的封面能让它在第三种模式（首页列表封面）正确而友好的显示即可。</p>
-
 <p>这种情况下，我一般建议封面是采用1200x860模式，它比较接近A4开本的封面，即使你在真实印刷中使用也不需要对版面布局明显修改。</p>
-
 <p>如果你使用新的.azw3（KF8）格式，那么目前没有办法得到收藏夹封面。“发送”功能只能将新文档.azw3放在“Docs”分类中，因此会是一个没有封面的显示“个人文档”（也称为PDOC）。</p>
-
 <blockquote>
-  <p>这篇文章：<a href="http://aimingoo.github.io/1-1730">《如何将电子书发送到Kindle》</a>，会有关于这个问题的更详细解释。</p>
+<p>这篇文章：<a href="http://aimingoo.github.io/1-1730">《如何将电子书发送到Kindle》</a>，会有关于这个问题的更详细解释。</p>
 </blockquote>
-
-<p>如果你有兴趣，可以进一步阅读这篇：<a href="http://www.inknet.com.tw/help/teach/page/2">作品版面尺寸的設定</a>，以及这篇<a href="https://www.epubble.com/kindle-book-cover-size">Kindle book cover size</a>。</p>]]></content:encoded></item><item><title><![CDATA[如何将电子书发送到Kindle]]></title><description><![CDATA[<p>前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。</p>
-
+<p>如果你有兴趣，可以进一步阅读这篇：<a href="http://www.inknet.com.tw/help/teach/page/2">作品版面尺寸的設定</a>，以及这篇<a href="https://www.epubble.com/kindle-book-cover-size">Kindle book cover size</a>。</p>
+</div>]]></content:encoded></item><item><title><![CDATA[如何将电子书发送到Kindle]]></title><description><![CDATA[<div class="kg-card-markdown"><p>前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。</p>
 <p>但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。</p>
-
 <h2 id="1">1. 先说一个例外</h2>
-
 <p>首先，这事实上有一个例外。在<a href="http://blog.sina.com.cn/s/blog_5374fceb0102v58q.html">seutfy的文章</a>中讲到，有以下几个条件：</p>
-
 <ol>
-<li>113(ASIN)值是真实的，与亚马逊上的值相同；  </li>
-<li>504(ASIN)值与113相同，也是真实的；  </li>
+<li>113(ASIN)值是真实的，与亚马逊上的值相同；</li>
+<li>504(ASIN)值与113相同，也是真实的；</li>
 <li>501(CDE type)值为EBOK。</li>
 </ol>
-
 <p>满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。</p>
-
 <h2 id="2kindle">2. 找到你的Kindle所绑定的邮箱</h2>
-
-<p>所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，</p>]]></description><link>http://aimingoo.github.io/1-1730/</link><guid isPermaLink="false">e69047cf-8e61-4488-8dfc-2399d339590f</guid><category><![CDATA[Kindle]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 12 Jun 2017 18:55:24 GMT</pubDate><content:encoded><![CDATA[<p>前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。</p>
-
+<p>所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，</p></div>]]></description><link>http://aimingoo.github.io/1-1730/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b6</guid><category><![CDATA[Kindle]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 12 Jun 2017 18:55:24 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>前面我们讲到过“如果要在收藏夹模式下看到封面，需要将电子书‘发送’到设备”。</p>
 <p>但这个“发送电子书”的功能其实有很多限制，下面我们来讲讲到底该如何做。</p>
-
 <h2 id="1">1. 先说一个例外</h2>
-
 <p>首先，这事实上有一个例外。在<a href="http://blog.sina.com.cn/s/blog_5374fceb0102v58q.html">seutfy的文章</a>中讲到，有以下几个条件：</p>
-
 <ol>
-<li>113(ASIN)值是真实的，与亚马逊上的值相同；  </li>
-<li>504(ASIN)值与113相同，也是真实的；  </li>
+<li>113(ASIN)值是真实的，与亚马逊上的值相同；</li>
+<li>504(ASIN)值与113相同，也是真实的；</li>
 <li>501(CDE type)值为EBOK。</li>
 </ol>
-
 <p>满足以上三个条件，此电子书会在联网的情况下自动从亚马逊服务器上下载封面。为什么呢？因为这意味着这是一本在亚马逊官方发布过的电子书，因此可以在它的服务器上搜索到。这也是有些电子书你能直接复制到Kindle设备中，并且显示它的封面的原因——他们“原本”是从官方下载的。</p>
-
 <h2 id="2kindle">2. 找到你的Kindle所绑定的邮箱</h2>
-
-<p>所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如<a href="https://github.com/serzh/tokindle">tokindle</a>，或者
+<p>所以，继续回到正题。如果这是一本“自制的”——或者非官方网站下载来的电子书，那么你还是得用“将电子书发送到Kindle”的方法。这也是有开源的脚本代码的，例如<a href="https://github.com/serzh/tokindle">tokindle</a>，或者<br>
 <a href="https://github.com/nicholaswilde/upload2Kindle">upload2Kindle</a>。原理上也完全一样：就是向与你的Kindle设备绑定的一个邮箱发电子书附件。</p>
-
 <p>你得首先知道这个绑定的邮箱。这事实上有两个（注意，这两个并不一样），其一是你的amazon登录账号，另一个则是每个设备（例如你有多个kindle）都独有的一个邮箱。</p>
-
 <p>我强烈建议你读一下这篇文章<a href="http://www.hangge.com/blog/cache/detail_1626.html">《将电子书发送到Kindle上的几种方法》</a>所讲，并且建议你先立即开始尝试一下其中的方法2，即“<strong>官方软件Send to kindle</strong>”，下载地址在<a href="https://www.amazon.com/gp/sendtokindle/pc">这里</a>，或<a href="https://www.amazon.com/gp/sendtokindle/mac">Mac版本</a>。</p>
-
 <p>这个官方的“<strong>Send to Kindle</strong>”软件的好处是简单、安全可信：你填入你的amazon账号就可用了。并且，它会列出你可以发送到的Kindle设备列表。但是，它只支持向设备有限格式的电子书（DOC,DOCX,PDF,HTML,TXT and RTF），别的格式（例如你自制的.azw3）都不支持。</p>
-
 <blockquote>
-  <p>Kindle的.mobi格式没有在上述列表中，但是“<strong>Send to Kindle</strong>”是支持的。另外，你可以直接将.azw3更名为.mobi，也是可以用该软件发送的。但是，无论如何这都是跳不出后面讲到的关于封面的限制。</p>
+<p>Kindle的.mobi格式没有在上述列表中，但是“<strong>Send to Kindle</strong>”是支持的。另外，你可以直接将.azw3更名为.mobi，也是可以用该软件发送的。但是，无论如何这都是跳不出后面讲到的关于封面的限制。</p>
 </blockquote>
-
 <p>但是因为其它软件的原理是一样的，所以我们知道，关键在于找到amazon账号下面的那个“可以发送到的Kindle设备列表（Deliver to list）”。如果你从网站上登录你的amazon账号，那么可以在“Manage Your Content and Devices”中找到它。</p>
-
 <blockquote>
-  <p>图：官方网站入口
-  <img src="http://aimingoo.github.io/content/images/2017/06/-----2017-06-12-23.56.59.png" alt=""></p>
+<p>图：官方网站入口<br>
+<img src="http://aimingoo.github.io/content/images/2017/06/-----2017-06-12-23.56.59.png" alt=""></p>
 </blockquote>
-
 <p>更快捷的方法是在上面的“<strong>Send to Kindle</strong>”软件中，在它的界面的最下边有“Manage your Kindle”，点击进入就可以了（这就是我建议你先尝试它的主要原因了）。</p>
-
 <p>现在你应该在官方网站的“Manage Your Content and Devices”界面中，点击其中的“Your Devices”页，并在你的设备列表的左侧找到“…”按钮(Actions)，点击它会看到一个弹出框，上面就写着这个设备所绑定的email了，通常它是：xxxxx@kindle.com。</p>
-
 <h2 id="3">3. 将发送邮箱添加到许可列表</h2>
-
 <p>接下来我们再切换到“Settings”页，找到“Approved Personal Document E-mail List”选项，你会看到你的amazon登录邮箱已经默认地添加在这里——这就是“<strong>Send to Kindle</strong>”这个软件能工作的原因了。如果你打算用别的邮箱来发电子书，那么你可以将邮箱地址添加到这里，否则是不能用的——如果你没有添加，那么用其它邮箱发电子书的时候，会被拒绝并在你的amazon登录邮箱中收到一个提醒邮件。</p>
-
 <blockquote>
-  <p>这里提到这个细节的原因，是Calibre这个软件会推荐你使用gmx或hotmail邮箱。那么这时，就需要将这些邮箱地址添加到这个列表中去了。</p>
-  
-  <p>另外，gmx缺省不开放SMTP邮箱服务。因此如果你真在Calibre尝试这个邮箱，那么要先去开通它（我已经被坑过了）。</p>
+<p>这里提到这个细节的原因，是Calibre这个软件会推荐你使用gmx或hotmail邮箱。那么这时，就需要将这些邮箱地址添加到这个列表中去了。</p>
+<p>另外，gmx缺省不开放SMTP邮箱服务。因此如果你真在Calibre尝试这个邮箱，那么要先去开通它（我已经被坑过了）。</p>
 </blockquote>
-
 <h2 id="4calibre">4. 使用Calibre或其它发送工具</h2>
-
 <p>接下来，当你知道：</p>
-
 <ul>
 <li>你的设备绑定的邮箱，例如xxxxx@kindle.com；且</li>
 <li>你已经将打算发邮件的邮箱（例如你的登录账号或xxx@gmx.com等）添加到上述列表。</li>
 </ul>
-
 <p>那么你就可以使用Calibre或其它的什么工具来发送你的电子书到你的设备了。由于最终其实经过Kindle官方的邮件服务（因为最终绑定的是xxxxx@kindle.com）来处理，所以下发到你的Kindle设备时，就可以有一张“收藏夹封面”图了。</p>
-
 <p>其它细节，仍推荐阅读：<a href="http://www.hangge.com/blog/cache/detail_1626.html">《将电子书发送到Kindle上的几种方法》</a>，或者这一篇<a href="https://kindlefere.com/post/11.html">《Calibre 使用教程之邮件一键推送电子书》</a>。</p>
-
 <h2 id="5">5. 这个功能是有限制的</h2>
-
 <p>本质上来说，这样通过“发送”来得到的并不是“电子书”，而是电子文档。所以你在官方网站的“Manage Your Content and Devices”界面中的“Your Content”页面下，只能通过“Docs”这个分类来找到它——而不是缺省的Books分类。这也是惟一能操作这些文档的方法，因为你不能在设备上直接删除它们。</p>
-
-<p>在早期，Calibre可以制作一个.azw3格式的电子书并通过发送功能上传到设备（而且可以显示在Books分类中，并显示封面）。<strong>但现在这样的方法已经失效了。</strong>amazon严格控制了使用邮件分发的方法来上传电子书的类型（上面列举过的），并且它会返回给你的邮箱一封关于失败原因的通知邮件。</p>
-
+<p>在早期，Calibre可以制作一个.azw3格式的电子书并通过发送功能上传到设备（而且可以显示在Books分类中，并显示封面）。**但现在这样的方法已经失效了。**amazon严格控制了使用邮件分发的方法来上传电子书的类型（上面列举过的），并且它会返回给你的邮箱一封关于失败原因的通知邮件。</p>
 <p>不过Calibre仍然是可以将一个使用官方KindleGen制作的.azw3文件发送到设备的。如上所述的，它在“Docs”分类中，并且没有封面——因为amazon认为它不是电子书。</p>
-
 <h2 id="6azw3">6. 能使.azw3拥有封面的终极大招</h2>
-
 <blockquote>
-  <p>已失效。低版件固件可尝试。Comment @2017.06.13</p>
+<p>已失效。低版件固件可尝试。Comment @2017.06.13</p>
 </blockquote>
-
 <p>最后，我知道你和我一样是有着对阅读有着近乎洁癖的要求：我完全不能忍受一本没有封面，或没有目录的书！</p>
-
 <p>好吧，如果这样，关于收藏夹封面的问题还是有解的：你可以使用<a href="https://github.com/quiris11/ExtractCoverThumbs">ExtractCoverThumbs</a>这个开源工具。作者发布了它的GUI和Console for Mac的版本（下载在上面地址的releases中）。如果你使用Windows，那么你可以自己下载一份源码（也可以编译成Window GUI的版本）来使用。</p>
-
 <p>ExtractCoverThumbs这个工具的作用是直接在你的Kindle的<code>/Volumes/Kindle/system/thumbnails/</code>目录中生成封面的缩略图文件——因此绕开了从Kindle官方的下载过程。它可以操作很多类型的电子书或文档，并且可以帮助你从网上自动下载封面。不过，注意有一项限制：</p>
-
 <blockquote>
-  <p>如果你的Kindle固件版本在5.8.5之后，并且仅只针对“用Send功能发送，并同步到Kindle上的‘Docs’”，那么这个工具是不能帮你换封面的。</p>
+<p>如果你的Kindle固件版本在5.8.5之后，并且仅只针对“用Send功能发送，并同步到Kindle上的‘Docs’”，那么这个工具是不能帮你换封面的。</p>
 </blockquote>
-
-<p>其它所有情况下，它工作得很好。所以，如果是一个.azw3文件，那么你从电脑中复制到Kindle中去，并且用ExtractCoverThumbs处理一下，就OK了。</p>]]></content:encoded></item></channel></rss>
+<p>其它所有情况下，它工作得很好。所以，如果是一个.azw3文件，那么你从电脑中复制到Kindle中去，并且用ExtractCoverThumbs处理一下，就OK了。</p>
+</div>]]></content:encoded></item></channel></rss>

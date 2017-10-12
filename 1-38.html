@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系" />
-    <meta property="og:description" content="一、Qomolangma中完整的OOP支持：Object.js Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。 通过Object.js，Qomo支持了如下的面向对象特性： 特性(Attribute)及读写器(getter/setter) 类注册与类继承(Class)，以及类在命名空间上的注册 (继承)父类的方法调用(Inherited)   (TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js) 二、Qomolangma中的OOP语法 Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，" />
+    <meta property="og:description" content="一、Qomolangma中完整的OOP支持：Object.js Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。 通过Object.js，Qomo支持了如下的面向对象特性： 特性(Attribute)及读写器(getter/setter) 类注册与类继承(Class)，以及类在命名空间上的注册 (继承)父类的方法调用(Inherited) (TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js) 二、Qomolangma中的OOP语法 Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，" />
     <meta property="og:url" content="http://aimingoo.github.io/1-38.html" />
     <meta property="article:published_time" content="2006-03-12T20:40:00.000Z" />
     <meta property="article:modified_time" content="2017-10-08T12:39:36.000Z" />
@@ -34,7 +34,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系" />
-    <meta name="twitter:description" content="一、Qomolangma中完整的OOP支持：Object.js Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。 通过Object.js，Qomo支持了如下的面向对象特性： 特性(Attribute)及读写器(getter/setter) 类注册与类继承(Class)，以及类在命名空间上的注册 (继承)父类的方法调用(Inherited)   (TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js) 二、Qomolangma中的OOP语法 Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，" />
+    <meta name="twitter:description" content="一、Qomolangma中完整的OOP支持：Object.js Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。 通过Object.js，Qomo支持了如下的面向对象特性： 特性(Attribute)及读写器(getter/setter) 类注册与类继承(Class)，以及类在命名空间上的注册 (继承)父类的方法调用(Inherited) (TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js) 二、Qomolangma中的OOP语法 Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-38.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -55,37 +55,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系",
     "url": "http://aimingoo.github.io/1-38.html",
     "datePublished": "2006-03-12T20:40:00.000Z",
     "dateModified": "2017-10-08T12:39:36.000Z",
     "keywords": "Javascript, Qomo, OpenSource Project, 面向对象",
-    "description": "一、Qomolangma中完整的OOP支持：Object.js Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。 通过Object.js，Qomo支持了如下的面向对象特性： 特性(Attribute)及读写器(getter/setter) 类注册与类继承(Class)，以及类在命名空间上的注册 (继承)父类的方法调用(Inherited)   (TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js) 二、Qomolangma中的OOP语法 Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，",
+    "description": "一、Qomolangma中完整的OOP支持：Object.js Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。 通过Object.js，Qomo支持了如下的面向对象特性： 特性(Attribute)及读写器(getter/setter) 类注册与类继承(Class)，以及类在命名空间上的注册 (继承)父类的方法调用(Inherited) (TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js) 二、Qomolangma中的OOP语法 Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -96,8 +93,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -114,6 +109,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -122,11 +118,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-qomo tag-opensource-project tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -148,159 +146,118 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <h2 id="qomolangmaoopobjectjs">一、Qomolangma中完整的OOP支持：Object.js</h2>
-
+                <div class="kg-card-markdown"><h2 id="qomolangmaoopobjectjs">一、Qomolangma中完整的OOP支持：Object.js</h2>
 <p>Qomo自Field Test4开始提供Object.js，这个单元用于在Qomo中支持完整的OOP特性。通过Object.js，Qomo中的JavaScript由原来的“原型继承”转变成了“类继承”。而且，这个转变对于开发人员来说，几乎是完全透明的。</p>
-
 <p>通过Object.js，Qomo支持了如下的面向对象特性：</p>
-
 <ul>
 <li>特性(Attribute)及读写器(getter/setter)</li>
 <li>类注册与类继承(Class)，以及类在命名空间上的注册</li>
 <li>(继承)父类的方法调用(Inherited)</li>
 </ul>
-
 <blockquote>
-  <p>(TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js)</p>
+<p>(TODO: 在safari中，由于不支持function.caller属性，因此无法支持Qomo中的Object.js)</p>
 </blockquote>
-
 <h2 id="qomolangmaoop">二、Qomolangma中的OOP语法</h2>
-
 <p>Qomo的确扩展了一些JS语法。但与一些其它的JS OOP实现方案不同：Qomo是基于JS语法自身扩展，而不是加上一些替换用的标识／关键字。后者的实现方案，可能要求单独的一个语法翻译系统／解释引擎。但Qomo不需要，而且基本上来说，由于不存在syntax parse，所以Qomo运行的速度要较快，而且开发人员书写的代码与调试器中的代码完全一致。</p>
-
 <p>Qomo在全局提供了三个以关键字形式描述的函数：Class(), Attribute()和Abstract()。其中Class和Abstract事实上使用了js保留的关键字class与abstract。这意味着在今后的(例如Qomo for JS 2.0中)Qomo有可能删除掉它们。</p>
-
 <p>这些函数中，Class()用于将一个构造器函数注册到一个类; Attribute()用于快速地声明和初始化特性; Abstract()用于声明一个抽象方法。</p>
-
 <p>Qomo在全局提供了三个仅能在类注册和初始化阶段使用的函数：_set(),_get()和_cls()。它们用<code>_</code>开始，表明调用它们的上下文环境是受限的：只能在类声明过程中被调用。</p>
-
 <p>在Object.js中，还重写了Object()类，重写的Object()与JavaScript原有的Object()具有完全相同的特性。事实上，它的原型就是原来JavaScript Object()的一个实例。</p>
-
 <p>重写Object()而不是直接使用原有的，是因为在Qomo中有一项重要约定：</p>
-
 <ul>
-<li>Qomo中应该允许自由地使用"{}"语法来声明直接量的对象，而且这个对象一定是没有任何“可见的”属性的。</li>
+<li>Qomo中应该允许自由地使用&quot;{}&quot;语法来声明直接量的对象，而且这个对象一定是没有任何“可见的”属性的。</li>
 </ul>
-
 <p>由于Qomo是使用“类继承”体系的，因此Qomo注册了一个全局的基类：TObject。</p>
-
 <h3 id="1class">1. 类声明与类注册(Class)</h3>
-
 <p>Qomo中声明一个类的方法，与标准JS中声明一个“对象构造器(函数)”的方法完全一致。但是，在声明类之后，Qomo需要调用Class()来注册它。如下例：</p>
-
 <pre><code class="language-javascript">// 类声明
-function MyObject() {  
+function MyObject() {
   this.value = 'Hello, Qomoer!!!';
 }
 // 类注册
 TMyObject = Class(TObject, 'MyObject');
 
 // 创建实例和调用
-var obj = new MyObject();  
-alert(obj.value);  
+var obj = new MyObject();
+alert(obj.value);
 </code></pre>
-
 <p>我们也注意到，除了多一行类注册之外，Qomo其它的(基本)语法与标准的JS没有任何的不同。</p>
-
 <p>但是，通过Class()注册，得到的对象实例obj将会具有以下三个“多余的”方法调用：</p>
-
 <ul>
 <li>obj.get() : 取特性值</li>
 <li>obj.set() : 置特性值</li>
 <li>obj.inherited() : 继承(调用)父类方法</li>
 </ul>
-
 <p>关于Qomo的类与对象实例的一些特征，请参见示例：TestCase/BaseObjectDemo.html</p>
-
 <p>接下来我们讲述与这三个方法相关的一些语法。</p>
-
 <h3 id="2attribute">2. 特性(Attribute)的使用</h3>
-
 <p>在Delphi中属性是可以有读写器的，在C#等其它高级语言中也可以具备这些。包括在JS2.0中，也提供了属性读写器的声明语法。但这些都是基于属性(properties)的。</p>
-
-<p>Qomo没有办法提供一种“扩展的语法”来使得JS 1.3支持“属性的读写器”。因此Qomo借用了C#中"特性(Attribute)"一词，实现了可定制读写器的Attribute。事实上，也如同C#所推荐的一样：Attribute是“最具创新的一种构造”。</p>
-
+<p>Qomo没有办法提供一种“扩展的语法”来使得JS 1.3支持“属性的读写器”。因此Qomo借用了C#中&quot;特性(Attribute)&quot;一词，实现了可定制读写器的Attribute。事实上，也如同C#所推荐的一样：Attribute是“最具创新的一种构造”。</p>
 <p>Qomo中可以在“类声明”中直接声明特性(注意这些特性声明／方法不会出现在对象实例的属性中，即使是使用for..in运算来列举)，而无需事先描述它：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   this.getValue = function() {
     return 100;
   }
 }
 TMyObject = Class(TObject, 'MyObject');
 
-var obj = new MyObject();  
-alert(obj.get('Value'));  
+var obj = new MyObject();
+alert(obj.get('Value'));
 </code></pre>
-
 <p>简单地说，Qomo认为所有使用'get/set'开始的方法，都是一个指定特性的“读写器方法”。因此一行简单的“this.getValue = function(){...}”，就具有了以下语义：</p>
-
 <ul>
-<li>(在对象实例内部, )声明一个名为"Value"的特性</li>
+<li>(在对象实例内部, )声明一个名为&quot;Value&quot;的特性</li>
 <li>它的读方法(getter)为getValue()</li>
-<li>它的写方法(setter)将直接操作"Value"特性本身</li>
+<li>它的写方法(setter)将直接操作&quot;Value&quot;特性本身</li>
 </ul>
-
 <p>在上面这个例子中，我们看到getValue()将直接返回100。那么如何能返回“对象实例内部的Value特性”的值呢？——因为setter没有被声明，会直接操作这个内部值。参见这个示例：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   this.getValue = function() {
     return this.get();
   }
 }
 TMyObject = Class(TObject, 'MyObject');
 
-var obj = new MyObject();  
-obj.set('Value', 1000);  
-alert(obj.get('Value'));  
+var obj = new MyObject();
+obj.set('Value', 1000);
+alert(obj.get('Value'));
 </code></pre>
-
-<p>这个例子表明，“(仅仅)在读写器函数内部”，可以不带"name"参数地调用：</p>
-
+<p>这个例子表明，“(仅仅)在读写器函数内部”，可以不带&quot;name&quot;参数地调用：</p>
 <ul>
 <li>this.get() : 用于取内部特性的数据</li>
 <li>this.set() : 用于置内部特性数据的值</li>
 </ul>
-
 <p>注意这两种调用总是发生在读写器方法的内部，这时this总是指向当前实例。此外，对于“写方法”来说，要多一个参数。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   this.setValue = function(v) {
     return this.set(v*2);
   }
 }
 TMyObject = Class(TObject, 'MyObject');
 
-var obj = new MyObject();  
-obj.set('Value', 1000)  
-alert(obj.get('Value'));  
+var obj = new MyObject();
+obj.set('Value', 1000)
+alert(obj.get('Value'));
 </code></pre>
-
 <p>在内部实现上，Qomo的特性采用了“写复制”的技术，因此一个类的所有实例的特性初值是一样的。但如果某一实例重写了它，则该实例具有一个不同的值。此外，子类对象实例也共享父类特性的一份引用(而不是拷贝)。但当实例试图写特性值时，它将写在自己的数据区写，而不会影响类或者其它实例。</p>
-
 <p>特性初值由Attribute()函数来声明，它仅能在类声明阶段被调用。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 100, 'rw');
 }
 TMyObject = Class(TObject, 'MyObject');
 
-var obj = new MyObject();  
-alert(obj.get('Value'));  
+var obj = new MyObject();
+alert(obj.get('Value'));
 </code></pre>
-
 <p>Attribute()的参数说明如下：</p>
-
 <ol>
 <li>base : 必须是this</li>
 <li>name : 指定特性名. 习惯上以大写开头.</li>
 <li>value: 初值</li>
 <li>tag  : 标志字符. 目前仅用于描述读写特性. 包括字符：r, w</li>
 </ol>
-
 <p>Attribute()的tag参数(目前)用于描述读写性。如果尝试读一个只写的特性时，将触发一个异常，反之亦然。但是，在读写器方法的内部就没有这项限制。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 100, 'r');
 
   this.getValue = function() {
@@ -310,16 +267,14 @@ alert(obj.get('Value'));
 }
 TMyObject = Class(TObject, 'MyObject');
 
-var obj = new MyObject();  
+var obj = new MyObject();
 alert(obj.get('Value'));
 
 // 以下代码将导致一个异常
 // obj.set('Value', 'hi, error!');
 </code></pre>
-
 <p>不过，Attribute()所声明的tag是非强制性的。也就是说，即使声明了只读／写特性，仍然可以通过一个指定名字的读写器方法来使“只读／写”失效。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 100, 'r');
 
   this.setValue = function(v) {
@@ -328,31 +283,29 @@ alert(obj.get('Value'));
 }
 TMyObject = Class(TObject, 'MyObject');
 
-var obj = new MyObject();  
-obj.set('Value', 'hi, success!');  
-alert(obj.get('Value'));  
+var obj = new MyObject();
+obj.set('Value', 'hi, success!');
+alert(obj.get('Value'));
 </code></pre>
-
 <p>这样设计的原因，是使得子类有机会重写父类的特性的读写器方法。——他们只是名字上的相同，但可读写性不一定要一致。例如：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 100, 'r');
 }
 TMyObject = Class(TObject, 'MyObject');
 
-function MyObjectEx() {  
+function MyObjectEx() {
   this.setValue = function(v) {
     this.set('value is: ' + v);
   }
 }
 TMyObjectEx = Class(TMyObject, 'MyObjectEx');
 
-var obj = new MyObjectEx();  
-alert(obj.get('Value'));           // 显示自MyObject()继承来的特性值  
-obj.set('Value', 'hi, success!');  // 为实例特性置新值  
+var obj = new MyObjectEx();
+alert(obj.get('Value'));           // 显示自MyObject()继承来的特性值
+obj.set('Value', 'hi, success!');  // 为实例特性置新值
 alert(obj.get('Value'));           // 显示新值
 
-var obj2 = new MyObject();  
+var obj2 = new MyObject();
 alert(obj2.get('Value'));          // 检测：其它的实例没有受到影响
 
 // 对于MyObject()来说，Value特性是不可写的，因此下面的代码将出错
@@ -360,30 +313,20 @@ alert(obj2.get('Value'));          // 检测：其它的实例没有受到影响
 // var obj3 = new MyObject();
 // obj3.set('Value', 1000);
 </code></pre>
-
 <p>关于Attribute()的更多示例，请参见：TestCase/BaseObjectDemo2.html</p>
-
 <h3 id="3inherited">3. 继承(Inherited)方法的使用</h3>
-
 <p>对于一个实例来说，obj.inherited()将调用父类方法，这种调用关系可以在父类的父类、乃至祖先类中发生。当调用到根类TObject()时，由于不存在同名的方法，因此将会返回一个异常。</p>
-
 <p>在Qomo中，inherited具有与delphi中的inherited完全一致的特性。当然，它只能在方法中被调用。这包括类(声明)方法与对象方法。——这两者的区别随后再介绍。</p>
-
 <p>inherited有三种调用方法(由于它总是在方法内被调用，因此this总是指向当前实例)：</p>
-
 <ul>
 <li>this.inherited() :</li>
 <li>this.inherited(this.mehtod [, param]);</li>
 <li>this.inherited('<methodName>' [, param]);</li>
 </ul>
-
 <p>第一种方法没有任何参数，这种情况下，Qomo将查找当前方法的父类方法，并使用相同的入口参数调用；对于第二、三两种方法来说，则可以传入一个新的参数表。如果参数忽略，也将使用当前方法的参数表。</p>
-
 <p>第二、三两种方法本意上是相同的，只是一个是用方法名，另一个是用方法引用来作为第一个参数。二者不存在效率上的差异，只是用于应对不同的需求。</p>
-
 <p>关于如何对象的继承性，需要读者去阅读有关OOP的相关书籍了，这里不细述。下面的例子描述如何在Qomo中使用这一特性：</p>
-
-<pre><code class="language-javascript">function Animal() {  
+<pre><code class="language-javascript">function Animal() {
   this.leg = function() {
     alert('跑');
   }
@@ -393,7 +336,7 @@ alert(obj2.get('Value'));          // 检测：其它的实例没有受到影响
   }
 }
 
-function Cat() {  
+function Cat() {
   this.jump = function() {
     alert('跳');
   }
@@ -405,39 +348,30 @@ function Cat() {
   }
 }
 
-TAnimal = Class(TObject, 'Animal');  
+TAnimal = Class(TObject, 'Animal');
 TCat = Class(TAnimal, 'Cat');
 
-obj = new Cat();  
-obj.run();  
+obj = new Cat();
+obj.run();
 </code></pre>
-
 <p>这个例子说明：</p>
-
 <ul>
 <li>“动物”有一种run的行为，这个行为的内容是(不停地)“跑(leg)”</li>
 <li>“猫”是一种“动物”，并从“动物”那里继承了run的行为</li>
 <li>“猫”通常是“跳两下”，然后再继续run的行为</li>
 </ul>
-
 <p>所以，猫的run的行为描述是：</p>
-
 <pre><code class="language-javascript">  this.run = function() {
     this.jump();
     this.jump();
     this.inherited();
   }
 </code></pre>
-
 <p>关于inherited()的更多示例，请参见：TestCase/BaseObjectDemo3.html</p>
-
 <h3 id="3">3. 类声明周期与对象构造周期</h3>
-
 <p>在此前的所有例子中，我都没有把Qomo中一项最重要的特性展现在用户面前。这就是“类声明周期”。——即使在绝大多数的例子前面，留有这样注释的。</p>
-
 <p>Qomo中用户代码编写的“构造器”，其实是只应当具有“类声明语法”的。所谓类声明语法，就是指“仅于一个对象的表现有关”的语法。而不应该加入过多的逻辑代码。基本上来说，类声明可以包括如下代码：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 0);// 快速特性声明
   var v = _get('Data');       // 取(当前类的)父类的特性值
   _set('Data', v);            // 置特性值, 但不覆盖父类
@@ -462,11 +396,9 @@ obj.run();
 
   // (other code...)
 }
-TMyObject = Class(TObject, 'MyObject');  
+TMyObject = Class(TObject, 'MyObject');
 </code></pre>
-
-<p>上面的示例包括了“类声明周期”的绝大多数代码及其语法。当然，在"other code"中用户也可以加入自己的代码。例如初始化类的一些特性，或者将类加入全局的monitor等等。但用户需要注意的是，在“类声明周期”：</p>
-
+<p>上面的示例包括了“类声明周期”的绝大多数代码及其语法。当然，在&quot;other code&quot;中用户也可以加入自己的代码。例如初始化类的一些特性，或者将类加入全局的monitor等等。但用户需要注意的是，在“类声明周期”：</p>
 <ul>
 <li>this指向所有对象实例的原型</li>
 <li>可以用_cls()来取得类自身的一个引用</li>
@@ -474,40 +406,31 @@ TMyObject = Class(TObject, 'MyObject');
 <li>不能给(类声明时的)构造器加入口参数</li>
 <li>这个构造器函数只被执行一次</li>
 </ul>
-
 <p>对于用户代码来说，构造器不能加入口参数很大程度上的限制了使用。但事实上，在“类继承体系”中，这是很合理的。——你不能用同一个类声明去描述两个不同的类及实例。</p>
-
 <p>在Qomo中，用户声明的“构造器”实际上被用作“类声明”。因此就独立出来一个“对象构造周期”。这个周期是用户代码完全可控的：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   // (略: 类声明)
 
   this.Create = function(v1, v2, v3) {
     // 对象构造周期
   }
 }
-TMyObject = Class(TObject, 'MyObject');  
+TMyObject = Class(TObject, 'MyObject');
 </code></pre>
-
 <p>“对象构造周期”是由this.Create()来描述的一个函数。它也很象标准JS中的构造器：</p>
-
 <ul>
 <li>每次对象构造都将为实例调用this.Create()方法</li>
 <li>该方法可以有任意的入口参数</li>
 <li>该方法中的this，是指向对象实例的</li>
 <li>在该方法中，可以访问类的私有成员和方法</li>
 </ul>
-
 <p>因此，用户可以按自己的习惯在这里书写任意的JavaScript代码。但是与“类声明相关的”一些语法不能在这里使用：</p>
-
 <ul>
 <li>Attribute(), _set(), _get(), _cls()不能使用</li>
 <li>this.getValue()等不能声明成特性</li>
 </ul>
-
 <p>但有一个唯一的例外：this.inherited()可以在“对象构造周期”使用：</p>
-
-<pre><code class="language-javascript">function MyObject() {  
+<pre><code class="language-javascript">function MyObject() {
   this.method1 = function() {
     // ...
   }
@@ -522,128 +445,96 @@ TMyObject = Class(TObject, 'MyObject');
     }
   }
 }
-TMyObject = Class(TObject, 'MyObject');  
+TMyObject = Class(TObject, 'MyObject');
 </code></pre>
-
 <p>这个例子中，“对象构造周期”中的method1()事实上覆盖了“类.method1”方法。但它不会改变其它该类构造的其它实例(如果v1值是有效的)。因此“对象方法”与“类声明的方法”是被区分开来的。</p>
-
 <p>因为这种区分，所以你应该知道“对象构造周期”如果覆盖了“类声明的方法(A)”，那么这个inherited将会调用“方法A”。——inhreited()的语义是“父类方法”。</p>
-
 <p>这个inherited()的特性，请参见：TestCase/BaseObjectDemo3.html</p>
-
 <h2 id="qomolangmaoop">三、Qomolangma中OOP语法的一些注意事项</h2>
-
 <p>首先，最重要的一点是：Qomo的多投事件系统对任何框架来说，是“完全透明”的！因此，它可以在其它任何框架中，象一个普通的事件函数(响应句柄)一样地加入被植入。</p>
-
 <p>事实上，Qomo的多投事件与Qomo OOP框架完全地脱离开，不利用任何的OOP特性、框架特性。——这种设计思路完整地体现了Qomo的目标与宗旨，以及，我们对OOP的认知。</p>
-
 <h3 id="1">1. 类声明与构造的一些特例与语法</h3>
-
 <p>Qomo中Class()可以只有一个参数，即<code>Constructor Name</code>。这有两种情况：</p>
-
 <pre><code class="language-javascript">// 语法一：值为'Object'，仅仅保留给TObject的声明
-function Object(){  
+function Object(){
 }
 TObject = Class('Object');
 
 // 语法二：值不为'Object'，相当于调用Class(TObject, '&lt;Constructor Name&gt;');
-function MyObject(){  
+function MyObject(){
 }
-TMyObject = Class('MyObject');  
+TMyObject = Class('MyObject');
 ``
 
 此外，Class()还有两种可能的用法：
-</code></pre>
 
-<p>javascript
+```javascript
 // 语法三：Class()在声明前调用
-TMyObject = Class(TObject, 'MyObject'); <br />
-function MyObject(){ <br />
-}</p>
-
-<p>// 语法四：只注册但不声明类
-function MyObject(){ <br />
+TMyObject = Class(TObject, 'MyObject');
+function MyObject(){
 }
-Class(TObject, 'MyObject');  </p>
 
-<pre><code>语法三使用了JavaScript编译期的特性。由于直接声明的function将在编译期被接受，因此TMyObject对'MyObject'的使用可以出现在它的声明之前。但是下面这样的用法就不行(关于这一点，在以前的《Qomolangma内核篇(四)》中有讲过)：
+// 语法四：只注册但不声明类
+function MyObject(){
+}
+Class(TObject, 'MyObject');
 </code></pre>
-
-<p>javascript
-// 不正确的用法
-TMyObject = Class('MyObject'); <br />
-MyObject = function(){ <br />
-}</p>
-
-<pre><code>语法四利用了Qomo中不强制类声明的特性。这种用法只将MyObject()注册成为类，但不提供一个类类型TMyObject。这种情况下，仍然可以通过obj = new MyObject()来得到类实例。而与类类型TMyObject完全等义的引用，可以在以下两个地方找到：
+<p>语法三使用了JavaScript编译期的特性。由于直接声明的function将在编译期被接受，因此TMyObject对'MyObject'的使用可以出现在它的声明之前。但是下面这样的用法就不行(关于这一点，在以前的《Qomolangma内核篇(四)》中有讲过)：</p>
+<pre><code class="language-javascript">// 不正确的用法
+TMyObject = Class('MyObject');
+MyObject = function(){
+}
 </code></pre>
+<p>语法四利用了Qomo中不强制类声明的特性。这种用法只将MyObject()注册成为类，但不提供一个类类型TMyObject。这种情况下，仍然可以通过obj = new MyObject()来得到类实例。而与类类型TMyObject完全等义的引用，可以在以下两个地方找到：</p>
+<pre><code class="language-javascript">obj = new MyObject();
 
-<p>javascript
-obj = new MyObject();</p>
+// 1. 在obj.ClassInfo中存在类引用
+alert(obj.ClassInfo.ClassName);
 
-<p>// 1. 在obj.ClassInfo中存在类引用
-alert(obj.ClassInfo.ClassName);</p>
-
-<p>// 2. 在命名空间上存在该类引用
-var cls = eval(obj.ClassInfo.SpaceName + '.TMyObject'); <br />
-alert(cls.ClassName);  </p>
-
-<pre><code>### 2. Qomo对象仍然是基于原型构造的
-
-与其它的一些OOP框架不同的是：Qomo对象仍然是基于原型构造的。这表明开发人员仍然可以使用prototype来修改实例和构造器的属性。重要的是，这种修改对Qomo的类构造系统不会造成任何负面的影响。例如：
+// 2. 在命名空间上存在该类引用
+var cls = eval(obj.ClassInfo.SpaceName + '.TMyObject');
+alert(cls.ClassName);
 </code></pre>
-
-<p>javascript
-function MyObject() { <br />
+<h3 id="2qomo">2. Qomo对象仍然是基于原型构造的</h3>
+<p>与其它的一些OOP框架不同的是：Qomo对象仍然是基于原型构造的。这表明开发人员仍然可以使用prototype来修改实例和构造器的属性。重要的是，这种修改对Qomo的类构造系统不会造成任何负面的影响。例如：</p>
+<pre><code class="language-javascript">function MyObject() {
   Attribute(this, 'Value', 200, 'r');
 }
-TMyObject = Class(TObject, 'MyObject');</p>
+TMyObject = Class(TObject, 'MyObject');
 
-<p>MyObject.prototype.Value = 100;</p>
+MyObject.prototype.Value = 100;
 
-<p>var obj = new MyObject(); <br />
-alert(obj.Value); <br />
-alert(obj.get('Value'));  </p>
-
-<pre><code>Qomo 框架采用这种“对原型继承透明”的设计，使得它可以更容易地嵌入到其它的框或者系统中。大多数情况下，第三方的框架感觉不到Qomo的存在，也不会受到Qomo语法的任何影响。
-
-### 3. Qomo对象构造的第二种语法
-
-首先是作为一种习惯，我在Qomo中实现了一个“与Delphi完全一致”的语法：
+var obj = new MyObject();
+alert(obj.Value);
+alert(obj.get('Value'));
 </code></pre>
-
-<p>javascript
-function MyObject() { <br />
+<p>Qomo 框架采用这种“对原型继承透明”的设计，使得它可以更容易地嵌入到其它的框或者系统中。大多数情况下，第三方的框架感觉不到Qomo的存在，也不会受到Qomo语法的任何影响。</p>
+<h3 id="3qomo">3. Qomo对象构造的第二种语法</h3>
+<p>首先是作为一种习惯，我在Qomo中实现了一个“与Delphi完全一致”的语法：</p>
+<pre><code class="language-javascript">function MyObject() {
 }
-TMyObject = Class(TObject, 'MyObject');</p>
+TMyObject = Class(TObject, 'MyObject');
 
-<p>var obj = TMyObject.Create();  </p>
-
-<pre><code>我们可以看到，其实“对象＝类.Create()”在语义上更符合“类继承体系”。但是Qomo不希望将任何与JavaScript无关的语法或者语义“强加”给开发者。所以Qomo中仍然支持JavaScript中标准的构造器语法“对象＝new 构造器()”。需要说明的是，这两种方法得到的对象实例没有任何的区别。
-
-Qomo实现“类.Create()”语法的另一个原因，是因为在命名空间中，我们存储的是类的引用，而非构造器的引用。也就是说，上面的TMyObject能在命名空间中找到：
+var obj = TMyObject.Create();
 </code></pre>
-
-<p>javascript
-cls = <a_name_space>.TMyObject;  </p>
-
-<pre><code>这种情况下，我们只能使用“类.Create()”这种语法。当然，这种情况下，仍然可以有两种选择：
+<p>我们可以看到，其实“对象＝类.Create()”在语义上更符合“类继承体系”。但是Qomo不希望将任何与JavaScript无关的语法或者语义“强加”给开发者。所以Qomo中仍然支持JavaScript中标准的构造器语法“对象＝new 构造器()”。需要说明的是，这两种方法得到的对象实例没有任何的区别。</p>
+<p>Qomo实现“类.Create()”语法的另一个原因，是因为在命名空间中，我们存储的是类的引用，而非构造器的引用。也就是说，上面的TMyObject能在命名空间中找到：</p>
+<pre><code class="language-javascript">cls = &lt;a_name_space&gt;.TMyObject;
 </code></pre>
+<p>这种情况下，我们只能使用“类.Create()”这种语法。当然，这种情况下，仍然可以有两种选择：</p>
+<pre><code class="language-javascript">cls = &lt;a_name_space&gt;.TMyObject;
 
-<p>javascript
-cls = <a_name_space>.TMyObject;</p>
+// 方法一：
+var obj1 = cls.Creae();
 
-<p>// 方法一：
-var obj1 = cls.Creae();</p>
+// 方法二：
+var obj2 = new cls.Create();
 
-<p>// 方法二：
-var obj2 = new cls.Create();</p>
-
-<p>// 错误的方法：
+// 错误的方法：
 // var obj3 = new cls();
-```</p>
-
-<p>不要试图对一个类使用new()关键字，在Qomo中，"new cls()"这样的语义是不可理解的。</p>
+</code></pre>
+<p>不要试图对一个类使用new()关键字，在Qomo中，&quot;new cls()&quot;这样的语义是不可理解的。</p>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -661,8 +552,8 @@ var obj2 = new cls.Create();</p>
             </span>
 
             <span class="post-nav-next" >
-                <a href="/1-39.html">
-                    Qomolangma实现篇(六)：Qomo的OOP框架的实现技术
+                <a href="/2-20.html">
+                    暴风雪三尖之王者归来
                 </a>
                 下一篇
             </span>
@@ -671,8 +562,8 @@ var obj2 = new cls.Create();</p>
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -694,16 +585,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -746,21 +637,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

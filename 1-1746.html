@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>解决静态Blog中timeago显示问题的方法</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="解决静态Blog中timeago显示问题的方法" />
-    <meta property="og:description" content="因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &amp;lt;script src&#x3D;&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&amp;gt;&amp;lt;/script&amp;gt; // 在需要显示的位置使用下面的代码 &amp;lt;script&amp;gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&amp;lt;/script&amp;gt;   在具体到Ghost的模板中使用的时候，会略有不同。 1. 修改default.hbs 将下面的代码插入页面合适的位置以加载timeAgo模块： &amp;lt;!--" />
+    <meta property="og:description" content="因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &amp;lt;script src&#x3D;&amp;quot;https://aimingoo.github.io/assets/js/timeAgo.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; // 在需要显示的位置使用下面的代码 &amp;lt;script&amp;gt;document.writeln(timeAgo(&amp;quot;DATETIME_OF_YOUR_POST&amp;quot;))&amp;lt;/script&amp;gt; 在具体到Ghost的模板中使用的时候，会略有不同。 1. 修改default." />
     <meta property="og:url" content="http://aimingoo.github.io/1-1746.html" />
     <meta property="article:published_time" content="2017-09-27T10:10:47.000Z" />
     <meta property="article:modified_time" content="2017-09-28T02:29:47.000Z" />
@@ -33,7 +33,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="解决静态Blog中timeago显示问题的方法" />
-    <meta name="twitter:description" content="因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &amp;lt;script src&#x3D;&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&amp;gt;&amp;lt;/script&amp;gt; // 在需要显示的位置使用下面的代码 &amp;lt;script&amp;gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&amp;lt;/script&amp;gt;   在具体到Ghost的模板中使用的时候，会略有不同。 1. 修改default.hbs 将下面的代码插入页面合适的位置以加载timeAgo模块： &amp;lt;!--" />
+    <meta name="twitter:description" content="因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &amp;lt;script src&#x3D;&amp;quot;https://aimingoo.github.io/assets/js/timeAgo.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; // 在需要显示的位置使用下面的代码 &amp;lt;script&amp;gt;document.writeln(timeAgo(&amp;quot;DATETIME_OF_YOUR_POST&amp;quot;))&amp;lt;/script&amp;gt; 在具体到Ghost的模板中使用的时候，会略有不同。 1. 修改default." />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-1746.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -54,37 +54,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "解决静态Blog中timeago显示问题的方法",
     "url": "http://aimingoo.github.io/1-1746.html",
     "datePublished": "2017-09-27T10:10:47.000Z",
     "dateModified": "2017-09-28T02:29:47.000Z",
     "keywords": "Ghost, 博客, Javascript",
-    "description": "因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &amp;lt;script src&#x3D;&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&amp;gt;&amp;lt;/script&amp;gt; // 在需要显示的位置使用下面的代码 &amp;lt;script&amp;gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&amp;lt;/script&amp;gt;   在具体到Ghost的模板中使用的时候，会略有不同。 1. 修改default.hbs 将下面的代码插入页面合适的位置以加载timeAgo模块： &amp;lt;!--",
+    "description": "因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &amp;lt;script src&#x3D;&amp;quot;https://aimingoo.github.io/assets/js/timeAgo.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; // 在需要显示的位置使用下面的代码 &amp;lt;script&amp;gt;document.writeln(timeAgo(&amp;quot;DATETIME_OF_YOUR_POST&amp;quot;))&amp;lt;/script&amp;gt; 在具体到Ghost的模板中使用的时候，会略有不同。 1. 修改default.",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -95,8 +92,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,6 +108,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -121,11 +117,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-ghost-tag tag-bo-ke tag-javascript">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-1746.html">解决静态Blog中timeago显示问题的方法</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-1746.html">解决静态Blog中timeago显示问题的方法</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -147,75 +145,54 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
-
+                <div class="kg-card-markdown"><p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
 <p>在页面中使用的时候也很简单，基本的做法是：</p>
-
 <pre><code class="language-html">// 在页面中添加timeAgo模块
-&lt;script src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;
+&lt;script src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
 
 // 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo("DATETIME_OF_YOUR_POST"))&lt;/script&gt;  
+&lt;script&gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&lt;/script&gt;
 </code></pre>
-
 <p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
-
 <p><strong>1. 修改default.hbs</strong></p>
-
 <p>将下面的代码插入页面合适的位置以加载timeAgo模块：</p>
+<pre><code class="language-html">&lt;!-- 将timeAgo.js置入模板的assets目录 --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;{{asset &quot;js/timeAgo.js&quot;}}&quot;&gt;&lt;/script&gt;
 
-<pre><code class="language-html">&lt;!-- 将timeAgo.js置入模板的assets目录 --&gt;  
-&lt;script type="text/javascript" src="{{asset "js/timeAgo.js"}}"&gt;&lt;/script&gt;
-
-&lt;!-- 或使用在线的版本 --&gt;  
-&lt;script type="text/javascript" src="https://aimingoo.github.io/assets/js/timeAgo.js"&gt;&lt;/script&gt;  
+&lt;!-- 或使用在线的版本 --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-
 <p>如果你的模板有自己的初始化代码（一般放在<code>assets/js/index.js</code>文件中），应该将这行代码插入在初始化代码之前。</p>
-
 <p><strong>2. 修改post.hbs</strong></p>
-
 <p>在<code>post.hbs</code>中找到显示一个Post的日期的位置。它可能使用如下代码（缺省使用Ghost内置的timeago方法显示）：</p>
-
-<pre><code class="language-bash">{{date published_at timeago="true"}}
+<pre><code class="language-bash">{{date published_at timeago=&quot;true&quot;}}
 </code></pre>
-
 <p>根据你打算在<code>post.hbs</code>使用该值的不同方法，可以直接输出，也可以在页面加载之后重置这个值。</p>
-
 <p>如果是直接在该页面中输出，则将上面的改为：</p>
-
-<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo("{{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}"))&lt;/script&gt;  
+<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo(&quot;{{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}&quot;))&lt;/script&gt;
 </code></pre>
-
 <p>注意上面的代码中，我们是用format参数来取得更加精确的时间值（而不是直接使用timeago格式的值）。</p>
-
 <p><strong>3. 如果采用延迟加载的方法</strong></p>
-
 <p>如果这个值是采用延迟加载的方法来显示的，那么它可能放在<code>post.hbs</code>的一对标签中。类似：</p>
-
-<pre><code class="language-html">&lt;time class="post-date" datetime="{{date format='YYYY-MM-DDTHH:mm:ss.sssZ'}}" timeago="true"&gt;&lt;/time&gt;  
+<pre><code class="language-html">&lt;time class=&quot;post-date&quot; datetime=&quot;{{date format='YYYY-MM-DDTHH:mm:ss.sssZ'}}&quot; timeago=&quot;true&quot;&gt;&lt;/time&gt;
 </code></pre>
-
 <p>注意这里的<code>timeago</code>只是一个html标签属性——这个属性是我添加的，用来标示这个<code>&lt;time&gt;</code>标签将采用<code>timeago</code>方式显示。</p>
-
 <p>在延迟加载的情况下，通常是在全局的ready回调中做一些针对当前页面的规格化操作。它可能通过在<code>default.hbs</code>中加载一个<code>.js</code>文件来进入。以我们上面说到过的例子，假如在<code>assets/js/index.js</code>文件中，那么它可能的代码是：</p>
-
 <pre><code class="language-javascript">$(document).ready(function() {
   ...
 })
 </code></pre>
-
 <p>在这个代码块中，加入下面的代码即可：</p>
-
-<pre><code class="language-javascript">// 列出所有'class="post-date"的标签
-$(".post-date").each(function() {
+<pre><code class="language-javascript">// 列出所有'class=&quot;post-date&quot;的标签
+$(&quot;.post-date&quot;).each(function() {
     // 检查上面添加的'timeago'属性值是否为'true'
-    if ($(this).attr("timeago") == "true") {
+    if ($(this).attr(&quot;timeago&quot;) == &quot;true&quot;) {
         // 从'datetime'属性中取时间值，用timeAgo()转换并回写到当前标签中
-        $(this).text(timeAgo($(this).attr("datetime")));
+        $(this).text(timeAgo($(this).attr(&quot;datetime&quot;)));
     }
 });
 </code></pre>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -243,8 +220,8 @@ $(".post-date").each(function() {
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -266,16 +243,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -318,21 +295,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

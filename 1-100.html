@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>旧文重发：谈企业软件架构设计</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="assets/css/screen.css?v=e558db5207" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/highlight-9.1.0/styles/xcode.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/anijs-0.9.3/anicollection.min.css?v=e558db5207" />
-    <link rel="stylesheet" type="text/css" href="assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e558db5207" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="旧文重发：谈企业软件架构设计" />
-    <meta property="og:description" content="这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价&amp;#20540;。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，" />
+    <meta property="og:description" content="这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价值。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。" />
     <meta property="og:url" content="http://aimingoo.github.io/1-100.html" />
     <meta property="article:published_time" content="2008-06-01T15:58:00.000Z" />
     <meta property="article:modified_time" content="2017-09-12T05:54:17.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="旧文重发：谈企业软件架构设计" />
-    <meta name="twitter:description" content="这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价&amp;#20540;。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，" />
+    <meta name="twitter:description" content="这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价值。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-100.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,38 +53,35 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "旧文重发：谈企业软件架构设计",
     "url": "http://aimingoo.github.io/1-100.html",
     "datePublished": "2008-06-01T15:58:00.000Z",
     "dateModified": "2017-09-12T05:54:17.000Z",
     "keywords": "Javascript, 架构设计",
-    "description": "这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价&amp;#20540;。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，",
+    "description": "这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价值。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="shared/ghost-url.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="rss/index.html" />
+    <meta name="generator" content="Ghost 1.12" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-jia-gou-she-ji nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,13 +92,11 @@ ghost.init({
         
 
 
-<script type="text/javascript" author="aimingoo" src="assets/js/author-switcher.js?v=e558db5207"></script>
-
 <header class="main-header">
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="index.html">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -111,24 +106,27 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="index.html">首页</a></li>
-            <li class="nav-" role="presentation"><a href="archives-post/index.html">历史</a></li>
-            <li class="nav-" role="presentation"><a href="about/index.html">关于</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-jia-gou-she-ji">
             <header class="post-header">
-                <h1 class="post-title"><a href="1-100.html">旧文重发：谈企业软件架构设计</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-100.html">旧文重发：谈企业软件架构设计</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
-                        <a href="author/aimingoo/index.html">aimingoo</a>
+                        <a href="/author/aimingoo/">aimingoo</a>
                     </span>
                     <span class="post-meta-item">
                         <i class="fa fa-clock-o"></i>
@@ -137,7 +135,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="tag/javascript/index.html">Javascript</a>, <a href="tag/jia-gou-she-ji/index.html">架构设计</a>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/jia-gou-she-ji/">架构设计</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -146,111 +144,66 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <blockquote>
-  <p>这篇专访是ZDNET的李宁编辑在2007.03月期间做的。</p>
+                <div class="kg-card-markdown"><blockquote>
+<p>这篇专访是ZDNET的李宁编辑在2007.03月期间做的。</p>
 </blockquote>
-
-<p><strong><em>[编者语]</em></strong></p>
-
+<p><em><strong>[编者语]</strong></em></p>
 <p>最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com.</p>
-
 <p>在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。</p>
-
-<p><strong><em>1、您好，请先向我们的网友简单做一下自我介绍好吗？</em></strong></p>
-
-<p>我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价&#20540;。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。关于“Borland Delphi产品专家”，其实更多的是一个圈子的认可，而非行业的认可。我在“大富翁论坛（delphibbs.com）”活动了很长的时间，得到了一些朋友们的认可，后来Borland要评选这个专家的时候，大家推举了我，于是就得了这个称号。其实在我看来，优秀的人才、专家很多，我大约是人缘好点，运气好点罢。</p>
-
+<p><em><strong>1、您好，请先向我们的网友简单做一下自我介绍好吗？</strong></em></p>
+<p>我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价值。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。关于“Borland Delphi产品专家”，其实更多的是一个圈子的认可，而非行业的认可。我在“大富翁论坛（delphibbs.com）”活动了很长的时间，得到了一些朋友们的认可，后来Borland要评选这个专家的时候，大家推举了我，于是就得了这个称号。其实在我看来，优秀的人才、专家很多，我大约是人缘好点，运气好点罢。</p>
 <p>我05年9月开始到盛大网络，任架构师一职。当时Borland China也有offer，但在顾问、软件工程师与架构师之间，我选择了架构师这个职务，因为我对这个角色更加感兴趣。我目前的工作，主要是盛大的软件平台方面的架构、设计和一些实施方面的事务。虽然很多人认为盛大是做游戏的公司，但我基本不涉及游戏产品的开发。</p>
-
 <p>在开发技术方面，我03年出版过一本《Delphi源代码分析》。在工程方面，《大道至简——软件工程实践者的思想》一书在下月初就应出版了，它的第一版是以电子版的形式发布的。我在写的第三本书则是讲计算机语言的，题材是“动态函数式语言”。</p>
-
-<p><strong><em>2、您做为盛大网络的架构师，请介绍一下在软件项目中平台架构师是一份怎样的角色？主要处理哪些工作？</em></strong></p>
-
+<p><em><strong>2、您做为盛大网络的架构师，请介绍一下在软件项目中平台架构师是一份怎样的角色？主要处理哪些工作？</strong></em></p>
 <p>架构师有很多种。很多人把体系架构师与架构师等同，其实不对。各类架构师基本素质要求大抵一致，例如分析能力、设计的技术方法，以及对设计目标的前瞻性。但是他们的专业素质会有一些差别。举个实例来说，如果让我设计游戏引擎的架构，我就会做不好。但是，如果这个游戏引擎要设计成一个独立的平台层次，具有语言无关性、平台整合能力，或是对不同类型游戏的统一支撑，那么就是平台架构师的职责了。</p>
-
-<p>具体来说，平台架构师会决策某个部分与其它部分的相互关系、界面的规约和检测评估它们的方法。如果一个游戏引擎只为某个游戏而设计，那么是用不到平台架构师的。但如果Ａ游戏中的引擎要移植到Ｂ游戏，或者更多的游戏，甚至只是抽离它的部分，以作为某种体系中的一个数据交互层，那么就需要平台架构师来考量技术上的可行性、稳定性以及它对于更大范围内的平台建设的价&#20540;——当然，如果没有价&#20540;，架构师也会否定它。</p>
-
+<p>具体来说，平台架构师会决策某个部分与其它部分的相互关系、界面的规约和检测评估它们的方法。如果一个游戏引擎只为某个游戏而设计，那么是用不到平台架构师的。但如果Ａ游戏中的引擎要移植到Ｂ游戏，或者更多的游戏，甚至只是抽离它的部分，以作为某种体系中的一个数据交互层，那么就需要平台架构师来考量技术上的可行性、稳定性以及它对于更大范围内的平台建设的价值——当然，如果没有价值，架构师也会否定它。</p>
 <p>平台是长期建设的。平台架构师的重要职责之一，就是长期的规划和持续的推进。所以平台架构师的工作总是伴随客户的战略决策的。如果一个设计只是解决短期的技术问题，那么也并不需要平台架构师，但如果是几年或十几年要在上面持续经营的一个整体方向，那么平台架构师就需要围绕战略来设计架构的蓝图，并决定规划的实施步骤。在这些方面，他可能需要协调很多团队一起来工作。不过，这可不是跟项目经理抢饭碗。因为项目经理重在实施，而架构师重在规划。</p>
-
 <p>当然，事实上我也做一些其它类型的架构设计工作。例如设计一个小的模块，或者一个业务工件。好的架构师不会拒绝这些工作，而是从更多的、细节的工作中发现整体与局部的关系。也只有触及到具体工作的细节，架构师才可能更早地发觉设计上的隐患或者与目标的偏差。</p>
-
-<p><strong><em>3、《人月神话》这本书30多年来一直被认为是项目管理者的必读书，最近也看到您的blog里写了一系列相关的书评。您是怎么看到书中“项目实施法则“和实际项目工作之间的关系。</em></strong></p>
-
+<p><em><strong>3、《人月神话》这本书30多年来一直被认为是项目管理者的必读书，最近也看到您的blog里写了一系列相关的书评。您是怎么看到书中“项目实施法则“和实际项目工作之间的关系。</strong></em></p>
 <p>这几个问题我基本上都在《杀不死的人狼》一文中讲过了。概括来说，我认为有以下三点：</p>
-
 <p>一、讨论“有或没有”银弹这样的话题没有意义，因为《人月神话》所述的人狼根本杀不死，而且Brooks所设想的银弹也过于学术。</p>
-
 <p>二、《人月神话》从广义工程的角度设定了这个命题，这个命题的根本目标与次要目标正好与具体工程（狭义工程）相反。</p>
-
 <p>三、我承认《人月神话》神话所述的答案以及建议在如今的软件工程中得到了体现。但我们应该更清醒地辨析出现象、答案与本质，并分析哪些是本质的自然延伸，而哪些只是《人月神话》所带来的影响——Brooks预言了未来，也就改变了未来，即使未来未必应该如此。</p>
-
 <p>与大多数人不一样的是，我更多的是从与Brooks的预言不一致的那些现象是去发现一些东西。我所看到的是，正是在改变了Brooks的命题，或者认识到他所述的“本质”未必正确的时候，我们才找到了一些“不一样的成功”。我提醒大家关注这些事例，以及它们与传统工程、广义工程的本质差异。</p>
-
 <p>我并不反对《人月神话》中的大多数工程观点，以及我们现在的软件业中的工程实践经验。但是狭义工程没有必要去追寻银弹或那些看起来像是银弹的东西，我们应该更加灵活。</p>
-
-<p><strong><em>4、企业在进行项目的软件架构设计时，需要考虑哪些关键的问题？</em></strong></p>
-
+<p><em><strong>4、企业在进行项目的软件架构设计时，需要考虑哪些关键的问题？</strong></em></p>
 <p>企业实施过程中的架构问题，可以分成两个部分来考虑。一个是软件企业自身，一个是工程的目标客户（有些时候它与前者一则）。基本上来说，架构设计首先是面向客户的，甚至在整个工程的绝大多数时候都面向客户。因为理解决定设计，所以让架构师尽可能早地、深入地了解工程目标、应用环境、战略决策和发展方向，是至关重要的。否则，架构师是不可能做出有效的设计来的。</p>
-
 <p>架构设计关注于三个方面：稳定、持续和代价。</p>
-
 <p>稳定性由架构师的设计能力决定。架构的好坏是很难评判的，但基本的法则是“适用”。如果一个架构不适用，那么再小或者再大都不可能稳定。所因此进一步推论是“架构必须以工程的主体目标为设计象”。看起来这是个简单的事，但事实上很多架构设计中只是在做边角功夫，例如为一两处所谓的“精彩的局部”而叫好，全然不顾架构是否为相应的目标而做。</p>
-
 <p>持续性由架构师的地位决定。如果不能认识“设计的一致性”，以及架构师对这种一致性的权威，那么再好的架构也会面临解体，再长远的架构也会在短期内被废弃。架构的实施是要以牺牲自由性为代价的，架构师没有足够的地位（或权威），则不可能对抗实施者对自由的渴望。通常的失败，并在于架构的好或坏，而是架构被架空，形同虚设。</p>
-
 <p>代价的问题上面有过一点讨论，但方向不同。这里说明的是，如果架构师没有充分的经验，不能准确评估所设计的架构的资源消耗，那么可能在项目初起便存在设计失误；也可能在项目中困于枝节，或疏离关键，从而徒耗了资源。这些都是架构师应该预见、预估的。</p>
-
 <p>对于企业设计来说，上面三个方面没有得到关注的结果就是：迟迟无法上线的工程、半拉子工程和不停追加投资的工程项目。我不否认项目经理对这些问题的影响，但事实上可能从设计就开始出了问题，而项目经理只是回天乏术罢了。</p>
-
-<p>最后说明一下，我认为目前大多数的企业项目都缺乏架构上的考量。大多数软件公司只是出于自身的需要（例如组件化和规模开发）而进行架构设计。这样的设计不是面向客户的，事实上这增加了客户投资，而未能给客户项目产生价&#20540;。这也是我强调架构面向客户的原因之一。</p>
-
-<p><strong><em>5、目前，你的团队在使用什么样的产品或者方法来进行软件架构设计？</em></strong></p>
-
+<p>最后说明一下，我认为目前大多数的企业项目都缺乏架构上的考量。大多数软件公司只是出于自身的需要（例如组件化和规模开发）而进行架构设计。这样的设计不是面向客户的，事实上这增加了客户投资，而未能给客户项目产生价值。这也是我强调架构面向客户的原因之一。</p>
+<p><em><strong>5、目前，你的团队在使用什么样的产品或者方法来进行软件架构设计？</strong></em></p>
 <p>架构设计的主要输出是文档，因而并没有什么特别的工具来帮助你做架构设计。很多工具是辅助分析的，例如MindMananger；另外一些则可能辅助你表述，例如Together和Rose。</p>
-
 <p>大多数技术出身的架构师会仅把“软件编写的东西”才称为工具。其实不然，会议室里的那面白板也是我的工具之一。放开思路，市场规划图、技术架构路标图、特性／收益规划图等等这些图表也是我们的工具。除开这些之外，模式语言和建模语言也是主要的、形式化的工具。</p>
-
-<p>我经常按RUP的规范写文档，也偶尔放弃其中的某些具体&#26684;式。这些既有的文档模板也是工具。当然，毋庸置疑的是这样的工具也包括WORD和PowerPoint——很多人并不知道，我有1/4的设计是先用PowerPoint/Visio来完成的。</p>
-
+<p>我经常按RUP的规范写文档，也偶尔放弃其中的某些具体格式。这些既有的文档模板也是工具。当然，毋庸置疑的是这样的工具也包括WORD和PowerPoint——很多人并不知道，我有1/4的设计是先用PowerPoint/Visio来完成的。</p>
 <p>具体到方法，则非常多了，但应用哪一种则与场景有关。不过最先做的则是分层，这与自顶向下的结构分析很象——事实上在分析和设计的最初阶段，这种方法几乎是必须的。</p>
-
-<p><strong><em>6、您觉得国内外软件架构设计这个环节的主要不同在哪里？</em></strong></p>
-
+<p><em><strong>6、您觉得国内外软件架构设计这个环节的主要不同在哪里？</strong></em></p>
 <p>正如你这个问题所表现出来的一样：我们太注重于工程环节的某个局部。</p>
-
 <p>国外软件行业在工程实践经验上已丰富得多，因此大多数程序员、项目经理或测试人员等等对工程的理解也深刻得多。他们并不自恃于当前的环节，也不否认其它环节。这意味着在整体实施中大家更容易达成一致。然而国内的软件工程则很少强调这种合作，项目经理强调管理，程序员强调技术，架构师强调一致性和持续性，测试人员则很开心的看到每一个错误并以其数量作为评核依据。</p>
-
 <p>显然这里出了问题：我们的合作环节在各自为战。大家都在强调自己的重要性，于是工程就没法做了。解决的法子，还是让大家都意识到对方工作的目标与职责，而不仅仅是了解自己的那个小圈子。</p>
-
-<p><strong><em>7、可以介绍一下你目前的Qomo项目吗？我们的网友该如何参与？</em></strong></p>
-
+<p><em><strong>7、可以介绍一下你目前的Qomo项目吗？我们的网友该如何参与？</strong></em></p>
 <p>Qomo（Qomolangma OpenProject）是一个JavaScript上的开源项目。目前Qomo 1.0正式版已经发布了。Qomo V1以语言补实为基本思想，在JavaScript上扩展了AOP、OOP、IOP和GP等编程方法，基于它自身的完备的实现，Qomo也提供了Builder和Profiler工具和相关的库。</p>
-
 <p>Qomo V1只是整个Qomolangma OpenProject构想中的一很小一部分——尽管它重要。Qomo项目提出的整体目标是：</p>
-
 <ul>
 <li>Qomo内核是足够强大的能应用在不同的JavaScript宿主环境下的通用扩展。</li>
 <li>Qomo有能力提供胶合不同的应用环境下功能需求的中间代码。</li>
 <li>Qomo可以作为定制的宿主应用的代码包的一个部分以提升应用的体验或局部性能。</li>
 </ul>
-
 <p>所以Qomo V1并不完备。即便是我们正在展开的Qomo V2，也并不完备。V2计划提供组件库、数据库存取层和图形表现层。此外，Qomo V2也打算启用数个实践项目，一方面作为Qomo的范例，另一方面也验证Qomo的设计。</p>
-
 <p>Qomo已经在sourceforge上注册过，但在那里表现并不活跃。你可以总是从我的blog上得到Qomo的最新消息，包括Qomo的计划与每个版本发布。至于参与这个项目，请发mail给我。</p>
-
 <p><strong>我的联系方式（mail/msn/gtalk）</strong></p>
-
 <ul>
 <li><a href="mailto:aiming@gmail.com">aiming@gmail.com</a></li>
 </ul>
-
 <p><strong>与本访谈相关的信息</strong></p>
-
 <ul>
-<li><a href="1-28.html">新手的开源之路</a></li>
-<li><a href="1-60.html">Qomolangma.V1.0的发布说明</a></li>
-<li><a href="1-63.html">杀不死的人狼——我读《人月神话》1~5</a></li>
+<li><a href="/1-28.html">新手的开源之路</a></li>
+<li><a href="/1-60.html">Qomolangma.V1.0的发布说明</a></li>
+<li><a href="/1-63.html">杀不死的人狼——我读《人月神话》1~5</a></li>
 </ul>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -262,13 +215,13 @@ ghost.init({
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="1-99.html">
+                <a href="/1-99.html">
                     旧文重发：程序员的一天
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="1-101.html">
+                <a href="/1-101.html">
                     旧文重发：产品线工程：团队迭代及其问题
                 </a>
                 下一篇
@@ -278,8 +231,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="assets/css/gitment.default.css?v=e558db5207" />
-<script src="assets/js/gitmint.browser.js?v=e558db5207"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -301,27 +254,27 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
-            <a class="widget-profile-logo" href="author/aimingoo/index.html">
-                <img src="content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
-        <script type="text/javascript" src="profile-aimingoo"></script>
+        <script type="text/javascript" src="/profile-aimingoo"></script>
     </div>
 
 
 <!-- replaced by aimingoo
     {-{> "tag_cloud"}}
 -->
-        <script type="text/javascript" author="aimingoo" src="tag-cloud"></script>
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
 
         <div class="widget widget-toc">
     <div class="widget-title">
@@ -340,7 +293,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="index.html">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -353,21 +306,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-1.12.0.min.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="assets/js/jquery.fitvids.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/timeAgo.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/js/index.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/highlight-9.1.0/highlight.pack.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e558db5207"></script>
-    <script type="text/javascript" src="assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e558db5207"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>继承与混合，略谈系统的构建方式</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="继承与混合，略谈系统的构建方式" />
-    <meta property="og:description" content="这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。   一、对象系统 我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓&amp;ldquo;对象系统&amp;rdquo;，是指由&amp;ldquo;一组对象构成的系统&amp;rdquo;，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓&amp;ldquo;面向对象系统&amp;rdquo;，是指以上述&amp;ldquo;对象系统&amp;rdquo;对基础延伸演化的系统，新系统满足前对象系统的组织规则。 所谓对象系统的三个要素，即继承、封装与多态，即是上述组织规则的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，" />
+    <meta property="og:description" content="这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。 一、对象系统 我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓“对象系统”，是指由“一组对象构成的系统”，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓“面向对象系统”，是指以上述“对象系统”对基础延伸演化的系统，新系统满足前对象系统的组织规则。 所谓对象系统的三个要素，即继承、封装与多态，即是上述组织规则的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，所持的观点我相当认可，这包括所述的“对象范式的基本观念中不包括继承、封装与多态”——这一观点有其确切的背景与思考方法，值得一谈。 参见：孟岩《" />
     <meta property="og:url" content="http://aimingoo.github.io/1-161.html" />
     <meta property="article:published_time" content="2010-12-08T06:28:00.000Z" />
     <meta property="article:modified_time" content="2017-10-07T20:23:18.000Z" />
@@ -33,7 +33,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="继承与混合，略谈系统的构建方式" />
-    <meta name="twitter:description" content="这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。   一、对象系统 我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓&amp;ldquo;对象系统&amp;rdquo;，是指由&amp;ldquo;一组对象构成的系统&amp;rdquo;，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓&amp;ldquo;面向对象系统&amp;rdquo;，是指以上述&amp;ldquo;对象系统&amp;rdquo;对基础延伸演化的系统，新系统满足前对象系统的组织规则。 所谓对象系统的三个要素，即继承、封装与多态，即是上述组织规则的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，" />
+    <meta name="twitter:description" content="这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。 一、对象系统 我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓“对象系统”，是指由“一组对象构成的系统”，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓“面向对象系统”，是指以上述“对象系统”对基础延伸演化的系统，新系统满足前对象系统的组织规则。 所谓对象系统的三个要素，即继承、封装与多态，即是上述组织规则的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，所持的观点我相当认可，这包括所述的“对象范式的基本观念中不包括继承、封装与多态”——这一观点有其确切的背景与思考方法，值得一谈。 参见：孟岩《" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-161.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -54,37 +54,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "继承与混合，略谈系统的构建方式",
     "url": "http://aimingoo.github.io/1-161.html",
     "datePublished": "2010-12-08T06:28:00.000Z",
     "dateModified": "2017-10-07T20:23:18.000Z",
     "keywords": "Javascript, 面向对象, 架构设计",
-    "description": "这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。   一、对象系统 我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓&amp;ldquo;对象系统&amp;rdquo;，是指由&amp;ldquo;一组对象构成的系统&amp;rdquo;，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓&amp;ldquo;面向对象系统&amp;rdquo;，是指以上述&amp;ldquo;对象系统&amp;rdquo;对基础延伸演化的系统，新系统满足前对象系统的组织规则。 所谓对象系统的三个要素，即继承、封装与多态，即是上述组织规则的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，",
+    "description": "这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。 一、对象系统 我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓“对象系统”，是指由“一组对象构成的系统”，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓“面向对象系统”，是指以上述“对象系统”对基础延伸演化的系统，新系统满足前对象系统的组织规则。 所谓对象系统的三个要素，即继承、封装与多态，即是上述组织规则的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，所持的观点我相当认可，这包括所述的“对象范式的基本观念中不包括继承、封装与多态”——这一观点有其确切的背景与思考方法，值得一谈。 参见：孟岩《",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -95,8 +92,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -113,6 +108,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -121,11 +117,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-mian-xiang-dui-xiang tag-jia-gou-she-ji">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-161.html">继承与混合，略谈系统的构建方式</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-161.html">继承与混合，略谈系统的构建方式</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -147,158 +145,115 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <p>这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。  </p>
-
+                <div class="kg-card-markdown"><p>这两天在读kissy的源代码，从一开始我就对它的mix()函数充满了敌意。因为无论从哪个角度来看，那都是一个极其低效的实现。不过深入了解这个框架之后，我对kissy中的新的系统构建的模型产生了兴趣，而这种系统构建的方式，也正是由mix()所带来的。</p>
 <h2 id="">一、对象系统</h2>
-
-<p>我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓&ldquo;对象系统&rdquo;，是指由&ldquo;一组对象构成的系统&rdquo;，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓&ldquo;面向对象系统&rdquo;，是指以上述&ldquo;对象系统&rdquo;对基础延伸演化的系统，新系统满足前对象系统的<strong>组织规则</strong>。</p>
-
-<p>所谓对象系统的三个要素，即继承、封装与多态，即是上述<strong>组织规则</strong>的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，所持的观点我相当认可，这包括所述的&ldquo;对象范式的基本观念中不包括继承、封装与多态&rdquo;&mdash;&mdash;这一观点有其确切的背景与思考方法，值得一谈。</p>
-
+<p>我们先了解一下对象系统。在《JavaScript语言精髓与编程实践》中谈到过，面向对象系统有三种对象的继承方式，即原型、类和元类。这三种方式都可以构建大型对象系统。在后续讨论之前，我们在名词概念上做一些强调，所谓“对象系统”，是指由“一组对象构成的系统”，这些对象之间存在或不存在某种联系，但通过一些规则组织起来。所谓“面向对象系统”，是指以上述“对象系统”对基础延伸演化的系统，新系统满足前对象系统的<strong>组织规则</strong>。</p>
+<p>所谓对象系统的三个要素，即继承、封装与多态，即是上述<strong>组织规则</strong>的要件。孟岩同学从C/C++出发，从另一个侧面谈论对象系统，所持的观点我相当认可，这包括所述的“对象范式的基本观念中不包括继承、封装与多态”——这一观点有其确切的背景与思考方法，值得一谈。</p>
 <blockquote>
-  <p>参见：孟岩<a href="http://blog.csdn.net/myan/article/details/5928531">《function/bind的救赎（上）》</a></p>
+<p>参见：孟岩<a href="http://blog.csdn.net/myan/article/details/5928531">《function/bind的救赎（上）》</a></p>
 </blockquote>
-
-<p>我们在这里要讨论的是&ldquo;对象系统&rdquo;，即，对象是如何组织起来的问题。在这个问题上，组织规则之一，就是&ldquo;继承&rdquo;。JavaScript中基本的继承模型是原型继承，其特点是&ldquo;新对象实例的特性，复制自一个原型对象实例&rdquo;。Qomo以及其它的一些项目，通过语言扩展的方式，在JavaScript上添加了类继承的模型，其特点是&ldquo;对象构建自类，类是其父类的一个派生&rdquo;，这里的&ldquo;派生&rdquo;与&ldquo;特性复制&rdquo;有潜在的关系，即：子类的特性也复制自父类。正是因为&ldquo;派生&rdquo;其实是特性复制的一种形式，所以事实上Qomo中的类继承，是通过原型继承来实现的，因为原型继承本质上也就是&ldquo;特性复制&rdquo;。</p>
-
-<p>无论是原型继承、类继承还是这里没有进一步讨论的元类继承，继承的最终目的是构建一个&ldquo;对象系统&rdquo;，而不是&ldquo;系统&rdquo;。这一个小小的措辞上的区别，有着本质上的、深刻的意义，这也是我提及到孟岩的上一篇文章的原因。通常，由&ldquo;继承&rdquo;入手理解的&ldquo;对象系统&rdquo;其实是静态的，以至于我们面向对象系统开发的最后一步，仍然需要框架来驱动之。例如TApp.Run()，或者类似于new App()，等等。继承所带来的，主要仍然是指对象系统的组织性，而非其运行过程中的动态特性。于是我们通过更多类或其它对象系统，来将一个系统的动态特性静态化，例如将对象之间的交互关系抽取出来，变成控制类。我们做这些事情的目的，仅仅是因为我们约定了对象系统的<strong>组织规则</strong>，要面向这个对象系统开发，也必然满足(或契合)这一组织规则。组织规则限定了我们构建系统的方式&mdash;&mdash;继承、封装与多态，这在一定程度上说是&ldquo;对象系统构建&rdquo;的一个方案，并非&ldquo;系统构建&rdquo;的方案。而孟岩在上文中讨论的，也正是&ldquo;系统构建&rdquo;的问题。所以孟岩提出两点：</p>
-
+<p>我们在这里要讨论的是“对象系统”，即，对象是如何组织起来的问题。在这个问题上，组织规则之一，就是“继承”。JavaScript中基本的继承模型是原型继承，其特点是“新对象实例的特性，复制自一个原型对象实例”。Qomo以及其它的一些项目，通过语言扩展的方式，在JavaScript上添加了类继承的模型，其特点是“对象构建自类，类是其父类的一个派生”，这里的“派生”与“特性复制”有潜在的关系，即：子类的特性也复制自父类。正是因为“派生”其实是特性复制的一种形式，所以事实上Qomo中的类继承，是通过原型继承来实现的，因为原型继承本质上也就是“特性复制”。</p>
+<p>无论是原型继承、类继承还是这里没有进一步讨论的元类继承，继承的最终目的是构建一个“对象系统”，而不是“系统”。这一个小小的措辞上的区别，有着本质上的、深刻的意义，这也是我提及到孟岩的上一篇文章的原因。通常，由“继承”入手理解的“对象系统”其实是静态的，以至于我们面向对象系统开发的最后一步，仍然需要框架来驱动之。例如TApp.Run()，或者类似于new App()，等等。继承所带来的，主要仍然是指对象系统的组织性，而非其运行过程中的动态特性。于是我们通过更多类或其它对象系统，来将一个系统的动态特性静态化，例如将对象之间的交互关系抽取出来，变成控制类。我们做这些事情的目的，仅仅是因为我们约定了对象系统的<strong>组织规则</strong>，要面向这个对象系统开发，也必然满足(或契合)这一组织规则。组织规则限定了我们构建系统的方式——继承、封装与多态，这在一定程度上说是“对象系统构建”的一个方案，并非“系统构建”的方案。而孟岩在上文中讨论的，也正是“系统构建”的问题。所以孟岩提出两点：</p>
 <ul>
-<li>程序是由对象组成的；     </li>
+<li>程序是由对象组成的；</li>
 <li>对象之间互相发送消息，协作完成任务。</li>
 </ul>
-
 <p>其第一条，是对象系统的基本特性，是谓系统成员；第二条，是对象系统如何演进为系统的特性，是谓系统通讯。一个系统的约束，既包括其成员(以及成员的组织规则)，也包括成员间的通讯。</p>
-
 <h2 id="mix">二、用mix()来构建系统</h2>
-
-<p>舍弃&ldquo;继承&rdquo;这种方式不谈，系统构建还有其它的什么方法吗？</p>
-
+<p>舍弃“继承”这种方式不谈，系统构建还有其它的什么方法吗？</p>
 <p>kissy提供了另外一种可能性，即mix()，混合。在kissy系统的核心部分，为一个系统提出了三个概念：</p>
-
 <ol>
-<li>原子(meta)，一个系统具有至少一个原子，原子是具有mix()能力的一个对象；  </li>
-<li>宿主(host)，一个系统有一个依赖的宿主，表明系统的外部环境，系统只是其宿主环境中的部分内容，可以由特定的名称来区别于其它；  </li>
+<li>原子(meta)，一个系统具有至少一个原子，原子是具有mix()能力的一个对象；</li>
+<li>宿主(host)，一个系统有一个依赖的宿主，表明系统的外部环境，系统只是其宿主环境中的部分内容，可以由特定的名称来区别于其它；</li>
 <li>种子(seed)，一个系统诞生自一个种子，种子描述系统上述的meta和host两个方面的特性。</li>
 </ol>
-
 <p>kissy约定，一个系统诞生自一个种子，该种子通过不停地mix()而成长，变成一个复杂的系统。由种子培育成为系统的整个环境，只需要能够理解mix与host，即可以基于seed来构建任意复杂的系统</p>
-
 <p>上述的逻辑在kissy.js中，描述得相当简单：</p>
-
 <pre><code class="language-javascript">(function(host, S) {  
-
+  
     var meta = {  
         mix: function(r, s, ov, wl) {  
              ...  
         }  
     },  
-
+  
     // If KISSY is already defined, the existing KISSY object will not  
     // be overwritten so that defined namespaces are preserved.  
     seed = (host &amp;amp;&amp;amp; host[S]) || {},  
-
+  
     // The host of runtime environment. specify by user's seed or &amp;lt;this&amp;gt;,  
     // compatibled for  '&amp;lt;this&amp;gt; is null' in unknown engine.  
     host = seed.__HOST || (seed.__HOST = host || {});  
-
+  
     // shortcut and meta for seed.  
     S = host[S] = meta.mix(seed, meta, false);  
-
+  
     return S;  
-
+  
 })(this, 'KISSY');
 </code></pre>
-
 <p>这个系统初始化的时候，传入host与host中的系统名S。对于kissy来说，host是当前的系统环境，这里的this值，可以是javascript引擎的global，或浏览器环境的window，或某个函数或对象闭包内的当前this。而'KISSY'值，表现kissy系统在环境中的名字。按照javascript的语言约定，我们可以通过host[S]来找到既已经存在的kissy系统。</p>
-
-<p>按照此前的约定，一个mix构建的系统，必然有host和mix两个性质，因为它最原始的种子(seed)就必然包括这两种性质。所以，既然我们上面是通过host[S]来访问一个&ldquo;既已存在的kissy系统&rdquo;，则无论该kissy系统经过了何种程度的演化，必然会包括这两种性质。</p>
-
+<p>按照此前的约定，一个mix构建的系统，必然有host和mix两个性质，因为它最原始的种子(seed)就必然包括这两种性质。所以，既然我们上面是通过host[S]来访问一个“既已存在的kissy系统”，则无论该kissy系统经过了何种程度的演化，必然会包括这两种性质。</p>
 <p>上面的构建过程尝试寻找在host[S]中寻找这两种性质，如果其中之一不存在，则尝试初始化它。例如代码：</p>
-
 <blockquote>
-  <p><code>seed = (host &amp;&amp; host[S]) || {}，</code></p>
+<p><code>seed = (host &amp;&amp; host[S]) || {}，</code></p>
 </blockquote>
-
 <p>如果host[S]是存的，则假设它是一个seed，否则初始化为一个空的对象。接下来：</p>
-
 <blockquote>
-  <p><code>host = seed.__HOST || (seed.__HOST = host || {})</code></p>
+<p><code>host = seed.__HOST || (seed.__HOST = host || {})</code></p>
 </blockquote>
-
-<p>如果上述的种子seed有host属性，则使用它既有的__HOST，如果没有，则置为当前环境下的host，或一个空的对象。 </p>
-
-<p>现在我们看到的seed，必然已经具有host属性。但是，它还&ldquo;可能&rdquo;缺少一个性质，即最最重要的mix()。mix()的作用其实很简单，就是从对象B将属性抄写到对象A的一个方法。而这里，之所以说是&ldquo;可能&rdquo;缺少，是因为如果seed是既有的mix系统，则他已经有mix()属性；如果它是第三方系统，则可能没有mix，或有一个不同的mix等等。下面的一行代码尝试用元语言的思想构建它，即：</p>
-
+<p>如果上述的种子seed有host属性，则使用它既有的__HOST，如果没有，则置为当前环境下的host，或一个空的对象。</p>
+<p>现在我们看到的seed，必然已经具有host属性。但是，它还“可能”缺少一个性质，即最最重要的mix()。mix()的作用其实很简单，就是从对象B将属性抄写到对象A的一个方法。而这里，之所以说是“可能”缺少，是因为如果seed是既有的mix系统，则他已经有mix()属性；如果它是第三方系统，则可能没有mix，或有一个不同的mix等等。下面的一行代码尝试用元语言的思想构建它，即：</p>
 <blockquote>
-  <p><code>meta.mix(seed, meta, false);  // false值表明不覆盖</code></p>
+<p><code>meta.mix(seed, meta, false); // false值表明不覆盖</code></p>
 </blockquote>
-
 <p>元语言的特点是自描述的，meta.mix()可以向seed混入mix()，也可以使seed.mix()能混入其它系统或meta本身。总之在mix()的构建中，meta只需要有mix这个方法，不需要更多，也不能更少。</p>
-
 <p>上一行代码的结果，是：如果seed没有自已的mix()属性，则向seed混入meta的原始的mix()。</p>
-
 <p>现在，我们再看seed，必然已经具有了host和mix()属性。它本身可能是一个空对象，也可能是一个庞大的既有系统，但无论如此，它具有了这两个性质，就可以作为seed进一步的衍生。</p>
-
-<p>在这一切之前，下面的代码保证它位于HOST[S]，并返回这个系统：  </p>
-
+<p>在这一切之前，下面的代码保证它位于HOST[S]，并返回这个系统：</p>
 <pre><code class="language-javascript">    S = host[S] = meta.mix(seed, meta, false);  
     return S;&lt;/textarea&gt;   
 </code></pre>
-
 <h2 id="mix">三、mix()系统构建中的其它概念</h2>
-
-<p>kissy除了实现基本的mix系统之外，在core部分加入了其它的一些功能。包括除mix()之外的两种混入方法：  </p>
-
+<p>kissy除了实现基本的mix系统之外，在core部分加入了其它的一些功能。包括除mix()之外的两种混入方法：</p>
 <ul>
-<li><strong>augment，扩充。</strong>用mix方法，将另一些子系统s[i]的原型，混入目标子系统r的原型。</li>
-<li><strong>merge，合并。</strong>用mix方法，将另一些子系统s[i]，混入当前子系统S。</li>
+<li>**augment，扩充。**用mix方法，将另一些子系统s[i]的原型，混入目标子系统r的原型。</li>
+<li>**merge，合并。**用mix方法，将另一些子系统s[i]，混入当前子系统S。</li>
 </ul>
-
 <p>基本上来说，augment是通过mix来对javascript的原型系统进行扩充的方法，或是在应用系统中，结合原型机制与混入机制来构建系统。而merge只是mix方法的一个批量工具。</p>
-
 <p>另外，考虑到面向对象系统中的继承特性，kissy也实现了extend(派生)方法，以提供传统的面向对象编程能力。</p>
-
-<p>除了语言级别的概念之外，kissy也提供系统框架级别的一些构建能力。包括：  </p>
-
+<p>除了语言级别的概念之外，kissy也提供系统框架级别的一些构建能力。包括：</p>
 <ul>
-<li><strong>app，应用。</strong>与host[S]并列的，具有同等能力的其它应用，app('XXX', ...)可以在host['XXX']上组织应用。</li>
-<li><strong>namespace，命名空间。</strong>即可以组织出host[XXX].YYY.ZZZ这样的，在不同子系统中的，不同命名空间下的系统。</li>
+<li>**app，应用。**与host[S]并列的，具有同等能力的其它应用，app('XXX', ...)可以在host['XXX']上组织应用。</li>
+<li>**namespace，命名空间。**即可以组织出host[XXX].YYY.ZZZ这样的，在不同子系统中的，不同命名空间下的系统。</li>
 </ul>
-
 <p>最后，kissy在内核中也提供简单的调试支持。</p>
-
 <p>显然的，基于mix的原则，任何一个第三方的系统可以通过混入kissy来修改上述的概念，例如覆盖extend()来实现自己的对象系统构建原则，或覆盖app()来实现自己的应用组织原则。第三方系统也可以将kissy混入自身，在保障自身特性的情况下，使用kissy，以及更大规模的kissy ui系统带来的好处。</p>
-
 <h2 id="">四、一点点提示</h2>
-
 <h3 id="kissy">KISSY是什么？</h3>
-
 <p>KISSY是一个开源的javascript项目，其主体是一个前端UI开发框架，即KissyUI。本文所述的kissy是仅指其内核部分的kissy.js中的语言与框架设计思想。KISSY项目的开源网站是：<a href="http://kissyteam.github.com/">http://kissyteam.github.com/</a></p>
-
 <h3 id="kissy">kissy怎么使用呢？</h3>
-
 <p>尽管在KissyUI向kissy内核化的过程中，我们提出了一些新的概念与框架模型，但事实上，我们并未改变KissyUI的任何使用惯例。从代码上来看，kissy.js和lang.js以后的其它模块，并没有任何的变化，因此如果仅是将kissy当成一个UI系统来使用，你可以参考上面的开源网站，其中既有的KissyUI文档是完全有效的，而且KissyUI本身也是一个优秀的、便捷的Web UI框架。但是，kissy系统在模向合并和组织上的能力大大增强了。例如说，我们可以开始想象下面这样的代码：</p>
+<pre><code class="language-html">&lt;!-- 先装载jQuery --&gt;
+&lt;script src=&quot;jQuery.js&quot; mce_src=&quot;jQuery.js&quot;&gt;&lt;/script&gt;
 
-<pre><code class="language-html">&lt;!-- 先装载jQuery --&gt;  
-&lt;script src="jQuery.js" mce_src="jQuery.js"&gt;&lt;/script&gt;
-
-&lt;!-- 将jQuery系统映射到KISSY，作为初始的seed --&gt;  
-&lt;script type="text/javascript"&gt;  
+&lt;!-- 将jQuery系统映射到KISSY，作为初始的seed --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
   window.KISSY = jQuery;
 &lt;/script&gt;
 
-&lt;!-- 装载kissy，在jQuery上混入KISSY --&gt;  
-&lt;script src="kissy.js"&gt;&lt;/script&gt;
+&lt;!-- 装载kissy，在jQuery上混入KISSY --&gt;
+&lt;script src=&quot;kissy.js&quot;&gt;&lt;/script&gt;
 
-&lt;script type="text/javascript"&gt;  
-document.writeln('你现在使用的是Kissy，还是jQuyer？答案请选Y，或者Y');  
+&lt;script type=&quot;text/javascript&quot;&gt;
+document.writeln('你现在使用的是Kissy，还是jQuyer？答案请选Y，或者Y'); 
 document.writeln('你现在能装载Kissy UI，还是jQuery UI？答案请选Y，或者Y');
 
-KISSY.merge(YUI, Dojo, Qomo).merge(Biby);  
-document.writeln("what's KISSY? select collapsar or black hole, pls.");  
-&lt;/script&gt;  
+KISSY.merge(YUI, Dojo, Qomo).merge(Biby);
+document.writeln(&quot;what's KISSY? select collapsar or black hole, pls.&quot;);
+&lt;/script&gt;
 </code></pre>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -326,8 +281,8 @@ document.writeln("what's KISSY? select collapsar or black hole, pls.");
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -349,16 +304,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -401,21 +356,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>

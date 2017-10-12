@@ -2,7 +2,7 @@ var enabledCloudTags = {
     'default': 'all',
     'aimingoo': 'all',
     'joyxhy': [
-        '旅游', '摄影', '驴族', '生活', '美食', '读书', '英语', '家', '爱', '学习', '朋友', '韩语', '开心', '梦'
+        '旅游', '摄影', '驴族', '生活', '美食', '读书', '英语', '家', '爱', '学习', '朋友', '韩语', '开心', '梦', '信手拈来', '胡说八道'
     ]
 }
 var authorName = [].slice.call(document.scripts)
@@ -34,19 +34,26 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
+				<a href="/tag/za-tan" class="tag-item">杂谈 (207)</a>
 				<a href="/tag/javascript" class="tag-item">Javascript (85)</a>
-				<a href="/tag/za-tan" class="tag-item">杂谈 (73)</a>
+				<a href="/tag/sui-bi" class="tag-item">随笔 (54)</a>
+				<a href="/tag/sheng-huo" class="tag-item">生活 (54)</a>
 				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (45)</a>
 				<a href="/tag/chu-ban" class="tag-item">出版 (39)</a>
 				<a href="/tag/yu-yan" class="tag-item">语言 (38)</a>
 				<a href="/tag/qomo" class="tag-item">Qomo (35)</a>
+				<a href="/tag/xin-shou-nian-lai" class="tag-item">信手拈来 (34)</a>
+				<a href="/tag/xing-qu" class="tag-item">兴趣 (31)</a>
 				<a href="/tag/ruan-jian-gong-cheng" class="tag-item">软件工程 (30)</a>
 				<a href="/tag/cheng-xu-ren-sheng" class="tag-item">程序人生 (27)</a>
+				<a href="/tag/hu-shuo-ba-dao" class="tag-item">胡说八道 (27)</a>
 				<a href="/tag/du-shu" class="tag-item">读书 (26)</a>
+				<a href="/tag/za-wen" class="tag-item">杂文 (26)</a>
 				<a href="/tag/da-dao-zhi-jian" class="tag-item">大道至简 (25)</a>
 				<a href="/tag/shu-xu-shu-ping" class="tag-item">书序书评 (21)</a>
 				<a href="/tag/delphi" class="tag-item">delphi (18)</a>
 				<a href="/tag/jia-gou" class="tag-item">架构 (17)</a>
+				<a href="/tag/ying-yu" class="tag-item">英语 (17)</a>
 				<a href="/tag/jia-gou-she-ji" class="tag-item">架构设计 (16)</a>
 				<a href="/tag/bo-ke" class="tag-item">博客 (15)</a>
 				<a href="/tag/mian-xiang-dui-xiang" class="tag-item">面向对象 (15)</a>
@@ -54,11 +61,16 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/shi-wen" class="tag-item">诗词文章 (13)</a>
 				<a href="/tag/dian-zi-shu" class="tag-item">电子书 (12)</a>
 				<a href="/tag/fen-xiang-xia-zai" class="tag-item">分享下载 (12)</a>
+				<a href="/tag/lu-you" class="tag-item">旅游 (11)</a>
 				<a href="/tag/bian-cheng" class="tag-item">编程 (10)</a>
 				<a href="/tag/bao-zai-kan-zai" class="tag-item">报载刊载 (10)</a>
+				<a href="/tag/meng" class="tag-item">梦 (10)</a>
 				<a href="/tag/ghost-tag" class="tag-item">Ghost (9)</a>
+				<a href="/tag/msnban-jia" class="tag-item">MSN搬家 (8)</a>
+				<a href="/tag/you-ji" class="tag-item">游记 (8)</a>
 				<a href="/tag/erlang" class="tag-item">erlang (7)</a>
 				<a href="/tag/delphiyuan-dai-ma-fen-xi" class="tag-item">代码分析 (7)</a>
+				<a href="/tag/gui-yi" class="tag-item">诡异 (7)</a>
 				<a href="/tag/da-dao-zhi-yi" class="tag-item">大道至易 (6)</a>
 				<a href="/tag/gong-ju" class="tag-item">工具 (5)</a>
 				<a href="/tag/ren-yue-shen-hua" class="tag-item">人月神话 (5)</a>
@@ -81,8 +93,12 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/imagemagick" class="tag-item">ImageMagick (2)</a>
 				<a href="/tag/cheng-xu-yuan-ben" class="tag-item">程序原本 (2)</a>
 				<a href="/tag/qobean" class="tag-item">QoBean (2)</a>
+				<a href="/tag/lu-zu" class="tag-item">驴族 (2)</a>
 				<a href="/tag/han-shu-shi" class="tag-item">函数式 (1)</a>
+				<a href="/tag/hu-wai" class="tag-item">户外 (1)</a>
+				<a href="/tag/getting-started" class="tag-item">Getting Started (0)</a>
 				<a href="/tag/ce-shi" class="tag-item">测试 (0)</a>
+				<a href="/tag/translation" class="tag-item">translation (0)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));

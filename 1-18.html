@@ -5,25 +5,25 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>JavaScript面向对象的支持(1)</title>
-    <meta name="description" content="" />
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=e63a76e1e9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=3c551ead30" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=3c551ead30" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=e63a76e1e9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=e63a76e1e9" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript面向对象的支持(1)" />
-    <meta property="og:description" content="书接上回：      《从基础开始：Qomo OpenProject中的一些关键词》(1)(2) 八、JavaScript面向对象的支持 很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。 1. JavaScript中的类型 虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。 JS中是弱类型的，他的内置类型简单而且清晰： undefined : 未定义 number    : 数字 boolean   : 布尔值 string    : 字符串 function  : 函数 object    : 对象 1). undefined类型 在IE5及以下版本中，除了直接赋值和typeof之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用typeof的方法： &amp;lt;script&amp;" />
+    <meta property="og:description" content="书接上回： 《从基础开始：Qomo OpenProject中的一些关键词》(1)(2) 八、JavaScript面向对象的支持 很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。 1. JavaScript中的类型 虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。 JS中是弱类型的，他的内置类型简单而且清晰： undefined : 未定义 number    : 数字 boolean   : 布尔值 string    : 字符串 function  : 函数 object    : 对象 1). undefined类型 在IE5及以下版本中，除了直接赋值和typeof之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用typeof的方法： &amp;lt;script&amp;" />
     <meta property="og:url" content="http://aimingoo.github.io/1-18.html" />
     <meta property="article:published_time" content="2006-01-08T18:18:00.000Z" />
     <meta property="article:modified_time" content="2017-10-07T20:24:46.000Z" />
@@ -32,7 +32,7 @@
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript面向对象的支持(1)" />
-    <meta name="twitter:description" content="书接上回：      《从基础开始：Qomo OpenProject中的一些关键词》(1)(2) 八、JavaScript面向对象的支持 很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。 1. JavaScript中的类型 虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。 JS中是弱类型的，他的内置类型简单而且清晰： undefined : 未定义 number    : 数字 boolean   : 布尔值 string    : 字符串 function  : 函数 object    : 对象 1). undefined类型 在IE5及以下版本中，除了直接赋值和typeof之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用typeof的方法： &amp;lt;script&amp;" />
+    <meta name="twitter:description" content="书接上回： 《从基础开始：Qomo OpenProject中的一些关键词》(1)(2) 八、JavaScript面向对象的支持 很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。 1. JavaScript中的类型 虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。 JS中是弱类型的，他的内置类型简单而且清晰： undefined : 未定义 number    : 数字 boolean   : 布尔值 string    : 字符串 function  : 函数 object    : 对象 1). undefined类型 在IE5及以下版本中，除了直接赋值和typeof之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用typeof的方法： &amp;lt;script&amp;" />
     <meta name="twitter:url" content="http://aimingoo.github.io/1-18.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -53,37 +53,34 @@
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-23-58.png",
-            "width": 944,
-            "height": 858
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
         },
         "url": "http://aimingoo.github.io/author/aimingoo/",
-        "sameAs": [
-            "http://blog.csdn.net/aimingoo"
-        ],
-        "description": "I&#x27;m here."
+        "sameAs": []
     },
     "headline": "JavaScript面向对象的支持(1)",
     "url": "http://aimingoo.github.io/1-18.html",
     "datePublished": "2006-01-08T18:18:00.000Z",
     "dateModified": "2017-10-07T20:24:46.000Z",
     "keywords": "Javascript, 面向对象",
-    "description": "书接上回：      《从基础开始：Qomo OpenProject中的一些关键词》(1)(2) 八、JavaScript面向对象的支持 很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。 1. JavaScript中的类型 虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。 JS中是弱类型的，他的内置类型简单而且清晰： undefined : 未定义 number    : 数字 boolean   : 布尔值 string    : 字符串 function  : 函数 object    : 对象 1). undefined类型 在IE5及以下版本中，除了直接赋值和typeof之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用typeof的方法： &amp;lt;script&amp;",
+    "description": "书接上回： 《从基础开始：Qomo OpenProject中的一些关键词》(1)(2) 八、JavaScript面向对象的支持 很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。 1. JavaScript中的类型 虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。 JS中是弱类型的，他的内置类型简单而且清晰： undefined : 未定义 number    : 数字 boolean   : 布尔值 string    : 字符串 function  : 函数 object    : 对象 1). undefined类型 在IE5及以下版本中，除了直接赋值和typeof之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用typeof的方法： &amp;lt;script&amp;",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io"
+        "@id": "http://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/shared/ghost-url.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=e63a76e1e9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
-	clientSecret: "cb6d9de116b8"
+	clientSecret: "e8bc7646b93e"
 });
 </script>
-    <meta name="generator" content="Ghost 0.11" />
+    <meta name="generator" content="Ghost 1.12" />
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
@@ -94,8 +91,6 @@ ghost.init({
 
         
 
-
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=3c551ead30"></script>
 
 <header class="main-header">
     <nav class="container main-nav clearfix">
@@ -112,6 +107,7 @@ ghost.init({
             <div class="nav pull-right">
     <ul>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
             <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
     </ul>
@@ -120,11 +116,13 @@ ghost.init({
     </nav>
 </header>
 
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=e63a76e1e9"></script>
+
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
         <article class="post tag-javascript tag-mian-xiang-dui-xiang">
             <header class="post-header">
-                <h1 class="post-title"><a href="/1-18.html">JavaScript面向对象的支持(1)</a></h1>
+                <h1 class="post-title u-aimingoo"><a href="/1-18.html">JavaScript面向对象的支持(1)</a></h1>
                 <section class="post-meta">
                     <span class="post-meta-item">
                         <i class="fa fa-user"></i>
@@ -146,22 +144,15 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <blockquote>
-  <p>书接上回：</p>
-  
-  <p>《从基础开始：Qomo OpenProject中的一些关键词》<a href="/1-15.html">(1)</a><a href="/1-16.html">(2)</a></p>
+                <div class="kg-card-markdown"><blockquote>
+<p>书接上回：</p>
+<p>《从基础开始：Qomo OpenProject中的一些关键词》<a href="/1-15.html">(1)</a><a href="/1-16.html">(2)</a></p>
 </blockquote>
-
 <h1 id="javascript">八、JavaScript面向对象的支持</h1>
-
 <p>很少有人对JavaScript的面向对象特性进行系统的分析。我希望接下来的文字让你了解到这个语言最少为人知的一面。</p>
-
 <h2 id="1javascript">1. JavaScript中的类型</h2>
-
 <p>虽然JavaScript是一个基于对象的语言，但对象(Object)在JavaScript中不是第一型的。JS是以函数(Function)为第一型的语言。这样说，不但是因为JS中的函数具有高级语言中的函数的各种特性，而且也因为在JS中，Object也是由函数来实现的。——关于这一点，可以在后文中“构造与析构”部分看到更进一步的说明。</p>
-
 <p>JS中是弱类型的，他的内置类型简单而且清晰：</p>
-
 <ul>
 <li>undefined : 未定义</li>
 <li>number    : 数字</li>
@@ -170,39 +161,30 @@ ghost.init({
 <li>function  : 函数</li>
 <li>object    : 对象</li>
 </ul>
-
 <h3 id="1undefined">1). undefined类型</h3>
-
 <p>在IE5及以下版本中，除了直接赋值和<code>typeof</code>之外，其它任何对undefined的操作都将导致异常。如果需要知道一个变量是否是undefined，只能采用<code>typeof</code>的方法：</p>
-
-<pre><code class="language-html">&lt;script&gt;  
-var v;  
-if (typeof(v) == 'undefined') {  
+<pre><code class="language-html">&lt;script&gt;
+var v;
+if (typeof(v) == 'undefined') {
   // ...
 }
-&lt;/script&gt;  
+&lt;/script&gt;
 </code></pre>
-
 <p>但是在IE5.5及以上版本中，undefined是一个已实现的系统保留字。因此可以用undefined来比较和运算。检测一个值是否是undefined的更简单方法可以是：</p>
-
-<pre><code class="language-html">&lt;script&gt;  
-var v;  
-if (v === undefined) {  
+<pre><code class="language-html">&lt;script&gt;
+var v;
+if (v === undefined) {
   // ...
 }
-&lt;/script&gt;  
+&lt;/script&gt;
 </code></pre>
-
 <p>因此为了使得核心代码能(部分地)兼容IE5及早期版本，Qomo核心单元中有一行代码用来“声明”一个undefined值：</p>
-
 <pre><code class="language-javascript">//
 // code from Qomolangma, in JSEnhance.js
 //
-var undefined = void null;  
+var undefined = void null;
 </code></pre>
-
 <p>这一行代码还有一点是需要说明的，就是<code>void</code>运算符的应用。void表明“执行其后的表达式，且忽略返回值”。因此在<code>void</code>之后可以出现能被执行的任何“单个”表达式。而执行的结果就是undefined。当然，如果你愿意，你也可以用下面的代码之一“定义undefined”。</p>
-
 <pre><code class="language-javascript">//
 // 1. 较复杂的方法，利用一个匿名的空函数执行的返回
 //
@@ -211,93 +193,69 @@ var undefined = function(){}();
 //
 // 2. 代码更简洁，但不易懂的方法
 //
-var undefined = void 0;  
+var undefined = void 0;
 </code></pre>
-
 <p>void也能像函数一样使用，因此void(0)也是合法的。有些时候，一些复杂的语句可能不能使用void的关键字形式，而必须要使用void的函数形式。例如：</p>
-
 <pre><code class="language-javascript">//
 // 必须使用void()形式的复杂表达式
 //
-void(i=1);       // 或如下语句:  
-void(i=1, i++);  
+void(i=1);       // 或如下语句:
+void(i=1, i++);
 </code></pre>
-
 <h3 id="2number">2). number类型</h3>
-
 <p>JavaScript中总是处理浮点数，因此它没有象Delphi中的MaxInt这样的常量，反而是有这样两个常值定义：</p>
-
 <ul>
 <li>Number.MAX_VALUE  : 返回 JScript 能表达的最大的数。约等于 1.79E+308。</li>
 <li>Number.MIN_VALUE  : 返回 JScript 最接近0的数。约等于 2.22E-308。</li>
 </ul>
-
 <p>因为没有整型的缘故，因此在一些关于CSS和DOM属性的运算中，如果你期望取值为整数2，你可能会得到字符串“2.0”——或者类似于此的一些情况。这种情况下，你可能需要用到全局对象(Global)的parseInt()方法。</p>
-
 <p>全局对象(Global)中还有两个属性与number类型的运算有关：</p>
-
 <ul>
 <li>NaN      : 算术表达式的运算结果不是数字，则返回NaN值。</li>
 <li>Infinity : 比MAX_VALUE更大的数。</li>
 </ul>
-
 <p>如果一个值是NaN，那么他可以通过全局对象(Global)的<code>isNaN()</code>方法来检测。然而两个NaN值之间不是互等的。如下例：</p>
-
 <pre><code class="language-javascript">//
 // NaN的运算与检测
 //
-var  
+var
   v1 = 10 * 'a';
   v2 = 10 * 'a';
-document.writeln(isNaN(v1));  
-document.writeln(isNaN(v2));  
-document.writeln(v1 == v2);  
+document.writeln(isNaN(v1));
+document.writeln(isNaN(v2));
+document.writeln(v1 == v2);
 </code></pre>
-
 <p>全局对象(Global)的Infinity表示比最大的数 (Number.MAX_VALUE) 更大的值。在JS中，它在数学运算时的价值与正无穷是一样的。——在一些实用技巧中，它也可以用来做一个数组序列的边界检测。</p>
-
 <p>Infinity在Number对象中被定义为POSITIVE_INFINITY。此外，负无穷也在Number中被定义：</p>
-
 <ul>
-<li>Number.POSITIVE<em>INFINITY  : 比最大正数（Number.MAX</em>VALUE）更大的值。正无穷。</li>
-<li>Number.NEGATIVE<em>INFINITY  : 比最小负数（-Number.MAX</em>VALUE）更小的值。负无穷。</li>
+<li>Number.POSITIVE_INFINITY  : 比最大正数（Number.MAX_VALUE）更大的值。正无穷。</li>
+<li>Number.NEGATIVE_INFINITY  : 比最小负数（-Number.MAX_VALUE）更小的值。负无穷。</li>
 </ul>
-
 <p>与NaN不同的是，两个Infinity(或-Infinity)之间是互等的。如下例：</p>
-
 <pre><code class="language-javascript">//
 // Infinity的运算与检测
 //
-var  
+var
   v1 = Number.MAX_VALUE * 2;
   v2 = Number.MAX_VALUE * 3;
-document.writeln(v1);  
-document.writeln(v2);  
-document.writeln(v1 == v2);  
+document.writeln(v1);
+document.writeln(v2);
+document.writeln(v1 == v2);
 </code></pre>
-
 <p>在Global中其它与number类型相关的方法有：</p>
-
 <ul>
 <li>isFinite()   : 如果值是NaN/正无穷/负无穷，返回false，否则返回true。</li>
 <li>parseFloat() : 从字符串(的前缀部分)取一个浮点数。不成功则返回NaN。</li>
 </ul>
-
 <h3 id="3boolean">3). boolean类型</h3>
-
 <p>(略)</p>
-
 <h3 id="4string">4). string类型</h3>
-
 <p>JavaScript中的String类型原本没有什么特殊的，但是JavaScript为了适应“浏览器实现的超文本环境”，因此它具有一些奇怪的方法。例如：</p>
-
 <ul>
 <li>link() : 把一个有HREF属性的超链接标签<code>&lt;A&gt;</code>放在String对象中的文本两端。</li>
 <li>big()  : 把一对<code>&lt;big&gt;</code>标签放在String对象中的文本两端。</li>
 </ul>
-
 <p>以下方法与此类同：</p>
-
 <ul>
 <li>anchor()</li>
 <li>blink()</li>
@@ -311,44 +269,38 @@ document.writeln(v1 == v2);
 <li>sub()</li>
 <li>sup()</li>
 </ul>
-
 <p>除此之外，string的主要复杂性来自于在JavaScript中无所不在的<code>toString()</code>方法。这也是JavaScript为浏览器环境而提供的一个很重要的方法。例如我们声明一个对象，但是要用<code>document.writeln()</code>来输出它，在IE中会显示什么呢？</p>
-
 <p>下例说明这个问题：</p>
-
 <pre><code class="language-javascript">//
 // toString()的应用
 //
-var  
+var
   s = new Object();
 
-s.v1 = 'hi,';  
-s.v2 = 'test!';  
-document.writeln(s);  
+s.v1 = 'hi,';
+s.v2 = 'test!';
+document.writeln(s);
 document.writeln(s.toString());
 
-s.toString = function() {  
+s.toString = function() {
   return s.v1 + s.v2;
 }
-document.writeln(s);  
+document.writeln(s);
 </code></pre>
-
 <p>在这个例子中，我们看到，当一个对象没有重新声明(覆盖)自己<code>toString()</code>方法的时候，那么它作为字符串型态使用时(例如被writeln)，就会调用Java Script环境缺省的<code>toString()</code>。反过来，你也可以重新定义JavaScript理解这个对象的方法。</p>
-
-<p>很多JavaScript框架，在实现“模板”机制的时候，就利用了这个特性。例如
+<p>很多JavaScript框架，在实现“模板”机制的时候，就利用了这个特性。例如<br>
 他们用这样定义一个FontElement对象：</p>
-
 <pre><code class="language-javascript">//
 // 利用toString()实现模板机制的简单原理
 //
-function FontElement(innerHTML) {  
+function FontElement(innerHTML) {
   this.face = '宋体';
   this.color = 'red';
   // more...
 
   var ctx = innerHTML;
   this.toString = function() {
-    return '&lt;Font FACE="' + this.face + '" COLOR="' + this.color + '"&gt;'
+    return '&lt;Font FACE=&quot;' + this.face + '&quot; COLOR=&quot;' + this.color + '&quot;&gt;'
       + ctx
       + '&lt;/FONT&gt;';
   }
@@ -357,33 +309,26 @@ function FontElement(innerHTML) {
 var obj = new FontElement('这是一个测试。');
 
 // 留意下面这行代码的写法
-document.writeln(obj);  
+document.writeln(obj);
 </code></pre>
-
 <h3 id="5function">5). function类型</h3>
-
 <p>javascript函数具有很多特性，除了面向对象的部分之外(这在后面讲述)，它自已的一些独特特性应用也很广泛。</p>
-
 <p>首先javascript中的每个函数，在调用过程中可以执有一个arguments对象。这个对象是由脚本解释环境创建的，你没有别的方法来自己创建一个arguments对象。</p>
-
 <p>arguments可以看成一个数组：它有length属性，并可以通过arguments[n]的方式来访问每一个参数。然而它最重要的，却是可以通过 callee 属性来得到正在执行的函数对象的引用。</p>
-
 <p>接下的问题变得很有趣：Function对象有一个 caller 属性，指向正在调用当前函数的父函数对象的引用。</p>
-
 <p>——我们已经看到，我们可以在JavaScript里面，通过callee/caller来遍历执行期的调用栈。由于arguments事实上也是Function的一个属性，因此我们事实上也能遍历执行期调用栈上的每一个函数的参数。下面的代码是一个简单的示例：</p>
-
 <pre><code class="language-javascript">//
 // 调用栈的遍历
 //
-function foo1(v1, v2) {  
+function foo1(v1, v2) {
   foo2(v1 * 100);
 }
 
-function foo2(v1) {  
+function foo2(v1) {
   foo3(v1 * 200);
 }
 
-function foo3(v1) {  
+function foo3(v1) {
   var foo = arguments.callee;
   while (foo &amp;&amp; (foo != window)) {
     document.writeln('调用参数：&lt;br&gt;', '---------------&lt;br&gt;');
@@ -400,19 +345,16 @@ function foo3(v1) {
 }
 
 // 运行测试
-foo1(1, 2);  
+foo1(1, 2);
 </code></pre>
-
 <h2 id="2javascript">2. JavaScript面向对象的支持</h2>
-
-<p>在前面的例子中其实已经讲到了object类型的“类型声明”与“实例创建”。
+<p>在前面的例子中其实已经讲到了object类型的“类型声明”与“实例创建”。<br>
 在JavaScript中，我们需要通过一个函数来声明自己的object类型：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript中对象的类型声明的形式代码
 // (以后的文档中，“对象名”通常用MyObject来替代)
 //
-function 对象名(参数表) {  
+function 对象名(参数表) {
   this.属性 = 初始值;
 
   this.方法 = function(方法参数表) {
@@ -420,22 +362,16 @@ function 对象名(参数表) {
   }
 }
 </code></pre>
-
 <p>然后，我们可以通过这样的代码来创建这个对象类型的一个实例：</p>
-
 <pre><code class="language-javascript">//
 // 创建实例的形式代码
 // (以后的文档中，“实例变量名”通常用obj来替代)
 //
-var 实例变量名 = new 对象名(参数表);  
+var 实例变量名 = new 对象名(参数表);
 </code></pre>
-
 <p>接下来我们来看“对象”在JavaScript中的一些具体实现和奇怪特性。</p>
-
 <h3 id="1javascript">1). 函数在JavaScript的面向对象机制中的五重身份</h3>
-
 <p>“对象名”——如MyObject()——这个函数充当了以下语言角色：</p>
-
 <ul>
 <li>普通函数</li>
 <li>类型声明</li>
@@ -443,49 +379,42 @@ var 实例变量名 = new 对象名(参数表);
 <li>类引用</li>
 <li>对象的构造函数</li>
 </ul>
-
 <p>一些程序员(例如Delphi程序员)习惯于类型声明与实现分开。例如在delphi中，Interface节用于声明类型或者变量，而implementation节用于书写类型的实现代码，或者一些用于执行的函数、代码流程。</p>
-
 <p>但在JavaScript中，类型的声明与实现是混在一起的。一个对象的类型(类)通过函数来声明，this.xxxx表明了该对象可具有的属性或者方法。</p>
-
 <p>这个函数的同时也是“类引用”。在JavaScript，如果你需要识别一个对象的具体型别，你需要执有一个“类引用”。——当然，也就是这个函数的名字。</p>
-
 <p>instanceof 运算符就用于识别实例的类型，我们来看一下它的应用：</p>
-
 <pre><code class="language-javascript">//
 // JavaScript中对象的类型识别
 //   语法:  对象实例 instanceof 类引用
 //
-function MyObject() {  
+function MyObject() {
   this.data = 'test data';
 }
 
 // 这里MyObject()作为构造函数使用
-var obj = new MyObject();  
+var obj = new MyObject();
 var arr = new Array();
 
 // 这里MyObject作为类引用使用
-document.writeln(obj instanceof MyObject);  
-document.writeln(arr instanceof MyObject);  
+document.writeln(obj instanceof MyObject);
+document.writeln(arr instanceof MyObject);
 </code></pre>
-
 <p>(未完待续)</p>
-
 <p><strong>接下来的内容：</strong></p>
-
 <ul>
-<li><a href="/1-21.html">JavaScript面向对象的支持(2)</a>：
-<ul><li>反射机制在JavaScript中的实现</li>
+<li><a href="/1-21.html">JavaScript面向对象的支持(2)</a>：</li>
+<li>反射机制在JavaScript中的实现</li>
 <li>this与with关键字的使用</li>
-<li>使用in关键字的运算</li></ul></li>
-<li><a href="/1-22.html">JavaScript面向对象的支持(3)</a>：
-<ul><li>使用instanceof关键字的运算</li>
-<li>其它与面向对象相关的关键字</li></ul></li>
+<li>使用in关键字的运算</li>
+<li><a href="/1-22.html">JavaScript面向对象的支持(3)</a>：</li>
+<li>使用instanceof关键字的运算</li>
+<li>其它与面向对象相关的关键字</li>
 <li><a href="/1-23.html">JavaScript面向对象的支持(4)</a>：构造与析构</li>
 <li><a href="/1-24.html">JavaScript面向对象的支持(5)</a>：构造与析构（续）</li>
 <li><a href="/1-26.html">JavaScript面向对象的支持(6)</a>：实例和实例引用，以及函数的上下文环境</li>
 <li><a href="/1-27.html">JavaScript面向对象的支持(7)</a>：一些补充内容</li>
 </ul>
+</div>
             </section>
 <!-- removed by aimingoo
             <footer class="post-footer">
@@ -513,8 +442,8 @@ document.writeln(arr instanceof MyObject);
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=3c551ead30" />
-<script src="/assets/js/gitmint.browser.js?v=3c551ead30"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=e63a76e1e9" />
+<script src="/assets/js/gitmint.browser.js?v=e63a76e1e9"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -536,16 +465,16 @@ a.gitment-editor-footer-tip { display: none; }
     <div id="sidebar" class="sidebar col-md-4 col-lg-4">
 
             <div class="widget widget-profile">
-        <div class="widget-profile-cover overlay no-cover"></div>
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
         <div class="widget-profile-header">
             <a class="widget-profile-logo" href="/author/aimingoo/">
-                <img src="/content/images/2017/05/-----2017-05-06-12-23-58.png" alt="Aimingoo&#x27;s Blog" />
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
             </a>
         </div>
         <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
         <hr>
         <p class="widget-profile-desc">
-                I&#x27;m here.
+                云色青青若醉，还与东湖寐
         </p>
         <hr>
         <!-- replaced by aimingoo -->
@@ -588,21 +517,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=e63a76e1e9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=3c551ead30"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=3c551ead30"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=e63a76e1e9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=e63a76e1e9"></script>
 </body>
 
 </html>
