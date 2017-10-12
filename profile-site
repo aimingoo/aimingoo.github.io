@@ -2,18 +2,14 @@ document.writeln(function siteProfileHtmlContext() {/*
   <hr> <nav class="navigation site-stat">
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>495</strong>
+                <strong>496</strong>
         </span>
         <span class="site-stat-item-name">文章</span>
     </div>
     <div class="site-stat-item">
         <span class="site-stat-item-count">
 <script>
-document.writeln('<strong>', '\
-            \
-                1\
-            \
-'.replace(/^\s*|\s*$/g, '') || 0, '<' + '/strong>');
+document.writeln('<strong>', '0' || 0, '<' + '/strong>');
 </script>
         </span>
         <span class="site-stat-item-name">推荐</span>
@@ -59,5 +55,8 @@ document.writeln('<strong>', '\
         </li>
     </ul>
 </nav>
-
+  <div class="author-meta">
+    <p><i class="fa fa-external-link"></i> <a href="/1-1747.html">博客中的系列文章</a></p>
+    <p><i class="fa fa-external-link"></i> <a href="/1-1732.html">三本免费电子书齐齐完工了</a></p>
+  </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));

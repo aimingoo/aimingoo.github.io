@@ -34,7 +34,7 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
-				<a href="/tag/za-tan" class="tag-item">杂谈 (207)</a>
+				<a href="/tag/za-tan" class="tag-item">杂谈 (206)</a>
 				<a href="/tag/javascript" class="tag-item">Javascript (85)</a>
 				<a href="/tag/sui-bi" class="tag-item">随笔 (54)</a>
 				<a href="/tag/sheng-huo" class="tag-item">生活 (54)</a>
@@ -52,10 +52,10 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/da-dao-zhi-jian" class="tag-item">大道至简 (25)</a>
 				<a href="/tag/shu-xu-shu-ping" class="tag-item">书序书评 (21)</a>
 				<a href="/tag/delphi" class="tag-item">delphi (18)</a>
+				<a href="/tag/ying-yu" class="tag-item">英语 (18)</a>
 				<a href="/tag/jia-gou" class="tag-item">架构 (17)</a>
-				<a href="/tag/ying-yu" class="tag-item">英语 (17)</a>
 				<a href="/tag/jia-gou-she-ji" class="tag-item">架构设计 (16)</a>
-				<a href="/tag/bo-ke" class="tag-item">博客 (15)</a>
+				<a href="/tag/bo-ke" class="tag-item">博客 (16)</a>
 				<a href="/tag/mian-xiang-dui-xiang" class="tag-item">面向对象 (15)</a>
 				<a href="/tag/zuo-lun" class="tag-item">坐论 (13)</a>
 				<a href="/tag/shi-wen" class="tag-item">诗词文章 (13)</a>

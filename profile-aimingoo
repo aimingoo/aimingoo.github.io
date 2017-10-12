@@ -3,6 +3,10 @@ document.writeln(function authorProfileContext() {/*
             
             
 
-            <span class="author-stats"><i class="fa fa-file-text-o"></i> 共计发表 283 篇文章，继续努力。</span>
+            <span class="author-stats"><i class="fa fa-file-text-o"></i> 共计发表 284 篇文章，继续努力。</span>
+
+            <hr>
+            <p><i class="fa fa-external-link"></i> <a href="/1-1747.html">博客中的系列文章</a></p>
+            <p><i class="fa fa-external-link"></i> <a href="/1-1732.html">三本免费电子书齐齐完工了</a></p>
         </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
