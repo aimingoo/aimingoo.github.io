@@ -9,15 +9,6 @@ var switcherObjects = {
             background-size: auto;
         }
 
-        .site-wrapper {
-            background: none;
-        }
-
-        .main-header {
-            background: none;
-            border-bottom: none;
-        }
-
         .main-nav a {
             color: #FFF;
         }
@@ -32,15 +23,6 @@ var switcherObjects = {
             background-position: top center;
             background-attachment: fixed;
             background-size: auto;
-        }
-
-        .site-wrapper {
-            background: none;
-        }
-
-        .main-header {
-            background: none;
-            border-bottom: none;
         }
 
         .main-nav-title {
@@ -67,15 +49,24 @@ if (!authorName && (authorName = location.href.match(/\/author\/([^\/]+)\/?$/)))
     authorName = authorName[1];
 }
 
-
 switcherObjects.default = switcherObjects.aimingoo;
+
 switch (authorName && (authorName in switcherObjects)) {
     case false: authorName = 'aimingoo'; // or break only
     default:
         // custom styles
         document.writeln(switcherObjects[authorName].toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));
+        if (! document.querySelector('header.main-header')) break;
+
         // custom header
+        var deviceWidth = window.innerWidth || document.body.clientWidth || document.documentElement.clientWidth;
         var all_nav_items = document.querySelector('header.main-header').querySelectorAll('div.nav.pull-right ul li');
+        if (authorName == 'aimingoo' || authorName == 'default') {
+            if (deviceWidth < 420) {
+                [].filter.call(all_nav_items, function(el) { return ['首页'].indexOf(el.innerText) > -1 })
+                    .forEach(function(el) { el.style.display = 'none' });
+            }
+        }
         if (authorName == 'joyxhy') {
             var item = [].filter.call(all_nav_items, function(el) { return el.innerText=='首页'})[0];
             if (item) with (item.querySelector('A')) innerText="Aimingoo's Blog";
@@ -83,5 +74,14 @@ switch (authorName && (authorName in switcherObjects)) {
             if (item) with (item.querySelector('A')) href=href.replace('archives-post', 'archives-post-joyxhy');
             var item = [].filter.call(all_nav_items, function(el) { return el.innerText=='关于'})[0];
             if (item) with (item.querySelector('A')) href=href.replace('about', 'about-joyxhy');
+
+            if (deviceWidth < 420) {
+                [].filter.call(all_nav_items, function(el) { return ['麦秸的垛'].indexOf(el.innerText) > -1 })
+                    .forEach(function(el) { el.style.display = 'none' });
+            }
+        }
+        if (deviceWidth < 360) {
+            [].filter.call(all_nav_items, function(el) { return ['历史', '关于'].indexOf(el.innerText) > -1 })
+                .forEach(function(el) { el.style.display = 'none' });
         }
 }

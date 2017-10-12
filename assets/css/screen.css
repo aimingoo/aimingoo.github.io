@@ -1412,7 +1412,7 @@ body.nav-opened .site-wrapper {
    ========================================================================== */
 
 .container {
-    min-width: 320px;
+    min-width: 300px;
     padding: 0px !important;
     margin: 0px auto 10px;
     max-width: 1080px;
@@ -2275,7 +2275,7 @@ body.nav-opened .site-wrapper {
 }
 @media (min-width:768px) {
     .container {
-        width: 640px !important
+        width: 710px !important
     }
 }
 @media (min-width:992px) {
@@ -2471,6 +2471,17 @@ code.has-numbering {
 }
 .archives-info .archives-info-meta a.u-joyxhy {
     color: #a56666;
+}
+.nav.pull-right {
+    position: absolute;
+    right: 0;
+}
+.site-wrapper {
+    background: none;
+}
+.main-header {
+    background: none;
+    border-bottom: none;
 }
 
 /* ==========================================================================
