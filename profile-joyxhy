@@ -4,5 +4,11 @@ document.writeln(function authorProfileContext() {/*
             
 
             <span class="author-stats"><i class="fa fa-file-text-o"></i> 共计发表 212 篇文章，继续努力。</span>
+
+            <hr>
+            <p><i class="fa fa-external-link"></i> <a href="/2-60.html">菱角粉红</a></p>
+            <p><i class="fa fa-external-link"></i> <a href="/2-44.html">妈妈说，打碗花是不能摘的</a></p>
+            <p><i class="fa fa-external-link"></i> <a href="/2-11.html">超级大馋猫</a></p>
+            <p><i class="fa fa-external-link"></i> <a href="/2-1.html">上海街头，踯躅在现实与记忆之间</a></p>
         </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''));

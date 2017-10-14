@@ -17,7 +17,7 @@ document.writeln('<strong>', '0' || 0, '<' + '/strong>');
 <!--
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>65</strong>
+                <strong>69</strong>
         </span>
         <span class="site-stat-item-name">标签</span>
     </div>
