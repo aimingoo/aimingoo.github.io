@@ -69,6 +69,146 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-55.html">再谈JavaScript时钟中的16ms精度问题．</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>上一篇BLOG中，通过测试我们发现 JavaScript的时钟是16ms的间隔.　对于IE来说，每次总会发生16ms的间隔；对于firefox来说，会存在0ms的间隔.　对于后者，我曾解释说：可能是Java使用了自己的时钟． 先说第二种情况，对于firefox中的js引擎，我尚未去看代码，因此我只说＂可能＂，但后来hax来说，firefox的JS引擎仍是C写的，这才想起的确如此．所以这里先说，我前面关于firefox的问题的解释是错的. 再说16ms的问题.　我其实也怀疑，为什么是16ms，而不是其它的什么值呢？ hax给了我很多信息．我这里来整理一下： ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-12-21T11:25:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-12-21">(2006-12-21)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-55.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-54.html">JavaScript时钟间隔的问题～</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>JavaScript中setTimeout()和setInterval()用于创建和管理时钟．但这个时钟的精度是多少，却没有什么资料来提及．在讨论具体的问题前，先说明一下setTimeout与setInterval在时钟间隔为0值的情况下的反应． 当用户置setTimeout(proc, 0)时 ，将让出CPU直到下一个时钟间隔再开始执行proc，而并非＂在0ms后执行proc＂；当用户置setInterval(proc, 0)时，时钟不会被初始化. JavaScript要求至少以1ms为间隔创建时钟． 接下来，当interval值为1（或者其它很小的值）时，时钟将按一种＂最小的＂ ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-12-19T17:53:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-12-19">(2006-12-19)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-54.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-227.html">读史沐汗~</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>今天改了改MSN的TITLE，叫“读史读到汗如瀑”，意思便跟这“读史沐汗”一样。只是我觉得不够文气，便改了个说词，拿来做这篇BLOG的标题。 最近下载了许多的古书，十几个G的电子版本。相信要一一读去，怕是这辈子要毁在这事上头。于是找来钱穆先生的一篇《中国史学名著》，据说是他的学生根据课堂笔记整理的。个中细节，不得而知。 这篇东西里讲了几本书，钱先生称其学史者必读。分别是《尚书》、《春秋》、《史记》、《汉书》，未尾还提及到《 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/za-tan/">杂谈</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-12-01T23:06:38.3838+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-12-01">(2006-12-01)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/za-tan/">杂谈</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-227.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-chan-pin tag-bian-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-53.html">推个荐：十年学会编程</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>我很少在自己的Blog上推荐什么。一则是怕推荐错了，二者是怕耽于自己的个人喜欢，扰了别人的视听。所以我的链接里头， 除了老婆、自己，就剩下一个Hello World了。 但现在我要正式地做个推荐。是关于一篇文章的，因为这篇文章实在说到了我的心底，也实在说了我想说的话。这篇文章就是《十年学会编程》。 http://daiyuwen.freeshell.org/gb/misc/21-days-cn.html 文章不长，甚至都可以嫌它短。但第一段就给人耳目一新的感觉。 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/chan-pin/">产品</a>, <a href="/tag/bian-cheng/">编程</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-11-30T19:15:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-11-30">(2006-11-30)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/chan-pin/">产品</a>, <a href="/tag/bian-cheng/">编程</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-53.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-bian-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-52.html">编程的另一面：从生死到变化～</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>今天突然跑到孟岩的BLOG里头(这里)，看到一个新的缩略语REST(REpresentational State Transfer，具备表像的状态迁移)，随后又看到另一个GPPD(Get, Post, Put, Delete)，然后又出来一个CRUD(Create, Read, Update, Delete)……直到在他的文章中跳出来SIUD(Select, Insert, Update, Delete)之时，我终于忍无可忍，决定要来思考一下下这些层出不穷的新鲜玩意儿了。 老实说， ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bian-cheng/">编程</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-11-27T14:56:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-11-27">(2006-11-27)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/bian-cheng/">编程</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-52.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-za-tan tag-shi-wen" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-226.html">适才于桌畔偶得一阙如梦令~~</a></h1>
@@ -346,146 +486,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-223.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-za-tan tag-du-shu" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-222.html">你的灯还亮着吗?</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>查资料时，看到一个网友写的书摘，关于温伯格的这本书的。很不错，抄过来先放着 1,搞清谁(问题的对象)有问题. 2,问题的本质是什么 大多数问题其实就是你期望的东西和你体验的东西之间的差别. 解决办法是要么改变期望,要么改变体验. 3,不要把他们解决问题的方法误认为是问题的定义—特别是在你使用自己的解决方法时(要搞清楚问题的定义) 4,如果你太轻易的解决了他们的问题,他们永远不会相信你真的解决了问题 5,你永远都不能肯定你已经有了一个正确的定义,即使在问题已经解决之后,但永远不要放弃寻求它的努力 6, ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/za-tan/">杂谈</a>, <a href="/tag/du-shu/">读书</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-08-06T01:23:18.1818+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-08-06">(2006-08-06)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/za-tan/">杂谈</a>, <a href="/tag/du-shu/">读书</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-222.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-za-tan tag-da-dao-zhi-jian" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-221.html">愚公到底是哪里人？</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>这些天在写《大道至简》第二版，又涉及到对《愚公移山》的思考，因此对“愚公到底是哪里人”这个问题发生了兴趣。本想Google出一个结果，没想到一查，哈哈，原来大家对这个问题吵得不亦乐乎。 其中，河南商报撰文《山西晋城抢注‘愚公移山’ 河南济源保护‘文化名牌’》。河南人认为，“愚公移山”故事的发生地在河南济源，理由则是市区以西就是王屋山；山西人则说，“为什么晋城在王屋与太行之间，却没有被它们阻挡？ ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/za-tan/">杂谈</a>, <a href="/tag/da-dao-zhi-jian/">大道至简</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-07-23T06:49:04.044+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-07-23">(2006-07-23)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/za-tan/">杂谈</a>, <a href="/tag/da-dao-zhi-jian/">大道至简</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-221.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-45.html">Qomo的进展及相关说明~</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>关心Qomo项目的朋友可能注意到，在beta1之后，Qomo项目已经有近三个月没有更新了。其实这并不是项目组没有进一步的工作，而是陷于一些细节处的处理而延长了发布时间。 目前Qomo已经完成了UI框架的基本设计和框架层(主干)代码。在Qomo的RTL部分加入了Templet系统，在Debug部分加入了Profiler和Debugger，以及比较精巧的异常和断言处理机制的封装。公共代码库(Common)加入了Pool&amp;Machine机制、timer&amp;step机制等相关的应用工具库。UI组件库中也有一些代码加入。 此外，Zhe开始封装新的JS和DOM兼容层。这方面的工作已经得已展开。但是，基于Qomo的应用开发、UI组件库的开发处于停滞不前的状态。 ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-07-05T02:02:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-07-05">(2006-07-05)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-45.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-za-tan tag-shi-wen" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-220.html">《澄心居诗词评读》六篇</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>澄心居是指我在四川的一间自己的书房，其实也是睡觉的地方。只是那是毕竟一个人的房间，安静了许多。１７～１９岁，我和父母在那里生活了两年多。 澄心居在我的一篇小说《石像的忆述》里写到过。自这篇小说以后，澄心居其实就成了我在文字方面的一个表征性的词汇。这个词表明我在对文学的、文字的和情感方面的思想。换而言之，使得我在十年的程序员生涯中，没有变成一台编码、译码的机器的精神支柱，就是“澄心居”这三个字。 澄心居有着我在四川的最后一段生活经历。至到现在，我仍然想回去。然而我也知道，我不可能回去了。前些日子哥哥在电话中说在和父母商量把那套房子给卖掉， ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/za-tan/">杂谈</a>, <a href="/tag/shi-wen/">诗词文章</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-05-13T17:10:18.1818+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-05-13">(2006-05-13)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/za-tan/">杂谈</a>, <a href="/tag/shi-wen/">诗词文章</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-220.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-44.html">Qomo OpenProject beta1 精彩图集～</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>：） 好象CSDN Blogs里头发图片有问题，因此只能传到别的地方。这里转过来大家看看。 一、Qomo里的profiler显示结果 (运行：/Framework/Debug/TestCase/T_profiler.html ) 二、Qomo里的继承树显示结果 (运行：/Components/QomoHierarchyPoster.html ) 三、Qomo中对AOP的理解 (参考：/Framework/DOCUMENTs/TestCase/AdvObjectDemo5. ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-04-17T05:03:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-04-17">(2006-04-17)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-44.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>

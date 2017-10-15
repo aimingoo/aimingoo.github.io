@@ -61,6 +61,146 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-bo-ke tag-gitment tag-javascript tag-opensource-project tag-github tag-qian-duan-kai-fa" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1725.html">手记6：改造Gitment</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>本文所述的修改请参考我Fork的Gitment项目：Giment at aimingoo's project space 接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。 11. 改造Gitment 折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如makesite.sh（在这里）。 最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。 注： ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/github/">Github</a>, <a href="/tag/qian-duan-kai-fa/">前端开发</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-06-01T00:46:14.1414+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-06-01">(2017-06-01)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/bo-ke/">博客</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/github/">Github</a>, <a href="/tag/qian-duan-kai-fa/">前端开发</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1725.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-bo-ke tag-gitment tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1724.html">博客迁移手记之快速导航</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>本来没想把《博客迁移手记》写得这么长这么多，所以写了这么久之后再来看，博客的标题感觉就很Low了。 于是决定给这一组《博客迁移手记（1~n）》写个导航，也算整理一下思路。 快速导航 博客迁移手记（一） 使用BlogToWordpress迁移你的博客 使用本地博客Ghost的快速指南与导入工具 博客迁移手记（二） 从本地博客到Github Pages的最佳指南 makesite.sh使用手册 博客迁移手记（三） 以kaldorei为例详解Ghost Theme的定制 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-05-30T15:48:53.5353+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-05-30">(2017-05-30)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/bo-ke/">博客</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1724.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-bo-ke" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1723.html">手记5：如何获得一个支持HTTPS的免费空间</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>下面我们讲的内容其实与Gitment没什么关系。如果你已经有了支持https的空间那就跳过去，如果没有的话，建议还是看看好的伐。 10. 让免费主页空间支持HTTPS 好象我们把问题搞得复杂了：本来我是想做个静态主页的博客网站，现在我却需要找个支持PHP+SSL的动态主页空间？ 好吧。没关系。反正我闲着在养病，不做点啥岂不是辜负了时光。 免费主页空间其实挺好找的，尽管要找到一个有长期信誉的并不太容易。即使如此，当你得到这样一个免费空间之后，它多数也是不支持https的。 10.1 你的主页空间是不是支持HTTPS？ 好吧，确实有很多免费空间『声称』它支持https了。 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-05-30T15:25:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-05-30">(2017-05-30)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/bo-ke/">博客</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1723.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-bo-ke tag-javascript tag-github tag-gitment tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>本来我接下来只是想在博客中加上一个支持评论的功能（使用Gitment），然而诸多的尝试之后，我却发现我需要创建一个支持https的web站点…… 这一切的目的，只是使得我们的Gitment有跨域访问的Api接口可用。 8. 问题出在哪里 Gitment（项目）是极棒的一个利用Github Issues来实现博客评论功能的项目，作者（https://imsun.net/）在介绍中特别提到，这种对Issues功能的使用方法是Github团队支持许可的。这也意味着只要你能接受以下两点可能存在的限制/隐患，你就可以长期地使用它： Github真的可能被屏蔽，尽管这种可能性已经越来越小 要发表评论的话必须先注册Github的账号，不过浏览评论是不受限制的 但是使用Gitment是有问题的。 ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/github/">Github</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-05-29T02:17:49.4949+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-05-29">(2017-05-29)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/github/">Github</a>, <a href="/tag/gitment/">Gitment</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1722.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1721.html">手记3：实例教学之Ghost模板定制</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>接下来我们聊一下如何定制这个博客的风格。 7. 定制Themes Ghost缺省使用的主题叫casper theme，你可以在博客管理界面Settings -&gt; General -&gt; Themes中找到你当前安装过的全部Themes，并任意激活/删除它们。 有两种方法来安装Themes。第一种是在这个管理界面中选最下面的『Upload A Theme』来上传你下载过的Theme .zip包，第二种是直接将.zip包解压到Ghost安装目录的content/themes/目录下。 我选择的是使用小蘿蔔丁( ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-05-28T03:28:21.2121+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-05-28">(2017-05-28)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1721.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-bo-ke tag-ghost-tag tag-github tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-1720.html">手记2：从本地博客到Github Pages的最佳指南及工具</a></h1>
@@ -338,146 +478,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-192.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-ruan-jian-gong-cheng tag-jia-gou" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-191.html">OSCHINA答读者问之六：杂谈（完结篇）</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。 原贴在这里：http://www.oschina.net/question/12_78459 本篇的问题：（没有主题，呵呵） 问：我们公司准备进行“敏捷测试”。有没什么建议~！ 答：基本上， ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou/">架构</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2013-01-02T23:17:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2013-01-02">(2013-01-02)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou/">架构</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-191.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-ruan-jian-gong-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-190.html">OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。 原贴在这里：http://www.oschina.net/question/12_78459 本篇的问题：小作坊如何实施所谓的软件工程？ 答： 作坊式的，小公司，或需求变化太频繁等等，都不是不做软件工程的理由。往往的，我们一谈工程就“ ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/ruan-jian-gong-cheng/">软件工程</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2013-01-02T23:00:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2013-01-02">(2013-01-02)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-190.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-ruan-jian-gong-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-189.html">OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。 原贴在这里：http://www.oschina.net/question/12_78459 本篇的问题：应该从哪些方面下功夫才能做好团队建设？从哪些方面提高自己的领导力？ 答： 修炼自己，服人之口莫若服人之心，你得让自己可以服众。  管理技术与被管理的组织是直接相关的，所以做好管理的前提是看清楚组织。 ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/ruan-jian-gong-cheng/">软件工程</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2013-01-02T22:57:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2013-01-02">(2013-01-02)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-189.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-ruan-jian-gong-cheng tag-jia-gou" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-188.html">OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。 原贴在这里：http://www.oschina.net/question/12_78459 本篇的问题有两个：架构是否就是把问题域理清楚？软件工程各要素可有比重？ 问： 一、关于架构。 我认为架构就是把问题域的方方面面理清楚咯，设计出尽可能简单的解决方案。这里的核心问题是， ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou/">架构</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2013-01-02T22:48:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2013-01-02">(2013-01-02)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou/">架构</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-188.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-ruan-jian-gong-cheng tag-jia-gou" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-187.html">OSCHINA答读者问之二：什么是架构？以及什么是架构师？</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>我曾经去给OSCHINA做过一期有关“软件工程实践”的有奖高手问答 （奖是给提问者的，哈哈），现在来看，许多问题仍然可读之处，因此整理成文字，以为众赏。 原贴在这里：http://www.oschina.net/question/12_78459 本篇的问题是：什么是架构？以及什么是架构师？ 答： 几位读者​都提到了架构的问题，但架构话题并没有在《大道至简》这本书里讨论过， ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou/">架构</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2013-01-02T22:43:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2013-01-02">(2013-01-02)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>, <a href="/tag/jia-gou/">架构</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-187.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>

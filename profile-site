@@ -2,7 +2,7 @@ document.writeln(function siteProfileHtmlContext() {/*
   <hr> <nav class="navigation site-stat">
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>502</strong>
+                <strong>507</strong>
         </span>
         <span class="site-stat-item-name">文章</span>
     </div>
@@ -17,7 +17,7 @@ document.writeln('<strong>', '0' || 0, '<' + '/strong>');
 <!--
     <div class="site-stat-item">
         <span class="site-stat-item-count">
-                <strong>70</strong>
+                <strong>71</strong>
         </span>
         <span class="site-stat-item-name">标签</span>
     </div>

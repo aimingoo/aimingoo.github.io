@@ -10,13 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=264d3058f6" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=73aaa95c06" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=264d3058f6" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=73aaa95c06" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
@@ -26,7 +26,8 @@
     <meta property="og:description" content="这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价值。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。" />
     <meta property="og:url" content="http://aimingoo.github.io/1-100.html" />
     <meta property="article:published_time" content="2008-06-01T15:58:00.000Z" />
-    <meta property="article:modified_time" content="2017-09-12T05:54:17.000Z" />
+    <meta property="article:modified_time" content="2017-10-15T06:39:26.000Z" />
+    <meta property="article:tag" content="访谈" />
     <meta property="article:tag" content="Javascript" />
     <meta property="article:tag" content="架构设计" />
     
@@ -37,7 +38,7 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Javascript, 架构设计" />
+    <meta name="twitter:data2" content="访谈, Javascript, 架构设计" />
     
     <script type="application/ld+json">
 {
@@ -51,15 +52,20 @@
     "author": {
         "@type": "Person",
         "name": "aimingoo",
-        "image": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
         "url": "http://aimingoo.github.io/author/aimingoo/",
         "sameAs": []
     },
     "headline": "旧文重发：谈企业软件架构设计",
     "url": "http://aimingoo.github.io/1-100.html",
     "datePublished": "2008-06-01T15:58:00.000Z",
-    "dateModified": "2017-09-12T05:54:17.000Z",
-    "keywords": "Javascript, 架构设计",
+    "dateModified": "2017-10-15T06:39:26.000Z",
+    "keywords": "访谈, Javascript, 架构设计",
     "description": "这篇专访是ZDNET的李宁编辑在2007.03月期间做的。 [编者语] 最近在网上读到了“杀不死的人狼——我读《人月神话》”系列文章。是周爱民关于《人月神化》的读书心得。《人月神化》在软件工程里一本很有分量的书，讲述了Brooks博士在IBM公司 System/360家族和OS/360中的项目管理经验。周爱民在他的这一系列文章中用自己架构师经历为基础，从他的视角重新品读了这本书。而这也使我有了采访下他的想法，从中我们也许可以了解到中国企业内软件架构设计这个环节的现状。目前周爱民是盛大网络架构师。想与ZDNet技术专家一起分享你的智慧吗？请联系我leesbfpsj#hotmail.com. 在此特别感谢周爱民在百忙中抽出时间回复了这次访谈。 1、您好，请先向我们的网友简单做一下自我介绍好吗？ 我94年开始学习电脑，基本上从一开始就学编程。从96年开始涉及商业软件开发，到现在约十一年了。其间我在郑州的一家软件公司呆了7年，历经了一家软件公司的中兴到消亡，因而也意识到工程、管理在软件企业——当然也包括其它类型的企业——中的价值。后来，从03年开始的一年多时间，我在郑州的另一家公司任软件部经理，也开始实践自己的工程和管理思想。很好，到现在我离开这家公司一年多了，公司状况依然很不错。我认为，团队或公司并没有因为你的缺席而变得糟糕，那便已经是良性管理的表现了。",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -68,7 +74,7 @@
 }
     </script>
 
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=73aaa95c06"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -79,7 +85,7 @@ ghost.init({
     <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
 </head>
 
-<body class="post-template tag-javascript tag-jia-gou-she-ji nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+<body class="post-template tag-fang-tan tag-javascript tag-jia-gou-she-ji nav-closed" data-spy="scroll" data-target="#tocScrollspy">
 
     <div class="site-wrapper">
 
@@ -110,11 +116,11 @@ ghost.init({
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=264d3058f6"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=73aaa95c06"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
-        <article class="post tag-javascript tag-jia-gou-she-ji">
+        <article class="post tag-fang-tan tag-javascript tag-jia-gou-she-ji">
             <header class="post-header">
                 <h1 class="post-title u-aimingoo"><a href="/1-100.html">旧文重发：谈企业软件架构设计</a></h1>
                 <section class="post-meta">
@@ -129,7 +135,7 @@ ghost.init({
                     </span>
                     <span class="post-meta-item post-meta-tags">
                         <i class="fa fa-tag"></i>
-                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/jia-gou-she-ji/">架构设计</a>
+                        <a href="/tag/fang-tan/">访谈</a>, <a href="/tag/javascript/">Javascript</a>, <a href="/tag/jia-gou-she-ji/">架构设计</a>
                     </span>
                     <span class="post-meta-item pull-right">
                         
@@ -224,8 +230,8 @@ ghost.init({
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=264d3058f6" />
-<script src="/assets/js/gitmint.browser.js?v=264d3058f6"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=73aaa95c06" />
+<script src="/assets/js/gitmint.browser.js?v=73aaa95c06"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -299,21 +305,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=73aaa95c06"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=73aaa95c06"></script>
 </body>
 
 </html>

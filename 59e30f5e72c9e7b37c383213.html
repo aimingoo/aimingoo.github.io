@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>旧文重发：真正的架构师是没有title的</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=73aaa95c06" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=73aaa95c06" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="旧文重发：真正的架构师是没有title的" />
+    <meta property="og:description" content="这是2014年图灵社区给我做的一个访谈，当时我到豌豆荚不太久，但也不算初到。 虽然这篇文章是根据访谈内容整理的，但基本上没有什么修改，就是现场的聊天，所以也就是第一直觉的思考和回复——我的意思是这并不是那种文字访谈，容得我去思前想后然后写成文字回复给对方。 本文也可以在这里读到：http://www.ituring.com.cn/article/120377 ，或见于《码农》第14期 @2014-09-17 关于选择：“既然我已经答应夫人要走，就不想做别的选择了。” 问：您从什么时候开始接触编程？ 我从1994年的时候开始学习编程，最开始接触电脑是学习WPS，DOS之类的，其中有一门课程是DBase，这是早期的编程语言。我的专业不是编程，我学的是机械电子。当时我其实更喜欢文学，但是我认为专业作家迟早会被饿死，所以我就选择了计算机，至少搞计算机不会饿死。 问：我发现您的职业经历也很丰富，在成为架构师之前，您好像还获得过Borland公司发的奖？ 我在去盛大之前的经历都是在Delphi圈子里，当时Borland一下发了两个奖给我。一个是Borland产品专家奖，因为那个时候我已经出了第一本书《Delphi源代码分析》。那本书是讲Borland产品内核的，从对Delphi的了解程度来讲我是可以拿这个奖的。另外一个奖叫做社区专家奖，这是因为我是Delphi早期社区的活跃者。" />
+    <meta property="og:url" content="http://aimingoo.github.io/59e30f5e72c9e7b37c383213.html" />
+    <meta property="article:published_time" content="2017-10-15T07:59:44.000Z" />
+    <meta property="article:modified_time" content="2017-10-15T07:59:44.000Z" />
+    <meta property="article:tag" content="访谈" />
+    <meta property="article:tag" content="坐论" />
+    <meta property="article:tag" content="程序人生" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="旧文重发：真正的架构师是没有title的" />
+    <meta name="twitter:description" content="这是2014年图灵社区给我做的一个访谈，当时我到豌豆荚不太久，但也不算初到。 虽然这篇文章是根据访谈内容整理的，但基本上没有什么修改，就是现场的聊天，所以也就是第一直觉的思考和回复——我的意思是这并不是那种文字访谈，容得我去思前想后然后写成文字回复给对方。 本文也可以在这里读到：http://www.ituring.com.cn/article/120377 ，或见于《码农》第14期 @2014-09-17 关于选择：“既然我已经答应夫人要走，就不想做别的选择了。” 问：您从什么时候开始接触编程？ 我从1994年的时候开始学习编程，最开始接触电脑是学习WPS，DOS之类的，其中有一门课程是DBase，这是早期的编程语言。我的专业不是编程，我学的是机械电子。当时我其实更喜欢文学，但是我认为专业作家迟早会被饿死，所以我就选择了计算机，至少搞计算机不会饿死。 问：我发现您的职业经历也很丰富，在成为架构师之前，您好像还获得过Borland公司发的奖？ 我在去盛大之前的经历都是在Delphi圈子里，当时Borland一下发了两个奖给我。一个是Borland产品专家奖，因为那个时候我已经出了第一本书《Delphi源代码分析》。那本书是讲Borland产品内核的，从对Delphi的了解程度来讲我是可以拿这个奖的。另外一个奖叫做社区专家奖，这是因为我是Delphi早期社区的活跃者。" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/59e30f5e72c9e7b37c383213.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="访谈, 坐论, 程序人生" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "旧文重发：真正的架构师是没有title的",
+    "url": "http://aimingoo.github.io/59e30f5e72c9e7b37c383213.html",
+    "datePublished": "2017-10-15T07:59:44.000Z",
+    "dateModified": "2017-10-15T07:59:44.000Z",
+    "keywords": "访谈, 坐论, 程序人生",
+    "description": "这是2014年图灵社区给我做的一个访谈，当时我到豌豆荚不太久，但也不算初到。 虽然这篇文章是根据访谈内容整理的，但基本上没有什么修改，就是现场的聊天，所以也就是第一直觉的思考和回复——我的意思是这并不是那种文字访谈，容得我去思前想后然后写成文字回复给对方。 本文也可以在这里读到：http://www.ituring.com.cn/article/120377 ，或见于《码农》第14期 @2014-09-17 关于选择：“既然我已经答应夫人要走，就不想做别的选择了。” 问：您从什么时候开始接触编程？ 我从1994年的时候开始学习编程，最开始接触电脑是学习WPS，DOS之类的，其中有一门课程是DBase，这是早期的编程语言。我的专业不是编程，我学的是机械电子。当时我其实更喜欢文学，但是我认为专业作家迟早会被饿死，所以我就选择了计算机，至少搞计算机不会饿死。 问：我发现您的职业经历也很丰富，在成为架构师之前，您好像还获得过Borland公司发的奖？ 我在去盛大之前的经历都是在Delphi圈子里，当时Borland一下发了两个奖给我。一个是Borland产品专家奖，因为那个时候我已经出了第一本书《Delphi源代码分析》。那本书是讲Borland产品内核的，从对Delphi的了解程度来讲我是可以拿这个奖的。另外一个奖叫做社区专家奖，这是因为我是Delphi早期社区的活跃者。",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=73aaa95c06"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-fang-tan tag-zuo-lun tag-cheng-xu-ren-sheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=73aaa95c06"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-fang-tan tag-zuo-lun tag-cheng-xu-ren-sheng">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/59e30f5e72c9e7b37c383213.html">旧文重发：真正的架构师是没有title的</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2017-10-15T15:59:44.4444+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2017-10-15">(2017-10-15)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/fang-tan/">访谈</a>, <a href="/tag/zuo-lun/">坐论</a>, <a href="/tag/cheng-xu-ren-sheng/">程序人生</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><blockquote>
+<p>这是2014年图灵社区给我做的一个访谈，当时我到豌豆荚不太久，但也不算初到。</p>
+<p>虽然这篇文章是根据访谈内容整理的，但基本上没有什么修改，就是现场的聊天，所以也就是第一直觉的思考和回复——我的意思是这并不是那种文字访谈，容得我去思前想后然后写成文字回复给对方。</p>
+<p>本文也可以在这里读到：<a href="http://www.ituring.com.cn/article/120377">http://www.ituring.com.cn/article/120377</a> ，或见于<a href="http://www.ituring.com.cn/book/1508">《码农》第14期</a></p>
+<p>@2014-09-17</p>
+</blockquote>
+<h2 id="">关于选择：“既然我已经答应夫人要走，就不想做别的选择了。”</h2>
+<blockquote>
+<ul>
+<li>问：您从什么时候开始接触编程？</li>
+</ul>
+</blockquote>
+<p>我从1994年的时候开始学习编程，最开始接触电脑是学习WPS，DOS之类的，其中有一门课程是DBase，这是早期的编程语言。我的专业不是编程，我学的是机械电子。当时我其实更喜欢文学，但是我认为专业作家迟早会被饿死，所以我就选择了计算机，至少搞计算机不会饿死。</p>
+<blockquote>
+<ul>
+<li>问：我发现您的职业经历也很丰富，在成为架构师之前，您好像还获得过Borland公司发的奖？</li>
+</ul>
+</blockquote>
+<p>我在去盛大之前的经历都是在Delphi圈子里，当时Borland一下发了两个奖给我。一个是Borland产品专家奖，因为那个时候我已经出了第一本书《Delphi源代码分析》。那本书是讲Borland产品内核的，从对Delphi的了解程度来讲我是可以拿这个奖的。另外一个奖叫做社区专家奖，这是因为我是Delphi早期社区的活跃者。我去盛大之前面临了两个Offer，一个是Borland China，请我去做产品工程师，一个是盛大的。Borland在中国没有开发，所以他们只好叫做产品工程师，可以理解成售后服务。我当时觉得虽然Borland公司的title可以，但不是我想做的事，所以我决定去盛大。</p>
+<blockquote>
+<ul>
+<li>问：您曾经是一位Delphi专家，也曾作为架构师就职于盛大和阿里巴巴，您职业转换的原因和动机是什么？</li>
+</ul>
+</blockquote>
+<p>我在郑州待了9年，我在那里的最后一份工作是软件部的负责人，带项目兼做开发。我离开郑州的原因其实很简单。当时我有一位非常好的朋友，他也是我的开发团队中的主力工程师。他说他拿到了微软的Offer，想问一下我的意见，我就告诉他：作为朋友我建议你立即去微软，这对你来讲是事业发展的大好机会。他向我提出离职之后，第二天我就向老板提出了离职。那个时候，我突然想明白了一件事，对于软件开发人才来说，郑州不是一个好环境。当我们把一个人培养得很成熟了，他就会受到更大的环境（比如北京）的影响，人才会流失。在郑州这样的环境下搞软件或者软件企业受限太大了，而这样的现实不是我能改变的。我今天会面临朋友的离职，我如果继续在郑州做下去，过一两年还会面临同样的问题。</p>
+<p>我开始意识到整个产业环境对局部地方的影响，对于人才的影响，对于公司企业规模的影响。当时我们还在做一些项目，面向移动、金融、电信这些企业。非常明显，我们作为本地企业，拿到的永远都是小骨头。从北京来的其他公司，人没有你多，素质不一定有你高，但是报价会比你高很多。从北京来的公司只要说他们后面有怎样的一家大公司在支持他，他就会拿到比你更大的东西。</p>
+<p>离开郑州后，我去了盛大，盛大对于我来说，是作为架构师的第一个阶段。为了处理一些家务事，我2008年离开盛大。2009年去支付宝，2011年8月份左右离开支付宝，因为保密协议的问题我等了一年，没有在工作。</p>
+<p>对于选择这件事，（这些年）除了离开郑州之外，我都没有更充分的动机和理由。我从盛大离开是迫不得已，因为有私事必须要处理；从支付宝走的时候是想换一个环境，不想在那样的环境下生活，不想在那样的工作背景里面工作。</p>
+<blockquote>
+<ul>
+<li>问：您能概括讲一下为什么不喜欢那样的环境吗？</li>
+</ul>
+</blockquote>
+<p>这只是诱因，不是结果。我夫人当时在杭州病得特别厉害，她严重失眠，一个多月只能睡到20个小时，基本上每天一个小时都不到，已经抗不住了。我就跟她讲我们回郑州吧，因为我们家安在郑州。之后我们就搬家了，她的病也在渐渐好转。当时阿里金融给了我一个offer，让我去阿里金融做架构。但是既然我已经答应夫人要走，就不想做别的选择了。</p>
+<blockquote>
+<ul>
+<li>问：您来豌豆荚的时候有没有什么特别的原因呢？</li>
+</ul>
+</blockquote>
+<p>我在来到豌豆荚之前也有一些其他的offer，最后促使我选择豌豆荚的原因也很简单。我来豌豆荚面试的时候跟创始团队一起沟通过，我的感觉是他们很诚恳，这种诚恳的具体表现就是：知道就是知道，不知道他会告诉你。你会从他们那里听到：我们正在创业，我们面临了很多的竞争，有些问题我们也许没有想清楚，但是我们需要像你这样的人过来帮助我们一起做事。大多数创始人不会这样做，这样诚恳的人是很难得的，这是我当时很感动的地方。</p>
+<p>第二，当时的豌豆荚还有很多事情没有人拎起来做。很多事情就直接打包到一个团队里面，由团队往下推进，或者打包到一件事里面当成一件事做。在我看来整个体系不成形，杂乱无章。我感觉在这样的背景下面有很多架构工作要做，我架构的能力和背景一定能够帮到这家公司，有我施展的地方，于是我就选择了豌豆荚。</p>
+<h2 id="title">架构师：“真正的架构师是没有title的。”</h2>
+<blockquote>
+<ul>
+<li>问：您是如何成为一位架构师的？</li>
+</ul>
+</blockquote>
+<p>人生有很多巧合，不一定非得要预测一个途径。我离开郑州的时候就有一份简历是投到盛大的，面试通过之后他们就发了一份offer，上面写了架构师。原因是我在Delphi圈子里比较资深，盛大给我发offer的时候，觉得高级工程师已经不太适合了，就只能是架构师。</p>
+<p>我去盛大的时候没有架构师，包括我本人在内没有人知道怎么做架构。当时是2005年，架构师在国内还是比较陌生的名词。CTO给我安排的活儿是希望我能给某个东西做架构，把底层做起来。我到了之后就按照这样的思路去做，按照自己的理解去推进、实施，用了2个多月，初步做出了原型。虽然最后这个数据底层处理系统没有用，但是这个过程让大家看到，架构的做法跟原来的开发方式不太一样。所以他们很快把我调去了盛大机顶盒的系统，做平台架构。在去盛大之前我已经工作9年了，我基本上把过去工作的所有东西全部汇总，变成了我技术架构上的基础。</p>
+<p>如果说在我做平台架构之前，已经大概知道如何做架构了，但是什么叫做平台架构还是没人知道的事。那个时候国内可以出来讲平台架构的人还没有几个，相关的理论知识也没有。我该如何定义什么是平台？想要的东西是什么？我怎么去做？我怎么影响那些决策者？我如何把他们想要的东西描绘出来推进下去？所以，做平台架构也是摸索着往前走，在盛大这件事我大概做了两年。后来盛大为未来5到10年规划的是叫做OMMO的大型多人在线游戏项目（也就是后来的“零世界”项目），于是我在盛大工作的最后半年时间，就在做这个项目的平台设计。</p>
+<p>那个时候开始，我已经在做架构了，但是没有范本，没有理论和数据告诉我怎么做。我按照自己的想法去实施，按照自己的方法形成自己的体系，不断地去修改、适应它。</p>
+<blockquote>
+<ul>
+<li>问：您对架构的理解经历了几个阶段？</li>
+</ul>
+</blockquote>
+<p>最早的架构师就是某家公司没有合适你的title，就给你一个架构师做。坦率地说，这是很多公司架构师的出处。我在盛大前两个月左右的时候，第一个项目做得不错，正有一点自得，当时被称为盛大首席架构师的一位同事就要离职了。他跟我聊了一件事，他说他其实半年前就想走了，但是CTO找到他说：你看盛大还有很多事情，你也有很多能量没有发挥出来，我们真的不希望你走，接下来你做盛大的首席架构师吧，把你的能力释放下来。他当时觉得可以留下来，等过了半年再来看这事的时候，他突然醒悟了，他说不是公司想要做架构，也不是我能做架构，而是公司想把他留下来，又找不到适合的理由，于是需要一个合适的title把他留住。</p>
+<p>我当时听了他的解释就一阵透心凉，我来盛大做架构也是这样的，找不到一个可以给我的title，但是又想把我留到盛大，于是让我来做架构师了。我跟盛大或者整个行业都经历了这样的阶段。架构师就是一个title，为了挽留一些人，或是为了在某些场合下可以跟别人递一张名片。</p>
+<p>在盛大做了两年多之后，我进入到第二个阶段，从架构的结果到架构过程的领悟。最早做架构怎么做呢？去Google搜各种各样的架构的文章、各种各样架构的图和材料，例如要做数据的架构只要搜一些国外大公司数据架构的文章和图就行了。我最初的两年时间也经历了这样的过程。最终我从学习架构的做法得到了突然的领悟：如果那些东西是架构，那么它们是怎么得来的？后来《架构之美》这本书出版的时候，我写了一篇序，里面有我关于架构的第一个感悟：架构是一个过程，而非结果。水管滴下来一滴水，从它滴落到裂开的过程，中间有多少形态的变化？大家只会看到水在地上绽开的结果，不会想到在中间的过程是什么。我们只看到了架构师画出来的东西，而如何得到它才是架构师最重要的部分。这是我2008年左右从盛大离开时的感悟。</p>
+<p>从支付宝离开的时候，我又感受到了变化。过程即便也是可以被描述和展现的，也不足以说明架构本身，也就是说，这个过程是不具有灵魂的。假设，我是一个老石匠，我有一位学徒小石匠，我雕石狮子的过程他看得清清楚楚，请问他照着我做一遍就可以成为老石匠了吗？这个过程是可以被仿造的，可以被形式化，但是并不具备灵魂。（因此）我的第二个感悟是：过程是不具备灵魂的，真正要学的应该是架构师思考方式。我在《大道至易》里面花了不少工夫去分析架构的过程和结果，但是核心的部分是给大家讲什么是架构的思维，怎么用架构的思维思考。所以后来孟岩写序的时候，说爱民是在用架构的思维看这个，看那个。管理也好，技术也好，架构本身也好，我都是站在架构思维的视角去看的，能够看到这本书的后半部才能把这本书看明白。这是第三个阶段，思考架构在思维阶段怎么形成，而不是怎么把石狮子雕出来，或者雕出来的结果漂不漂亮，这两者已经偏向于末端了。</p>
+<blockquote>
+<ul>
+<li>问：孟岩曾在《大道至易》的序中提出了一个有趣的问题：组织架构跟技术架构之间的搭配如何才是合适的。但是您在书里面并没有深入地讨论这件事。您现在对这个问题有没有更深的理解？</li>
+</ul>
+</blockquote>
+<p>这个问题是没有通解的。任何一个系统，我将要实施的架构和该架构所在的这家公司中间一定存在着整体系统的视角，系统中不同的东西肯定会有矛盾和冲突。这种矛盾和冲突在不同的背景下表现是不一样的。这个东西本身没有通解，但是问题是完全一致的：如何能让你实施的架构跟这家公司的组织结构及其推动方法协调。你要么改变A，要么改变B，采用的手法是在实施的技术架构上做调整。</p>
+<p>举个例子，某个架构的实施需要500人，但是这家公司本来才200人，显然是实施不下去了，但是你还得想办法实现怎么办？你可以去买一个500人实施出来的产品把这个坑填掉，你的架构本身是没有变化的，只是实施的手段变了。第二，我们不要这个架构了，能不能做一个更简洁、轻便，能够适应200人规模的架构。第三，调整公司和架构，这200人不是不够吗？我能不能再买一个500人的公司过来，如果能，我可以把这个放进去。所以调整哪一个都有可能，这是实施手法的问题。</p>
+<p>我跟孟岩无法形成共识的问题是：到底什么是冲突的本身？孟岩认为系统可能是不可预设的，也许一开始做架构这件事就错了，因为你预设了系统。而我的观点是系统是可以预设的，我认为架构的发展和需要做的事情是可以按照这个设计往下走的。如果我假设系统可以预设，必然会产生了刚才所讲的矛盾，我们解决矛盾的方法要么是“演化”，要么是“改变”。</p>
+<blockquote>
+<ul>
+<li>问：很有趣的分析。您来到豌豆荚之后遇到最大的技术挑战是什么？</li>
+</ul>
+</blockquote>
+<p>这个问题的答案其实也是我刚才问题的。也就是说，如果技术框架跟公司层面存在了一个矛盾，它会有挑战吗？其实没有。所以在架构的层面讨论刚才的问题，是永远不存在技术障碍的。因为我永远可以有其他选项，我可以不做它，或者我可以不用现在做它，我可以用各种方法把这个问题消化掉。所以如果在架构层面上存在技术挑战或者技术上不可解决的问题，就是你架构做错了，只有架构做错了才会存在这样的矛盾。</p>
+<p>所以从技术的角度上讲，总是能够解决，尽管确实永远存在能力的问题。人多了之后就会存在的第二个问题，就是组织问题。人少不存在这样的问题，一个人开发永远不会打架。所以从这个角度考虑，技术上存在的最大挑战往往第一是需要人来解决的部分，我们的人力以及相应的能力不够。第二，人多了之后，存在的管理问题是需要通过非技术方法来解决掉的，比如说组织结构的调整，管理方法等等。</p>
+<blockquote>
+<ul>
+<li>问：如果想从一个普通的程序员成为一位架构师，需要学习什么？</li>
+</ul>
+</blockquote>
+<p>跟你老板搞好关系，让他给你一个title（笑）。</p>
+<blockquote>
+<ul>
+<li>问：那要成为一位真正的架构师呢？</li>
+</ul>
+</blockquote>
+<p>其实真正的架构师是没有title的。首先你要想清楚你在做的东西是不是架构，你是不是会做架构。问题本身就是要让一个愿意学习的同学（不一定是工程师）能够理解到怎样做架构。第一，认识架构最重要的事：你要知道你所面对的是一个系统而不是一件事。你可能每天会面对一堆待处理的事，如果你看到的只是事的过程和结果，而非事情本身，你就仅仅是工程师，一位实施者。跳出这个框子，你面临的其实是一个系统，你看清楚这个系统之后，还要看清楚这个系统里面的关键要素。</p>
+<p>我常用过河来作例子。一个人在河的前面想过这条河，有一条船放在那里，如果你认为过河是一件事，你的第一件事是跳到船上想办法把船划过去。你遇到的第一个问题可能是你没有划船的技能。但是如果你是一个架构师，你的第一个问题是：这是什么东西？你可以定义其为一个障碍，河这个东西对你来讲是阻碍，你跨过阻碍的方法不一定是划船。我架一个桥不行吗？我直接跳下去，游泳过去不行吗？另外，这条河是不是障碍还是一个问题，如果它很浅呢？你非要认为它是障碍就制造了矛盾，系统中也许不存在这样的矛盾。</p>
+<p>所以从架构思维的角度来讲，第一件事是要看到这是一个系统，第二件事是定义问题，第三件事是看到这个问题是不是真实存在。找到这个问题跟方案之间的关系在哪里，你就会做架构了。</p>
+<p>至于做多大范围的架构，就是我在《大道至易》里面提到的领悟、领袖和领域能力的问题了。第一个部分就是领悟的能力，知道划船不是第一要素，思考问题和定义问题以及否定这些问题的整个过程就是架构思维。第二个部分是领域能力的部分，你得知道河流，你得知道船，你得知道桥，这些东西是属于领域的部分。第三部分是领袖能力，你真的想要造一座桥的话，你得组织一群人把桥造出来；如果你们是4、5个人，你的决策是我往上走一公里尝试一下寻找源头，那么你怎么让其他4个人跟着你往那一公里的上游走，这是领袖能力。否则你就会自己变成排头兵，“你们大家等着，我去上游看看”。如果你是领袖的话，可以安排一些人去上游看看，另一些去下游看看，半个小时后在这里集合。这就是领袖，把你设想的解决问题的架构实施下去。</p>
+<h2 id="">豌豆荚的动力引擎</h2>
+<blockquote>
+<ul>
+<li>问：您提出的架构师的三种能力（领袖，领域，领悟）反映在您在豌豆荚做架构的过程之中，您更倚重于哪种能力？</li>
+</ul>
+</blockquote>
+<p>我认为是平衡力的问题，不是多少的问题。假设你做技术架构在你的团队使用，你选择了一个插件的框架或者数据流的框架，总共就影响4、5个人，你需要的领袖能力无非是你站起来拍板说我已经调查过的，这个技术绝对没有问题，大公司都已经用过了。这就是你的领袖能力。但是你要想影响到一个行业，比如我们现在正在做的应用内搜索，这是整个行业的一部分，你可能要跳出来说以后整个搜索就是以应用内搜索为核心的，但你怎么能够用领袖能力使得所有人相信将来应用内搜索在这个领域里面是一个方向呢？这就是领袖能力。</p>
+<p>你需要在你的能力之间找到一个平衡，而不是考量解决多少问题。领域能力也是如此，所有这部分的能力的要素其实都是可以放在别的角色或者是别人身上的。举个例子，豌豆荚要做应用内搜索，并不等于说CEO需要把应用内搜索所有的领域知识了解得非常清楚。最终他在这个领域的能力是如何构建的呢？是豌豆荚的所有工程师、各个角色在这个领域的集合，支撑了他来讨论应用内搜索可不可以成为行业方向。对于他来讲，这个领域能力就被分解在不同的角色和不同的团队上了。</p>
+<p>真正不可或缺的部分变成了领悟能力。比如在决策上豌豆荚为什么要选择应用内搜索作为我们在移动领域上面的方向，在这样的问题上，领悟能力的部分才是架构思索不可或缺的部分。一定要有一个理论体系来支撑这个决策，而其它两个（领域能力和领袖能力）只是在实施手段中所需要找到的、平衡整体能力的部分，可以把它嫁接到别的团队，别的人身上，这会形成一种结构。</p>
+<p>我在架构师的能力上面提到的三种能力并不是要集于某一人身上，而是你一定要理解架构所需要的能力，需要多大能力的集合才能把这个系统消化掉。</p>
+<blockquote>
+<ul>
+<li>问：您初到豌豆荚时曾提过您对很多豌豆荚的组织和文化的来源不是很清楚，而您有一个观点是认为组织结构和文化是跟架构有关系的，对这些来源，您现在有没有更清楚？</li>
+</ul>
+</blockquote>
+<p>确实是更清楚了。组织方法和文化氛围的形成，都是有历史渊源的。一个公司如何成长为现在这样？用什么方法来推进它的事和产品？这些都有习惯性的方法和思维在里面。</p>
+<p>一家公司做事方法的历史根源，是值得你花一定的时间和精力追本溯源的，有一些信息是需要你去挖掘的，这也是我在豌豆荚一年多的工作里面比较关注的事。豌豆荚因为特别公开、透明，我能够从文档上面看到两三年前，或者是更早时期他们的一些工作过程。这是一个关于信息的问题。</p>
+<p>第二部分是文化的形成，这部分不像刚才那么容易。我在《大道至简》那本书里面说到过，一个公司或者一家企业或者一个组织的形成是与那些核心人物有密切关系的，那些创始者和初期团队的构建者的行为、方法、习惯和思维方式都会留下痕迹，这是由人带来的一种气质和影响。所以，更多的是要通过了解这些创始者、创始者团队和早期的团队来理解公司，理解方向，理解他们在做的事业。这个东西不是信息，不是你在过去的文档里面能搜到的东西了，需要你跟他们碰撞、了解、接受、感悟。这一年多以来我在团队融入上的投入使得我能够对豌豆荚的文化和现状有更深的了解。</p>
+<blockquote>
+<ul>
+<li>问：您曾把豌豆荚的组织结构形容为 “开放、透明”，这样的组织对您的技术架构有影响吗？</li>
+</ul>
+</blockquote>
+<p>有影响。不管你怎样做架构，最终是在系统里做实施，这个系统的文化、组织，以及工作方法，一定程度上都影响了你如何去设定这个架构，你不能做出这里面的人无法接受的架构来。一定要掉过头来看这些人习惯并想要用什么样的方法做这些事，在架构实施推进过程中要能够再去调整它。</p>
+<p>做架构这件事跟公司的组织和文化有一个漫长的协调过程，你需要在你设定目标和为了达到目标而演化出解决方案的过程中思考。所以一个好的做架构的人一定是对组织、文化、工作方法、项目管理，对整个系统的各个方面都非常了解的，他不一定会做，但是要看到方方面面。</p>
+<p>处在扩张阶段的豌豆荚用人需要很大，很多应届毕业生也对豌豆荚很感兴趣，你们需要什么样的年轻开发者？只要有才，唯才是举。首先我觉得要对软件，产品，或者是对你所选择的方向、视野有热心和激情。在一家公司里面不仅仅是要招架构师，也要招软件工程师，各个方向都要招各种各样的人才。人才的定义可能会受到外界的影响，但是由内到外的孜孜不倦的精神，别人一眼就能看得出来。如果你在这件事上具有那样的信心、欲望和力量，这可能会激发每个人的创造力、动力和想要达到一切目标的原始驱动。这是我所希望的定义。</p>
+<p>虽然我觉得能力很重要，但是你可以承认自己的不足。我们不会要求刚毕业的学生有多么强的能力，因为这件事本来就不靠谱，我认为在你的背景下面具有合适的能力就行了。拿学生的背景和履历跟经验更丰富的人比较是不公平的。我觉得如果你对自己所做的事，对现有的履历有足够的信心和热情，你愿意去了解豌豆荚并加入到我们的事业里来，这就够了。</p>
+<blockquote>
+<ul>
+<li>问：如果把豌豆荚比喻成一艘大船，您在上面的角色是什么？</li>
+</ul>
+</blockquote>
+<p>一艘船由很多部分组成，船上的所有人都是不可或缺的，抛掉了谁都是不可以的，但同时，也不是缺了谁就不行，不是缺了厨师长大家都没有饭吃，缺了船长就没有人知道方向了。对于我来说，我愿意定义的是我能够做到什么，我的能力是哪个方面，我不想把它拟人化、职务化。</p>
+<p>我觉得我应该是动力引擎中的组成部分，因为架构师这个角色所提供的是能力。我不提供这个船的船体，船体不是我工作的目标和对象。也许今天这艘船很小，是一叶扁舟那么小，我也给了它一个超大能力的引擎，有一天当它成长为非常大的船的时候，一样是可以用的。但是如果一开始做得很大的话，这个小舟可能装不下，我愿意做其中的一部分，从小舟开始一直到船非常大的时候都存在，并且起到它的作用，这就够了。我不希望的是，今天我们的引擎是动力0.1版的，只作用于一艘小船，明天我把这个东西扔到海里，换一个大的，那不是我做动力引擎的方法。架构师更倾向于构造一个可扩展的，可以长期影响这个结构的引擎。</p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/59e2fca072c9e7b37c383209.html">
+                    旧文重发：刀与磨刀之二 - 手艺
+                </a>
+            </span>
+
+            <span class="post-nav-next" >
+                <a href="/59e3026172c9e7b37c38320d.html">
+                    旧文重发：周爱民老师最新加入的是一家什么样的创业公司?
+                </a>
+                下一篇
+            </span>
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=73aaa95c06" />
+<script src="/assets/js/gitmint.browser.js?v=73aaa95c06"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=73aaa95c06"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=73aaa95c06"></script>
+</body>
+
+</html>
