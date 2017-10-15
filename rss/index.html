@@ -1,4 +1,63 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sat, 14 Oct 2017 00:38:32 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[麦秸的垛 - 多人博客上线啦]]></title><description><![CDATA[<div class="kg-card-markdown"><p>麦子的文字写得比我好看，她的博客就叫“麦秸的垛”。</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sun, 15 Oct 2017 04:40:32 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Monster 1.0.6开启的新功能]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">多人博客</h2>
+<p>经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。</p>
+<p>Monster主要是在<code>updatesite.sh</code>模式中支持多人博客，也就是说这个功能在<code>update</code>模式下可用。当在<code>.monster</code>配置文件的<code>EMAIL</code>参数中使用一个列表，例如：</p>
+<ul>
+<li><code>EMAIL=(&quot;aiming@gmail.com&quot; &quot;qomo@gmail.com&quot;)</code></li>
+</ul>
+<p>那么多人博客的模式就自动开启，并在<code>--sync-removed</code>命令中有效。</p>
+<blockquote>
+<p>注：如果你只是删除post，或更新theme中post的风格，那么由于<code>update</code>模式无法从数据库感知到你的更新，所以就需要使用<code>--sync-removed</code>来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化）</p>
+</blockquote>
+<h2 id="pages">可定制强制更新的pages列表</h2>
+<p>当使用<code>update</code></p></div>]]></description><link>http://aimingoo.github.io/59e22d961369c498d686e75c.html/</link><guid isPermaLink="false">59e22d961369c498d686e75c</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 14 Oct 2017 17:36:43 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">多人博客</h2>
+<p>经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。</p>
+<p>Monster主要是在<code>updatesite.sh</code>模式中支持多人博客，也就是说这个功能在<code>update</code>模式下可用。当在<code>.monster</code>配置文件的<code>EMAIL</code>参数中使用一个列表，例如：</p>
+<ul>
+<li><code>EMAIL=(&quot;aiming@gmail.com&quot; &quot;qomo@gmail.com&quot;)</code></li>
+</ul>
+<p>那么多人博客的模式就自动开启，并在<code>--sync-removed</code>命令中有效。</p>
+<blockquote>
+<p>注：如果你只是删除post，或更新theme中post的风格，那么由于<code>update</code>模式无法从数据库感知到你的更新，所以就需要使用<code>--sync-removed</code>来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化）</p>
+</blockquote>
+<h2 id="pages">可定制强制更新的pages列表</h2>
+<p>当使用<code>update</code>模式时，如果一个置为<code>static page</code>的页面是使用动态生成方式来生成的——例如archive页，那么仍然是由于数据库不可感知的缘故，就需要使用<code>--force</code>参数来强制生成。你可以通过一个名为<code>FORCEPAGE_LIST</code>的参数来指定这些页面的列表，该参数也在<code>.monster</code>配置文件中。例如：</p>
+<ul>
+<li><code>FORCEPAGE_LIST=(&quot;archives-post-second-user/&quot;)</code></li>
+</ul>
+<p>在这个例子中，由于<code>/archives-post/</code>页总是动态生成的网站归档页，所以它缺省是被Monster内部处理的。但如果是使用多人博客（或者其它原因），那么可能就需要生成多个这样的归档。这“动态生成”就意味着从sqlite数据库中感知不到，所以就需要象上面这样强制定义列表。</p>
+<p>与此类似的，由于<code>update</code>模式总是尝试使用short_path，因此缺省情况下会将类似<code>/about/index.html</code>这样的页面处理成<code>/about.html</code>。这在大多数情况下是适用的，但Ghost却默认会将导航栏上的链接转换成<code>/.../</code>这样的格式，也就是说它必须使用<code>/about/index.html</code>。这一类的问题在<code>update</code>模式时必须手工指定，你可以使用类似下面的配置：</p>
+<ul>
+<li><code>FORCEINDEX_LIST=(&quot;about-second-user&quot;)</code></li>
+</ul>
+<p>在使用Monster的<code>generate</code>模式时也会有这个问题，这是通过<code>IGNORE_LIST</code>来处理的。事实上<code>makesite.sh</code>模块会将这个列表与<code>FORCEINDEX_LIST</code>列表合在一起，来跳过所有不需要处理——亦即是将会保留index.html文件——的目录。</p>
+<h2 id="">搜索功能</h2>
+<p>Monster提供一种快速搜索的功能，这可以通过<code>monster search ...</code>来实现。</p>
+<p>在Ghost 0.9x版本与1.x版本中的数据库结构并不相同，而Monster会自动识别并处理不同的查询条件。因此，现在开始，你可以简单的了解一下你的Posts中都有些什么了（Monster只搜索Posts的内文，而在Ghost Admin后台上搜索只处理标题）：</p>
+<pre><code class="language-bash">&gt; monster search &quot;关键字&quot;
+id        slug        created_at           title                                 
+--------  ----------  -------------------  --------------------------------------
+59dafc1a  1-44        2006-04-16 21:03:00  Qomo OpenProject beta1 精彩图集～
+59dafc1a  1-50        2006-10-09 14:23:00  【原创】搞了个NetGear的路由?
+...
+</code></pre>
+<h2 id="shortpath">短路径（Short Path）的规则</h2>
+<p>在使用Ghost 0.9x时，数据库中的Post ID是从1开始的自增序的，因此Monster采用的short-path规则是<code>authorId-postId</code>。但从Ghost 1.x开始，数据库中的authrId和postId都不再是自增序的整数了，而是一个长的字符串（从旧数据库中导入的一些数据存在例外）。因此，即使使用Monster的<code>--short-path</code>参数，也无法按旧规则来生成这个名字。</p>
+<p>因此从Monster 1.06开始，<code>update</code>模式下的<code>--sync-slug</code>会根据数据库版本来选择如下两种格式之一：</p>
+<ul>
+<li>在Ghost 1.x中采用<code>postId</code>作为post slug；</li>
+<li>在Ghost 0.9x中采用<code>authorId-postId</code>作为post slug。</li>
+</ul>
+<p>考虑到从0.9x迁移到1.x的情况，<code>--sync-slug</code>不对已经采用了short-path格式的slug再做sync操作——了就是说0.9x已经使用了short-path的post会被忽略。<strong>但在识别这种情况时，只处理authorId&lt;9的情况</strong>，这在一般情况下是够用的。</p>
+<h2 id="fastcommands">快速命令（Fast commands）</h2>
+<p>Monster为一些常用命令建立了快速命令风格，例如上面的<code>monster search ...</code>。在这种风格中，<code>search</code>并不是一个模式——Monster目前只支持<code>generate/update/preview</code>三种模式。</p>
+<p>事实上，<code>monster search ...</code>是等效于<code>monster update --search ...</code>的，从Monster v1.0.5开始就提供了这样的一种快速命令风格，用于简单地执行一些命令开关。虽然目前只有<code>search/list</code>两个，但将来会扩充它。</p>
+<h2 id="posts">支持无限数量的Posts</h2>
+<p>在早前的Monster脚本中只能处理有限数据的Posts，因为过多的Posts生成特别大的正则表达式，从而导致sed调用失效。在Monster v1.0.6中修正了这个Bug，使得Post会根据标题长度自动计算批次，分批处理，从而实现了对“无限数量”的Posts的支持。</p>
+<h2 id="">其它</h2>
+<p>Monster从v1.0.5开始就不再需要预先安装Buster了，所以它也不再依赖Python环境——如果你不使用<code>preview</code>功能的话。</p>
+<p>你可以使用brew来快速安装Monster：<code>brew install aimingoo/repo/monster</code>。</p>
+<p>也可以从Github下载Monster：<a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a>。</p>
+</div>]]></content:encoded></item><item><title><![CDATA[麦秸的垛 - 多人博客上线啦]]></title><description><![CDATA[<div class="kg-card-markdown"><p>麦子的文字写得比我好看，她的博客就叫“麦秸的垛”。</p>
 <p>很早就说要把这个博客做成多人博客，其实也一早就做了，只是一直没上线。原因是从旧博客迁移过来的时候，几乎所有的文章都得再按markdown格式重排一遍。这个确实很花时间，比如我的那部分大概做了三个月呢。</p>
 <p>所以“麦秸的垛”就一直拖着没上线。</p>
 <p>麦子之前在新浪、搜狐和微软MSN上发的博文其实不少，我一次全迁移过来了，也是200多篇呢。所以接下来又得花阵子功夫来做排版了，不过应该会比我的快：毕竟她的博文没代码……</p>
@@ -1326,70 +1385,4 @@ tag.hbs:{{&gt; &quot;loop&quot;}}
 <p>本书（含纸质版）主要版次共有六版。其中各版本细节，请翻阅电子书末尾的“版本历史”。</p>
 </li>
 </ul>
-</div>]]></content:encoded></item><item><title><![CDATA[Kindle的四种封面]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Kindle电子书的封面到底是多大呢？</p>
-<p>这是个几乎无解的问题，无论如何，你找不到一个通用、有效的答案。但总的来说，视作用的不同，Kindle的封面为成四种：</p>
-<ul>
-<li>官方营销封面</li>
-<li>收藏夹封面</li>
-<li>首页列表封面</li>
-<li>电子书封面</li>
-</ul>
-<h2 id="">一、官方营销封面</h2>
-<p>这个封面设计见于官方文档（<a href="http://http://kindlegen.s3.amazonaws.com/AmazonKindlePublishingGuidelines.pdf">Amazon Kindle Publishing Guidelines</a>）。营销封面最好是2700×1688px，300ppi，图片大小不得超过5MB。</p>
-<blockquote>
-<p>在稍早一些的文档中，这个大小被推荐为2560×1600，其比例是16:10。</p>
-</blockquote>
-<p>营销封面是用于亚马逊官方营销推广的，通常它是一本书“封面+书脊+封底”的完整样式。它不在书籍中直接使用，而是要求通过官方发布系统上传给亚马逊网站的。</p>
-<p>营销封面如果没有达到指定大小，那么在上传的时候会有一个提示；如果图片最小边小于500px，那么在网站上根本就不显示了。</p>
-<h2 id="">二、收藏夹封面</h2>
-<p>这个封面是指从Kindle设备的首页进入“我的图书馆”或“收藏夹”时所看到的图书封面。</p>
-<p>如果你直接从电脑放拷贝电子书到Kindle设备中，那么是不会显示这个封面的。它的大小并没有任何约定的规则，</p></div>]]></description><link>http://aimingoo.github.io/1-1729.html/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b5</guid><category><![CDATA[Kindle]]></category><category><![CDATA[电子书]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 12 Jun 2017 18:56:49 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Kindle电子书的封面到底是多大呢？</p>
-<p>这是个几乎无解的问题，无论如何，你找不到一个通用、有效的答案。但总的来说，视作用的不同，Kindle的封面为成四种：</p>
-<ul>
-<li>官方营销封面</li>
-<li>收藏夹封面</li>
-<li>首页列表封面</li>
-<li>电子书封面</li>
-</ul>
-<h2 id="">一、官方营销封面</h2>
-<p>这个封面设计见于官方文档（<a href="http://http://kindlegen.s3.amazonaws.com/AmazonKindlePublishingGuidelines.pdf">Amazon Kindle Publishing Guidelines</a>）。营销封面最好是2700×1688px，300ppi，图片大小不得超过5MB。</p>
-<blockquote>
-<p>在稍早一些的文档中，这个大小被推荐为2560×1600，其比例是16:10。</p>
-</blockquote>
-<p>营销封面是用于亚马逊官方营销推广的，通常它是一本书“封面+书脊+封底”的完整样式。它不在书籍中直接使用，而是要求通过官方发布系统上传给亚马逊网站的。</p>
-<p>营销封面如果没有达到指定大小，那么在上传的时候会有一个提示；如果图片最小边小于500px，那么在网站上根本就不显示了。</p>
-<h2 id="">二、收藏夹封面</h2>
-<p>这个封面是指从Kindle设备的首页进入“我的图书馆”或“收藏夹”时所看到的图书封面。</p>
-<p>如果你直接从电脑放拷贝电子书到Kindle设备中，那么是不会显示这个封面的。它的大小并没有任何约定的规则，有文档称它总是被缩小到330px高度显示，并且宽高比为1:1.6。</p>
-<p>事实上这个大小并不是个确数。这是因为这张封面图“按理说”应该是由亚马逊的线上系统向下推送到你的设备的，因此它会根据你的设备的大小而改变下推封面图片的宽高。从经验上说，这个值可能包括的大小有：305x458, 291x467, 305x461, 305x430 (a shorter, wider cover), 257x467 (a tall, narrow cover)等等。关于这一点，Calibre在它的源码中也有备注（<a href="https://github.com/kovidgoyal/calibre/commit/38bf9adba33a7a15b3aee5e6c99e13727a4afc46">kindle/driver.py</a>）：</p>
-<pre><code># x330 on the PaperWhite
-# x262 on the Touch. Doesn't choke on x330, though.
-# x470 on the Voyage, checked that it works on PW, dont have Touch anymore
-THUMBNAIL_HEIGHT = 470
-</code></pre>
-<p>所以，如果你设计一张收藏夹封面缩略图，那么建议的大小可以是294x470px，或者上述列出的大小中最接近你的设备的值。</p>
-<p>无论如何，假设你有这样一张收藏夹封面图，那么你可以用“发送到Kindle（参见后文）”这样的功能来上传它（而不是直接从电脑里复制文件到设备中），这样才能使它有效。</p>
-<h2 id="">三、首页列表封面</h2>
-<p>首页列表封面是当你按下“导航”栏中的“首页（Home）”按钮时，返回到首页——这时你的文档会出现在首页推荐（可能是前三个）——时出现的封面图。当然，这需要当前在“网格视图”模式下，因为列表模式是不显示封面的。</p>
-<p>这个封面的特殊之处在于它其实与下面所说的“电子书封面”（第四种）是同一个，但是显示方式会不同。就目前来说，当可能显示成完整大小和1/2大小两种模式——在首页列表中。</p>
-<p>因此你得考虑在这个模式下它让人比较舒适的大小——毕竟这是最常见的、第一视觉的。然而，同样不幸的是，它也没有官方文档支持。你在“电子书封面”（第四种）中设置了多大，它就在首页等比缩放然后显示出来，完全无视宽高比、清晰度等等任何东西。</p>
-<p>而且，它还会在右上角占掉一个位置来显示“当前阅读进度”。通常，它可能还会遮挡一点你的书名。</p>
-<p>总之是很崩溃的。</p>
-<h2 id="">四、电子书封面（内容封面）</h2>
-<p>这才是一本书“正式的”封面。所谓正式的，是因为它被写入到你的电子书(.mobi或.azw3等)文件内部，是不变的。</p>
-<p>通常情况下，它是一本相应纸质书的封面。所以它事实上的大小，也不是亚马逊所能决定的。也因为同样的缘故，“如何很好地显示它”就变成了问题。</p>
-<blockquote>
-<p>有文章推荐说这里的封面宽高比推荐是1:1.725。我尝试过，但这种封面过高，显得特别瘦窄。而且跟实体书比例差距过大，很难制作出一张比例协调的封面用图。</p>
-</blockquote>
-<p>如上一小节所说，它会在“首页列表封面”上显示，然而可能因为它的比例显示得不那么好看。另外一种“更正确地”找到它的方法，是打开这本书之后，进入目录，在最前面处找到“封面”并点击进入。</p>
-<p>这样看到的封面才是“电子书封面”真正的样子。当然，也可能很不幸，因为它可能根本不是为你的设备而设计的，于是很可能底边是空白的，或左右两侧是空白的。</p>
-<p>总而言之，你无法决定这张封面如何在设备上显示。</p>
-<h2 id="">五、总结</h2>
-<p>没有什么好方法确保第四种模式在“所有设备”上都能获得很好的阅读体验。建议你制作的封面能让它在第三种模式（首页列表封面）正确而友好的显示即可。</p>
-<p>这种情况下，我一般建议封面是采用1200x860模式，它比较接近A4开本的封面，即使你在真实印刷中使用也不需要对版面布局明显修改。</p>
-<p>如果你使用新的.azw3（KF8）格式，那么目前没有办法得到收藏夹封面。“发送”功能只能将新文档.azw3放在“Docs”分类中，因此会是一个没有封面的显示“个人文档”（也称为PDOC）。</p>
-<blockquote>
-<p>这篇文章：<a href="http://aimingoo.github.io/1-1730.html">《如何将电子书发送到Kindle》</a>，会有关于这个问题的更详细解释。</p>
-</blockquote>
-<p>如果你有兴趣，可以进一步阅读这篇：<a href="http://www.inknet.com.tw/help/teach/page/2">作品版面尺寸的設定</a>，以及这篇<a href="https://www.epubble.com/kindle-book-cover-size">Kindle book cover size</a>。</p>
 </div>]]></content:encoded></item></channel></rss>

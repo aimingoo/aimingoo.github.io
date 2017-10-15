@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Monster 1.0.6开启的新功能</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=73aaa95c06" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=73aaa95c06" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=73aaa95c06" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Monster 1.0.6开启的新功能" />
+    <meta property="og:description" content="多人博客 经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。 Monster主要是在updatesite.sh模式中支持多人博客，也就是说这个功能在update模式下可用。当在.monster配置文件的EMAIL参数中使用一个列表，例如： EMAIL&#x3D;(&amp;quot;aiming@gmail.com&amp;quot; &amp;quot;qomo@gmail.com&amp;quot;) 那么多人博客的模式就自动开启，并在--sync-removed命令中有效。 注：如果你只是删除post，或更新theme中post的风格，那么由于update模式无法从数据库感知到你的更新，所以就需要使用--sync-removed来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化） 可定制强制更新的pages列表 当使用update模式时，如果一个置为static page的页面是使用动态生成方式来生成的——例如archive页，那么仍然是由于数据库不可感知的缘故，就需要使用--force参数来强制生成。你可以通过一个名为FORCEPAGE_LIST的参数来指定这些页面的列表，该参数也在.monster配置文件中。例如： FORCEPAGE_LIST&#x3D;(&amp;quot;archives-post-second-user/" />
+    <meta property="og:url" content="http://aimingoo.github.io/59e22d961369c498d686e75c.html" />
+    <meta property="article:published_time" content="2017-10-14T17:36:43.000Z" />
+    <meta property="article:modified_time" content="2017-10-15T04:35:52.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Monster 1.0.6开启的新功能" />
+    <meta name="twitter:description" content="多人博客 经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。 Monster主要是在updatesite.sh模式中支持多人博客，也就是说这个功能在update模式下可用。当在.monster配置文件的EMAIL参数中使用一个列表，例如： EMAIL&#x3D;(&amp;quot;aiming@gmail.com&amp;quot; &amp;quot;qomo@gmail.com&amp;quot;) 那么多人博客的模式就自动开启，并在--sync-removed命令中有效。 注：如果你只是删除post，或更新theme中post的风格，那么由于update模式无法从数据库感知到你的更新，所以就需要使用--sync-removed来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化） 可定制强制更新的pages列表 当使用update模式时，如果一个置为static page的页面是使用动态生成方式来生成的——例如archive页，那么仍然是由于数据库不可感知的缘故，就需要使用--force参数来强制生成。你可以通过一个名为FORCEPAGE_LIST的参数来指定这些页面的列表，该参数也在.monster配置文件中。例如： FORCEPAGE_LIST&#x3D;(&amp;quot;archives-post-second-user/" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/59e22d961369c498d686e75c.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "Monster 1.0.6开启的新功能",
+    "url": "http://aimingoo.github.io/59e22d961369c498d686e75c.html",
+    "datePublished": "2017-10-14T17:36:43.000Z",
+    "dateModified": "2017-10-15T04:35:52.000Z",
+    "description": "多人博客 经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。 Monster主要是在updatesite.sh模式中支持多人博客，也就是说这个功能在update模式下可用。当在.monster配置文件的EMAIL参数中使用一个列表，例如： EMAIL&#x3D;(&amp;quot;aiming@gmail.com&amp;quot; &amp;quot;qomo@gmail.com&amp;quot;) 那么多人博客的模式就自动开启，并在--sync-removed命令中有效。 注：如果你只是删除post，或更新theme中post的风格，那么由于update模式无法从数据库感知到你的更新，所以就需要使用--sync-removed来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化） 可定制强制更新的pages列表 当使用update模式时，如果一个置为static page的页面是使用动态生成方式来生成的——例如archive页，那么仍然是由于数据库不可感知的缘故，就需要使用--force参数来强制生成。你可以通过一个名为FORCEPAGE_LIST的参数来指定这些页面的列表，该参数也在.monster配置文件中。例如： FORCEPAGE_LIST&#x3D;(&amp;quot;archives-post-second-user/",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=73aaa95c06"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=73aaa95c06"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/59e22d961369c498d686e75c.html">Monster 1.0.6开启的新功能</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2017-10-15T01:36:43.4343+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2017-10-15">(2017-10-15)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><h2 id="">多人博客</h2>
+<p>经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。</p>
+<p>Monster主要是在<code>updatesite.sh</code>模式中支持多人博客，也就是说这个功能在<code>update</code>模式下可用。当在<code>.monster</code>配置文件的<code>EMAIL</code>参数中使用一个列表，例如：</p>
+<ul>
+<li><code>EMAIL=(&quot;aiming@gmail.com&quot; &quot;qomo@gmail.com&quot;)</code></li>
+</ul>
+<p>那么多人博客的模式就自动开启，并在<code>--sync-removed</code>命令中有效。</p>
+<blockquote>
+<p>注：如果你只是删除post，或更新theme中post的风格，那么由于<code>update</code>模式无法从数据库感知到你的更新，所以就需要使用<code>--sync-removed</code>来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化）</p>
+</blockquote>
+<h2 id="pages">可定制强制更新的pages列表</h2>
+<p>当使用<code>update</code>模式时，如果一个置为<code>static page</code>的页面是使用动态生成方式来生成的——例如archive页，那么仍然是由于数据库不可感知的缘故，就需要使用<code>--force</code>参数来强制生成。你可以通过一个名为<code>FORCEPAGE_LIST</code>的参数来指定这些页面的列表，该参数也在<code>.monster</code>配置文件中。例如：</p>
+<ul>
+<li><code>FORCEPAGE_LIST=(&quot;archives-post-second-user/&quot;)</code></li>
+</ul>
+<p>在这个例子中，由于<code>/archives-post/</code>页总是动态生成的网站归档页，所以它缺省是被Monster内部处理的。但如果是使用多人博客（或者其它原因），那么可能就需要生成多个这样的归档。这“动态生成”就意味着从sqlite数据库中感知不到，所以就需要象上面这样强制定义列表。</p>
+<p>与此类似的，由于<code>update</code>模式总是尝试使用short_path，因此缺省情况下会将类似<code>/about/index.html</code>这样的页面处理成<code>/about.html</code>。这在大多数情况下是适用的，但Ghost却默认会将导航栏上的链接转换成<code>/.../</code>这样的格式，也就是说它必须使用<code>/about/index.html</code>。这一类的问题在<code>update</code>模式时必须手工指定，你可以使用类似下面的配置：</p>
+<ul>
+<li><code>FORCEINDEX_LIST=(&quot;about-second-user&quot;)</code></li>
+</ul>
+<p>在使用Monster的<code>generate</code>模式时也会有这个问题，这是通过<code>IGNORE_LIST</code>来处理的。事实上<code>makesite.sh</code>模块会将这个列表与<code>FORCEINDEX_LIST</code>列表合在一起，来跳过所有不需要处理——亦即是将会保留index.html文件——的目录。</p>
+<h2 id="">搜索功能</h2>
+<p>Monster提供一种快速搜索的功能，这可以通过<code>monster search ...</code>来实现。</p>
+<p>在Ghost 0.9x版本与1.x版本中的数据库结构并不相同，而Monster会自动识别并处理不同的查询条件。因此，现在开始，你可以简单的了解一下你的Posts中都有些什么了（Monster只搜索Posts的内文，而在Ghost Admin后台上搜索只处理标题）：</p>
+<pre><code class="language-bash">&gt; monster search &quot;关键字&quot;
+id        slug        created_at           title                                 
+--------  ----------  -------------------  --------------------------------------
+59dafc1a  1-44        2006-04-16 21:03:00  Qomo OpenProject beta1 精彩图集～
+59dafc1a  1-50        2006-10-09 14:23:00  【原创】搞了个NetGear的路由?
+...
+</code></pre>
+<h2 id="shortpath">短路径（Short Path）的规则</h2>
+<p>在使用Ghost 0.9x时，数据库中的Post ID是从1开始的自增序的，因此Monster采用的short-path规则是<code>authorId-postId</code>。但从Ghost 1.x开始，数据库中的authrId和postId都不再是自增序的整数了，而是一个长的字符串（从旧数据库中导入的一些数据存在例外）。因此，即使使用Monster的<code>--short-path</code>参数，也无法按旧规则来生成这个名字。</p>
+<p>因此从Monster 1.06开始，<code>update</code>模式下的<code>--sync-slug</code>会根据数据库版本来选择如下两种格式之一：</p>
+<ul>
+<li>在Ghost 1.x中采用<code>postId</code>作为post slug；</li>
+<li>在Ghost 0.9x中采用<code>authorId-postId</code>作为post slug。</li>
+</ul>
+<p>考虑到从0.9x迁移到1.x的情况，<code>--sync-slug</code>不对已经采用了short-path格式的slug再做sync操作——了就是说0.9x已经使用了short-path的post会被忽略。<strong>但在识别这种情况时，只处理authorId&lt;9的情况</strong>，这在一般情况下是够用的。</p>
+<h2 id="fastcommands">快速命令（Fast commands）</h2>
+<p>Monster为一些常用命令建立了快速命令风格，例如上面的<code>monster search ...</code>。在这种风格中，<code>search</code>并不是一个模式——Monster目前只支持<code>generate/update/preview</code>三种模式。</p>
+<p>事实上，<code>monster search ...</code>是等效于<code>monster update --search ...</code>的，从Monster v1.0.5开始就提供了这样的一种快速命令风格，用于简单地执行一些命令开关。虽然目前只有<code>search/list</code>两个，但将来会扩充它。</p>
+<h2 id="posts">支持无限数量的Posts</h2>
+<p>在早前的Monster脚本中只能处理有限数据的Posts，因为过多的Posts生成特别大的正则表达式，从而导致sed调用失效。在Monster v1.0.6中修正了这个Bug，使得Post会根据标题长度自动计算批次，分批处理，从而实现了对“无限数量”的Posts的支持。</p>
+<h2 id="">其它</h2>
+<p>Monster从v1.0.5开始就不再需要预先安装Buster了，所以它也不再依赖Python环境——如果你不使用<code>preview</code>功能的话。</p>
+<p>你可以使用brew来快速安装Monster：<code>brew install aimingoo/repo/monster</code>。</p>
+<p>也可以从Github下载Monster：<a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a>。</p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/59df7101a550c258f56eab34.html">
+                    麦秸的垛 - 多人博客上线啦
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=73aaa95c06" />
+<script src="/assets/js/gitmint.browser.js?v=73aaa95c06"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=73aaa95c06"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=73aaa95c06"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=73aaa95c06"></script>
+</body>
+
+</html>
