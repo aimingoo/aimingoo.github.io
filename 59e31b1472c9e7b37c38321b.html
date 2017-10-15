@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>前端要给力之：语句在JavaScript中的值</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a7bfc4e771" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=a7bfc4e771" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=a7bfc4e771" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=a7bfc4e771" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=a7bfc4e771" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=a7bfc4e771" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="前端要给力之：语句在JavaScript中的值" />
+    <meta property="og:description" content="这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&amp;quot;1+2+3&amp;quot;) 实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于： eval(&amp;quot;1+2+3;&amp;quot;) 如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。 那么……这个语句的值到底是什么呢？" />
+    <meta property="og:url" content="http://aimingoo.github.io/59e31b1472c9e7b37c38321b.html" />
+    <meta property="article:published_time" content="2016-04-12T19:48:00.000Z" />
+    <meta property="article:modified_time" content="2017-10-15T08:37:15.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="前端要给力之：语句在JavaScript中的值" />
+    <meta name="twitter:description" content="这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&amp;quot;1+2+3&amp;quot;) 实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于： eval(&amp;quot;1+2+3;&amp;quot;) 如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。 那么……这个语句的值到底是什么呢？" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/59e31b1472c9e7b37c38321b.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "前端要给力之：语句在JavaScript中的值",
+    "url": "http://aimingoo.github.io/59e31b1472c9e7b37c38321b.html",
+    "datePublished": "2016-04-12T19:48:00.000Z",
+    "dateModified": "2017-10-15T08:37:15.000Z",
+    "keywords": "Javascript, 语言",
+    "description": "这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&amp;quot;1+2+3&amp;quot;) 实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于： eval(&amp;quot;1+2+3;&amp;quot;) 如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。 那么……这个语句的值到底是什么呢？",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=a7bfc4e771"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-javascript tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=a7bfc4e771"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-javascript tag-yu-yan">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/59e31b1472c9e7b37c38321b.html">前端要给力之：语句在JavaScript中的值</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2016-04-13T03:48:00.000+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2016-04-13">(2016-04-13)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><blockquote>
+<p>这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。</p>
+<p>写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。</p>
+</blockquote>
+<h1 id="">问题是：语句有值吗？</h1>
+<p>很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如：</p>
+<pre><code class="language-javascript">eval(&quot;1+2+3&quot;)
+</code></pre>
+<p>实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于：</p>
+<pre><code class="language-javascript">eval(&quot;1+2+3;&quot;)
+</code></pre>
+<p>如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。</p>
+<p>那么……这个语句的值到底是什么呢？很不幸，上面这个示例中，语句的值和表达式值是一样的，也是6。</p>
+<h1 id="">那么说，你骗我咯？</h1>
+<p>你看，JavaScript里面有一类语句，叫表达式语句。很不幸，你见到的绝大多数语句都是表达式语句。例如</p>
+<pre><code class="language-javascript">Object.toString()
+</code></pre>
+<p>这里是一个方法调用（表达式），你在后面加个分号（;），在语法上那就成了一个语句行，于是就成了表达式语句。由于事实上JavaScript也存在单值表达式，所以一个单值也可以是一个语句。这事实上也就是函数或块首放上个&quot;use strict&quot;一点点也不违和的原因——它是符合JavaScript传统的语法惯例的：</p>
+<pre><code class="language-javascript">function foo() {
+  &quot;use strict&quot;;
+  1;
+  true;
+}
+</code></pre>
+<p>上面的代码是合法的，函数foo()内有三个单值语句。函数声明本身也是一个语句，函数声明（以及所有的显式声明语句）是没有返回值的——在ECMAScript中它被定义为返回Empty。函数调用的返回值是由于调用运算符“()”来决定的，这个运算符要求用return来返回值，如果没有则视为undefined。这就是JavaScript函数的一些特性的根源了。</p>
+<p>“表达式运算”和“语句有值”可以解释JavaScript语法特性中的许多迷题，是这门语言在设计上的一些基本性质。</p>
+<h1 id="">有啥米用呢？</h1>
+<p>因为eval()本质上是执行语句而不是表达式，所以语句如何返回值就成了这个函数的最终特性。需要注意的是：不是eval()在求值，而是JavaScript代码块/语句行本身有值，而eval()只是返回这个值而已。如果没有这个特性，Ajax也就做不成了，因为我们通常用Ajax/JSONP从远端取个值过来，就是eval()“解析”一下，这里就是用的“执行语句并取值”的特性。</p>
+<p>在JavaScript中，语句有值，而语句块（复合语句）的值就是这个块中最后一个有值语句的值。按ECMAScript的原文是：</p>
+<blockquote>
+<p>The value of a StatementList is the <strong>value of the last value producing item</strong> in the StatementList. For example, the following calls to the eval function all return the value 1:</p>
+<p>The production IfStatement : if ( Expression ) Statement else Statement is evaluated as follows:</p>
+<ol>
+<li>Let exprRef be the result of evaluating Expression.</li>
+<li>If ToBoolean(GetValue(exprRef)) is true, then<br>
+a. Return the result of evaluating the first Statement.</li>
+<li>Else,</li>
+</ol>
+<pre><code class="language-javascript">eval(&quot;1;;;;;&quot;)
+eval(&quot;1;{}&quot;)
+eval(&quot;1;var a;&quot;)
+</code></pre>
+</blockquote>
+<p>“<em>value producing item</em>”这个说法在ES5中是叫“<em>value producing Statement</em>”。但是，我并没有在ES5/ES6中找到一个明确的说法：哪些语句是生成值的语句呢？</p>
+<h1 id="">研究这个是不是闲得那个啥疼？</h1>
+<p>那个啥疼不疼跟这个毛线关系也没有。研究这个其实是很重要的一件事情，因为下面这行代码到底怎么解释，取决于我们这里的研究：</p>
+<pre><code class="language-javascript">// sourceText at remote
+if (x) (
+  function aa() {}
+)
+else (
+  function bb() {}
+)
+</code></pre>
+<p>我们假设上面的代码段来自于远端，然后我们在通过ajax的方式得到它，称为&quot;sourceText&quot;，那么下面的代码到底是什么结果呢？</p>
+<pre><code class="language-javascript">x = true;
+foo = eval(sourceText);
+console.log(foo.name);  // &quot;name&quot; property define in ES6
+</code></pre>
+<p>先解释一下其中的aa/bb函数。注意这里的两个函数在语法上不是“函数声明语句”，而是“函数表达式”——注意这里用了“()”来强制它们为表达式。这个也不是我乱讲，在MDN(Mozilla Developer Network)官方文档上面就是这么分类的，“function statement”和“function expression”是两个不同的东西。</p>
+<p>“函数声明语句”是无值的。而函数表达式是有值的，进而“函数表达式语句”也就是有值的。所以sourceText中，如果x是真，则if语句应该返回aa的值，否则该返回bb的值。于是，示例代码中的：</p>
+<pre><code class="language-javascript">foo = eval(sourceText);
+</code></pre>
+<p>才有意义，而最终控制台才会输出&quot;aa&quot;，表明foo函数来自于aa()函数表达式。现在看来，下面这句话是真的有用了吧：</p>
+<blockquote>
+<p>if语句的值，是其then/else分支中的statementList最后一个有值语句的值。</p>
+</blockquote>
+<h1 id="es5es6">ES5/ES6有什么差异呢？</h1>
+<p>这两天写书的时候发现一点跟此前理解的不同的地方（正好我又用了Nodejs中旧版的V8），所以实在搞不清楚ECMAScript的定义出了问题，还是V8的实现出了问题。于是乎在微信上抓了Hax要讨论。无奈乎那个家伙不理我——所以我决定这周去上海找他算账，此话容后再讲。</p>
+<p>有什么不同呢？</p>
+<p>问题出在ES5中说，如果then/else分支中没有语句，也就是statementList为empty，那么if语句结果也就为空。他的定义很简单，是这么写的：</p>
+<blockquote>
+<p>The production IfStatement :</p>
+<ul>
+<li>if ( Expression ) Statement else Statement</li>
+</ul>
+<p>is evaluated as follows:</p>
+<ol>
+<li>
+<p>Let exprRef be the result of evaluating Expression.</p>
+</li>
+<li>
+<p>If ToBoolean(GetValue(exprRef)) is true, then</p>
+</li>
+</ol>
+<p>a. Return the result of evaluating the first Statement.</p>
+<ol start="3">
+<li>Else,</li>
+</ol>
+<p>a. Return the result of evaluating the second Statement.</p>
+</blockquote>
+<p>假定“first Statement”为emptyStatement，结果当然就是empty。而对于empty，JavaScript会忽略这个“语句的值”。这个意思是说：</p>
+<pre><code class="language-javascript">1;
+{};
+;
+</code></pre>
+<p>上面三个语句中，第2、3两行实际都是空语句——它们的值是empty，被忽略。所以整个代码文本会返回1。那么按照这个规则，下面的代码：</p>
+<pre><code class="language-javascript">1; if (true);
+// 或
+1; if (false);
+</code></pre>
+<p>这两种情况都应该返回1。这个就是在ES5中的情况了。</p>
+<p>然而在ES6里面，这段规范被写成下面这样：</p>
+<blockquote>
+<p>// 4~5:	let <em><strong>stmtCompletion</strong></em> be the result of first/second Statement<br>
+// 6:		ReturnIfAbrupt(stmtCompletion).</p>
+<p>7:		If <em><strong>stmtCompletion</strong></em>.[[value]] is not empty, return <em><strong>stmtCompletion</strong></em>.</p>
+<p>8:		Return NormalCompletion(<em><strong>undefined</strong></em>).</p>
+</blockquote>
+<p>这里的意思是说：如果then/else的结果不是empty那么就返回它们，否则，就得返回“undefined”。</p>
+<p>于是下面这样的示例：</p>
+<pre><code class="language-javascript">1; if (true);
+</code></pre>
+<p>就该返回undefined了。</p>
+<p>我当然一早就读明白了ES6，我当时的问题在于，我用了Nodejs中的旧版V8，以及firefox/chrome的旧版本来做测试——它们声明支持了ES6。然而在这项特性上表现出来的，仍然是ES5的那个样子。</p>
+<p>于是我就懞逼了：这些声称支持ES6的引擎错了，还是标准没写对呢？</p>
+<p>正是因为对了解标准比了解指掌还要多的Hax没有如期出现，所以一向认为</p>
+<blockquote>
+<p>“标准都是人写的，是人写的就会错”</p>
+</blockquote>
+<p>的我选择了相信…… 同样也是一堆人（以及也是同样一堆人）写的ES5。——如果ES5是对的，那么就是ES6写错了。</p>
+<h1 id="es6">结论是：ES6是改了规则，但更合理</h1>
+<p>验证这个结论的方法是：Chrome的新版中的新V8引擎，以及Firefox的新版本都采用了ES6中的规范。当然，很不幸，你如果用Nodejs来测试，至少当前版本（4.4.2/5.10.1）中还是错误的、按照ES5的规范来实现的。</p>
+<p>那么为什么我最终会认为ES6就“更合理”一点呢？</p>
+<p>还是得回到“语句该不该有值”这个根本问题上来讨论。首先，ECMAScript是承认语句有值的，而且也同时承认“某些语句是没有值/不产生值”的。例如说，空语句就不产生值，函数声明、变量声明等等也不产生值 。</p>
+<p>——对于成批的语句来说，不产生值则在代码上下文中对结果值无影响，产生值则影响结果。所以明确”哪些有值，哪些没有值“是很重要的。而ES5中，这个问题导致if语句的结果有不确定性。既然：</p>
+<blockquote>
+<p>如果then/else中的语句有值，则if有值；如果无值，则if无值。</p>
+</blockquote>
+<p>那么下面的代码就是不确定语义的：</p>
+<pre><code class="language-javascript">// sourceText at remote
+&quot;hello&quot;;
+if (x) (
+  function aa() {}
+)
+</code></pre>
+<p>当x是true时，if语句有意义，当x为false时，if语句在上下文中就没意义了——它对结果值没有影响。而</p>
+<blockquote>
+<p>【ES5】if语句对结果值的影响存在不确定性</p>
+</blockquote>
+<p>这个结果在语义设计上就是很失败的。而到了ES6中：</p>
+<blockquote>
+<p>【ES6】if语句总是有结果值的，要么是then/else的结果，要么是undefined</p>
+</blockquote>
+<p>这就使得if有着确定的语义了。</p>
+<h1 id="if">最后，不仅仅是if语句</h1>
+<p>写ECMAScript 262的那票人真不是吃闲饭的（除了写4th的时候），有些问题人家是真想得清楚。比如还是这个语句的值的问题，根本上来说不是“if语句怎么回事”，而是“如何处理语句的值”的问题。我昨晚主要的工作就是整理了所有这些语句在值上的效果，if/for/while/try等等语句在值的处理上惊人的一致，除了这些语句和表达式语句之外，就只有return/yield/throw用来显式地返回结果了。</p>
+<p>所以说，语句在“产生值（value producing）”上面的行为，在ES6中得到了统一。</p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/1-196.html">
+                    确定的世界 - The Promise&#x27;s World
+                </a>
+            </span>
+
+            <span class="post-nav-next" >
+                <a href="/1-1718.html">
+                    再一次开始更新博客
+                </a>
+                下一篇
+            </span>
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=a7bfc4e771" />
+<script src="/assets/js/gitmint.browser.js?v=a7bfc4e771"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=a7bfc4e771"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=a7bfc4e771"></script>
+</body>
+
+</html>
