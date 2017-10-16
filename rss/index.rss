@@ -1,4 +1,146 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sun, 15 Oct 2017 15:01:03 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[Monster 1.0.6开启的新功能]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">多人博客</h2>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Mon, 16 Oct 2017 15:42:10 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[手记7：从单人博客到多人博客全程记录]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>上一篇手记是讲“改造Gitment”的(<a href="http://aimingoo.github.io/1-1725">在这里</a>)。其实这个“改造”花了不少功夫，以至于后来还出了一个给<code>hexo-theme-next</code>的版本。</p>
+<p>这是推迟了“做多人博客”的一个原因，另一个原因则是我以前的博文需要更新的太多，花了很多时间。当然，那个叫<code>Monster</code>的项目（<a href="http://aimingoo.github.io/1-1741">在这里</a>）也是花销时间的大户。</p>
+<p>所以，结果就是：这篇“手记7”被推迟了很久...很久...</p>
+</blockquote>
+<p>多人博客的功能其实我一早就做出来了——至少，大概的框架是完成了的。但是我一直没有发布出来，“<a href="http://aimingoo.github.io/author/joyxhy">麦秸的垛</a>”也就一直没上线。</p>
+<p>下面讲讲这整个的过程。</p>
+<h2 id="">导入“第二个人”的博客文章</h2>
+<p>在Ghost 0.9x中其实有一个Bug，就是你总是只能将博客导入到'id=1'的帐户（或以该帐户身份导入）。我说不清这个Bug是什么时候存在，又或者（可能）什么时候会修复/已修复。我当时找到的解决方法，就是直接改sqlite数据库。</p></div>]]></description><link>http://aimingoo.github.io/59e452a9bc4c6b0274b469a9/</link><guid isPermaLink="false">59e452a9bc4c6b0274b469a9</guid><category><![CDATA[博客]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 16 Oct 2017 15:41:58 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>上一篇手记是讲“改造Gitment”的(<a href="http://aimingoo.github.io/1-1725">在这里</a>)。其实这个“改造”花了不少功夫，以至于后来还出了一个给<code>hexo-theme-next</code>的版本。</p>
+<p>这是推迟了“做多人博客”的一个原因，另一个原因则是我以前的博文需要更新的太多，花了很多时间。当然，那个叫<code>Monster</code>的项目（<a href="http://aimingoo.github.io/1-1741">在这里</a>）也是花销时间的大户。</p>
+<p>所以，结果就是：这篇“手记7”被推迟了很久...很久...</p>
+</blockquote>
+<p>多人博客的功能其实我一早就做出来了——至少，大概的框架是完成了的。但是我一直没有发布出来，“<a href="http://aimingoo.github.io/author/joyxhy">麦秸的垛</a>”也就一直没上线。</p>
+<p>下面讲讲这整个的过程。</p>
+<h2 id="">导入“第二个人”的博客文章</h2>
+<p>在Ghost 0.9x中其实有一个Bug，就是你总是只能将博客导入到'id=1'的帐户（或以该帐户身份导入）。我说不清这个Bug是什么时候存在，又或者（可能）什么时候会修复/已修复。我当时找到的解决方法，就是直接改sqlite数据库。</p>
+<p>不过自从我开始启用Ghost 1.x之后，这个担忧就没有了。在多人博客这个问题上，Ghost 1.x做得其实更好，所以我后面也是在用这个版本，关于0.9x的更多细节就不谈了。</p>
+<p>假如你已经有了一个基于Ghost的本地博客，已经有一个帐户了，那么当你需要把它变成“多人博客”时，你自然需要再创建一个帐户——这个不用多说了。一旦你搞定了，那么你可以用monster来查询到多个用户的信息：</p>
+<pre><code class="language-bash">&gt; monster list user
+id                        name        slug        email         
+------------------------  ----------  ----------  --------------
+1                         aimingoo    aimingoo    aiming@gmail.com 
+5951f5fca366002ebd5dbef7  second      new-user    ...
+...
+</code></pre>
+<p>记下新用记的<code>id</code>值（5951f5fca366002ebd5dbef7），后面我们会用到。</p>
+<blockquote>
+<p><strong>注意：</strong></p>
+<p>在Monster v1.0.7以下的版本中<code>list user</code>只会显示被截断的user id。因此要正确地查询这个<code>id</code>值，请将你的Monster升级到<code>v1.0.7</code>或更高版本——或者你也可以自己打开sqlite数据库查看。</p>
+</blockquote>
+<p>接下来，假设你是用BlogToWordpress来迁移的博客，那么你会有一个wordpress格式的.xml文件，存放用户second的全部博客——如果你是用别的来导出，那么请转换到wordpress格式先。参考：</p>
+<ul>
+<li><a href="http://aimingoo.github.io/1-1719">手记1：迁移博客之全程工具</a></li>
+</ul>
+<p>我们将这个.xml用工具wp2ghost转换到ghost-tmp.json，然后再使用putrefy.js来处理一次，得到最终的ghost.json就可以了。这个过程参考：</p>
+<ul>
+<li><a href="http://aimingoo.github.io/1-1719/#22-%E5%87%86%E5%A4%87%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6">准备导入文件</a></li>
+</ul>
+<p>但还是要注意以下几点：</p>
+<h3 id="wp2ghost">使用修改版的wp2ghost</h3>
+<p>你可以考虑使用我的修改版wp2ghost。主要有三处变化：</p>
+<ul>
+<li>tag忽略大小写</li>
+<li>忽略掉总是存在的DefaultCategory这个tag</li>
+<li>兼容用<code>wp:wp_author</code>和<code>wp:author</code>来识别作者名</li>
+</ul>
+<p>下载在这里：</p>
+<ul>
+<li><a href="https://github.com/aimingoo/wp2ghost">https://github.com/aimingoo/wp2ghost</a></li>
+</ul>
+<h3 id="putrefyjs">配置putrefy.js</h3>
+<p>如果你只是简单导入，那么你可以直接使用putrefy.js命令行传入Ghost用户的id值（上面找到的那个）。例如：</p>
+<pre><code class="language-bash"># 获取 putrefy.js
+&gt; curl -L https://github.com/aimingoo/ghost-utils/raw/master/putrefy.js -o putrefy.js
+
+# 处理ghost-tmp.json
+&gt; node putrefy.js ghost-tmp.json '5951f5fca366002ebd5dbef7' &gt; ghost.json
+</code></pre>
+<p>不过注意，很多情况下putrefy.js不是直接使用的，它<code>几乎总是</code>需要修改配置才能使用（除了上面的这个new_author_id参数外，就只能直接修改源代码了）。</p>
+<p>最后，参考上面的博客说明，你应该可以顺利地用putrefy.js了。</p>
+<h3 id="">多博客的一点说明</h3>
+<p>在使用putrefy.js时，它缺省为你的post生成的slug将是<code>authorId-postId</code>格式的，例如上面的<code>5951f5fca366002ebd5dbef7</code>，就会生成<code>5951f5fca366002ebd5dbef7-1</code>..<code>...-n</code>这样的格式。</p>
+<p>你可以改这个缺省值改成特定风格。例如<code>2-</code>，或者<code>myblog:</code>这样的前缀。这需要直接修改putrefy.js源代码中的<code>SLUG_FROMID</code>变量值。如下：</p>
+<pre><code class="language-javascript">## 参数值：
+##   - &quot;字符串&quot;: 以postId作为slug，并将该字符串值直接作为前缀
+##   - true: 以postId作为slug，并用当前的&quot;authorId-&quot;作为前缀，authorId值缺省为1
+##   - false: 不修改slug
+
+SLUG_FROMID=&quot;2-&quot;
+</code></pre>
+<p>另外，某些情况下，从wordpress格式的.xml文件中导出的authorId值不总是缺省值1（或者可能因为意外的缘故就没有authorId值），这种情况下，你需要修改putrefy.js代码中的</p>
+<pre><code class="language-javascript">var author_map = {
+  &quot;1&quot;: ...
+}
+</code></pre>
+<p>它可以处理多个authorId，或强制指定转换表。</p>
+<h2 id="ghost">在你的Ghost模板中识别多个作者</h2>
+<p>有两种方法来识别多个作者。</p>
+<p>第一种是直接在模板中使用<code>{{author}}</code>，这个标签对于author、page和post等页都是有效的，因此可以方便地使用这个标志来为不同作者切换内容：</p>
+<pre><code class="language-html">&lt;!-- 可以直接用`{{#has ...}`来识别 --&gt;
+{{#has author=&quot;aimingoo, qomo&quot;}}
+ ....
+{{/has}}
+</code></pre>
+<p>但是这不能作用于<code>{{&gt; ..}}</code>标签来装载的子模板——你当然可以写多个<code>has</code>来识别，但这并不方便。因此，我在博客中选择了第二种方案：通过加载<code>&lt;script&gt;</code>标签来处理。</p>
+<p>这个名为<code>author-switch.js</code>的脚本在这里：</p>
+<ul>
+<li><a href="https://github.com/aimingoo/aimingoo.github.io/blob/master/assets/js/author-switcher.js">https://github.com/aimingoo/aimingoo.github.io/blob/master/assets/js/author-switcher.js</a></li>
+</ul>
+<p>可以通过如下的方式来加载：</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; author=&quot;{{author.slug}}&quot; src=&quot;/assets/js/author-switcher.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>或</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; author=&quot;default&quot; src=&quot;/assets/js/author-switcher.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>在<code>author-switcher.js</code>中会读取所有scripts并查找到这个标签，然后从标签中取出<code>author</code>属性，并针对不同的author来处理当前页面的显示——基本上就是调整导航栏、标题页等等。</p>
+<p><code>author-switcher.js</code>中有部分代码显得比较复杂，主要是根据deviceWidth来处理导航栏显示的（用于适应手机等窄屏设备）。</p>
+<blockquote>
+<p><strong>你不能直接使用<code>author-switcher.js</code>，它需要根据你的网站定制</strong></p>
+</blockquote>
+<h2 id="">静态页的处理</h2>
+<p>一些静态页是多个作者之间不同的，例如A作者可以显示某些标签，而B作者就不需要（你想想如果在麦秸的垛的文章里显示出JavaScript这样的标签会是什么效果）。因此我除了将tag-cloud等页面静态化（处理方法<a href="http://aimingoo.github.io/1-1721/#72-%E5%B0%86%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF%E4%B8%8E%E4%BA%91%E6%A0%87%E7%AD%BE%E9%9D%99%E6%80%81%E5%8C%96">在这里</a>）之外，也在其中加入了相应的代码来处理这种静态页内的信息。例如：</p>
+<pre><code class="language-html">&lt;!-- in page-tag-cloud.hbs --&gt;
+
+var enabledCloudTags = {
+    'default': 'all',
+    'aimingoo': 'all',
+    'more users': [ &quot;some tags for other', ...]
+}
+
+function filterByAuthor(context, enabled) {
+    if (enabled == 'all') return context;
+    ...
+}
+</code></pre>
+<p>相应的代码在这里：</p>
+<ul>
+<li><a href="https://github.com/aimingoo/aimingoo.github.io/blob/master/tag-cloud">https://github.com/aimingoo/aimingoo.github.io/blob/master/tag-cloud</a></li>
+</ul>
+<blockquote>
+<p><strong>注意其中的cloudTagHtmlContext()内的代码是由标签<code>{{&gt; &quot;tag_cloud&quot;}}</code>自动生成的，参考：'7.2.1 为标签云添加一个静态页' @<a href="http://aimingoo.github.io/1-1721">这里</a></strong></p>
+</blockquote>
+<h2 id="thread">多作者多线索（Thread）</h2>
+<p>Ghost缺省的多作者模式是“多作者单线索”的，也就是所有作者的<code>prev/next</code>是在同一个list中，这样A作者的上/下一篇日志，就可能是B作者的。对于同一主题的博客（例如相同兴趣的网站）来说这没问题，但是我跟Joy的博客风格差异很大，你想想在一篇讨论户外驴友美食或化妆的文章中出现“上一篇”是某个开源程序项目的……效果，那真的是……</p>
+<p>好吧。所以我需要跟Joy的博客使用“多作者多线索”的风格。这个是早先的Ghost版本中是不支持的，因为它默认的prev/next helper是只支持单线索的。这个问题已经被提了两年了……没解决过。</p>
+<p>很幸运的事情是，正好在“麦秸的垛”上线前一两天，Ghost v1.14.0发布了。这个版本中带了一个<code>primary tag</code>的特性，它的实现方案令人眼前一亮啊（呵呵）。“多作者多线索”的实现立即变得简单了，于是我加了几行代码，现在你可以在<code>post.hbs</code>里这样写：</p>
+<pre><code class="language-html">{{! -- MUST include &quot;author&quot; field -- }}
+{{#get &quot;posts&quot; filter=&quot;id:{{id}}&quot; include=&quot;author&quot; as |current|}}
+{{#current}}
+
+  {{#prev_post in=&quot;author&quot;}}  ...
+  ...
+
+  {{#next_post in=&quot;author&quot;}} ...
+  ...
+
+{{/current}}
+{{/get}}
+</code></pre>
+<p>就可以了。——注意其中的<code>include=&quot;author&quot;</code>和<code>in=&quot;author&quot;</code>。</p>
+<p>这个简单的feature已经提交到Ghost team了（<a href="https://github.com/TryGhost/Ghost/pull/9149">在这里</a>），如果你等不及的话也可以直接用我fork的版本：<a href="https://github.com/aimingoo/Ghost/tree/prev-next-author">https://github.com/aimingoo/Ghost/tree/prev-next-author</a></p>
+</div>]]></content:encoded></item><item><title><![CDATA[Monster 1.0.6开启的新功能]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">多人博客</h2>
 <p>经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。</p>
 <p>Monster主要是在<code>updatesite.sh</code>模式中支持多人博客，也就是说这个功能在<code>update</code>模式下可用。当在<code>.monster</code>配置文件的<code>EMAIL</code>参数中使用一个列表，例如：</p>
 <ul>
@@ -1344,78 +1486,5 @@ tag.hbs:{{&gt; &quot;loop&quot;}}
 <li>下载在这里：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a>, 相关信息在这里：<a href="http://aimingoo.github.io/1-1736/">大道至易</a>、<a href="http://aimingoo.github.io/1-1735/">我的架构思想</a>和<a href="http://aimingoo.github.io/1-1734/">程序原本</a>；或，</li>
 <li><a href="http://www.ituring.com.cn/book?tab=ebook&amp;sort=new">图灵电子书</a>首页查看；</li>
 <li>或直接<a href="http://www.ituring.com.cn/book/2429">《程序原本》</a>、<a href="http://www.ituring.com.cn/book/2428">《大道至易：实践者的思想》</a>，以及<a href="http://www.ituring.com.cn/book/2430">《我的架构思想》</a>。</li>
-</ul>
-</div>]]></content:encoded></item><item><title><![CDATA[发布《大道至简》电子版（第三版）]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
-<blockquote>
-<p><strong>第六版：2017.05.03，电子版（第三版）</strong></p>
-<ul>
-<li>
-<p>在发布《大道至易（第二版）》时为本书重制了电子版。</p>
-</li>
-<li>
-<p>内容在本书电子版（第二版）的基础上没有更新。</p>
-</li>
-<li>
-<p>使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="">关于本电子版</h2>
-<p>该电子版是采用上一版为底本的，并且没有作文字上的增修。主要是为了发布质量更好的版本而制作的。</p>
-<p>从第一版开始，本书的电子版一直都是没有封面的（考虑到效果，在本版本的.PDF上制作了一个简单的封面效果）。</p>
-<h2 id="">下载</h2>
-<p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.zip">【下载】</a></strong></p>
-<p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-<p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.azw3">【下载】</a></strong></p>
-<p>下载后用USB上传到Kindle即可。</p>
-<blockquote>
-<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-<p>上述的修改不影响阅读效果。</p>
-</blockquote>
-<p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.epub">【下载】</a></strong></p>
-<p>推荐在Macbook、</p></div>]]></description><link>http://aimingoo.github.io/1-1731/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5b7</guid><category><![CDATA[大道至简]]></category><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 15 Jun 2017 20:03:08 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/Tao-Simplest-Cover.png" alt=""></p>
-<blockquote>
-<p><strong>第六版：2017.05.03，电子版（第三版）</strong></p>
-<ul>
-<li>
-<p>在发布《大道至易（第二版）》时为本书重制了电子版。</p>
-</li>
-<li>
-<p>内容在本书电子版（第二版）的基础上没有更新。</p>
-</li>
-<li>
-<p>使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="">关于本电子版</h2>
-<p>该电子版是采用上一版为底本的，并且没有作文字上的增修。主要是为了发布质量更好的版本而制作的。</p>
-<p>从第一版开始，本书的电子版一直都是没有封面的（考虑到效果，在本版本的.PDF上制作了一个简单的封面效果）。</p>
-<h2 id="">下载</h2>
-<p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.zip">【下载】</a></strong></p>
-<p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-<p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.azw3">【下载】</a></strong></p>
-<p>下载后用USB上传到Kindle即可。</p>
-<blockquote>
-<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-<p>上述的修改不影响阅读效果。</p>
-</blockquote>
-<p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest.epub">【下载】</a></strong></p>
-<p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
-<p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Simplest-i.epub">【下载】</a></strong></p>
-<p>一般的掌上阅读软件都可以支持。</p>
-<p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
-<p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
-<h2 id="">历史中的版本</h2>
-<ul>
-<li>
-<p>最早发布这本书的电子版是在12年前，在这里：<a href="http://aimingoo.github.io/1-197">公开《大道至简——软件工程实践者的思想》电子版</a></p>
-</li>
-<li>
-<p>2012年发布了它的电子版第二版，在这里：<a href="http://aimingoo.github.io/1-261">大动作！！！公开《大道至简：软件工程实践者的思想》电子版（第二版）</a></p>
-</li>
-<li>
-<p>本书（含纸质版）主要版次共有六版。其中各版本细节，请翻阅电子书末尾的“版本历史”。</p>
-</li>
 </ul>
 </div>]]></content:encoded></item></channel></rss>

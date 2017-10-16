@@ -69,6 +69,34 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-da-dao-zhi-jian tag-dian-zi-shu tag-chu-ban tag-ruan-jian-gong-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1731.html">发布《大道至简》电子版（第三版）</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>第六版：2017.05.03，电子版（第三版） 在发布《大道至易（第二版）》时为本书重制了电子版。 内容在本书电子版（第二版）的基础上没有更新。 使用markdown重排了全部格式，发布了.epub和.azw3版本，并重制了pdf版本。 关于本电子版 该电子版是采用上一版为底本的，并且没有作文字上的增修。主要是为了发布质量更好的版本而制作的。 从第一版开始，本书的电子版一直都是没有封面的（考虑到效果，在本版本的. ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/da-dao-zhi-jian/">大道至简</a>, <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/chu-ban/">出版</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-06-16T04:03:08.088+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-06-16">(2017-06-16)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/da-dao-zhi-jian/">大道至简</a>, <a href="/tag/dian-zi-shu/">电子书</a>, <a href="/tag/chu-ban/">出版</a>, <a href="/tag/ruan-jian-gong-cheng/">软件工程</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1731.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-kindle tag-dian-zi-shu" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-1729.html">Kindle的四种封面</a></h1>
@@ -214,7 +242,7 @@ ghost.init({
             <h1 class="post-title"><a href="/1-1725.html">手记6：改造Gitment</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>本文所述的修改请参考我Fork的Gitment项目：Giment at aimingoo's project space 接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。 11. 改造Gitment 折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如makesite.sh（在这里）。 最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。 注： ... </p>
+            <p>本文所述的修改请参考我在Fork Gitment项目的基础上改造的Gitmint：Gitmint: a mint on gitment 接下来我们要大力修改Gitment，打造一个『好用那么一点点儿』的博客评论。 11. 改造Gitment 折腾到现在，我们有了一个在Github pages上的博客，以及一个用来写本地博客的Ghost，以及一些相关的工具，例如makesite.sh（在这里）。 最后，我们还有了一个第三方提供的支持PHP+HTTPs的空间，这个空间只用来放Gitment的服务端，并且这个服务器事实上也只做一下API的CORS转发而已。 ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
@@ -458,34 +486,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/59e3026172c9e7b37c38320d.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-javascript tag-yu-yan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/59e31b1472c9e7b37c38321b.html">前端要给力之：语句在JavaScript中的值</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&quot;1+2+3& ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2016-04-13T03:48:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2016-04-13">(2016-04-13)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/59e31b1472c9e7b37c38321b.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>
