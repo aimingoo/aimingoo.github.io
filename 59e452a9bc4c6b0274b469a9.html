@@ -175,7 +175,7 @@ id                        name        slug        email
 </ul>
 <p>我们将这个.xml用工具wp2ghost转换到ghost-tmp.json，然后再使用putrefy.js来处理一次，得到最终的ghost.json就可以了。这个过程参考：</p>
 <ul>
-<li><a href="/1-1719.html/#22-%E5%87%86%E5%A4%87%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6">准备导入文件</a></li>
+<li><a href="/1-1719.html#22-%E5%87%86%E5%A4%87%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6">准备导入文件</a></li>
 </ul>
 <p>但还是要注意以下几点：</p>
 <h3 id="wp2ghost">使用修改版的wp2ghost</h3>
@@ -240,7 +240,7 @@ SLUG_FROMID=&quot;2-&quot;
 <p><strong>你不能直接使用<code>author-switcher.js</code>，它需要根据你的网站定制</strong></p>
 </blockquote>
 <h2 id="">静态页的处理</h2>
-<p>一些静态页是多个作者之间不同的，例如A作者可以显示某些标签，而B作者就不需要（你想想如果在麦秸的垛的文章里显示出JavaScript这样的标签会是什么效果）。因此我除了将tag-cloud等页面静态化（处理方法<a href="/1-1721.html/#72-%E5%B0%86%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF%E4%B8%8E%E4%BA%91%E6%A0%87%E7%AD%BE%E9%9D%99%E6%80%81%E5%8C%96">在这里</a>）之外，也在其中加入了相应的代码来处理这种静态页内的信息。例如：</p>
+<p>一些静态页是多个作者之间不同的，例如A作者可以显示某些标签，而B作者就不需要（你想想如果在麦秸的垛的文章里显示出JavaScript这样的标签会是什么效果）。因此我除了将tag-cloud等页面静态化（处理方法<a href="/1-1721.html#72-%E5%B0%86%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF%E4%B8%8E%E4%BA%91%E6%A0%87%E7%AD%BE%E9%9D%99%E6%80%81%E5%8C%96">在这里</a>）之外，也在其中加入了相应的代码来处理这种静态页内的信息。例如：</p>
 <pre><code class="language-html">&lt;!-- in page-tag-cloud.hbs --&gt;
 
 var enabledCloudTags = {
