@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=f22f283181" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=865e0104b8" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=f22f283181" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=f22f283181" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=f22f283181" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=f22f283181" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=f22f283181" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=865e0104b8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=865e0104b8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=865e0104b8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=865e0104b8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=865e0104b8" />
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <link rel="prev" href="http://aimingoo.github.io/author/aimingoo/page/16/" />
     <link rel="next" href="http://aimingoo.github.io/author/aimingoo/page/18/" />
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=f22f283181"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=865e0104b8"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -62,13 +62,41 @@ ghost.init({
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=f22f283181"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=865e0104b8"></script>
 
 <main id="container" class="container" role="main">
 
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-40.html">:(~~ 痛苦啊～～构造了一个“没有执行能力”的函数</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>这个东东看起来没有什么用啊～～ &lt;script&gt;  function MyFunc() {  }  MyFunc.prototype = Function; var foo= new MyFunc(); alert(foo instanceof Function);  alert(foo()); // &lt;-- 异常  &lt;/script&gt; ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-03-25T04:43:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-03-25">(2006-03-25)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-40.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-za-tan tag-zuo-lun" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-216.html">今天实在闲～～</a></h1>
@@ -461,34 +489,6 @@ ghost.init({
             </span>
         </footer>
     </article>
-            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-27.html">JavaScript面向对象的支持(7)</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>八、JavaScript面向对象的支持 6. JavaScript面向对象的支持的补充内容 1). 类型系统 我们前面已经完整地描述过JavaScript的两种类型系统。包括： 基础类型系统：由typeof()返回值的六种基础类型 对象类型系统：由new()返回值的、构造器和原型继承组织起来的类型系统 JavaScript是弱类型语言，因此类型自动转换是它语言特性的一个重要组成部分。但对于一个指定的变量而言，(在某一时刻，)它总是有确定的数据类型的。“运算”是导致类型转换的方法(但不是根源)，因此“运算结果的类型”的确定就非常重要。 ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-01-27T03:24:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-01-27">(2006-01-27)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-27.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
 
     <nav class="pagination" role="navigation">
         <a rel="next" class="newer-posts" href="/author/aimingoo/page/16/"><i class="fa fa-chevron-left"></i>&nbsp;上一页</a>
@@ -542,21 +542,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=f22f283181"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=865e0104b8"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=f22f283181"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=f22f283181"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=865e0104b8"></script>
 </body>
 
 </html>

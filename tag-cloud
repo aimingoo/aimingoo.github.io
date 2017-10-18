@@ -34,10 +34,10 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	</div>
 	<div class="tag-cloud-content">
 		<!--  -->
-				<a href="/tag/sheng-huo" class="tag-item">生活 (136)</a>
+				<a href="/tag/sheng-huo" class="tag-item">生活 (138)</a>
 				<a href="/tag/javascript" class="tag-item">Javascript (87)</a>
 				<a href="/tag/za-wen" class="tag-item">杂文 (81)</a>
-				<a href="/tag/za-tan" class="tag-item">杂谈 (74)</a>
+				<a href="/tag/za-tan" class="tag-item">杂谈 (73)</a>
 				<a href="/tag/sui-bi" class="tag-item">随笔 (57)</a>
 				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (47)</a>
 				<a href="/tag/yu-yan" class="tag-item">语言 (39)</a>
@@ -51,9 +51,9 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/du-shu" class="tag-item">读书 (26)</a>
 				<a href="/tag/hu-shuo-ba-dao" class="tag-item">胡说八道 (26)</a>
 				<a href="/tag/da-dao-zhi-jian" class="tag-item">大道至简 (25)</a>
-				<a href="/tag/lu-you" class="tag-item">旅游 (23)</a>
+				<a href="/tag/lu-you" class="tag-item">旅游 (24)</a>
 				<a href="/tag/shu-xu-shu-ping" class="tag-item">书序书评 (21)</a>
-				<a href="/tag/shi-wen" class="tag-item">诗词文章 (20)</a>
+				<a href="/tag/shi-wen" class="tag-item">诗词文章 (21)</a>
 				<a href="/tag/meng" class="tag-item">梦 (20)</a>
 				<a href="/tag/delphi" class="tag-item">delphi (18)</a>
 				<a href="/tag/bo-ke" class="tag-item">博客 (18)</a>
@@ -101,10 +101,6 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/zhuan-zai" class="tag-item">转载 (1)</a>
 				<a href="/tag/she-ying" class="tag-item">摄影 (1)</a>
 				<a href="/tag/peng-you" class="tag-item">朋友 (1)</a>
-				<a href="/tag/getting-started" class="tag-item">Getting Started (0)</a>
-				<a href="/tag/ce-shi" class="tag-item">测试 (0)</a>
-				<a href="/tag/translation" class="tag-item">translation (0)</a>
-				<a href="/tag/msnban-jia" class="tag-item">MSN搬家 (0)</a>
 	</div>
 </div>
 */}.toString().replace(/^[^\*]+\*+|\*+[^\*]+$/g, ''), enabledCloudTags[authorName||'default']));
