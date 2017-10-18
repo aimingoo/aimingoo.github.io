@@ -9,7 +9,7 @@ document.writeln(function siteProfileHtmlContext() {/*
     <div class="site-stat-item">
         <span class="site-stat-item-count">
 <script>
-document.writeln('<strong>', '1' || 0, '<' + '/strong>');
+document.writeln('<strong>', '0' || 0, '<' + '/strong>');
 </script>
         </span>
         <span class="site-stat-item-name">推荐</span>
