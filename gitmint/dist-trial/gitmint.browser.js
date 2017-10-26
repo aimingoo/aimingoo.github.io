@@ -3982,7 +3982,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var scope = 'public_repo';
 
 // Github setting of 'Authorization callback URL' in your OAuth application
-var force_redirect_protocol = 'https';
+var force_redirect_protocol = '$&';
 // A RegExp to match protocol and domain
 var rx_url_with_protocol = /^((https?:\/\/+){0,1}[^\/]*)(.*)/;
 
@@ -4231,13 +4231,10 @@ var Gitment = function () {
           admin = this.admin,
           repo = this.repo;
 
-      return _utils.http.get('/repos/' + owner + '/' + repo + '/issues', {
-        labels: id
-        // creator: owner,  // need recheck for organization
-        // state: "open",  // default
-      }).then(function (issues) {
+      return _utils.http.get('/repos/' + owner + '/' + repo + '/issues', { labels: id }).then(function (issues) {
         if (issues.length) {
-          // or check 'issue.user.login and issue.user.site_admin' ?
+          // recheck creator for organization
+          //  - or check 'issue.user.login and issue.user.site_admin' ?
           var allowed = (admin || [owner]).map(function (x) {
             return x.toLowerCase();
           });

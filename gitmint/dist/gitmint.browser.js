@@ -3543,7 +3543,10 @@ function renderComments(_ref2, instance) {
     var errorBlock = document.createElement('div');
     errorBlock.className = 'gitment-comments-error';
 
-    if (error === _constants.NOT_INITIALIZED_ERROR && user.login && user.login.toLowerCase() === instance.owner.toLowerCase()) {
+    if (error === _constants.NOT_INITIALIZED_ERROR && user.login && ~(instance.admin || [instance.owner]).map(function (x) {
+      return x.toLowerCase();
+    }).indexOf(user.login.toLowerCase())) {
+      // && user.login.toLowerCase() === instance.owner.toLowerCase()) {
       var initHint = document.createElement('div');
       var initButton = document.createElement('button');
       initButton.className = 'gitment-comments-init-btn';
@@ -3979,7 +3982,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var scope = 'public_repo';
 
 // Github setting of 'Authorization callback URL' in your OAuth application
-var force_redirect_protocol = 'https';
+var force_redirect_protocol = '$&';
 // A RegExp to match protocol and domain
 var rx_url_with_protocol = /^((https?:\/\/+){0,1}[^\/]*)(.*)/;
 
@@ -4225,12 +4228,22 @@ var Gitment = function () {
 
       var id = this.id,
           owner = this.owner,
+          admin = this.admin,
           repo = this.repo;
 
-      return _utils.http.get('/repos/' + owner + '/' + repo + '/issues', {
-        creator: owner,
-        labels: id
-      }).then(function (issues) {
+      return _utils.http.get('/repos/' + owner + '/' + repo + '/issues', { labels: id }).then(function (issues) {
+        if (issues.length) {
+          // recheck creator for organization
+          //  - or check 'issue.user.login and issue.user.site_admin' ?
+          var allowed = (admin || [owner]).map(function (x) {
+            return x.toLowerCase();
+          });
+          issues = issues.filter(function (issue) {
+            return ~allowed.indexOf(issue.user.login.toLowerCase());
+          }).sort(function (left, right) {
+            return new Date(left.created_at) - new Date(right.created_at);
+          });
+        }
         if (!issues.length) return Promise.reject(_constants.NOT_INITIALIZED_ERROR);
         _this7.state.meta = issues[0];
         _this7.updateCount();
