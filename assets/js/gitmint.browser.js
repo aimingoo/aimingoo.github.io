@@ -3788,10 +3788,11 @@ function render(state, instance) {
   };
 
   container.className = 'gitment-container gitment-root-container';
-  container.appendChild(instance.renderHeader(state, instance));
-  container.appendChild(instance.renderComments(state, instance));
-  container.appendChild(instance.renderEditor(state, instance));
-  container.appendChild(instance.renderFooter(state, instance));
+  var parts = (!instance.above) ? ['renderHeader', 'renderComments', 'renderEditor', 'renderFooter']
+    : ['renderHeader', 'renderEditor', 'renderFooter', 'renderComments'];
+  parts.forEach(function(partName) {
+    container.appendChild(instance[partName](state, instance));
+  });
   return container;
 }
 
