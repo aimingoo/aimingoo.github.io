@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=865e0104b8" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=919e102fe9" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=865e0104b8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=865e0104b8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=865e0104b8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=865e0104b8" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=865e0104b8" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=919e102fe9" />
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <link rel="prev" href="http://aimingoo.github.io/page/30/" />
     <link rel="next" href="http://aimingoo.github.io/page/32/" />
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=919e102fe9"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -55,12 +55,40 @@ ghost.init({
     </nav>
 </header>
 
-<script type="text/javascript" author="default" src="/assets/js/author-switcher.js?v=865e0104b8"></script>
+<script type="text/javascript" author="default" src="/assets/js/author-switcher.js?v=919e102fe9"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-javascript tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>一、system.js 模块概要 system.js是Qomo的第一个载入模块。这个模块主要实现三个功能： 基本的$debug()函数 基本的$import()函数 内核子系统的装载 system.js是firefox兼容的。 二、内核子系统的构成与载入 在Qomo中，所谓内核是指由直接在system.js中载入的模块构成的系统功能层。system.js实现了$import()函数，并通过它装载以下模块： ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-02-13T01:16:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-02-13">(2006-02-13)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-30.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-29.html">Qomo OpenProject Field Test 1发布！</a></h1>
@@ -453,34 +481,6 @@ ghost.init({
             </span>
         </footer>
     </article>
-            <article class="post tag-javascript tag-mian-xiang-dui-xiang" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-21.html">JavaScript面向对象的支持(2)</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>八、JavaScript面向对象的支持 2. JavaScript面向对象的支持 2). 反射机制在JavaScript中的实现 JavaScript中通过for..in语法来实现了反射机制。但是JavaScript中并不明确区分“属性”与“方法”，以及“事件”。因此，对属性的类型考查在JS中是个问题。下面的代码简单示例for..in的使用与属性识别： // // JavaScript中for..in的使用和属性识别 // var _r_event = _r_event = /^[Oo] ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-01-12T01:51:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-01-12">(2006-01-12)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/mian-xiang-dui-xiang/">面向对象</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-21.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
 
     <nav class="pagination" role="navigation">
         <a rel="next" class="newer-posts" href="/page/30/"><i class="fa fa-chevron-left"></i>&nbsp;上一页</a>
@@ -523,7 +523,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -536,21 +536,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=919e102fe9"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=865e0104b8"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=865e0104b8"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=919e102fe9"></script>
 </body>
 
 </html>
