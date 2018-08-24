@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JavaScript的元系统</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=919e102fe9" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=919e102fe9" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaScript的元系统" />
+    <meta property="og:description" content="JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。 原子（atom） 定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。 JavaScript中的对象就是一个属性包（properties bag, or" />
+    <meta property="og:url" content="http://aimingoo.github.io/5b7f6efac66182831afb497b.html" />
+    <meta property="article:published_time" content="2018-08-24T02:57:14.000Z" />
+    <meta property="article:modified_time" content="2018-08-24T02:57:14.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="元语言" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="JavaScript的元系统" />
+    <meta name="twitter:description" content="JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。 原子（atom） 定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。 JavaScript中的对象就是一个属性包（properties bag, or" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/5b7f6efac66182831afb497b.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 元语言" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "JavaScript的元系统",
+    "url": "http://aimingoo.github.io/5b7f6efac66182831afb497b.html",
+    "datePublished": "2018-08-24T02:57:14.000Z",
+    "dateModified": "2018-08-24T02:57:14.000Z",
+    "keywords": "Javascript, 语言, 元语言",
+    "description": "JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。 原子（atom） 定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。 JavaScript中的对象就是一个属性包（properties bag, or",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=919e102fe9"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-javascript tag-yu-yan tag-yuan-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=919e102fe9"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-javascript tag-yu-yan tag-yuan-yu-yan">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/5b7f6efac66182831afb497b.html">JavaScript的元系统</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2018-08-24T10:57:14.1414+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2018-08-24">(2018-08-24)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/yuan-yu-yan/">元语言</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<blockquote>
+<p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
+</blockquote>
+<p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
+<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em>）”的东西，并基于此来构建起一个完整的JavaScript元系统。</p>
+<h2 id="atom">原子（atom）</h2>
+<blockquote>
+<p>定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。</p>
+</blockquote>
+<p>JavaScript中的对象就是一个属性包（<em>properties bag, or a collection of properties</em>），一个属性包为空集时，它必然是对象的最小形态。因此一个没有原型，且自有属性集为空的对象，必然是一个原子。</p>
+<p>原子可以用ES5兼容的语法创建出来：</p>
+<pre><code class="language-javascript">var atom = Object.create(null);
+</code></pre>
+<p>也可以通过将一般对象的原型置为null来得到一个原子：</p>
+<pre><code class="language-javascript">var atom = Object.setPrototypeOf(new Object, null);
+</code></pre>
+<p>并且，在ECMAScript中有四个内建/原生对象是原子的：</p>
+<pre><code class="language-javascript">function isAtom(x) {
+    switch (typeof x) {
+        case 'object':
+        case 'function': return !(x instanceof Object);
+    }
+    return false;
+}
+
+// modules in es6
+import * as namespace from './your-module.js';
+
+// arguments from function
+var args = Function('return arguments')();
+
+console.log(isAtom(null));
+console.log(isAtom(Object.prototype));
+console.log(isAtom(namespace));
+console.log(isAtom(args));
+</code></pre>
+<p>在同一个运行环境中，可以并存多个原子，以及由原型指向原子的、原型继承的对象系统。所有这些原子以及衍生的对象系统都是互不相等、没有交集的。</p>
+<pre><code class="language-javascript">&gt; Object.create(null) === Object.create(null)
+false
+</code></pre>
+<p>因此，JavaScript原生的、由Object()派生或创建的对象、类，在本质上也是上述“对象系统”之一。但是，</p>
+<ul>
+<li>作为唯一特例，Object()所属的对象系统称为“原生对象系统”，以区别于后来创建的其它原子对象系统。</li>
+</ul>
+<p>并且，</p>
+<ul>
+<li>作为唯一特例，null值是一个原子（注：原子在ECMAScript约定的ECMAScript language types中不是对象，但在JavaScript自身的类型检查（<em>typeof</em>）中它是对象）。</li>
+</ul>
+<h2 id="meta">元（meta）</h2>
+<blockquote>
+<p>定义：能产生原子（atom）的一个过程称为元（meta）。</p>
+<p>推论：原子的构造器(Atom)与元(meta)是等义的。</p>
+</blockquote>
+<p>由于atom对象的构造器通常记为Atom()，所以从概念上它与“元（meta）”是等义的，在实际使用中我们也并不明确地区分二者。</p>
+<p>meta可以是一个函数，也可以是一个类，甚至也可以是一个代理对象（<em>proxy</em>）、箭头函数（<em>arrow functions</em>）或方法（<em>methods</em>）。——在概念定义中，我们只约定了“meta是一个过程”，并没有强调atom是它构建出来的，亦或只是它的调用结果。</p>
+<p>在开源项目中Metameta（<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>）中，meta是以ES6的语法声明的一个Atom类：</p>
+<pre><code class="language-javascript">class Atom extends null {
+    constructor() {
+        return Object.create(new.target.prototype);
+    }
+}
+</code></pre>
+<p>任何情况下，我们用该meta都可以产生新的原子对象：</p>
+<pre><code class="language-javascript">&gt; isAtom(new Atom)
+true
+
+&gt; new Atom === new Atom
+false
+</code></pre>
+<h2 id="metametatypes">元类型（Meta，Meta types）</h2>
+<blockquote>
+<p>定义：所有元（meta）的类型称为元类型（Meta types）</p>
+</blockquote>
+<p>在JavaScript中，一个数据所对应的类型可以用它的构造器来标示，亦即是Meta()；并且这也意味着Meta()作为构造器产生的实例是元（<em>meta</em>）。亦即是说，Meta()应当是一个“返回meta过程”的过程。</p>
+<p>在ES6的语法中，可以简单地在函数中返回一个“类声明（<em>class definitions</em>）”来得到一个字面量风格的类。因此在Metameta中声明了MetaMeta()类来作为元类型的祖先类：</p>
+<pre><code class="language-javascript">// Meta's super
+class MetaMeta extends null {
+  constructor(base) { // Atom() by default
+    return Object.setPrototypeOf(class extends new.target {}, base);
+  }
+...
+</code></pre>
+<p>所以现在，我们就可以通过如下的方法来得到一个原子了：</p>
+<pre><code class="language-javascript">// Atom与meta是同义的
+&gt; Atom = meta = new MetaMeta
+
+// 创建一个原子
+&gt; atom = new Atom
+
+// 检测
+&gt; isAtom(atom)
+true
+</code></pre>
+<h2 id="">基于原子的继承性</h2>
+<p>我们之所以要用class来声明Atom和MetaMeta，是为了简单地得到面向对象的继承性。亦即是说，当我们想要派生一个新的原子对象类型的时候，可以简单地通过扩展上述的系统来得到它的构造器。例如：</p>
+<pre><code class="language-javascript">class MyAtomObject extends new MetaMeta {
+    get description() {
+        return 'i am an atom.';
+    }
+}
+
+var x = new MyAtomObject;
+console.log(x.description);
+</code></pre>
+<p>在这个例子中，<code>new MetaMeta</code>直接创建了一个Atom，而<code>MyAtomObject</code>则派生自该Atom，因此它的实例自然是atom。并且，基于ES6的类声明语法，<code>MyAtomObject</code>也可以具有自己的存取器成员、对象方法，或者类方法。</p>
+<h2 id="">基于元的继承性</h2>
+<p>从MetaMeta也可以基于元类型进行派生，由此我们可以实现“元类（Meta class）类型”。</p>
+<blockquote>
+<p>定义：元类（Meta class）是一个产生类（class）的过程。</p>
+</blockquote>
+<p>从定义上来说，简单的元类可以写成：</p>
+<pre><code class="language-javascript">function SimpleMetaClass() {
+    return class {};
+}
+</code></pre>
+<p>当然，由于在MetaMeta中“元类型”本身就是基于类实现的——亦即是它本来就是一个“返回类”的过程，因此它只需要简单的一层概念抽象就可以实现“元类”类型了。如下：</p>
+<pre><code class="language-javascript">// “元(Meta)”类型
+class Meta extends MetaMeta { ... }
+
+// “元类(MetaClass)”类型
+class MetaClass extends Meta { ... }
+</code></pre>
+<p>之所以让Meta派生自MetaMeta()，主要目的是为了得到一层super声明，以确保Meta()以及它的类方法（<em>static methods</em>）之于它的super是词法上下文绑定的。而“元类(MetaClass）”则用于派生一层类型声明，以便让MetaClass()能拥有自己的类方法，例如<code>MetaClass.isClassOf()</code>。</p>
+<p>现在，我们已经在Meta上实现了一层派生，我们也可以实现更多层的派生，以通过“类类型”的方法来得到更多的构造器——换言之，我们可以产生更多的类，它们都可以作为更多的“不同的对象系统的”祖先类。我们可以让JavaScript中出现多个完全不同的、与Object()所代表的“原生对象系统”并列的对象系统。</p>
+<p>如前所述的——它们相互独立，没有交集。例如：</p>
+<pre><code class="language-javascript">// “元类(MetaClass)”产生类
+var ObjectEx = new MetaClass;
+
+// 基于ObjectEx可以派生一个“独立的、不同的”对象系统
+class MyObjectEx extends ObjectEx {};
+
+// 可以用类似的方法来派生更多这样的对象系统
+class MyObjectPlus extends new MetaClass {
+    ...
+};
+</code></pre>
+<p>接下来，你可以检测它们的类属关系：</p>
+<pre><code class="language-javascript">&gt; ObjectEx.isClassOf(MyObjectEx)
+true
+
+&gt; MetaClass.isClassOf(ObjectEx)
+true
+</code></pre>
+<p>或使用ECMAScript内置方法检测原子：</p>
+<pre><code class="language-javascript">&gt; (new MyObjectEx) instanceof ObjectEx
+true
+
+&gt; (new MyObjectEx) instanceof MyObjectPlus
+false
+</code></pre>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/5b7b77b6c66182831afb4977.html">
+                    资源分享：第四届FEDay讲演主题
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=919e102fe9" />
+<script src="/assets/js/gitmint.browser.js?v=919e102fe9"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=919e102fe9"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=919e102fe9"></script>
+</body>
+
+</html>

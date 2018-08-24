@@ -1,4 +1,165 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 21 Aug 2018 03:00:16 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[资源分享：第四届FEDay讲演主题]]></title><description><![CDATA[<div class="kg-card-markdown"><p>我在本届FEDay的讲演内容在这里了：</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Fri, 24 Aug 2018 02:58:12 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[JavaScript的元系统]]></title><description><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<blockquote>
+<p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
+</blockquote>
+<p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
+<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em>）”的东西，并基于此来构建起一个完整的JavaScript元系统。</p>
+<h2 id="atom">原子（atom）</h2>
+<blockquote>
+<p>定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。</p>
+</blockquote>
+<p>JavaScript中的对象就是一个属性包（<em>properties</em></p></div>]]></description><link>http://aimingoo.github.io/5b7f6efac66182831afb497b/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<blockquote>
+<p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
+</blockquote>
+<p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
+<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em>）”的东西，并基于此来构建起一个完整的JavaScript元系统。</p>
+<h2 id="atom">原子（atom）</h2>
+<blockquote>
+<p>定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。</p>
+</blockquote>
+<p>JavaScript中的对象就是一个属性包（<em>properties bag, or a collection of properties</em>），一个属性包为空集时，它必然是对象的最小形态。因此一个没有原型，且自有属性集为空的对象，必然是一个原子。</p>
+<p>原子可以用ES5兼容的语法创建出来：</p>
+<pre><code class="language-javascript">var atom = Object.create(null);
+</code></pre>
+<p>也可以通过将一般对象的原型置为null来得到一个原子：</p>
+<pre><code class="language-javascript">var atom = Object.setPrototypeOf(new Object, null);
+</code></pre>
+<p>并且，在ECMAScript中有四个内建/原生对象是原子的：</p>
+<pre><code class="language-javascript">function isAtom(x) {
+    switch (typeof x) {
+        case 'object':
+        case 'function': return !(x instanceof Object);
+    }
+    return false;
+}
+
+// modules in es6
+import * as namespace from './your-module.js';
+
+// arguments from function
+var args = Function('return arguments')();
+
+console.log(isAtom(null));
+console.log(isAtom(Object.prototype));
+console.log(isAtom(namespace));
+console.log(isAtom(args));
+</code></pre>
+<p>在同一个运行环境中，可以并存多个原子，以及由原型指向原子的、原型继承的对象系统。所有这些原子以及衍生的对象系统都是互不相等、没有交集的。</p>
+<pre><code class="language-javascript">&gt; Object.create(null) === Object.create(null)
+false
+</code></pre>
+<p>因此，JavaScript原生的、由Object()派生或创建的对象、类，在本质上也是上述“对象系统”之一。但是，</p>
+<ul>
+<li>作为唯一特例，Object()所属的对象系统称为“原生对象系统”，以区别于后来创建的其它原子对象系统。</li>
+</ul>
+<p>并且，</p>
+<ul>
+<li>作为唯一特例，null值是一个原子（注：原子在ECMAScript约定的ECMAScript language types中不是对象，但在JavaScript自身的类型检查（<em>typeof</em>）中它是对象）。</li>
+</ul>
+<h2 id="meta">元（meta）</h2>
+<blockquote>
+<p>定义：能产生原子（atom）的一个过程称为元（meta）。</p>
+<p>推论：原子的构造器(Atom)与元(meta)是等义的。</p>
+</blockquote>
+<p>由于atom对象的构造器通常记为Atom()，所以从概念上它与“元（meta）”是等义的，在实际使用中我们也并不明确地区分二者。</p>
+<p>meta可以是一个函数，也可以是一个类，甚至也可以是一个代理对象（<em>proxy</em>）、箭头函数（<em>arrow functions</em>）或方法（<em>methods</em>）。——在概念定义中，我们只约定了“meta是一个过程”，并没有强调atom是它构建出来的，亦或只是它的调用结果。</p>
+<p>在开源项目中Metameta（<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>）中，meta是以ES6的语法声明的一个Atom类：</p>
+<pre><code class="language-javascript">class Atom extends null {
+    constructor() {
+        return Object.create(new.target.prototype);
+    }
+}
+</code></pre>
+<p>任何情况下，我们用该meta都可以产生新的原子对象：</p>
+<pre><code class="language-javascript">&gt; isAtom(new Atom)
+true
+
+&gt; new Atom === new Atom
+false
+</code></pre>
+<h2 id="metametatypes">元类型（Meta，Meta types）</h2>
+<blockquote>
+<p>定义：所有元（meta）的类型称为元类型（Meta types）</p>
+</blockquote>
+<p>在JavaScript中，一个数据所对应的类型可以用它的构造器来标示，亦即是Meta()；并且这也意味着Meta()作为构造器产生的实例是元（<em>meta</em>）。亦即是说，Meta()应当是一个“返回meta过程”的过程。</p>
+<p>在ES6的语法中，可以简单地在函数中返回一个“类声明（<em>class definitions</em>）”来得到一个字面量风格的类。因此在Metameta中声明了MetaMeta()类来作为元类型的祖先类：</p>
+<pre><code class="language-javascript">// Meta's super
+class MetaMeta extends null {
+  constructor(base) { // Atom() by default
+    return Object.setPrototypeOf(class extends new.target {}, base);
+  }
+...
+</code></pre>
+<p>所以现在，我们就可以通过如下的方法来得到一个原子了：</p>
+<pre><code class="language-javascript">// Atom与meta是同义的
+&gt; Atom = meta = new MetaMeta
+
+// 创建一个原子
+&gt; atom = new Atom
+
+// 检测
+&gt; isAtom(atom)
+true
+</code></pre>
+<h2 id="">基于原子的继承性</h2>
+<p>我们之所以要用class来声明Atom和MetaMeta，是为了简单地得到面向对象的继承性。亦即是说，当我们想要派生一个新的原子对象类型的时候，可以简单地通过扩展上述的系统来得到它的构造器。例如：</p>
+<pre><code class="language-javascript">class MyAtomObject extends new MetaMeta {
+    get description() {
+        return 'i am an atom.';
+    }
+}
+
+var x = new MyAtomObject;
+console.log(x.description);
+</code></pre>
+<p>在这个例子中，<code>new MetaMeta</code>直接创建了一个Atom，而<code>MyAtomObject</code>则派生自该Atom，因此它的实例自然是atom。并且，基于ES6的类声明语法，<code>MyAtomObject</code>也可以具有自己的存取器成员、对象方法，或者类方法。</p>
+<h2 id="">基于元的继承性</h2>
+<p>从MetaMeta也可以基于元类型进行派生，由此我们可以实现“元类（Meta class）类型”。</p>
+<blockquote>
+<p>定义：元类（Meta class）是一个产生类（class）的过程。</p>
+</blockquote>
+<p>从定义上来说，简单的元类可以写成：</p>
+<pre><code class="language-javascript">function SimpleMetaClass() {
+    return class {};
+}
+</code></pre>
+<p>当然，由于在MetaMeta中“元类型”本身就是基于类实现的——亦即是它本来就是一个“返回类”的过程，因此它只需要简单的一层概念抽象就可以实现“元类”类型了。如下：</p>
+<pre><code class="language-javascript">// “元(Meta)”类型
+class Meta extends MetaMeta { ... }
+
+// “元类(MetaClass)”类型
+class MetaClass extends Meta { ... }
+</code></pre>
+<p>之所以让Meta派生自MetaMeta()，主要目的是为了得到一层super声明，以确保Meta()以及它的类方法（<em>static methods</em>）之于它的super是词法上下文绑定的。而“元类(MetaClass）”则用于派生一层类型声明，以便让MetaClass()能拥有自己的类方法，例如<code>MetaClass.isClassOf()</code>。</p>
+<p>现在，我们已经在Meta上实现了一层派生，我们也可以实现更多层的派生，以通过“类类型”的方法来得到更多的构造器——换言之，我们可以产生更多的类，它们都可以作为更多的“不同的对象系统的”祖先类。我们可以让JavaScript中出现多个完全不同的、与Object()所代表的“原生对象系统”并列的对象系统。</p>
+<p>如前所述的——它们相互独立，没有交集。例如：</p>
+<pre><code class="language-javascript">// “元类(MetaClass)”产生类
+var ObjectEx = new MetaClass;
+
+// 基于ObjectEx可以派生一个“独立的、不同的”对象系统
+class MyObjectEx extends ObjectEx {};
+
+// 可以用类似的方法来派生更多这样的对象系统
+class MyObjectPlus extends new MetaClass {
+    ...
+};
+</code></pre>
+<p>接下来，你可以检测它们的类属关系：</p>
+<pre><code class="language-javascript">&gt; ObjectEx.isClassOf(MyObjectEx)
+true
+
+&gt; MetaClass.isClassOf(ObjectEx)
+true
+</code></pre>
+<p>或使用ECMAScript内置方法检测原子：</p>
+<pre><code class="language-javascript">&gt; (new MyObjectEx) instanceof ObjectEx
+true
+
+&gt; (new MyObjectEx) instanceof MyObjectPlus
+false
+</code></pre>
+</div>]]></content:encoded></item><item><title><![CDATA[资源分享：第四届FEDay讲演主题]]></title><description><![CDATA[<div class="kg-card-markdown"><p>我在本届FEDay的讲演内容在这里了：</p>
 <p>FEDay就是前端日，在这里：</p>
 <ul>
 <li><a href="https://fequan.com/2018/">https://fequan.com/2018/</a></li>
@@ -1545,94 +1706,4 @@ tag.hbs:{{&gt; &quot;loop&quot;}}
 <p>如上所提示到的，如果<code>loop.hbs</code>没有单独地放在<code>partials</code>目录中，那么它可能直接用一对标签<code>{{#foreach posts}}</code>放在index、author或tag三个页面中了。找一找？</p>
 <p>你可以直接参考本文来处理这个<code>foreach</code>。或者，我建议把这部分内容/代码取出来放在<code>loop.hbs</code>中，然后再照本文所述处理就好啦。</p>
 <p>当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：<a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs">https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs</a></p>
-</div>]]></content:encoded></item><item><title><![CDATA[小述系列最终篇：说说《大道至易：实践者的思想》]]></title><description><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
-<blockquote>
-<p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
-<p>所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。</p>
-<p>本电子书可自由下载和传播。</p>
-</blockquote>
-<h2 id="">霍泰稳先生的序</h2>
-<p>认识泰稳兄已经很多年，第一次请他写序。之所以邀他来写，是因为他是少见的、有着对技术深刻理解的管理者。这十多年来，国内IT技术的、尤其是工程与管理相关的每一次动荡变化，他都是参与者与亲历者。</p>
-<p>而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“</p></div>]]></description><link>http://aimingoo.github.io/1-1736/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5bb</guid><category><![CDATA[电子书]]></category><category><![CDATA[出版]]></category><category><![CDATA[软件工程]]></category><category><![CDATA[大道至易]]></category><category><![CDATA[书序书评]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 30 Jul 2017 03:35:54 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p><img src="http://aimingoo.github.io/content/images/2017/06/poster-1.jpg" alt="poster-1"></p>
-<blockquote>
-<p>这最后一篇小述，是写《大道至易》的。我想我又是犯了文绉绉的老毛病，把这篇“述”写成了自说自话的道可道与非常道。之所以写得这么晦涩难看，除了拽拽文之外，其实可能最大的原因还是自己吃得不够透彻，所以表达上就深入得进去，却浅不出来……</p>
-<p>所谓大道，终归是难写的，所以还是请大家原谅我的这些不成熟吧。</p>
-<p>本电子书可自由下载和传播。</p>
-</blockquote>
-<h2 id="">霍泰稳先生的序</h2>
-<p>认识泰稳兄已经很多年，第一次请他写序。之所以邀他来写，是因为他是少见的、有着对技术深刻理解的管理者。这十多年来，国内IT技术的、尤其是工程与管理相关的每一次动荡变化，他都是参与者与亲历者。</p>
-<p>而到了现在，在他成功地管理着极客邦、InfoQ等等公司的时候，他说出的秘诀却是“落地为要”四个字。这令我钦佩，也令我感叹：知易而行难，泰稳兄选的是一条更难的路。我不及泰稳的地方便是在这里，这些年来，从《大道至简》到《大道至易》，我一直是在“谈”一种工程，以及“谈”这种工程下的管理，我称之为“具体工程”。而我所谈诸多，也莫过于“落地”二字之要：这二字的前面，是我所经历与感悟的种种工程与思想；其后面，于读者而言的，不过是“具体到项目该怎么做”这样的一句发问。</p>
-<p>我写《大道至易》的本意，就是不想教读者怎么“去做”。然而清谈无用，还要先有行，才有思的。所以我是期望读者在做的过程中，哪怕有一霎时的反思能触到书中的所言，便是我做到了。</p>
-<p>只是一如书中所言：</p>
-<blockquote>
-<p>“拉屎就算是一项工程，具体来说，也得自己拉”</p>
-</blockquote>
-<p>——行是你的事。</p>
-<h2 id="">这本书是最难写的</h2>
-<p>这本书原是其第一版中的一编，它是成书最晚的部分。我是先回顾了自己对技术的认识，这大概只写了半年（即《程序原本》）；再用半年就写完了对自己架构观点的总结（即《我的架构思想》）。然而在写本编时，却用了接近一年的时间；我不是一个情绪化的人，其间却好几次写到情绪失控，几乎无法完成本编。</p>
-<p>而书中却看不到“我的情绪”——这就是《大道至易》最难写的地方。</p>
-<p>有所谓“大义微言”，这是指《春秋》一书以记事为条贯，而微言大义与其中。我虽然没有什么“大义”要讲，却不慎地采用了“微言”这一写法。所以令读者可读可受而不自知，原本就是目的与方法所在。这是难写处之一。</p>
-<p>难处之二在于要谈什么。</p>
-<p>《大道至易》根底里还是要谈软件工程的，毕竟它是承续《大道至简》而来。但我越来越发现，《大道至简》所讲的其实只是工程的要略，而不是工程之实作。工程要实际做起来的时候，人、事和物是一个也分不开的。也就是说，真正的在做工程的时候，你面临的并不是敏捷不敏捷、方法不方法，而是各种扯皮、各种纷乱，以及具体到的那个产品做不出来。</p>
-<p>——没有那么多理论让你可用，也没有一个具体可行的、不会出错的“最佳实践”让你去试。</p>
-<p>如《大道至易》书中所言，连佛祖都在教你拉屎，但你具体要拉的时候佛祖也是无能为力的。所以我也就不愿做那书写定规的佛祖，而只好写些让你“思而不解”的文字。</p>
-<p>要点是你要去思，才会有你的解。我不会比佛祖更强，他都教不了你拉屎，况乎我哉！</p>
-<blockquote>
-<p>注：别说我亵渎佛祖，的确有本《毗尼母经》写了佛祖教僧众拉屎的方法。</p>
-</blockquote>
-<h2 id="">所以……</h2>
-<p>要解决“人的问题”，核心是解决“权的问题”，更核心是解决“利的问题”。所谓“势者，利之所趋”，作为管理者，你懂得了所有人的“利的诉求”，你就看到了形势；你顺应了形势，也就事半功倍了。</p>
-<p>这是最最核心的那点观察。然而如果你从这本书中看到的就是权术，读到的就是势利，那就又错读了书。因为我并没有谈这些，我谈的仍然是工程中的种种，从学术的到民间的，从组织的到个人的，从团队到产品……总之，我要谈的仍然是你想做的那些具体的事。如同泰稳兄一开始所言：</p>
-<blockquote>
-<p>“大道至易，落地为要”</p>
-</blockquote>
-<p>我不能帮你走，所以我只能让你读到这些观察。这是我能告诉你的、或指示你去看到的、在这个地表上的真相。就如同书中一再用的那四个字：</p>
-<blockquote>
-<p>“这是现实”。</p>
-</blockquote>
-<h2 id="66">什么是“66%的从众者”</h2>
-<p>起初，这一系列（三本）电子书的封面是一直悬而未决的。我为此找过图灵的编辑，找过我曾经的同事……然而出于我对这本书前作封面的喜好，我否定了许多精彩而用心的设计（不好意思，此处确有私念）。直到我最终决定封面的风格时，便是先定下了这本《大道至易（第二版）》——也就是这黑黑的封面，而封皮上只有两个人，和一句话：</p>
-<blockquote>
-<p>“你是66%的从众者吗？”</p>
-</blockquote>
-<p>从《大道至简》的三人论道，变成如今的两人问诘。书的封面的变化，反映了我思想与陈述方法的变化 。如今，我不已不甚在意于“论”，而在意于“问”。</p>
-<p>正确的问题，本身就是答案。“你是66%的从众者吗？”如果不是，那么你是谁？你面对的是谁？他面对的是你吗？你何以知道他是从众者，而你不是？若他追随你，又何以证明不是在从众？若不追随你，那又何谓从众？从众的本质属性是什么？是管理与控制？是精神教化？是同理心？若这些是本质属性，那么为什么不是你的属性？你何以觉出“这些”是或不是你的属性？</p>
-<p>若三人为众，那么这三个人，又有哪一个不是从众者呢？</p>
-<h2 id="">要懂得人</h2>
-<p>现在你大概已经知道了，这本书之最难处，在于我谈的是人性，而不是工程的方法。</p>
-<p>懂得人心，才是具体工程的要义。</p>
-<p>心变，则万物为之变；这才是“易”理。</p>
-<h2 id="">要容人</h2>
-<p>所以，“易”是最难管的。你的团队的每个人都活在自己的心上，而你连我心都安不下来，谈何去管别人的。收束人心，大概是为人父母者最悲剧的事情了；如你所知的，连天下父母也无法收束的心，又如何能让管理者去收束。</p>
-<p>哪有这样的道理啊。</p>
-<p>所以莫老想着要管这管那，莫老想着要管人管事。所谓“管”，就是官头上的帽子，你越努力去管，就越是官相毕现，而被管者就越是奴相毕现。所以我说“要做事，不要管理”，容得大家一门心思地去把事情做好，那么管不管，有什么要紧？</p>
-<p>所以要“容得下易”。容得下易，也就是容得下可变之心；心可变了，才有万物之可变，才有生活之气象。所以总有团队会死气沉沉，总有产品会胎死腹中，总有工程会不知其所终……</p>
-<p>容不下变化，那么就死路一条了。</p>
-<h2 id="">下载</h2>
-<p><strong>1. 高质量的PDF版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.zip">【下载】</a></strong></p>
-<p>推荐在桌面系统、PAD或大屏幕移动设备上阅读。</p>
-<p><strong>2. 适用于Kindle的版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.azw3">【下载】</a></strong></p>
-<p>下载后用USB上传到Kindle即可。</p>
-<blockquote>
-<p>如果你使用Amazon的“发送到设备”服务，那么这本书是不显示封面的。并且可能你需要将书的扩展名从.azw3改为.mobi。</p>
-<p>上述的修改不影响阅读效果。</p>
-</blockquote>
-<p><strong>3. 使用了SVG图的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.epub">【下载】</a></strong></p>
-<p>推荐在Macbook、iPhone或iPad中的iBooks软件上阅读。在其它支持“内置SVG图的.epub电子书”的阅读器上也有较好的阅读效果。</p>
-<p><strong>4. 一般质量图片的.epub版本 <a href="http://aimingoo.github.io/content/images/attachments/Tao-Easy_and_Changes.epub">【下载】</a></strong></p>
-<p>一般的掌上阅读软件都可以支持。</p>
-<p><strong>5. 低版本Kindle使用的阅读格式</strong></p>
-<p>即低版本.mobi文件，阅读体验较差。请移驾我的Github（<a href="https://github.com/aimingoo/my-ebooks">在这里</a>）获取下载。</p>
-<h2 id="">其它下载点(不定期更新)</h2>
-<ul>
-<li>
-<p>CSDN下载页：<a href="http://download.csdn.net/user/aimingoo/uploads">http://download.csdn.net/user/aimingoo/uploads</a></p>
-</li>
-<li>
-<p>图灵出版社区：<a href="http://www.ituring.com.cn/book/2428">http://www.ituring.com.cn/book/2428</a></p>
-</li>
-<li>
-<p>我的Github：<a href="http://github.com/aimingoo/my-ebooks">http://github.com/aimingoo/my-ebooks</a></p>
-</li>
-</ul>
 </div>]]></content:encoded></item></channel></rss>
