@@ -69,6 +69,34 @@ ghost.init({
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-yu-yan tag-lisp tag-delphiyuan-dai-ma-fen-xi" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-61.html">从表达式到变量：一行scheme代码之所见</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>下面这行代码在scheme中是可以执行的，其结果值为12: ((if #f + *) 3 4) 在scheme中，一对括号表明过程调用。括号中的第一个参数是过程名，其余的则是过程参数。 那么，我们先看内层括号中的代码： (if #f + *) if是一个过程名，而不是语句。该过程相当于JavaScript或C中的三元表达式，或者其它语言中的一个if语句（的效果）。试以javascript来描述它的效果（以下语句中的字符串定义，只是语义上的含义，并不表明它是字符串）： var q = '# ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/yu-yan/">语言</a>, <a href="/tag/lisp/">lisp</a>, <a href="/tag/delphiyuan-dai-ma-fen-xi/">代码分析</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2007-02-12T09:56:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2007-02-12">(2007-02-12)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/yu-yan/">语言</a>, <a href="/tag/lisp/">lisp</a>, <a href="/tag/delphiyuan-dai-ma-fen-xi/">代码分析</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-61.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-javascript tag-opensource-project tag-qomo" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-60.html">Qomolangma.V1.0的发布说明</a></h1>
@@ -458,34 +486,6 @@ ghost.init({
             </span>
             <span class="post-meta-item pull-right">
                 <a class="read-more" href="/1-51.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
-            <article class="post tag-opensource-project tag-gong-ju" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-50.html">【原创】搞了个NetGear的路由器，为此写了个小程序来查Wan IP.</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>用了无线路由之后，原来的外网IP变成了内网IP。想从外网连回到家里的机器，费大了劲儿去了。网上找了不少时间，象ipchicken.com这种网站用起来总是不爽，多费道手脚；象MyWANIP或IP2这种工具，也是连到公网的网站上，然后反查IP地址的，还是不爽。 最重要的是，这些工具/网站都不支持命令行模式。想要写个批处理来支持远程连接的开、关都麻烦。恨之极也！ 然后就自己写了一个。用wsh。基本上没花什么手脚，轻轻松松。 使用起来也很简单。例如NetGear这个路由，有一个内网的登录管理界面。初始时的帐号是： ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/gong-ju/">工具</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-10-09T22:23:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-10-09">(2006-10-09)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/gong-ju/">工具</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-50.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
             </span>
         </footer>
     </article>

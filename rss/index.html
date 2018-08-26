@@ -1,4 +1,175 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Fri, 24 Aug 2018 02:58:12 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[JavaScript的元系统]]></title><description><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sun, 26 Aug 2018 06:14:53 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[JavaScript中创建原子的几种方法]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是“JavaScript的元语言”系列中的一篇。其它内容参见：</p>
+<ul>
+<li>JavaScript的元系统: <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">https://aimingoo.github.io/5b7f6efac66182831afb497b.html</a></li>
+</ul>
+</blockquote>
+<p>JavaScript中可以通过<code>Object.create(null)</code>来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。</p>
+<h2 id="">创建原子</h2>
+<ul>
+<li>使用Object.create()</li>
+</ul>
+<pre><code class="language-javascript">// 方法1
+atom = Object.create(null)
+</code></pre>
+<ul>
+<li>使用Object.setPrototypeOf()</li>
+</ul>
+<pre><code class="language-javascript">// 方法2
+atom = Object.setPrototypeOf(new Object, null)
+
+// OR
+atom = Object.setPrototypeOf({}, null)
+</code></pre>
+<ul>
+<li>重置构造器的原型属性</li>
+</ul>
+<pre><code class="language-javascript">// 方法3
+function MyObject() {
+    // ...
+}
+Object.setPrototypeOf(MyObject.</code></pre></div>]]></description><link>http://aimingoo.github.io/5b824316c66182831afb4982/</link><guid isPermaLink="false">5b824316c66182831afb4982</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 26 Aug 2018 06:06:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是“JavaScript的元语言”系列中的一篇。其它内容参见：</p>
+<ul>
+<li>JavaScript的元系统: <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">https://aimingoo.github.io/5b7f6efac66182831afb497b.html</a></li>
+</ul>
+</blockquote>
+<p>JavaScript中可以通过<code>Object.create(null)</code>来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。</p>
+<h2 id="">创建原子</h2>
+<ul>
+<li>使用Object.create()</li>
+</ul>
+<pre><code class="language-javascript">// 方法1
+atom = Object.create(null)
+</code></pre>
+<ul>
+<li>使用Object.setPrototypeOf()</li>
+</ul>
+<pre><code class="language-javascript">// 方法2
+atom = Object.setPrototypeOf(new Object, null)
+
+// OR
+atom = Object.setPrototypeOf({}, null)
+</code></pre>
+<ul>
+<li>重置构造器的原型属性</li>
+</ul>
+<pre><code class="language-javascript">// 方法3
+function MyObject() {
+    // ...
+}
+Object.setPrototypeOf(MyObject.prototype, null);
+
+atom = new MyObject;
+</code></pre>
+<ul>
+<li>重置类的原型</li>
+</ul>
+<p>注：“非派生类（没有extends声明的类）”，与将一个普通函数用作构造器时的特性基本一致。</p>
+<pre><code class="language-javascript">class MyClass {
+    // ...
+}
+Object.setPrototypeOf(MyClass.prototype, null);
+
+atom = new MyClass;
+</code></pre>
+<ul>
+<li>使用派生自null值的类</li>
+</ul>
+<p>JavaScript在处理<code>extends null</code>时会将<code>MyClass.prototype</code>的原型置为<code>null</code>，因此这个类构建的实例自然就是atom。但是，派生自null值的类无法直接构建，因此需要声明自己的构造方法（以该方法创建和返回的对象作为this）。</p>
+<pre><code class="language-javascript">// 方法4
+class MyClass extends null {
+    constructor() {
+        return Object.create(new.target.prototype);
+    }
+}
+atom = new MyClass;
+</code></pre>
+<p>上例在实现构造方法<code>constructor()</code>时是直接引用<code>new.target.prototype</code>来作为原型的，这样也就可以在<code>new</code>运算时引用到<code>MyClass</code>子类的原型。例如：</p>
+<pre><code class="language-javascript">// 方法5
+class MyClassEx extends MyClass {
+    get description() {
+        return 'class MyClassEx';
+    }
+}
+atom = new MyClassEx;
+console.log(atom.description); // class MyClassEx
+</code></pre>
+<ul>
+<li>使用一般函数并直接返回原子</li>
+</ul>
+<p>下面的代码是兼容构造器、原型继承和函数调用等方式的。</p>
+<pre><code class="language-javascript">// 方法6
+// （当作为函数调用时,new.target为undefined值）
+function MyAtom() {
+    return Object.create(new.target &amp;&amp; new.target.prototype || null);
+}
+
+// 示例1
+atom = new MyAtom;
+// 示例2
+atom = MyAtom();
+</code></pre>
+<h2 id="">使用类来创建原子的一个特例</h2>
+<p>在上述方法4中，由于声明了<code>extends null</code>，因此类<code>MyClass</code>必须拥有一个自己的构造方法。但事实上在JavaScript中，<code>extends null</code>所表达的含义是：</p>
+<ul>
+<li>因为有<code>extends</code>声明，所以默认的<code>constructor()</code>将总是调用父类<code>super()</code>来创建实例（亦即是所谓“<code>this</code>引用总是由祖先类创建的”）；但是，</li>
+<li>由于<code>extends null</code>意味着父类为null，因此“调用父类<code>super()</code>”失败。</li>
+</ul>
+<p>这是类<code>MyClass</code>不能使用默认的<code>constructor()</code>——而“通常”必须由用户代码来实现构造方法的原因。然而JavaScript只是在静态语法分析时才通过<code>extends null</code>来识别父类，真正在运行期时，它是通过方法的内部槽(<code>[[HomeObject]]</code>)来动态查找super的。——由于该内部槽指向类<code>MyClass</code>（或类的原型属性<code>MyClass.prototype</code>），因此所谓的<code>super</code>其实就是如下的运算值：</p>
+<pre><code class="language-javascript">// for static class methods
+_super = Object.getPrototypeOf(MyClass)
+
+// for instance methods
+_super = Object.getPrototypeOf(MyClass.prototype)
+</code></pre>
+<p>既然如此，我们就可以通过如下的代码来声明一个“可以创建原子”的类。例如：</p>
+<pre><code class="language-javascript">// 方法7
+Atom = Object.setPrototypeOf(class extends null {}, Object)
+atom = new Atom;
+</code></pre>
+<p>在这个方法中，实际上Atom指向类表达式，并且重置了它的原型：</p>
+<pre><code class="language-javascript">// （如下等价于方法7的第一行代码）
+Atom = class extends null {};
+Object.setPrototypeOf(Atom.prototype, null);
+Object.setPrototypeOf(Atom, Object);
+</code></pre>
+<p>其中<code>extends null</code>决定了<code>Atom.prototype</code>的原型指向一个null值，而<code>setPrototypeOf(...)</code>决定了当<code>new Atom()</code>时，对象实际上是由<code>Object()</code>——这个super来创建的。因此，当<code>new Atom</code>时，实际发生的操作是：</p>
+<pre><code class="language-javascript">// （如下等价于方法7的第二行代码）
+_this = new Object(); // call super()
+Object.setPrototypeOf(_this, Atom.prototype); // prototype is null
+atom = _this;
+</code></pre>
+<p>所以方法7是一种能够“利用JavaScript原生构造器”来创建原子的技巧。比如最简单的获得一个<code>Arguments()</code>构造器的方法其实是这样：</p>
+<pre><code class="language-javascript">let Arguments = Object.setPrototypeOf(class extends null {}, Array);
+</code></pre>
+<p>这样得到的对象将与JavaScript内置在函数调用中创建的<code>argument</code>完全一致：</p>
+<pre><code class="language-javascript">// （JavaScript的arguments对象也是原子）
+let arguments = new Arguments(1,2,3); // more paraments
+</code></pre>
+<p>不过在ES6中<code>arguments</code>也实现了迭代器界面，因此需要一行额外的代码来处理之：</p>
+<pre><code class="language-javascript">// for ES6
+Arguments.prototype[Symbol.iterator] = [][Symbol.iterator];
+</code></pre>
+<h2 id="">其它</h2>
+<h4 id="1">1. 关于映射类</h4>
+<p>在Metameta(<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>)中，可以使用<code>Meta.from()</code>来得到一个映射类，这与上面的方法7是相同的方式：</p>
+<pre><code class="language-javascript">// 方法8（in metameta）
+MyAtomObject = Meta.from(Object);
+atom = new MyAtomObject;
+</code></pre>
+<p>有趣的是，这样得到的“<code>MyAtomObject</code>类”（在Metameta中称为<code>Objext</code>类）将继承所有来自<code>Object.xxx</code>的类方法，例如<code>Object.keys()</code>等。这些方法在元系统中也是可以直接使用的。例如：</p>
+<pre><code class="language-javascript">// (in metameta)
+Objext = Meta.from(Object);
+Objext.keys(new Objext);
+</code></pre>
+<h4 id="2extendsnewtarget">2. 关于<code>extends new.target</code></h4>
+<p>上面在方法4中提到<code>extends null</code>相当于将<code>MyClass.prototype</code>的原型设为null，——在方法7中也使用了这一技巧——因此事实上在Metameta(<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>)中实现MetaMeta()时，采用的<code>extends new.target</code>也就相当于：</p>
+<pre><code class="language-javascript">// class MyClass extends new.target ...
+Object.setPrototypeOf(MyClass.prototype, new.target)
+</code></pre>
+<p>这一技巧用在类的<code>constructor()</code>方法中，返回一个新的类（类声明的表达式）。</p>
+</div>]]></content:encoded></item><item><title><![CDATA[JavaScript的元系统]]></title><description><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
 <blockquote>
 <p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
 </blockquote>
@@ -1610,100 +1781,4 @@ Serving HTTP on 0.0.0.0 port 8000 ...
 <li><a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a></li>
 <li><a href="http://aimingoo.github.io/1-1744.html">Monster的三种工作模式</a></li>
 </ul>
-</div>]]></content:encoded></item><item><title><![CDATA[简单实现Ghost Theme的置顶效果]]></title><description><![CDATA[<div class="kg-card-markdown"><p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
-<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
-<h2 id="loop">找到loop</h2>
-<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
-<pre><code class="language-html">&lt;div class=&quot;content-cards&quot;&gt;
-  {{#foreach posts}}
-...
-  {{/foreach}}
-&lt;/div&gt;
-
-{{!-- Previous/next page links - displayed on every page --}}
-{{pagination}</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1739/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5bc</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 09 Aug 2017 06:22:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>在<a href="http://aimingoo.github.io/1-1721.html">《手记3：实例教学之Ghost模板定制》</a>里面我提到了在Theme中“指定文章置顶”的方法，但说得不细致。这里便重新写一个简单的指引。</p>
-<p>下面的内容以affinity为例，这个Theme在这里：<a href="https://github.com/Showfom/Affinity">https://github.com/Showfom/Affinity</a></p>
-<h2 id="loop">找到loop</h2>
-<p>在<code>affinity/partials</code>目录中的<code>loop.hbs</code>是一个关键文件，它通常如下结构（<a href="https://github.com/Showfom/Affinity/blob/master/affinity/partials/loop.hbs">代码在这里</a>）：</p>
-<pre><code class="language-html">&lt;div class=&quot;content-cards&quot;&gt;
-  {{#foreach posts}}
-...
-  {{/foreach}}
-&lt;/div&gt;
-
-{{!-- Previous/next page links - displayed on every page --}}
-{{pagination}}
-</code></pre>
-<p>我们将这一对<code>{{#foreach}}</code>标签中（含标签本身）的全部内容剪切出来，并放到一个新的的<code>partials/content_post.hbs</code>文件去。然后，将<code>content_post.hbs</code>复制一份，命名为<code>content_featured.hbs</code>。这样，在<code>partials</code>目录中就有了下面三个文件：</p>
-<pre><code>partials/loop.hbs
-partials/content_post.hbs
-partials/content_featured.hbs
-</code></pre>
-<h2 id="loop">在loop中标记置顶贴</h2>
-<p>现在<code>loop.hbs</code>中还有一对<code>div</code>标签：：</p>
-<pre><code class="language-html">&lt;div class=&quot;content-cards&quot;&gt;
-&lt;/div&gt;
-</code></pre>
-<p>我们只需要把下面的代码直接复制到这一对标签之中，就好了：</p>
-<pre><code class="language-html">&lt;!-- 置顶风格 --&gt;
-{{^is &quot;paged&quot;}}
-  {{! list all feated posts on top }}
-  {{#is &quot;index&quot;}}
-  {{#get &quot;posts&quot; filter=&quot;featured:true&quot; limit=&quot;all&quot; include=&quot;tags&quot; as |featured|}}
-  {{#foreach featured}}
-      {{&gt; content_featured}}
-  {{/foreach}}
-  {{/get}}
-  {{/is}}
-
-  {{#is &quot;author&quot;}}
-  {{#get &quot;posts&quot; filter=&quot;featured:true+author:{{author.slug}}&quot; limit=&quot;all&quot; include=&quot;tags&quot; as |featured|}}
-  {{#foreach featured}}
-      {{&gt; content_featured}}
-  {{/foreach}}
-  {{/get}}
-  {{/is}}
-{{/is}}
-
-&lt;!-- 普通风格 --&gt;
-  {{#foreach posts}}
-    {{#is &quot;tag&quot;}}
-        {{&gt; content_post}}
-    {{else}}
-        {{#unless featured}}
-        {{&gt; content_post}}
-        {{/unless}}
-    {{/is}}
-  {{/foreach}}
-</code></pre>
-<h2 id="">设定置顶贴的效果</h2>
-<p>现在你只需要修改<code>partials/content_featured.hbs</code>中的样式，就可以定制你需要的置顶贴的效果了。以affinity为例，我在<code>content_featured.hbs</code>中的下面代码位置添加了一个<code>featured</code>类名：</p>
-<pre><code>      ...
-      &lt;header class=&quot;card-header featured&quot;&gt;
-        &lt;div class=&quot;card-title&quot;&gt;
-
-</code></pre>
-<p>然后，找到<code>assets/css/screen.css</code>文件，添加这个类的CSS样式：</p>
-<pre><code class="language-css">.content-cards .featured {
-  border: 1px solid red;
-}
-</code></pre>
-<p>Ok. 你刷新一下博客效果，每个置顶贴的标题就加了个红框框啦。</p>
-<blockquote>
-<p>更多的效果请自己搞哇。</p>
-</blockquote>
-<h2 id="">确认置顶效果会影响的内容</h2>
-<p>你可以简单地通过下面的方法确认它会影响到的页面：</p>
-<pre><code class="language-bash">&gt; cd affinity
-&gt; grep -H 'loop' *.hbs
-index.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}
-index.hbs:{{&gt; &quot;loop&quot;}}
-tag.hbs:{{!-- The tag below includes the post loop - partials/loop.hbs --}}
-tag.hbs:{{&gt; &quot;loop&quot;}}
-</code></pre>
-<p>这说明tag和index页会受到loop的影响——不过在前面文章里我已经说过，置顶效果是无法影响到tag页的。所以……另外，事实上这里可以列出有index.hbs、author.hbs和tag.hbs三种页面的，只是affinity这个theme没有author.hbs页罢了。</p>
-<h2 id="loophbs">如果没有loop.hbs</h2>
-<p>如上所提示到的，如果<code>loop.hbs</code>没有单独地放在<code>partials</code>目录中，那么它可能直接用一对标签<code>{{#foreach posts}}</code>放在index、author或tag三个页面中了。找一找？</p>
-<p>你可以直接参考本文来处理这个<code>foreach</code>。或者，我建议把这部分内容/代码取出来放在<code>loop.hbs</code>中，然后再照本文所述处理就好啦。</p>
-<p>当然，这种情况下你得把loop.hbs作为子模板嵌入到index、author或tag页面中，这个请参考affinity就好了。在这里：<a href="https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs">https://github.com/Showfom/Affinity/blob/master/affinity/index.hbs</a></p>
 </div>]]></content:encoded></item></channel></rss>

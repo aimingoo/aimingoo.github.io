@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JavaScript中创建原子的几种方法</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=919e102fe9" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=919e102fe9" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="JavaScript中创建原子的几种方法" />
+    <meta property="og:description" content="本文是“JavaScript的元语言”系列中的一篇。其它内容参见： JavaScript的元系统: https://aimingoo.github.io/5b7f6efac66182831afb497b.html JavaScript中可以通过Object.create(null)来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。 创建原子 使用Object.create() // 方法1 atom &#x3D; Object.create(null) 使用Object.setPrototypeOf() // 方法2 atom &#x3D; Object.setPrototypeOf(new Object, null) // OR atom &#x3D; Object.setPrototypeOf({}, null) 重置构造器的原型属性 // 方法3 function MyObject() {     // ... } Object.setPrototypeOf(MyObject.prototype," />
+    <meta property="og:url" content="http://aimingoo.github.io/5b824316c66182831afb4982.html" />
+    <meta property="article:published_time" content="2018-08-26T06:06:59.000Z" />
+    <meta property="article:modified_time" content="2018-08-26T06:06:59.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="语言" />
+    <meta property="article:tag" content="元语言" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="JavaScript中创建原子的几种方法" />
+    <meta name="twitter:description" content="本文是“JavaScript的元语言”系列中的一篇。其它内容参见： JavaScript的元系统: https://aimingoo.github.io/5b7f6efac66182831afb497b.html JavaScript中可以通过Object.create(null)来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。 创建原子 使用Object.create() // 方法1 atom &#x3D; Object.create(null) 使用Object.setPrototypeOf() // 方法2 atom &#x3D; Object.setPrototypeOf(new Object, null) // OR atom &#x3D; Object.setPrototypeOf({}, null) 重置构造器的原型属性 // 方法3 function MyObject() {     // ... } Object.setPrototypeOf(MyObject.prototype," />
+    <meta name="twitter:url" content="http://aimingoo.github.io/5b824316c66182831afb4982.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 语言, 元语言" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "JavaScript中创建原子的几种方法",
+    "url": "http://aimingoo.github.io/5b824316c66182831afb4982.html",
+    "datePublished": "2018-08-26T06:06:59.000Z",
+    "dateModified": "2018-08-26T06:06:59.000Z",
+    "keywords": "Javascript, 语言, 元语言",
+    "description": "本文是“JavaScript的元语言”系列中的一篇。其它内容参见： JavaScript的元系统: https://aimingoo.github.io/5b7f6efac66182831afb497b.html JavaScript中可以通过Object.create(null)来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。 创建原子 使用Object.create() // 方法1 atom &#x3D; Object.create(null) 使用Object.setPrototypeOf() // 方法2 atom &#x3D; Object.setPrototypeOf(new Object, null) // OR atom &#x3D; Object.setPrototypeOf({}, null) 重置构造器的原型属性 // 方法3 function MyObject() {     // ... } Object.setPrototypeOf(MyObject.prototype,",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=919e102fe9"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-javascript tag-yu-yan tag-yuan-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=919e102fe9"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-javascript tag-yu-yan tag-yuan-yu-yan">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/5b824316c66182831afb4982.html">JavaScript中创建原子的几种方法</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2018-08-26T14:06:59.5959+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2018-08-26">(2018-08-26)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/yuan-yu-yan/">元语言</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><blockquote>
+<p>本文是“JavaScript的元语言”系列中的一篇。其它内容参见：</p>
+<ul>
+<li>JavaScript的元系统: <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">https://aimingoo.github.io/5b7f6efac66182831afb497b.html</a></li>
+</ul>
+</blockquote>
+<p>JavaScript中可以通过<code>Object.create(null)</code>来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。</p>
+<h2 id="">创建原子</h2>
+<ul>
+<li>使用Object.create()</li>
+</ul>
+<pre><code class="language-javascript">// 方法1
+atom = Object.create(null)
+</code></pre>
+<ul>
+<li>使用Object.setPrototypeOf()</li>
+</ul>
+<pre><code class="language-javascript">// 方法2
+atom = Object.setPrototypeOf(new Object, null)
+
+// OR
+atom = Object.setPrototypeOf({}, null)
+</code></pre>
+<ul>
+<li>重置构造器的原型属性</li>
+</ul>
+<pre><code class="language-javascript">// 方法3
+function MyObject() {
+    // ...
+}
+Object.setPrototypeOf(MyObject.prototype, null);
+
+atom = new MyObject;
+</code></pre>
+<ul>
+<li>重置类的原型</li>
+</ul>
+<p>注：“非派生类（没有extends声明的类）”，与将一个普通函数用作构造器时的特性基本一致。</p>
+<pre><code class="language-javascript">class MyClass {
+    // ...
+}
+Object.setPrototypeOf(MyClass.prototype, null);
+
+atom = new MyClass;
+</code></pre>
+<ul>
+<li>使用派生自null值的类</li>
+</ul>
+<p>JavaScript在处理<code>extends null</code>时会将<code>MyClass.prototype</code>的原型置为<code>null</code>，因此这个类构建的实例自然就是atom。但是，派生自null值的类无法直接构建，因此需要声明自己的构造方法（以该方法创建和返回的对象作为this）。</p>
+<pre><code class="language-javascript">// 方法4
+class MyClass extends null {
+    constructor() {
+        return Object.create(new.target.prototype);
+    }
+}
+atom = new MyClass;
+</code></pre>
+<p>上例在实现构造方法<code>constructor()</code>时是直接引用<code>new.target.prototype</code>来作为原型的，这样也就可以在<code>new</code>运算时引用到<code>MyClass</code>子类的原型。例如：</p>
+<pre><code class="language-javascript">// 方法5
+class MyClassEx extends MyClass {
+    get description() {
+        return 'class MyClassEx';
+    }
+}
+atom = new MyClassEx;
+console.log(atom.description); // class MyClassEx
+</code></pre>
+<ul>
+<li>使用一般函数并直接返回原子</li>
+</ul>
+<p>下面的代码是兼容构造器、原型继承和函数调用等方式的。</p>
+<pre><code class="language-javascript">// 方法6
+// （当作为函数调用时,new.target为undefined值）
+function MyAtom() {
+    return Object.create(new.target &amp;&amp; new.target.prototype || null);
+}
+
+// 示例1
+atom = new MyAtom;
+// 示例2
+atom = MyAtom();
+</code></pre>
+<h2 id="">使用类来创建原子的一个特例</h2>
+<p>在上述方法4中，由于声明了<code>extends null</code>，因此类<code>MyClass</code>必须拥有一个自己的构造方法。但事实上在JavaScript中，<code>extends null</code>所表达的含义是：</p>
+<ul>
+<li>因为有<code>extends</code>声明，所以默认的<code>constructor()</code>将总是调用父类<code>super()</code>来创建实例（亦即是所谓“<code>this</code>引用总是由祖先类创建的”）；但是，</li>
+<li>由于<code>extends null</code>意味着父类为null，因此“调用父类<code>super()</code>”失败。</li>
+</ul>
+<p>这是类<code>MyClass</code>不能使用默认的<code>constructor()</code>——而“通常”必须由用户代码来实现构造方法的原因。然而JavaScript只是在静态语法分析时才通过<code>extends null</code>来识别父类，真正在运行期时，它是通过方法的内部槽(<code>[[HomeObject]]</code>)来动态查找super的。——由于该内部槽指向类<code>MyClass</code>（或类的原型属性<code>MyClass.prototype</code>），因此所谓的<code>super</code>其实就是如下的运算值：</p>
+<pre><code class="language-javascript">// for static class methods
+_super = Object.getPrototypeOf(MyClass)
+
+// for instance methods
+_super = Object.getPrototypeOf(MyClass.prototype)
+</code></pre>
+<p>既然如此，我们就可以通过如下的代码来声明一个“可以创建原子”的类。例如：</p>
+<pre><code class="language-javascript">// 方法7
+Atom = Object.setPrototypeOf(class extends null {}, Object)
+atom = new Atom;
+</code></pre>
+<p>在这个方法中，实际上Atom指向类表达式，并且重置了它的原型：</p>
+<pre><code class="language-javascript">// （如下等价于方法7的第一行代码）
+Atom = class extends null {};
+Object.setPrototypeOf(Atom.prototype, null);
+Object.setPrototypeOf(Atom, Object);
+</code></pre>
+<p>其中<code>extends null</code>决定了<code>Atom.prototype</code>的原型指向一个null值，而<code>setPrototypeOf(...)</code>决定了当<code>new Atom()</code>时，对象实际上是由<code>Object()</code>——这个super来创建的。因此，当<code>new Atom</code>时，实际发生的操作是：</p>
+<pre><code class="language-javascript">// （如下等价于方法7的第二行代码）
+_this = new Object(); // call super()
+Object.setPrototypeOf(_this, Atom.prototype); // prototype is null
+atom = _this;
+</code></pre>
+<p>所以方法7是一种能够“利用JavaScript原生构造器”来创建原子的技巧。比如最简单的获得一个<code>Arguments()</code>构造器的方法其实是这样：</p>
+<pre><code class="language-javascript">let Arguments = Object.setPrototypeOf(class extends null {}, Array);
+</code></pre>
+<p>这样得到的对象将与JavaScript内置在函数调用中创建的<code>argument</code>完全一致：</p>
+<pre><code class="language-javascript">// （JavaScript的arguments对象也是原子）
+let arguments = new Arguments(1,2,3); // more paraments
+</code></pre>
+<p>不过在ES6中<code>arguments</code>也实现了迭代器界面，因此需要一行额外的代码来处理之：</p>
+<pre><code class="language-javascript">// for ES6
+Arguments.prototype[Symbol.iterator] = [][Symbol.iterator];
+</code></pre>
+<h2 id="">其它</h2>
+<h4 id="1">1. 关于映射类</h4>
+<p>在Metameta(<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>)中，可以使用<code>Meta.from()</code>来得到一个映射类，这与上面的方法7是相同的方式：</p>
+<pre><code class="language-javascript">// 方法8（in metameta）
+MyAtomObject = Meta.from(Object);
+atom = new MyAtomObject;
+</code></pre>
+<p>有趣的是，这样得到的“<code>MyAtomObject</code>类”（在Metameta中称为<code>Objext</code>类）将继承所有来自<code>Object.xxx</code>的类方法，例如<code>Object.keys()</code>等。这些方法在元系统中也是可以直接使用的。例如：</p>
+<pre><code class="language-javascript">// (in metameta)
+Objext = Meta.from(Object);
+Objext.keys(new Objext);
+</code></pre>
+<h4 id="2extendsnewtarget">2. 关于<code>extends new.target</code></h4>
+<p>上面在方法4中提到<code>extends null</code>相当于将<code>MyClass.prototype</code>的原型设为null，——在方法7中也使用了这一技巧——因此事实上在Metameta(<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>)中实现MetaMeta()时，采用的<code>extends new.target</code>也就相当于：</p>
+<pre><code class="language-javascript">// class MyClass extends new.target ...
+Object.setPrototypeOf(MyClass.prototype, new.target)
+</code></pre>
+<p>这一技巧用在类的<code>constructor()</code>方法中，返回一个新的类（类声明的表达式）。</p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/5b7f6efac66182831afb497b.html">
+                    JavaScript的元系统
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=919e102fe9" />
+<script src="/assets/js/gitmint.browser.js?v=919e102fe9"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=919e102fe9"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=919e102fe9"></script>
+</body>
+
+</html>
