@@ -23,17 +23,17 @@
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="JavaScript的元系统" />
-    <meta property="og:description" content="JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。 原子（atom） 定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。 JavaScript中的对象就是一个属性包（properties bag, or" />
+    <meta property="og:description" content="JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 本文是一个系列，包括： JavaScript的元系统（本文） JavaScript中创建原子的几种方法 - 在这里 元类型系统是对JavaScript内建概念的补充 - 在这里 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。" />
     <meta property="og:url" content="http://aimingoo.github.io/5b7f6efac66182831afb497b.html" />
     <meta property="article:published_time" content="2018-08-24T02:57:14.000Z" />
-    <meta property="article:modified_time" content="2018-08-24T02:57:14.000Z" />
+    <meta property="article:modified_time" content="2018-08-28T03:00:37.000Z" />
     <meta property="article:tag" content="Javascript" />
     <meta property="article:tag" content="语言" />
     <meta property="article:tag" content="元语言" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="JavaScript的元系统" />
-    <meta name="twitter:description" content="JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。 原子（atom） 定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。 JavaScript中的对象就是一个属性包（properties bag, or" />
+    <meta name="twitter:description" content="JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 本文是一个系列，包括： JavaScript的元系统（本文） JavaScript中创建原子的几种方法 - 在这里 元类型系统是对JavaScript内建概念的补充 - 在这里 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。" />
     <meta name="twitter:url" content="http://aimingoo.github.io/5b7f6efac66182831afb497b.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -64,9 +64,9 @@
     "headline": "JavaScript的元系统",
     "url": "http://aimingoo.github.io/5b7f6efac66182831afb497b.html",
     "datePublished": "2018-08-24T02:57:14.000Z",
-    "dateModified": "2018-08-24T02:57:14.000Z",
+    "dateModified": "2018-08-28T03:00:37.000Z",
     "keywords": "Javascript, 语言, 元语言",
-    "description": "JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。 原子（atom） 定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。 JavaScript中的对象就是一个属性包（properties bag, or",
+    "description": "JavaScript的元系统 本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目@aimingoo/metameta的解析。 本文是一个系列，包括： JavaScript的元系统（本文） JavaScript中创建原子的几种方法 - 在这里 元类型系统是对JavaScript内建概念的补充 - 在这里 ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（a specification type）是用于描述和实现语言类型（language types）的元值（meta-values），另一处则是唯一被称为“元属性（Meta Property）”的new.target。 所以ECMAScript中是没有所谓“元系统（Meta system）”或“元类型系统（Meta type system）”。我们在这里先定义一个称为“原子（Atom）”的东西，并基于此来构建起一个完整的JavaScript元系统。",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io/"
@@ -147,6 +147,12 @@ ghost.init({
                 <div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
 <blockquote>
 <p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
+<p>本文是一个系列，包括：</p>
+<ul>
+<li>JavaScript的元系统（本文）</li>
+<li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
+<li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
+</ul>
 </blockquote>
 <p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
 <p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em>）”的东西，并基于此来构建起一个完整的JavaScript元系统。</p>

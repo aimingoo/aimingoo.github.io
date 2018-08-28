@@ -1,7 +1,158 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sun, 26 Aug 2018 06:14:53 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[JavaScript中创建原子的几种方法]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
-<p>本文是“JavaScript的元语言”系列中的一篇。其它内容参见：</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 28 Aug 2018 03:01:47 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[元类型系统是对JavaScript内建概念的补充]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是一个系列，包括：</p>
 <ul>
-<li>JavaScript的元系统: <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">https://aimingoo.github.io/5b7f6efac66182831afb497b.html</a></li>
+<li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
+<li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
+<li>元类型系统是对JavaScript内建概念的补充（本文）</li>
+</ul>
+</blockquote>
+<p>JavaScript的类型系统一贯是反人类的，以至于JavaScript之父Eich都会跳出来说“我做错了”。但是这并不是说它的整个类型系统就是不可理解的，相反，它提供了观察这门语言的多个不同角度。</p>
+<h2 id="javascript">远古JavaScript中的类型系统</h2>
+<p>在远古时期（我是指JavaScript 1.0）中，JavaScript的世界里还并没有“原型”这个东西，而且<code>undefined</code>也是一个奇葩的存在。</p>
+<p>这时的<code>undefined</code>是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有<code>===</code>和<code>!==</code>运算符，所以<code>undefined</code>被约定为与<code>null</code>是等值的。</p>
+<p>考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员：</p>
+<ul>
+<li>字符串值，空串是无值；</li></ul></div>]]></description><link>http://aimingoo.github.io/5b84b829c66182831afb4988/</link><guid isPermaLink="false">5b84b829c66182831afb4988</guid><category><![CDATA[Javascript]]></category><category><![CDATA[元语言]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 28 Aug 2018 02:56:40 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是一个系列，包括：</p>
+<ul>
+<li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
+<li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
+<li>元类型系统是对JavaScript内建概念的补充（本文）</li>
+</ul>
+</blockquote>
+<p>JavaScript的类型系统一贯是反人类的，以至于JavaScript之父Eich都会跳出来说“我做错了”。但是这并不是说它的整个类型系统就是不可理解的，相反，它提供了观察这门语言的多个不同角度。</p>
+<h2 id="javascript">远古JavaScript中的类型系统</h2>
+<p>在远古时期（我是指JavaScript 1.0）中，JavaScript的世界里还并没有“原型”这个东西，而且<code>undefined</code>也是一个奇葩的存在。</p>
+<p>这时的<code>undefined</code>是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有<code>===</code>和<code>!==</code>运算符，所以<code>undefined</code>被约定为与<code>null</code>是等值的。</p>
+<p>考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员：</p>
+<ul>
+<li>字符串值，空串是无值；</li>
+<li>数字值，NaN是无值（数字值中的0表达非值）；</li>
+<li>布尔值，false是非值（或也可以理解为无值）；</li>
+</ul>
+<p>接下来就是对象和函数。它们都是引用类型（从最早的JavaScript语言就这样定义了），而且也各有一个表达“无值”的方式：</p>
+<ul>
+<li>函数（以及表达式运算或值运算等）的结果：undefined</li>
+<li>对象：null</li>
+</ul>
+<p>这基本上就是JavaScript 1.0时代对类型系统的全部理解，以及假设。——之所以称之为假设，是因为这时连<code>typeof</code>运算符都没有，所我们无法在语言的层面上验证它。</p>
+<p>不过有趣的是，这个时代是支持面向对象编程的。JavaScript 1.0中的面向对象是“基于类”的，它有“类构造对象（的实例）”的概念：</p>
+<pre><code class="language-javascript">obj = new Object;
+
+// OR
+function MyObject() {
+    this.x = 100;
+}
+obj = new MyObject;
+</code></pre>
+<p>在这时，<code>Object</code>/<code>MyObject</code>已经被称为构造器（<em>constructor</em>）了。它采用的是被称为“类抄写”的方式，通过向实例“<code>this</code>”上添加成员来初始化对象。</p>
+<p>这个时代并没有原型继承，也不支持<code>instanceof</code>运算，因此尽管<code>Object</code>/<code>MyObject</code>执行“构造一个对象”的职责，却没有人认得它是“<code>类</code>”。由于JavaScript默认函数总是可以作<code>new</code>运算，并且<code>this</code>可以缺省指向<code>global</code>，因此它是不是“类”就不要紧，用new运算时都不会出错。</p>
+<blockquote>
+<p>NOTE1：往前追溯20多年，一本名为《结构程序设计（ Structured programming）》的书定义了面向对象编程。其中说：如果一个过程产生了比它生存时间更久的实例，那么这个过程就称为类，而这个实例就称为对象。因此，JavaScript 1.0时代的面向对象是古典的、传统的设计，不可思议却又历久弥新。</p>
+<p>NOTE2：有关JavaScript 1.0，可以参见这里：<a href="https://docs.oracle.com/cd/E19957-01/816-6408-10/object.htm#1193255">https://docs.oracle.com/cd/E19957-01/816-6408-10/object.htm#1193255</a></p>
+</blockquote>
+<h2 id="">概念灾难的源头</h2>
+<p>从JavaScript 1.1开始，这门语言总算提供了“识别自己的类型”的运算，也就是著名的<code>typeof</code>。在语义上，它提出的想法是：用<code>undefined</code>表达语言层面的“没有（无值）”。</p>
+<p>由于在JavaScript 1.0中已经为<code>string</code>、<code>boolean</code>等各自定义了一个它们在语言层面上的“没有”，因此这一设计也就保留了下来。在1.1中，<code>typeof</code>返回如下六个值之一：</p>
+<ul>
+<li>
+<p>针对值类型：'undefined'、'string'、'boolean'和'number'</p>
+</li>
+<li>
+<p>针对引用类型：'object'和'function'</p>
+</li>
+</ul>
+<p>有了<code>undefined</code>，JavaScript可以自如地表达类型间的运算，例如<code>A + B</code>。任何函数/过程总应该是有一个静态结果的，因此要么它是值，要么它就是无值（<em>undefined</em>）。——基本想法是：如果算不出结果，那么这个过程应当返回<code>undefined</code>。</p>
+<p>而<code>null</code>表示的是对象层面的没有，因此它被理解为一个对象，也就是说它的<code>typeof</code>值仍然是'object'。——就好象说NaN表达数值上的‘无值’，但仍然是数字值。例如：</p>
+<pre><code class="language-javascript">&gt; typeof null
+'object'
+</code></pre>
+<p>但是<code>null</code>又并不是由对象系统创建出来的，因此它不是<code>Object()</code>或其子类的实例。因此：</p>
+<pre><code class="language-javascript">&gt; null instanceof Object
+false
+</code></pre>
+<p>对象也会参与跨类型的值计算，因此它也需要一个“对象的值的含义”。于是<code>Object.prototype.valueOf()</code>就出现了。当JavaScript在值运算中发现操作数（x）是对象时，就会调用<code>x.valueof()</code>来得到它的值类型数据，并以此为操作数来进行值运算。这个过程很简洁，也很完美。</p>
+<p>稍稍差一点的是<code>null</code>，它是对象，但又不继承自<code>Object()</code>，所以没有<code>Object.prototype.valueOf()</code>，而它就必须“被理解”有自己的<code>value</code>。——但是，如果一个运算数“有自己的<code>value</code>”，那么它不就是值么？</p>
+<p>是的。概念开始混乱了。</p>
+<h2 id="javascript1x">JavaScript在1.x版本中确立的类型系统</h2>
+<p>无论如何，JavaScript在1.x版本中确立了自己对类型系统的理解。</p>
+<p><img src="http://aimingoo.github.io/content/images/types_in_javascript_1.x.png" alt="types_in_javascript_1.x"></p>
+<p>这个类型系统可以完美地概括JavaScript中可能的各种对象和概念理解。其中&quot;值类型&quot;用于进行值运算或表达值运算的结果，而引用类型用于“索引到”一个值。</p>
+<p>在这个系统中，<code>null</code>并不在基本类型系统中，它只是在“对象类型系统”中的、一个特殊对象的字面量表示。</p>
+<h2 id="ecma">惹祸的ECMA</h2>
+<p>ECMA开始制定ECMA-262（也就是ECMAScript）标准时，JavaScript已经发展到了v1.2版本，一直到后来发布ECMAScript ed3时（<em>1999.12</em>），它才基本与JavaScript v1.3对齐。随后（<em>2000.07~11月</em>），JavaScript发布了v1.5以及JScript发布了v5.5，才将现实中可用的JavaScript版本与ECMA规范标准对应起来，基本上三者同一了。</p>
+<p>然而从ECMAScript ed1开始，它就采用了一种“不同寻常”的类型描述方法。在ECMAScript中，一直将<code>Null</code>独立作为一个类型来描述，并称之为“六种基本类型（<em>six standard types</em>）”之一。而这，显然是与JavaScript的<code>typeof</code>的返回值有异的。并且ECMAScript还描述了几种用于实现JavaScript的“内部类型（<em>internal types</em>），其中最重要的就是从ECMAScript ed1就开始包括的完成（<em>Completion</em>）、引用（<em>Reference</em>）和列表（<em>List</em>）。</p>
+<blockquote>
+<p>从ECMAScript ed5开始，“基本类型”与“内部类型”就分别被称为语言类型与规范类型了。</p>
+</blockquote>
+<p>根底上的原因，还在于ECMAScript并不是要描述“JavaScript的语言性质”，而是要描述“JavaScript如何实现”。在比目标语言级别更高的维度上，ECMAScript通过所谓“规范类型”来描述和解释“实现JavaScript”时可能操作的数据以及操作这些数据的方式。——它们被严格的区分为两种：对象，或非对象。其中，<code>function</code>类型从一开始就是对象，因而不存在语义矛盾。出于在前面讲到的种种理由，处理<code>null</code>时就比较尴尬了：它在JavaScript中是对象，却用来表示“没有对象（对象的‘无’值）”。</p>
+<p>ECMAScript再一次在概念上向<code>typeof</code>的结果说了不，它约定：<code>null</code>是值，是非对象类型的。</p>
+<h2 id="ecmascript">ECMAScript中的类型系统</h2>
+<p>所以一直以来，JavaScript不得不按“两种类型系统”来进行语言描述，一种是JavaScript应用环境中的，称为“语言类型（Language types）”；另一种则是ECMAScript中的，称为“规范类型（Specification type）”。而ECMAScript在规范中描述的“语言类型”，还与它在实现中使用<code>typeof()</code>得到的结果不一致。</p>
+<ul>
+<li>
+<p>在这两种类型系统中，JavaScript语言认为<code>null</code>是个是引用类型（<em>Object</em>）的值，而ECMAScript认为null是个原始类型（<em>Primitive types</em>）的值。</p>
+<blockquote>
+<p>NOTE3：很不幸的是，在讨论JavaScript的时候，这两种描述都是对的。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="http://aimingoo.github.io/content/images/types_in_ecmascript.png" alt="types_in_ecmascript"></p>
+<p>在ECMAScript中考察一个值（V）的类型时，是根据其内部操作<code>Type()</code>的结果值，来确定该值<code>V</code>是或不是“ECMAScript language value”，或者是更具体的某个类型。</p>
+<p>当JavaScript引擎在分析脚本代码时，会将代码解析成为数据或执行逻辑以便后续处理，这（通常）也就对应于ECMAScript规范类型中的记录（<em>Record</em>）和词法环境（<em>Lexical Environment</em>）。而在运行期，任何的JavaScript代码最终都会被理解成“可执行的”语句或表达式，并且当一个操作（op）是表达式时，它总有结果值；而当操作是语句时，它的最终状态是由一个称为“完成记录（<em>Completion Record</em>）”的规范类型来存放的——并用这个记录的<code>[[value]]</code>字段来存放语句的结果值。</p>
+<p>下图完整地展示了四种主要的规范类型的使用。</p>
+<p><img src="http://aimingoo.github.io/content/images/specification_type_in_ecmascript.png" alt="specification_type_in_ecmascript"></p>
+<h2 id="null">null仍然是无法解释的</h2>
+<p>上述由ECMAScript构建的类型系统运转良好——比如我们确实可以按照这样的规范来编写一个JavaScript引擎。然而它仍然无法有效地解释<code>null</code>值的语言特性。</p>
+<p>尤其是在ES5之后。因为ES5开始提供了新的创建对象的语法：</p>
+<pre><code class="language-javascript">obj = Object.create(null)
+</code></pre>
+<p>ECMAScript无法对“对象<code>create</code>自null”这样的语义给出合理解释，其根本原因在于它隐藏（至少是有意不讨论）这样的一个事实：<code>Object.prototype</code>就是一个“创建自null”的对象：</p>
+<pre><code class="language-javascript">&gt; Object.getPrototypeOf(Object.prototype)
+null
+</code></pre>
+<p>ECMAScript禁止用户代码向<code>Object.prototype</code>置值或改变属性——这很容易理解，它将<code>prototype</code>创建为一个只读且不可配置的属性就可以了。但是，ECMAScript还同时禁止了用户代码改变<code>Object.prototype</code>的原型，亦即是：</p>
+<pre><code class="language-javascript">// 当置为非null值时将触发异常
+&gt; Object.setPrototypeOf(Object.oprototype, {})
+TypeError: Immutable prototype object '#&lt;Object&gt;' ...
+</code></pre>
+<p>所以<code>Object.prototype</code>被称为“不可变原型对象（<em>Immutable prototype object</em>）”。——在ECMAScript中目前只有<code>Object.prototype</code>和模块名字空间的原型会这样（尽管后者并没有明确指出）。</p>
+<blockquote>
+<p>NOTE4: <code>Object.prototype</code>是唯一被明确约定为“不可变原型对象（<em>Immutable prototype object</em>）”的，而<code>&lt;aNamespaceOfModule&gt;.prototype</code>却只是置它的<code>[[SetPrototypeOf]]</code>内部槽为一个特殊的写方法。这二者的处理方法并不一致，一定程度上是为了强调在“<code>Object.prototype</code>是什么对象”这个问题上的特殊性。</p>
+</blockquote>
+<p>ECMAScript只说明了“该对象不可变原型”这样的性质，却没有解释“原型为null的对象是什么”这一问题。因为ECMAScript在语义上并没有对应于“创建自null的对象”这样的概念。也正是因此，下面的类声明才显得牵强：</p>
+<pre><code class="language-javascript">class MyClass extends null {
+    // ...
+}
+</code></pre>
+<p>并且当它没有自有的构造方法（<em>constructor</em>）时，才会出现下面的问题：</p>
+<ul>
+<li><code>extends xxx</code>决定了缺省情况下由父类来创建实例；但是</li>
+<li><code>extends null</code>表明父类是null；所以，</li>
+<li>创建过程出现异常。</li>
+</ul>
+<pre><code class="language-javascript">&gt; new MyClass
+TypeError: Super constructor null of MyClass ...
+</code></pre>
+<h2 id="metameta">Metameta的概念补充</h2>
+<p>在Metameta（<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>）中对这一现象给出了自己的解释：</p>
+<ul>
+<li>当一个对象创建自null时，它是一个原子；且，</li>
+<li>派生自这种原子的、非Object()及其子类实例的对象，是原子对象。</li>
+</ul>
+<p>在这样的解释下，可以看到<code>Object.prototype</code>本质上来说也是一个原子对象。亦即是说，我们找到了ECMAScript/JavaScript创建自己的对象系统的原始方式。加上JavaScript开放了<code>get/setPrototypeOf()</code>和有关操作属性描述符的方法，于是我们既得了创建“原子/原子对象”的能力，也得到了在“属性表”这一级别维护这些原子自有成员的能力。</p>
+<p>进一步的，由于JavaScript中的<code>'function'</code>类型事实上也是对象，因此我们既得到了表达静态数据的原子，也得到了支持运算过程的原子。再加上JavaScript还通过<code>eval()</code>提供了原生的解析代码和操作执行上下文的能力，那么——事实上——我们也就得到了整个的原子计算环境/运行框架。</p>
+<p>这也是Metameta提供了一个<code>.from()</code>工具方法的原因：Metameta致力于扩展JavaScript的内建概念，并试图用为ECMAScript建立一个更为完整的概念集。在这其中，<code>.from()</code>所体现出来的事实是：JavaScript的对象系统，是以原子为基础的类型系统的一个实现。</p>
+<p>如图：</p>
+<p><img src="http://aimingoo.github.io/content/images/types_of_object_system.png" alt="types_of_object_system"></p>
+<p>而下图则是更完整的、以元类型为基础来实现的、对象/类型系统的景象：</p>
+<p><img src="http://aimingoo.github.io/content/images/meta_type_system.png" alt="meta_type_system"></p>
+</div>]]></content:encoded></item><item><title><![CDATA[JavaScript中创建原子的几种方法]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是一个系列，包括：</p>
+<ul>
+<li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
+<li>JavaScript中创建原子的几种方法（本文）</li>
+<li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
 </ul>
 </blockquote>
 <p>JavaScript中可以通过<code>Object.create(null)</code>来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。</p>
@@ -28,10 +179,12 @@ atom = Object.setPrototypeOf({}, null)
 function MyObject() {
     // ...
 }
-Object.setPrototypeOf(MyObject.</code></pre></div>]]></description><link>http://aimingoo.github.io/5b824316c66182831afb4982/</link><guid isPermaLink="false">5b824316c66182831afb4982</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 26 Aug 2018 06:06:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
-<p>本文是“JavaScript的元语言”系列中的一篇。其它内容参见：</p>
+Object.setPrototypeOf(MyObject.prototype,</code></pre></div>]]></description><link>http://aimingoo.github.io/5b824316c66182831afb4982/</link><guid isPermaLink="false">5b824316c66182831afb4982</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 26 Aug 2018 06:06:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是一个系列，包括：</p>
 <ul>
-<li>JavaScript的元系统: <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">https://aimingoo.github.io/5b7f6efac66182831afb497b.html</a></li>
+<li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
+<li>JavaScript中创建原子的几种方法（本文）</li>
+<li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
 </ul>
 </blockquote>
 <p>JavaScript中可以通过<code>Object.create(null)</code>来创建原子，这是非常自然而又易于理解的方式。不过也有一些其它的方法来实现相同的效果，虽然在概念上有所不同，但是它们创建的一样是“原子对象”。</p>
@@ -172,16 +325,23 @@ Object.setPrototypeOf(MyClass.prototype, new.target)
 </div>]]></content:encoded></item><item><title><![CDATA[JavaScript的元系统]]></title><description><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
 <blockquote>
 <p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
+<p>本文是一个系列，包括：</p>
+<ul>
+<li>JavaScript的元系统（本文）</li>
+<li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
+<li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
+</ul>
 </blockquote>
 <p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
-<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em>）”的东西，并基于此来构建起一个完整的JavaScript元系统。</p>
-<h2 id="atom">原子（atom）</h2>
-<blockquote>
-<p>定义：原子是JavaScript中的对象的最小单元，它是对象但不继承自Object()；以原子为原型的对象也会被称为原子对象。</p>
-</blockquote>
-<p>JavaScript中的对象就是一个属性包（<em>properties</em></p></div>]]></description><link>http://aimingoo.github.io/5b7f6efac66182831afb497b/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em></p></div>]]></description><link>http://aimingoo.github.io/5b7f6efac66182831afb497b/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
 <blockquote>
 <p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
+<p>本文是一个系列，包括：</p>
+<ul>
+<li>JavaScript的元系统（本文）</li>
+<li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
+<li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
+</ul>
 </blockquote>
 <p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
 <p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em>）”的东西，并基于此来构建起一个完整的JavaScript元系统。</p>
@@ -1687,98 +1847,4 @@ Your Github name or domain: .
 # 不尝试下载sitemap文件
 &gt; monster --site=&quot;https://aimingoo.github.io&quot; --pick-sitemap=false
 </code></pre>
-</div>]]></content:encoded></item><item><title><![CDATA[Monster - 用Ghost写博客的终极利器]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="bustermonster">是时候从Buster转到Monster了</h2>
-<p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
-<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
-<p>再之后，将这两个脚本合在一起，就变成了：</p>
-<blockquote>
-<p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
-</blockquote>
-<p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
-<blockquote>
-<p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p></blockquote></div>]]></description><link>http://aimingoo.github.io/1-1741/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5be</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 07:27:23 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="bustermonster">是时候从Buster转到Monster了</h2>
-<p>我最先开始用Ghost写博客时，用来生成静态页面（并发布到<a href="https://aimingoo.github.io">aimingoo.github.io</a>）的工具是Buster。首先它确实不太好用，其次用它生成（generate）出来的页面还需要做许多的后续处理才能使用。由于这个缘故，我写了Monster这个工具的第一代产品并放在了我的<a href="https://github.com/aimingoo/ghost-utils">ghost-utils</a>仓库中，名为<code>makesite.sh</code>。</p>
-<p><code>makesite.sh</code>其实是类似Buster的。由于采用了相同的实现方案，所以也就有着Buster的最根本的问题：每次都要对全站做重新生成。为此，我另外又写了一个脚本，名为<code>updatesite.sh</code>，用来实现增量生成基于Ghost的静态网站。</p>
-<p>再之后，将这两个脚本合在一起，就变成了：</p>
-<blockquote>
-<p><strong>Monster</strong>，一个同时支持全量和增量生成Ghost静态网站的工具。</p>
-</blockquote>
-<p>这是一个用Bash写开源项目，Github地址在这里: <a href="https://github.com/aimingoo/monster">https://github.com/aimingoo/monster</a></p>
-<blockquote>
-<p><strong>注：</strong><code>makesite.sh</code>在早期就是Buster一个壳，从v1.0.5版本开始直接使用wget而不再依赖Buster。</p>
-</blockquote>
-<h2 id="monster">Monster的功能</h2>
-<ul>
-<li>全量和增量生成Ghost静态网站</li>
-<li>可以在本地预览或向<code>github.io</code>部署生成的网站</li>
-<li>支持生成并不Host在<code>github.io</code>上的网站</li>
-<li>支持同时管理多个网站，独立配置</li>
-<li>支持在url中使用缩短路径的风格（使用更精减的ghost slug）</li>
-<li>支持Ghost的多作者（multi-author）功能</li>
-<li>支持基于github issues的评论管理（面向gitment的工具功能）</li>
-</ul>
-<h2 id="monster">安装Monster</h2>
-<pre><code class="language-bash">&gt; brew install aimingoo/repo/monster
-</code></pre>
-<h2 id="">快速上手</h2>
-<pre><code class="language-bash"># 了解ghost运行的本地地址(例如下面的127.0.0.1:2368)
-&gt; npm start
-Ghost is running in development... 
-Listening on 127.0.0.1:2368 
-...
-
-# 如果你已经在Github上创建了自己的pages，那么你应该先将它clone到本地
-#  - (设网站domain为xxxx.github.io)
-&gt; git clone 'https://github.com/xxxx/xxxx.github.io'
-
-# 配置初始化(用上面的项目作为工作目录)
-#	- 可以不使用xxxx.github.io，而使用自己的domain，例如your.site.com
-#	- 路径&quot;Ghost local .db file&quot;可用如下命令查看(或先略过它)：
-#		&gt; grep -Fe '.db' ${GHOST安装目录}/config.js
-&gt; cd xxxx.github.io
-&gt; monster --init
-Your Github name or domain: xxxx
-Your Github access token, or Enter to skip: 
-Your Ghost local account(e-mail), or Enter to skip: 
-Your Ghost local .db file, or Enter to skip: 
-Your Ghost site, or Enter set default [localhost:2368]: 
-...
-
-# 全站生成
-&gt; monster --generate
-
-# 更新
-&gt; monster update
-
-# 预览(ctrl+c退出)
-&gt; monster preview
-Serving HTTP on 0.0.0.0 port 8000 ...
-
-# 发布/部署(在生成全站之后)
-&gt; monster --deploy-now
-# 或发布更新（在使用'monster update'之后）
-&gt; monster update --deploy-only
-
-# 其它
-
-# 直接生成全站并发布
-&gt; monster --generate --deploy-now
-# 或在更新后直接发布
-&gt; monster update --deploy-now
-</code></pre>
-<h2 id="">工作目录</h2>
-<p>在使用<code>monster --init</code>初始化之后，当前目录就被Monster视为工作目录。</p>
-<p>Monster会根据当前目录下的<code>.monster</code>配置工作，因此只需要为多个site建立不同的目录，就可以管理multi-domain了。</p>
-<p>Monster会操作和维护当前目录下的<code>./static</code>目录来生成静态文件，你可以通过上述的<code>.monster</code>配置来改变这个目录的位置。</p>
-<p>最后，当前目录下的<code>monster.log</code>和<code>.sqlitedb</code>也是由Monster来管理的。你可以手工编写一个名为<code>patchme.sh</code>的文件来实现一些复杂的操作，如果它存在，那么Monster会调用并管理它。</p>
-<p>Monster的多数操作信息会直接出现在控制台，只有<code>monster --generate</code>和<code>monster update</code>会操作monster.log文件，前者总是覆盖整个文件，而后者是追加日志。</p>
-<p>Monster会维护<code>.gitignore</code>或<code>.git/info/exclude</code>文件来避免git将多余的文件push到仓库。所以，上述<code>./static</code>目录以及<code>.monster</code>、<code>.sqlitedb</code>、<code>patchme.sh</code>和<code>monster.log</code>等文件也已经加入了git的ingore list。</p>
-<h2 id="">高级特性</h2>
-<p>关于Monster的Git issues评论、short path、sync、multi author等特性，请参考：</p>
-<p><strong>阅读列表</strong></p>
-<ul>
-<li><a href="http://aimingoo.github.io/1-1742.html">详解Monster的初始化及配置</a></li>
-<li><a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a></li>
-<li><a href="http://aimingoo.github.io/1-1744.html">Monster的三种工作模式</a></li>
-</ul>
 </div>]]></content:encoded></item></channel></rss>

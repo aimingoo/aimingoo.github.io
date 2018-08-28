@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>元类型系统是对JavaScript内建概念的补充</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=919e102fe9" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=919e102fe9" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="元类型系统是对JavaScript内建概念的补充" />
+    <meta property="og:description" content="本文是一个系列，包括： JavaScript的元系统 - 在这里 JavaScript中创建原子的几种方法 - 在这里 元类型系统是对JavaScript内建概念的补充（本文） JavaScript的类型系统一贯是反人类的，以至于JavaScript之父Eich都会跳出来说“我做错了”。但是这并不是说它的整个类型系统就是不可理解的，相反，它提供了观察这门语言的多个不同角度。 远古JavaScript中的类型系统 在远古时期（我是指JavaScript 1.0）中，JavaScript的世界里还并没有“原型”这个东西，而且undefined也是一个奇葩的存在。 这时的undefined是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有&#x3D;&#x3D;&#x3D;和!&#x3D;&#x3D;运算符，所以undefined被约定为与null是等值的。 考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员： 字符串值，空串是无值； 数字值，NaN是无值（数字值中的0表达非值）； 布尔值，false是非值（或也可以理解为无值）； 接下来就是对象和函数。它们都是引用类型（" />
+    <meta property="og:url" content="http://aimingoo.github.io/5b84b829c66182831afb4988.html" />
+    <meta property="article:published_time" content="2018-08-28T02:56:40.000Z" />
+    <meta property="article:modified_time" content="2018-08-28T03:00:40.000Z" />
+    <meta property="article:tag" content="Javascript" />
+    <meta property="article:tag" content="元语言" />
+    <meta property="article:tag" content="语言" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="元类型系统是对JavaScript内建概念的补充" />
+    <meta name="twitter:description" content="本文是一个系列，包括： JavaScript的元系统 - 在这里 JavaScript中创建原子的几种方法 - 在这里 元类型系统是对JavaScript内建概念的补充（本文） JavaScript的类型系统一贯是反人类的，以至于JavaScript之父Eich都会跳出来说“我做错了”。但是这并不是说它的整个类型系统就是不可理解的，相反，它提供了观察这门语言的多个不同角度。 远古JavaScript中的类型系统 在远古时期（我是指JavaScript 1.0）中，JavaScript的世界里还并没有“原型”这个东西，而且undefined也是一个奇葩的存在。 这时的undefined是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有&#x3D;&#x3D;&#x3D;和!&#x3D;&#x3D;运算符，所以undefined被约定为与null是等值的。 考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员： 字符串值，空串是无值； 数字值，NaN是无值（数字值中的0表达非值）； 布尔值，false是非值（或也可以理解为无值）； 接下来就是对象和函数。它们都是引用类型（" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/5b84b829c66182831afb4988.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Javascript, 元语言, 语言" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "元类型系统是对JavaScript内建概念的补充",
+    "url": "http://aimingoo.github.io/5b84b829c66182831afb4988.html",
+    "datePublished": "2018-08-28T02:56:40.000Z",
+    "dateModified": "2018-08-28T03:00:40.000Z",
+    "keywords": "Javascript, 元语言, 语言",
+    "description": "本文是一个系列，包括： JavaScript的元系统 - 在这里 JavaScript中创建原子的几种方法 - 在这里 元类型系统是对JavaScript内建概念的补充（本文） JavaScript的类型系统一贯是反人类的，以至于JavaScript之父Eich都会跳出来说“我做错了”。但是这并不是说它的整个类型系统就是不可理解的，相反，它提供了观察这门语言的多个不同角度。 远古JavaScript中的类型系统 在远古时期（我是指JavaScript 1.0）中，JavaScript的世界里还并没有“原型”这个东西，而且undefined也是一个奇葩的存在。 这时的undefined是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有&#x3D;&#x3D;&#x3D;和!&#x3D;&#x3D;运算符，所以undefined被约定为与null是等值的。 考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员： 字符串值，空串是无值； 数字值，NaN是无值（数字值中的0表达非值）； 布尔值，false是非值（或也可以理解为无值）； 接下来就是对象和函数。它们都是引用类型（",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=919e102fe9"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template tag-javascript tag-yuan-yu-yan tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=919e102fe9"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post tag-javascript tag-yuan-yu-yan tag-yu-yan">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/5b84b829c66182831afb4988.html">元类型系统是对JavaScript内建概念的补充</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2018-08-28T10:56:40.4040+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2018-08-28">(2018-08-28)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yuan-yu-yan/">元语言</a>, <a href="/tag/yu-yan/">语言</a>
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><blockquote>
+<p>本文是一个系列，包括：</p>
+<ul>
+<li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
+<li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
+<li>元类型系统是对JavaScript内建概念的补充（本文）</li>
+</ul>
+</blockquote>
+<p>JavaScript的类型系统一贯是反人类的，以至于JavaScript之父Eich都会跳出来说“我做错了”。但是这并不是说它的整个类型系统就是不可理解的，相反，它提供了观察这门语言的多个不同角度。</p>
+<h2 id="javascript">远古JavaScript中的类型系统</h2>
+<p>在远古时期（我是指JavaScript 1.0）中，JavaScript的世界里还并没有“原型”这个东西，而且<code>undefined</code>也是一个奇葩的存在。</p>
+<p>这时的<code>undefined</code>是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有<code>===</code>和<code>!==</code>运算符，所以<code>undefined</code>被约定为与<code>null</code>是等值的。</p>
+<p>考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员：</p>
+<ul>
+<li>字符串值，空串是无值；</li>
+<li>数字值，NaN是无值（数字值中的0表达非值）；</li>
+<li>布尔值，false是非值（或也可以理解为无值）；</li>
+</ul>
+<p>接下来就是对象和函数。它们都是引用类型（从最早的JavaScript语言就这样定义了），而且也各有一个表达“无值”的方式：</p>
+<ul>
+<li>函数（以及表达式运算或值运算等）的结果：undefined</li>
+<li>对象：null</li>
+</ul>
+<p>这基本上就是JavaScript 1.0时代对类型系统的全部理解，以及假设。——之所以称之为假设，是因为这时连<code>typeof</code>运算符都没有，所我们无法在语言的层面上验证它。</p>
+<p>不过有趣的是，这个时代是支持面向对象编程的。JavaScript 1.0中的面向对象是“基于类”的，它有“类构造对象（的实例）”的概念：</p>
+<pre><code class="language-javascript">obj = new Object;
+
+// OR
+function MyObject() {
+    this.x = 100;
+}
+obj = new MyObject;
+</code></pre>
+<p>在这时，<code>Object</code>/<code>MyObject</code>已经被称为构造器（<em>constructor</em>）了。它采用的是被称为“类抄写”的方式，通过向实例“<code>this</code>”上添加成员来初始化对象。</p>
+<p>这个时代并没有原型继承，也不支持<code>instanceof</code>运算，因此尽管<code>Object</code>/<code>MyObject</code>执行“构造一个对象”的职责，却没有人认得它是“<code>类</code>”。由于JavaScript默认函数总是可以作<code>new</code>运算，并且<code>this</code>可以缺省指向<code>global</code>，因此它是不是“类”就不要紧，用new运算时都不会出错。</p>
+<blockquote>
+<p>NOTE1：往前追溯20多年，一本名为《结构程序设计（ Structured programming）》的书定义了面向对象编程。其中说：如果一个过程产生了比它生存时间更久的实例，那么这个过程就称为类，而这个实例就称为对象。因此，JavaScript 1.0时代的面向对象是古典的、传统的设计，不可思议却又历久弥新。</p>
+<p>NOTE2：有关JavaScript 1.0，可以参见这里：<a href="https://docs.oracle.com/cd/E19957-01/816-6408-10/object.htm#1193255">https://docs.oracle.com/cd/E19957-01/816-6408-10/object.htm#1193255</a></p>
+</blockquote>
+<h2 id="">概念灾难的源头</h2>
+<p>从JavaScript 1.1开始，这门语言总算提供了“识别自己的类型”的运算，也就是著名的<code>typeof</code>。在语义上，它提出的想法是：用<code>undefined</code>表达语言层面的“没有（无值）”。</p>
+<p>由于在JavaScript 1.0中已经为<code>string</code>、<code>boolean</code>等各自定义了一个它们在语言层面上的“没有”，因此这一设计也就保留了下来。在1.1中，<code>typeof</code>返回如下六个值之一：</p>
+<ul>
+<li>
+<p>针对值类型：'undefined'、'string'、'boolean'和'number'</p>
+</li>
+<li>
+<p>针对引用类型：'object'和'function'</p>
+</li>
+</ul>
+<p>有了<code>undefined</code>，JavaScript可以自如地表达类型间的运算，例如<code>A + B</code>。任何函数/过程总应该是有一个静态结果的，因此要么它是值，要么它就是无值（<em>undefined</em>）。——基本想法是：如果算不出结果，那么这个过程应当返回<code>undefined</code>。</p>
+<p>而<code>null</code>表示的是对象层面的没有，因此它被理解为一个对象，也就是说它的<code>typeof</code>值仍然是'object'。——就好象说NaN表达数值上的‘无值’，但仍然是数字值。例如：</p>
+<pre><code class="language-javascript">&gt; typeof null
+'object'
+</code></pre>
+<p>但是<code>null</code>又并不是由对象系统创建出来的，因此它不是<code>Object()</code>或其子类的实例。因此：</p>
+<pre><code class="language-javascript">&gt; null instanceof Object
+false
+</code></pre>
+<p>对象也会参与跨类型的值计算，因此它也需要一个“对象的值的含义”。于是<code>Object.prototype.valueOf()</code>就出现了。当JavaScript在值运算中发现操作数（x）是对象时，就会调用<code>x.valueof()</code>来得到它的值类型数据，并以此为操作数来进行值运算。这个过程很简洁，也很完美。</p>
+<p>稍稍差一点的是<code>null</code>，它是对象，但又不继承自<code>Object()</code>，所以没有<code>Object.prototype.valueOf()</code>，而它就必须“被理解”有自己的<code>value</code>。——但是，如果一个运算数“有自己的<code>value</code>”，那么它不就是值么？</p>
+<p>是的。概念开始混乱了。</p>
+<h2 id="javascript1x">JavaScript在1.x版本中确立的类型系统</h2>
+<p>无论如何，JavaScript在1.x版本中确立了自己对类型系统的理解。</p>
+<p><img src="/content/images/types_in_javascript_1.x.png" alt="types_in_javascript_1.x"></p>
+<p>这个类型系统可以完美地概括JavaScript中可能的各种对象和概念理解。其中&quot;值类型&quot;用于进行值运算或表达值运算的结果，而引用类型用于“索引到”一个值。</p>
+<p>在这个系统中，<code>null</code>并不在基本类型系统中，它只是在“对象类型系统”中的、一个特殊对象的字面量表示。</p>
+<h2 id="ecma">惹祸的ECMA</h2>
+<p>ECMA开始制定ECMA-262（也就是ECMAScript）标准时，JavaScript已经发展到了v1.2版本，一直到后来发布ECMAScript ed3时（<em>1999.12</em>），它才基本与JavaScript v1.3对齐。随后（<em>2000.07~11月</em>），JavaScript发布了v1.5以及JScript发布了v5.5，才将现实中可用的JavaScript版本与ECMA规范标准对应起来，基本上三者同一了。</p>
+<p>然而从ECMAScript ed1开始，它就采用了一种“不同寻常”的类型描述方法。在ECMAScript中，一直将<code>Null</code>独立作为一个类型来描述，并称之为“六种基本类型（<em>six standard types</em>）”之一。而这，显然是与JavaScript的<code>typeof</code>的返回值有异的。并且ECMAScript还描述了几种用于实现JavaScript的“内部类型（<em>internal types</em>），其中最重要的就是从ECMAScript ed1就开始包括的完成（<em>Completion</em>）、引用（<em>Reference</em>）和列表（<em>List</em>）。</p>
+<blockquote>
+<p>从ECMAScript ed5开始，“基本类型”与“内部类型”就分别被称为语言类型与规范类型了。</p>
+</blockquote>
+<p>根底上的原因，还在于ECMAScript并不是要描述“JavaScript的语言性质”，而是要描述“JavaScript如何实现”。在比目标语言级别更高的维度上，ECMAScript通过所谓“规范类型”来描述和解释“实现JavaScript”时可能操作的数据以及操作这些数据的方式。——它们被严格的区分为两种：对象，或非对象。其中，<code>function</code>类型从一开始就是对象，因而不存在语义矛盾。出于在前面讲到的种种理由，处理<code>null</code>时就比较尴尬了：它在JavaScript中是对象，却用来表示“没有对象（对象的‘无’值）”。</p>
+<p>ECMAScript再一次在概念上向<code>typeof</code>的结果说了不，它约定：<code>null</code>是值，是非对象类型的。</p>
+<h2 id="ecmascript">ECMAScript中的类型系统</h2>
+<p>所以一直以来，JavaScript不得不按“两种类型系统”来进行语言描述，一种是JavaScript应用环境中的，称为“语言类型（Language types）”；另一种则是ECMAScript中的，称为“规范类型（Specification type）”。而ECMAScript在规范中描述的“语言类型”，还与它在实现中使用<code>typeof()</code>得到的结果不一致。</p>
+<ul>
+<li>
+<p>在这两种类型系统中，JavaScript语言认为<code>null</code>是个是引用类型（<em>Object</em>）的值，而ECMAScript认为null是个原始类型（<em>Primitive types</em>）的值。</p>
+<blockquote>
+<p>NOTE3：很不幸的是，在讨论JavaScript的时候，这两种描述都是对的。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/content/images/types_in_ecmascript.png" alt="types_in_ecmascript"></p>
+<p>在ECMAScript中考察一个值（V）的类型时，是根据其内部操作<code>Type()</code>的结果值，来确定该值<code>V</code>是或不是“ECMAScript language value”，或者是更具体的某个类型。</p>
+<p>当JavaScript引擎在分析脚本代码时，会将代码解析成为数据或执行逻辑以便后续处理，这（通常）也就对应于ECMAScript规范类型中的记录（<em>Record</em>）和词法环境（<em>Lexical Environment</em>）。而在运行期，任何的JavaScript代码最终都会被理解成“可执行的”语句或表达式，并且当一个操作（op）是表达式时，它总有结果值；而当操作是语句时，它的最终状态是由一个称为“完成记录（<em>Completion Record</em>）”的规范类型来存放的——并用这个记录的<code>[[value]]</code>字段来存放语句的结果值。</p>
+<p>下图完整地展示了四种主要的规范类型的使用。</p>
+<p><img src="/content/images/specification_type_in_ecmascript.png" alt="specification_type_in_ecmascript"></p>
+<h2 id="null">null仍然是无法解释的</h2>
+<p>上述由ECMAScript构建的类型系统运转良好——比如我们确实可以按照这样的规范来编写一个JavaScript引擎。然而它仍然无法有效地解释<code>null</code>值的语言特性。</p>
+<p>尤其是在ES5之后。因为ES5开始提供了新的创建对象的语法：</p>
+<pre><code class="language-javascript">obj = Object.create(null)
+</code></pre>
+<p>ECMAScript无法对“对象<code>create</code>自null”这样的语义给出合理解释，其根本原因在于它隐藏（至少是有意不讨论）这样的一个事实：<code>Object.prototype</code>就是一个“创建自null”的对象：</p>
+<pre><code class="language-javascript">&gt; Object.getPrototypeOf(Object.prototype)
+null
+</code></pre>
+<p>ECMAScript禁止用户代码向<code>Object.prototype</code>置值或改变属性——这很容易理解，它将<code>prototype</code>创建为一个只读且不可配置的属性就可以了。但是，ECMAScript还同时禁止了用户代码改变<code>Object.prototype</code>的原型，亦即是：</p>
+<pre><code class="language-javascript">// 当置为非null值时将触发异常
+&gt; Object.setPrototypeOf(Object.oprototype, {})
+TypeError: Immutable prototype object '#&lt;Object&gt;' ...
+</code></pre>
+<p>所以<code>Object.prototype</code>被称为“不可变原型对象（<em>Immutable prototype object</em>）”。——在ECMAScript中目前只有<code>Object.prototype</code>和模块名字空间的原型会这样（尽管后者并没有明确指出）。</p>
+<blockquote>
+<p>NOTE4: <code>Object.prototype</code>是唯一被明确约定为“不可变原型对象（<em>Immutable prototype object</em>）”的，而<code>&lt;aNamespaceOfModule&gt;.prototype</code>却只是置它的<code>[[SetPrototypeOf]]</code>内部槽为一个特殊的写方法。这二者的处理方法并不一致，一定程度上是为了强调在“<code>Object.prototype</code>是什么对象”这个问题上的特殊性。</p>
+</blockquote>
+<p>ECMAScript只说明了“该对象不可变原型”这样的性质，却没有解释“原型为null的对象是什么”这一问题。因为ECMAScript在语义上并没有对应于“创建自null的对象”这样的概念。也正是因此，下面的类声明才显得牵强：</p>
+<pre><code class="language-javascript">class MyClass extends null {
+    // ...
+}
+</code></pre>
+<p>并且当它没有自有的构造方法（<em>constructor</em>）时，才会出现下面的问题：</p>
+<ul>
+<li><code>extends xxx</code>决定了缺省情况下由父类来创建实例；但是</li>
+<li><code>extends null</code>表明父类是null；所以，</li>
+<li>创建过程出现异常。</li>
+</ul>
+<pre><code class="language-javascript">&gt; new MyClass
+TypeError: Super constructor null of MyClass ...
+</code></pre>
+<h2 id="metameta">Metameta的概念补充</h2>
+<p>在Metameta（<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>）中对这一现象给出了自己的解释：</p>
+<ul>
+<li>当一个对象创建自null时，它是一个原子；且，</li>
+<li>派生自这种原子的、非Object()及其子类实例的对象，是原子对象。</li>
+</ul>
+<p>在这样的解释下，可以看到<code>Object.prototype</code>本质上来说也是一个原子对象。亦即是说，我们找到了ECMAScript/JavaScript创建自己的对象系统的原始方式。加上JavaScript开放了<code>get/setPrototypeOf()</code>和有关操作属性描述符的方法，于是我们既得了创建“原子/原子对象”的能力，也得到了在“属性表”这一级别维护这些原子自有成员的能力。</p>
+<p>进一步的，由于JavaScript中的<code>'function'</code>类型事实上也是对象，因此我们既得到了表达静态数据的原子，也得到了支持运算过程的原子。再加上JavaScript还通过<code>eval()</code>提供了原生的解析代码和操作执行上下文的能力，那么——事实上——我们也就得到了整个的原子计算环境/运行框架。</p>
+<p>这也是Metameta提供了一个<code>.from()</code>工具方法的原因：Metameta致力于扩展JavaScript的内建概念，并试图用为ECMAScript建立一个更为完整的概念集。在这其中，<code>.from()</code>所体现出来的事实是：JavaScript的对象系统，是以原子为基础的类型系统的一个实现。</p>
+<p>如图：</p>
+<p><img src="/content/images/types_of_object_system.png" alt="types_of_object_system"></p>
+<p>而下图则是更完整的、以元类型为基础来实现的、对象/类型系统的景象：</p>
+<p><img src="/content/images/meta_type_system.png" alt="meta_type_system"></p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/5b824316c66182831afb4982.html">
+                    JavaScript中创建原子的几种方法
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=919e102fe9" />
+<script src="/assets/js/gitmint.browser.js?v=919e102fe9"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=919e102fe9"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=919e102fe9"></script>
+</body>
+
+</html>

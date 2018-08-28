@@ -35,12 +35,12 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	<div class="tag-cloud-content">
 		<!--  -->
 				<a href="/tag/sheng-huo" class="tag-item">生活 (138)</a>
-				<a href="/tag/javascript" class="tag-item">Javascript (89)</a>
+				<a href="/tag/javascript" class="tag-item">Javascript (90)</a>
 				<a href="/tag/za-wen" class="tag-item">杂文 (81)</a>
 				<a href="/tag/za-tan" class="tag-item">杂谈 (73)</a>
 				<a href="/tag/sui-bi" class="tag-item">随笔 (57)</a>
 				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (47)</a>
-				<a href="/tag/yu-yan" class="tag-item">语言 (41)</a>
+				<a href="/tag/yu-yan" class="tag-item">语言 (42)</a>
 				<a href="/tag/chu-ban" class="tag-item">出版 (39)</a>
 				<a href="/tag/qomo" class="tag-item">Qomo (35)</a>
 				<a href="/tag/xin-shou-nian-lai" class="tag-item">信手拈来 (34)</a>
@@ -90,13 +90,13 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/android" class="tag-item">android (3)</a>
 				<a href="/tag/github" class="tag-item">Github (3)</a>
 				<a href="/tag/gitment" class="tag-item">Gitment (3)</a>
+				<a href="/tag/yuan-yu-yan" class="tag-item">元语言 (3)</a>
 				<a href="/tag/zheng-ze-biao-da-shi" class="tag-item">正则表达式 (2)</a>
 				<a href="/tag/promise" class="tag-item">Promise (2)</a>
 				<a href="/tag/svg" class="tag-item">svg (2)</a>
 				<a href="/tag/imagemagick" class="tag-item">ImageMagick (2)</a>
 				<a href="/tag/cheng-xu-yuan-ben" class="tag-item">程序原本 (2)</a>
 				<a href="/tag/qobean" class="tag-item">QoBean (2)</a>
-				<a href="/tag/yuan-yu-yan" class="tag-item">元语言 (2)</a>
 				<a href="/tag/han-shu-shi" class="tag-item">函数式 (1)</a>
 				<a href="/tag/hu-wai" class="tag-item">户外 (1)</a>
 				<a href="/tag/zhuan-zai" class="tag-item">转载 (1)</a>
