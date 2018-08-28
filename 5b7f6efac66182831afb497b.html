@@ -167,7 +167,7 @@ ghost.init({
 <p>也可以通过将一般对象的原型置为null来得到一个原子：</p>
 <pre><code class="language-javascript">var atom = Object.setPrototypeOf(new Object, null);
 </code></pre>
-<p>并且，在ECMAScript中有四个内建/原生对象是原子的：</p>
+<p>并且，在ECMAScript中有三个内建/原生对象是原子的：</p>
 <pre><code class="language-javascript">function isAtom(x) {
     switch (typeof x) {
         case 'object':
@@ -179,13 +179,9 @@ ghost.init({
 // modules in es6
 import * as namespace from './your-module.js';
 
-// arguments from function
-var args = Function('return arguments')();
-
 console.log(isAtom(null));
 console.log(isAtom(Object.prototype));
 console.log(isAtom(namespace));
-console.log(isAtom(args));
 </code></pre>
 <p>在同一个运行环境中，可以并存多个原子，以及由原型指向原子的、原型继承的对象系统。所有这些原子以及衍生的对象系统都是互不相等、没有交集的。</p>
 <pre><code class="language-javascript">&gt; Object.create(null) === Object.create(null)
@@ -199,6 +195,9 @@ false
 <ul>
 <li>作为唯一特例，null值是一个原子（注：原子在ECMAScript约定的ECMAScript language types中不是对象，但在JavaScript自身的类型检查（<em>typeof</em>）中它是对象）。</li>
 </ul>
+<blockquote>
+<p>NOTE(2018.08.28): 修正了一处关于arguments的错误，确认arguments对象不是原子。thanks for hebaby @github</p>
+</blockquote>
 <h2 id="meta">元（meta）</h2>
 <blockquote>
 <p>定义：能产生原子（atom）的一个过程称为元（meta）。</p>

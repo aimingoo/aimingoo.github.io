@@ -259,16 +259,19 @@ Object.setPrototypeOf(_this, Atom.prototype); // prototype is null
 atom = _this;
 </code></pre>
 <p>所以方法7是一种能够“利用JavaScript原生构造器”来创建原子的技巧。比如最简单的获得一个<code>Arguments()</code>构造器的方法其实是这样：</p>
-<pre><code class="language-javascript">let Arguments = Object.setPrototypeOf(class extends null {}, Array);
+<pre><code class="language-javascript">let Arguments = Object.setPrototypeOf(class extends Object {}, Array);
 </code></pre>
 <p>这样得到的对象将与JavaScript内置在函数调用中创建的<code>argument</code>完全一致：</p>
-<pre><code class="language-javascript">// （JavaScript的arguments对象也是原子）
+<pre><code class="language-javascript">
 let arguments = new Arguments(1,2,3); // more paraments
 </code></pre>
 <p>不过在ES6中<code>arguments</code>也实现了迭代器界面，因此需要一行额外的代码来处理之：</p>
 <pre><code class="language-javascript">// for ES6
 Arguments.prototype[Symbol.iterator] = [][Symbol.iterator];
 </code></pre>
+<blockquote>
+<p>NOTE(2018.08.28)：由于arguments并不是原子对象，因此对类Arguments()的写法略作修改，突出了设置Array作为原型（来替换父类构造器）的用法。thanks for hebaby @github</p>
+</blockquote>
 <h2 id="">其它</h2>
 <h4 id="1">1. 关于映射类</h4>
 <p>在Metameta(<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>)中，可以使用<code>Meta.from()</code>来得到一个映射类，这与上面的方法7是相同的方式：</p>
