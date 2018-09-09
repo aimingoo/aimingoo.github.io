@@ -227,8 +227,8 @@ false
 <p>在ES6的语法中，可以简单地在函数中返回一个“类声明（<em>class definitions</em>）”来得到一个字面量风格的类。因此在Metameta中声明了MetaMeta()类来作为元类型的祖先类：</p>
 <pre><code class="language-javascript">// Meta's super
 class MetaMeta extends null {
-  constructor(base) { // Atom() by default
-    return Object.setPrototypeOf(class extends new.target {}, base||Atom); // Atom()声明在上例
+  constructor(base=Atom) { // Atom() by default, NOTE: 声明在上例
+    return Object.setPrototypeOf(class extends new.target {}, base);
   }
 ...
 </code></pre>
