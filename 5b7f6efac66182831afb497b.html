@@ -231,17 +231,20 @@ false
 <p>在ES6的语法中，可以简单地在函数中返回一个“类声明（<em>class definitions</em>）”来得到一个字面量风格的类。因此在Metameta中声明了MetaMeta()类来作为元类型的祖先类：</p>
 <pre><code class="language-javascript">// Meta's super
 class MetaMeta extends null {
-  constructor(base) { // Atom() by default
+  constructor(base=Atom) { // Atom() by default, NOTE: 声明在上例
     return Object.setPrototypeOf(class extends new.target {}, base);
   }
 ...
 </code></pre>
+<blockquote>
+<p>NOTE(2018.09.09): 修正了一处关于MetaMeta()类的错误，这是因为在本文中为了简化Meta()类的描述而直接暴露了MetaMeta的实现，但又没有处理相关的逻辑所导致的。需要注意的是，在Metameta项目中该类的实现与本文是略有区别的。thanks for nextdoorUncleLiu @github</p>
+</blockquote>
 <p>所以现在，我们就可以通过如下的方法来得到一个原子了：</p>
 <pre><code class="language-javascript">// Atom与meta是同义的
-&gt; Atom = meta = new MetaMeta
+&gt; Atom2 = meta = new MetaMeta
 
 // 创建一个原子
-&gt; atom = new Atom
+&gt; atom = new Atom2
 
 // 检测
 &gt; isAtom(atom)
