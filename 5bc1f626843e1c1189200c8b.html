@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>No prefix! operator is Ok!</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=7808c3cb39" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=7808c3cb39" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="No prefix! operator is Ok!" />
+    <meta property="og:description" content="所有在我对原有提案的修改中，核心不是“不用#字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。 原有提案：https://github.com/tc39/proposal-class-fields 修改的提议：#issuecomment-429533532 1. 为什么是&amp;quot;:&amp;quot;而不是&amp;quot;&#x3D;&amp;quot;？ 在所有类、对象等声明性质的语法中，&amp;quot;:&amp;quot;是表明&amp;quot;key/value pair&amp;quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用&#x3D;并且与TypeScript保持一致，却忽略了TypeScript中完整的语法x: number &#x3D; 100中，:是指示类型的，而不是用于指示值。" />
+    <meta property="og:url" content="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html" />
+    <meta property="article:published_time" content="2018-10-13T13:43:34.000Z" />
+    <meta property="article:modified_time" content="2018-10-13T13:43:55.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="No prefix! operator is Ok!" />
+    <meta name="twitter:description" content="所有在我对原有提案的修改中，核心不是“不用#字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。 原有提案：https://github.com/tc39/proposal-class-fields 修改的提议：#issuecomment-429533532 1. 为什么是&amp;quot;:&amp;quot;而不是&amp;quot;&#x3D;&amp;quot;？ 在所有类、对象等声明性质的语法中，&amp;quot;:&amp;quot;是表明&amp;quot;key/value pair&amp;quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用&#x3D;并且与TypeScript保持一致，却忽略了TypeScript中完整的语法x: number &#x3D; 100中，:是指示类型的，而不是用于指示值。" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "No prefix! operator is Ok!",
+    "url": "http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html",
+    "datePublished": "2018-10-13T13:43:34.000Z",
+    "dateModified": "2018-10-13T13:43:55.000Z",
+    "description": "所有在我对原有提案的修改中，核心不是“不用#字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。 原有提案：https://github.com/tc39/proposal-class-fields 修改的提议：#issuecomment-429533532 1. 为什么是&amp;quot;:&amp;quot;而不是&amp;quot;&#x3D;&amp;quot;？ 在所有类、对象等声明性质的语法中，&amp;quot;:&amp;quot;是表明&amp;quot;key/value pair&amp;quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用&#x3D;并且与TypeScript保持一致，却忽略了TypeScript中完整的语法x: number &#x3D; 100中，:是指示类型的，而不是用于指示值。",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=7808c3cb39"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=7808c3cb39"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/5bc1f626843e1c1189200c8b.html">No prefix! operator is Ok!</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2018-10-13T21:43:34.3434+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2018-10-13">(2018-10-13)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><blockquote>
+<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
+<p>原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+<p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
+</blockquote>
+<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
+<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用<code>=</code>并且与TypeScript保持一致，却忽略了TypeScript中完整的语法<code>x: number = 100</code>中，<code>:</code>是指示类型的，而不是用于指示值。——这与ECMAScript的一般规则并不一致。</p>
+<p>ECMAScript规范事实上是沿用了“旧式的对象字面量”的属性声明与初值的语法，亦即是：</p>
+<pre><code class="language-javascript">obj = {
+    x: 100,
+    y: 100
+}
+</code></pre>
+<p>注意在这个语法中”有或没有<code>,</code>号都是接受的，但如果有<code>,</code>号则称为一个List，且整个声明是以一个“没有<code>,</code>号的单个属性声明”结束的。——这与传统的对象字面量声明语法一致。</p>
+<p>在ECMAScript中，类声明一定程度上沿用和扩展了这一语法。一方面，把“方法声明”给到了对象字面量声明；另一方面，从对象字面量那里把“get/setter声明”拿了过来。而与TypeScript类似的<code>= xxxx</code>语法，尽管也是一个称为<a href="https://tc39.github.io/ecma262/#prod-Initializer">Initializer</a>的语法组件，也的确出现在了对象初始化语法中，但是作为错误语法来识别的（CoverInitializedName）：</p>
+<pre><code>PropertyDefinition: CoverInitializedName
+     Always throw a Syntax Error if code matches this production.
+</code></pre>
+<p>所以，回到最前面的说明，推荐的语法设计是：</p>
+<pre><code class="language-javascript">// Because
+obj = {
+    data: 100,
+    foo() {
+        ....
+    }
+}
+
+// YES
+class f {
+    data: 100,
+    foo() {
+        ...
+    }
+}
+
+// NO!!!
+class f {
+    data = 100;
+    ...
+}
+</code></pre>
+<p>这样使用<code>f()</code>类构造出来的对象实例，与用相似语法声明的对象字面量是类似的。不存在语法设计上的“例外（unexpected）”。</p>
+<h3 id="2privatex">2. 为什么是&quot;private x&quot;而不是&quot;#&quot;？</h3>
+<p>在现有类、对象等声明语法中是使用限定词来指示成员性质的，例如<code>static</code>、<code>get</code>等。除了生成器函数之外，并不使用限定符号或“前缀(prefix)”，因此我建议用限定词<code>private</code>来扩展类声明语法，而反对原提案中使用<code>#</code>作为限定符来声明类私有字段（private field of class）。例如：</p>
+<pre><code class="language-javascript">// YES
+class f {
+    private data: 100  
+}
+
+// NO!
+class f {
+    #data = 100;
+}
+</code></pre>
+<h3 id="3">3.为什么是&quot;,&quot;而不是&quot;;&quot;？</h3>
+<p>在所有的列表（List）中，ECMAScript采用的分隔符都是<code>,</code>号，例如参数列表、对象/数组成员列表，以及导入导出的名字列表，还有变量<code>var</code>声明的名字列表等等。而<code>;</code>在语法中惯例是用作语句结束符或分隔符，包括你所见的各种（任意的）语句，以及<code>for(;;)</code>中的子句等等。我们既然是在声明类或对象的“成员列表”，那么显然应该是按“列表（List）”的规则处理成<code>,</code>为好，怎么会用到<code>;</code>号了呢？</p>
+<p>TypeScript中在这个位置是这样声明的：</p>
+<pre><code class="language-typescript">class f {
+    data: string = 'in typescript';
+    ...
+}
+</code></pre>
+<p>留意这里的语法特点：符号<code>:</code>是用于指示类型的，因此初值声明使用了<code>=</code>。这个声明与<code>var</code>语句声明类似，TypeScript将这里处理成了<code>;</code>是可以理解的。但ECMAScript何必要绕开现成的<code>,</code>号不用，去使用在这里毫无意义的<code>;</code>号呢？</p>
+<h3 id="4">4.最后一个&quot;,&quot;号的问题</h3>
+<p>ECMAScript既然已经接受了对象字面量声明的末尾逗号（object literal trailing commas），那么下面两种声明都可以是合法的了：</p>
+<pre><code class="language-javascript">// 推荐
+class f {
+    data: 100,
+    foo() {
+        ...
+    }
+}
+
+// (可接受)
+class f {
+    ...,  // more, a list with ','
+    data: 100
+    foo() {
+        ...
+    }
+}
+</code></pre>
+<h3 id="5">5.其它的声明示例</h3>
+<p>包括：</p>
+<pre><code class="language-javascript">var data = 'outer';
+
+class f {
+  // reference
+  data,  // outer reference, no computed
+
+  // public
+  data: 100,  // for object, equ: f.prototype.data = 100
+  static data: 100, // for class, equ: f.data = 100
+  [&quot;da&quot;+&quot;ta&quot;]: 100, // computed
+  static [&quot;da&quot;+&quot;ta&quot;]: 100, // computed
+
+  // private
+  private data: 100,  // normal private object properties
+  private [&quot;da&quot;+&quot;ta&quot;]: 100,  // computed private object properties, and symbol keys
+  private static data: 100, // for class static field
+  private static [&quot;da&quot; + &quot;ta&quot;]: 100, // computed
+
+  // get&amp;setter, etc
+  private get data() { ... }
+  ...
+}
+</code></pre>
+<h3 id="6">6.私有属性的存取</h3>
+<p>私有属性的存取是一个大问题，也是<code>#</code>语法争议的焦点。首先必须确定的是：私有属性存取的语义是什么？</p>
+<p>在原提案中，私有属性存取是将<code>#</code>作为一个前缀(prefix)，而存取运算仍然是<code>.</code>或<code>[]</code>运算符。因此，本质上来说，存取运算的操作没变，但是需要在存取中判断属性名的前缀是否是<code>#</code>字符。如下例：</p>
+<pre><code class="language-javascript">// 原提案
+class f {
+    #data = 100;
+    foo() {
+        console.log(this.#data);  // &quot;#&quot;是前缀，而&quot;.&quot;是存取运算符
+    }
+}
+</code></pre>
+<p>根本原因出在<code>.</code>运算检测<code>data</code>是否是私有成员的成本过高。例如：</p>
+<pre><code class="language-javascript">// 示例：一个不太可行的方案
+class f{
+    data = 100; // 假设这里是私有成员
+    foo() {
+        console.log(this.data);  // 假设这里的this.data指向私有成员
+    }
+}
+x = new f;
+x.data = '200';
+f(); // 应该显示200还是100？
+</code></pre>
+<p>那么在上面这个例子中，<code>x.data</code>添加了一个公开的属性时，foo()方法是无法识别用户代码的意图的。</p>
+<p>所以在旧的提案中需要使用<code>#</code>前缀。但是，仔细思考这个问题：</p>
+<ul>
+<li>私有字段列表与自有成员列表必须是同一个吗？</li>
+</ul>
+<p>当然不需要。那么为什么不为私有字段列表安排一个专门的运算符呢？只要“像使用super一样”限定它使用的上下文就好。因此，新的语法设计如下：</p>
+<pre><code class="language-javascript">class f{
+    data: 100,
+    foo() {
+        console.log(this#data);
+    }
+}
+</code></pre>
+<p>也就是说<code>#</code>现在是当作一个运算符（operator ）在用，而不是一个前缀（prefix）。</p>
+<p>但为什么是<code>#</code>？</p>
+<p>答案是：老实说，我也想不到更好的了。如果你能找一个大家都满意的，我接受。</p>
+<blockquote>
+<p>NOTE：</p>
+<p>一个备选的运算符可以是<code>-&gt;</code>，但老实说我认为比<code>#</code>更差劲。</p>
+</blockquote>
+<h3 id="7">7.其它</h3>
+<ul>
+<li>
+<p>在本方案中，是默认用“对象或类”的自有成员列表来实现的，这意味着总是需要用类似<code>this#xxx</code>的语法来存取它。不过这并非唯一的方案。</p>
+</li>
+<li>
+<p>关于类似于”采用词法上下文“来实现私有成员的问题，我另写文章来讨论吧。</p>
+</li>
+</ul>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/5b84b829c66182831afb4988.html">
+                    元类型系统是对JavaScript内建概念的补充
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=7808c3cb39" />
+<script src="/assets/js/gitmint.browser.js?v=7808c3cb39"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=7808c3cb39"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=7808c3cb39"></script>
+</body>
+
+</html>

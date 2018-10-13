@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=7808c3cb39" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=919e102fe9" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=919e102fe9" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=919e102fe9" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=919e102fe9" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=919e102fe9" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=7808c3cb39" />
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <link rel="prev" href="http://aimingoo.github.io/author/aimingoo/page/17/" />
     <link rel="next" href="http://aimingoo.github.io/author/aimingoo/page/19/" />
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=7808c3cb39"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -62,13 +62,41 @@ ghost.init({
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=919e102fe9"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=7808c3cb39"></script>
 
 <main id="container" class="container" role="main">
 
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-javascript tag-qomo tag-opensource-project" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>一、NamedSystem 模块概要 NamedSystem 是Qomo的可选载入模块。这个模块主要实现三个功能： 对$import()在路径识别上的增强 Namespace 子系统的装载 Alias 子系统的装载 // TODO: NamedSystem.js是firefox兼容的。 二、NamedSystem 模块的构成与载入 命名系统分成上述的三个部分，但它们的重要性并不相同。 $import()为了对路径识别进行增强，加入了一个标准的JavaScript对象：Url()。此后通过一个匿名函数的执行来实现对$ ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2006-02-20T01:23:00.000+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2006-02-20">(2006-02-20)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/qomo/">Qomo</a>, <a href="/tag/opensource-project/">OpenSource Project</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-32.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-cheng-xu-ren-sheng tag-za-tan tag-zuo-lun" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-31.html">关于Borland&#x27;s IDE：发生了就发生了吧!</a></h1>
@@ -461,34 +489,6 @@ ghost.init({
             </span>
         </footer>
     </article>
-            <article class="post tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-214.html">当骂老婆成为习惯～</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>低下头，忏悔一下下先～～ …… …… …… 总是喜欢骂麦秸笨的，有时候又说她肥。不管是骂她笨还是骂她肥，总是一句“猪啊”～因此便成了习惯。 不过这样的习惯放在家里也没有什么，就象她呼喝我的时候总是叫臭狗狗一样。私房的事情，不真骂，也不当真。 但是今天居然在跟Soul说话的时候，来了一句：你猪头啊！我当场就昏掉了。 才发现，当骂老婆成为习惯的时候，还会以同样的习惯去骂同事、骂上司、骂长辈、骂……如此发展下去，如何得了？ 尽管是以无恶意的心态在说出这句话， ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/za-tan/">杂谈</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2006-01-06T11:08:50.5050+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2006-01-06">(2006-01-06)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/za-tan/">杂谈</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-214.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
 
     <nav class="pagination" role="navigation">
         <a rel="next" class="newer-posts" href="/author/aimingoo/page/17/"><i class="fa fa-chevron-left"></i>&nbsp;上一页</a>
@@ -542,21 +542,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=7808c3cb39"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=919e102fe9"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=919e102fe9"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=7808c3cb39"></script>
 </body>
 
 </html>

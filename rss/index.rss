@@ -1,4 +1,169 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 28 Aug 2018 03:01:47 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[元类型系统是对JavaScript内建概念的补充]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sat, 13 Oct 2018 13:52:29 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[No prefix! operator is Ok!]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
+<p>原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+<p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
+</blockquote>
+<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
+<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用<code>=</code>并且与TypeScript保持一致，却忽略了TypeScript中完整的语法<code>x: number = 100</code>中，</p></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
+<p>原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+<p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
+</blockquote>
+<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
+<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用<code>=</code>并且与TypeScript保持一致，却忽略了TypeScript中完整的语法<code>x: number = 100</code>中，<code>:</code>是指示类型的，而不是用于指示值。——这与ECMAScript的一般规则并不一致。</p>
+<p>ECMAScript规范事实上是沿用了“旧式的对象字面量”的属性声明与初值的语法，亦即是：</p>
+<pre><code class="language-javascript">obj = {
+    x: 100,
+    y: 100
+}
+</code></pre>
+<p>注意在这个语法中”有或没有<code>,</code>号都是接受的，但如果有<code>,</code>号则称为一个List，且整个声明是以一个“没有<code>,</code>号的单个属性声明”结束的。——这与传统的对象字面量声明语法一致。</p>
+<p>在ECMAScript中，类声明一定程度上沿用和扩展了这一语法。一方面，把“方法声明”给到了对象字面量声明；另一方面，从对象字面量那里把“get/setter声明”拿了过来。而与TypeScript类似的<code>= xxxx</code>语法，尽管也是一个称为<a href="https://tc39.github.io/ecma262/#prod-Initializer">Initializer</a>的语法组件，也的确出现在了对象初始化语法中，但是作为错误语法来识别的（CoverInitializedName）：</p>
+<pre><code>PropertyDefinition: CoverInitializedName
+     Always throw a Syntax Error if code matches this production.
+</code></pre>
+<p>所以，回到最前面的说明，推荐的语法设计是：</p>
+<pre><code class="language-javascript">// Because
+obj = {
+    data: 100,
+    foo() {
+        ....
+    }
+}
+
+// YES
+class f {
+    data: 100,
+    foo() {
+        ...
+    }
+}
+
+// NO!!!
+class f {
+    data = 100;
+    ...
+}
+</code></pre>
+<p>这样使用<code>f()</code>类构造出来的对象实例，与用相似语法声明的对象字面量是类似的。不存在语法设计上的“例外（unexpected）”。</p>
+<h3 id="2privatex">2. 为什么是&quot;private x&quot;而不是&quot;#&quot;？</h3>
+<p>在现有类、对象等声明语法中是使用限定词来指示成员性质的，例如<code>static</code>、<code>get</code>等。除了生成器函数之外，并不使用限定符号或“前缀(prefix)”，因此我建议用限定词<code>private</code>来扩展类声明语法，而反对原提案中使用<code>#</code>作为限定符来声明类私有字段（private field of class）。例如：</p>
+<pre><code class="language-javascript">// YES
+class f {
+    private data: 100  
+}
+
+// NO!
+class f {
+    #data = 100;
+}
+</code></pre>
+<h3 id="3">3.为什么是&quot;,&quot;而不是&quot;;&quot;？</h3>
+<p>在所有的列表（List）中，ECMAScript采用的分隔符都是<code>,</code>号，例如参数列表、对象/数组成员列表，以及导入导出的名字列表，还有变量<code>var</code>声明的名字列表等等。而<code>;</code>在语法中惯例是用作语句结束符或分隔符，包括你所见的各种（任意的）语句，以及<code>for(;;)</code>中的子句等等。我们既然是在声明类或对象的“成员列表”，那么显然应该是按“列表（List）”的规则处理成<code>,</code>为好，怎么会用到<code>;</code>号了呢？</p>
+<p>TypeScript中在这个位置是这样声明的：</p>
+<pre><code class="language-typescript">class f {
+    data: string = 'in typescript';
+    ...
+}
+</code></pre>
+<p>留意这里的语法特点：符号<code>:</code>是用于指示类型的，因此初值声明使用了<code>=</code>。这个声明与<code>var</code>语句声明类似，TypeScript将这里处理成了<code>;</code>是可以理解的。但ECMAScript何必要绕开现成的<code>,</code>号不用，去使用在这里毫无意义的<code>;</code>号呢？</p>
+<h3 id="4">4.最后一个&quot;,&quot;号的问题</h3>
+<p>ECMAScript既然已经接受了对象字面量声明的末尾逗号（object literal trailing commas），那么下面两种声明都可以是合法的了：</p>
+<pre><code class="language-javascript">// 推荐
+class f {
+    data: 100,
+    foo() {
+        ...
+    }
+}
+
+// (可接受)
+class f {
+    ...,  // more, a list with ','
+    data: 100
+    foo() {
+        ...
+    }
+}
+</code></pre>
+<h3 id="5">5.其它的声明示例</h3>
+<p>包括：</p>
+<pre><code class="language-javascript">var data = 'outer';
+
+class f {
+  // reference
+  data,  // outer reference, no computed
+
+  // public
+  data: 100,  // for object, equ: f.prototype.data = 100
+  static data: 100, // for class, equ: f.data = 100
+  [&quot;da&quot;+&quot;ta&quot;]: 100, // computed
+  static [&quot;da&quot;+&quot;ta&quot;]: 100, // computed
+
+  // private
+  private data: 100,  // normal private object properties
+  private [&quot;da&quot;+&quot;ta&quot;]: 100,  // computed private object properties, and symbol keys
+  private static data: 100, // for class static field
+  private static [&quot;da&quot; + &quot;ta&quot;]: 100, // computed
+
+  // get&amp;setter, etc
+  private get data() { ... }
+  ...
+}
+</code></pre>
+<h3 id="6">6.私有属性的存取</h3>
+<p>私有属性的存取是一个大问题，也是<code>#</code>语法争议的焦点。首先必须确定的是：私有属性存取的语义是什么？</p>
+<p>在原提案中，私有属性存取是将<code>#</code>作为一个前缀(prefix)，而存取运算仍然是<code>.</code>或<code>[]</code>运算符。因此，本质上来说，存取运算的操作没变，但是需要在存取中判断属性名的前缀是否是<code>#</code>字符。如下例：</p>
+<pre><code class="language-javascript">// 原提案
+class f {
+    #data = 100;
+    foo() {
+        console.log(this.#data);  // &quot;#&quot;是前缀，而&quot;.&quot;是存取运算符
+    }
+}
+</code></pre>
+<p>根本原因出在<code>.</code>运算检测<code>data</code>是否是私有成员的成本过高。例如：</p>
+<pre><code class="language-javascript">// 示例：一个不太可行的方案
+class f{
+    data = 100; // 假设这里是私有成员
+    foo() {
+        console.log(this.data);  // 假设这里的this.data指向私有成员
+    }
+}
+x = new f;
+x.data = '200';
+f(); // 应该显示200还是100？
+</code></pre>
+<p>那么在上面这个例子中，<code>x.data</code>添加了一个公开的属性时，foo()方法是无法识别用户代码的意图的。</p>
+<p>所以在旧的提案中需要使用<code>#</code>前缀。但是，仔细思考这个问题：</p>
+<ul>
+<li>私有字段列表与自有成员列表必须是同一个吗？</li>
+</ul>
+<p>当然不需要。那么为什么不为私有字段列表安排一个专门的运算符呢？只要“像使用super一样”限定它使用的上下文就好。因此，新的语法设计如下：</p>
+<pre><code class="language-javascript">class f{
+    data: 100,
+    foo() {
+        console.log(this#data);
+    }
+}
+</code></pre>
+<p>也就是说<code>#</code>现在是当作一个运算符（operator ）在用，而不是一个前缀（prefix）。</p>
+<p>但为什么是<code>#</code>？</p>
+<p>答案是：老实说，我也想不到更好的了。如果你能找一个大家都满意的，我接受。</p>
+<blockquote>
+<p>NOTE：</p>
+<p>一个备选的运算符可以是<code>-&gt;</code>，但老实说我认为比<code>#</code>更差劲。</p>
+</blockquote>
+<h3 id="7">7.其它</h3>
+<ul>
+<li>
+<p>在本方案中，是默认用“对象或类”的自有成员列表来实现的，这意味着总是需要用类似<code>this#xxx</code>的语法来存取它。不过这并非唯一的方案。</p>
+</li>
+<li>
+<p>关于类似于”采用词法上下文“来实现私有成员的问题，我另写文章来讨论吧。</p>
+</li>
+</ul>
+</div>]]></content:encoded></item><item><title><![CDATA[元类型系统是对JavaScript内建概念的补充]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是一个系列，包括：</p>
 <ul>
 <li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
@@ -294,16 +459,18 @@ Object.setPrototypeOf(_this, Atom.prototype); // prototype is null
 atom = _this;
 </code></pre>
 <p>所以方法7是一种能够“利用JavaScript原生构造器”来创建原子的技巧。比如最简单的获得一个<code>Arguments()</code>构造器的方法其实是这样：</p>
-<pre><code class="language-javascript">let Arguments = Object.setPrototypeOf(class extends null {}, Array);
+<pre><code class="language-javascript">let Arguments = Object.setPrototypeOf(class extends Object {}, Array);
 </code></pre>
 <p>这样得到的对象将与JavaScript内置在函数调用中创建的<code>argument</code>完全一致：</p>
-<pre><code class="language-javascript">// （JavaScript的arguments对象也是原子）
-let arguments = new Arguments(1,2,3); // more paraments
+<pre><code class="language-javascript">let arguments = new Arguments(1,2,3); // more paraments
 </code></pre>
 <p>不过在ES6中<code>arguments</code>也实现了迭代器界面，因此需要一行额外的代码来处理之：</p>
 <pre><code class="language-javascript">// for ES6
 Arguments.prototype[Symbol.iterator] = [][Symbol.iterator];
 </code></pre>
+<blockquote>
+<p>NOTE(2018.08.28)：由于arguments并不是原子对象，因此对类Arguments()的写法略作修改，突出了设置Array作为原型（来替换父类构造器）的用法。thanks for hebaby @github</p>
+</blockquote>
 <h2 id="">其它</h2>
 <h4 id="1">1. 关于映射类</h4>
 <p>在Metameta(<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>)中，可以使用<code>Meta.from()</code>来得到一个映射类，这与上面的方法7是相同的方式：</p>
@@ -331,9 +498,13 @@ Object.setPrototypeOf(MyClass.prototype, new.target)
 <li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
 <li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
 </ul>
+<p>以及相关下载：</p>
+<ul>
+<li>资源分享：第四届FEDay讲演主题 - <a href="https://aimingoo.github.io/5b7b77b6c66182831afb4977.html">在这里</a></li>
+</ul>
 </blockquote>
 <p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
-<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta type system</em>）”。我们在这里先定义一个称为“原子（<em>Atom</em></p></div>]]></description><link>http://aimingoo.github.io/5b7f6efac66182831afb497b/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta</em></p></div>]]></description><link>http://aimingoo.github.io/5b7f6efac66182831afb497b/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
 <blockquote>
 <p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
 <p>本文是一个系列，包括：</p>
@@ -341,6 +512,10 @@ Object.setPrototypeOf(MyClass.prototype, new.target)
 <li>JavaScript的元系统（本文）</li>
 <li>JavaScript中创建原子的几种方法 - <a href="https://aimingoo.github.io/5b824316c66182831afb4982.html">在这里</a></li>
 <li>元类型系统是对JavaScript内建概念的补充 - <a href="https://aimingoo.github.io/5b84b829c66182831afb4988.html">在这里</a></li>
+</ul>
+<p>以及相关下载：</p>
+<ul>
+<li>资源分享：第四届FEDay讲演主题 - <a href="https://aimingoo.github.io/5b7b77b6c66182831afb4977.html">在这里</a></li>
 </ul>
 </blockquote>
 <p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
@@ -356,7 +531,7 @@ Object.setPrototypeOf(MyClass.prototype, new.target)
 <p>也可以通过将一般对象的原型置为null来得到一个原子：</p>
 <pre><code class="language-javascript">var atom = Object.setPrototypeOf(new Object, null);
 </code></pre>
-<p>并且，在ECMAScript中有四个内建/原生对象是原子的：</p>
+<p>并且，在ECMAScript中有三个内建/原生对象是原子的：</p>
 <pre><code class="language-javascript">function isAtom(x) {
     switch (typeof x) {
         case 'object':
@@ -368,13 +543,9 @@ Object.setPrototypeOf(MyClass.prototype, new.target)
 // modules in es6
 import * as namespace from './your-module.js';
 
-// arguments from function
-var args = Function('return arguments')();
-
 console.log(isAtom(null));
 console.log(isAtom(Object.prototype));
 console.log(isAtom(namespace));
-console.log(isAtom(args));
 </code></pre>
 <p>在同一个运行环境中，可以并存多个原子，以及由原型指向原子的、原型继承的对象系统。所有这些原子以及衍生的对象系统都是互不相等、没有交集的。</p>
 <pre><code class="language-javascript">&gt; Object.create(null) === Object.create(null)
@@ -388,6 +559,9 @@ false
 <ul>
 <li>作为唯一特例，null值是一个原子（注：原子在ECMAScript约定的ECMAScript language types中不是对象，但在JavaScript自身的类型检查（<em>typeof</em>）中它是对象）。</li>
 </ul>
+<blockquote>
+<p>NOTE(2018.08.28): 修正了一处关于arguments的错误，确认arguments对象不是原子。thanks for hebaby @github</p>
+</blockquote>
 <h2 id="meta">元（meta）</h2>
 <blockquote>
 <p>定义：能产生原子（atom）的一个过程称为元（meta）。</p>
@@ -417,17 +591,20 @@ false
 <p>在ES6的语法中，可以简单地在函数中返回一个“类声明（<em>class definitions</em>）”来得到一个字面量风格的类。因此在Metameta中声明了MetaMeta()类来作为元类型的祖先类：</p>
 <pre><code class="language-javascript">// Meta's super
 class MetaMeta extends null {
-  constructor(base) { // Atom() by default
+  constructor(base=Atom) { // Atom() by default, NOTE: 声明在上例
     return Object.setPrototypeOf(class extends new.target {}, base);
   }
 ...
 </code></pre>
+<blockquote>
+<p>NOTE(2018.09.09): 修正了一处关于MetaMeta()类的错误，这是因为在本文中为了简化Meta()类的描述而直接暴露了MetaMeta的实现，但又没有处理相关的逻辑所导致的。需要注意的是，在Metameta项目中该类的实现与本文是略有区别的。thanks for nextdoorUncleLiu @github</p>
+</blockquote>
 <p>所以现在，我们就可以通过如下的方法来得到一个原子了：</p>
 <pre><code class="language-javascript">// Atom与meta是同义的
-&gt; Atom = meta = new MetaMeta
+&gt; Atom2 = meta = new MetaMeta
 
 // 创建一个原子
-&gt; atom = new Atom
+&gt; atom = new Atom2
 
 // 检测
 &gt; isAtom(atom)
@@ -1786,65 +1963,5 @@ FORCE=false
 IGNORE_LIST=(&quot;archives-post&quot; &quot;author&quot; &quot;page&quot; &quot;rss&quot; &quot;tag&quot; &quot;assets&quot; &quot;content&quot; &quot;shared&quot;)
 # - 在PATCH_VERSION阶段中需要处理的目录名
 VERDIR_LIST=(&quot;assets&quot; &quot;shared&quot; &quot;public&quot;)
-</code></pre>
-</div>]]></content:encoded></item><item><title><![CDATA[将Monster用作网站离线下载的方法]]></title><description><![CDATA[<div class="kg-card-markdown"><p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
-<h3 id="">在非工作目录中（不推荐）</h3>
-<ul>
-<li>将网站全站下载到<code>./static</code>目录</li>
-</ul>
-<pre><code class="language-bash"># 由于site与domain相同，所以不会触发reset-domain操作
-&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=&quot;your.site.com&quot;
-
-# OR，置reset-domain为false
-&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=. --reset-domain=false
-</code></pre>
-<ul>
-<li>对<code>./static</code>目录中的静态页面作<code>reset-domain</code>操作（缺省该选项是打开的）</li>
-</ul>
-<pre><code class="language-bash">&gt; monster --domain=</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1743/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c0</guid><category><![CDATA[Monster]]></category><category><![CDATA[博客]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[OpenSource Project]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:42:58 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>没有Ghost也是可以运行Monster，有极少功能是为这种情况准备的，例如用来作网站的离线下载。</p>
-<h3 id="">在非工作目录中（不推荐）</h3>
-<ul>
-<li>将网站全站下载到<code>./static</code>目录</li>
-</ul>
-<pre><code class="language-bash"># 由于site与domain相同，所以不会触发reset-domain操作
-&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=&quot;your.site.com&quot;
-
-# OR，置reset-domain为false
-&gt; monster --generate --site=&quot;http://your.site.com&quot; --domain=. --reset-domain=false
-</code></pre>
-<ul>
-<li>对<code>./static</code>目录中的静态页面作<code>reset-domain</code>操作（缺省该选项是打开的）</li>
-</ul>
-<pre><code class="language-bash">&gt; monster --domain=&quot;your.site.com&quot;
-</code></pre>
-<ul>
-<li>预览<code>./static</code>目录中的静态页面</li>
-</ul>
-<pre><code class="language-bash">&gt; monster preview
-</code></pre>
-<h3 id="">初始化一个工作目录用来下载</h3>
-<p>我们可以将一个目录初始化，用作专门的网络离线下载（备份/归档）。</p>
-<p><strong>初始化一个工作目录</strong></p>
-<pre><code class="language-bash"># 直接用--init初始化一个工作目录，除了domain之外其它的跳过
-#	- 随便填写一个domain地址即可，例如填写一个“.”符号
-&gt; monster --init
-Your Github name or domain: .
-...
-
-# 置RESET_DOMAIN=false
-&gt; sed -i '' 's/[# ]*\(RESET_DOMAIN\)=.*/\1=false/' .monster
-
-# 添加一行配置
-&gt; echo &quot;GENERATE=true&quot; &gt;&gt; .monster
-</code></pre>
-<p><strong>常用操作</strong></p>
-<pre><code class="language-bash"># 下载一个站点(例如https://aimingoo.github.io)
-&gt; monster --site=&quot;https://aimingoo.github.io&quot;
-
-# 将站点下载到指定目录
-&gt; monster --site=&quot;https://aimingoo.github.io&quot; --static-path=&quot;./archive&quot;
-
-# 不尝试下载sitemap文件
-&gt; monster --site=&quot;https://aimingoo.github.io&quot; --pick-sitemap=false
 </code></pre>
 </div>]]></content:encoded></item></channel></rss>
