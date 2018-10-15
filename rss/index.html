@@ -1,13 +1,263 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Sat, 13 Oct 2018 13:52:29 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[No prefix! operator is Ok!]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Mon, 15 Oct 2018 02:43:54 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
+<blockquote>
+<p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
+<p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
+<p>本文是一个系列，参见：</p>
+<ul>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>私有属性的实现 (本文)</li>
+<li>(未完待续)</li>
+</ul>
+</blockquote>
+<h3 id="1">1. 私有成员语法的三个问题</h3>
+<p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+</p></div>]]></description><link>http://aimingoo.github.io/5bc3fe1d843e1c1189200c92/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
+<blockquote>
+<p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
+<p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
+<p>本文是一个系列，参见：</p>
+<ul>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>私有属性的实现 (本文)</li>
+<li>(未完待续)</li>
+</ul>
+</blockquote>
+<h3 id="1">1. 私有成员语法的三个问题</h3>
+<p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+的方法也是一种“（特殊的）函数类型的属性”，这种特殊性在于它必须通过声明语法来添加到类或对象。——也就是说，ES6中的方法是静态声明的，而不是动态添加的。</p>
+<p>类是特定语法声明的函数。由于函数是对象，所以类也是普遍含义上的对象。所以——重要的是——类的成员与对象的成员在性质上并没有任何的不同。确切来讲，它们都是属性，是对象的自有属性表中的成员，或可以通过原型访问的父代类属性。</p>
+<p>总之，所有现在能静态声明或动态添加的属性都是公开的（public）。在讨论“私有属性”的时候，有三点是必须要先确定的：</p>
+<ul>
+<li>私有属性是静态声明的，还是动态添加的？</li>
+<li>私有属性是（现有机制中的）自有属性表中的“标识为私有的”属性，还是在一个新表？</li>
+<li>私有属性是否支持继承（类似其它OOP语言的protected属性）？</li>
+</ul>
+<blockquote>
+<p>注：本文中所谓“成员”，是在需要区分讨论属性与方法时使用的。此外，在提及“词法私有成员”时，因其与“属性”存在本质不同，所以暂用了“成员”这个概念。</p>
+</blockquote>
+<h3 id="2tc39">2. tc39中的提案</h3>
+<p>之前我们已经讨论过这个提案的语法。很大程度上我是在尽量保证与现有语法设计上的一致性，而并没有讨论这个提案的实现方法。</p>
+<p>简单地说，该提案认为：私有属性是一种特殊前缀表达的、自有的特殊属性。</p>
+<p>由于私有属性是“一种...属性”，因此该属性总是在“自有属性表”中，并且也受自有属性表的机制来约束，例如属性描述符。比较简单的处理方法是：在属性描述符中增加新的属性（类似<code>configurable</code>与<code>enumerable</code>等等）。因此：</p>
+<pre><code class="language-javascript">class f() {
+    private data: 100
+}
+x = f();
+
+// 在语义上等义于：
+Object.defineProperty(x, 'data', {
+    value: 100,
+    kind: 'private'  // default is 'public'
+})
+</code></pre>
+<p>所有与“属性”相关的特性都可以用在这些新式的<code>kind: 'private'</code>的私有属性上。当然，如此一来，我们之前讨论的三个问题就有答案了：</p>
+<ul>
+<li>
+<p>私有属性是静态声明的，不可以动态添加。<br>
+私有属性不支持用Object.defineProperty()等来动态声明，这可以通过<code>kind</code>性质来限制之。</p>
+</li>
+<li>
+<p>私有属性使用可以使用一个新的属性表，也可以直接使用现有的自有属性表。<br>
+两者的机制是完全一样的，只是<code>kind</code>性质的不同。但是，无论哪种方法，都需要考虑公开与私有属性同名问题：是可以同时存在，还是禁止重复。（注1、注2）</p>
+</li>
+<li>
+<p>私有属性可以支持继承。</p>
+<p>在这个方案中可以很方便的实现类似<code>protected</code>的语法，即在子类中可访问的父类私有属性（如果父类将之声明为protected）。</p>
+</li>
+</ul>
+<blockquote>
+<p>注1：建议允许重名。因为JavaScript允许动态添加公开属性名的，如果不允许重名，则发生与私有属性冲突的机率大增。——更严重的是，用户代码无从得知一个对象有哪些私有属性名。</p>
+<p>注2：如果允许重名，则两张属性表更方便；如果禁止重名，则建议使用同一张表。</p>
+</blockquote>
+<p>如上，我的确是建议“私有的与公开的属性名是可以重复的”。这带来了如下的问题（下例假设直接使用<code>this.xxx</code>来存取私有属性）：</p>
+<pre><code class="language-javascript">// 示例：一个不太可行的方案
+class f{
+    data = 100; // 假设这里是私有成员
+    foo() {
+        console.log(this.data);  // 假设这里的this.data指向私有成员
+    }
+}
+x = new f;
+x.data = '200';
+f(); // 应该显示200还是100？
+</code></pre>
+<p>这一示例说明：我们无法在语法上“限定在<code>class f()</code>类声明中使用<code>this.data</code>将访问私有属性。这个设计是行不通的。</p>
+<p>如果我们的假设是“私有属性是属性表中的特殊项”，那么“使用<code>this</code>来访问属性表”是目前最合理的方式。又如果使用“<code>this</code>作为绑定给<code>foo()</code>的对象实例，并试图访问该实例的私有属性”，那么“必然的”，我们需要一个新的语法：用于存取私有属性。</p>
+<p>——注意这与目前tc39提案的不同，亦即是<a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">“No prefix! operator is Ok!”</a>。</p>
+<p>如下例：</p>
+<pre><code class="language-javascript">class f() {
+    private data: 100,
+    private static data: 200,
+    foo() {
+        this#data = this#data + f#data;
+    }
+}
+</code></pre>
+<p>在这个设计中，<code>#</code>是限用于“类和对象的方法声明语法中”的，语义是：</p>
+<ul>
+<li>存取左运算元的私有属性表</li>
+</ul>
+<p>很简单，很明确。</p>
+<h3 id="3">3. 使用属性表的核心问题**</h3>
+<p>我们使用<code>pravite</code>作为限定词，核心目的是“访问在<code>class f()</code>声明之外访问私有属性。然而，如果我们使用属性表，那么没有任何”经济的“方法能做实现这个目标。为了解决这个问题，我们先讨论一个ECMAScript规范上的漏洞：<strong>能不能动态添加方法声明？</strong></p>
+<p><strong>3.1 动态添加方法</strong></p>
+<p>JavaScript不能安全地抄写对象方法，因为方法会绑定源对象的<code>super</code>。例如：。</p>
+<pre><code class="language-javascript">// 类f与对象x
+ObjectX = function() {}
+ObjectX.prototype.data = &quot;ObjectX&quot;
+class f extends ObjectX { }
+f.prototype.data = 100;
+x = new f;
+
+// 类f2与对象x2
+MyObject = function() {}
+MyObject.prototype.data = 'MyObject';
+class f2 extends MyObject {
+    foo() {
+        console.log(super.data);
+        console.log(this.data);
+    }
+}
+f2.prototype.data = 200;
+x2 = new f2;
+x2.foo(); // &quot;MyObject&quot; 200
+
+// 抄写x2的方法声明
+// （super没变化，绑定在了f2()类上）
+x.foo = x2.foo;
+x.foo();  // &quot;MyObject&quot; 100
+</code></pre>
+<p>方法<code>x.foo()</code>显示了<code>foo()</code>在词法上的<code>super</code>，亦即是<code>MyObject</code>。这表明<code>foo()</code>方法是与<code>class f2</code>的继承关系是词法绑定的，并不会“抄写到”对象<code>x</code>。——当然，如我们一直在讨论的，<code>this</code>引用是动态绑定的，不受上述影响。</p>
+<p>而所谓<code>super</code>本质上只是在访问一个方法的“内部槽<code>[[HomeObject]]</code>”的原型而已。考虑到这一点，一种简单的重置<code>super</code>的方法如下：</p>
+<pre><code class="language-javascript">// 安全地动态添加方法x.foo()
+Object.assign(x, Object.setPrototypeOf({
+    foo() {
+        console.log(super.data);
+        console.log(this.data);
+    }
+}, Object.getPrototypeOf(f.prototype)));
+
+x.foo(); // &quot;ObjectX&quot;, &quot;100&quot;
+</code></pre>
+<p>根据这一过程，一个安全地动态添加方法的操作如下（注3）：</p>
+<pre><code class="language-javascript">// 工具函数
+//  - add method to f.prototype
+Object.addMethod = function(proto, methods) { 
+  return Object.assign(proto, Object.setPrototypeOf(methods,
+    Object.getPrototypeOf(proto)));
+}
+
+// 使用示例(在原型上添加方法)
+Object.addMethod(f.prototype, {
+    foo2() {
+        console.log('Value:', super.data);
+    }
+})
+x.foo2();  // &quot;Value: ObjectX&quot;
+</code></pre>
+<blockquote>
+<p>注3: <code>Object.addMethod()</code>在这里实现为“向f.prototype属性添加方法”，是因为通过<code>class</code>关键字声明的对象方法其实都是原型方法。因此所谓“动态添加方法”是应当通过污染类的.prototype属性来实现的。但是也可以用类似技术来实现不污染该原型属性的方法，例如<code>Object.addOwnMethod()</code>，因与本文主题无关，在这里就不给出具体代码了。</p>
+</blockquote>
+<h3 id="32">3.2 动态存取私有属性</h3>
+<p><code>Object.addMethod()</code>方法的实现意味着“在类声明之外”为对象或类动态添加方法是安全的。因此，尽管我们认为下面的私有属性this#data<code>只能通过</code>foo()`来访问：</p>
+<pre><code class="language-javascript">class f {
+    private data: 100,
+    foo() {
+        console.log(this#data);
+    }
+}
+x = new f;
+x.foo();
+</code></pre>
+<p>然而事实上下面的示例可以随时访问之：</p>
+<pre><code class="language-javascript">Object.addMethod(f.prototype, {
+    setData(v) {
+        this#data = v;
+    }
+})
+
+// setData()是动态添加的可以存取私有属性的方法
+x.setData(300);
+x.foo(); // 300
+</code></pre>
+<p>然而这样一来，在ECMAScript中没有办法“<strong>安全地实现私有属性</strong>”了。</p>
+<h3 id="4">4. 存在可行的解决方案吗？</h3>
+<p>首先我们得知道为什么。</p>
+<p>ECMAScript的方法本质上是“访问<code>this</code>绑定的函数”——无论是传统的方法，还是ES6之后的方法，皆是如此。在所谓方法中，如果访问的是<code>this.xxx</code>这样的公共属性自然是不成问题，因为本质上对象就是属性表；类似的，如果属性包支持“<code>private</code>这样的访问域特性”，那么自然也是可以在支持私有属性访问的。——所以，最新的提案是建议用<code>this.#xxx</code>这样的语法来访问它，亦即是在本质上仍然是在访问属性表。</p>
+<p>所以，这就是根本的问题：如果一个方法就是在访问属性表，且它总是能动态地绑定<code>this</code>，那么它必然也能够跨类（和跨对象）地访问私有的属性表——以及那些私有属性。</p>
+<p>有两个途径来解决这个问题。</p>
+<p>其一，是采用“词法私有成员”这样一种潜在实现机制。由于这种实现机制是利用作用域来实现的，与对象的自有属性表无关，因此也不会受<code>addMethod()</code>这样的方法影响 。</p>
+<p>其二，是在方法声明（例如<code>f.prototype.foo()</code>）中对<code>this#xxx</code>中的运算符<code>#</code>做进一步限制。即foo()方法</p>
+<ul>
+<li>仅能在<code>f.prototype</code>与<code>this对象的原型</code>相同时（即<code>private</code>限定词），以及</li>
+<li>仅能在<code>f.prototype</code>在<code>this对象的原型</code>的原型链上时（即<code>protected</code>限定词），</li>
+</ul>
+<p>才能使用<code>#</code>运算。而这一点恰恰是能做到的，因为——正好——每一个ES6之后的方法，都会有一个<code>[[HomeObject]]</code>内部槽用于存放**“声明时的”**类原型（<code>f.prototype</code>）或对象本身（<code>obj</code>）。如下例：</p>
+<pre><code class="language-javascript">class f {
+    foo() {}
+}
+obj = {
+    foo() {}
+}
+x = new f;
+
+// 如果能访问[[HomeObject]]内部槽，则：
+console.log(x.foo[[HomeObject]] === f.prototype); // true
+console.log(obj.foo[[HomeObject]] === obj); // true
+</code></pre>
+<p>那么，上述对<code>#</code>运算符的限制无非是在说（注4、注5）：</p>
+<pre><code class="language-javascript">// 在foo()方法内实现`#`运算符的伪代码逻辑
+foo() {
+    // source: `this#data`
+    homeObject = activeFunction[[HomeObject]];
+    descriptor = Object.getPrivatePropertyDescriptor(this, 'data');
+    permission = (
+       (descriptor.kind == 'private' &amp;&amp;
+        homeObject == Object.getPrototypeOf(this)) ||
+       (descriptor.kind == 'protected' &amp;&amp;
+        homeObject.isPrototypeOf(this)));
+    if (permission) {
+        result = descriptor.value; // return result of `#` op
+    }
+}
+
+</code></pre>
+<p>注意这里有一个伪代码说明的变量名<code>activeFunction</code>，这是指“当前活动的、正在调用的函数，也就是<code>foo()</code>函数本身。类似在ECMAScript中“需要判断当前函数”的情况并不是没有——也就是说，以前就有存在这样这种方案实现的语言特性了。</p>
+<p>是哪种语言特性呢？这就是闻名已久的<code>super()</code>——注意这里仅指在<code>constructor()</code>调用父类构造方法的操作，在ECMAScript中称为<code>SuperCall</code>。这个操作很特殊，因为它需要从当前上下文的环境记录中取<code>activeFunction</code>并进一步“查找所谓父类（即super）”。</p>
+<blockquote>
+<p>注4: 在ECMAScript中有两个操作是会取activeFunction的，另一个是eval()。<code>SuperCall()</code>需要取activeFunction的原因是它无法直接使用constructor()的[[HomeObject]]内部槽。</p>
+<p>注5: <code>Object.getPrivatePropertyDescriptor()</code>与<code>Object.getOwnPropertyDescriptor()</code>并没有功能的区别，只是这里假设前者需要直接访问私有属性表（关于建议使用两个属性表的问题，参见本文第2节）。</p>
+</blockquote>
+<p>亦即是说，所有实现这一特性所需的技术组件，在现有的ECMAScript中都是充备的。</p>
+<p>^^.</p>
+<h3 id="n">n. 终极问题：必要性？</h3>
+<p>看起来还不错哟。看起来很有希望哟。要不，下手来搞搞？</p>
+<p>然而，历史中，我们程序员犯得最多的错误就是：</p>
+<blockquote>
+<p><strong>一件事看起来能做，于是就做了。</strong></p>
+</blockquote>
+<p>“私有属性”这个特性真的是必须的么？——常读我写文章的读者，应该知道我总是在最后一步来考虑最原始的问题。——然而关于这个问题，我想要等到下一篇再讨论了。</p>
+<p>现在这篇，已经很长了，不能再长了。:)</p>
+</div>]]></content:encoded></item><item><title><![CDATA[No prefix! operator is Ok!]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
-<p>原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
 <p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
+<p>本文是一个系列，参见：</p>
+<ul>
+<li>No prefix! operator is Ok! (本文)</li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>(未完待续)</li>
+</ul>
 </blockquote>
 <h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
-<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用<code>=</code>并且与TypeScript保持一致，却忽略了TypeScript中完整的语法<code>x: number = 100</code>中，</p></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;</p></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
-<p>原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
 <p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
+<p>本文是一个系列，参见：</p>
+<ul>
+<li>No prefix! operator is Ok! (本文)</li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>(未完待续)</li>
+</ul>
 </blockquote>
 <h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
 <p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用<code>=</code>并且与TypeScript保持一致，却忽略了TypeScript中完整的语法<code>x: number = 100</code>中，<code>:</code>是指示类型的，而不是用于指示值。——这与ECMAScript的一般规则并不一致。</p>
@@ -1785,183 +2035,5 @@ File .sqlitedb saved.
 <p>Monster不可能穷举所有类似的页面，所以在后续的版本中可能会提供一个机制来让用户定制这个页面列表。就目前而言，如果你有更多页面要处理，你只能手工修改updatesite.sh模块。这个文件位置在：</p>
 <pre><code class="language-bash">&gt; brew list monster | grep updatesite
 /usr/local/Cellar/monster/xxxx/libexec/updatesite.sh
-</code></pre>
-</div>]]></content:encoded></item><item><title><![CDATA[详解Monster的初始化及配置]]></title><description><![CDATA[<div class="kg-card-markdown"><p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然<br>
-是Monster的最佳使用场景。</p>
-<blockquote>
-<p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a>。</p>
-</blockquote>
-<h2 id="">预备工作</h2>
-<ul>
-<li>你需要先启动Ghost并了解它运行在的本地地址</li>
-</ul>
-<pre><code class="language-bash">&gt; npm start
-Ghost is running in development... 
-Listening on 127.0.0.1:2368 
-...
-</code></pre>
-<p>Ghost可以运行在不同的模式下，上面的是<code>development</code>模式，这种情况下它的缺省端口是<code>:2368</code>。</p>
-<p>另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在<code>${GHOST}</code>，那么这些数据文件的位置是在：</p>
-<pre><code class="language-bash">&gt; grep -Fe '.db' ${GHOST}/config.js
-filename: path.join(__dirname, '/</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1742/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5bf</guid><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 19 Sep 2017 19:43:06 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>尽管Monster并不强制你创建与初始化工作目录，并且也不强制依赖Ghost来工作，但是“Ghost + 工作目录”仍然<br>
-是Monster的最佳使用场景。</p>
-<blockquote>
-<p>关于在没有Ghost的情况下使用Monster的说明请看这里：<a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a>。</p>
-</blockquote>
-<h2 id="">预备工作</h2>
-<ul>
-<li>你需要先启动Ghost并了解它运行在的本地地址</li>
-</ul>
-<pre><code class="language-bash">&gt; npm start
-Ghost is running in development... 
-Listening on 127.0.0.1:2368 
-...
-</code></pre>
-<p>Ghost可以运行在不同的模式下，上面的是<code>development</code>模式，这种情况下它的缺省端口是<code>:2368</code>。</p>
-<p>另外，你需要找到Ghost运行的目录中的sqlite数据库文件。假设你的Ghost运行的目录是在<code>${GHOST}</code>，那么这些数据文件的位置是在：</p>
-<pre><code class="language-bash">&gt; grep -Fe '.db' ${GHOST}/config.js
-filename: path.join(__dirname, '/content/data/ghost.db')
-filename: path.join(__dirname, '/content/data/ghost-dev.db')
-filename: path.join(__dirname, '/content/data/ghost-test.db')
-</code></pre>
-<p>根据你启动的Ghost的版本不同，选择上面的一个库文件即可（一般是<code>ghost-dev.db</code>）。</p>
-<ul>
-<li>(<strong>discard</strong>)你需要安装Buster并确信它可用</li>
-</ul>
-<blockquote>
-<p>在Monster早期版本中是调用Buster来生成全站的，但从v1.0.5版本开始就移除了对Buster的依赖。</p>
-</blockquote>
-<ul>
-<li>你需要确信mac环境是否能运行Monster</li>
-</ul>
-<p>Monster依赖mac环境上的一些工具。如果你使用brew，那么可以用下面的命令来安装它：</p>
-<pre><code class="language-bash">&gt; brew install wget jq curl
-...
-</code></pre>
-<p>其它还会使用到的工具包括<code>sqlite3</code>、<code>sum</code>和<code>git</code>：<code>sqlite3</code>应该已经在安装Ghost时安装过了，而<code>sum</code>是MacOSX原生自带的；多数情况下，建议你安装<code>git</code>，使用<code>brew install git</code>即可。</p>
-<blockquote>
-<p><strong>注：</strong></p>
-<p>Monster主要是用于生成静态网页，只有当你使用它的部署(deploy)功能时，才会用到<code>git</code>。所以事实上git并不是必须安装。</p>
-<p>Monster使用Git api访问github issues，所以在使用评论相关的功能时并不要求安装git客户端。</p>
-</blockquote>
-<ul>
-<li>最后，你需要安装Monster</li>
-</ul>
-<p>有两种方法安装Monster：</p>
-<pre><code class="language-bash"># 使用Brew安装
-&gt; brew install aimingoo/repo/monster
-
-# 使用Git仓库安装
-&gt; git clone https://github.com/aimingoo/monster
-&gt; ln -s &quot;$(pwd)/monster/libexec/monster.sh&quot; /usr/local/bin/monster
-&gt; chmod +x /usr/local/bin/monster
-</code></pre>
-<h2 id="">初始化及配置</h2>
-<pre><code class="language-bash"># 创建一个目录，并在该目录中运行如下命令
-&gt; monster --init
-Your Github name or domain : aimingoo
-Your Github access token, or Enter to skip: 
-Your Ghost local account(e-mail), or Enter to skip: 
-Your Ghost local .db file, or Enter to skip: 
-Your Ghost site, or Enter set default [localhost:2368]: 
-File .monster saved.
-File .gitignore updated.
-</code></pre>
-<p>第一项配置<code>Github name or domain</code>总是必须输入的。它可以是一个名为<code>xxxx.github.io</code>的域名，或只是<code>xxxx</code>这样的域名前缀（亦即是Github用户账号名），此外还可以是一个非github的域名，例如<code>your.site.com</code>。</p>
-<h3 id="domain">如果domain是无效的</h3>
-<p>你可以使用任何domain——哪怕它不是真实的值。Monster的基本逻辑是：</p>
-<ul>
-<li><strong>GENERATE</strong>：下载一个<code>SITE</code>上的网页，放在<code>STATIC_PATH</code>中；并尝试</li>
-<li><strong>RESET_DOMAIN</strong>：将网页中有关<code>SITE</code>的信息替换成<code>DOMAIN</code>；以及</li>
-<li><strong>DEPLOY_NOW</strong>：将<code>STATIC_PATH</code>中的文件复制到当前目录，并尝试将当前目录作为Git仓库来部署。</li>
-</ul>
-<p>所以只要不启用RESET_DOMAIN（传入<code>--reset-domain=false</code>参数或者修改<code>.monster</code>配置），那么无效的DOMAIN是不影响Monster的使用的。</p>
-<h3 id="domain">如果domain是空值</h3>
-<p>在调用<code>monster --init</code>并输入缺省配置时，是不能使domain值为空的。</p>
-<p>你可以编辑<code>.monster</code>以使该参数值为空，但这样的配置仅对update工作模式是有意义的。这会缺省使用<code>&lt;GITHUB_USER&gt;.github.io</code>来作为DOMAIN值，如果在update工作模式中调用了<code>--deploy-now</code>、<code>--deploy-only</code>或<code>--reset-domain</code>，那么该值也会通过命令行参数传入<code>makesite.sh</code>，以确保后者可用。</p>
-<p>你不应当使<code>.monster</code>文件中的<code>DOMAIN</code>和<code>GITHUB_USER</code>值同时为空值。——如果是这样，你就必须总是从命令行中传入参数了。</p>
-<h3 id="domain">关于domain的协议</h3>
-<p>由于Monster并不访问你的domain（它只是更新本地静态网页中的内容），所以在配置文件中并不需要指定domain使用的协议，例如<code>https</code>或<code>http</code>。但有一个极小极小的例外，如果：</p>
-<ul>
-<li>你使用了Git issues来作评论，并且</li>
-<li>你的domain并没有host在<code>xxxx.github.io</code>上，并且</li>
-<li>你还打算使用Monster的<code>update --sync-issue</code>来管理它，</li>
-</ul>
-<p>那么你需要修改<code>.monster</code>中的<code>PROTOCOL</code>参数，缺省时它的值是<code>https</code>。</p>
-<h3 id="monster">如果没有<code>.monster</code>文件</h3>
-<p>如果你没有调用<code>monster --init</code>来初始化一个<code>.monster</code>文件，或者你误删除了它，那么你事实上仍然是可以使用Monster的。</p>
-<p>这种情况下，对于generate工作模式来说，你必须从命令行通过<code>--domain</code>传入DOMAIN参数；对于update工作模式来说，则必须传入<code>--db</code>。当然你还可能需要传入其它在运行中要用到的参数，例如<code>GITHUB_USER</code>。</p>
-<h2 id="monster">配置文件.monster的详细说明</h2>
-<pre><code>## Github domain
-#  - （参见上文）
-DOMAIN=&quot;...&quot;
-
-## Ghost .db file path
-# - update工作模式下的相关功能依赖该配置
-DB=&quot;/User/...&quot;
-
-## Ghost site address
-# - 要静态化（下载）的网站，可以是本地Ghost或远端的任何网址
-# - 可以是任何网站（不是Ghost的网站，甚至不是博客）
-SITE=&quot;http://...&quot;
-
-## Github account, and rate of api access
-# - 你的Github账号，是指当前工作目录对应的xxxx.github.io
-GITHUB_USER=&quot;Your name&quot;
-# - 你需要在Github后台为Git client创建一个Access token
-GITHUB_TOKEN=&quot;Access token&quot;
-# - 每次Github API访问之后sleep的时间（单位为秒）；当值为1时，意味着每分钟不会超过60次访问
-GITHUB_APIRATE=1
-# - 当读取Gitment等博客评论时，每次用Github取数据时的页大小（缺省为每页100条记录）
-GITHUB_PAGESIZE=100
-
-## Other
-# - 你在本地Ghost中的登录帐号
-EMAIL=&quot;...&quot;
-# - 特殊情况下需要用到的domain的协议值（参见上文）
-PROTOCOL=&quot;https&quot;
-
-## Advertisement token string for your site
-# - 一个标记字符串，极少使用（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
-AD_TOKEN=&quot;&quot;
-
-## Default directory of static files
-# - 生成静态文件的路径
-# - （对于Monster的preview工作模式来说，必须使用该配置而不能用命令行传入参数）
-STATIC_PATH=&quot;./static&quot;
-
-## Default behavior
-# - 在GENERATE阶段中显示更多信息
-GENERATE_INFO=false
-# - 在update工作模式下，强制更新列表类网页
-SYNC_REMOVED=false
-# - 在操作过程中是否移除static目录中的文件名的'?xxxxxx'版本后缀
-PATCH_VERSION=true
-# - 是否启用RESET_DOMAIN阶段
-RESET_DOMAIN=true
-# - 是否启用SHORT_PATH阶段
-SHORT_PATH=false
-# - 是否启用CHECK_STATIC阶段
-CHECK_STATIC=true
-
-## Pick more files
-# - 是否拾取静态化的云标签文件/tag-cloud
-PICK_STATIC_TAGCLOUD=false
-# - 是否拾取静态化的profile文件/profile-xxx
-PICK_STATIC_PROFILE=false
-# - 是否拾取静态化的归档文件/archive-post
-PICK_ARCHIVES_POST=false
-# - 是否拾取/robots.txt
-PICK_ROBOTS_TXT=true
-# - 是否拾取sitemap文件/sitemap-*
-PICK_SITEMAP=true
-# - 在update工作模式下，强制尝试上述PICK_xxxx和索引页等文件
-FORCE=false
-
-## Other override
-# - 在SHORT_PATH阶段中不处理的目录名
-IGNORE_LIST=(&quot;archives-post&quot; &quot;author&quot; &quot;page&quot; &quot;rss&quot; &quot;tag&quot; &quot;assets&quot; &quot;content&quot; &quot;shared&quot;)
-# - 在PATCH_VERSION阶段中需要处理的目录名
-VERDIR_LIST=(&quot;assets&quot; &quot;shared&quot; &quot;public&quot;)
 </code></pre>
 </div>]]></content:encoded></item></channel></rss>

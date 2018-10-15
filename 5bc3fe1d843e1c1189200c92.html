@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>私有属性的实现</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=7808c3cb39" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=7808c3cb39" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="私有属性的实现" />
+    <meta property="og:description" content="私有属性的实现 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列，参见： No prefix! operator is Ok! - 在这里 私有属性的实现 (本文) (未完待续) 1. 私有成员语法的三个问题 目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+" />
+    <meta property="og:url" content="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html" />
+    <meta property="article:published_time" content="2018-10-15T02:43:00.000Z" />
+    <meta property="article:modified_time" content="2018-10-15T02:43:00.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="私有属性的实现" />
+    <meta name="twitter:description" content="私有属性的实现 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列，参见： No prefix! operator is Ok! - 在这里 私有属性的实现 (本文) (未完待续) 1. 私有成员语法的三个问题 目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "私有属性的实现",
+    "url": "http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html",
+    "datePublished": "2018-10-15T02:43:00.000Z",
+    "dateModified": "2018-10-15T02:43:00.000Z",
+    "description": "私有属性的实现 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列，参见： No prefix! operator is Ok! - 在这里 私有属性的实现 (本文) (未完待续) 1. 私有成员语法的三个问题 目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=7808c3cb39"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=7808c3cb39"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/5bc3fe1d843e1c1189200c92.html">私有属性的实现</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2018-10-15T10:43:00.000+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2018-10-15">(2018-10-15)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
+<blockquote>
+<p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
+<p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
+<p>本文是一个系列，参见：</p>
+<ul>
+<li>No prefix! operator is Ok! - <a href="/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>私有属性的实现 (本文)</li>
+<li>(未完待续)</li>
+</ul>
+</blockquote>
+<h3 id="1">1. 私有成员语法的三个问题</h3>
+<p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+的方法也是一种“（特殊的）函数类型的属性”，这种特殊性在于它必须通过声明语法来添加到类或对象。——也就是说，ES6中的方法是静态声明的，而不是动态添加的。</p>
+<p>类是特定语法声明的函数。由于函数是对象，所以类也是普遍含义上的对象。所以——重要的是——类的成员与对象的成员在性质上并没有任何的不同。确切来讲，它们都是属性，是对象的自有属性表中的成员，或可以通过原型访问的父代类属性。</p>
+<p>总之，所有现在能静态声明或动态添加的属性都是公开的（public）。在讨论“私有属性”的时候，有三点是必须要先确定的：</p>
+<ul>
+<li>私有属性是静态声明的，还是动态添加的？</li>
+<li>私有属性是（现有机制中的）自有属性表中的“标识为私有的”属性，还是在一个新表？</li>
+<li>私有属性是否支持继承（类似其它OOP语言的protected属性）？</li>
+</ul>
+<blockquote>
+<p>注：本文中所谓“成员”，是在需要区分讨论属性与方法时使用的。此外，在提及“词法私有成员”时，因其与“属性”存在本质不同，所以暂用了“成员”这个概念。</p>
+</blockquote>
+<h3 id="2tc39">2. tc39中的提案</h3>
+<p>之前我们已经讨论过这个提案的语法。很大程度上我是在尽量保证与现有语法设计上的一致性，而并没有讨论这个提案的实现方法。</p>
+<p>简单地说，该提案认为：私有属性是一种特殊前缀表达的、自有的特殊属性。</p>
+<p>由于私有属性是“一种...属性”，因此该属性总是在“自有属性表”中，并且也受自有属性表的机制来约束，例如属性描述符。比较简单的处理方法是：在属性描述符中增加新的属性（类似<code>configurable</code>与<code>enumerable</code>等等）。因此：</p>
+<pre><code class="language-javascript">class f() {
+    private data: 100
+}
+x = f();
+
+// 在语义上等义于：
+Object.defineProperty(x, 'data', {
+    value: 100,
+    kind: 'private'  // default is 'public'
+})
+</code></pre>
+<p>所有与“属性”相关的特性都可以用在这些新式的<code>kind: 'private'</code>的私有属性上。当然，如此一来，我们之前讨论的三个问题就有答案了：</p>
+<ul>
+<li>
+<p>私有属性是静态声明的，不可以动态添加。<br>
+私有属性不支持用Object.defineProperty()等来动态声明，这可以通过<code>kind</code>性质来限制之。</p>
+</li>
+<li>
+<p>私有属性使用可以使用一个新的属性表，也可以直接使用现有的自有属性表。<br>
+两者的机制是完全一样的，只是<code>kind</code>性质的不同。但是，无论哪种方法，都需要考虑公开与私有属性同名问题：是可以同时存在，还是禁止重复。（注1、注2）</p>
+</li>
+<li>
+<p>私有属性可以支持继承。</p>
+<p>在这个方案中可以很方便的实现类似<code>protected</code>的语法，即在子类中可访问的父类私有属性（如果父类将之声明为protected）。</p>
+</li>
+</ul>
+<blockquote>
+<p>注1：建议允许重名。因为JavaScript允许动态添加公开属性名的，如果不允许重名，则发生与私有属性冲突的机率大增。——更严重的是，用户代码无从得知一个对象有哪些私有属性名。</p>
+<p>注2：如果允许重名，则两张属性表更方便；如果禁止重名，则建议使用同一张表。</p>
+</blockquote>
+<p>如上，我的确是建议“私有的与公开的属性名是可以重复的”。这带来了如下的问题（下例假设直接使用<code>this.xxx</code>来存取私有属性）：</p>
+<pre><code class="language-javascript">// 示例：一个不太可行的方案
+class f{
+    data = 100; // 假设这里是私有成员
+    foo() {
+        console.log(this.data);  // 假设这里的this.data指向私有成员
+    }
+}
+x = new f;
+x.data = '200';
+f(); // 应该显示200还是100？
+</code></pre>
+<p>这一示例说明：我们无法在语法上“限定在<code>class f()</code>类声明中使用<code>this.data</code>将访问私有属性。这个设计是行不通的。</p>
+<p>如果我们的假设是“私有属性是属性表中的特殊项”，那么“使用<code>this</code>来访问属性表”是目前最合理的方式。又如果使用“<code>this</code>作为绑定给<code>foo()</code>的对象实例，并试图访问该实例的私有属性”，那么“必然的”，我们需要一个新的语法：用于存取私有属性。</p>
+<p>——注意这与目前tc39提案的不同，亦即是<a href="/5bc1f626843e1c1189200c8b.html">“No prefix! operator is Ok!”</a>。</p>
+<p>如下例：</p>
+<pre><code class="language-javascript">class f() {
+    private data: 100,
+    private static data: 200,
+    foo() {
+        this#data = this#data + f#data;
+    }
+}
+</code></pre>
+<p>在这个设计中，<code>#</code>是限用于“类和对象的方法声明语法中”的，语义是：</p>
+<ul>
+<li>存取左运算元的私有属性表</li>
+</ul>
+<p>很简单，很明确。</p>
+<h3 id="3">3. 使用属性表的核心问题**</h3>
+<p>我们使用<code>pravite</code>作为限定词，核心目的是“访问在<code>class f()</code>声明之外访问私有属性。然而，如果我们使用属性表，那么没有任何”经济的“方法能做实现这个目标。为了解决这个问题，我们先讨论一个ECMAScript规范上的漏洞：<strong>能不能动态添加方法声明？</strong></p>
+<p><strong>3.1 动态添加方法</strong></p>
+<p>JavaScript不能安全地抄写对象方法，因为方法会绑定源对象的<code>super</code>。例如：。</p>
+<pre><code class="language-javascript">// 类f与对象x
+ObjectX = function() {}
+ObjectX.prototype.data = &quot;ObjectX&quot;
+class f extends ObjectX { }
+f.prototype.data = 100;
+x = new f;
+
+// 类f2与对象x2
+MyObject = function() {}
+MyObject.prototype.data = 'MyObject';
+class f2 extends MyObject {
+    foo() {
+        console.log(super.data);
+        console.log(this.data);
+    }
+}
+f2.prototype.data = 200;
+x2 = new f2;
+x2.foo(); // &quot;MyObject&quot; 200
+
+// 抄写x2的方法声明
+// （super没变化，绑定在了f2()类上）
+x.foo = x2.foo;
+x.foo();  // &quot;MyObject&quot; 100
+</code></pre>
+<p>方法<code>x.foo()</code>显示了<code>foo()</code>在词法上的<code>super</code>，亦即是<code>MyObject</code>。这表明<code>foo()</code>方法是与<code>class f2</code>的继承关系是词法绑定的，并不会“抄写到”对象<code>x</code>。——当然，如我们一直在讨论的，<code>this</code>引用是动态绑定的，不受上述影响。</p>
+<p>而所谓<code>super</code>本质上只是在访问一个方法的“内部槽<code>[[HomeObject]]</code>”的原型而已。考虑到这一点，一种简单的重置<code>super</code>的方法如下：</p>
+<pre><code class="language-javascript">// 安全地动态添加方法x.foo()
+Object.assign(x, Object.setPrototypeOf({
+    foo() {
+        console.log(super.data);
+        console.log(this.data);
+    }
+}, Object.getPrototypeOf(f.prototype)));
+
+x.foo(); // &quot;ObjectX&quot;, &quot;100&quot;
+</code></pre>
+<p>根据这一过程，一个安全地动态添加方法的操作如下（注3）：</p>
+<pre><code class="language-javascript">// 工具函数
+//  - add method to f.prototype
+Object.addMethod = function(proto, methods) { 
+  return Object.assign(proto, Object.setPrototypeOf(methods,
+    Object.getPrototypeOf(proto)));
+}
+
+// 使用示例(在原型上添加方法)
+Object.addMethod(f.prototype, {
+    foo2() {
+        console.log('Value:', super.data);
+    }
+})
+x.foo2();  // &quot;Value: ObjectX&quot;
+</code></pre>
+<blockquote>
+<p>注3: <code>Object.addMethod()</code>在这里实现为“向f.prototype属性添加方法”，是因为通过<code>class</code>关键字声明的对象方法其实都是原型方法。因此所谓“动态添加方法”是应当通过污染类的.prototype属性来实现的。但是也可以用类似技术来实现不污染该原型属性的方法，例如<code>Object.addOwnMethod()</code>，因与本文主题无关，在这里就不给出具体代码了。</p>
+</blockquote>
+<h3 id="32">3.2 动态存取私有属性</h3>
+<p><code>Object.addMethod()</code>方法的实现意味着“在类声明之外”为对象或类动态添加方法是安全的。因此，尽管我们认为下面的私有属性this#data<code>只能通过</code>foo()`来访问：</p>
+<pre><code class="language-javascript">class f {
+    private data: 100,
+    foo() {
+        console.log(this#data);
+    }
+}
+x = new f;
+x.foo();
+</code></pre>
+<p>然而事实上下面的示例可以随时访问之：</p>
+<pre><code class="language-javascript">Object.addMethod(f.prototype, {
+    setData(v) {
+        this#data = v;
+    }
+})
+
+// setData()是动态添加的可以存取私有属性的方法
+x.setData(300);
+x.foo(); // 300
+</code></pre>
+<p>然而这样一来，在ECMAScript中没有办法“<strong>安全地实现私有属性</strong>”了。</p>
+<h3 id="4">4. 存在可行的解决方案吗？</h3>
+<p>首先我们得知道为什么。</p>
+<p>ECMAScript的方法本质上是“访问<code>this</code>绑定的函数”——无论是传统的方法，还是ES6之后的方法，皆是如此。在所谓方法中，如果访问的是<code>this.xxx</code>这样的公共属性自然是不成问题，因为本质上对象就是属性表；类似的，如果属性包支持“<code>private</code>这样的访问域特性”，那么自然也是可以在支持私有属性访问的。——所以，最新的提案是建议用<code>this.#xxx</code>这样的语法来访问它，亦即是在本质上仍然是在访问属性表。</p>
+<p>所以，这就是根本的问题：如果一个方法就是在访问属性表，且它总是能动态地绑定<code>this</code>，那么它必然也能够跨类（和跨对象）地访问私有的属性表——以及那些私有属性。</p>
+<p>有两个途径来解决这个问题。</p>
+<p>其一，是采用“词法私有成员”这样一种潜在实现机制。由于这种实现机制是利用作用域来实现的，与对象的自有属性表无关，因此也不会受<code>addMethod()</code>这样的方法影响 。</p>
+<p>其二，是在方法声明（例如<code>f.prototype.foo()</code>）中对<code>this#xxx</code>中的运算符<code>#</code>做进一步限制。即foo()方法</p>
+<ul>
+<li>仅能在<code>f.prototype</code>与<code>this对象的原型</code>相同时（即<code>private</code>限定词），以及</li>
+<li>仅能在<code>f.prototype</code>在<code>this对象的原型</code>的原型链上时（即<code>protected</code>限定词），</li>
+</ul>
+<p>才能使用<code>#</code>运算。而这一点恰恰是能做到的，因为——正好——每一个ES6之后的方法，都会有一个<code>[[HomeObject]]</code>内部槽用于存放**“声明时的”**类原型（<code>f.prototype</code>）或对象本身（<code>obj</code>）。如下例：</p>
+<pre><code class="language-javascript">class f {
+    foo() {}
+}
+obj = {
+    foo() {}
+}
+x = new f;
+
+// 如果能访问[[HomeObject]]内部槽，则：
+console.log(x.foo[[HomeObject]] === f.prototype); // true
+console.log(obj.foo[[HomeObject]] === obj); // true
+</code></pre>
+<p>那么，上述对<code>#</code>运算符的限制无非是在说（注4、注5）：</p>
+<pre><code class="language-javascript">// 在foo()方法内实现`#`运算符的伪代码逻辑
+foo() {
+    // source: `this#data`
+    homeObject = activeFunction[[HomeObject]];
+    descriptor = Object.getPrivatePropertyDescriptor(this, 'data');
+    permission = (
+       (descriptor.kind == 'private' &amp;&amp;
+        homeObject == Object.getPrototypeOf(this)) ||
+       (descriptor.kind == 'protected' &amp;&amp;
+        homeObject.isPrototypeOf(this)));
+    if (permission) {
+        result = descriptor.value; // return result of `#` op
+    }
+}
+
+</code></pre>
+<p>注意这里有一个伪代码说明的变量名<code>activeFunction</code>，这是指“当前活动的、正在调用的函数，也就是<code>foo()</code>函数本身。类似在ECMAScript中“需要判断当前函数”的情况并不是没有——也就是说，以前就有存在这样这种方案实现的语言特性了。</p>
+<p>是哪种语言特性呢？这就是闻名已久的<code>super()</code>——注意这里仅指在<code>constructor()</code>调用父类构造方法的操作，在ECMAScript中称为<code>SuperCall</code>。这个操作很特殊，因为它需要从当前上下文的环境记录中取<code>activeFunction</code>并进一步“查找所谓父类（即super）”。</p>
+<blockquote>
+<p>注4: 在ECMAScript中有两个操作是会取activeFunction的，另一个是eval()。<code>SuperCall()</code>需要取activeFunction的原因是它无法直接使用constructor()的[[HomeObject]]内部槽。</p>
+<p>注5: <code>Object.getPrivatePropertyDescriptor()</code>与<code>Object.getOwnPropertyDescriptor()</code>并没有功能的区别，只是这里假设前者需要直接访问私有属性表（关于建议使用两个属性表的问题，参见本文第2节）。</p>
+</blockquote>
+<p>亦即是说，所有实现这一特性所需的技术组件，在现有的ECMAScript中都是充备的。</p>
+<p>^^.</p>
+<h3 id="n">n. 终极问题：必要性？</h3>
+<p>看起来还不错哟。看起来很有希望哟。要不，下手来搞搞？</p>
+<p>然而，历史中，我们程序员犯得最多的错误就是：</p>
+<blockquote>
+<p><strong>一件事看起来能做，于是就做了。</strong></p>
+</blockquote>
+<p>“私有属性”这个特性真的是必须的么？——常读我写文章的读者，应该知道我总是在最后一步来考虑最原始的问题。——然而关于这个问题，我想要等到下一篇再讨论了。</p>
+<p>现在这篇，已经很长了，不能再长了。:)</p>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/5bc1f626843e1c1189200c8b.html">
+                    No prefix! operator is Ok!
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=7808c3cb39" />
+<script src="/assets/js/gitmint.browser.js?v=7808c3cb39"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=7808c3cb39"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=7808c3cb39"></script>
+</body>
+
+</html>
