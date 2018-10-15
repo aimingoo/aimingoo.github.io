@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Mon, 15 Oct 2018 02:43:54 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Mon, 15 Oct 2018 02:49:43 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
 <blockquote>
 <p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
 <p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
@@ -96,7 +96,7 @@ f(); // 应该显示200还是100？
 <li>存取左运算元的私有属性表</li>
 </ul>
 <p>很简单，很明确。</p>
-<h3 id="3">3. 使用属性表的核心问题**</h3>
+<h3 id="3">3. 使用属性表的核心问题</h3>
 <p>我们使用<code>pravite</code>作为限定词，核心目的是“访问在<code>class f()</code>声明之外访问私有属性。然而，如果我们使用属性表，那么没有任何”经济的“方法能做实现这个目标。为了解决这个问题，我们先讨论一个ECMAScript规范上的漏洞：<strong>能不能动态添加方法声明？</strong></p>
 <p><strong>3.1 动态添加方法</strong></p>
 <p>JavaScript不能安全地抄写对象方法，因为方法会绑定源对象的<code>super</code>。例如：。</p>
@@ -156,7 +156,7 @@ x.foo2();  // &quot;Value: ObjectX&quot;
 <blockquote>
 <p>注3: <code>Object.addMethod()</code>在这里实现为“向f.prototype属性添加方法”，是因为通过<code>class</code>关键字声明的对象方法其实都是原型方法。因此所谓“动态添加方法”是应当通过污染类的.prototype属性来实现的。但是也可以用类似技术来实现不污染该原型属性的方法，例如<code>Object.addOwnMethod()</code>，因与本文主题无关，在这里就不给出具体代码了。</p>
 </blockquote>
-<h3 id="32">3.2 动态存取私有属性</h3>
+<p><strong>3.2 动态存取私有属性</strong></p>
 <p><code>Object.addMethod()</code>方法的实现意味着“在类声明之外”为对象或类动态添加方法是安全的。因此，尽管我们认为下面的私有属性this#data<code>只能通过</code>foo()`来访问：</p>
 <pre><code class="language-javascript">class f {
     private data: 100,
