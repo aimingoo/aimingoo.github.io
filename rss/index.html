@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 16 Oct 2018 15:44:51 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[关于废止*proposal-class-fields*提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 16 Oct 2018 15:47:57 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[关于废止*proposal-class-fields*提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
 </blockquote>
 <h2 id="1notfields">1. 概念：“Not Fields”！</h2>
 <p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
 <p>这就是现有一切矛盾的根源。</p>
-<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"></sup></p></div>]]></description><link>http://aimingoo.github.io/5bc605d4843e1c1189200c95/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"></sup></p></div>]]></description><link>http://aimingoo.github.io/5bc605d4843e1c1189200c95/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><category><![CDATA[Javascript]]></category><category><![CDATA[编程]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
 </blockquote>
@@ -119,7 +119,7 @@ console.log(privateScope('privated_data'));
 </ul>
 </blockquote>
 <h3 id="1">1. 私有成员语法的三个问题</h3>
-<p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+</p></div>]]></description><link>http://aimingoo.github.io/5bc3fe1d843e1c1189200c92/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
+<p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+</p></div>]]></description><link>http://aimingoo.github.io/5bc3fe1d843e1c1189200c92/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
 <blockquote>
 <p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
 <p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
@@ -357,7 +357,7 @@ foo() {
 </ul>
 </blockquote>
 <h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
-<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;</p></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;</p></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
 <p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>

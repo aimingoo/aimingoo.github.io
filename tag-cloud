@@ -35,12 +35,12 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 	<div class="tag-cloud-content">
 		<!--  -->
 				<a href="/tag/sheng-huo" class="tag-item">生活 (138)</a>
-				<a href="/tag/javascript" class="tag-item">Javascript (90)</a>
+				<a href="/tag/javascript" class="tag-item">Javascript (93)</a>
 				<a href="/tag/za-wen" class="tag-item">杂文 (81)</a>
 				<a href="/tag/za-tan" class="tag-item">杂谈 (73)</a>
 				<a href="/tag/sui-bi" class="tag-item">随笔 (57)</a>
 				<a href="/tag/opensource-project" class="tag-item">OpenSource Project (47)</a>
-				<a href="/tag/yu-yan" class="tag-item">语言 (42)</a>
+				<a href="/tag/yu-yan" class="tag-item">语言 (45)</a>
 				<a href="/tag/chu-ban" class="tag-item">出版 (39)</a>
 				<a href="/tag/qomo" class="tag-item">Qomo (35)</a>
 				<a href="/tag/xin-shou-nian-lai" class="tag-item">信手拈来 (34)</a>
@@ -62,9 +62,9 @@ document.writeln(filterByAuthor(function cloudTagHtmlContext() {/*
 				<a href="/tag/zuo-lun" class="tag-item">坐论 (15)</a>
 				<a href="/tag/mian-xiang-dui-xiang" class="tag-item">面向对象 (15)</a>
 				<a href="/tag/lu-zu" class="tag-item">驴族 (15)</a>
+				<a href="/tag/bian-cheng" class="tag-item">编程 (13)</a>
 				<a href="/tag/dian-zi-shu" class="tag-item">电子书 (12)</a>
 				<a href="/tag/fen-xiang-xia-zai" class="tag-item">分享下载 (12)</a>
-				<a href="/tag/bian-cheng" class="tag-item">编程 (10)</a>
 				<a href="/tag/ghost-tag" class="tag-item">Ghost (10)</a>
 				<a href="/tag/bao-zai-kan-zai" class="tag-item">报载刊载 (10)</a>
 				<a href="/tag/you-ji" class="tag-item">游记 (9)</a>
