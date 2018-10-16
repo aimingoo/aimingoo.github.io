@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Mon, 15 Oct 2018 02:49:43 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 16 Oct 2018 15:44:51 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[关于废止*proposal-class-fields*提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
+<p><em>Reject it! No more choices!</em></p>
+</blockquote>
+<h2 id="1notfields">1. 概念：“Not Fields”！</h2>
+<p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
+<p>这就是现有一切矛盾的根源。</p>
+<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"></sup></p></div>]]></description><link>http://aimingoo.github.io/5bc605d4843e1c1189200c95/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
+<p><em>Reject it! No more choices!</em></p>
+</blockquote>
+<h2 id="1notfields">1. 概念：“Not Fields”！</h2>
+<p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
+<p>这就是现有一切矛盾的根源。</p>
+<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn2" id="fnref2">[2]</a></sup>：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。</p>
+<p>在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“名字*（field define by his name）*”。亦即是说，对象是<strong>名字集</strong>（<em>object is collection of names</em>），是字段定义的<strong>实例</strong>（<em>instance of field definitions by class</em>）。</p>
+<p>该提案对概念的偷换并非只停留在叙述层面，它在实现上确实就是这么做的。如下<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn3" id="fnref3">[3]</a></sup>：</p>
+<pre><code>2.7 DefineField(receiver, fieldRecord)
+...
+  8. If fieldName is a Private Name,
+    ... // add as private filed
+  9. Else, // public field as property
+    Assert: IsPropertyKey(fieldName) is true.
+    Perform ? CreateDataPropertyOrThrow(receiver, fieldName, initValue).
+</code></pre>
+<p>我们已经明显地看到，该提案的提出是对现有对象核心概念的破坏。而 “Not Fields”，是阻止它的唯一手段。</p>
+<h2 id="2var">2. 实现：再造了一次var！</h2>
+<p>对于如下定义：</p>
+<pre><code class="language-javascript">class f {
+    #data = 100;
+    foo() {
+        this.#data = 200;
+    }
+}
+</code></pre>
+<p>该提案试图实现的效果与如下类似：</p>
+<pre><code class="language-javascript">clas f {
+    constructor() {
+        ... // call super, etc
+        var data = 100;
+        this.foo = function() {
+           data = 200;
+        }
+    }
+}
+</code></pre>
+<p>注意，该提案本质上并没有“打算”为对象实例<code>this</code>提供私有的字段，而是通过词法环境为该对象提供一个在特定上下文中可访问的名字集。</p>
+<p>但是，如上例所示，如果用这种方法来为<code>this.foo()</code>提供私有名字<code>data</code>，那么<code>foo()</code>将会是有非常多个函数实例（<em>Function Instances</em>）。为了避免单个对象重复绑定多个函数实例（来作为方法），该提案将上述“名字集（<em>collection of names</em>）”作为一个内部槽放在类中，并在创建对象时为<code>this</code>提供一个<code>[[PrivateFieldValues]]</code>的槽来作为该名字集的一个“映像（<em>fork</em>）”。</p>
+<p>于是事情又绕回来了：该提案“似乎”为每个对象实例提供了这样的一个字段集？</p>
+<p>不。真相不是这样的。对于该提案来说，这只是权宜之计，用以避免为每个对象、每个方法来创建各自的实例罢了。真实的情况是：它创建了每个类的、每个函数的、以及每个对象的“私有名”作用域（<em>PrivateNameScope</em>），然后在词法环境中维护这个作用域。由于每个对象都“可能有”私有域，因此在这个方案中，每个函数调用都需要负担起检查这个私有域的代价：每一次、每一处，以及每一个函数相关的特性。</p>
+<p>于是整个提案暴涨了！大多数内部调用的方法都需要在界面上加上<code>PrivateNameScope</code>这个参数，且每一个运行上下文的环境变量中都需要加上<code>PrivateNameEnvironment</code>。<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn4" id="fnref4">[4]</a></sup>——有点熟悉的感觉了吗？上一个如此大范围影响了ECMAScript规范的东西是什么？</p>
+<p>没错，就是VariableEnvironment！就是那个制造了与“块级作用域”冲突的<code>var</code>声明，导致了新语法关键字<code>let</code>被启用的历史设计。<code>Private Fields</code>的蹩脚设计如此明显地与VariableEnvironment放在一起，却似乎没有任何一个规范审阅者看到：</p>
+<pre><code>3.9.9 PrepareForOrdinaryCall ( F, newTarget )
+...
+  8. Let localEnv be NewFunctionEnvironment(F, newTarget).
+  9. Set the LexicalEnvironment of calleeContext to localEnv.
+  10. Set the VariableEnvironment of calleeContext to localEnv.
+  11. Set the PrivateNameEnvironment of calleeContext to F.[[PrivateNameEnvironment]].
+</code></pre>
+<p>他们重新发明轮子，又一次。并且，是方的轮子，又一次。</p>
+<p>两个方轮子！</p>
+<h2 id="3">3. 显而易见的：它无效！</h2>
+<p>接下来每个函数都有了<code>privateNameScope</code>，如此等等。那么既然有<em>PrivateNameEnvironment</em>或<em>privateNameScope</em>，又为什么要每个对象都有<code>[[PrivateFieldValues]]</code>内部槽呢？</p>
+<p>答案是：对象的内部槽用来存放名字对应的字段值<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn5" id="fnref5">[5]</a></sup>，而环境与作用域组件用来检测是否能访问该名字<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn6" id="fnref6">[6]</a></sup>！</p>
+<p>然而这是无效的。例如：</p>
+<pre><code class="language-javascript">class f {
+    #data = 100;   
+}
+
+class faked {
+    #data;
+    foo() {
+        console.log(this.#data);
+    }
+}
+
+// access private with a faked class
+x = new f;
+x.foo = faked.prototype.foo;
+x.foo();  // 100
+</code></pre>
+<p>我仔细读过完整的提案，是的，上述的BUG无可避免。因为这个过程无异于：</p>
+<pre><code class="language-javascript">function privateScope(name) {
+    var privated_data = 100;
+    return eval(name);
+}
+console.log(privateScope('privated_data'));
+</code></pre>
+<p>只要你允许对私有域做“读变量名”操作，那么所有的<em>privated data</em>都不可能安全。</p>
+<h2 id="4">4. 结论</h2>
+<p>在抽象层面，（就抽象概念对使用者的影响来说）这个提案破坏或偷换了ECMAScript中“对象”的概念；在实现上，它耗用极大却又不能提供<code>private</code>这个概念应当提供的安全性。我不得不说，这是一个失败的、不可用的、设计粗糙、思想落后的提案。</p>
+<p>建议：废止<em>proposal-class-fields</em>提案。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>&quot;<em>an object is a collection of zero or more properties.</em>&quot; <a href="https://tc39.github.io/ecma262/#sec-ecmascript-overview">ECMAScript Overview</a> part. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>The FieldDefinition in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-new-syntax">New Productions</a> part. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>The DefineField() algorithms in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-define-field">Modified algorithms</a> part. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Every call in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-prepareforordinarycall">3.9.9 PrepareForOrdinaryCall</a>. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Access field value in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-privatefieldget">3.5 PrivateFieldGet</a>. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Check name binding status in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-getvalue">3.8.1 GetValue</a>. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>]]></content:encoded></item><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
 <blockquote>
 <p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
 <p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
@@ -1751,289 +1860,4 @@ $(&quot;.post-date&quot;).each(function() {
 <p>我最终觉得我在这本书的英文译名上还是犯了“严重且不可饶恕的错误”，所以只好悻悻然地将所有已经用过英文名的地方（例如github上）都进行了修改。我的《程序原本》这本书，今后就只用*&quot;Elements of Program&quot;*这个英文的书名吧。</p>
 <p>好象更确切的译法是*“Elements of Programs”<em>？比如“算法 + 数据结构 = 程序”原书名就是</em>&quot;Algorithms + Data Structures = Programs&quot;*。算了，就这样吧！我的英文还没有好到可以较真这个东西的地步😹</p>
 </blockquote>
-</div>]]></content:encoded></item><item><title><![CDATA[Monster的三种工作模式]]></title><description><![CDATA[<div class="kg-card-markdown"><p>Monster有三种工作模式generate、update和preview。可以通过Monster的第一个参数来指定，在第一个参数缺省时直接使用generate模式。例如：</p>
-<pre><code class="language-bash"># 下面两个指令是相同的
-&gt; monster --generate
-&gt; monster generate --generate
-</code></pre>
-<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
-<pre><code class="language-bash"># 显示monster的帮助
-&gt; monster --help
-# 显示generate模式(即makesite.sh)的帮助
-&gt; monster generate --help
-</code></pre>
-<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
-<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
-&gt; monster preivew 8010
-Serving HTTP on 0.</code></pre></div>]]></description><link>http://aimingoo.github.io/1-1744/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c1</guid><category><![CDATA[Monster]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 21 Sep 2017 15:50:03 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>Monster有三种工作模式generate、update和preview。可以通过Monster的第一个参数来指定，在第一个参数缺省时直接使用generate模式。例如：</p>
-<pre><code class="language-bash"># 下面两个指令是相同的
-&gt; monster --generate
-&gt; monster generate --generate
-</code></pre>
-<p>但Monster也有自己的<code>--help</code>参数，所以与generate模式下的<code>--help</code>参数不一致，后者显示的<code>makesite.sh</code>的帮助：</p>
-<pre><code class="language-bash"># 显示monster的帮助
-&gt; monster --help
-# 显示generate模式(即makesite.sh)的帮助
-&gt; monster generate --help
-</code></pre>
-<p>工作模式<code>preview</code>是非常简单的，它只是调用python来开启一个web服务器，这样你就可以在本地预览生成的页面文件了。</p>
-<pre><code class="language-bash"># 可以指定端口地址（缺省为8000）
-&gt; monster preivew 8010
-Serving HTTP on 0.0.0.0 port 8010 ...
-</code></pre>
-<h2 id="generateupdate">generate与update模式的原理不同</h2>
-<p>generate工作模式定义了一个对“网站迁移的标准过程”的理解，亦即是分成四步：</p>
-<ul>
-<li>generate: 调用wget生成静态页</li>
-<li>reset-domain：重置页面中的domain地址（它有两个前置过程）
-<ul>
-<li>pick-sitemap：尝试下载sitemaps文件</li>
-<li>patch-version：修补assets等目录中的文件名后缀中的版本号</li>
-</ul>
-</li>
-<li>short-path: 生成简短的网页路径</li>
-<li>deploy-now: 部署到Github仓库（它有一个前置过程）
-<ul>
-<li>check-static：检查reset-domain过程之后的static目录</li>
-</ul>
-</li>
-</ul>
-<p>这个迁移并不是特指针对于Git Pages（xxxx.github.io）的，因此generate模式可以在非Ghost博客上正常工作，并且也可以将生成的静态网页Delpoy到非Git Pages的网站上去。所谓“Ghost -&gt; Git Pages”只是上述过程的一个运用而已。</p>
-<p>generate工作模式在网页抓取上并不“积极”，它只是使用wget对Site入口（<code>/index.html</code>）进行深度递归并下载所有页面以及图片等等其它附件与资源而已。相对于Buster，它最大的进步是定义和有效利用了上述的四个阶段。</p>
-<p>工作模式update在原理上就与generate不同。update工作模式是直接依赖Ghost的数据库文件的，它必须位于Monster可访问的路径上。update工作模式并没有上述的四个阶段，它缺省就直接读取数据库中最新的条目，并根据其title直接使用wget下载该页面和可能的资源。</p>
-<p>update工作模式只有<code>fetch</code>和<code>deploy</code>两种行为。其中<code>fetch</code>行为是默认总是进行——除了在使用<code>--deploy-only</code>参数的情况下，而<code>deploy</code>行为是由<code>--deploy-now</code>或<code>--deploy-only</code>来触发的。</p>
-<p>update工作模式的<code>deploy</code>行为是直接调用generate模式来实现的，所以事实上二者在Deploy功能上完全一致——只是在调用时，update模式会把<code>--pick-sitemap</code>和<code>--short-path</code>置为false，因为这两个步骤已经在update工作模式中处理过了，不需要generate模式去处理。</p>
-<p>在update工作模式之内，<code>--pick-sitemap</code>和<code>--short-path</code>缺省是打开的，并且总是“推荐”使用short path——这在update工作模式中是更佳的选择。</p>
-<h2 id="generate">generate模式的缺省行为</h2>
-<p>下面的代码将直接调用generate模式的缺省行为：</p>
-<pre><code class="language-bash">&gt; monster generate
-</code></pre>
-<p>在缺省情况下，Monster相关的配置如下：</p>
-<pre><code class="language-bash"># GENERATE过程
-GENERATE=false
-
-# RESET_DOMAIN过程
-PICK_SITEMAP=true
-PATCH_VERSION=true
-RESET_DOMAIN=true
-
-# SHORT_PATH过程
-SHORT_PATH=false
-
-# DEPLOY过程
-CHECK_STATIC=true
-DEPLOY_NOW=false
-</code></pre>
-<p>因此generate模式缺省会跳过GENERATE过程，然后：</p>
-<ul>
-<li>判断Static path（例如缺省的<code>./static</code>）是否有效</li>
-</ul>
-<p>如果<code>./static</code>不存在，那么直接退出并提示：</p>
-<blockquote>
-<p>Abort because have not './static' directory.</p>
-</blockquote>
-<p>否则接下来处理：</p>
-<ul>
-<li>首先根据<code>PICK_SITEMAP</code>和<code>PATCH_VERSION</code>的配置来处理<code>RESET_DOMAIN</code>的前置过程；然后，</li>
-<li>将检查生成文件的<code>SITE</code>值与发布到的<code>DOMAIN</code>地址，如果不一样（例如想从本地site生成文件并发布到domain），重置Static目录中所有文件中的domain值（<code>RESET_DOMAIN</code>）。</li>
-</ul>
-<p>最后跳过SHORT_PATH过程，并：</p>
-<ul>
-<li>检查一次Static目录中的文件是否都重置过domain（<code>CHECK_STATIC</code>）。</li>
-</ul>
-<h2 id="update">update模式的缺省行为</h2>
-<p>下面的代码将直接调用update模式的缺省行为：</p>
-<pre><code class="language-bash">&gt; monster update
-</code></pre>
-<p>对于update模式来说，以下参数是缺省置为true值的：</p>
-<pre><code class="language-bash">PICK_ROBOTS_TXT=true
-PICK_SITEMAP=true
-SHORT_PATH=true
-RESET_DOMAIN=true
-</code></pre>
-<p>前面说过：update与generate的行为逻辑很不一样。update模式的<code>fetch</code>行为看起来总是更“贪婪”的：</p>
-<ul>
-<li>它将尝试获取全部更新文件（依赖.sqlitedb中的信息来分析），并且如果发现有新的post创建，就会尝试获取全部列表文件——例如作者文章列表，以及首页文章索引等（包括<code>PICK_ROBOTS_TXT</code>、<code>PICK_SITEMAP</code>等等）。</li>
-<li>一旦上述过程完成，<code>fetch</code>行为将进一步地检查Static目录，由于<code>SHORT_PATH</code>为true，所以它会尝试将Url中的路径变短。</li>
-<li>最后，update模式会进入<code>RESET_DOMAIN</code>过程，并传入参数<code>--generate=false --pick-sitemap=false --short-path=false</code>以避免makesite.sh模块重复操作。</li>
-</ul>
-<p>update模式缺省并不Deploy（除非你在命令行上指定了<code>--deploy-now</code>，它缺省是false值）。</p>
-<p>你无法让update过程什么也不做，这一点也与generate不同。唯一可算作例外的，是如果上一次update之后在Ghost中什么变化也没有（没有添加、删除或更新post），那么在update时就不会获得什么更新数据，也不会创建<code>./static</code>目录：</p>
-<pre><code class="language-bash">&gt; monster update
-Pick updated or new files ...
-
-Try refresh author's pages ...
-&gt; Skiped.
-Abort because have not './static' directory.
-</code></pre>
-<h2 id="">开始构建你的网站</h2>
-<p>你可以从一开始就选择两种工作模式之一。generate模式每一次总是做全站生成，而update模式只在第一次调用时，读sqlite库中的全部post做一次全站生成——并且部署。</p>
-<p>如果你使用过<code>monster update --deploy-now</code>一次，那么Monster会在当前目录下生成一个<code>.sqlitedb</code>文件，用于存储数据库状态的一个时间点——以便下次update增量。</p>
-<p>如果已经在用<code>monster generate</code>来直接做全站生成和部署了，那么第一次使用update工作模式时，可以使用下面的命令：</p>
-<pre><code class="language-bash">&gt; monster update --init
-File .sqlitedb saved.
-</code></pre>
-<p>这并不真的部署和更新任何东西，只是将<code>.sqlitedb</code>对齐到当前数据库。——之后，无论是<code>--deploy-now</code>还是<code>--deploy-only</code>，update模式每次都会更新<code>.sqlitedb</code>。</p>
-<h2 id="generate">generate模式下的参数</h2>
-<p>除了需要显式地用<code>monster generate --help</code>显示帮助信息之外，其它情况下都可以省掉第一个参数<code>generate</code>。其它的参数包括：</p>
-<pre><code>#
-# 参数开关，--paramName=true/false，只用--paramName相当于指定true
-#
-
-## 四个主要过程
-# - 生成全站
---generate
-# - 重置静态页中的domain(缺省为true)
---reset-domain
-# - 生成短的Url路径
---short-path
-# - 调用Git部署
---deploy-now
-
-## 'RESET_DOMAIN'的前置操作(缺省为true)
-# - 下载sitemap文件
---pick-sitemap
-# - 修正文件名中的版本信息
---patch-version
-
-## 'DEPLOY_NOW'的前置操作(缺省为true)
-# - 检查Static目录中的静态页是否已经重置过domain
---check-static
-
-## 在generate过程中是否显示更详细的信息(缺省为false)
---generate-info
-
-#
-# 传入其它配置值（字符串）
-#
-
-## 部署到的domain
---domain=&quot;...&quot;
-
-## 下载静态页的Site，支持https
---site=&quot;http://...&quot;
-
-## 存放静态页的目录
---static-path=&quot;...&quot;
-
-#
-# 其它
-#
-
-## 显示帮助
---help
-
-## 显示版本号
---version
-</code></pre>
-<h2 id="update">update模式下的参数</h2>
-<p>可以用<code>monster update</code>来按缺省配置运行udpate模式。其它的参数包括：</p>
-<pre><code class="language-bash">#
-# 参数开关，--paramName=true/false，只用--paramName相当于指定true
-#
-
-## 与Fetch和Deply行为相关
-#- 是否调用reset-domain过程(缺省为true)
---reset-domain
-#- 是否使用短路径(缺省为true)
---short-path
-#- 在Fetch行为中，尝试为remove post行为而更新所有索引页
---sync-removed
-#- 直接部署
---deploy-now
-#- 不fetch文件，只部署Static目录
---deploy-only
-
-
-## 特定文件获取
-#- 总是下载/tag-cloud
---pick-static-tagcloud
-#- 总是下载/profile-xxx
---pick-static-profile
-#- 总是下载/archive-post
---pick-archive-post
-#- 总是下载/robot.txt
---pick-robot-txt
-#- 总是下载sitemap文件
---pick-sitemap
-#- 强制下载上述--pick-xxxx和索引页等文件
---force
-
-
-#
-# 传入其它配置值（字符串）
-#
-
-## 部署到的domain
---domain=&quot;...&quot;
-#- 在使用'--sync-issue'功能时，在Issue body中写入的Url上使用的协议名，缺省为'https'
---protocol=&quot;...&quot;
-
-## 下载静态页的Site，支持https
---site=&quot;http://...&quot;
-
-## 存放静态页的目录
---static-path=&quot;...&quot;
-
-## 本地Ghost的数据库文件路径
---db=&quot;...&quot;
-
-## 本地Ghost登录帐号，可以用'monster --list user'查看
-#- (帐号邮箱)
---email=&quot;...&quot;
-
-## 一个标记字符串，极少使用
-#-（仅在update功能中用于检查特定文件中是否包含该字符串，以确保整个内容有效）
---ad-token=&quot;...&quot;
-</code></pre>
-<p>此外，Monster还在update工作模式下提供了一些直接命令，它们与一个（类似上述的）更新和部署过程无关，例如<code>—help</code>。这些命令包括：</p>
-<pre><code class="language-bash">#
-# 直接指令
-#
-
-## 生成.sqlitedb文件，对齐当前数据库
-# - 'checksums'参数是仅仅由Monster内部使用的
---init [checksums]
-
-## 将所有post的slug修改成'authorId-postId'格式
-# - 这意味着生成的Url会是短路径名
---sync-slug
-
-## 在对应的Github仓库中，为所有的post生成Gitment格式的Issue
-# - Gitment需要用户为每个Post点一次创建Issue按钮，本功能可自动完成
-# - 生成的Issue有两个标签：'${slug}'和'gitment'
-# - 会忽略掉已经生成过的Issue，不会重复生成
---sync-issue
-
-## 列出unment或user
-# - unment是指“未创建Gitment格式Issue”的post
-# - user是指Ghost库中的用户名
---list &lt;unment|user&gt;]
-
-## 显示帮助
---help
-
-## 显示版本号
---version
-</code></pre>
-<p><strong>关于<code>--sync-removed</code>参数</strong></p>
-<p>Monster是通过记录数据库中的时间点的方法，来实现增量更新的。由于Ghost并没有在数据库中记录删除post的行为，也并不导致时间点变化，所以Monster也并没有办法简单确认当前Ghost环境中删除过post。</p>
-<p>因此一旦用户只删除了post——而又没有任何其它添加或更新操作的话，那么就需要用下面的命令来提交一次update：</p>
-<pre><code class="language-bash">&gt; monster --sync-removed --deploy-now
-</code></pre>
-<p>这个命令将会重建所有的索引页、标签页等，以便体现删除post这样的操作。</p>
-<p>但是有一个小的问题：如果有“上一篇”、“下一篇”这样的导航，那么被删除post的链接仍然会出现在其它post页面上。——不过，由于是增量更新，所以这个链接仍然是可用的。换言之，被删除的post只是不再出现在各种列表页中，并没有真正移除。</p>
-<p>很遗憾，目前这是无法直接解决的。</p>
-<blockquote>
-<p>注1：你可以删除<code>.sqlitedb</code>文件再执行<code>monster update</code>，这样可以全站重新生成一次，就可以了。</p>
-<p>注2：monster只是从Static目录中复制了文件覆盖你的git仓库，这意味着它并没有<code>git rm …</code>来删除仓库中的既有文件——例如你刚刚删除掉的那个post。也就是说，即使你重新全站生成并deploy，那个post已经上传的的静态网页也仍然需要你手工从git仓库中删除。</p>
-</blockquote>
-<p><strong>关于<code>--force</code>参数</strong></p>
-<p>这是一个用在update工作模式下的比较特别的参数。</p>
-<p>前面说过，update工作模式是根据sqlite数据库的状况来实现的。这样一来，某些页面（通常是指定为static的、由特定模板或生成算法动态生成的网页）就不能被更新。在Ghost系统中，这些页面包括author和tag的索引页，以及手工定制的一些类似profile的页面。</p>
-<p>当Monster发现有一个post新建的时候，它将认为所有上述页面都可能导致变化，所以就会主动（贪婪）地更新这些页面。但如果没有post新建——而只是更新了既有post，那么由于感知不到上述变化，所以就需要用<code>--force</code>来强制生成这些页面。</p>
-<p>Monster不可能穷举所有类似的页面，所以在后续的版本中可能会提供一个机制来让用户定制这个页面列表。就目前而言，如果你有更多页面要处理，你只能手工修改updatesite.sh模块。这个文件位置在：</p>
-<pre><code class="language-bash">&gt; brew list monster | grep updatesite
-/usr/local/Cellar/monster/xxxx/libexec/updatesite.sh
-</code></pre>
 </div>]]></content:encoded></item></channel></rss>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>关于废止*proposal-class-fields*提案的建议</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=7808c3cb39" />
+    <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=7808c3cb39" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="关于废止*proposal-class-fields*提案的建议" />
+    <meta property="og:description" content="在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（collection elements of object）”这一概念集；如果Filed是属性，则public field必然与property这一现有概念冲突。 这就是现有一切矛盾的根源。 &amp;quot;proposal-class-fields&amp;quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明[2]：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。 在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“" />
+    <meta property="og:url" content="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html" />
+    <meta property="article:published_time" content="2018-10-16T15:44:29.000Z" />
+    <meta property="article:modified_time" content="2018-10-16T15:44:29.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="关于废止*proposal-class-fields*提案的建议" />
+    <meta name="twitter:description" content="在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（collection elements of object）”这一概念集；如果Filed是属性，则public field必然与property这一现有概念冲突。 这就是现有一切矛盾的根源。 &amp;quot;proposal-class-fields&amp;quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明[2]：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。 在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“" />
+    <meta name="twitter:url" content="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="aimingoo" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Aimingoo&#x27;s Blog",
+        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "aimingoo",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "sameAs": []
+    },
+    "headline": "关于废止*proposal-class-fields*提案的建议",
+    "url": "http://aimingoo.github.io/5bc605d4843e1c1189200c95.html",
+    "datePublished": "2018-10-16T15:44:29.000Z",
+    "dateModified": "2018-10-16T15:44:29.000Z",
+    "description": "在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（collection elements of object）”这一概念集；如果Filed是属性，则public field必然与property这一现有概念冲突。 这就是现有一切矛盾的根源。 &amp;quot;proposal-class-fields&amp;quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明[2]：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。 在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://aimingoo.github.io/"
+    }
+}
+    </script>
+
+    <script type="text/javascript" src="/public/ghost-sdk.js?v=7808c3cb39"></script>
+<script type="text/javascript">
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "e8bc7646b93e"
+});
+</script>
+    <meta name="generator" content="Ghost 1.14" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+</head>
+
+<body class="post-template nav-closed" data-spy="scroll" data-target="#tocScrollspy">
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header">
+    <nav class="container main-nav clearfix">
+        <div class="main-nav-title pull-left">
+            <script>
+            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
+            if (theAuthor.slug == 'joyxhy') {
+                titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
+            }
+            document.writeln(titleTextInBody);
+            </script>
+        </div>
+            <div class="nav pull-right">
+    <ul>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+    </ul>
+</div>
+
+    </nav>
+</header>
+
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=7808c3cb39"></script>
+
+<main id="container" class="container" role="main">
+    <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title u-aimingoo"><a href="/5bc605d4843e1c1189200c95.html">关于废止*proposal-class-fields*提案的建议</a></h1>
+                <section class="post-meta">
+                    <span class="post-meta-item">
+                        <i class="fa fa-user"></i>
+                        <a href="/author/aimingoo/">aimingoo</a>
+                    </span>
+                    <span class="post-meta-item">
+                        <i class="fa fa-clock-o"></i>
+                        <time class="post-date" datetime="2018-10-16T23:44:29.2929+08:00" timeago="true"></time>
+                        <time class="post-date" datetime="2018-10-16">(2018-10-16)</time>
+                    </span>
+                    <span class="post-meta-item post-meta-tags">
+                        <i class="fa fa-tag"></i>
+                        
+                    </span>
+                    <span class="post-meta-item pull-right">
+                        
+                    </span>
+                </section>
+            </header>
+
+            <section class="post-content">
+                <div class="kg-card-markdown"><blockquote>
+<p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
+<p><em>Reject it! No more choices!</em></p>
+</blockquote>
+<h2 id="1notfields">1. 概念：“Not Fields”！</h2>
+<p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
+<p>这就是现有一切矛盾的根源。</p>
+<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。</p>
+<p>在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“名字*（field define by his name）*”。亦即是说，对象是<strong>名字集</strong>（<em>object is collection of names</em>），是字段定义的<strong>实例</strong>（<em>instance of field definitions by class</em>）。</p>
+<p>该提案对概念的偷换并非只停留在叙述层面，它在实现上确实就是这么做的。如下<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>：</p>
+<pre><code>2.7 DefineField(receiver, fieldRecord)
+...
+  8. If fieldName is a Private Name,
+    ... // add as private filed
+  9. Else, // public field as property
+    Assert: IsPropertyKey(fieldName) is true.
+    Perform ? CreateDataPropertyOrThrow(receiver, fieldName, initValue).
+</code></pre>
+<p>我们已经明显地看到，该提案的提出是对现有对象核心概念的破坏。而 “Not Fields”，是阻止它的唯一手段。</p>
+<h2 id="2var">2. 实现：再造了一次var！</h2>
+<p>对于如下定义：</p>
+<pre><code class="language-javascript">class f {
+    #data = 100;
+    foo() {
+        this.#data = 200;
+    }
+}
+</code></pre>
+<p>该提案试图实现的效果与如下类似：</p>
+<pre><code class="language-javascript">clas f {
+    constructor() {
+        ... // call super, etc
+        var data = 100;
+        this.foo = function() {
+           data = 200;
+        }
+    }
+}
+</code></pre>
+<p>注意，该提案本质上并没有“打算”为对象实例<code>this</code>提供私有的字段，而是通过词法环境为该对象提供一个在特定上下文中可访问的名字集。</p>
+<p>但是，如上例所示，如果用这种方法来为<code>this.foo()</code>提供私有名字<code>data</code>，那么<code>foo()</code>将会是有非常多个函数实例（<em>Function Instances</em>）。为了避免单个对象重复绑定多个函数实例（来作为方法），该提案将上述“名字集（<em>collection of names</em>）”作为一个内部槽放在类中，并在创建对象时为<code>this</code>提供一个<code>[[PrivateFieldValues]]</code>的槽来作为该名字集的一个“映像（<em>fork</em>）”。</p>
+<p>于是事情又绕回来了：该提案“似乎”为每个对象实例提供了这样的一个字段集？</p>
+<p>不。真相不是这样的。对于该提案来说，这只是权宜之计，用以避免为每个对象、每个方法来创建各自的实例罢了。真实的情况是：它创建了每个类的、每个函数的、以及每个对象的“私有名”作用域（<em>PrivateNameScope</em>），然后在词法环境中维护这个作用域。由于每个对象都“可能有”私有域，因此在这个方案中，每个函数调用都需要负担起检查这个私有域的代价：每一次、每一处，以及每一个函数相关的特性。</p>
+<p>于是整个提案暴涨了！大多数内部调用的方法都需要在界面上加上<code>PrivateNameScope</code>这个参数，且每一个运行上下文的环境变量中都需要加上<code>PrivateNameEnvironment</code>。<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>——有点熟悉的感觉了吗？上一个如此大范围影响了ECMAScript规范的东西是什么？</p>
+<p>没错，就是VariableEnvironment！就是那个制造了与“块级作用域”冲突的<code>var</code>声明，导致了新语法关键字<code>let</code>被启用的历史设计。<code>Private Fields</code>的蹩脚设计如此明显地与VariableEnvironment放在一起，却似乎没有任何一个规范审阅者看到：</p>
+<pre><code>3.9.9 PrepareForOrdinaryCall ( F, newTarget )
+...
+  8. Let localEnv be NewFunctionEnvironment(F, newTarget).
+  9. Set the LexicalEnvironment of calleeContext to localEnv.
+  10. Set the VariableEnvironment of calleeContext to localEnv.
+  11. Set the PrivateNameEnvironment of calleeContext to F.[[PrivateNameEnvironment]].
+</code></pre>
+<p>他们重新发明轮子，又一次。并且，是方的轮子，又一次。</p>
+<p>两个方轮子！</p>
+<h2 id="3">3. 显而易见的：它无效！</h2>
+<p>接下来每个函数都有了<code>privateNameScope</code>，如此等等。那么既然有<em>PrivateNameEnvironment</em>或<em>privateNameScope</em>，又为什么要每个对象都有<code>[[PrivateFieldValues]]</code>内部槽呢？</p>
+<p>答案是：对象的内部槽用来存放名字对应的字段值<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>，而环境与作用域组件用来检测是否能访问该名字<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>！</p>
+<p>然而这是无效的。例如：</p>
+<pre><code class="language-javascript">class f {
+    #data = 100;   
+}
+
+class faked {
+    #data;
+    foo() {
+        console.log(this.#data);
+    }
+}
+
+// access private with a faked class
+x = new f;
+x.foo = faked.prototype.foo;
+x.foo();  // 100
+</code></pre>
+<p>我仔细读过完整的提案，是的，上述的BUG无可避免。因为这个过程无异于：</p>
+<pre><code class="language-javascript">function privateScope(name) {
+    var privated_data = 100;
+    return eval(name);
+}
+console.log(privateScope('privated_data'));
+</code></pre>
+<p>只要你允许对私有域做“读变量名”操作，那么所有的<em>privated data</em>都不可能安全。</p>
+<h2 id="4">4. 结论</h2>
+<p>在抽象层面，（就抽象概念对使用者的影响来说）这个提案破坏或偷换了ECMAScript中“对象”的概念；在实现上，它耗用极大却又不能提供<code>private</code>这个概念应当提供的安全性。我不得不说，这是一个失败的、不可用的、设计粗糙、思想落后的提案。</p>
+<p>建议：废止<em>proposal-class-fields</em>提案。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>&quot;<em>an object is a collection of zero or more properties.</em>&quot; <a href="https://tc39.github.io/ecma262/#sec-ecmascript-overview">ECMAScript Overview</a> part. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>The FieldDefinition in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-new-syntax">New Productions</a> part. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>The DefineField() algorithms in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-define-field">Modified algorithms</a> part. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Every call in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-prepareforordinarycall">3.9.9 PrepareForOrdinaryCall</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Access field value in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-privatefieldget">3.5 PrivateFieldGet</a>. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Check name binding status in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-getvalue">3.8.1 GetValue</a>. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>
+            </section>
+<!-- removed by aimingoo
+            <footer class="post-footer">
+                {-{!> "post_author"}}
+            </footer>
+-->
+        </article>
+
+        <aside class="post-nav">
+            <span class="post-nav-prev">
+                上一篇
+                <a href="/5bc3fe1d843e1c1189200c92.html">
+                    私有属性的实现
+                </a>
+            </span>
+
+        </aside>
+        <section class="post comments">
+<div id="gitment-root"></div>
+
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=7808c3cb39" />
+<script src="/assets/js/gitmint.browser.js?v=7808c3cb39"></script>
+
+<style>
+a.gitment-editor-footer-tip { display: none; }
+.gitment-container.gitment-footer-container { display: none; }
+</style>
+
+<script type="text/javascript">
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
+	var gitment = new Gitmint({
+	  id: SHORT_ID(location.href),
+	  owner: 'aimingoo',
+	  repo: 'aimingoo.github.io',
+	  lang: 'zh-CN'
+	});
+	gitment.render('gitment-root');
+</script>
+<noscript>Please enable JavaScript to view theses comments.</noscript>
+</section>    </div>
+    <div id="sidebar" class="sidebar col-md-4 col-lg-4">
+
+            <div class="widget widget-profile">
+        <div class="widget-profile-cover overlay " style="background-image: url(/content/images/2017/10/IMG_5294-1.jpg)"></div>
+        <div class="widget-profile-header">
+            <a class="widget-profile-logo" href="/author/aimingoo/">
+                <img src="/content/images/2017/10/IMG_5559-1.jpg" alt="Aimingoo&#x27;s Blog" />
+            </a>
+        </div>
+        <span class="widget-profile-title label label-xlg label-minty arrowed-in arrowed-in-right">aimingoo</span>
+        <hr>
+        <p class="widget-profile-desc">
+                云色青青若醉，还与东湖寐
+        </p>
+        <hr>
+        <!-- replaced by aimingoo -->
+        <script type="text/javascript" src="/profile-aimingoo"></script>
+    </div>
+
+
+<!-- replaced by aimingoo
+    {-{> "tag_cloud"}}
+-->
+        <script type="text/javascript" author="aimingoo" src="/tag-cloud"></script>
+
+        <div class="widget widget-toc">
+    <div class="widget-title">
+        <div class="widget-title-meta">
+            <i class="fa fa-list-ul"></i>&nbsp;
+            <span class="title-meta-word">文章目录</span>
+        </div>
+    </div>
+    <nav id="tocScrollspy">
+        <ul id="toc" class="toc"></ul>
+    </nav>
+</div>
+</div>
+</main>
+
+
+        <footer class="site-footer clearfix">
+            <div class="footer-meta container">
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="backTop" class="backTop">
+        <button class="btn btn-inverse">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=7808c3cb39"></script>
+    
+
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=7808c3cb39"></script>
+</body>
+
+</html>
