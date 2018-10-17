@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 16 Oct 2018 15:47:57 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[关于废止*proposal-class-fields*提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Wed, 17 Oct 2018 08:00:32 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[关于废止proposal-class-fields提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
 </blockquote>
@@ -59,10 +59,15 @@
 </code></pre>
 <p>他们重新发明轮子，又一次。并且，是方的轮子，又一次。</p>
 <p>两个方轮子！</p>
-<h2 id="3">3. 显而易见的：它无效！</h2>
+<h2 id="3">3. 低效</h2>
+<blockquote>
+<p>注：该规范将创建每个私有名称的映射，其中包含唯一键和设置名称作为描述。这似乎可用，但效率很低。谢谢@bakkot。<br>
+<em>（我有一点遗漏，但我不会出于这个原因而撤回本建议。）</em></p>
+</blockquote>
 <p>接下来每个函数都有了<code>privateNameScope</code>，如此等等。那么既然有<em>PrivateNameEnvironment</em>或<em>privateNameScope</em>，又为什么要每个对象都有<code>[[PrivateFieldValues]]</code>内部槽呢？</p>
 <p>答案是：对象的内部槽用来存放名字对应的字段值<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn5" id="fnref5">[5]</a></sup>，而环境与作用域组件用来检测是否能访问该名字<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn6" id="fnref6">[6]</a></sup>！</p>
-<p>然而这是无效的。例如：</p>
+<p><s>然而这是无效的。例如：</s></p>
+<p>但是有一个问题。例如：</p>
 <pre><code class="language-javascript">class f {
     #data = 100;   
 }
@@ -79,7 +84,7 @@ x = new f;
 x.foo = faked.prototype.foo;
 x.foo();  // 100
 </code></pre>
-<p>我仔细读过完整的提案，是的，上述的BUG无可避免。因为这个过程无异于：</p>
+<p>~~我仔细读过完整的提案，是的，上述的BUG无可避免。~~因为这个过程无异于：</p>
 <pre><code class="language-javascript">function privateScope(name) {
     var privated_data = 100;
     return eval(name);
@@ -87,6 +92,9 @@ x.foo();  // 100
 console.log(privateScope('privated_data'));
 </code></pre>
 <p>只要你允许对私有域做“读变量名”操作，那么所有的<em>privated data</em>都不可能安全。</p>
+<blockquote>
+<p>注: 所以这个方案需要一个map来使用一个唯一key来登记每一个字段名字。</p>
+</blockquote>
 <h2 id="4">4. 结论</h2>
 <p>在抽象层面，（就抽象概念对使用者的影响来说）这个提案破坏或偷换了ECMAScript中“对象”的概念；在实现上，它耗用极大却又不能提供<code>private</code>这个概念应当提供的安全性。我不得不说，这是一个失败的、不可用的、设计粗糙、思想落后的提案。</p>
 <p>建议：废止<em>proposal-class-fields</em>提案。</p>
