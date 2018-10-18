@@ -23,17 +23,17 @@
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="关于废止proposal-class-fields提案的建议" />
-    <meta property="og:description" content="在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（collection elements of object）”这一概念集；如果Filed是属性，则public field必然与property这一现有概念冲突。 这就是现有一切矛盾的根源。 &amp;quot;proposal-class-fields&amp;quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明[2]：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。 在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“" />
+    <meta property="og:description" content="本文是系列文章，包括： &amp;quot;Field提案&amp;quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议（本文） 私有属性的实现 - 在这里 No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）" />
     <meta property="og:url" content="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html" />
     <meta property="article:published_time" content="2018-10-16T15:44:29.000Z" />
-    <meta property="article:modified_time" content="2018-10-17T07:59:36.000Z" />
+    <meta property="article:modified_time" content="2018-10-18T03:16:46.000Z" />
     <meta property="article:tag" content="Javascript" />
     <meta property="article:tag" content="编程" />
     <meta property="article:tag" content="语言" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="关于废止proposal-class-fields提案的建议" />
-    <meta name="twitter:description" content="在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（collection elements of object）”这一概念集；如果Filed是属性，则public field必然与property这一现有概念冲突。 这就是现有一切矛盾的根源。 &amp;quot;proposal-class-fields&amp;quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明[2]：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。 在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“" />
+    <meta name="twitter:description" content="本文是系列文章，包括： &amp;quot;Field提案&amp;quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议（本文） 私有属性的实现 - 在这里 No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）" />
     <meta name="twitter:url" content="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -64,9 +64,9 @@
     "headline": "关于废止proposal-class-fields提案的建议",
     "url": "http://aimingoo.github.io/5bc605d4843e1c1189200c95.html",
     "datePublished": "2018-10-16T15:44:29.000Z",
-    "dateModified": "2018-10-17T07:59:36.000Z",
+    "dateModified": "2018-10-18T03:16:46.000Z",
     "keywords": "Javascript, 编程, 语言",
-    "description": "在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（collection elements of object）”这一概念集；如果Filed是属性，则public field必然与property这一现有概念冲突。 这就是现有一切矛盾的根源。 &amp;quot;proposal-class-fields&amp;quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明[2]：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。 在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“",
+    "description": "本文是系列文章，包括： &amp;quot;Field提案&amp;quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议（本文） 私有属性的实现 - 在这里 No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io/"
@@ -145,9 +145,18 @@ ghost.init({
 
             <section class="post-content">
                 <div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议（本文）</li>
+<li>私有属性的实现 - <a href="/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
-</blockquote>
 <h2 id="1notfields">1. 概念：“Not Fields”！</h2>
 <p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
 <p>这就是现有一切矛盾的根源。</p>
@@ -271,6 +280,12 @@ console.log(privateScope('privated_data'));
                 </a>
             </span>
 
+            <span class="post-nav-next" >
+                <a href="/5bc7f848843e1c1189200ca7.html">
+                    &quot;Field提案&quot;是什么东东？
+                </a>
+                下一篇
+            </span>
         </aside>
         <section class="post comments">
 <div id="gitment-root"></div>

@@ -1,14 +1,171 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Tue, 16 Oct 2018 15:44:51 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[关于废止*proposal-class-fields*提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Thu, 18 Oct 2018 03:19:29 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA["Field提案"是什么东东？]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东（本文）</li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95">在这里</a></li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
+<p>上次掺和JavaScript的事，是说JavaScript语言有值的问题；再往前一年，就是在“红绿灯大战”中讨论Promise了。这细数起来，都是两三年前的旧事了。</p>
+<p>但我还是跟进JavaScript的。最新近的事，是持续地讨论这个所谓“TC39提案”的事情。本以为真关心的人并不多，但前两天连老宋都转了篇贴子过来，“这帮人要把js折腾成啥样子啊”，老宋说。</p>
+<p>“啥样子？”</p>
+<h2 id="1field">1. 导致太下大乱的“</h2></div>]]></description><link>http://aimingoo.github.io/5bc7f848843e1c1189200ca7/</link><guid isPermaLink="false">5bc7f848843e1c1189200ca7</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 18 Oct 2018 03:19:11 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东（本文）</li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95">在这里</a></li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
+<p>上次掺和JavaScript的事，是说JavaScript语言有值的问题；再往前一年，就是在“红绿灯大战”中讨论Promise了。这细数起来，都是两三年前的旧事了。</p>
+<p>但我还是跟进JavaScript的。最新近的事，是持续地讨论这个所谓“TC39提案”的事情。本以为真关心的人并不多，但前两天连老宋都转了篇贴子过来，“这帮人要把js折腾成啥样子啊”，老宋说。</p>
+<p>“啥样子？”</p>
+<h2 id="1field">1. 导致太下大乱的“Field提案”</h2>
+<p>“Field提案”全称是“proposal-class-fields”（<a href="https://github.com/tc39/proposal-class-fields">在这里</a>），是试图在类声明中添加“Fields”的一项语言设计。提案基本的想法是这样：</p>
+<pre><code class="language-javascript">// 在类中声明字段(Field)
+class Counter {
+  x = 0;
+  foo() {
+    console.log(this.x);  // 0
+  } 
+}
+</code></pre>
+<p>这看起来并没有什么大不了，毕竟之前在类中只能声明方法，新方案可以直接为<code>this.x</code>赋个初值，大家都很happy。</p>
+<p>但“字段（Field）”是什么？没人鸟这个问题。</p>
+<p>后来这个方案扩展了，提供了公开字段（Public fields）、私有字段（Private fields）等特性，并整合了种种有关于“类”的提案的思想，还提出了向前兼容类装饰器（decorators）等愿景，摇身一变，成了一个巨无霸方案。同时，也不可避免地在社区掀起了轩然大波：多达120余条issues，其中<a href="https://github.com/tc39/proposal-class-fields/issues/100">#100</a>高达300余条讨论，Git issues折了好几回才能加载完。</p>
+<blockquote>
+<p><em>话说，我就是被这个issues入坑的。</em></p>
+</blockquote>
+<p>那么，现在这个巨无霸的方案又在讲什么呢？它说起来就是提供了两个语法：</p>
+<pre><code class="language-javascript">// 在类中声明私有字段(private field)
+class Counter {
+  #x = 100;
+  foo() {
+    console.log(this.#x);  // 100
+  }
+}
+</code></pre>
+<p>然而这样一来，即便连最初的提案者都跳出来反对了，包括BE大神也反对。即便如此，都挡不住这辆战车轰隆隆开进到了Stage 3（阶段3是提案即将正式写入规范前的最后一个阶段）。而且一并拖上的还有另外两个方案，称为“静态成员与方法（<a href="http://github.com/tc39/proposal-static-class-features/">Static class fields and private static methods</a>）”，以及“私有方法与存取器（<a href="https://github.com/tc39/proposal-private-methods">Private instance methods and accessors</a>）”。这两个提案推动的语法是这样：</p>
+<pre><code class="language-javascript">// 对象字段
+class Counter {
+  // 声明私有字段(private fields)
+  #xValue = 100;
+
+  // 声明和使用存取器(accessors for private name '#x')
+  get #x() { return #xValue; }
+  set #x(value) {
+    this.#xValue = value; 
+  }
+
+  // 私有方法
+  #foo() {
+    this.#x++;
+  }
+}
+
+// 类(静态)字段
+class Counter2 {
+  // 声明类私有字段(class private fields)
+  static #x = 100;
+
+  // 访问类私有字段
+  static foo2() {
+    console.log(Counter2.#x);
+  }
+
+  // 类私有方法
+  static #foo2() {
+    Counter2.foo2();
+  }
+}
+</code></pre>
+<p>等等，这还不够，又还有一份与此相关的提案进入了Stage 2。是这种所谓“未来的装饰器”：</p>
+<pre><code class="language-javascript">class Counter {
+  @observed #x = 0;
+
+  @bound
+  #clicked() {
+    this.#x++;
+  }
+}
+</code></pre>
+<p>还有……</p>
+<p>如果你想深入了解一点细节，在这里：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/27486885">JavaScript 的新特性 —— 类的私有属性</a></li>
+<li><a href="https://juejin.im/post/5a8e9b6d5188257a5f1ed826">JavaScript 中的私有变量</a></li>
+<li><a href="https://blog.csdn.net/csdnnews/article/details/83026914">JavaScript 的黑暗时刻来了？</a></li>
+</ul>
+<h2 id="2">2. 但是，问题是？</h2>
+<p>难道没有人注意到么，到现在为止，谁也没有（或许也是不敢）说清楚：</p>
+<blockquote>
+<p>Fields是什么？</p>
+</blockquote>
+<p>如果一个字段不是属性（property），那么所谓“公开字段”在语义上跟属性又有什么区别？如果它是属性，那么它为什么不在属性表中，而是一个“私有名（private names in scope over the same body of code）”呢？</p>
+<p>所以，打蛇就得打七寸。没人说得清这个问题，还没有人敢说，所以你看，我跑去git里面提issues了（<a href="https://github.com/tc39/proposal-class-fields/issues/148">在这里</a>）。往深底里，人家能跟你分析规范的每一步，但往这概念上一问就没人说话了。</p>
+<blockquote>
+<p><em>所以呢，以后跟人吵架，就不要动刀动枪，开口就问：你从哪里来？要往哪里去？人活着是为了什么？等等这些，就很好了。</em></p>
+</blockquote>
+<p>回到正题。为什么没人讨论<code>Fields是什么</code>呢？不是的，并不是没有。而是只要一讨论，这个问题的答案就明显会是“<strong>No Fields</strong>”，这个答案有人专门写过，在这里：</p>
+<blockquote>
+<ul>
+<li><a href="https://github.com/zenparsing/js-classes-1.1/blob/master/docs/why-not-fields.md">Why not fields?</a> in <a href="https://github.com/zenparsing/js-classes-1.1">JS Classes 1.1</a></li>
+</ul>
+</blockquote>
+<p>这是本“Fields提案”提及到的几个相关/类似提案之一。而它的观点之一就是“没有字段”，对“Fields”提出了概念层面的质问。关于这个问题的进一步分析，我在上面的提及的issues里面也讲了，或者也可以看看中文版（<a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a>）。</p>
+<h2 id="3">3. 更多的声音</h2>
+<p>终于有人无法忍受巨大冗长的<code>#100</code>了，于是@mbrowne在@littledan的倡议下开了<a href="https://github.com/tc39/proposal-class-fields/issues/150">#150</a>这个新主题。对大家的观点做了提炼，从@hax的主要观点开始：</p>
+<blockquote>
+<ol>
+<li>TC39极大地低估了该标准导致社区分裂(community break)的风险，这对所有人来说都是有害的。</li>
+<li>TC39现在的议事流程完全无法阻止灾难。</li>
+<li>一些TC39的成员和支持者基于循环论证和双重标准来驱逐别人的意见和竞争性提案。</li>
+</ol>
+</blockquote>
+<p>随后总结的观点包括（<code>#100</code>里的讨论者太多了，作者一时半会儿大概也数不过来）：</p>
+<ul>
+<li>明显的语法混淆与歧义 @hax @rdking</li>
+<li>向TC39表达不满，对提案长期目标或效果置疑 @rdking @bdistin</li>
+<li>否定&quot;Fields&quot;这一概念，建议在&quot;Property&quot;的概念基础上实现相关特性 @hax @rdking @mbrowne @shannon @aimingoo</li>
+<li>否定“不可探测（Undetectability）”这一需求，认为它并不能提供足够的保护性 @rdking</li>
+<li>新的语法或语言特性与既有体验之间的冲突，例如动态语言特性；或对语法的长期影响置疑 @rdking @bdistin @mbrowne @shannon</li>
+<li>语法不友好，在概念表达上存在多重指向；推荐启用<code>private</code>关键字 @hax @rdking  @mbrowne @aimingoo</li>
+<li>推荐Symbol.private或者其它 @Igmat @shannon</li>
+</ul>
+<p>喜大普奔的是，几乎所有批评者都表达了对@hax前三条主要观点的赞同，TC39被严重打脸。</p>
+</div>]]></content:encoded></item><item><title><![CDATA[关于废止proposal-class-fields提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议（本文）</li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
-</blockquote>
 <h2 id="1notfields">1. 概念：“Not Fields”！</h2>
-<p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95/#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
-<p>这就是现有一切矛盾的根源。</p>
-<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"></sup></p></div>]]></description><link>http://aimingoo.github.io/5bc605d4843e1c1189200c95/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>对象在定义上是“属性集（<em>object</em></p></div>]]></description><link>http://aimingoo.github.io/5bc605d4843e1c1189200c95/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><category><![CDATA[Javascript]]></category><category><![CDATA[编程]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议（本文）</li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
-</blockquote>
 <h2 id="1notfields">1. 概念：“Not Fields”！</h2>
 <p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95/#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
 <p>这就是现有一切矛盾的根源。</p>
@@ -59,10 +216,15 @@
 </code></pre>
 <p>他们重新发明轮子，又一次。并且，是方的轮子，又一次。</p>
 <p>两个方轮子！</p>
-<h2 id="3">3. 显而易见的：它无效！</h2>
+<h2 id="3">3. 低效</h2>
+<blockquote>
+<p>注：该规范将创建每个私有名称的映射，其中包含唯一键和设置名称作为描述。这似乎可用，但效率很低。谢谢@bakkot。<br>
+<em>（我有一点遗漏，但我不会出于这个原因而撤回本建议。）</em></p>
+</blockquote>
 <p>接下来每个函数都有了<code>privateNameScope</code>，如此等等。那么既然有<em>PrivateNameEnvironment</em>或<em>privateNameScope</em>，又为什么要每个对象都有<code>[[PrivateFieldValues]]</code>内部槽呢？</p>
 <p>答案是：对象的内部槽用来存放名字对应的字段值<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95/#fn5" id="fnref5">[5]</a></sup>，而环境与作用域组件用来检测是否能访问该名字<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95/#fn6" id="fnref6">[6]</a></sup>！</p>
-<p>然而这是无效的。例如：</p>
+<p><s>然而这是无效的。例如：</s></p>
+<p>但是有一个问题。例如：</p>
 <pre><code class="language-javascript">class f {
     #data = 100;   
 }
@@ -79,7 +241,7 @@ x = new f;
 x.foo = faked.prototype.foo;
 x.foo();  // 100
 </code></pre>
-<p>我仔细读过完整的提案，是的，上述的BUG无可避免。因为这个过程无异于：</p>
+<p>~~我仔细读过完整的提案，是的，上述的BUG无可避免。~~因为这个过程无异于：</p>
 <pre><code class="language-javascript">function privateScope(name) {
     var privated_data = 100;
     return eval(name);
@@ -87,6 +249,9 @@ x.foo();  // 100
 console.log(privateScope('privated_data'));
 </code></pre>
 <p>只要你允许对私有域做“读变量名”操作，那么所有的<em>privated data</em>都不可能安全。</p>
+<blockquote>
+<p>注: 所以这个方案需要一个map来使用一个唯一key来登记每一个字段名字。</p>
+</blockquote>
 <h2 id="4">4. 结论</h2>
 <p>在抽象层面，（就抽象概念对使用者的影响来说）这个提案破坏或偷换了ECMAScript中“对象”的概念；在实现上，它耗用极大却又不能提供<code>private</code>这个概念应当提供的安全性。我不得不说，这是一个失败的、不可用的、设计粗糙、思想落后的提案。</p>
 <p>建议：废止<em>proposal-class-fields</em>提案。</p>
@@ -107,30 +272,32 @@ console.log(privateScope('privated_data'));
 </li>
 </ol>
 </section>
-</div>]]></content:encoded></item><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
-<blockquote>
+</div>]]></content:encoded></item><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95">在这里</a></li>
+<li>私有属性的实现（本文）</li>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
+<p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
+<p>还是叫“私有属性（</p></div>]]></description><link>http://aimingoo.github.io/5bc3fe1d843e1c1189200c92/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95">在这里</a></li>
+<li>私有属性的实现（本文）</li>
+<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
 <p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
 <p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
-<p>本文是一个系列，参见：</p>
-<ul>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
-<li>私有属性的实现 (本文)</li>
-<li>(未完待续)</li>
-</ul>
-</blockquote>
-<h3 id="1">1. 私有成员语法的三个问题</h3>
-<p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+</p></div>]]></description><link>http://aimingoo.github.io/5bc3fe1d843e1c1189200c92/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
-<blockquote>
-<p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
-<p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
-<p>本文是一个系列，参见：</p>
-<ul>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b">在这里</a></li>
-<li>私有属性的实现 (本文)</li>
-<li>(未完待续)</li>
-</ul>
-</blockquote>
-<h3 id="1">1. 私有成员语法的三个问题</h3>
+<h2 id="1">1. 私有成员语法的三个问题</h2>
 <p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+的方法也是一种“（特殊的）函数类型的属性”，这种特殊性在于它必须通过声明语法来添加到类或对象。——也就是说，ES6中的方法是静态声明的，而不是动态添加的。</p>
 <p>类是特定语法声明的函数。由于函数是对象，所以类也是普遍含义上的对象。所以——重要的是——类的成员与对象的成员在性质上并没有任何的不同。确切来讲，它们都是属性，是对象的自有属性表中的成员，或可以通过原型访问的父代类属性。</p>
 <p>总之，所有现在能静态声明或动态添加的属性都是公开的（public）。在讨论“私有属性”的时候，有三点是必须要先确定的：</p>
@@ -142,7 +309,7 @@ console.log(privateScope('privated_data'));
 <blockquote>
 <p>注：本文中所谓“成员”，是在需要区分讨论属性与方法时使用的。此外，在提及“词法私有成员”时，因其与“属性”存在本质不同，所以暂用了“成员”这个概念。</p>
 </blockquote>
-<h3 id="2tc39">2. tc39中的提案</h3>
+<h2 id="2tc39">2. tc39中的提案</h2>
 <p>之前我们已经讨论过这个提案的语法。很大程度上我是在尽量保证与现有语法设计上的一致性，而并没有讨论这个提案的实现方法。</p>
 <p>简单地说，该提案认为：私有属性是一种特殊前缀表达的、自有的特殊属性。</p>
 <p>由于私有属性是“一种...属性”，因此该属性总是在“自有属性表”中，并且也受自有属性表的机制来约束，例如属性描述符。比较简单的处理方法是：在属性描述符中增加新的属性（类似<code>configurable</code>与<code>enumerable</code>等等）。因此：</p>
@@ -205,7 +372,7 @@ f(); // 应该显示200还是100？
 <li>存取左运算元的私有属性表</li>
 </ul>
 <p>很简单，很明确。</p>
-<h3 id="3">3. 使用属性表的核心问题</h3>
+<h2 id="3">3. 使用属性表的核心问题</h2>
 <p>我们使用<code>pravite</code>作为限定词，核心目的是“访问在<code>class f()</code>声明之外访问私有属性。然而，如果我们使用属性表，那么没有任何”经济的“方法能做实现这个目标。为了解决这个问题，我们先讨论一个ECMAScript规范上的漏洞：<strong>能不能动态添加方法声明？</strong></p>
 <p><strong>3.1 动态添加方法</strong></p>
 <p>JavaScript不能安全地抄写对象方法，因为方法会绑定源对象的<code>super</code>。例如：。</p>
@@ -288,7 +455,7 @@ x.setData(300);
 x.foo(); // 300
 </code></pre>
 <p>然而这样一来，在ECMAScript中没有办法“<strong>安全地实现私有属性</strong>”了。</p>
-<h3 id="4">4. 存在可行的解决方案吗？</h3>
+<h2 id="4">4. 存在可行的解决方案吗？</h2>
 <p>首先我们得知道为什么。</p>
 <p>ECMAScript的方法本质上是“访问<code>this</code>绑定的函数”——无论是传统的方法，还是ES6之后的方法，皆是如此。在所谓方法中，如果访问的是<code>this.xxx</code>这样的公共属性自然是不成问题，因为本质上对象就是属性表；类似的，如果属性包支持“<code>private</code>这样的访问域特性”，那么自然也是可以在支持私有属性访问的。——所以，最新的提案是建议用<code>this.#xxx</code>这样的语法来访问它，亦即是在本质上仍然是在访问属性表。</p>
 <p>所以，这就是根本的问题：如果一个方法就是在访问属性表，且它总是能动态地绑定<code>this</code>，那么它必然也能够跨类（和跨对象）地访问私有的属性表——以及那些私有属性。</p>
@@ -337,7 +504,7 @@ foo() {
 </blockquote>
 <p>亦即是说，所有实现这一特性所需的技术组件，在现有的ECMAScript中都是充备的。</p>
 <p>^^.</p>
-<h3 id="n">n. 终极问题：必要性？</h3>
+<h2 id="n">n. 终极问题：必要性？</h2>
 <p>看起来还不错哟。看起来很有希望哟。要不，下手来搞搞？</p>
 <p>然而，历史中，我们程序员犯得最多的错误就是：</p>
 <blockquote>
@@ -346,28 +513,35 @@ foo() {
 <p>“私有属性”这个特性真的是必须的么？——常读我写文章的读者，应该知道我总是在最后一步来考虑最原始的问题。——然而关于这个问题，我想要等到下一篇再讨论了。</p>
 <p>现在这篇，已经很长了，不能再长了。:)</p>
 </div>]]></content:encoded></item><item><title><![CDATA[No prefix! operator is Ok!]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
-<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
-<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
-<p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
-<p>本文是一个系列，参见：</p>
+<p>本文是系列文章，包括：</p>
 <ul>
-<li>No prefix! operator is Ok! (本文)</li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95">在这里</a></li>
 <li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
-<li>(未完待续)</li>
+<li>No prefix! operator is Ok!（本文）</li>
+<li><em>（未完待续）</em></li>
 </ul>
-</blockquote>
-<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
-<p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;</p></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
-<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
-<p>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></p>
-<p>本文是一个系列，参见：</p>
-<ul>
-<li>No prefix! operator is Ok! (本文)</li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
-<li>(未完待续)</li>
-</ul>
 </blockquote>
+<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
+<ul>
+<li><em>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></em></li>
+</ul>
+<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;</h3></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95">在这里</a></li>
+<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92">在这里</a></li>
+<li>No prefix! operator is Ok!（本文）</li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
+<p>所有在我对原有提案的修改中，核心不是“不用<code>#</code>字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。</p>
+<ul>
+<li><em>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></em></li>
+</ul>
 <h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;=&quot;？</h3>
 <p>在所有类、对象等声明性质的语法中，&quot;:&quot;是表明&quot;key/value pair&quot;的，既然这里的私有字段仍然是“key/value pair”，那么仍然建议使用该符号。而原提案建议使用<code>=</code>并且与TypeScript保持一致，却忽略了TypeScript中完整的语法<code>x: number = 100</code>中，<code>:</code>是指示类型的，而不是用于指示值。——这与ECMAScript的一般规则并不一致。</p>
 <p>ECMAScript规范事实上是沿用了“旧式的对象字面量”的属性声明与初值的语法，亦即是：</p>
@@ -1828,36 +2002,4 @@ $(&quot;.post-date&quot;).each(function() {
     }
 });
 </code></pre>
-</div>]]></content:encoded></item><item><title><![CDATA[怎么会有两个“原本”]]></title><description><![CDATA[<div class="kg-card-markdown"><p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是&quot;Elements of Programming&quot;，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用&quot;Elements of Programming&quot;的呀。</p>
-<p><img src="http://aimingoo.github.io/content/images/2017/09/two_elements.png" alt="two_elements"></p>
-<blockquote>
-<p>这两本书的介绍在这里：</p>
-<ul>
-<li>《编程原本》<a href="https://book.douban.com/subject/7564093/">https://book.douban.com/subject/7564093/</a></li>
-<li>《程序原本》<a href="http://blog.csdn.net/aimingoo/article/details/75506782">http://blog.csdn.net/aimingoo/article/details/75506782</a></li>
-</ul>
-</blockquote>
-<p>Alex这本书是2009年出的，中文版则等到了2012年。所以我写《大道至易》的时候并不知道这本书，这很正常。到2012年《大道至易》</p></div>]]></description><link>http://aimingoo.github.io/1-1745/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c2</guid><category><![CDATA[程序原本]]></category><category><![CDATA[书序书评]]></category><category><![CDATA[读书]]></category><category><![CDATA[杂谈]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 24 Sep 2017 10:53:20 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>今天很突然地发现裘宗燕老师还翻译了一本《编程原本》，英文名是&quot;Elements of Programming&quot;，是C++的STL库之父Alexander Stepanov，简单地说就是“一个大牛”。而看到这个书名的时候，就是一惊：撞衫撞脸撞书名，我那本《程序原本》的英文名原本也是打算用&quot;Elements of Programming&quot;的呀。</p>
-<p><img src="http://aimingoo.github.io/content/images/2017/09/two_elements.png" alt="two_elements"></p>
-<blockquote>
-<p>这两本书的介绍在这里：</p>
-<ul>
-<li>《编程原本》<a href="https://book.douban.com/subject/7564093/">https://book.douban.com/subject/7564093/</a></li>
-<li>《程序原本》<a href="http://blog.csdn.net/aimingoo/article/details/75506782">http://blog.csdn.net/aimingoo/article/details/75506782</a></li>
-</ul>
-</blockquote>
-<p>Alex这本书是2009年出的，中文版则等到了2012年。所以我写《大道至易》的时候并不知道这本书，这很正常。到2012年《大道至易》发行的时候，我在“程序原本”这一篇上用的标题是“程序源流”，是再到后来把这一部分独立成书并打算出电子版的时候，才用回到更早拟的名字，也就是《程序原本》。</p>
-<p>于是现在就有了两个“原本”：《编程原本》和《程序原本》。</p>
-<p>我仔细读了读Alex的《编程原本》，感叹于裘宗燕老师精准的翻译——是的，没错，这本书确实应该叫“编程（Programming）原本”。Alex在讲的，根本就不是“程序是怎么一回事”，而是“怎么写出好程序”——编程源于数学，因而可以从一个数学系统的构建和演进来理解编程的精髓，并“（或许就是）希望基于这种思维方法和开发技术，为范围广泛的软件系统建立起坚实基础”。由于这样的观念，Alex的《编程原本》中的数学系统既不是严格学术上的数学，也不是一般含义上的计算机系统。</p>
-<p>在书中，Alex用于定义/构建数学系统的篇幅很小，也就是第一章（“基础”，14页）。而在这14页中，用于讨论“数/数据”的篇幅更少，大概只有3~4个小节。在全书接下来的篇幅中，Alex就基于这样的数学系统开始设计和分析算法，并以之解决实际问题了。</p>
-<p>这与我在《程序原本》中讲述的内容与方法完全不同，并且存在着根本观念上的不同。在《程序原本》的第一个小节中，我就通过一个断言“算是程序之表，数是程序之本”，将整本书定调在了对“数”的讨论之中。由数的结构化延伸到算的结构化，以及后面的应用和系统的结构化，其本质上是在讨论：如今在“程序”中出现的种种元素，无非是大家在“结构化”这一个求解方向上的所得。因此我才在《我的架构思想》中提出了我对这所有观察作出的结论：程序是可被组织的元素。并由此提出进一步的观点：结构化——只是“程序是什么”的一个解，而绝非唯一解。</p>
-<p>所以，我其实是在讨论“程序（Program）的原本”，而Alex在讨论的是“编程（Programming）的原本”。正是因此，《程序原本》中看到的就是数据，或者结构化视角下的可组织元素；《编程原本》中看到的就是数学系统，以及由此构建的算法与实现。</p>
-<p>在<code>算法 + 数据结构 = 程序</code>这个经典的描述中，我讨论的是“数据结构”的问题，并进一步的讨论了“对数据、算法和程序的结构化”的问题，而Alex讨论的是算法问题。源于这种分析问题的剖面不同，Alex的《编程原本》要求读者有较高的数学基础，而《程序原本》则几乎对此没有什么要求——所以你看我在致谢中就只感谢了“我的小学数学老师”。^^.</p>
-<p>不过《程序原本》要求你有很好的抽象思维能力，你可以把整本书看成一个完整的抽象思维与论证的训练——如何拿着最基础、简单的“数”的概念与原则，构建出对整个的系统描述。这本书回顾了你所有见到过的“程序”的样子，以及这些“样子”背后的逻辑，但是却并不教你写一行有效的代码、一个有用的算法，或者一个看起来有明确运行逻辑的系统。</p>
-<p>算是程序之表，数是程序之本。</p>
-<blockquote>
-<p>又：</p>
-<p>我最终觉得我在这本书的英文译名上还是犯了“严重且不可饶恕的错误”，所以只好悻悻然地将所有已经用过英文名的地方（例如github上）都进行了修改。我的《程序原本》这本书，今后就只用*&quot;Elements of Program&quot;*这个英文的书名吧。</p>
-<p>好象更确切的译法是*“Elements of Programs”<em>？比如“算法 + 数据结构 = 程序”原书名就是</em>&quot;Algorithms + Data Structures = Programs&quot;*。算了，就这样吧！我的英文还没有好到可以较真这个东西的地步😹</p>
-</blockquote>
 </div>]]></content:encoded></item></channel></rss>

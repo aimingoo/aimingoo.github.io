@@ -90,18 +90,46 @@ ghost.init({
         <div class="tag-meta-content">
             <label class="page-title">标签：语言</label>
             <span class="page-description">
-                共计 45 篇文章
+                共计 46 篇文章
             </span>
         </div>
     </section>
 
 
-            <article class="post tag-javascript tag-bian-cheng tag-yu-yan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+            <article class="post tag-javascript tag-yu-yan tag-bian-cheng" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/5bc605d4843e1c1189200c95.html">关于废止*proposal-class-fields*提案的建议</a></h1>
+            <h1 class="post-title"><a href="/5bc7f848843e1c1189200ca7.html">&quot;Field提案&quot;是什么东东？</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>在本文中，我会仔细分析新提案中field的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。 Reject it! No more choices! 1. 概念：“Not Fields”！ 对象在定义上是“属性集（object is collection of properties）[1]”。因此如果Field不是属性，则它必然不属于“对象成员（ ... </p>
+            <p>本文是系列文章，包括： &quot;Field提案&quot;是什么东东（本文） 关于废止proposal-class-fields提案的建议 - 在这里 私有属性的实现 - 在这里 No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/ ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/bian-cheng/">编程</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2018-10-18T11:19:11.1111+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2018-10-18">(2018-10-18)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>, <a href="/tag/bian-cheng/">编程</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/5bc7f848843e1c1189200ca7.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
+            <article class="post tag-javascript tag-bian-cheng tag-yu-yan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/5bc605d4843e1c1189200c95.html">关于废止proposal-class-fields提案的建议</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>本文是系列文章，包括： &quot;Field提案&quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议（本文） 私有属性的实现 - 在这里 No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/ ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
@@ -129,7 +157,7 @@ ghost.init({
             <h1 class="post-title"><a href="/5bc3fe1d843e1c1189200c92.html">私有属性的实现</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>私有属性的实现 在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列， ... </p>
+            <p>本文是系列文章，包括： &quot;Field提案&quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议 - 在这里 私有属性的实现（本文） No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/ ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
@@ -157,7 +185,7 @@ ghost.init({
             <h1 class="post-title"><a href="/5bc1f626843e1c1189200c8b.html">No prefix! operator is Ok!</a></h1>
         </header>
         <section class="post-excerpt">
-            <p>所有在我对原有提案的修改中，核心不是“不用#字符”，而是将它从一个前缀字符，变成了一个操作符。这一方面是使“声明语法”与“表达式运算”分开，另一方面也让这些修改与ECMAScript规范保持在语法上的一致性。 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 修改的提议：#issuecomment-429533532 本文是一个系列，参见： No prefix! operator ... </p>
+            <p>本文是系列文章，包括： &quot;Field提案&quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议 - 在这里 私有属性的实现 - 在这里 No prefix! operator is Ok!（本文） （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/ ... </p>
         </section>
         <footer class="post-meta">
             <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
@@ -488,37 +516,9 @@ ghost.init({
             </span>
         </footer>
     </article>
-            <article class="post tag-javascript tag-yu-yan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-167.html">再谈JavaScript的数据类型问题</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>引子 JavaScript的数据类型问题已经讨论过很多次了，但许多人还有许多书仍然沿用着错误的、混乱的一些观点，所以就再细讲一回。 提及这个讨论的原因在于argb同学在我的MSN博客上的一段回复，又更早的起源则是两年前关于《JavaScript征途》一书的大讨论： 从“装B被雷劈讲起 ——这个事就让它过去了过去了吧。在讨论中我提及到该书对JavaScript类型系统介绍的混乱，而argb翻出了这篇历史文章，指我的混乱更混乱。于是我列了以下几个问题给他： 我想很难很快速地解释你的问题。那么，接着你的思路，我就问几个问题好了： 1、函数是不是类型？是什么类型？ 2、为什么说JavaScript中的函数是“第一型” ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2011-07-26T15:41:00.000+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2011-07-26">(2011-07-26)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/javascript/">Javascript</a>, <a href="/tag/yu-yan/">语言</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-167.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
 
     <nav class="pagination" role="navigation">
-    <span class="page-number">Page 1 of 3</span>
+    <span class="page-number">Page 1 of 4</span>
         <a rel="prev" class="older-posts" href="/tag/yu-yan/page/2/">下一页&nbsp;<i class="fa fa-chevron-right"></i></a>
 </nav>
 

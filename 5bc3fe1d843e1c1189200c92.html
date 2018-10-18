@@ -23,17 +23,17 @@
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="私有属性的实现" />
-    <meta property="og:description" content="私有属性的实现 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列，参见： No prefix! operator is Ok! - 在这里 私有属性的实现 (本文) (未完待续) 1. 私有成员语法的三个问题 目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+" />
+    <meta property="og:description" content="本文是系列文章，包括： &amp;quot;Field提案&amp;quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议 - 在这里 私有属性的实现（本文） No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）" />
     <meta property="og:url" content="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html" />
     <meta property="article:published_time" content="2018-10-15T02:43:00.000Z" />
-    <meta property="article:modified_time" content="2018-10-16T15:47:06.000Z" />
+    <meta property="article:modified_time" content="2018-10-18T03:15:38.000Z" />
     <meta property="article:tag" content="Javascript" />
     <meta property="article:tag" content="语言" />
     <meta property="article:tag" content="编程" />
     
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="私有属性的实现" />
-    <meta name="twitter:description" content="私有属性的实现 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列，参见： No prefix! operator is Ok! - 在这里 私有属性的实现 (本文) (未完待续) 1. 私有成员语法的三个问题 目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+" />
+    <meta name="twitter:description" content="本文是系列文章，包括： &amp;quot;Field提案&amp;quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议 - 在这里 私有属性的实现（本文） No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）" />
     <meta name="twitter:url" content="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
@@ -64,9 +64,9 @@
     "headline": "私有属性的实现",
     "url": "http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html",
     "datePublished": "2018-10-15T02:43:00.000Z",
-    "dateModified": "2018-10-16T15:47:06.000Z",
+    "dateModified": "2018-10-18T03:15:38.000Z",
     "keywords": "Javascript, 语言, 编程",
-    "description": "私有属性的实现 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）”吧，别再出妖了。 本文是一个系列，参见： No prefix! operator is Ok! - 在这里 私有属性的实现 (本文) (未完待续) 1. 私有成员语法的三个问题 目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+",
+    "description": "本文是系列文章，包括： &amp;quot;Field提案&amp;quot;是什么东东 - 在这里 关于废止proposal-class-fields提案的建议 - 在这里 私有属性的实现（本文） No prefix! operator is Ok! - 在这里 （未完待续） 本文是对一份tc39提案的讨论。原有提案：https://github.com/tc39/proposal-class-fields 在tc39的提案中，这一特性被称为&amp;quot;private field&amp;quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？ 还是叫“私有属性（private property）",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://aimingoo.github.io/"
@@ -144,18 +144,20 @@ ghost.init({
             </header>
 
             <section class="post-content">
-                <div class="kg-card-markdown"><h2 id="">私有属性的实现</h2>
-<blockquote>
+                <div class="kg-card-markdown"><blockquote>
+<p>本文是系列文章，包括：</p>
+<ul>
+<li>&quot;Field提案&quot;是什么东东 - <a href="/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>私有属性的实现（本文）</li>
+<li>No prefix! operator is Ok! - <a href="/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li><em>（未完待续）</em></li>
+</ul>
+<p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
+</blockquote>
 <p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
 <p>还是叫“私有属性（private property）”吧，别再出妖了。</p>
-<p>本文是一个系列，参见：</p>
-<ul>
-<li>No prefix! operator is Ok! - <a href="/5bc1f626843e1c1189200c8b.html">在这里</a></li>
-<li>私有属性的实现 (本文)</li>
-<li>(未完待续)</li>
-</ul>
-</blockquote>
-<h3 id="1">1. 私有成员语法的三个问题</h3>
+<h2 id="1">1. 私有成员语法的三个问题</h2>
 <p>目前，类与对象都存在两种性质的成员，一是属性，二是方法。——尽管在ES6以前“函数类型的属性”也被称为方法，但在ES6及其以后，它们不再是严格意义上的方法了。后者，亦即是ES6+的方法也是一种“（特殊的）函数类型的属性”，这种特殊性在于它必须通过声明语法来添加到类或对象。——也就是说，ES6中的方法是静态声明的，而不是动态添加的。</p>
 <p>类是特定语法声明的函数。由于函数是对象，所以类也是普遍含义上的对象。所以——重要的是——类的成员与对象的成员在性质上并没有任何的不同。确切来讲，它们都是属性，是对象的自有属性表中的成员，或可以通过原型访问的父代类属性。</p>
 <p>总之，所有现在能静态声明或动态添加的属性都是公开的（public）。在讨论“私有属性”的时候，有三点是必须要先确定的：</p>
@@ -167,7 +169,7 @@ ghost.init({
 <blockquote>
 <p>注：本文中所谓“成员”，是在需要区分讨论属性与方法时使用的。此外，在提及“词法私有成员”时，因其与“属性”存在本质不同，所以暂用了“成员”这个概念。</p>
 </blockquote>
-<h3 id="2tc39">2. tc39中的提案</h3>
+<h2 id="2tc39">2. tc39中的提案</h2>
 <p>之前我们已经讨论过这个提案的语法。很大程度上我是在尽量保证与现有语法设计上的一致性，而并没有讨论这个提案的实现方法。</p>
 <p>简单地说，该提案认为：私有属性是一种特殊前缀表达的、自有的特殊属性。</p>
 <p>由于私有属性是“一种...属性”，因此该属性总是在“自有属性表”中，并且也受自有属性表的机制来约束，例如属性描述符。比较简单的处理方法是：在属性描述符中增加新的属性（类似<code>configurable</code>与<code>enumerable</code>等等）。因此：</p>
@@ -230,7 +232,7 @@ f(); // 应该显示200还是100？
 <li>存取左运算元的私有属性表</li>
 </ul>
 <p>很简单，很明确。</p>
-<h3 id="3">3. 使用属性表的核心问题</h3>
+<h2 id="3">3. 使用属性表的核心问题</h2>
 <p>我们使用<code>pravite</code>作为限定词，核心目的是“访问在<code>class f()</code>声明之外访问私有属性。然而，如果我们使用属性表，那么没有任何”经济的“方法能做实现这个目标。为了解决这个问题，我们先讨论一个ECMAScript规范上的漏洞：<strong>能不能动态添加方法声明？</strong></p>
 <p><strong>3.1 动态添加方法</strong></p>
 <p>JavaScript不能安全地抄写对象方法，因为方法会绑定源对象的<code>super</code>。例如：。</p>
@@ -313,7 +315,7 @@ x.setData(300);
 x.foo(); // 300
 </code></pre>
 <p>然而这样一来，在ECMAScript中没有办法“<strong>安全地实现私有属性</strong>”了。</p>
-<h3 id="4">4. 存在可行的解决方案吗？</h3>
+<h2 id="4">4. 存在可行的解决方案吗？</h2>
 <p>首先我们得知道为什么。</p>
 <p>ECMAScript的方法本质上是“访问<code>this</code>绑定的函数”——无论是传统的方法，还是ES6之后的方法，皆是如此。在所谓方法中，如果访问的是<code>this.xxx</code>这样的公共属性自然是不成问题，因为本质上对象就是属性表；类似的，如果属性包支持“<code>private</code>这样的访问域特性”，那么自然也是可以在支持私有属性访问的。——所以，最新的提案是建议用<code>this.#xxx</code>这样的语法来访问它，亦即是在本质上仍然是在访问属性表。</p>
 <p>所以，这就是根本的问题：如果一个方法就是在访问属性表，且它总是能动态地绑定<code>this</code>，那么它必然也能够跨类（和跨对象）地访问私有的属性表——以及那些私有属性。</p>
@@ -362,7 +364,7 @@ foo() {
 </blockquote>
 <p>亦即是说，所有实现这一特性所需的技术组件，在现有的ECMAScript中都是充备的。</p>
 <p>^^.</p>
-<h3 id="n">n. 终极问题：必要性？</h3>
+<h2 id="n">n. 终极问题：必要性？</h2>
 <p>看起来还不错哟。看起来很有希望哟。要不，下手来搞搞？</p>
 <p>然而，历史中，我们程序员犯得最多的错误就是：</p>
 <blockquote>
@@ -389,7 +391,7 @@ foo() {
 
             <span class="post-nav-next" >
                 <a href="/5bc605d4843e1c1189200c95.html">
-                    关于废止*proposal-class-fields*提案的建议
+                    关于废止proposal-class-fields提案的建议
                 </a>
                 下一篇
             </span>
