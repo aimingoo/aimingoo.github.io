@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="/favicon.png">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=11ef40a085" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=7808c3cb39" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=7808c3cb39" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=7808c3cb39" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=7808c3cb39" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=7808c3cb39" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=11ef40a085" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=11ef40a085" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=11ef40a085" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=11ef40a085" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=11ef40a085" />
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <link rel="prev" href="http://aimingoo.github.io/" />
     <link rel="next" href="http://aimingoo.github.io/page/3/" />
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.min.js?v=11ef40a085"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -55,12 +55,40 @@ ghost.init({
     </nav>
 </header>
 
-<script type="text/javascript" author="default" src="/assets/js/author-switcher.js?v=7808c3cb39"></script>
+<script type="text/javascript" author="default" src="/assets/js/author-switcher.js?v=11ef40a085"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
 
 
+            <article class="post tag-ghost-tag tag-bo-ke tag-javascript" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
+        <header class="post-header u-aimingoo">
+            <h1 class="post-title"><a href="/1-1746.html">解决静态Blog中timeago显示问题的方法</a></h1>
+        </header>
+        <section class="post-excerpt">
+            <p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。 在页面中使用的时候也很简单，基本的做法是： // 在页面中添加timeAgo模块 &lt;script src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot; ... </p>
+        </section>
+        <footer class="post-meta">
+            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
+            <!--  on <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a> -->
+            <span class="post-meta-item post-meta-author">
+                <i class="fa fa-user"></i>
+                <a href="/author/aimingoo/">aimingoo</a>
+            </span>
+            <span class="post-meta-item post-meta-date">
+                <i class="fa fa-clock-o"></i>
+                <time class="post-date" datetime="2017-09-27T18:10:47.4747+08:00" timeago="true"></time>
+                <time class="post-date" datetime="2017-09-27">(2017-09-27)</time>
+            </span>
+            <span class="post-meta-item post-meta-tags">
+                <i class="fa fa-tag"></i>
+                <a href="/tag/ghost-tag/">Ghost</a>, <a href="/tag/bo-ke/">博客</a>, <a href="/tag/javascript/">Javascript</a>
+            </span>
+            <span class="post-meta-item pull-right">
+                <a class="read-more" href="/1-1746.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </footer>
+    </article>
             <article class="post tag-cheng-xu-yuan-ben tag-shu-xu-shu-ping tag-du-shu tag-za-tan" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
         <header class="post-header u-aimingoo">
             <h1 class="post-title"><a href="/1-1745.html">怎么会有两个“原本”</a></h1>
@@ -453,34 +481,6 @@ ghost.init({
             </span>
         </footer>
     </article>
-            <article class="post tag-svg tag-imagemagick tag-opensource-project tag-dian-zi-shu" data-anijs="if: scroll, on: window, do: fadeInDown animated, before: scrollReveal">
-        <header class="post-header u-aimingoo">
-            <h1 class="post-title"><a href="/1-1727.html">详解ImageMagick中SVG的支持</a></h1>
-        </header>
-        <section class="post-excerpt">
-            <p>事实上ImageMagick是可以很好地支持svg的——当然，它只是将svg转成图片格式而不能反过来，毕竟它只是个图片处理工具。不论是在使用convert，identify还是mogrify等等时，只要操作的对象是一个.svg文件，那么ImageMagick就会启动这一机制。例如，当你使用identify查看一个.svg信息的时候，事实上你是在查看它转换后得到的一张.png图片： &gt; identify -verbose your.svg Image: /var/folders/w9/fy0l4xgj3w73j4d71748v9nw0000gn/T/magick-481524PstlAlieWiB ... </p>
-        </section>
-        <footer class="post-meta">
-            <!-- <img class="author-thumb" src="/content/images/2017/10/IMG_5559-1.jpg" alt="aimingoo" nopin="nopin" /> -->
-            <!--  on <a href="/tag/svg/">svg</a>, <a href="/tag/imagemagick/">ImageMagick</a>, <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/dian-zi-shu/">电子书</a> -->
-            <span class="post-meta-item post-meta-author">
-                <i class="fa fa-user"></i>
-                <a href="/author/aimingoo/">aimingoo</a>
-            </span>
-            <span class="post-meta-item post-meta-date">
-                <i class="fa fa-clock-o"></i>
-                <time class="post-date" datetime="2017-06-05T19:54:13.1313+08:00" timeago="true"></time>
-                <time class="post-date" datetime="2017-06-05">(2017-06-05)</time>
-            </span>
-            <span class="post-meta-item post-meta-tags">
-                <i class="fa fa-tag"></i>
-                <a href="/tag/svg/">svg</a>, <a href="/tag/imagemagick/">ImageMagick</a>, <a href="/tag/opensource-project/">OpenSource Project</a>, <a href="/tag/dian-zi-shu/">电子书</a>
-            </span>
-            <span class="post-meta-item pull-right">
-                <a class="read-more" href="/1-1727.html">阅读全文 <i class="fa fa-angle-double-right"></i></a>
-            </span>
-        </footer>
-    </article>
 
     <nav class="pagination" role="navigation">
         <a rel="next" class="newer-posts" href="/"><i class="fa fa-chevron-left"></i>&nbsp;上一页</a>
@@ -523,7 +523,7 @@ ghost.init({
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2018</section>
+                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2020</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -536,21 +536,21 @@ ghost.init({
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=11ef40a085"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=7808c3cb39"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=7808c3cb39"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=11ef40a085"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=11ef40a085"></script>
 </body>
 
 </html>

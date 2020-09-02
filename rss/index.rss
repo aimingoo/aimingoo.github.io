@@ -1,4 +1,176 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Thu, 18 Oct 2018 03:19:29 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA["Field提案"是什么东东？]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Wed, 02 Sep 2020 11:33:28 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[ES6中是否真的不能声明同名的let与var？]]></title><description><![CDATA[<div class="kg-card-markdown"><p>首先，作为一个常识，在ES6之后的JavaScript中，不能声明同名的<code>let</code>与<code>var</code>，也同样不能声明同名的<code>const</code>。但是，在极客时间的课程中，Elmer同学问出了下面这样的问题：</p>
+<pre><code class="language-javascript">// 示例1
+function test(x = 2) {
+  var x = 3;
+  console.log(x);
+}
+test(); // 3
+</code></pre>
+<p>在这段代码中，既然参数中的<code>x</code>是一个<code>let</code>风格的声明，那么为什么还能声明<code>var x</code>呢？</p>
+<p>其中，</p>
+<blockquote>
+<p>参数<code>x</code>是<code>let</code>风格声明的变量，</p>
+</blockquote>
+<p>是一个少有人知的事实。简单来看，它可以通过如下方式来验证：</p>
+<pre><code class="language-javascript">// 示例2
+function test(x=x) {}
+test(</code></pre></div>]]></description><link>http://aimingoo.github.io/5f4f691b7b00a4739b4f8adf/</link><guid isPermaLink="false">5f4f691b7b00a4739b4f8adf</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Sep 2020 09:44:45 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>首先，作为一个常识，在ES6之后的JavaScript中，不能声明同名的<code>let</code>与<code>var</code>，也同样不能声明同名的<code>const</code>。但是，在极客时间的课程中，Elmer同学问出了下面这样的问题：</p>
+<pre><code class="language-javascript">// 示例1
+function test(x = 2) {
+  var x = 3;
+  console.log(x);
+}
+test(); // 3
+</code></pre>
+<p>在这段代码中，既然参数中的<code>x</code>是一个<code>let</code>风格的声明，那么为什么还能声明<code>var x</code>呢？</p>
+<p>其中，</p>
+<blockquote>
+<p>参数<code>x</code>是<code>let</code>风格声明的变量，</p>
+</blockquote>
+<p>是一个少有人知的事实。简单来看，它可以通过如下方式来验证：</p>
+<pre><code class="language-javascript">// 示例2
+function test(x=x) {}
+test(); // ReferenceError: x is not defined
+</code></pre>
+<p>由于这个<code>x</code>是<code>let</code>风格的声明，因此在当它作为右边的<code>x</code>被访问时，会出现<code>x未声明</code>这样的异常（这种情况下，<code>x</code>是在当前作用域中是一个未绑定初值的声明）。</p>
+<p>那么，问题是：“示例1”中的<code>var x</code>究竟又怎么会成功声明了呢？</p>
+<h2 id="">语法错误是怎么来的？</h2>
+<p>传统上，我们认为所谓“语法错误（SyntaxError）”就是在语法分析期出现的错误，也就是说，这些错误通过对代码文本的在静态语法检查就能识别出来，因此它可以在正式执行之前就被抛出（throw）。</p>
+<p>通常情况下，这是正确的。并且，这也是JavaScript可以“阻止错误代码的执行”的原因。例如：</p>
+<pre><code class="language-javascript">x = 100;
+function x() {
+  /5
+}
+</code></pre>
+<p>如果其中的函数<code>x()</code>是语法错，那么整个代码块都不能执行，所以x将是undefined；如果<code>x()</code>不导致语法错，那么x就将是100。——因为第一行代码是可以正常执行的。当然，现实是：JavaScript选择了前一种方案，因此整个代码块都失效了（如果这是一个模块，那么该模块就不能被载入）。</p>
+<p>但并不是所有的SyntaxError都是这样处理的，因为有些语法错误是不能通过静态语法检测来发现的。对于JavaScript来说尤其如此，因为它存在“严格/非严格”这样的模式，而这个模式是运行期决定的，不是简单的静态代码声明。</p>
+<p>也许有人会提出异议：&quot;use strict&quot;是必须写在代码块的头部的，因此是可以静态语法检查的。答案未见得如此，因为至少存在两种特例，一种是引擎初始化，例如Node.js以<code>node --use-strict</code>参数来启动，另一种则是eval()代码块。</p>
+<p>所以，JavaScript中的语法错误，不见得总是静态语法分析的结果。——它也有可能是在执行过程中抛出的。</p>
+<h2 id="">“重复的变量名”是哪一种语法错？</h2>
+<p>那么就具体的情况来说，比如Elmer提出的“示例1”，其中的“变量名重复”究竟是哪一种语法错呢？静态语法检查的，还是动态执行的？</p>
+<p>答案是：不一定。</p>
+<p>这是JavaScript中的另一个混乱之地：引擎并不总是“完全地”按ECMAScript规范来实现。更确切地说，事实上在ECMAScript中，“变量名重复”并没有被规范成一种静态语法检查的错误，而是在作用域（环境）初始化时，由初始化过程动态发现的。——也就是说，当引擎初始化一个环境块时，如果</p>
+<ul>
+<li>“发现了”词法声明与变量声明中存在重复项，则抛出SyntaxError异常；或者，</li>
+<li>“发现了”代码在尝试声明一个变量名（或在当前环境中登记）并与一个已存在的词法声明冲突，则抛出SyntaxError异常；</li>
+<li>……</li>
+</ul>
+<p>然而这其中就存在更多复杂的细节了。怎么说呢？要知道，“引擎初始化一个环境块”这件事情，其实也是有两个阶段的，第一个是该环境块在词法作用域（Scope）中被找到（也就是静态的语法分析结果），并在生成一个作用域对应的环境块时初始化该函数实例（<code>FunctionInitialize(F, kind, ParameterList, Body, Scope)</code>）；第二个是函数在执行前对函数内的所有声明做实例化（<code>FunctionDeclarationInstantiation(F, argumentsList)</code>）。</p>
+<p>在前一个阶段中，参数是形式参数，所以基本上就是将形式参数直接保存到函数实例的<code>[[FormalParameters]]</code>域中，而在后一阶段中，参数是实际参数，所以会参考之前的形参声明（<code>F.[[FormalParameters]]</code>），将值一一绑定到闭包（函数实例的环境/作用域）中。</p>
+<p>同样，上述的两个阶段中对“重复的变量名”理解也是不一致的。按之前所说，在前一阶段中的名字冲突是由语法解析器来决定的，其结果影响<code>[[FormalParameters]]</code>是否创建；后一个阶段则由<code>EvaluateBody</code>这个内部过程来决定，影响的是函数体（Body）是否执行。</p>
+<p>无论如何，这两个过程都是在执行期的，不过如果在其中发现错误，抛出的仍然是SyntaxError异常。</p>
+<h2 id="var">对<code>var</code>重复声明的理解</h2>
+<p>在更具体地解释“示例1”的代码之前，还需要再解释一个语法现象，就是：</p>
+<blockquote>
+<p>在JavaScript中如何理解“var变量的重复声明”？</p>
+</blockquote>
+<p>例如：</p>
+<pre><code class="language-javascript">// 示例3
+function f(x, x) {
+ ...
+}
+
+ // 示例4
+function f() {
+  var x = 1;
+  var x = 2;
+}
+
+// 示例5
+function f(x) {
+  var x = 3;
+}
+</code></pre>
+<p>在JavaScript中，<code>var变量</code>声明会被解析成一个名字（name），这个名字将在函数实例化时被填写到环境中。上述**“示例3”<strong>说明了JavaScript接受参数名重复，“示例4”则说明也同时接受多次<code>var</code>声明重复，所以事实上JavaScript在语法上是允许</strong>*varNames***或***parameterNames***之任一为重复的。</p>
+<p>在具体处理这两种情况时，JavaScript将首先按参数名（parameterNames）来创建，因此它只需要在扫描变量名（varNames）时“忽略已创建的名字”即可。而这，就是在ECMAScript规范中，有关FunctionDeclarationInstantiation()的实现代码里有一段叙述逻辑：</p>
+<ul>
+<li>当函数使用简单参数时（<em>hasParameterExpressions is false</em>），从将参数列表直接抄写为一份“已初始化变量名列表（<em>instantiatedVarNames</em>）”；然后，</li>
+<li>列举所有变量名（varNames），将那些未初始化的名字（<em>n</em>）初始化到当前的环境记录中（<em>envRec.InitializeBinding(n, undefined)</em>）。</li>
+</ul>
+<p>亦即是说，对于上述**“示例5”**的情况，事实上<code>var x = 3</code>根本就没有起到“声明var”的作用，因为名字<code>n</code>在<em>instantiatedVarNames</em>中已经出现了，所以<code>varNames</code>中的声明就被忽略了。——同样，像示例4中那样的情况，也在处理第二个<code>var声明</code>时因为<em>instantiatedVarNames</em>中存在既有项而被忽略。</p>
+<p>这样一来，下面的**“示例6”**——这是一种传统的为x指定缺省值的写法——才能得到合理的解释：</p>
+<pre><code class="language-javascript">// 示例6
+function f(x) {
+  var x = x || 3;  // 这里的`var`也是被忽略的
+}
+</code></pre>
+<h2 id="1var">答案1：在函数与全局中对<code>var</code>声明的不同处理</h2>
+<p>因此也就出现了下面这个问题，即：</p>
+<ul>
+<li>即使<code>function f(x=1)</code>中的x是let声明，那么也仍然需要代码中的<code>var x = x || 3</code>是合法的逻辑。</li>
+</ul>
+<p>亦即是说，需要实现下面的代码与“示例6”在语法上的一致性：</p>
+<pre><code class="language-javascript">// 示例7
+function f(x=false) {
+  var x = x || 3;
+}
+</code></pre>
+<p>我们之前说过，示例7使用了缺省参数，因此它是“非简单参数”，并且因此参数名<code>x</code>将会是let声明。——而这，又与本文最开始所讲语法约定“不能声明同名的<code>var</code>和<code>let</code>”互相冲突。</p>
+<p>为了解决这个问题，ECMAScript在这里对引擎约定了另外一个处理：</p>
+<ul>
+<li>如果函数参数是“非简单参数”，那么就为函数体中的所有varNames再创建一个环境块（亦即是词法作用域）</li>
+</ul>
+<p>所以ECMAScript中在这里也有一段特殊处理：</p>
+<ul>
+<li>当函数使用非简单参数时（<em>hasParameterExpressions</em>），置<em>varEnvRec</em>为新环境，并将<em>instantiatedVarNames</em>置为空列表。</li>
+</ul>
+<p>这样一来，“示例1”和“示例7”中的变量名声明就不会与参数名冲突了。但是需要注意的是，这里只是处理varNames的规则，而<code>let/const</code>声明是在lexicalNames中，所以不受这一处理逻辑的影响。例如：</p>
+<pre><code class="language-javascript">// 示例8
+function f(x=1) {
+  let x = 100; // SyntaxError
+}
+</code></pre>
+<p>而与此相关的，在全局代码中，由于varName和lexicalNames所对应的环境是同一个，所以它总是冲突的：</p>
+<pre><code class="language-javascript">// 示例9（参考示例7的语义，但在全局代码中总是抛出异常）
+let x = false;
+var x = x || 3; // SyntaxError
+</code></pre>
+<h2 id="2var">答案2：在解析期与执行期对<code>var</code>的不同处理</h2>
+<p>“示例8”会带来另一个层面的思考：声明该函数f()时并不会导致异常，直到执行f()时，代码才会抛出SyntaxError。</p>
+<pre><code class="language-javascript">// 示例8（执行期）
+function f(x=1) {
+  let x = 100; // SyntaxError
+}
+f()
+</code></pre>
+<p>然而这并不是绝对的。</p>
+<p>因为在ECMAScript的规范中，“变量名重复”从来就不是一个静态语法分析期的错误。——所以严格按照该规范来实现的话，所有的这类SyntaxError都应当是在运行期抛出的。然而，不同的引擎在实现时，采用的语法解析引擎并不相同，这其中的差异就非常巨大。</p>
+<p>更不幸的是：ECMAScript并没有规定“Parser怎么写”。——当然也没有规定它解析出来的AST（抽象语法树）是什么样子。</p>
+<p>所以，这些错误究竟是在哪个阶段抛出，就变得不可知了。例如上面说Node.js在语法解析时并不会处理示例8的语法错，而TypeScript在代码转换（也就是处理语法解析而并不执行）时就会抛出错误：</p>
+<pre><code>&gt; cat t.ts
+// 示例8
+function f(x=1) {
+  let x = 100;
+}
+
+# Nothing
+&gt; node -c t.ts
+
+# Error
+&gt; tsc --allowJs t.ts
+t.ts:1:12 - error TS2300: Duplicate identifier 'x'.
+...
+</code></pre>
+<p>究竟哪些解析器是在语法阶段处理这种错误的（以及对应的引擎是否延迟到运行期才抛出Syntax），可以参考：</p>
+<blockquote>
+<p><a href="https://astexplorer.net/">https://astexplorer.net/</a></p>
+</blockquote>
+<p>例如经典引擎esprima和flow，事实上对“示例9”的全局代码都不会解析出语法错，而@babel/parser或者acorn，连“示例8”都提前到了语法解析期出错。</p>
+<h2 id="">小结</h2>
+<p>所以，因名字重复导致的语法错误，一方面可能是语法分析期的（这取决于Parser的实现），另一方面也可以是执行期的，并且后者总是由ECMAScript规范约定的。</p>
+<p>仅对于ECMAScript规范来说，“（var/let/const和参数声明所致的）名字重复”总是在执行期才抛出的语法错误。并且，为了在执行期兼容旧式的函数声明与使用惯例，ECMAScript约定在“非简单参数类型”的函数内为varNames多创建了一层对应的环境，从而使var名字与参数名（即使它采用的是let风格的声明）不再冲突——这是对“示例1”的最确切的解释。</p>
+<p>NOTE:</p>
+<blockquote>
+<ul>
+<li>
+<p>极少数名字重复是ECMAScript约定过的静态语法错误，例如catch(x,x)以及与它的代码块中的var/let/const重名，又例如在严格模式或非简单参数模式下的函数参数名重名。</p>
+</li>
+<li>
+<p>示例8是一个很好的例子，它强调了某些语法错误“是只有在执行时才会抛出的”，这也说明了lint类工具的重要性：在执行前进行更严格的语法检查，从而避免引擎差异。</p>
+</li>
+</ul>
+</blockquote>
+</div>]]></content:encoded></item><item><title><![CDATA["Field提案"是什么东东？]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
 <li>&quot;Field提案&quot;是什么东东（本文）</li>
@@ -1946,60 +2118,4 @@ id        slug        created_at           title
 <li><a href="http://aimingoo.github.io/1-104/">旧文重发：苹果是怎么吃到的？</a></li>
 <li><a href="http://aimingoo.github.io/1-105/">旧文重发：做人、做事，做架构师——架构师能力模型解析</a></li>
 </ul>
-</div>]]></content:encoded></item><item><title><![CDATA[解决静态Blog中timeago显示问题的方法]]></title><description><![CDATA[<div class="kg-card-markdown"><p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
-<p>在页面中使用的时候也很简单，基本的做法是：</p>
-<pre><code class="language-html">// 在页面中添加timeAgo模块
-&lt;script src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
-
-// 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&lt;/script&gt;
-</code></pre>
-<p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
-<p><strong>1. 修改default.</strong></p></div>]]></description><link>http://aimingoo.github.io/1-1746/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c3</guid><category><![CDATA[Ghost]]></category><category><![CDATA[博客]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 27 Sep 2017 10:10:47 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>因为使用的是Ghost博客的静态化页面，因此一篇文章发布到github上的时候显示的“发表于x分钟之前”，那么过了N多天再去看，还是这个“x分钟之前”。极不爽。所以，最近修改了一个timeAgo模块，用来搞定在静态博客中实时地显示timeAgo信息。</p>
-<p>在页面中使用的时候也很简单，基本的做法是：</p>
-<pre><code class="language-html">// 在页面中添加timeAgo模块
-&lt;script src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
-
-// 在需要显示的位置使用下面的代码
-&lt;script&gt;document.writeln(timeAgo(&quot;DATETIME_OF_YOUR_POST&quot;))&lt;/script&gt;
-</code></pre>
-<p>在具体到Ghost的模板中使用的时候，会略有不同。</p>
-<p><strong>1. 修改default.hbs</strong></p>
-<p>将下面的代码插入页面合适的位置以加载timeAgo模块：</p>
-<pre><code class="language-html">&lt;!-- 将timeAgo.js置入模板的assets目录 --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;{{asset &quot;js/timeAgo.js&quot;}}&quot;&gt;&lt;/script&gt;
-
-&lt;!-- 或使用在线的版本 --&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://aimingoo.github.io/assets/js/timeAgo.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p>如果你的模板有自己的初始化代码（一般放在<code>assets/js/index.js</code>文件中），应该将这行代码插入在初始化代码之前。</p>
-<p><strong>2. 修改post.hbs</strong></p>
-<p>在<code>post.hbs</code>中找到显示一个Post的日期的位置。它可能使用如下代码（缺省使用Ghost内置的timeago方法显示）：</p>
-<pre><code class="language-bash">{{date published_at timeago=&quot;true&quot;}}
-</code></pre>
-<p>根据你打算在<code>post.hbs</code>使用该值的不同方法，可以直接输出，也可以在页面加载之后重置这个值。</p>
-<p>如果是直接在该页面中输出，则将上面的改为：</p>
-<pre><code class="language-html">&lt;script&gt;document.writeln(timeAgo(&quot;{{date published_at format='YYYY-MM-DDTHH:mm:ss.sssZ'}}&quot;))&lt;/script&gt;
-</code></pre>
-<p>注意上面的代码中，我们是用format参数来取得更加精确的时间值（而不是直接使用timeago格式的值）。</p>
-<p><strong>3. 如果采用延迟加载的方法</strong></p>
-<p>如果这个值是采用延迟加载的方法来显示的，那么它可能放在<code>post.hbs</code>的一对标签中。类似：</p>
-<pre><code class="language-html">&lt;time class=&quot;post-date&quot; datetime=&quot;{{date format='YYYY-MM-DDTHH:mm:ss.sssZ'}}&quot; timeago=&quot;true&quot;&gt;&lt;/time&gt;
-</code></pre>
-<p>注意这里的<code>timeago</code>只是一个html标签属性——这个属性是我添加的，用来标示这个<code>&lt;time&gt;</code>标签将采用<code>timeago</code>方式显示。</p>
-<p>在延迟加载的情况下，通常是在全局的ready回调中做一些针对当前页面的规格化操作。它可能通过在<code>default.hbs</code>中加载一个<code>.js</code>文件来进入。以我们上面说到过的例子，假如在<code>assets/js/index.js</code>文件中，那么它可能的代码是：</p>
-<pre><code class="language-javascript">$(document).ready(function() {
-  ...
-})
-</code></pre>
-<p>在这个代码块中，加入下面的代码即可：</p>
-<pre><code class="language-javascript">// 列出所有'class=&quot;post-date&quot;的标签
-$(&quot;.post-date&quot;).each(function() {
-    // 检查上面添加的'timeago'属性值是否为'true'
-    if ($(this).attr(&quot;timeago&quot;) == &quot;true&quot;) {
-        // 从'datetime'属性中取时间值，用timeAgo()转换并回写到当前标签中
-        $(this).text(timeAgo($(this).attr(&quot;datetime&quot;)));
-    }
-});
-</code></pre>
 </div>]]></content:encoded></item></channel></rss>
