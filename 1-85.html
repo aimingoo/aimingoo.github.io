@@ -9,22 +9,22 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=264d3058f6" />
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=264d3058f6" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="从表达式到函数：表面的简洁" />
     <meta property="og:description" content="scheme/lisp中，（基于运算元、运算符的）表达式运算是一个语法基础，但它们被称为函数式语言而非表达式语言。那么，它们是如何解释函数式语言的呢？ 一个lisp的函数在语法上应当书写为如下格式： ((lambda (p1...pn) _e_) a1...an) 这是什么意思呢？其实，这其中的p1..pn为形式参数，而a1..an为实际参数，而lambda则是一个从天上掉下来的概念，它被用来作为一个函数标识符的命名——就好象四则运算中的x,y,z只是命名一样。换成JavaScript的语法，就是这样： function lambda(p1,p2) { // ... pn   e } lambda(a1,a2); // ... an 当然，javascript作为函数式语言，你也可以声明即调用。如下： (function lambda(p1,p2) {   e })(a1,a2)) 所以，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-85.html" />
+    <meta property="og:url" content="https://aimingoo.github.io/1-85.html" />
     <meta property="article:published_time" content="2007-10-08T07:35:00.000Z" />
     <meta property="article:modified_time" content="2017-10-04T17:32:37.000Z" />
     <meta property="article:tag" content="Javascript" />
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="从表达式到函数：表面的简洁" />
     <meta name="twitter:description" content="scheme/lisp中，（基于运算元、运算符的）表达式运算是一个语法基础，但它们被称为函数式语言而非表达式语言。那么，它们是如何解释函数式语言的呢？ 一个lisp的函数在语法上应当书写为如下格式： ((lambda (p1...pn) _e_) a1...an) 这是什么意思呢？其实，这其中的p1..pn为形式参数，而a1..an为实际参数，而lambda则是一个从天上掉下来的概念，它被用来作为一个函数标识符的命名——就好象四则运算中的x,y,z只是命名一样。换成JavaScript的语法，就是这样： function lambda(p1,p2) { // ... pn   e } lambda(a1,a2); // ... an 当然，javascript作为函数式语言，你也可以声明即调用。如下： (function lambda(p1,p2) {   e })(a1,a2)) 所以，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-85.html" />
+    <meta name="twitter:url" content="https://aimingoo.github.io/1-85.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
@@ -48,29 +48,34 @@
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "https://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
-        "image": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "https://aimingoo.github.io/author/aimingoo/",
         "sameAs": []
     },
     "headline": "从表达式到函数：表面的简洁",
-    "url": "http://aimingoo.github.io/1-85.html",
+    "url": "https://aimingoo.github.io/1-85.html",
     "datePublished": "2007-10-08T07:35:00.000Z",
     "dateModified": "2017-10-04T17:32:37.000Z",
     "keywords": "Javascript, lisp, 语言, 代码分析",
     "description": "scheme/lisp中，（基于运算元、运算符的）表达式运算是一个语法基础，但它们被称为函数式语言而非表达式语言。那么，它们是如何解释函数式语言的呢？ 一个lisp的函数在语法上应当书写为如下格式： ((lambda (p1...pn) _e_) a1...an) 这是什么意思呢？其实，这其中的p1..pn为形式参数，而a1..an为实际参数，而lambda则是一个从天上掉下来的概念，它被用来作为一个函数标识符的命名——就好象四则运算中的x,y,z只是命名一样。换成JavaScript的语法，就是这样： function lambda(p1,p2) { // ... pn   e } lambda(a1,a2); // ... an 当然，javascript作为函数式语言，你也可以声明即调用。如下： (function lambda(p1,p2) {   e })(a1,a2)) 所以，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io/"
+        "@id": "https://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.min.js"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -78,7 +83,7 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.14" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="https://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-lisp tag-yu-yan tag-delphiyuan-dai-ma-fen-xi nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -92,7 +97,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -102,17 +107,17 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=264d3058f6"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
@@ -191,8 +196,8 @@ lambda(a1,a2); // ... an
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=264d3058f6" />
-<script src="/assets/js/gitmint.browser.js?v=264d3058f6"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css" />
+<script src="/assets/js/gitmint.browser.js"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -200,7 +205,7 @@ a.gitment-editor-footer-tip { display: none; }
 </style>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitmint({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -253,7 +258,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2021</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -266,21 +271,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
 </body>
 
 </html>

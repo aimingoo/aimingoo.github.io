@@ -9,22 +9,22 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=264d3058f6" />
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=264d3058f6" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Qomolangma实现篇(六)：Qomo的OOP框架的实现技术" />
     <meta property="og:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {   // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-39.html" />
+    <meta property="og:url" content="https://aimingoo.github.io/1-39.html" />
     <meta property="article:published_time" content="2006-03-20T04:50:00.000Z" />
     <meta property="article:modified_time" content="2017-10-08T17:55:00.000Z" />
     <meta property="article:tag" content="Javascript" />
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Qomolangma实现篇(六)：Qomo的OOP框架的实现技术" />
     <meta name="twitter:description" content="注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {   // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-39.html" />
+    <meta name="twitter:url" content="https://aimingoo.github.io/1-39.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
@@ -48,29 +48,34 @@
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "https://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
-        "image": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "https://aimingoo.github.io/author/aimingoo/",
         "sameAs": []
     },
     "headline": "Qomolangma实现篇(六)：Qomo的OOP框架的实现技术",
-    "url": "http://aimingoo.github.io/1-39.html",
+    "url": "https://aimingoo.github.io/1-39.html",
     "datePublished": "2006-03-20T04:50:00.000Z",
     "dateModified": "2017-10-08T17:55:00.000Z",
     "keywords": "Javascript, Qomo, OpenSource Project, 面向对象",
     "description": "注：本文讲述的是FT4的一个修正版本中的OOP实现，而非原始发布版本。 一、Qomolangma中类继承的基本架构 Qomo在Object.js中，通过实现Class()，封装了“类继承”体系的绝大部分细节。如果你仅是要使用Qomo，那么你只需要通过“实现篇(五)”去了解一些基本语法就可以了。但是如果你想了解一些更细节的内容，或者你想让自己具有控制Qomo框架的能力，那么你应该继续将这篇技术文档读下去。 ——尽管，这并不如你想象地那样容易。 Qomo的加入，使JavaScript具有了完整的“类继承”体系。类继承的出现，使JavaScript有能力处理更复杂的OOP语法和语义。而且能够通过更好的继承体系，来为JavaScript提供一些框架一级的语言特性，例如Interface与SOA。而这些能力，都会通过一个Class()关键字来实现。它内部实现的框架代码如下： Class &#x3D; function() {   // ...   // 基本的类数据、公共变量等   // 构建类数据块   function ClassDataBlock() {     var cls &#x3D; function (Constructor) {       // ...     }     return cls;   }   // 真正的 Class() 函数",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io/"
+        "@id": "https://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.min.js"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -78,7 +83,7 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.14" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="https://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-qomo tag-opensource-project tag-mian-xiang-dui-xiang nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -92,7 +97,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -102,17 +107,17 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=264d3058f6"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
@@ -742,8 +747,8 @@ foo1();
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=264d3058f6" />
-<script src="/assets/js/gitmint.browser.js?v=264d3058f6"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css" />
+<script src="/assets/js/gitmint.browser.js"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -751,7 +756,7 @@ a.gitment-editor-footer-tip { display: none; }
 </style>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitmint({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -804,7 +809,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2021</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -817,21 +822,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
 </body>
 
 </html>

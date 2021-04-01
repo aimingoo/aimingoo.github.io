@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>http://aimingoo.github.io/</link><image><url>http://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>http://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Wed, 02 Sep 2020 11:33:28 GMT</lastBuildDate><atom:link href="http://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[ES6中是否真的不能声明同名的let与var？]]></title><description><![CDATA[<div class="kg-card-markdown"><p>首先，作为一个常识，在ES6之后的JavaScript中，不能声明同名的<code>let</code>与<code>var</code>，也同样不能声明同名的<code>const</code>。但是，在极客时间的课程中，Elmer同学问出了下面这样的问题：</p>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/"><channel><title><![CDATA[Aimingoo's Blog]]></title><description><![CDATA[何不乐乐而有哉]]></description><link>https://aimingoo.github.io/</link><image><url>https://aimingoo.github.io/favicon.png</url><title>Aimingoo&apos;s Blog</title><link>https://aimingoo.github.io/</link></image><generator>Ghost 1.14</generator><lastBuildDate>Thu, 01 Apr 2021 05:48:27 GMT</lastBuildDate><atom:link href="https://aimingoo.github.io/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title><![CDATA[ES6中是否真的不能声明同名的let与var？]]></title><description><![CDATA[<div class="kg-card-markdown"><p>首先，作为一个常识，在ES6之后的JavaScript中，不能声明同名的<code>let</code>与<code>var</code>，也同样不能声明同名的<code>const</code>。但是，在极客时间的课程中，Elmer同学问出了下面这样的问题：</p>
 <pre><code class="language-javascript">// 示例1
 function test(x = 2) {
   var x = 3;
@@ -14,7 +14,7 @@ test(); // 3
 <p>是一个少有人知的事实。简单来看，它可以通过如下方式来验证：</p>
 <pre><code class="language-javascript">// 示例2
 function test(x=x) {}
-test(</code></pre></div>]]></description><link>http://aimingoo.github.io/5f4f691b7b00a4739b4f8adf.html/</link><guid isPermaLink="false">5f4f691b7b00a4739b4f8adf</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Sep 2020 09:44:45 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>首先，作为一个常识，在ES6之后的JavaScript中，不能声明同名的<code>let</code>与<code>var</code>，也同样不能声明同名的<code>const</code>。但是，在极客时间的课程中，Elmer同学问出了下面这样的问题：</p>
+test(</code></pre></div>]]></description><link>https://aimingoo.github.io/5f4f691b7b00a4739b4f8adf/</link><guid isPermaLink="false">5f4f691b7b00a4739b4f8adf</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 02 Sep 2020 09:44:45 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>首先，作为一个常识，在ES6之后的JavaScript中，不能声明同名的<code>let</code>与<code>var</code>，也同样不能声明同名的<code>const</code>。但是，在极客时间的课程中，Elmer同学问出了下面这样的问题：</p>
 <pre><code class="language-javascript">// 示例1
 function test(x = 2) {
   var x = 3;
@@ -174,9 +174,9 @@ t.ts:1:12 - error TS2300: Duplicate identifier 'x'.
 <p>本文是系列文章，包括：</p>
 <ul>
 <li>&quot;Field提案&quot;是什么东东（本文）</li>
-<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>私有属性的实现 - <a href="https://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
 <li><em>（未完待续）</em></li>
 </ul>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
@@ -184,13 +184,13 @@ t.ts:1:12 - error TS2300: Duplicate identifier 'x'.
 <p>上次掺和JavaScript的事，是说JavaScript语言有值的问题；再往前一年，就是在“红绿灯大战”中讨论Promise了。这细数起来，都是两三年前的旧事了。</p>
 <p>但我还是跟进JavaScript的。最新近的事，是持续地讨论这个所谓“TC39提案”的事情。本以为真关心的人并不多，但前两天连老宋都转了篇贴子过来，“这帮人要把js折腾成啥样子啊”，老宋说。</p>
 <p>“啥样子？”</p>
-<h2 id="1field">1. 导致太下大乱的“</h2></div>]]></description><link>http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html/</link><guid isPermaLink="false">5bc7f848843e1c1189200ca7</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 18 Oct 2018 03:19:11 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<h2 id="1field">1. 导致太下大乱的“</h2></div>]]></description><link>https://aimingoo.github.io/5bc7f848843e1c1189200ca7/</link><guid isPermaLink="false">5bc7f848843e1c1189200ca7</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 18 Oct 2018 03:19:11 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
 <li>&quot;Field提案&quot;是什么东东（本文）</li>
-<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>私有属性的实现 - <a href="https://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
 <li><em>（未完待续）</em></li>
 </ul>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
@@ -314,10 +314,10 @@ class Counter2 {
 </div>]]></content:encoded></item><item><title><![CDATA[关于废止proposal-class-fields提案的建议]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
-<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="https://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
 <li>关于废止<em>proposal-class-fields</em>提案的建议（本文）</li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>私有属性的实现 - <a href="https://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
 <li><em>（未完待续）</em></li>
 </ul>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
@@ -325,13 +325,13 @@ class Counter2 {
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
 <h2 id="1notfields">1. 概念：“Not Fields”！</h2>
-<p>对象在定义上是“属性集（<em>object</em></p></div>]]></description><link>http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><category><![CDATA[Javascript]]></category><category><![CDATA[编程]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>对象在定义上是“属性集（<em>object</em></p></div>]]></description><link>https://aimingoo.github.io/5bc605d4843e1c1189200c95/</link><guid isPermaLink="false">5bc605d4843e1c1189200c95</guid><category><![CDATA[Javascript]]></category><category><![CDATA[编程]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 16 Oct 2018 15:44:29 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
-<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="https://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
 <li>关于废止<em>proposal-class-fields</em>提案的建议（本文）</li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>私有属性的实现 - <a href="https://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
 <li><em>（未完待续）</em></li>
 </ul>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
@@ -339,11 +339,11 @@ class Counter2 {
 <p>在本文中，我会仔细分析新提案中<code>field</code>的概念矛盾，并揭示它实质上是作用域设计上的倒退。并且，该提案的错误实现，将不可避免地导致灾难。</p>
 <p><em>Reject it! No more choices!</em></p>
 <h2 id="1notfields">1. 概念：“Not Fields”！</h2>
-<p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
+<p>对象在定义上是“属性集（<em>object is collection of properties</em>）<sup class="footnote-ref"><a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn1" id="fnref1">[1]</a></sup>”。因此如果<code>Field</code>不是属性，则它必然不属于“对象成员（<em>collection elements of object</em>）”这一概念集；如果<code>Filed</code>是属性，则<code>public field</code>必然与<code>property</code>这一现有概念冲突。</p>
 <p>这就是现有一切矛盾的根源。</p>
-<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fn2" id="fnref2">[2]</a></sup>：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。</p>
+<p>&quot;proposal-class-fields&quot;提案在根本上与ECMAScript对象核心概念是矛盾的，它试图说明<sup class="footnote-ref"><a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn2" id="fnref2">[2]</a></sup>：对象是通过类成员来定义的一个结构，而类成员包括属性名与私有名；属性名定义的就是属性。</p>
 <p>在这个定义中，对象是一个“类成员(字段)的映像实例”，每个字段是一个“名字*（field define by his name）*”。亦即是说，对象是<strong>名字集</strong>（<em>object is collection of names</em>），是字段定义的<strong>实例</strong>（<em>instance of field definitions by class</em>）。</p>
-<p>该提案对概念的偷换并非只停留在叙述层面，它在实现上确实就是这么做的。如下<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fn3" id="fnref3">[3]</a></sup>：</p>
+<p>该提案对概念的偷换并非只停留在叙述层面，它在实现上确实就是这么做的。如下<sup class="footnote-ref"><a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn3" id="fnref3">[3]</a></sup>：</p>
 <pre><code>2.7 DefineField(receiver, fieldRecord)
 ...
   8. If fieldName is a Private Name,
@@ -377,7 +377,7 @@ class Counter2 {
 <p>但是，如上例所示，如果用这种方法来为<code>this.foo()</code>提供私有名字<code>data</code>，那么<code>foo()</code>将会是有非常多个函数实例（<em>Function Instances</em>）。为了避免单个对象重复绑定多个函数实例（来作为方法），该提案将上述“名字集（<em>collection of names</em>）”作为一个内部槽放在类中，并在创建对象时为<code>this</code>提供一个<code>[[PrivateFieldValues]]</code>的槽来作为该名字集的一个“映像（<em>fork</em>）”。</p>
 <p>于是事情又绕回来了：该提案“似乎”为每个对象实例提供了这样的一个字段集？</p>
 <p>不。真相不是这样的。对于该提案来说，这只是权宜之计，用以避免为每个对象、每个方法来创建各自的实例罢了。真实的情况是：它创建了每个类的、每个函数的、以及每个对象的“私有名”作用域（<em>PrivateNameScope</em>），然后在词法环境中维护这个作用域。由于每个对象都“可能有”私有域，因此在这个方案中，每个函数调用都需要负担起检查这个私有域的代价：每一次、每一处，以及每一个函数相关的特性。</p>
-<p>于是整个提案暴涨了！大多数内部调用的方法都需要在界面上加上<code>PrivateNameScope</code>这个参数，且每一个运行上下文的环境变量中都需要加上<code>PrivateNameEnvironment</code>。<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fn4" id="fnref4">[4]</a></sup>——有点熟悉的感觉了吗？上一个如此大范围影响了ECMAScript规范的东西是什么？</p>
+<p>于是整个提案暴涨了！大多数内部调用的方法都需要在界面上加上<code>PrivateNameScope</code>这个参数，且每一个运行上下文的环境变量中都需要加上<code>PrivateNameEnvironment</code>。<sup class="footnote-ref"><a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn4" id="fnref4">[4]</a></sup>——有点熟悉的感觉了吗？上一个如此大范围影响了ECMAScript规范的东西是什么？</p>
 <p>没错，就是VariableEnvironment！就是那个制造了与“块级作用域”冲突的<code>var</code>声明，导致了新语法关键字<code>let</code>被启用的历史设计。<code>Private Fields</code>的蹩脚设计如此明显地与VariableEnvironment放在一起，却似乎没有任何一个规范审阅者看到：</p>
 <pre><code>3.9.9 PrepareForOrdinaryCall ( F, newTarget )
 ...
@@ -394,7 +394,7 @@ class Counter2 {
 <em>（我有一点遗漏，但我不会出于这个原因而撤回本建议。）</em></p>
 </blockquote>
 <p>接下来每个函数都有了<code>privateNameScope</code>，如此等等。那么既然有<em>PrivateNameEnvironment</em>或<em>privateNameScope</em>，又为什么要每个对象都有<code>[[PrivateFieldValues]]</code>内部槽呢？</p>
-<p>答案是：对象的内部槽用来存放名字对应的字段值<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fn5" id="fnref5">[5]</a></sup>，而环境与作用域组件用来检测是否能访问该名字<sup class="footnote-ref"><a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fn6" id="fnref6">[6]</a></sup>！</p>
+<p>答案是：对象的内部槽用来存放名字对应的字段值<sup class="footnote-ref"><a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn5" id="fnref5">[5]</a></sup>，而环境与作用域组件用来检测是否能访问该名字<sup class="footnote-ref"><a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fn6" id="fnref6">[6]</a></sup>！</p>
 <p><s>然而这是无效的。例如：</s></p>
 <p>但是有一个问题。例如：</p>
 <pre><code class="language-javascript">class f {
@@ -430,39 +430,39 @@ console.log(privateScope('privated_data'));
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>&quot;<em>an object is a collection of zero or more properties.</em>&quot; <a href="https://tc39.github.io/ecma262/#sec-ecmascript-overview">ECMAScript Overview</a> part. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fnref1" class="footnote-backref">↩︎</a></p>
+<li id="fn1" class="footnote-item"><p>&quot;<em>an object is a collection of zero or more properties.</em>&quot; <a href="https://tc39.github.io/ecma262/#sec-ecmascript-overview">ECMAScript Overview</a> part. <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>The FieldDefinition in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-new-syntax">New Productions</a> part. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn2" class="footnote-item"><p>The FieldDefinition in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-new-syntax">New Productions</a> part. <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>The DefineField() algorithms in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-define-field">Modified algorithms</a> part. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p>The DefineField() algorithms in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-define-field">Modified algorithms</a> part. <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>Every call in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-prepareforordinarycall">3.9.9 PrepareForOrdinaryCall</a>. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>Every call in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-prepareforordinarycall">3.9.9 PrepareForOrdinaryCall</a>. <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p>Access field value in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-privatefieldget">3.5 PrivateFieldGet</a>. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p>Access field value in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-privatefieldget">3.5 PrivateFieldGet</a>. <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p>Check name binding status in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-getvalue">3.8.1 GetValue</a>. <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html/#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p>Check name binding status in proposal-class-fields, <a href="https://tc39.github.io/proposal-class-fields/#sec-getvalue">3.8.1 GetValue</a>. <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
 </div>]]></content:encoded></item><item><title><![CDATA[私有属性的实现]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
-<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
-<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="https://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
 <li>私有属性的实现（本文）</li>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
 <li><em>（未完待续）</em></li>
 </ul>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
 </blockquote>
 <p>在tc39的提案中，这一特性被称为&quot;private field&quot;，据说是为了避免与property这个传统的名字出现概念冲突。这简直是扎了裤脚放屁——还要称比脱了裤子文雅！为什么这么讲呢？因为一旦引入了所谓“private filed”，就预示着还会有“public field”等等之类，而这与传统的property又有什么不同吗？</p>
-<p>还是叫“私有属性（</p></div>]]></description><link>http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>还是叫“私有属性（</p></div>]]></description><link>https://aimingoo.github.io/5bc3fe1d843e1c1189200c92/</link><guid isPermaLink="false">5bc3fe1d843e1c1189200c92</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 15 Oct 2018 02:43:00 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
-<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
-<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="https://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
 <li>私有属性的实现（本文）</li>
-<li>No prefix! operator is Ok! - <a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
+<li>No prefix! operator is Ok! - <a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">在这里</a></li>
 <li><em>（未完待续）</em></li>
 </ul>
 <p>本文是对一份tc39提案的讨论。原有提案：<a href="https://github.com/tc39/proposal-class-fields">https://github.com/tc39/proposal-class-fields</a></p>
@@ -529,7 +529,7 @@ f(); // 应该显示200还是100？
 </code></pre>
 <p>这一示例说明：我们无法在语法上“限定在<code>class f()</code>类声明中使用<code>this.data</code>将访问私有属性。这个设计是行不通的。</p>
 <p>如果我们的假设是“私有属性是属性表中的特殊项”，那么“使用<code>this</code>来访问属性表”是目前最合理的方式。又如果使用“<code>this</code>作为绑定给<code>foo()</code>的对象实例，并试图访问该实例的私有属性”，那么“必然的”，我们需要一个新的语法：用于存取私有属性。</p>
-<p>——注意这与目前tc39提案的不同，亦即是<a href="http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">“No prefix! operator is Ok!”</a>。</p>
+<p>——注意这与目前tc39提案的不同，亦即是<a href="https://aimingoo.github.io/5bc1f626843e1c1189200c8b.html">“No prefix! operator is Ok!”</a>。</p>
 <p>如下例：</p>
 <pre><code class="language-javascript">class f() {
     private data: 100,
@@ -687,9 +687,9 @@ foo() {
 </div>]]></content:encoded></item><item><title><![CDATA[No prefix! operator is Ok!]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
-<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
-<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="https://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>私有属性的实现 - <a href="https://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
 <li>No prefix! operator is Ok!（本文）</li>
 <li><em>（未完待续）</em></li>
 </ul>
@@ -699,12 +699,12 @@ foo() {
 <ul>
 <li><em>修改的提议：<a href="https://github.com/tc39/proposal-class-fields/issues/100#issuecomment-429533532">#issuecomment-429533532</a></em></li>
 </ul>
-<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;</h3></div>]]></description><link>http://aimingoo.github.io/5bc1f626843e1c1189200c8b.html/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<h3 id="1">1. 为什么是&quot;:&quot;而不是&quot;</h3></div>]]></description><link>https://aimingoo.github.io/5bc1f626843e1c1189200c8b/</link><guid isPermaLink="false">5bc1f626843e1c1189200c8b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[编程]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 13 Oct 2018 13:43:34 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是系列文章，包括：</p>
 <ul>
-<li>&quot;Field提案&quot;是什么东东 - <a href="http://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
-<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="http://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
-<li>私有属性的实现 - <a href="http://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
+<li>&quot;Field提案&quot;是什么东东 - <a href="https://aimingoo.github.io/5bc7f848843e1c1189200ca7.html">在这里</a></li>
+<li>关于废止<em>proposal-class-fields</em>提案的建议 - <a href="https://aimingoo.github.io/5bc605d4843e1c1189200c95.html">在这里</a></li>
+<li>私有属性的实现 - <a href="https://aimingoo.github.io/5bc3fe1d843e1c1189200c92.html">在这里</a></li>
 <li>No prefix! operator is Ok!（本文）</li>
 <li><em>（未完待续）</em></li>
 </ul>
@@ -882,7 +882,7 @@ f(); // 应该显示200还是100？
 <p>这时的<code>undefined</code>是一个概念定义而非值声明，它表明函数或某个运算（例如属性存取）没有返回值。由于还没有<code>===</code>和<code>!==</code>运算符，所以<code>undefined</code>被约定为与<code>null</code>是等值的。</p>
 <p>考察这个阶段，可以发现整个类型系统其实只有如下几种值类型。每种类型都包括一个它们各自表示（逻辑上的）“无值”的成员：</p>
 <ul>
-<li>字符串值，空串是无值；</li></ul></div>]]></description><link>http://aimingoo.github.io/5b84b829c66182831afb4988.html/</link><guid isPermaLink="false">5b84b829c66182831afb4988</guid><category><![CDATA[Javascript]]></category><category><![CDATA[元语言]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 28 Aug 2018 02:56:40 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<li>字符串值，空串是无值；</li></ul></div>]]></description><link>https://aimingoo.github.io/5b84b829c66182831afb4988/</link><guid isPermaLink="false">5b84b829c66182831afb4988</guid><category><![CDATA[Javascript]]></category><category><![CDATA[元语言]]></category><category><![CDATA[语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 28 Aug 2018 02:56:40 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是一个系列，包括：</p>
 <ul>
 <li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
@@ -946,7 +946,7 @@ false
 <p>是的。概念开始混乱了。</p>
 <h2 id="javascript1x">JavaScript在1.x版本中确立的类型系统</h2>
 <p>无论如何，JavaScript在1.x版本中确立了自己对类型系统的理解。</p>
-<p><img src="http://aimingoo.github.io/content/images/types_in_javascript_1.x.png" alt="types_in_javascript_1.x"></p>
+<p><img src="https://aimingoo.github.io/content/images/types_in_javascript_1.x.png" alt="types_in_javascript_1.x"></p>
 <p>这个类型系统可以完美地概括JavaScript中可能的各种对象和概念理解。其中&quot;值类型&quot;用于进行值运算或表达值运算的结果，而引用类型用于“索引到”一个值。</p>
 <p>在这个系统中，<code>null</code>并不在基本类型系统中，它只是在“对象类型系统”中的、一个特殊对象的字面量表示。</p>
 <h2 id="ecma">惹祸的ECMA</h2>
@@ -967,11 +967,11 @@ false
 </blockquote>
 </li>
 </ul>
-<p><img src="http://aimingoo.github.io/content/images/types_in_ecmascript.png" alt="types_in_ecmascript"></p>
+<p><img src="https://aimingoo.github.io/content/images/types_in_ecmascript.png" alt="types_in_ecmascript"></p>
 <p>在ECMAScript中考察一个值（V）的类型时，是根据其内部操作<code>Type()</code>的结果值，来确定该值<code>V</code>是或不是“ECMAScript language value”，或者是更具体的某个类型。</p>
 <p>当JavaScript引擎在分析脚本代码时，会将代码解析成为数据或执行逻辑以便后续处理，这（通常）也就对应于ECMAScript规范类型中的记录（<em>Record</em>）和词法环境（<em>Lexical Environment</em>）。而在运行期，任何的JavaScript代码最终都会被理解成“可执行的”语句或表达式，并且当一个操作（op）是表达式时，它总有结果值；而当操作是语句时，它的最终状态是由一个称为“完成记录（<em>Completion Record</em>）”的规范类型来存放的——并用这个记录的<code>[[value]]</code>字段来存放语句的结果值。</p>
 <p>下图完整地展示了四种主要的规范类型的使用。</p>
-<p><img src="http://aimingoo.github.io/content/images/specification_type_in_ecmascript.png" alt="specification_type_in_ecmascript"></p>
+<p><img src="https://aimingoo.github.io/content/images/specification_type_in_ecmascript.png" alt="specification_type_in_ecmascript"></p>
 <h2 id="null">null仍然是无法解释的</h2>
 <p>上述由ECMAScript构建的类型系统运转良好——比如我们确实可以按照这样的规范来编写一个JavaScript引擎。然而它仍然无法有效地解释<code>null</code>值的语言特性。</p>
 <p>尤其是在ES5之后。因为ES5开始提供了新的创建对象的语法：</p>
@@ -1014,9 +1014,9 @@ TypeError: Super constructor null of MyClass ...
 <p>进一步的，由于JavaScript中的<code>'function'</code>类型事实上也是对象，因此我们既得到了表达静态数据的原子，也得到了支持运算过程的原子。再加上JavaScript还通过<code>eval()</code>提供了原生的解析代码和操作执行上下文的能力，那么——事实上——我们也就得到了整个的原子计算环境/运行框架。</p>
 <p>这也是Metameta提供了一个<code>.from()</code>工具方法的原因：Metameta致力于扩展JavaScript的内建概念，并试图用为ECMAScript建立一个更为完整的概念集。在这其中，<code>.from()</code>所体现出来的事实是：JavaScript的对象系统，是以原子为基础的类型系统的一个实现。</p>
 <p>如图：</p>
-<p><img src="http://aimingoo.github.io/content/images/types_of_object_system.png" alt="types_of_object_system"></p>
+<p><img src="https://aimingoo.github.io/content/images/types_of_object_system.png" alt="types_of_object_system"></p>
 <p>而下图则是更完整的、以元类型为基础来实现的、对象/类型系统的景象：</p>
-<p><img src="http://aimingoo.github.io/content/images/meta_type_system.png" alt="meta_type_system"></p>
+<p><img src="https://aimingoo.github.io/content/images/meta_type_system.png" alt="meta_type_system"></p>
 </div>]]></content:encoded></item><item><title><![CDATA[JavaScript中创建原子的几种方法]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是一个系列，包括：</p>
 <ul>
@@ -1049,7 +1049,7 @@ atom = Object.setPrototypeOf({}, null)
 function MyObject() {
     // ...
 }
-Object.setPrototypeOf(MyObject.prototype,</code></pre></div>]]></description><link>http://aimingoo.github.io/5b824316c66182831afb4982.html/</link><guid isPermaLink="false">5b824316c66182831afb4982</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 26 Aug 2018 06:06:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+Object.setPrototypeOf(MyObject.prototype,</code></pre></div>]]></description><link>https://aimingoo.github.io/5b824316c66182831afb4982/</link><guid isPermaLink="false">5b824316c66182831afb4982</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 26 Aug 2018 06:06:59 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p>本文是一个系列，包括：</p>
 <ul>
 <li>JavaScript的元系统 - <a href="https://aimingoo.github.io/5b7f6efac66182831afb497b.html">在这里</a></li>
@@ -1209,7 +1209,7 @@ Object.setPrototypeOf(MyClass.prototype, new.target)
 </ul>
 </blockquote>
 <p>ECMAScript中只有两处提及到“Meta”这个概念，一处是说明ECMAScript的规范类型（<em>a specification type</em>）是用于描述和实现语言类型（<em>language types</em>）的元值（<em>meta-values</em>），另一处则是唯一被称为“元属性（<em>Meta Property</em>）”的<code>new.target</code>。</p>
-<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta</em></p></div>]]></description><link>http://aimingoo.github.io/5b7f6efac66182831afb497b.html/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
+<p>所以ECMAScript中是没有所谓“元系统（<em>Meta system</em>）”或“元类型系统（<em>Meta</em></p></div>]]></description><link>https://aimingoo.github.io/5b7f6efac66182831afb497b/</link><guid isPermaLink="false">5b7f6efac66182831afb497b</guid><category><![CDATA[Javascript]]></category><category><![CDATA[语言]]></category><category><![CDATA[元语言]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Fri, 24 Aug 2018 02:57:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h1 id="javascript">JavaScript的元系统</h1>
 <blockquote>
 <p>本文是对在第四届FEDay中分享的《无类继承：JavaScript面向对象的根基》的进一步讨论。也是对开源项目<a href="https://github.com/aimingoo/metameta">@aimingoo/metameta</a>的解析。</p>
 <p>本文是一个系列，包括：</p>
@@ -1381,9 +1381,9 @@ false
 <p>相关的资源在这里：</p>
 <ul>
 <li>metameta: <a href="https://github.com/aimingoo/metameta">https://github.com/aimingoo/metameta</a></li>
-<li>讲演内容下载：<a href="http://aimingoo.github.io/content/files/classless_inheritance_in_javascript.zip">/content/files/classless_inheritance_in_javascript.zip</a></li>
+<li>讲演内容下载：<a href="https://aimingoo.github.io/content/files/classless_inheritance_in_javascript.zip">/content/files/classless_inheritance_in_javascript.zip</a></li>
 </ul>
-</div>]]></description><link>http://aimingoo.github.io/5b7b77b6c66182831afb4977.html/</link><guid isPermaLink="false">5b7b77b6c66182831afb4977</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 21 Aug 2018 02:32:22 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>我在本届FEDay的讲演内容在这里了：</p>
+</div>]]></description><link>https://aimingoo.github.io/5b7b77b6c66182831afb4977/</link><guid isPermaLink="false">5b7b77b6c66182831afb4977</guid><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Tue, 21 Aug 2018 02:32:22 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>我在本届FEDay的讲演内容在这里了：</p>
 <p>FEDay就是前端日，在这里：</p>
 <ul>
 <li><a href="https://fequan.com/2018/">https://fequan.com/2018/</a></li>
@@ -1392,16 +1392,16 @@ false
 <p>相关的资源在这里：</p>
 <ul>
 <li>metameta: <a href="https://github.com/aimingoo/metameta">https://github.com/aimingoo/metameta</a></li>
-<li>讲演内容下载：<a href="http://aimingoo.github.io/content/files/classless_inheritance_in_javascript.zip">/content/files/classless_inheritance_in_javascript.zip</a></li>
+<li>讲演内容下载：<a href="https://aimingoo.github.io/content/files/classless_inheritance_in_javascript.zip">/content/files/classless_inheritance_in_javascript.zip</a></li>
 </ul>
 </div>]]></content:encoded></item><item><title><![CDATA[那些年，那些诗]]></title><description><![CDATA[<div class="kg-card-markdown"><p>在搞IT之前，我也搞点文学。</p>
 <p>读书的时候总会写点东西，但不见得算文学作品。大概在99年的时候，我的《石像的忆述》被评成了网易首届网络文学大赛的金奖，看起来算是真正在做文学了，但此后我却也不怎么写东西了。后来有一阵爬坛论的风气，我跟着老茂的“顶点诗歌”混过一阵，也在精品论坛（ET8）和海浩网的文学版里出没，但几乎没有拿得出手的。再之后就是博客、微博和微信了，文学方面的作品更是寥寥。</p>
 <p>但总归还是有些的。例如在其它博文中提到过的：</p>
 <ul>
-<li><a href="http://aimingoo.github.io/1-220.html">《澄心居诗词评读》六篇</a></li>
-<li><a href="http://aimingoo.github.io/1-209.html">《独身茶寮》- 有人提问，我当作答。关于签名档的由来。</a></li>
-<li><a href="http://aimingoo.github.io/59e2fcf072c9e7b37c38320c.html">《刀与磨刀》(之一)</a>、<a href="http://aimingoo.github.io/59e2fca072c9e7b37c383209.html">(之二)</a></li>
-<li><a href="http://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">《深夜食味记》1~5</a></li>
+<li><a href="https://aimingoo.github.io/1-220.html">《澄心居诗词评读》六篇</a></li>
+<li><a href="https://aimingoo.github.io/1-209.html">《独身茶寮》- 有人提问，我当作答。关于签名档的由来。</a></li>
+<li><a href="https://aimingoo.github.io/59e2fcf072c9e7b37c38320c.html">《刀与磨刀》(之一)</a>、<a href="https://aimingoo.github.io/59e2fca072c9e7b37c383209.html">(之二)</a></li>
+<li><a href="https://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">《深夜食味记》1~5</a></li>
 </ul>
 <h2 id="">偶得</h2>
 <p>除了这些之外，还有一些散碎文字。例如也曾经在博客中提到过的两首诗：</p>
@@ -1410,14 +1410,14 @@ false
 <p>昨夜方泸闵，此时已京中。<br>
 将相王侯府，笑谈作一梦。<br>
 回见来时路，山峦几多重。<br>
-俯仰清声处，执手是英雄。</p></blockquote></div>]]></description><link>http://aimingoo.github.io/59e6f1051bc77603d060b9ae.html/</link><guid isPermaLink="false">59e6f1051bc77603d060b9ae</guid><category><![CDATA[诗词文章]]></category><category><![CDATA[生活]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 18 Oct 2017 09:23:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>在搞IT之前，我也搞点文学。</p>
+俯仰清声处，执手是英雄。</p></blockquote></div>]]></description><link>https://aimingoo.github.io/59e6f1051bc77603d060b9ae/</link><guid isPermaLink="false">59e6f1051bc77603d060b9ae</guid><category><![CDATA[诗词文章]]></category><category><![CDATA[生活]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 18 Oct 2017 09:23:14 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>在搞IT之前，我也搞点文学。</p>
 <p>读书的时候总会写点东西，但不见得算文学作品。大概在99年的时候，我的《石像的忆述》被评成了网易首届网络文学大赛的金奖，看起来算是真正在做文学了，但此后我却也不怎么写东西了。后来有一阵爬坛论的风气，我跟着老茂的“顶点诗歌”混过一阵，也在精品论坛（ET8）和海浩网的文学版里出没，但几乎没有拿得出手的。再之后就是博客、微博和微信了，文学方面的作品更是寥寥。</p>
 <p>但总归还是有些的。例如在其它博文中提到过的：</p>
 <ul>
-<li><a href="http://aimingoo.github.io/1-220.html">《澄心居诗词评读》六篇</a></li>
-<li><a href="http://aimingoo.github.io/1-209.html">《独身茶寮》- 有人提问，我当作答。关于签名档的由来。</a></li>
-<li><a href="http://aimingoo.github.io/59e2fcf072c9e7b37c38320c.html">《刀与磨刀》(之一)</a>、<a href="http://aimingoo.github.io/59e2fca072c9e7b37c383209.html">(之二)</a></li>
-<li><a href="http://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">《深夜食味记》1~5</a></li>
+<li><a href="https://aimingoo.github.io/1-220.html">《澄心居诗词评读》六篇</a></li>
+<li><a href="https://aimingoo.github.io/1-209.html">《独身茶寮》- 有人提问，我当作答。关于签名档的由来。</a></li>
+<li><a href="https://aimingoo.github.io/59e2fcf072c9e7b37c38320c.html">《刀与磨刀》(之一)</a>、<a href="https://aimingoo.github.io/59e2fca072c9e7b37c383209.html">(之二)</a></li>
+<li><a href="https://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">《深夜食味记》1~5</a></li>
 </ul>
 <h2 id="">偶得</h2>
 <p>除了这些之外，还有一些散碎文字。例如也曾经在博客中提到过的两首诗：</p>
@@ -1447,7 +1447,7 @@ false
 <blockquote>
 <p>我常常回顾自己。例如写字，文字好，但骨子里没东西。如果是书，文字感不强了，但知识总归是有些的。外在的东西花花绿绿的好看了，本质是内地里没东西需要拿些色彩抹在外面。修行的看不见菩萨，拜佛的不过对着一尊彩俑，很多事，就这么一眼眼地看着自己，渐渐地也就看明白了。</p>
 </blockquote>
-<p><img src="http://aimingoo.github.io/content/images/2017/10/609d5e16gw1f3nytor4vuj20c80hadgj.jpg" alt="609d5e16gw1f3nytor4vuj20c80hadgj"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/10/609d5e16gw1f3nytor4vuj20c80hadgj.jpg" alt="609d5e16gw1f3nytor4vuj20c80hadgj"></p>
 <p>事实上这图并不是我的，也原本不是用来配这段文字的。它的出处更早是在“国学论坛”上面，当时有网友发出来，我觉得喜欢，便写了一首诗：</p>
 <blockquote>
 <p>疏竹三竿瘦，青莲半粒苦。<br>
@@ -1501,17 +1501,17 @@ false
 <p>无题·2005.01.18, 因妻游云台禅寺作</p>
 <p>雪夜听禅声，驴步入云台。一念别尘嚣，千钟见太白。</p>
 </blockquote>
-<p>有些候玩得馋了也可能写一首哦（呵呵，这是<a href="http://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">《深夜食味记》</a>系列中的）：</p>
+<p>有些候玩得馋了也可能写一首哦（呵呵，这是<a href="https://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">《深夜食味记》</a>系列中的）：</p>
 <blockquote>
 <p>无题·2016.02.13 于悉尼</p>
 <p>吞津饥渴甚，离乡肚腑哀。思味至夜深，奈何无良材。</p>
 </blockquote>
-<p>多数短诗是用来配麦子同学发的照片的（当然也有长篇成组的，例如这里的<a href="http://aimingoo.github.io/59e709901bc77603d060b9af.html">诗写江南之行</a>）：</p>
+<p>多数短诗是用来配麦子同学发的照片的（当然也有长篇成组的，例如这里的<a href="https://aimingoo.github.io/59e709901bc77603d060b9af.html">诗写江南之行</a>）：</p>
 <blockquote>
 <p>蜂蝶轻舞处，青绿破土时。沉香知梅绛，新妆映哪枝？</p>
 </blockquote>
 <p>而最新近的，大概是一首词（写的是张衡路上的张衡公园）：</p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0826.JPG" alt="IMG_0353"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0826.JPG" alt="IMG_0353"></p>
 <blockquote>
 <p>虞美人影</p>
 <p>草熏风暖花秀蕊，忽忽一夜春归。云色青青若醉，还与东湖寐。<br>
@@ -1571,11 +1571,11 @@ false
 倒影中，还是我的迷惘。
 </code></pre>
 <p>不过它并不是一首独立的诗。它事实上是我的那本《JavaScript语言精髓与编程实践》在发布电子版的时候写的序（中的一部分）。这篇序是“世界需要一种什么样的语言”，它也被节选到“语言精髓”这本书的第二版的序中。——不过节选的时候，正好删除了这段文字，所以大多数读者便不知道了。</p>
-<p>原文其实只是一段文字（<a href="http://aimingoo.github.io/1-135.html">在这里</a>），但排成长短句之后，竟然也如诗一般可读。😛</p>
+<p>原文其实只是一段文字（<a href="https://aimingoo.github.io/1-135.html">在这里</a>），但排成长短句之后，竟然也如诗一般可读。😛</p>
 <h2 id="">其它</h2>
 <p>嗯，说起来，麦子也偶尔会写新体诗哦！</p>
 <ul>
-<li>在这里：<a href="http://aimingoo.github.io/2-34.html">狗，屎，运</a></li>
+<li>在这里：<a href="https://aimingoo.github.io/2-34.html">狗，屎，运</a></li>
 </ul>
 <p>哈哈哈~~</p>
 <h3 id="appendat20180427"><strong>append at 2018.04.27</strong></h3>
@@ -1600,7 +1600,7 @@ false
 <p>这段其实是打趣的，当时麦大老板约老友王大发财于浦西饭局，而我正好在北京吃着火锅看着雪。:)</p>
 <h4 id="">之三</h4>
 <ul>
-<li>在上面写“诗写江南之行”的时候，当时写到<a href="http://aimingoo.github.io/59e709901bc77603d060b9af.html/#%E8%B6%A3%E8%88%8D%C2%B7%E6%83%9C%E8%A7%81%E9%BE%99%E8%83%8C%E5%B1%B1%E6%96%87%E5%B3%B0%E5%A1%94">夜宿“一棵树”的诗句</a>：雨过泉声至，风起竹涛还。因为每日的诗句都是配了图发在朋友圈里的，所以便有好友gurudk在下面写道：</li>
+<li>在上面写“诗写江南之行”的时候，当时写到<a href="https://aimingoo.github.io/59e709901bc77603d060b9af.html#%E8%B6%A3%E8%88%8D%C2%B7%E6%83%9C%E8%A7%81%E9%BE%99%E8%83%8C%E5%B1%B1%E6%96%87%E5%B3%B0%E5%A1%94">夜宿“一棵树”的诗句</a>：雨过泉声至，风起竹涛还。因为每日的诗句都是配了图发在朋友圈里的，所以便有好友gurudk在下面写道：</li>
 </ul>
 <blockquote>
 <p>雨中听泉，茶道寻芳，诗书作伴，美人相陪，美</p>
@@ -1617,21 +1617,21 @@ false
 <p>跟麦子同学策划了一次无计划的江南之行，从4.6~4.15，自上海经苏州、湖洲、宜兴、南京，最后从镇江回到上海。去年游澳大利亚时，便趁着得了空闲，写了一组『深夜食味记』，那是散文。这次亦然，不过换成了古体诗。</p>
 <p>这次写法有些特别。在习惯上每日只写两句，写一时之所想，在用韵、平仄这些方也并不特别讲究。十日后掇句而成诗，不求同题同义，只求上下合仄押韵、诗趣暗合，如此一来还真算是写了几首。不过取诗题的时候有些麻烦，因此简简单单地用『·』号隔了，表示这诗原是两段而已。当然也有几首是一次写成的，合在一起，算作了这次的游记。</p>
 <h2 id="">平江·午后得闲</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0332.JPG" alt="IMG_0332"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0353.JPG" alt="IMG_0353"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0332.JPG" alt="IMG_0332"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0353.JPG" alt="IMG_0353"></p>
 <blockquote>
 <p>烟雨入苏杭，春色只平江<sup>①</sup><br>
 斑斓三两点，珠玉正琳琅</p>
 <p><sup>①</sup><em>平江：指平江路，沿苏州平江河的一条小路，历史老街。</em></p>
 </blockquote>
-<p>前两句既写我们到苏杭闲游之实，也写当时的阴雨天气；平江之美，</p></div>]]></description><link>http://aimingoo.github.io/59e709901bc77603d060b9af.html/</link><guid isPermaLink="false">59e709901bc77603d060b9af</guid><category><![CDATA[诗词文章]]></category><category><![CDATA[生活]]></category><category><![CDATA[旅游]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 18 Oct 2017 08:38:23 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>前两句既写我们到苏杭闲游之实，也写当时的阴雨天气；平江之美，</p></div>]]></description><link>https://aimingoo.github.io/59e709901bc77603d060b9af/</link><guid isPermaLink="false">59e709901bc77603d060b9af</guid><category><![CDATA[诗词文章]]></category><category><![CDATA[生活]]></category><category><![CDATA[旅游]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Wed, 18 Oct 2017 08:38:23 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
 <p><em>原作于2017.04.16发于微信朋友圈</em></p>
 </blockquote>
 <p>跟麦子同学策划了一次无计划的江南之行，从4.6~4.15，自上海经苏州、湖洲、宜兴、南京，最后从镇江回到上海。去年游澳大利亚时，便趁着得了空闲，写了一组『深夜食味记』，那是散文。这次亦然，不过换成了古体诗。</p>
 <p>这次写法有些特别。在习惯上每日只写两句，写一时之所想，在用韵、平仄这些方也并不特别讲究。十日后掇句而成诗，不求同题同义，只求上下合仄押韵、诗趣暗合，如此一来还真算是写了几首。不过取诗题的时候有些麻烦，因此简简单单地用『·』号隔了，表示这诗原是两段而已。当然也有几首是一次写成的，合在一起，算作了这次的游记。</p>
 <h2 id="">平江·午后得闲</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0332.JPG" alt="IMG_0332"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0353.JPG" alt="IMG_0353"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0332.JPG" alt="IMG_0332"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0353.JPG" alt="IMG_0353"></p>
 <blockquote>
 <p>烟雨入苏杭，春色只平江<sup>①</sup><br>
 斑斓三两点，珠玉正琳琅</p>
@@ -1640,8 +1640,8 @@ false
 <p>前两句既写我们到苏杭闲游之实，也写当时的阴雨天气；平江之美，可以一赞。</p>
 <p>后两句中，上句是写一天以后游苏州工艺美术博物馆，却没写藏品和观感。当时博物馆中只有廖廖数人，我与麦子在林荫处倚栏无语，斑斓地红叶天，是安静所在。下句的『珠玉正琳琅』，却是写我们随后去了不远处的苏州博物馆，参观『玉叶金枝——明代江西藩王墓出土文物精品展』。用一『正』字，是错开时空，上一句的寻幽取静，与下一句的琳琅满目对照，是『蝉噪林愈静』的写法。</p>
 <h2 id="">游苏州美人腿</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0338.JPG" alt="IMG_0338"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/WechatIMG1139_1.jpg" alt="WechatIMG1139_1"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0338.JPG" alt="IMG_0338"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/WechatIMG1139_1.jpg" alt="WechatIMG1139_1"></p>
 <blockquote>
 <p>黄花濯雨娇，玉足春寒薄<sup>①</sup><sup>②</sup><br>
 眉黛藏秀色，青丝起妖娆</p>
@@ -1651,8 +1651,8 @@ false
 <p>前两句说的是雨后春寒的风景。后两句写的是麦子。</p>
 <p>麦子同学最喜欢油菜花，所以那天的朋友圈我也就发了一整首诗。</p>
 <h2 id="">趣舍·惜见龙背山文峰塔</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0340.JPG" alt="IMG_0340"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/WechatIMG1146.jpeg" alt="WechatIMG1146"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0340.JPG" alt="IMG_0340"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/WechatIMG1146.jpeg" alt="WechatIMG1146"></p>
 <blockquote>
 <p>雨过泉声至，风起竹涛还<br>
 文峰轻晚客，烟柳落纸鸢<sup>①</sup><sup>②</sup></p>
@@ -1665,8 +1665,8 @@ false
 <p>时至春暮，倒寒愈盛，坐想被时光轻慢的我们，又何曾辜负过风景。</p>
 </blockquote>
 <h2 id="">碧鲜庵·苏州园林所见</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_5389_1.jpg" alt="IMG_0344_1"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/WechatIMG1148.jpeg" alt="WechatIMG1148"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_5389_1.jpg" alt="IMG_0344_1"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/WechatIMG1148.jpeg" alt="WechatIMG1148"></p>
 <blockquote>
 <p>溪桃夜听碧，林竹入目鲜<sup>①</sup><sup>②</sup><br>
 时有小去处，不见真湖山</p>
@@ -1675,8 +1675,8 @@ false
 <p>前两句是十二日游善卷洞，写于碧鲜庵前。庵前小溪边桃花纷纷，至远处，竹林层层。然则碧色岂可耳听，竹鲜哪能目视？斯若听者，斯若视者，惟心下念念耳。</p>
 <p>后两句写的是七日我游拙政园和定园后，对苏州园林的观感。说是造景借景、假山假水，实则格局太狭，难得张狂而已。一步画廊半坡桥，小之甚也。</p>
 <h2 id="">玄武湖·中山寻芳步道</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0347.JPG" alt="IMG_0347"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/WechatIMG1145.jpeg" alt="WechatIMG1145"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0347.JPG" alt="IMG_0347"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/WechatIMG1145.jpeg" alt="WechatIMG1145"></p>
 <blockquote>
 <p>湖畔驻千舟，庭中挂紫藤<sup>①</sup><sup>②</sup><br>
 轻风胡不住，斜阳照半亭</p>
@@ -1686,16 +1686,16 @@ false
 <p>前两行写玄武湖景观。千舟不发，紫藤轻挂，静若动也。</p>
 <p>后两行是次日游中山植物博览园所写。风轻不停，夕照影移，动亦静尔。</p>
 <h2 id="">游中山植物园</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/WechatIMG1143.jpeg" alt="WechatIMG1143"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/WechatIMG1142.jpeg" alt="WechatIMG1142"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/WechatIMG1143.jpeg" alt="WechatIMG1143"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/WechatIMG1142.jpeg" alt="WechatIMG1142"></p>
 <blockquote>
 <p>寻香入花海，佳人巧笑频<br>
 湖水漫半堤，林荫没短亭</p>
 </blockquote>
 <p>麦子说中山植物园（植物博览园）是此行她最喜欢的去处之一，这时节郁金香开得正盛，满园花香。园中有湖，名曰前湖，时湖水漫堤，林深掩亭，各成景致。</p>
 <h2 id="">归客·游西津渡</h2>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0350.JPG" alt="IMG_0350"></p>
-<p><img src="http://aimingoo.github.io/content/images/2017/04/IMG_0352.JPG" alt="IMG_0352"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0350.JPG" alt="IMG_0350"></p>
+<p><img src="https://aimingoo.github.io/content/images/2017/04/IMG_0352.JPG" alt="IMG_0352"></p>
 <blockquote>
 <p>肴肉留客驻，待渡亭下空<sup>①</sup><sup>②</sup><br>
 日落千帆尽，谈笑大江东</p>
@@ -1705,19 +1705,19 @@ false
 <p>前面说『不舍去』，后面写『君去也』。15日于镇江，上午游镇江西津渡，下午则返回上海浦东。一日三两地，游者终有期。</p>
 <p>后两句既是虚写长江上当年日落挥别、谈笑作揖的情景，也是暗指我跟麦子回上海了也。^^.</p>
 </div>]]></content:encoded></item><item><title><![CDATA[手记7：从单人博客到多人博客全程记录]]></title><description><![CDATA[<div class="kg-card-markdown"><blockquote>
-<p>上一篇手记是讲“改造Gitment”的(<a href="http://aimingoo.github.io/1-1725.html">在这里</a>)。其实这个“改造”花了不少功夫，以至于后来还出了一个给<code>hexo-theme-next</code>的版本。</p>
-<p>这是推迟了“做多人博客”的一个原因，另一个原因则是我以前的博文需要更新的太多，花了很多时间。当然，那个叫<code>Monster</code>的项目（<a href="http://aimingoo.github.io/1-1741.html">在这里</a>）也是花销时间的大户。</p>
+<p>上一篇手记是讲“改造Gitment”的(<a href="https://aimingoo.github.io/1-1725.html">在这里</a>)。其实这个“改造”花了不少功夫，以至于后来还出了一个给<code>hexo-theme-next</code>的版本。</p>
+<p>这是推迟了“做多人博客”的一个原因，另一个原因则是我以前的博文需要更新的太多，花了很多时间。当然，那个叫<code>Monster</code>的项目（<a href="https://aimingoo.github.io/1-1741.html">在这里</a>）也是花销时间的大户。</p>
 <p>所以，结果就是：这篇“手记7”被推迟了很久...很久...</p>
 </blockquote>
-<p>多人博客的功能其实我一早就做出来了——至少，大概的框架是完成了的。但是我一直没有发布出来，“<a href="http://aimingoo.github.io/author/joyxhy">麦秸的垛</a>”也就一直没上线。</p>
+<p>多人博客的功能其实我一早就做出来了——至少，大概的框架是完成了的。但是我一直没有发布出来，“<a href="https://aimingoo.github.io/author/joyxhy">麦秸的垛</a>”也就一直没上线。</p>
 <p>下面讲讲这整个的过程。</p>
 <h2 id="">导入“第二个人”的博客文章</h2>
-<p>在Ghost 0.9x中其实有一个Bug，就是你总是只能将博客导入到'id=1'的帐户（或以该帐户身份导入）。我说不清这个Bug是什么时候存在，又或者（可能）什么时候会修复/已修复。我当时找到的解决方法，就是直接改sqlite数据库。</p></div>]]></description><link>http://aimingoo.github.io/59e452a9bc4c6b0274b469a9.html/</link><guid isPermaLink="false">59e452a9bc4c6b0274b469a9</guid><category><![CDATA[博客]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 16 Oct 2017 15:41:58 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
-<p>上一篇手记是讲“改造Gitment”的(<a href="http://aimingoo.github.io/1-1725.html">在这里</a>)。其实这个“改造”花了不少功夫，以至于后来还出了一个给<code>hexo-theme-next</code>的版本。</p>
-<p>这是推迟了“做多人博客”的一个原因，另一个原因则是我以前的博文需要更新的太多，花了很多时间。当然，那个叫<code>Monster</code>的项目（<a href="http://aimingoo.github.io/1-1741.html">在这里</a>）也是花销时间的大户。</p>
+<p>在Ghost 0.9x中其实有一个Bug，就是你总是只能将博客导入到'id=1'的帐户（或以该帐户身份导入）。我说不清这个Bug是什么时候存在，又或者（可能）什么时候会修复/已修复。我当时找到的解决方法，就是直接改sqlite数据库。</p></div>]]></description><link>https://aimingoo.github.io/59e452a9bc4c6b0274b469a9/</link><guid isPermaLink="false">59e452a9bc4c6b0274b469a9</guid><category><![CDATA[博客]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><category><![CDATA[Ghost]]></category><category><![CDATA[Javascript]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Mon, 16 Oct 2017 15:41:58 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><blockquote>
+<p>上一篇手记是讲“改造Gitment”的(<a href="https://aimingoo.github.io/1-1725.html">在这里</a>)。其实这个“改造”花了不少功夫，以至于后来还出了一个给<code>hexo-theme-next</code>的版本。</p>
+<p>这是推迟了“做多人博客”的一个原因，另一个原因则是我以前的博文需要更新的太多，花了很多时间。当然，那个叫<code>Monster</code>的项目（<a href="https://aimingoo.github.io/1-1741.html">在这里</a>）也是花销时间的大户。</p>
 <p>所以，结果就是：这篇“手记7”被推迟了很久...很久...</p>
 </blockquote>
-<p>多人博客的功能其实我一早就做出来了——至少，大概的框架是完成了的。但是我一直没有发布出来，“<a href="http://aimingoo.github.io/author/joyxhy">麦秸的垛</a>”也就一直没上线。</p>
+<p>多人博客的功能其实我一早就做出来了——至少，大概的框架是完成了的。但是我一直没有发布出来，“<a href="https://aimingoo.github.io/author/joyxhy">麦秸的垛</a>”也就一直没上线。</p>
 <p>下面讲讲这整个的过程。</p>
 <h2 id="">导入“第二个人”的博客文章</h2>
 <p>在Ghost 0.9x中其实有一个Bug，就是你总是只能将博客导入到'id=1'的帐户（或以该帐户身份导入）。我说不清这个Bug是什么时候存在，又或者（可能）什么时候会修复/已修复。我当时找到的解决方法，就是直接改sqlite数据库。</p>
@@ -1737,11 +1737,11 @@ id                        name        slug        email
 </blockquote>
 <p>接下来，假设你是用BlogToWordpress来迁移的博客，那么你会有一个wordpress格式的.xml文件，存放用户second的全部博客——如果你是用别的来导出，那么请转换到wordpress格式先。参考：</p>
 <ul>
-<li><a href="http://aimingoo.github.io/1-1719.html">手记1：迁移博客之全程工具</a></li>
+<li><a href="https://aimingoo.github.io/1-1719.html">手记1：迁移博客之全程工具</a></li>
 </ul>
 <p>我们将这个.xml用工具wp2ghost转换到ghost-tmp.json，然后再使用putrefy.js来处理一次，得到最终的ghost.json就可以了。这个过程参考：</p>
 <ul>
-<li><a href="http://aimingoo.github.io/1-1719.html/#22-%E5%87%86%E5%A4%87%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6">准备导入文件</a></li>
+<li><a href="https://aimingoo.github.io/1-1719.html#22-%E5%87%86%E5%A4%87%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6">准备导入文件</a></li>
 </ul>
 <p>但还是要注意以下几点：</p>
 <h3 id="wp2ghost">使用修改版的wp2ghost</h3>
@@ -1806,7 +1806,7 @@ SLUG_FROMID=&quot;2-&quot;
 <p><strong>你不能直接使用<code>author-switcher.js</code>，它需要根据你的网站定制</strong></p>
 </blockquote>
 <h2 id="">静态页的处理</h2>
-<p>一些静态页是多个作者之间不同的，例如A作者可以显示某些标签，而B作者就不需要（你想想如果在麦秸的垛的文章里显示出JavaScript这样的标签会是什么效果）。因此我除了将tag-cloud等页面静态化（处理方法<a href="http://aimingoo.github.io/1-1721.html/#72-%E5%B0%86%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF%E4%B8%8E%E4%BA%91%E6%A0%87%E7%AD%BE%E9%9D%99%E6%80%81%E5%8C%96">在这里</a>）之外，也在其中加入了相应的代码来处理这种静态页内的信息。例如：</p>
+<p>一些静态页是多个作者之间不同的，例如A作者可以显示某些标签，而B作者就不需要（你想想如果在麦秸的垛的文章里显示出JavaScript这样的标签会是什么效果）。因此我除了将tag-cloud等页面静态化（处理方法<a href="https://aimingoo.github.io/1-1721.html#72-%E5%B0%86%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF%E4%B8%8E%E4%BA%91%E6%A0%87%E7%AD%BE%E9%9D%99%E6%80%81%E5%8C%96">在这里</a>）之外，也在其中加入了相应的代码来处理这种静态页内的信息。例如：</p>
 <pre><code class="language-html">&lt;!-- in page-tag-cloud.hbs --&gt;
 
 var enabledCloudTags = {
@@ -1825,7 +1825,7 @@ function filterByAuthor(context, enabled) {
 <li><a href="https://github.com/aimingoo/aimingoo.github.io/blob/master/tag-cloud">https://github.com/aimingoo/aimingoo.github.io/blob/master/tag-cloud</a></li>
 </ul>
 <blockquote>
-<p><strong>注意其中的cloudTagHtmlContext()内的代码是由标签<code>{{&gt; &quot;tag_cloud&quot;}}</code>自动生成的，参考：'7.2.1 为标签云添加一个静态页' @<a href="http://aimingoo.github.io/1-1721.html">这里</a></strong></p>
+<p><strong>注意其中的cloudTagHtmlContext()内的代码是由标签<code>{{&gt; &quot;tag_cloud&quot;}}</code>自动生成的，参考：'7.2.1 为标签云添加一个静态页' @<a href="https://aimingoo.github.io/1-1721.html">这里</a></strong></p>
 </blockquote>
 <h2 id="thread">多作者多线索（Thread）</h2>
 <p>Ghost缺省的多作者模式是“多作者单线索”的，也就是所有作者的<code>prev/next</code>是在同一个list中，这样A作者的上/下一篇日志，就可能是B作者的。对于同一主题的博客（例如相同兴趣的网站）来说这没问题，但是我跟Joy的博客风格差异很大，你想想在一篇讨论户外驴友美食或化妆的文章中出现“上一篇”是某个开源程序项目的……效果，那真的是……</p>
@@ -1857,7 +1857,7 @@ function filterByAuthor(context, enabled) {
 <p>注：如果你只是删除post，或更新theme中post的风格，那么由于<code>update</code>模式无法从数据库感知到你的更新，所以就需要使用<code>--sync-removed</code>来强制更新指定用户/多个用户的博客内容。一旦使用该命令，那么也将导致整个的索引页会强制更新（因为上面的操作事实上也意味着全站的posts index pages页发生了变化）</p>
 </blockquote>
 <h2 id="pages">可定制强制更新的pages列表</h2>
-<p>当使用<code>update</code></p></div>]]></description><link>http://aimingoo.github.io/59e22d961369c498d686e75c.html/</link><guid isPermaLink="false">59e22d961369c498d686e75c</guid><category><![CDATA[博客]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 14 Oct 2017 17:36:43 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">多人博客</h2>
+<p>当使用<code>update</code></p></div>]]></description><link>https://aimingoo.github.io/59e22d961369c498d686e75c/</link><guid isPermaLink="false">59e22d961369c498d686e75c</guid><category><![CDATA[博客]]></category><category><![CDATA[OpenSource Project]]></category><category><![CDATA[Monster]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sat, 14 Oct 2017 17:36:43 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">多人博客</h2>
 <p>经过几个版本的更新，Monster已经开始有了丰富的功能，这其中就包括对Ghost多人博客的支持。</p>
 <p>Monster主要是在<code>updatesite.sh</code>模式中支持多人博客，也就是说这个功能在<code>update</code>模式下可用。当在<code>.monster</code>配置文件的<code>EMAIL</code>参数中使用一个列表，例如：</p>
 <ul>
@@ -1911,7 +1911,7 @@ id        slug        created_at           title
 <p>麦子之前在新浪、搜狐和微软MSN上发的博文其实不少，我一次全迁移过来了，也是200多篇呢。所以接下来又得花阵子功夫来做排版了，不过应该会比我的快：毕竟她的博文没代码……</p>
 <p>我的文字太硬气，读起来难以让人愉悦，麦子的不会。这个，相信我。</p>
 <p>点右上方的链接就好了。</p>
-</div>]]></description><link>http://aimingoo.github.io/59df7101a550c258f56eab34.html/</link><guid isPermaLink="false">59df7101a550c258f56eab34</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 12 Oct 2017 13:42:06 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>麦子的文字写得比我好看，她的博客就叫“麦秸的垛”。</p>
+</div>]]></description><link>https://aimingoo.github.io/59df7101a550c258f56eab34/</link><guid isPermaLink="false">59df7101a550c258f56eab34</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Thu, 12 Oct 2017 13:42:06 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><p>麦子的文字写得比我好看，她的博客就叫“麦秸的垛”。</p>
 <p>很早就说要把这个博客做成多人博客，其实也一早就做了，只是一直没上线。原因是从旧博客迁移过来的时候，几乎所有的文章都得再按markdown格式重排一遍。这个确实很花时间，比如我的那部分大概做了三个月呢。</p>
 <p>所以“麦秸的垛”就一直拖着没上线。</p>
 <p>麦子之前在新浪、搜狐和微软MSN上发的博文其实不少，我一次全迁移过来了，也是200多篇呢。所以接下来又得花阵子功夫来做排版了，不过应该会比我的快：毕竟她的博文没代码……</p>
@@ -1920,202 +1920,202 @@ id        slug        created_at           title
 </div>]]></content:encoded></item><item><title><![CDATA[博客中的系列文章]]></title><description><![CDATA[<div class="kg-card-markdown"><h2 id="">【技术类】</h2>
 <h3 id="qomo">Qomo技术系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-15.html">从基础开始：Qomo OpenProject中的一些关键词</a></li>
-<li><a href="http://aimingoo.github.io/1-16.html">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
-<li><a href="http://aimingoo.github.io/1-18.html">JavaScript面向对象的支持(1)</a></li>
-<li><a href="http://aimingoo.github.io/1-21.html">JavaScript面向对象的支持(2)</a></li>
-<li><a href="http://aimingoo.github.io/1-22.html">JavaScript面向对象的支持(3)</a></li>
-<li><a href="http://aimingoo.github.io/1-23.html">JavaScript面向对象的支持(4)</a></li>
-<li><a href="http://aimingoo.github.io/1-24.html">JavaScript面向对象的支持(5)</a></li>
-<li><a href="http://aimingoo.github.io/1-26.html">JavaScript面向对象的支持(6)</a></li>
-<li><a href="http://aimingoo.github.io/1-27.html">JavaScript面向对象的支持(7)</a></li>
-<li><a href="http://aimingoo.github.io/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></li>
-<li><a href="http://aimingoo.github.io/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></li>
-<li><a href="http://aimingoo.github.io/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></li>
-<li><a href="http://aimingoo.github.io/1-36.html">Qomolangma实现篇(四)：基本特性增强与多投事件系统</a></li>
-<li><a href="http://aimingoo.github.io/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></li>
-<li><a href="http://aimingoo.github.io/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
-<li><a href="http://aimingoo.github.io/1-42.html">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
-<li><a href="http://aimingoo.github.io/1-43.html">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
-<li><a href="http://aimingoo.github.io/1-47.html">Qomolangma实现篇(九)</a></li></ul></div>]]></description><link>http://aimingoo.github.io/1-1747.html/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c4</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 08 Oct 2017 14:29:50 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">【技术类】</h2>
+<li><a href="https://aimingoo.github.io/1-15.html">从基础开始：Qomo OpenProject中的一些关键词</a></li>
+<li><a href="https://aimingoo.github.io/1-16.html">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
+<li><a href="https://aimingoo.github.io/1-18.html">JavaScript面向对象的支持(1)</a></li>
+<li><a href="https://aimingoo.github.io/1-21.html">JavaScript面向对象的支持(2)</a></li>
+<li><a href="https://aimingoo.github.io/1-22.html">JavaScript面向对象的支持(3)</a></li>
+<li><a href="https://aimingoo.github.io/1-23.html">JavaScript面向对象的支持(4)</a></li>
+<li><a href="https://aimingoo.github.io/1-24.html">JavaScript面向对象的支持(5)</a></li>
+<li><a href="https://aimingoo.github.io/1-26.html">JavaScript面向对象的支持(6)</a></li>
+<li><a href="https://aimingoo.github.io/1-27.html">JavaScript面向对象的支持(7)</a></li>
+<li><a href="https://aimingoo.github.io/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></li>
+<li><a href="https://aimingoo.github.io/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></li>
+<li><a href="https://aimingoo.github.io/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></li>
+<li><a href="https://aimingoo.github.io/1-36.html">Qomolangma实现篇(四)：基本特性增强与多投事件系统</a></li>
+<li><a href="https://aimingoo.github.io/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></li>
+<li><a href="https://aimingoo.github.io/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
+<li><a href="https://aimingoo.github.io/1-42.html">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
+<li><a href="https://aimingoo.github.io/1-43.html">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
+<li><a href="https://aimingoo.github.io/1-47.html">Qomolangma实现篇(九)</a></li></ul></div>]]></description><link>https://aimingoo.github.io/1-1747/</link><guid isPermaLink="false">59dafc1a1e9aa777abb0d5c4</guid><category><![CDATA[博客]]></category><dc:creator><![CDATA[aimingoo]]></dc:creator><pubDate>Sun, 08 Oct 2017 14:29:50 GMT</pubDate><content:encoded><![CDATA[<div class="kg-card-markdown"><h2 id="">【技术类】</h2>
 <h3 id="qomo">Qomo技术系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-15.html">从基础开始：Qomo OpenProject中的一些关键词</a></li>
-<li><a href="http://aimingoo.github.io/1-16.html">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
-<li><a href="http://aimingoo.github.io/1-18.html">JavaScript面向对象的支持(1)</a></li>
-<li><a href="http://aimingoo.github.io/1-21.html">JavaScript面向对象的支持(2)</a></li>
-<li><a href="http://aimingoo.github.io/1-22.html">JavaScript面向对象的支持(3)</a></li>
-<li><a href="http://aimingoo.github.io/1-23.html">JavaScript面向对象的支持(4)</a></li>
-<li><a href="http://aimingoo.github.io/1-24.html">JavaScript面向对象的支持(5)</a></li>
-<li><a href="http://aimingoo.github.io/1-26.html">JavaScript面向对象的支持(6)</a></li>
-<li><a href="http://aimingoo.github.io/1-27.html">JavaScript面向对象的支持(7)</a></li>
-<li><a href="http://aimingoo.github.io/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></li>
-<li><a href="http://aimingoo.github.io/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></li>
-<li><a href="http://aimingoo.github.io/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></li>
-<li><a href="http://aimingoo.github.io/1-36.html">Qomolangma实现篇(四)：基本特性增强与多投事件系统</a></li>
-<li><a href="http://aimingoo.github.io/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></li>
-<li><a href="http://aimingoo.github.io/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
-<li><a href="http://aimingoo.github.io/1-42.html">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
-<li><a href="http://aimingoo.github.io/1-43.html">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
-<li><a href="http://aimingoo.github.io/1-47.html">Qomolangma实现篇(九)：Qomo中的模板系统</a></li>
-<li><a href="http://aimingoo.github.io/1-49.html">Qomolangma框架库(一)：概述、工具、异常、调试与分析</a></li>
-<li><a href="http://aimingoo.github.io/1-51.html">Qomolangma框架库(二)：时间线与时间处理器</a></li>
-<li><a href="http://aimingoo.github.io/1-57.html">Qomolangma框架库(三)：处理池与处理机</a></li>
+<li><a href="https://aimingoo.github.io/1-15.html">从基础开始：Qomo OpenProject中的一些关键词</a></li>
+<li><a href="https://aimingoo.github.io/1-16.html">从基础开始：Qomo OpenProject中的一些关键词(2)</a></li>
+<li><a href="https://aimingoo.github.io/1-18.html">JavaScript面向对象的支持(1)</a></li>
+<li><a href="https://aimingoo.github.io/1-21.html">JavaScript面向对象的支持(2)</a></li>
+<li><a href="https://aimingoo.github.io/1-22.html">JavaScript面向对象的支持(3)</a></li>
+<li><a href="https://aimingoo.github.io/1-23.html">JavaScript面向对象的支持(4)</a></li>
+<li><a href="https://aimingoo.github.io/1-24.html">JavaScript面向对象的支持(5)</a></li>
+<li><a href="https://aimingoo.github.io/1-26.html">JavaScript面向对象的支持(6)</a></li>
+<li><a href="https://aimingoo.github.io/1-27.html">JavaScript面向对象的支持(7)</a></li>
+<li><a href="https://aimingoo.github.io/1-30.html">Qomolangma实现篇(一)：内核载入模块system.js的实现</a></li>
+<li><a href="https://aimingoo.github.io/1-32.html">Qomolangma实现篇(二)：命名空间和别名子系统的实现</a></li>
+<li><a href="https://aimingoo.github.io/1-35.html">Qomolangma实现篇(三)：兼容层设计</a></li>
+<li><a href="https://aimingoo.github.io/1-36.html">Qomolangma实现篇(四)：基本特性增强与多投事件系统</a></li>
+<li><a href="https://aimingoo.github.io/1-38.html">Qomolangma实现篇(五)：Qomo的OOP的语法和类继承体系</a></li>
+<li><a href="https://aimingoo.github.io/1-39.html">Qomolangma实现篇(六)：Qomo的OOP框架的实现技术</a></li>
+<li><a href="https://aimingoo.github.io/1-42.html">Qomolangma实现篇(七)：Qomo的接口机制</a></li>
+<li><a href="https://aimingoo.github.io/1-43.html">Qomolangma实现篇(八)：Qomo中的AOP框架</a></li>
+<li><a href="https://aimingoo.github.io/1-47.html">Qomolangma实现篇(九)：Qomo中的模板系统</a></li>
+<li><a href="https://aimingoo.github.io/1-49.html">Qomolangma框架库(一)：概述、工具、异常、调试与分析</a></li>
+<li><a href="https://aimingoo.github.io/1-51.html">Qomolangma框架库(二)：时间线与时间处理器</a></li>
+<li><a href="https://aimingoo.github.io/1-57.html">Qomolangma框架库(三)：处理池与处理机</a></li>
 </ul>
 <h3 id="">“前端要给力”系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-160.html">前端要给力之：代码可以有多烂？</a></li>
-<li><a href="http://aimingoo.github.io/1-162.html">前端要给力之：URL应该有多长？</a></li>
-<li><a href="http://aimingoo.github.io/1-163.html">前端要给力之：原子，与原子联结的友类、友函数</a></li>
-<li><a href="http://aimingoo.github.io/1-164.html">前端要给力之：分解对象构造过程new()</a></li>
-<li><a href="http://aimingoo.github.io/1-195.html">前端要给力之：红绿灯大战中的火星生命-Promise</a></li>
+<li><a href="https://aimingoo.github.io/1-160.html">前端要给力之：代码可以有多烂？</a></li>
+<li><a href="https://aimingoo.github.io/1-162.html">前端要给力之：URL应该有多长？</a></li>
+<li><a href="https://aimingoo.github.io/1-163.html">前端要给力之：原子，与原子联结的友类、友函数</a></li>
+<li><a href="https://aimingoo.github.io/1-164.html">前端要给力之：分解对象构造过程new()</a></li>
+<li><a href="https://aimingoo.github.io/1-195.html">前端要给力之：红绿灯大战中的火星生命-Promise</a></li>
 </ul>
 <h3 id="android">Android玩乐系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-178.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</a></li>
-<li><a href="http://aimingoo.github.io/1-179.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</a></li>
-<li><a href="http://aimingoo.github.io/1-180.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</a></li>
+<li><a href="https://aimingoo.github.io/1-178.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（一）</a></li>
+<li><a href="https://aimingoo.github.io/1-179.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（二）</a></li>
+<li><a href="https://aimingoo.github.io/1-180.html">Android玩乐系列：修改汇编代码支持原生高清来电大头贴（三）</a></li>
 </ul>
 <h3 id="javascript">JavaScript类型讨论系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-167.html">再谈JavaScript的数据类型问题</a></li>
-<li><a href="http://aimingoo.github.io/1-168.html">三谈类型问题：ECMAScript为什么错了？</a></li>
-<li><a href="http://aimingoo.github.io/1-170.html">JavaScript类型总览(图)</a></li>
+<li><a href="https://aimingoo.github.io/1-167.html">再谈JavaScript的数据类型问题</a></li>
+<li><a href="https://aimingoo.github.io/1-168.html">三谈类型问题：ECMAScript为什么错了？</a></li>
+<li><a href="https://aimingoo.github.io/1-170.html">JavaScript类型总览(图)</a></li>
 </ul>
 <h3 id="">元语言及其应用系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-112.html">元语言基础技术之：在JS中如何自由地创建函数</a></li>
-<li><a href="http://aimingoo.github.io/1-110.html">QoBean的元语言系统（一）</a></li>
-<li><a href="http://aimingoo.github.io/1-111.html">QoBean的元语言系统（二）</a></li>
-<li><a href="http://aimingoo.github.io/1-146.html">为脚本语言平反-JavaScript篇（1）</a></li>
-<li><a href="http://aimingoo.github.io/1-147.html">为脚本语言平反-JavaScript篇（2）</a></li>
-<li><a href="http://aimingoo.github.io/1-148.html">为脚本语言平反-JavaScript篇（3）</a></li>
+<li><a href="https://aimingoo.github.io/1-112.html">元语言基础技术之：在JS中如何自由地创建函数</a></li>
+<li><a href="https://aimingoo.github.io/1-110.html">QoBean的元语言系统（一）</a></li>
+<li><a href="https://aimingoo.github.io/1-111.html">QoBean的元语言系统（二）</a></li>
+<li><a href="https://aimingoo.github.io/1-146.html">为脚本语言平反-JavaScript篇（1）</a></li>
+<li><a href="https://aimingoo.github.io/1-147.html">为脚本语言平反-JavaScript篇（2）</a></li>
+<li><a href="https://aimingoo.github.io/1-148.html">为脚本语言平反-JavaScript篇（3）</a></li>
 </ul>
 <h3 id="">设计师的实战过程系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-113.html">内训资料公开：设计师的实战过程(1)</a></li>
-<li><a href="http://aimingoo.github.io/1-115.html">内训资料公开：设计师的实战过程(2)</a></li>
-<li><a href="http://aimingoo.github.io/1-116.html">内训资料公开：设计师的实战过程(3)</a></li>
+<li><a href="https://aimingoo.github.io/1-113.html">内训资料公开：设计师的实战过程(1)</a></li>
+<li><a href="https://aimingoo.github.io/1-115.html">内训资料公开：设计师的实战过程(2)</a></li>
+<li><a href="https://aimingoo.github.io/1-116.html">内训资料公开：设计师的实战过程(3)</a></li>
 </ul>
 <h2 id="">【论谈类】</h2>
 <h3 id="">我读《人月神话》系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-63.html">杀不死的人狼——我读《人月神话》（一）</a></li>
-<li><a href="http://aimingoo.github.io/1-64.html">杀不死的人狼——我读《人月神话》（二）</a></li>
-<li><a href="http://aimingoo.github.io/1-65.html">杀不死的人狼——我读《人月神话》（三）</a></li>
-<li><a href="http://aimingoo.github.io/1-66.html">杀不死的人狼——我读《人月神话》（四）</a></li>
-<li><a href="http://aimingoo.github.io/1-67.html">杀不死的人狼——我读《人月神话》（五）</a></li>
+<li><a href="https://aimingoo.github.io/1-63.html">杀不死的人狼——我读《人月神话》（一）</a></li>
+<li><a href="https://aimingoo.github.io/1-64.html">杀不死的人狼——我读《人月神话》（二）</a></li>
+<li><a href="https://aimingoo.github.io/1-65.html">杀不死的人狼——我读《人月神话》（三）</a></li>
+<li><a href="https://aimingoo.github.io/1-66.html">杀不死的人狼——我读《人月神话》（四）</a></li>
+<li><a href="https://aimingoo.github.io/1-67.html">杀不死的人狼——我读《人月神话》（五）</a></li>
 </ul>
 <h3 id="">《大道至简》的幕后故事系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-70.html">《大道至简》的幕后故事(1)</a></li>
-<li><a href="http://aimingoo.github.io/1-71.html">《大道至简》的幕后故事(2)：“愚公移山记”人物篇</a></li>
-<li><a href="http://aimingoo.github.io/1-72.html">《大道至简》的幕后故事(3)：“愚公移山记”事物篇</a></li>
-<li><a href="http://aimingoo.github.io/1-73.html">《大道至简》的幕后故事(4)：“愚公移山记”军事地理篇</a></li>
-<li><a href="http://aimingoo.github.io/1-74.html">《大道至简》的幕后故事(5)：“愚公移山记”军事谋略篇</a></li>
-<li><a href="http://aimingoo.github.io/1-75.html">《大道至简》的幕后故事：终结篇、勘误和PDF下载</a></li>
+<li><a href="https://aimingoo.github.io/1-70.html">《大道至简》的幕后故事(1)</a></li>
+<li><a href="https://aimingoo.github.io/1-71.html">《大道至简》的幕后故事(2)：“愚公移山记”人物篇</a></li>
+<li><a href="https://aimingoo.github.io/1-72.html">《大道至简》的幕后故事(3)：“愚公移山记”事物篇</a></li>
+<li><a href="https://aimingoo.github.io/1-73.html">《大道至简》的幕后故事(4)：“愚公移山记”军事地理篇</a></li>
+<li><a href="https://aimingoo.github.io/1-74.html">《大道至简》的幕后故事(5)：“愚公移山记”军事谋略篇</a></li>
+<li><a href="https://aimingoo.github.io/1-75.html">《大道至简》的幕后故事：终结篇、勘误和PDF下载</a></li>
 </ul>
 <h3 id="vclrad">“VCL已死，RAD已死”系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-123.html">VCL已死，RAD已死(1)</a></li>
-<li><a href="http://aimingoo.github.io/1-124.html">VCL已死，RAD已死(2)</a></li>
-<li><a href="http://aimingoo.github.io/1-125.html">VCL已死，RAD已死(3)</a></li>
-<li><a href="http://aimingoo.github.io/1-126.html">VCL已死，RAD已死(插播)</a></li>
-<li><a href="http://aimingoo.github.io/1-129.html">VCL已死，RAD已死(4)</a></li>
-<li><a href="http://aimingoo.github.io/1-130.html">关于“VCL已死、RAD已死”答读者问</a></li>
-<li><a href="http://aimingoo.github.io/1-131.html">VCL已死，RAD已死(5)</a></li>
-<li><a href="http://aimingoo.github.io/1-132.html">VCL已死，RAD已死(6) - 结语与预测</a></li>
+<li><a href="https://aimingoo.github.io/1-123.html">VCL已死，RAD已死(1)</a></li>
+<li><a href="https://aimingoo.github.io/1-124.html">VCL已死，RAD已死(2)</a></li>
+<li><a href="https://aimingoo.github.io/1-125.html">VCL已死，RAD已死(3)</a></li>
+<li><a href="https://aimingoo.github.io/1-126.html">VCL已死，RAD已死(插播)</a></li>
+<li><a href="https://aimingoo.github.io/1-129.html">VCL已死，RAD已死(4)</a></li>
+<li><a href="https://aimingoo.github.io/1-130.html">关于“VCL已死、RAD已死”答读者问</a></li>
+<li><a href="https://aimingoo.github.io/1-131.html">VCL已死，RAD已死(5)</a></li>
+<li><a href="https://aimingoo.github.io/1-132.html">VCL已死，RAD已死(6) - 结语与预测</a></li>
 </ul>
 <h3 id="">《大道至易：实践者的思想》第二版发布小述系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-1735.html">电子书《我的架构思想》小述</a></li>
-<li><a href="http://aimingoo.github.io/1-1734.html">电子书《程序原本》小述</a></li>
-<li><a href="http://aimingoo.github.io/1-1736.html">小述系列最终篇：说说《大道至易：实践者的思想》</a></li>
+<li><a href="https://aimingoo.github.io/1-1735.html">电子书《我的架构思想》小述</a></li>
+<li><a href="https://aimingoo.github.io/1-1734.html">电子书《程序原本》小述</a></li>
+<li><a href="https://aimingoo.github.io/1-1736.html">小述系列最终篇：说说《大道至易：实践者的思想》</a></li>
 </ul>
 <h3 id="oschina">OSCHINA答读者问系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-186.html">OSCHINA答读者问之一：“软件工程”的学法与用法</a></li>
-<li><a href="http://aimingoo.github.io/1-187.html">OSCHINA答读者问之二：什么是架构？以及什么是架构师？</a></li>
-<li><a href="http://aimingoo.github.io/1-188.html">OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</a></li>
-<li><a href="http://aimingoo.github.io/1-189.html">OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？</a></li>
-<li><a href="http://aimingoo.github.io/1-190.html">OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</a></li>
-<li><a href="http://aimingoo.github.io/1-191.html">OSCHINA答读者问之六：杂谈（完结篇）</a></li>
+<li><a href="https://aimingoo.github.io/1-186.html">OSCHINA答读者问之一：“软件工程”的学法与用法</a></li>
+<li><a href="https://aimingoo.github.io/1-187.html">OSCHINA答读者问之二：什么是架构？以及什么是架构师？</a></li>
+<li><a href="https://aimingoo.github.io/1-188.html">OSCHINA答读者问之三：架构是否就是把问题域理清楚？软件工程各要素可有比重？</a></li>
+<li><a href="https://aimingoo.github.io/1-189.html">OSCHINA答读者问之四：如何做好团队建设以及提高个人领导力？</a></li>
+<li><a href="https://aimingoo.github.io/1-190.html">OSCHINA答读者问之五：小作坊如何实施所谓的软件工程？</a></li>
+<li><a href="https://aimingoo.github.io/1-191.html">OSCHINA答读者问之六：杂谈（完结篇）</a></li>
 </ul>
 <h3 id="">访谈/媒体系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-100.html">2007.03 旧文重发：谈企业软件架构设计</a></li>
-<li><a href="http://aimingoo.github.io/59e374d2bc4c6b0274b469a3.html">2007.12 CSDN专家看台：盛大架构师周爱民回顾职业历程，分享十项建议</a></li>
-<li><a href="http://aimingoo.github.io/59e30f5e72c9e7b37c383213.html">2014.09 访谈：真正的架构师是没有title的</a></li>
-<li><a href="http://aimingoo.github.io/59e3041e72c9e7b37c383212.html">2015.03 访谈：技术高手≠技术领袖</a></li>
-<li><a href="http://aimingoo.github.io/59e3026172c9e7b37c38320d.html">2016.04 访谈：周爱民老师最新加入的是一家什么样的创业公司?</a></li>
+<li><a href="https://aimingoo.github.io/1-100.html">2007.03 旧文重发：谈企业软件架构设计</a></li>
+<li><a href="https://aimingoo.github.io/59e374d2bc4c6b0274b469a3.html">2007.12 CSDN专家看台：盛大架构师周爱民回顾职业历程，分享十项建议</a></li>
+<li><a href="https://aimingoo.github.io/59e30f5e72c9e7b37c383213.html">2014.09 访谈：真正的架构师是没有title的</a></li>
+<li><a href="https://aimingoo.github.io/59e3041e72c9e7b37c383212.html">2015.03 访谈：技术高手≠技术领袖</a></li>
+<li><a href="https://aimingoo.github.io/59e3026172c9e7b37c38320d.html">2016.04 访谈：周爱民老师最新加入的是一家什么样的创业公司?</a></li>
 </ul>
 <h2 id="">【应用类】</h2>
 <h3 id="pdf">PDF工具系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-62.html">关于做PDF的FAQ（一）～（四）</a></li>
-<li><a href="http://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a></li>
-<li><a href="http://aimingoo.github.io/1-1728.html">在电子书中使用SVG</a></li>
+<li><a href="https://aimingoo.github.io/1-62.html">关于做PDF的FAQ（一）～（四）</a></li>
+<li><a href="https://aimingoo.github.io/1-1726.html">Kindle电子书中该用多大的图片</a></li>
+<li><a href="https://aimingoo.github.io/1-1728.html">在电子书中使用SVG</a></li>
 </ul>
 <h3 id="">博客迁移手记系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-1719.html">手记1：迁移博客之全程工具</a></li>
-<li><a href="http://aimingoo.github.io/1-1720.html">手记2：从本地博客到Github Pages的最佳指南及工具</a></li>
-<li><a href="http://aimingoo.github.io/1-1721.html">手记3：实例教学之Ghost模板定制</a></li>
-<li><a href="http://aimingoo.github.io/1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></li>
-<li><a href="http://aimingoo.github.io/1-1723.html">手记5：如何获得一个支持HTTPS的免费空间</a></li>
-<li><a href="http://aimingoo.github.io/1-1725.html">手记6：改造Gitment</a></li>
-<li><a href="http://aimingoo.github.io/1-1724.html">博客迁移手记之快速导航</a></li>
+<li><a href="https://aimingoo.github.io/1-1719.html">手记1：迁移博客之全程工具</a></li>
+<li><a href="https://aimingoo.github.io/1-1720.html">手记2：从本地博客到Github Pages的最佳指南及工具</a></li>
+<li><a href="https://aimingoo.github.io/1-1721.html">手记3：实例教学之Ghost模板定制</a></li>
+<li><a href="https://aimingoo.github.io/1-1722.html">手记4：谈谈Gitment中泄露secret的前因后果与解决方法</a></li>
+<li><a href="https://aimingoo.github.io/1-1723.html">手记5：如何获得一个支持HTTPS的免费空间</a></li>
+<li><a href="https://aimingoo.github.io/1-1725.html">手记6：改造Gitment</a></li>
+<li><a href="https://aimingoo.github.io/1-1724.html">博客迁移手记之快速导航</a></li>
 </ul>
 <h3 id="monster">Monster使用系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-1741.html">Monster - 用Ghost写博客的终极利器</a></li>
-<li><a href="http://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a></li>
-<li><a href="http://aimingoo.github.io/1-1742.html">详解Monster的初始化及配置</a></li>
-<li><a href="http://aimingoo.github.io/1-1744.html">Monster的三种工作模式</a></li>
+<li><a href="https://aimingoo.github.io/1-1741.html">Monster - 用Ghost写博客的终极利器</a></li>
+<li><a href="https://aimingoo.github.io/1-1743.html">将Monster用作网站离线下载的方法</a></li>
+<li><a href="https://aimingoo.github.io/1-1742.html">详解Monster的初始化及配置</a></li>
+<li><a href="https://aimingoo.github.io/1-1744.html">Monster的三种工作模式</a></li>
 </ul>
 <h2 id="">【非技术类】</h2>
 <h3 id="">坐而论道系列</h3>
 <ul>
 <li>
-<p><a href="http://aimingoo.github.io/1-205.html">坐而论道（之一）</a></p>
+<p><a href="https://aimingoo.github.io/1-205.html">坐而论道（之一）</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/1-206.html">坐而论道（之二）</a></p>
+<p><a href="https://aimingoo.github.io/1-206.html">坐而论道（之二）</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/1-211.html">坐而论道（之三）</a></p>
+<p><a href="https://aimingoo.github.io/1-211.html">坐而论道（之三）</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/1-219.html">坐而论道（之四）</a></p>
+<p><a href="https://aimingoo.github.io/1-219.html">坐而论道（之四）</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/1-259.html">坐而论道（之五）：关于佛学中的“我”</a></p>
+<p><a href="https://aimingoo.github.io/1-259.html">坐而论道（之五）：关于佛学中的“我”</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">深夜食味记之一：番茄鸡蛋汤</a></p>
+<p><a href="https://aimingoo.github.io/59e2e9b272c9e7b37c3831f0.html">深夜食味记之一：番茄鸡蛋汤</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/59e2eda072c9e7b37c3831f9.html">深夜食味记之二：鱼香肉丝</a></p>
+<p><a href="https://aimingoo.github.io/59e2eda072c9e7b37c3831f9.html">深夜食味记之二：鱼香肉丝</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/59e2ee4272c9e7b37c3831fd.html">深夜食味记之三：麻婆豆腐</a></p>
+<p><a href="https://aimingoo.github.io/59e2ee4272c9e7b37c3831fd.html">深夜食味记之三：麻婆豆腐</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/59e2eecd72c9e7b37c383201.html">深夜食味记之四：酸菜魔芋</a></p>
+<p><a href="https://aimingoo.github.io/59e2eecd72c9e7b37c383201.html">深夜食味记之四：酸菜魔芋</a></p>
 </li>
 <li>
-<p><a href="http://aimingoo.github.io/59e2f91672c9e7b37c383205.html">深夜食味记之五：回锅肉</a></p>
+<p><a href="https://aimingoo.github.io/59e2f91672c9e7b37c383205.html">深夜食味记之五：回锅肉</a></p>
 </li>
 </ul>
 <h2 id="">【其它/综合】</h2>
 <h3 id="">旧文重发系列</h3>
 <ul>
-<li><a href="http://aimingoo.github.io/1-99.html">旧文重发：程序员的一天</a></li>
-<li><a href="http://aimingoo.github.io/1-100.html">旧文重发：谈企业软件架构设计</a></li>
-<li><a href="http://aimingoo.github.io/1-101.html">旧文重发：产品线工程：团队迭代及其问题</a></li>
-<li><a href="http://aimingoo.github.io/1-102.html">旧文重发：程序员的七种武器</a></li>
-<li><a href="http://aimingoo.github.io/1-103.html">旧文重发：剑走偏锋：非主流的程序员</a></li>
-<li><a href="http://aimingoo.github.io/1-104.html">旧文重发：苹果是怎么吃到的？</a></li>
-<li><a href="http://aimingoo.github.io/1-105.html">旧文重发：做人、做事，做架构师——架构师能力模型解析</a></li>
+<li><a href="https://aimingoo.github.io/1-99.html">旧文重发：程序员的一天</a></li>
+<li><a href="https://aimingoo.github.io/1-100.html">旧文重发：谈企业软件架构设计</a></li>
+<li><a href="https://aimingoo.github.io/1-101.html">旧文重发：产品线工程：团队迭代及其问题</a></li>
+<li><a href="https://aimingoo.github.io/1-102.html">旧文重发：程序员的七种武器</a></li>
+<li><a href="https://aimingoo.github.io/1-103.html">旧文重发：剑走偏锋：非主流的程序员</a></li>
+<li><a href="https://aimingoo.github.io/1-104.html">旧文重发：苹果是怎么吃到的？</a></li>
+<li><a href="https://aimingoo.github.io/1-105.html">旧文重发：做人、做事，做架构师——架构师能力模型解析</a></li>
 </ul>
 </div>]]></content:encoded></item></channel></rss>

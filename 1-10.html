@@ -9,22 +9,22 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=264d3058f6" />
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=264d3058f6" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=264d3058f6" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="再谈borland与MS对BUG的不同态度~" />
     <meta property="og:description" content="在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，" />
-    <meta property="og:url" content="http://aimingoo.github.io/1-10.html" />
+    <meta property="og:url" content="https://aimingoo.github.io/1-10.html" />
     <meta property="article:published_time" content="2005-12-04T11:39:00.000Z" />
     <meta property="article:modified_time" content="2017-10-06T09:08:15.000Z" />
     <meta property="article:tag" content="delphi" />
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="再谈borland与MS对BUG的不同态度~" />
     <meta name="twitter:description" content="在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/1-10.html" />
+    <meta name="twitter:url" content="https://aimingoo.github.io/1-10.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
@@ -46,29 +46,34 @@
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "https://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
-        "image": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "width": 128,
+            "height": 128
+        },
+        "url": "https://aimingoo.github.io/author/aimingoo/",
         "sameAs": []
     },
     "headline": "再谈borland与MS对BUG的不同态度~",
-    "url": "http://aimingoo.github.io/1-10.html",
+    "url": "https://aimingoo.github.io/1-10.html",
     "datePublished": "2005-12-04T11:39:00.000Z",
     "dateModified": "2017-10-06T09:08:15.000Z",
     "keywords": "delphi, 程序人生",
     "description": "在大富翁论坛中讨论Delphi 6 SP1对BUG的修补问题时，我提及“强烈建议Borland针对自己的产品出hotfix，而不是让大家非得等到Server Pack”，随后与y9y兄讨论到Borland和MS的不同态度。或者我们可以从另一个角度去看待MS与Borland今日的不同局面： y9y同意bugware关于补丁的一些观点，很大程度上出于Borland以及我们一些程序员所形成的思维方式。——什么东西都要做到最好才拿出来。这的确是没错的。但是，borland和MS多年来的交手，似乎总是忘记了一件事，那就是商业操作。 hotfix除了能给用户带来最快的修正外，更大程度上反映的是一个公司对用户需求的反应速度。做程序并不怕出错，但一定不要让用户觉得他们面对着错误，却没有人对此事件做任何反应。MS现在越来越注重这些对用户信息的反馈/反应速度了。而Borland还是一如既往地抱着古旧的思想…… 我刚才还在给同事说关于Borland发布sp1的事。同事一针见血地说：也只有Borland才会告诉用户说，你们不要用sp1了，赶快用原装盘恢复到最初的Delphi吧；如果是MS，他们会马上发布Server Pack 1的Server Pack。 这就是不同。 MS的做法是由自己来承担这个过失，他们总是试图以最快的速度来解决用户的问题；而Borland的做法是由用户来承担这个过失，Borland要求你自己解决这些问题，Borland所要做的，只不过是告诉你如何解决，并且等待…… 越来越觉得为什么Delphi总是高手之高高手的至爱。这些高手们根本不怕动手去修改RTL/VCL/...的源代码，然后再编译成DCU放到LIB中，他们甚至乐意于这样做。DELPHI的高手们会自已给Delphi打一个又一个的补丁，",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io/"
+        "@id": "https://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.min.js"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -76,7 +81,7 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.14" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="https://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-delphi tag-cheng-xu-ren-sheng nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -90,7 +95,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -100,17 +105,17 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=264d3058f6"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
@@ -186,8 +191,8 @@ MS的做法是由自己来承担这个过失，他们总是试图以最快的速
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=264d3058f6" />
-<script src="/assets/js/gitmint.browser.js?v=264d3058f6"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css" />
+<script src="/assets/js/gitmint.browser.js"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -195,7 +200,7 @@ a.gitment-editor-footer-tip { display: none; }
 </style>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitmint({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -248,7 +253,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2021</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -261,21 +266,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=264d3058f6"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=264d3058f6"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
 </body>
 
 </html>

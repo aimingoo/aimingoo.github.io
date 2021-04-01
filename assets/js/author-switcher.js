@@ -2,7 +2,7 @@ var switcherObjects = {
     'aimingoo': function authorAimingooContext() {/*
         <style>
         body {
-            background-image: url(/assets/img/background/201705a.jpg);
+            background-image: url(/assets/img/background/202009a.jpg);
             background-repeat: no-repeat;
             background-position: top center;
             background-attachment: fixed;

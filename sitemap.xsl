@@ -95,7 +95,7 @@
                         </table>
                     </xsl:if>
                     <xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &lt; 1">
-                        <p class="desc"><a href="http://aimingoo.github.io/sitemap.xml" class="back-link">&#8592; Back to index</a></p>
+                        <p class="desc"><a href="https://aimingoo.github.io/sitemap.xml" class="back-link">&#8592; Back to index</a></p>
                         <table id="sitemap" cellpadding="3">
                             <thead>
                                 <tr>
@@ -135,7 +135,7 @@
                                 </xsl:for-each>
                             </tbody>
                         </table>
-                        <p class="desc"><a href="http://aimingoo.github.io/sitemap.xml" class="back-link">&#8592; Back to index</a></p>
+                        <p class="desc"><a href="https://aimingoo.github.io/sitemap.xml" class="back-link">&#8592; Back to index</a></p>
                     </xsl:if>
                 </div>
             </body>

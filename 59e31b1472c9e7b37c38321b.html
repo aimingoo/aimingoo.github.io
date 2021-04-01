@@ -9,22 +9,22 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=a7bfc4e771" />
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
     <!-- <link rel="stylesheet" type="text/css" href="//fonts.useso.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" /> -->
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css?v=a7bfc4e771" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css?v=a7bfc4e771" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css?v=a7bfc4e771" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css?v=a7bfc4e771" />
-    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css?v=a7bfc4e771" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/font-awesome-4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/bootstrap-3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/highlight-9.1.0/styles/xcode.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/anijs-0.9.3/anicollection.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/fancybox-2.1.5/jquery.fancybox.css" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     
     <meta property="og:site_name" content="Aimingoo&#x27;s Blog" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="前端要给力之：语句在JavaScript中的值" />
     <meta property="og:description" content="这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&amp;quot;1+2+3&amp;quot;) 实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于： eval(&amp;quot;1+2+3;&amp;quot;) 如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。 那么……这个语句的值到底是什么呢？" />
-    <meta property="og:url" content="http://aimingoo.github.io/59e31b1472c9e7b37c38321b.html" />
+    <meta property="og:url" content="https://aimingoo.github.io/59e31b1472c9e7b37c38321b.html" />
     <meta property="article:published_time" content="2016-04-12T19:48:00.000Z" />
     <meta property="article:modified_time" content="2017-10-15T08:37:15.000Z" />
     <meta property="article:tag" content="Javascript" />
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="前端要给力之：语句在JavaScript中的值" />
     <meta name="twitter:description" content="这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&amp;quot;1+2+3&amp;quot;) 实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于： eval(&amp;quot;1+2+3;&amp;quot;) 如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。 那么……这个语句的值到底是什么呢？" />
-    <meta name="twitter:url" content="http://aimingoo.github.io/59e31b1472c9e7b37c38321b.html" />
+    <meta name="twitter:url" content="https://aimingoo.github.io/59e31b1472c9e7b37c38321b.html" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="aimingoo" />
     <meta name="twitter:label2" content="Filed under" />
@@ -46,34 +46,34 @@
     "publisher": {
         "@type": "Organization",
         "name": "Aimingoo&#x27;s Blog",
-        "logo": "http://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
+        "logo": "https://aimingoo.github.io/content/images/2017/05/-----2017-05-06-12-31-48.png"
     },
     "author": {
         "@type": "Person",
         "name": "aimingoo",
         "image": {
             "@type": "ImageObject",
-            "url": "http://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
+            "url": "https://aimingoo.github.io/content/images/2017/10/IMG_5559-1.jpg",
             "width": 128,
             "height": 128
         },
-        "url": "http://aimingoo.github.io/author/aimingoo/",
+        "url": "https://aimingoo.github.io/author/aimingoo/",
         "sameAs": []
     },
     "headline": "前端要给力之：语句在JavaScript中的值",
-    "url": "http://aimingoo.github.io/59e31b1472c9e7b37c38321b.html",
+    "url": "https://aimingoo.github.io/59e31b1472c9e7b37c38321b.html",
     "datePublished": "2016-04-12T19:48:00.000Z",
     "dateModified": "2017-10-15T08:37:15.000Z",
     "keywords": "Javascript, 语言",
     "description": "这两天在写语言精髓那本书的第三版，讨论到ES6跟ES5中间对“语句的值”的不同处理。正好Weibo上也有同学对这个问题有兴趣，所以专门整理了这篇。 写博客可以啰嗦点，写书就不行了。所以这篇文章跟书上能看到的还是会不一样的。 问题是：语句有值吗？ 很不幸，我们面临的的确是一门连语句都有值的语言。在JavaScript中，代码是按语句行（Statement Lists）来解释的，所以eval()本质上还是执行的语句行，例如： eval(&amp;quot;1+2+3&amp;quot;) 实际上并不是在计算表达式，而是在解释执行“代码文本”。因为一个文本块隐含的有一个“文本/文件结束符（EOF）”，它与行结束符（EOL）一样可以等效于JavaScript的语句分隔符，所以上述代码等效于： eval(&amp;quot;1+2+3;&amp;quot;) 如果你不想了解得这么详细，那么记住“JavaScript是按语句行执行的”就好了。 那么……这个语句的值到底是什么呢？",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://aimingoo.github.io/"
+        "@id": "https://aimingoo.github.io/"
     }
 }
     </script>
 
-    <script type="text/javascript" src="/public/ghost-sdk.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/public/ghost-sdk.min.js"></script>
 <script type="text/javascript">
 ghost.init({
 	clientId: "ghost-frontend",
@@ -81,7 +81,7 @@ ghost.init({
 });
 </script>
     <meta name="generator" content="Ghost 1.14" />
-    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="http://aimingoo.github.io/rss/" />
+    <link rel="alternate" type="application/rss+xml" title="Aimingoo&#x27;s Blog" href="https://aimingoo.github.io/rss/" />
 </head>
 
 <body class="post-template tag-javascript tag-yu-yan nav-closed" data-spy="scroll" data-target="#tocScrollspy">
@@ -95,7 +95,7 @@ ghost.init({
     <nav class="container main-nav clearfix">
         <div class="main-nav-title pull-left">
             <script>
-            var titleTextInBody = '<a class="blog-title" href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
+            var titleTextInBody = '<a class="blog-title" href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a>';
             var theAuthor = {slug: 'aimingoo', url: '/author/aimingoo/'};
             if (theAuthor.slug == 'joyxhy') {
                 titleTextInBody = '<' + 'a class="blog-title" hr' + 'ef="' + theAuthor.url + '">麦秸的垛</a>';
@@ -105,17 +105,17 @@ ghost.init({
         </div>
             <div class="nav pull-right">
     <ul>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/">首页</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/archives-post/">历史</a></li>
-            <li class="nav-" role="presentation"><a href="http://aimingoo.github.io/about/">关于</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/">首页</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/author/joyxhy/">麦秸的垛</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/archives-post/">历史</a></li>
+            <li class="nav-" role="presentation"><a href="https://aimingoo.github.io/about/">关于</a></li>
     </ul>
 </div>
 
     </nav>
 </header>
 
-<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js?v=a7bfc4e771"></script>
+<script type="text/javascript" author="aimingoo" src="/assets/js/author-switcher.js"></script>
 
 <main id="container" class="container" role="main">
     <div id="content" class="content col-sm-12 col-md-8 col-lg-8">
@@ -303,14 +303,14 @@ if (x) (
         <aside class="post-nav">
             <span class="post-nav-prev">
                 上一篇
-                <a href="/1-196.html">
-                    确定的世界 - The Promise&#x27;s World
+                <a href="/59e2f91672c9e7b37c383205.html">
+                    深夜食味记之五：回锅肉
                 </a>
             </span>
 
             <span class="post-nav-next" >
-                <a href="/1-1718.html">
-                    再一次开始更新博客
+                <a href="/59e3026172c9e7b37c38320d.html">
+                    访谈：周爱民老师最新加入的是一家什么样的创业公司?
                 </a>
                 下一篇
             </span>
@@ -318,8 +318,8 @@ if (x) (
         <section class="post comments">
 <div id="gitment-root"></div>
 
-<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css?v=a7bfc4e771" />
-<script src="/assets/js/gitmint.browser.js?v=a7bfc4e771"></script>
+<link rel="stylesheet" type="text/css" href="/assets/css/gitment.default.css" />
+<script src="/assets/js/gitmint.browser.js"></script>
 
 <style>
 a.gitment-editor-footer-tip { display: none; }
@@ -327,7 +327,7 @@ a.gitment-editor-footer-tip { display: none; }
 </style>
 
 <script type="text/javascript">
-	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/^.*\/|.html$/g, '') };
+	var SHORT_ID = function(url) { return url.replace(/[\?#].*$/, '').replace(/\/((default|index)\..{1,4})?$/,'').replace(/^.*\/|.html$/g, '') };
 	var gitment = new Gitmint({
 	  id: SHORT_ID(location.href),
 	  owner: 'aimingoo',
@@ -380,7 +380,7 @@ a.gitment-editor-footer-tip { display: none; }
 
         <footer class="site-footer clearfix">
             <div class="footer-meta container">
-                <section class="copyright"><a href="http://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2017</section>
+                <section class="copyright"><a href="https://aimingoo.github.io">Aimingoo&#x27;s Blog</a> &copy; 2021</section>
                 <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a>, Theme <a href="https://github.com/xiaoluoboding/kaldorei">Kaldorei</a></section>
             </div>
         </footer>
@@ -393,21 +393,21 @@ a.gitment-editor-footer-tip { display: none; }
         </button>
     </div>
 
-    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/js/jquery-1.12.0.min.js"></script>
     
 
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/js/timeAgo.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/js/index.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js?v=a7bfc4e771"></script>
-    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js?v=a7bfc4e771"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/timeAgo.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <script type="text/javascript" src="/assets/plugins/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/highlight-9.1.0/highlight.pack.js"></script>
+    <script type="text/javascript" src="/assets/plugins/jquery-toc-0.3.5/jquery.toc.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/velocity-1.2.3/velocity.ui.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/anijs-0.9.3/anijs-helper-scrollreveal-min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/github-repo-jquery-widget/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
 </body>
 
 </html>
